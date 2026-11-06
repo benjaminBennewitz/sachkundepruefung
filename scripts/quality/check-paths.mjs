@@ -19,10 +19,12 @@ import {
 } from 'node:path';
 import assert from 'node:assert/strict';
 import {
-  projectRoot
+  projectRoot,
+  readSiteConfig
 } from '../config.mjs';
 
 const root = resolve(process.argv[2] || projectRoot);
+const mountPath = readSiteConfig().basePath;
 const htmlFiles = readdirSync(root)
   .filter(name => name.endsWith('.html'));
 let checked = 0;
@@ -31,8 +33,12 @@ let checked = 0;
 function checkReference(value, source) {
   if (!value || /^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(value)) return;
   const url = new URL(value,
-    `https://local.invalid/${relative(root, source).replaceAll('\\', '/')}`);
-  const path = resolve(root, `.${decodeURIComponent(url.pathname)}`);
+    `https://local.invalid${mountPath}/${relative(root, source).replaceAll('\\', '/')}`);
+  const pathname = decodeURIComponent(url.pathname);
+  assert(!mountPath || pathname === mountPath || pathname.startsWith(mountPath + '/'),
+    `Verweis verlässt den Landesbereich: ${value}`);
+  const localPath = pathname.slice(mountPath.length) || '/';
+  const path = resolve(root, `.${localPath}`);
   assert(!relative(root, path)
     .startsWith('..'), `Pfad verlässt das Paket: ${value}`);
   const target = existsSync(path) && statSync(path)
@@ -56,6 +62,6 @@ for (const name of htmlFiles) {
 for (const name of readdirSync(resolve(root, 'styles'))) {
   const file = resolve(root, 'styles', name);
   for (const match of readFileSync(file, 'utf8')
-    .matchAll(/url\(\s*['"]?([^'"\s)]+)['"]?\s*\)/g)) checkReference(match[1], file);
+      .matchAll(/url\(\s*['"]?([^'"\s)]+)['"]?\s*\)/g)) checkReference(match[1], file);
 }
 console.log(`${htmlFiles.length} HTML-Seiten und ${checked} lokale Verweise geprüft.`);

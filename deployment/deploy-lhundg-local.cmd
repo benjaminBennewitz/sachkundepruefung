@@ -3,7 +3,7 @@ setlocal EnableExtensions DisableDelayedExpansion
 REM deployment/deploy-lhundg-local.cmd
 REM AUTHOR: Benjamin Bennewitz [B2]
 REM Prueft und packt die statische Website; kein Angular/npm-Build erforderlich.
-REM Domain vor dem ersten Deployment setzen, z. B. per set LHUNDG_ORIGIN=https://...
+REM Domain und /nrw kommen aus scripts/site-config.js; optional per Umgebung ueberschreibbar.
 REM SSH-Key kann pro Rechner ueber LHUNDG_SSH_KEY konfiguriert werden.
 
 set "PROJECT_DIR=%~dp0.."
@@ -16,10 +16,6 @@ set "SERVER_ARCHIVE=/tmp/lhundg-%RELEASE_ID%.tar.gz"
 set "SERVER_DEPLOY=/usr/local/bin/deploy-lhundg"
 
 cd /d "%PROJECT_DIR%" || exit /b 1
-if not defined LHUNDG_ORIGIN (
-  echo [LHUNDG][FEHLER] Domain noch offen. Zuerst LHUNDG_ORIGIN auf die HTTPS-Domain setzen.
-  exit /b 1
-)
 if not exist "%LHUNDG_SSH_KEY%" (
   echo [LHUNDG][FEHLER] SSH-Key fehlt. LHUNDG_SSH_KEY pruefen.
   exit /b 1

@@ -42,6 +42,20 @@ export function normalizeOrigin(value) {
 }
 
 /**
+ * Normalisiert den Landesbereich ohne abschließenden Schrägstrich.
+ * @param {string} value Unterverzeichnis wie /nrw oder leer für die Domainwurzel.
+ * @returns {string} Geprüfter relativer URL-Pfad.
+ */
+export function normalizeBasePath(value = '') {
+  if (!value || value === '/') return '';
+  const path = value.replace(/\/$/, '');
+  if (!/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*\/)*[a-z0-9]+(?:-[a-z0-9]+)*$/.test(path)) {
+    throw new Error('LHUNDG_BASE_PATH muss ein einfacher Unterverzeichnispfad wie /nrw sein.');
+  }
+  return path;
+}
+
+/**
  * Liest die Browserkonfiguration und übernimmt optional die Deployment-Domain.
  * @returns {object} Betreiber-, Hosting- und Domainkonfiguration.
  */
@@ -52,6 +66,8 @@ export function readSiteConfig() {
   vm.runInNewContext(readFileSync(resolve(projectRoot, 'scripts/site-config.js'), 'utf8'), scope);
   const config = scope.window.SITE_CONFIG;
   config.origin = normalizeOrigin(process.env.LHUNDG_ORIGIN ?? config.origin);
+  config.basePath = normalizeBasePath(process.env.LHUNDG_BASE_PATH ?? config.basePath);
+  config.siteUrl = config.origin ? config.origin + config.basePath : '';
   return config;
 }
 

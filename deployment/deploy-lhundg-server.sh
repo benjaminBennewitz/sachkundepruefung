@@ -4,8 +4,9 @@
 # Installationsziel: /usr/local/bin/deploy-lhundg
 set -euo pipefail
 
-# Nach Festlegung der Domain und Anlage des KeyHelp-Webspaces ausfuellen.
-DOMAIN=""
+# KeyHelp-Benutzer und Gruppe nach Anlage des Webspaces ausfuellen.
+DOMAIN="hunde-sachkundetrainer.de"
+BASE_PATH="/nrw"
 WEB_USER=""
 WEB_GROUP=""
 ARCHIVE="${1:-}"
@@ -74,18 +75,22 @@ if [[ "$CHECK_ONLY" == "--check-archive" ]]; then exit 0; fi
 [[ "$(id -u)" -eq 0 ]] || fail "Mit sudo/root ausfuehren."
 [[ "$DOMAIN" =~ ^[A-Za-z0-9]([A-Za-z0-9.-]*[A-Za-z0-9])?\.[A-Za-z]{2,}$ ]] || fail "Domain ist noch offen oder ungueltig."
 [[ "$WEB_USER" =~ ^[a-z_][a-z0-9_-]*$ && "$WEB_GROUP" =~ ^[a-z_][a-z0-9_-]*$ ]] || fail "KeyHelp-Benutzer und Gruppe eintragen."
-WEB_DIR="/home/users/$WEB_USER/www/$DOMAIN"
-[[ -d "$WEB_DIR" && ! -L "$WEB_DIR" ]] || fail "Webroot fehlt oder ist ein Symlink: $WEB_DIR"
+[[ "$BASE_PATH" =~ ^/[a-z0-9]+(-[a-z0-9]+)*$ ]] || fail "Separaten Landesbereich wie /nrw konfigurieren."
+SITE_ROOT="/home/users/$WEB_USER/www/$DOMAIN"
+WEB_DIR="$SITE_ROOT$BASE_PATH"
+[[ -d "$SITE_ROOT" && ! -L "$SITE_ROOT" ]] || fail "Domain-Webroot fehlt oder ist ein Symlink: $SITE_ROOT"
+[[ ! -L "$WEB_DIR" ]] || fail "Zielordner darf kein Symlink sein."
+[[ ! -e "$WEB_DIR" || -d "$WEB_DIR" ]] || fail "Zielpfad ist kein Ordner."
 id "$WEB_USER" >/dev/null 2>&1 || fail "Webspace-Benutzer fehlt."
 getent group "$WEB_GROUP" >/dev/null || fail "Webspace-Gruppe fehlt."
 command -v rsync >/dev/null || fail "rsync fehlt."
 # Ein versehentliches Paket für eine andere Domain darf den Webspace nicht ersetzen.
-python3 - "$TMP_DIR/index.html" "$DOMAIN" <<'PY'
+python3 - "$TMP_DIR/index.html" "$DOMAIN" "$BASE_PATH" <<'PY'
 import re
 import sys
 from pathlib import Path
 html = Path(sys.argv[1]).read_text(encoding='utf-8')
-if not re.search(r'<link rel="canonical" href="https://' + re.escape(sys.argv[2]) + r'/">', html):
+if not re.search(r'<link rel="canonical" href="https://' + re.escape(sys.argv[2] + sys.argv[3]) + r'/">', html):
     raise SystemExit('Canonical und konfigurierter Ziel-Webspace stimmen nicht ueberein.')
 PY
 if [[ "$CHECK_ONLY" == "--dry-run" ]]; then
@@ -93,10 +98,21 @@ if [[ "$CHECK_ONLY" == "--dry-run" ]]; then
   exit 0
 fi
 
+mkdir -p -- "$WEB_DIR"
 echo "[LHUNDG] Website nach $WEB_DIR spiegeln..."
 rsync -a --delete --exclude='.well-known/' "$TMP_DIR/" "$WEB_DIR/"
 chown -R "$WEB_USER:$WEB_GROUP" "$WEB_DIR"
 find "$WEB_DIR" -type d -exec chmod 755 {} \;
 find "$WEB_DIR" -type f -exec chmod 644 {} \;
+# Suchmaschinen lesen robots.txt an der Domainwurzel, nicht unter /nrw/.
+ROOT_ROBOTS="$SITE_ROOT/robots.txt"
+if [[ ! -e "$ROOT_ROBOTS" && ! -L "$ROOT_ROBOTS" ]]; then
+  cp -- "$TMP_DIR/robots.txt" "$ROOT_ROBOTS"
+  chown "$WEB_USER:$WEB_GROUP" "$ROOT_ROBOTS"
+  chmod 644 "$ROOT_ROBOTS"
+  echo "[LHUNDG] robots.txt an der Domainwurzel angelegt."
+else
+  echo "[LHUNDG] Vorhandene Domain-robots.txt beibehalten. Sitemap-Verweis pruefen: https://$DOMAIN$BASE_PATH/sitemap.xml"
+fi
 rm -f -- "$ARCHIVE"
 echo "[LHUNDG] Deployment erfolgreich."

@@ -60,15 +60,15 @@ const draft = incomplete ?
 function page(file, title, description, content, noindex = false) {
   const html =
     `<!doctype html>
-<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="robots" content="${noindex ? 'noindex,follow' : 'index,follow'}"><title>${escape(title)} | Sachkunde NRW</title><meta name="description" content="${escape(description)}">${config.origin ? `<link rel="canonical" href="${escape(config.origin)}/${file}">` : ''}<meta property="og:type" content="website"><meta property="og:locale" content="de_DE"><meta property="og:title" content="${escape(title)} | Sachkunde NRW"><meta property="og:description" content="${escape(description)}">${config.origin ? `<meta property="og:url" content="${escape(config.origin)}/${file}">` : ''}<link rel="icon" href="favicon.svg" type="image/svg+xml"><script src="scripts/ui/theme.js?v=19"></script><link rel="stylesheet" href="styles/tokens.css?v=19"><link rel="stylesheet" href="styles/interface.css?v=19"></head>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="robots" content="${noindex ? 'noindex,follow' : 'index,follow'}"><title>${escape(title)} | Sachkunde NRW</title><meta name="description" content="${escape(description)}">${config.origin ? `<link rel="canonical" href="${escape(config.siteUrl)}/${file}">` : ''}<meta property="og:type" content="website"><meta property="og:locale" content="de_DE"><meta property="og:title" content="${escape(title)} | Sachkunde NRW"><meta property="og:description" content="${escape(description)}">${config.origin ? `<meta property="og:url" content="${escape(config.siteUrl)}/${file}">` : ''}<link rel="icon" href="favicon.svg" type="image/svg+xml"><script src="scripts/ui/theme.js?v=19"></script><link rel="stylesheet" href="styles/tokens.css?v=19"><link rel="stylesheet" href="styles/interface.css?v=19"></head>
 <body><a class="skip-link" href="#inhalt">Zum Inhalt</a>${header(file)}
-<main id="inhalt" class="prose wrap" tabindex="-1"><p class="eyebrow">SACHKUNDE / NRW</p><h1>${escape(title)}</h1>${['quellen.html', 'gut-zu-wissen.html', 'hundewissen.html'].includes(file) ? disclaimer : ''}${content}</main>${footer()}<script src="scripts/site-config.js?v=19" defer></script><script src="scripts/ui/common.js?v=19" defer></script><script src="scripts/ui/controls.js?v=19" defer></script></body></html>`;
+<main id="inhalt" class="prose wrap" tabindex="-1"><p class="eyebrow">SACHKUNDE / NRW</p><h1>${escape(title)}</h1>${['quellen.html','gut-zu-wissen.html','hundewissen.html'].includes(file) ? disclaimer : ''}${content}</main>${footer()}<script src="scripts/site-config.js?v=21" defer></script><script src="scripts/ui/common.js?v=19" defer></script><script src="scripts/ui/controls.js?v=19" defer></script></body></html>`;
   writeFileSync(resolve(root, file), html.replace(/\r?\n/g, '\r\n'));
 }
 page('impressum.html', 'Impressum',
   'Anbieter und Kontakt der unabhängigen, kostenlosen NRW-Sachkunde-Lernhilfe.',
   `${draft}<h2>Anbieter und Kontakt</h2><p>${escape(operator.name)}<br>${address}</p><p>E-Mail: ${email}<br>Telefon: ${escape(operator.phone)}</p><h2>Über dieses Projekt</h2><p>Die NRW Sachkundeprüfung Lernhilfe ist ein unabhängiges, kostenlos zugängliches Lernangebot. Sie wird nicht von einer Behörde oder Tierärztekammer betrieben. Der Trainer erteilt keinen Sachkundenachweis und ersetzt keine Prüfung oder behördliche Auskunft.</p><p>Fragen und Lösungen sind den unter <a href="quellen.html">Originalquellen</a> beschriebenen Unterlagen entnommen. Verbindlich sind die Vorgaben der zuständigen Stelle. Hinweise auf Übertragungsfehler nehmen wir über die angegebene Kontaktadresse entgegen.</p><h2>Freiwillige Unterstützung</h2><p>Die Nutzung bleibt kostenlos. Eine freiwillige Unterstützung über einen externen PayPal-Link ist keine Voraussetzung für die Nutzung und begründet keinen Anspruch auf zusätzliche Leistungen. Es wird keine Spendenbescheinigung ausgestellt.</p><h2 id="haftung">Hinweise zu Inhalten und Haftung</h2><p><strong>Keine Rechtsberatung, keine behördliche Auskunft und keine Garantie für das Bestehen einer Prüfung.</strong> Die Texte und Fragen dienen ausschließlich dem Lernen und der allgemeinen Orientierung. Für Richtigkeit, Vollständigkeit und Aktualität wird keine Gewähr übernommen. Insbesondere können ältere Originalfragen vom aktuellen Recht oder heutigen fachlichen Empfehlungen abweichen.</p><p>Soweit gesetzlich zulässig, ist eine Haftung für Schäden durch die Nutzung der unentgeltlichen Lerninhalte ausgeschlossen. Unberührt bleiben gesetzlich zwingende Ansprüche, insbesondere wegen Vorsatzes, grober Fahrlässigkeit sowie wegen Verletzung von Leben, Körper oder Gesundheit. Dieser Hinweis hebt gesetzliche Verantwortlichkeiten nicht auf.</p><p>Eine pauschale Distanzierung von verlinkten Inhalten ersetzt keine gesetzliche Pflicht. Bei konkreten Hinweisen auf Rechtsverletzungen oder Übertragungsfehler werden die betroffenen Inhalte geprüft und erforderlichenfalls berichtigt oder entfernt.</p>`
-);
+  );
 page('quellen.html', 'Quellen & Originalunterlagen',
   'Herkunft der LHundG-NRW-Lernfragen, Originalquellen und Unterschiede zwischen § 3 und § 11.',
   `
@@ -79,7 +79,7 @@ page('quellen.html', 'Quellen & Originalunterlagen',
 <article class="source-card" id="kammern"><h2>Tierärztekammern · 197</h2><p>Nordrhein und Westfalen-Lippe veröffentlichen denselben 197er-Katalog ab 1. Januar 2025. Die beiden hochgeladenen Lösungsdateien sind bytegleich; die Fragenfassungen stimmen im ausgelesenen Frage- und Antworttext überein.</p><a href="https://www.tieraerztekammer-nordrhein.de/tierhalter/sachkundebescheinigung-lhundg/" target="_blank" rel="external noopener noreferrer">Nordrhein · Informationen zu § 11 ↗</a><a href="https://www.tieraerztekammer-wl.de/fuer-tierhalter/sachkundenachweis" target="_blank" rel="external noopener noreferrer">Westfalen-Lippe · Informationen ↗</a></article></div>
 <h2>Was wurde ergänzt und berichtigt?</h2><p>Der bisherige bereinigte Pool umfasst 398 Fragen. Nach der Berichtigung dreier Übertragungsfehler entsprechen 195 der 197 Kammerfragen bereits vorhandenen Fragen samt Antwortmöglichkeiten und Lösungen (nach Normalisierung von Formatierung und Satzzeichen). Zwei Formulierungsvarianten werden zusätzlich aufgenommen. Der Gesamtpool umfasst deshalb 400 Fragen, der Kammer-Lernbereich separat alle 197.</p><div class="table-scroll"><table><caption>Dokumentierte Unterschiede zum bisherigen Datenbestand</caption><thead><tr><th>Originalfrage</th><th>Feststellung</th><th>Umsetzung</th></tr></thead><tbody><tr><td>158</td><td>Rhein-Erft-Schlüssel enthielt bisher nur A, B, C; Antworttext unterscheidet sich geringfügig.</td><td>D anhand des offiziellen PDFs ergänzt; Formulierungsvariante separat.</td></tr><tr><td>160</td><td>Im bisherigen Rhein-Erft-Datensatz fehlte D.</td><td>Korrigiert auf B, C, D.</td></tr><tr><td>161</td><td>Im bisherigen Rhein-Erft-Datensatz fehlte D.</td><td>Korrigiert auf A, B, C, D.</td></tr><tr><td>173</td><td>Antwort A im Kammerkatalog ist kürzer; Lösung bleibt A, C.</td><td>Beide Formulierungen bleiben quellbezogen erhalten.</td></tr></tbody></table></div><p>Die drei fehlenden D-Antworten stehen in der offiziellen Rhein-Erft-Lösungstabelle hinter einem Seitenumbruch (Seiten 49–50). Es wurden keine Lösungen aus allgemeinem Hundewissen abgeleitet. Eine Frage ist nur bei vollständiger richtiger Auswahl ohne zusätzliche falsche Antwort korrekt. Inhaltlich ältere Aussagen der Originale werden nicht stillschweigend modernisiert.</p>
 <h2 id="simulation">Wie ist die MG-Simulation einzuordnen?</h2><p>Die Simulation verwendet 119 zufällige, unterschiedliche Fragen aus dem bisherigen 398er-Basispool. Kein Zeitlimit, mindestens 90 vollständig richtige Antworten. Diese Eckdaten beruhen auf einer privaten Mitteilung der zuständigen Stelle an den Projektinitiator und sind öffentlich nicht unabhängig nachgewiesen. Sie gelten nicht automatisch für andere Kommunen. Die tatsächlichen 119 MG-Fragen liegen nicht vor. Deshalb heißt der Modus ausdrücklich Simulation.</p><h2>Originale und Nutzungsrechte</h2><p>Die Rechte an den Fragen und Abbildungen verbleiben bei den jeweiligen Rechteinhabern. Die Bereitstellung eines PDFs zum Download bedeutet nicht automatisch eine freie Lizenz zur Wiederveröffentlichung in einem Online-Trainer. Die Freigabe zur öffentlichen Übernahme der hier verwendeten Texte und Abbildungen ist vor dem öffentlichen Start zu klären. Die Originalseiten der Herausgeber werden verlinkt; eigene oder direkte PDF-Downloads werden nicht angeboten.</p><p><a class="primary button" href="./#trainer">Zurück zum Lernen →</a></p>`
-);
+  );
 createContentPages(page, {
   root,
   config,
@@ -103,13 +103,13 @@ index = index.replace(/<link rel="canonical"[^>]*>/g, '')
 index = index.replace(/(<meta name="robots" content=")[^"]*(")/, '$1index,follow$2');
 if (config.origin) {
   index = index.replace('</head>',
-    `<link rel="canonical" href="${escape(config.origin)}/"><meta property="og:url" content="${escape(config.origin)}/"></head>`
-  );
+    `<link rel="canonical" href="${escape(config.siteUrl)}/"><meta property="og:url" content="${escape(config.siteUrl)}/"></head>`
+    );
 }
 index = index.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/, (match,
   start, value, end) => {
   const schema = JSON.parse(value);
-  if (config.origin) schema.url = `${config.origin}/`;
+  if (config.origin) schema.url = `${config.siteUrl}/`;
   else delete schema.url;
   return start + JSON.stringify(schema)
     .replace(/</g, '\\u003c') + end;
@@ -123,7 +123,7 @@ const robots = ['User-agent: *', 'Allow: /'];
 
 if (config.origin) {
   const entries = pages.map(path =>
-    `  <url>\n    <loc>${escape(config.origin)}/${path}</loc>\n  </url>`);
+    `  <url>\n    <loc>${escape(config.siteUrl)}/${path}</loc>\n  </url>`);
   const sitemap = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
@@ -132,7 +132,7 @@ if (config.origin) {
     ''
   ].join('\n');
   writeFileSync(sitemapPath, sitemap.replace(/\r?\n/g, '\r\n'));
-  robots.push(`Sitemap: ${config.origin}/sitemap.xml`);
+  robots.push(`Sitemap: ${config.siteUrl}/sitemap.xml`);
 } else {
   rmSync(sitemapPath, {
     force: true

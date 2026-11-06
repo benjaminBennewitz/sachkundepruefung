@@ -2,16 +2,17 @@
 
 /**
  * @file Zentrale Projektkonfiguration.
- * @description Zentrale Betreiber-, Hosting- und optionale PayPal-Konfiguration. Origin bleibt bis zur Domainentscheidung leer.
+ * @description Zentrale Betreiber-, Hosting- und optionale PayPal-Konfiguration. Domain und Landesbereich sind getrennt konfiguriert.
  * @author Benjamin Bennewitz [B²]
  */
 
 /**
- * @type {{origin: string, operator: {name: string, address: string[], email: string, phone: string}, paypalUrl: string, hosting: {provider: string, address: string, logRetention: string}}}
- * Leere Origin für die lokale Vorschau; Produktionsdomain beim Build ergänzen.
+ * @type {{origin: string, basePath: string, operator: {name: string, address: string[], email: string, phone: string}, paypalUrl: string, hosting: {provider: string, address: string, logRetention: string}}}
+ * Hauptdomain und Unterverzeichnis des NRW-Lerntrainers.
  */
 window.SITE_CONFIG = {
-  origin: '',
+  origin: 'https://hunde-sachkundetrainer.de',
+  basePath: '/nrw',
   operator: {
     name: 'Benjamin Bennewitz',
     address: ['c/o', 'Linzer Straße 45', '53604 Bad Honnef', 'Deutschland'],

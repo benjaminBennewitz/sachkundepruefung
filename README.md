@@ -53,22 +53,24 @@ Der letzte Befehl prüft die aktuellen Dateien ohne Kopie oder Ausgabeordner. F�
 
 ## Domain und Produktion
 
-Die Domain steht noch nicht fest. `origin` in `scripts/site-config.js` bleibt deshalb leer. `robots.txt` erlaubt das Crawling mit `Allow: /`; die sechs Inhaltsseiten verwenden `index,follow`. Solange die Domain fehlt, werden keine falschen Canonicals und keine leere oder erfundene Sitemap ausgegeben. Sobald die tatsächliche Domain gesetzt ist, erzeugt der Seitengenerator eine lesbare Sitemap mit sechs vollständigen HTTPS-Adressen und ergänzt den Sitemap-Verweis in robots.txt.
+Die Projektadresse ist **https://hunde-sachkundetrainer.de/nrw/**. In `scripts/site-config.js` werden Hauptdomain und Landesbereich getrennt gepflegt:
 
-Nach dem Einspielen von v19 einmal ausführen; dabei wird auch eine vorhandene leere Sitemap entfernt:
+```js
+origin: 'https://hunde-sachkundetrainer.de',
+basePath: '/nrw',
+```
+
+Der Seitengenerator erstellt Canonicals, OpenGraph-URLs, JSON-LD und alle sechs Sitemap-Einträge unter `/nrw/`. Nach Änderungen an Domain oder Landesbereich:
 
 ```cmd
 node scripts\pages\prepare-pages.mjs
 ```
 
-Nach Festlegung der tatsächlichen Domain kann sie in der Konfiguration oder für einen Build in CMD gesetzt werden:
+Optional überschreiben `LHUNDG_ORIGIN` und `LHUNDG_BASE_PATH` die gespeicherten Werte. Für die lokale Entwicklung bleibt die vorhandene `index.html` im Projektordner verwendbar, da interne Links und Assets relative Pfade nutzen.
 
-```cmd
-set "LHUNDG_ORIGIN=https://DEINE-DOMAIN"
-node scripts\prepare-deployment.mjs --rights-confirmed
-```
+Die eigentliche robots.txt muss an **https://hunde-sachkundetrainer.de/robots.txt** liegen und auf **https://hunde-sachkundetrainer.de/nrw/sitemap.xml** verweisen. Das Server-Skript legt sie bei Bedarf an. Eine bereits vorhandene Domain-robots.txt wird beibehalten; ihr Sitemap-Verweis ist dann beim Einrichten zu ergänzen.
 
-`DEINE-DOMAIN` durch die echte Domain ersetzen. Für eine gültige Domain entstehen Canonicals, OpenGraph-URLs, JSON-LD und Sitemap automatisch. Der bestehende Schalter `--rights-confirmed` ist ausschließlich nach tatsächlicher Klärung der Übernahme der Fragen und Abbildungen zu verwenden. Ein leerer PayPal-Link verhindert die kostenlose Veröffentlichung nicht.
+Der bestehende Schalter `--rights-confirmed` ist ausschließlich nach tatsächlicher Klärung der Übernahme der Fragen und Abbildungen zu verwenden. Ein leerer PayPal-Link verhindert die kostenlose Veröffentlichung nicht.
 
 Das vorbereitete Deployment ist in `deployment/README.md` beschrieben. Es wurde kein Server angesprochen und nichts veröffentlicht.
 

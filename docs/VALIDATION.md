@@ -1,4 +1,4 @@
-# Validierung v19 · 06.11.2026
+# Validierung v21 · 06.11.2026
 
 ## Daten
 
@@ -109,3 +109,19 @@ Kein vollständiges WCAG-Konformitätsgutachten und keine Prüfung mit allen Scr
 - Offene Domain: keine leere Sitemap-Datei, kein falscher Sitemap-Verweis, keine erfundenen Canonicals.
 - Mit temporärer Testdomain sechs vollständige Sitemap-URLs per XML-Parser geprüft, Canonicals und CSP-Hash kontrolliert. Direkte Archivierung und Server-Archivprüfung erfolgreich.
 - Danach offene Domain wiederhergestellt. Kein Upload und keine Veröffentlichung.
+
+## Domain und NRW-Unterverzeichnis v20
+
+- Projektadresse https://hunde-sachkundetrainer.de/nrw/; Origin und Basispfad getrennt konfiguriert.
+- Canonicals, OpenGraph, JSON-LD und sechs Sitemap-URLs berücksichtigen den Landesbereich.
+- Lokale Linkprüfung löst relative Verweise unter /nrw/ auf und erkennt versehentliche absolute Links außerhalb des Landesbereichs.
+- Server-Deployment auf den NRW-Ordner begrenzt, Canonical-Abgleich einschließlich /nrw/. Domain-robots.txt wird nur neu angelegt, falls noch keine vorhanden ist.
+- Kein Upload, keine Domainregistrierung und kein Zugriff auf den produktiven Server.
+
+## Registrierte Domain v21
+
+- Hauptdomain auf hunde-sachkundetrainer.de umgestellt; Landesbereich bleibt /nrw.
+- Konfiguration, Canonicals, OpenGraph, JSON-LD, Sitemap, robots.txt sowie Deployment-Skript und Anleitung konsistent angepasst.
+- Der Patch enthält die Unterverzeichnis-Anpassungen aus v20 und kann auf v19 oder v20 eingespielt werden.
+- Keine Änderung an Fragen, Bildabmessungen, Lernständen oder Oberflächengestaltung.
+- Ausschließlich lokale Vorbereitung und Prüfungen; kein SSH, Upload oder Deployment.

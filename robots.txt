@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://hunde-sachkundetrainer.de/nrw/sitemap.xml

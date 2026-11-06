@@ -1,20 +1,19 @@
-# Deployment – vorbereitet, Domain noch offen
+# Deployment – hunde-sachkundetrainer.de/nrw/
 
 Die beigefügte DCR-Vorlage wurde für die statische Lernhilfe angepasst. Ablauf: `git pull --ff-only`, Prüfung der aktuellen Dateien, direkt daraus erzeugtes TAR-Archiv, SCP, SSH und serverseitiges Spiegeln per rsync. Kein Angular-Build, kein `npm ci`, keine Fonts-Kopie.
 
-## Einmalig nach der Domainentscheidung
+## Einmalige Servereinrichtung
 
 1. Domain und KeyHelp-Webspace anlegen.
-2. `DOMAIN`, `WEB_USER` und `WEB_GROUP` in `deploy-lhundg-server.sh` eintragen. Der Webroot wird daraus als `/home/users/WEB_USER/www/DOMAIN` abgeleitet.
+2. `WEB_USER` und `WEB_GROUP` in `deploy-lhundg-server.sh` eintragen. Domain `hunde-sachkundetrainer.de` und Landesbereich `/nrw` sind bereits gesetzt. Ziel ist `/home/users/WEB_USER/www/hunde-sachkundetrainer.de/nrw`.
 3. Die vorhandenen Werte für SSH-Benutzer und Host im lokalen CMD-Skript prüfen. Sie stammen aus der gelieferten Vorlage.
-4. Domain und gegebenenfalls rechnerabhängigen SSH-Key lokal setzen:
+4. Bei Bedarf den rechnerabhängigen SSH-Key lokal setzen:
 
 ```cmd
-setx LHUNDG_ORIGIN "https://DEINE-DOMAIN"
 setx LHUNDG_SSH_KEY "%USERPROFILE%\.ssh\id_ed25519"
 ```
 
-Danach ein neues CMD-Fenster öffnen. Alternativ mit `set` nur für die aktuelle Sitzung setzen. Platzhalter durch die echte Domain ersetzen. Das lokale Skript beendet sich vor Git, Build oder Upload, solange die Domain fehlt.
+Danach ein neues CMD-Fenster öffnen. Alternativ mit `set` nur für die aktuelle Sitzung setzen. Die URL-Konfiguration kommt direkt aus scripts/site-config.js. Vorhandene Umgebungsvariablen LHUNDG_ORIGIN oder LHUNDG_BASE_PATH bei Bedarf entfernen, damit keine ältere Einstellung die Konfiguration überschreibt.
 
 Das fertig konfigurierte Serverskript einmalig installieren:
 
@@ -37,9 +36,11 @@ Der vorhandene Release-Schalter bestätigt keine Rechte automatisch. Er ist nur 
 
 Die aktuellen sechs HTML-Seiten, Styles, Browser-Skripte, Aufgabenbilder, Favicon, robots.txt, Sitemap und `.htaccess` werden mit einer ausdrücklichen Dateiliste direkt aus dem Projektordner archiviert. Ein `dist`-Ordner und eine zusätzliche Projektkopie werden nicht angelegt. Tests, Fixtures, Quellwerkzeuge, Dokumentation, Git-Daten und Deployment-Dateien bleiben lokal.
 
-Das Serverskript prüft das gesamte Archiv vor dem Entpacken auf unerlaubte Dateien, fehlende Pflichtdateien, Links, Pfade außerhalb des Pakets und Duplikate. Zusätzlich muss die Canonical-Adresse zur konfigurierten Domain passen.
+Das Serverskript prüft das gesamte Archiv vor dem Entpacken auf unerlaubte Dateien, fehlende Pflichtdateien, Links, Pfade außerhalb des Pakets und Duplikate. Zusätzlich muss die Canonical-Adresse exakt zur konfigurierten Domain und zum Landesbereich passen.
 
-Wie in der Vorlage wird der Ziel-Webspace mit `rsync --delete` gespiegelt. Dort anderweitig abgelegte Dateien werden entfernt; `.well-known/` bleibt erhalten. Ausschließlich den eigens dafür angelegten Webspace verwenden. Dateirechte und Besitzer werden anschließend korrigiert.
+Mit `rsync --delete` wird ausschließlich der Ordner `/nrw` gespiegelt. Die Domainwurzel und spätere andere Landesbereiche sind kein rsync-Ziel. Dateirechte und Besitzer werden nur im NRW-Ordner korrigiert.
+
+Suchmaschinen lesen robots.txt ausschließlich an der Domainwurzel. Wenn dort noch keine robots.txt liegt, legt das Skript sie aus der mitgelieferten Datei an. Vorhandene Dateien werden beibehalten; dann den Sitemap-Verweis `https://hunde-sachkundetrainer.de/nrw/sitemap.xml` ergänzen.
 
 ## Nur prüfen
 
@@ -59,4 +60,4 @@ Diese Varianten veröffentlichen nichts. Bei Fehlern vor rsync bleibt der Webspa
 
 ## Stand der Prüfung
 
-Direkte Archivierung, Daten, Pfade, Shell-Syntax sowie gültige und manipulierte Archive wurden lokal geprüft. Windows-CMD und ein echtes SSH-/rsync-Deployment wurden in dieser Linux-Umgebung nicht ausgeführt. Domain und Webspace-Daten sind absichtlich nicht vorweggenommen.
+Direkte Archivierung, Daten, Pfade, Shell-Syntax sowie gültige und manipulierte Archive wurden lokal geprüft. Windows-CMD und ein echtes SSH-/rsync-Deployment wurden in dieser Linux-Umgebung nicht ausgeführt. Domain und Landesbereich sind konfiguriert; KeyHelp-Benutzer und Gruppe sind noch einzutragen.

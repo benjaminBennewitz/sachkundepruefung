@@ -74,7 +74,7 @@ assert.equal(counts.allPool, 400);
 assert.equal(counts.kammer197, 197);
 assert(!data.koeln.some(q => q.sourceId === 'A11'));
 const report = {
-  version: 19,
+  version: 21,
   date: '2026-11-06',
   counts,
   canonicalQuestions: questions.length,
