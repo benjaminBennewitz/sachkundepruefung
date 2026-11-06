@@ -1,0 +1,29 @@
+{
+  "version": 13,
+  "date": "2026-11-06",
+  "counts": {
+    "legacy203": 203,
+    "rhein97": 97,
+    "koeln": 115,
+    "mgPool": 398,
+    "allPool": 400,
+    "kammer197": 197
+  },
+  "canonicalQuestions": 612,
+  "missingKeys": 0,
+  "invalidKeys": 0,
+  "missingAssets": 0,
+  "verifiedOfficialKeys": {
+    "legacy203": 203,
+    "kammer197": 197
+  },
+  "inheritedProvidedKeys": {
+    "rhein97": 97,
+    "koeln": 115
+  },
+  "correctedLegacyQuestions": [
+    158,
+    160,
+    161
+  ]
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://para3.dem-ben-seine-ide.de/sitemap.xml
