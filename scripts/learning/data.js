@@ -1,0 +1,18355 @@
+/* scripts/learning/data.js */
+
+/**
+ * @file Quellengetreuer Fragenbestand.
+ * @description Quellengetreue Frageobjekte und Poolreferenzen; keine fachliche Änderung durch die Neuordnung.
+ * @author Benjamin Bennewitz [B²]
+ */
+
+/**
+ * @typedef {object} SachkundeQuestion
+ * @property {number} id Stabile numerische Frage-ID.
+ * @property {string} uid Dauerhafte quellbezogene ID für gespeicherte Positionen.
+ * @property {string} source Lesbarer Katalogname.
+ * @property {string} sourceKey Schlüssel für Quellenangaben und Originalverweise.
+ * @property {string} sourceId Originalnummer innerhalb des Katalogs.
+ * @property {number} [sourcePage] Optionale Seitenangabe der Vorlage.
+ * @property {string} prompt Wortlaut der Frage.
+ * @property {string} category Themenbezeichnung aus dem Datenbestand.
+ * @property {'multi'|'mapping'} type Fragetyp.
+ * @property {string[]} options Antwortbuchstaben in der vorgesehenen Reihenfolge.
+ * @property {Record<string, string>} answers Antworttexte nach Buchstaben.
+ * @property {string[]} correct Vollständiger Lösungsschlüssel als Antworttokens.
+ * @property {boolean} requiresVisual Ob die Aufgabenabbildung benötigt wird.
+ * @property {string[]} images Lokale Bildpfade relativ zum HTML-Dokument.
+ * @property {string[]} [mappingKeys] Positionen einer Zuordnungsaufgabe.
+ * @property {string[]} [mappingChoices] Zulässige Ziele der Zuordnung.
+ * @property {Record<string, string>} [mappingLabels] Sichtbare Positionsbeschriftungen.
+ * @property {Record<string, string>} [mappingTargets] Erläuterungen möglicher Ziele.
+ * @property {boolean} [referenceOnly] Kennzeichnet die gesondert einzuordnende historische Vorlage.
+ * @property {string} [note] Ergänzender quellenbezogener Hinweis.
+ */
+
+/** @type {SachkundeQuestion[]} Vollständiger unveränderter Quellbestand. */
+window.LHUNDG_QUESTIONS = [{
+  "id": 1,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "1",
+  "uid": "legacy-1",
+  "type": "multi",
+  "prompt": "Was sind typische Jagdverhaltensweisen?",
+  "answers": {
+    "A": "Suchen nach Beute.",
+    "B": "Hetzen.",
+    "C": "Schütteln der Beute.",
+    "D": "Anschleichen und Vorstehen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Fragen"
+}, {
+  "id": 2,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "2",
+  "uid": "legacy-2",
+  "type": "multi",
+  "prompt": "Sind alle Hunde gleich oder gibt es rassetypische Eigenschaften?",
+  "answers": {
+    "A": "Alle Hunde sind gleich.",
+    "B": "Je nach Rasse weisen Hunde unterschiedliche Veranlagungen auf, z. B. in Bezug auf Jagdverhalten und Aktivität.",
+    "C": "Verschiedene Rassen unterscheiden sich nur durch ihr äußeres Erscheinungsbild.",
+    "D": "Rassetypische Eigenschaften gibt es nicht, aber anhand der Größe kann man eine Einteilung in „kinderfreundlich\", „gefährlich“, „leicht zu erziehen“ etc. treffen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rassen"
+}, {
+  "id": 3,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "3",
+  "uid": "legacy-3",
+  "type": "multi",
+  "prompt": "Ein Welpe oder ein Kind ist einem Hund gegenüber sehr aufdringlich. Welche Verhaltensweisen erwachsener Hunde sind normal und absolut hundetypisch?",
+  "answers": {
+    "A": "Knurren.",
+    "B": "Die Lefzen kräuseln.",
+    "C": "Der Hund tut nichts, weil Kinder und Welpen bei erwachsenen Hunden uneingeschränkt Narrenfreiheit haben.",
+    "D": "Steigerung aggressiver Verhaltensweisen, wie z.B. Schnappen oder Beißen, wenn Drohen des Hundes bestraft, gelobt/beruhigt, ignoriert oder nicht wahrgenommen wird."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hund und Kind"
+}, {
+  "id": 4,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "4",
+  "uid": "legacy-4",
+  "type": "multi",
+  "prompt": "Bis zu welchem Alter bezeichnet man Hunde als „Welpen“?",
+  "answers": {
+    "A": "bis zu einem Jahr.",
+    "B": "von Geburt an bis zum Abschluss der sogenannten Sozialisationsphase, also ca. bis zur 12. bis maximal 16. Lebenswoche.",
+    "C": "Bis zur Geschlechtsreife.",
+    "D": "Hunde, die noch von der Mutterhündin gesäugt werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Aufzucht"
+}, {
+  "id": 5,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "5",
+  "uid": "legacy-5",
+  "type": "multi",
+  "prompt": "Ist der Einsatz von Stromreizgeräten, unangenehmen Hochfrequenztönen und anderen Schmerz- und Schreckreizen für die Hundeerziehung sinnvoll?",
+  "answers": {
+    "A": "Es ist eine einfache und schnelle Methode, die sehr erfolgreich in der Erziehung eingesetzt werden kann.",
+    "B": "Der Hund weiß dann, dass er nicht mehr machen kann, was er will.",
+    "C": "Die Gefahr von Fehlverknüpfungen und Angstverhalten als Folge ist zu groß.",
+    "D": "Strafreize lösen beim Hund Stress aus, der je nach verwendetem Reiz und individueller Sensibilität erheblich sein kann."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Strafen"
+}, {
+  "id": 6,
+  "images": [
+    "assets/questions/q006.webp"
+  ],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "6",
+  "uid": "legacy-6",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist neutral bis aufmerksam.",
+    "B": "Der Hund ist ängstlich.",
+    "C": "Der Hund droht sicher.",
+    "D": "Der Hund ist unterwürfig."
+  },
+  "requiresVisual": true,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Bilder"
+}, {
+  "id": 7,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "7",
+  "uid": "legacy-7",
+  "type": "multi",
+  "prompt": "Worauf muss man bei der Auswahl eines Maulkorbs achten?",
+  "answers": {
+    "A": "Ein Maulkorb muss bequem sitzen und darf nicht in die Augen rutschen. An das Tragen muss der Hund in kleinen Schritten über mehrere Wochen gewöhnt werden.",
+    "B": "Für längere Tragezeiten von mehr als wenigen Minuten muss gewährleistet sein, dass der Hund problemlos mit geöffnetem Maul hecheln und bei Bedarf trinken kann.",
+    "C": "Für einen kurzfristigen Gebrauch von wenigen Minuten kann eine enge Maulschlaufe aus weichem Material, mit der der Hund das Maul einfach nicht mehr aufmachen kann, akzeptabel sein.",
+    "D": "Bei Hunden, bei denen wirklich eine Verletzungsgefahr von anderen besteht, muss ein Maulkorb besondere Sicherheitskriterien erfüllen. Er muss so befestigt werden können, dass der Hund ihn nicht abstreifen kann und das Material und die Verarbeitung des Maulkorbs müssen besonders stabil sein."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hilfsmittel"
+}, {
+  "id": 8,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "8",
+  "uid": "legacy-8",
+  "type": "multi",
+  "prompt": "Zwei Hunde kämpfen miteinander. Die Besitzer stehen daneben und schreien die Hunde an, um den Kampf zu beenden. Wie interpretieren die Hunde dieses Verhalten?",
+  "answers": {
+    "A": "Durch das Anschreien bekommen die Hunde Angst und beenden den Kampf sofort.",
+    "B": "Durch die aggressive Stimmung der Besitzer steigt der Stress der Hunde und sie können daher weiterkämpfen.",
+    "C": "Das Schreien der Besitzer beeinflusst das Verhalten der Hunde nicht.",
+    "D": "Durch das Schreien verstehen die Hunde, dass sie nicht kämpfen sollen und hören daher auf."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundebegegnungen"
+}, {
+  "id": 9,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "9",
+  "uid": "legacy-9",
+  "type": "multi",
+  "prompt": "Was ist zu der Anwendung von Leinenrucken zur Erziehung zu sagen?",
+  "answers": {
+    "A": "Leinenrucke sind notwendig für die Erziehung zur Leinenführigkeit.",
+    "B": "Jegliche Anwendung von Leinenrucken kann zu Schmerzen führen und gilt als nicht tierschutzkonform.",
+    "C": "Für verhaltensauffällige Hunde ist die Arbeit mit Leinenrucken oftmals notwendig, um sie überhaupt trainieren zu können.",
+    "D": "Ständige Leinenrucke können zu verschiedenen körperlichen Schäden im Halsbereich führen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Strafen"
+}, {
+  "id": 10,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "10",
+  "uid": "legacy-10",
+  "type": "multi",
+  "prompt": "Darf man ängstlichen Hunden einen Maulkorb aufziehen, wenn es die Situation erfordern würde?",
+  "answers": {
+    "A": "Auf keinen Fall, weil der Hund noch mehr Angst bekommen würde.",
+    "B": "Wenn man den Hund schrittweise daran gewöhnt, stellt der Maulkorb keine Belastung dar.",
+    "C": "Ein ängstlicher Hund braucht sowieso keinen Maulkorb, weil er nicht aggressiv ist.",
+    "D": "Ängstliche Hunde könnten in Bedrängungssituationen beißen oder es können z. B. in öffentlichen Verkehrsmitteln Maulkorbpflicht für alle Hunde bestehen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hilfsmittel"
+}, {
+  "id": 11,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "11",
+  "uid": "legacy-11",
+  "type": "multi",
+  "prompt": "Was versteht man unter dem sogenannten „Welpenschutz“?",
+  "answers": {
+    "A": "Welpen werden von ihrer Mutterhündin niemals im Stich gelassen.",
+    "B": "Welpen werden von erwachsenen Hunden nicht gebissen, denn sie stehen unter Welpenschutz. Ein erwachsener Hund, der nach einem Welpen schnappt, ist verhaltensgestört.",
+    "C": "Erwachsene Hunde lassen junge Hunde im ersten Lebensjahr alles machen, was sie wollen, weswegen man auch mit der Erziehung eines Hundes erst mit einem Jahr beginnen sollte.",
+    "D": "Es gibt keinen „Welpenschutz“. Den Welpen „schützt“ angemessenes, d.h. unterwürfiges und beschwichtigendes Verhalten."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundebegegnungen"
+}, {
+  "id": 12,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "12",
+  "uid": "legacy-12",
+  "type": "multi",
+  "prompt": "Was ist die Grundveranlagung, die jeder Hund in sich trägt?",
+  "answers": {
+    "A": "Hunde sind Jagdraubtiere.",
+    "B": "Hunde sind für das Zusammenleben mit Menschen geschaffen worden. Sie sind völlig abhängig vom Menschen und können alleine nicht existieren, da sie sich keine Nahrung beschaffen könnten.",
+    "C": "Hunde sind soziale Tiere und darauf ausgerichtet, in einem Gruppenverband zu leben.",
+    "D": "Hunde sind Aasfresser und suchen deshalb ständig nach toten Tieren."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rassen"
+}, {
+  "id": 13,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "13",
+  "uid": "legacy-13",
+  "type": "multi",
+  "prompt": "Warum können Hunde an der Leine aggressiver reagieren?",
+  "answers": {
+    "A": "Hunde können an der Leine unsicherer gegenüber anderen Hunden sein und sich dadurch aggressiver verhalten, wenn sie in jungem Alter nie gelernt haben, dass man sich auch an der Leine entspannt begrüßen kann.",
+    "B": "Hunde können sich an der Leine nicht frei bewegen und ausweichen und können sich daher schneller bedroht fühlen und aggressiver reagieren.",
+    "C": "Hunde können frustriert sein, dass sie durch die Leine von einem Kontakt mit dem anderen Hund abgehalten werden und können sich deshalb aggressiv verhalten.",
+    "D": "Durch Versuche der Halter unerwünschtes Verhalten an der Leine durch harmlos erscheinende Korrekturen bis hin zu Schreck- oder Strafreizen zu unterbinden, wird aggressives Verhalten gefördert."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundebegegnungen"
+}, {
+  "id": 14,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "14",
+  "uid": "legacy-14",
+  "type": "multi",
+  "prompt": "Woran erkennen Sie eine empfehlenswerte Welpenspielgruppe?",
+  "answers": {
+    "A": "Es dürfen Hunde verschiedener Rassen teilnehmen. Die Gruppengröße beträgt in der Regel maximal 8 Welpen. Es dürfen nur gesunde Hunde bis ca. zur 16. Lebenswoche teilnehmen.",
+    "B": "Der/Die Trainer/in bestraft einen Welpen sofort oder erschreckt ihn mit einer Wasserspritze oder anderem, wenn er aggressives Verhalten zeigt, denn die Hunde sollen eine gute Sozialverträglichkeit lernen.",
+    "C": "Ängstlichen Welpen wird ein sicherer Rückzugsort beim Halter gewährt und „Grobiane“ liebevoll zu anderen Welpen abgelenkt. Bei sehr ängstlichen Hunden wird in ungestörter Atmosphäre Kontakt mit einem einzelnen passenden Welpen ermöglicht.",
+    "D": "Den Welpen werden viele verschiedene Reizsituationen geboten, damit sie „umweltsicher“ werden. Dabei bestimmt das schwächste Glied der Gruppe das Ausmaß der Reize."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Aufzucht"
+}, {
+  "id": 15,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "15",
+  "uid": "legacy-15",
+  "type": "multi",
+  "prompt": "Welche der aufgeführten Erziehungshilfsmittel sind sinnvoll?",
+  "answers": {
+    "A": "Leine und breites, nicht würgendes Halsband oder gut sitzendes Brustgeschirr, ggf. zusätzlich Kopfhalfter für Hunde.",
+    "B": "Halsbänder mit einem auf Knopfdruck auslösbaren Sprühstoß.",
+    "C": "Geräte, die für den Hund unangenehme Geräusche im Ultraschallbereich erzeugen, um unerwünschtes Verhalten auf Knopfdruck zu beeinflussen.",
+    "D": "Erziehungsgeschirre mit Zugwirkung unter den Achseln."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hilfsmittel"
+}, {
+  "id": 16,
+  "images": [
+    "assets/questions/q016-1.webp"
+  ],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "16",
+  "uid": "legacy-16",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist neutral bis aufmerksam.",
+    "B": "Der Hund droht aus Unsicherheit.",
+    "C": "Der Hund ist friedfertig.",
+    "D": "Der Hund ist unterwürfig."
+  },
+  "requiresVisual": true,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Bilder"
+}, {
+  "id": 17,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "17",
+  "uid": "legacy-17",
+  "type": "multi",
+  "prompt": "Welche Überlegungen sind vor der Anschaffung eines Hundes wichtig?",
+  "answers": {
+    "A": "Ist die Hundehaltung erlaubt?",
+    "B": "Habe ich die zeitlichen und finanziellen Möglichkeiten, den Hund 12-15 Jahre lang sicher zu behalten und zu versorgen?",
+    "C": "Die Abstammung von Elterntieren, die auf vielen Ausstellungen Auszeichnungen gewonnen haben.",
+    "D": "Passt der ausgesuchte Hund von seiner Rasseveranlagung her tatsächlich zu meinem Lebensstil?"
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundewahl"
+}, {
+  "id": 18,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "18",
+  "uid": "legacy-18",
+  "type": "multi",
+  "prompt": "Ich beuge mich über einen Hund und möchte ihn streicheln. Er duckt sich und knurrt. Ich mache mich klein und strecke ihm meine Hand entgegen, damit er daran schnüffeln kann. In diesem Moment schnappt er nach mir. Was könnte der Grund dafür sein?",
+  "answers": {
+    "A": "Ein Hund, der so reagiert, muss früher geschlagen worden sein.",
+    "B": "Er hat die Geste des Über-ihn-Beugens und Handausstreckens als Bedrohung empfunden.",
+    "C": "Er ist grundsätzlich verhaltensgestört.",
+    "D": "Es ist normal, dass Hunde Gegner attackieren, die schwächer sind. Dadurch, dass man sich klein gemacht hat, hat man dem Hund signalisiert, dass man schwächer ist als er."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Umgang und Verständnis"
+}, {
+  "id": 19,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "19",
+  "uid": "legacy-19",
+  "type": "multi",
+  "prompt": "Was muss man bei einem Hund im Welpenalter in Bezug auf sein Verhalten besonders beachten?",
+  "answers": {
+    "A": "Ein Welpe sollte in positiver Weise alle Umweltsituationen, Kinder verschiedener Altersklassen und Erwachsene kennen lernen, mit denen er später zurechtkommen muss.",
+    "B": "Welpen sollten möglichst zurückgezogen und ruhig gehalten werden, da sie noch nicht so aufnahmefähig sind.",
+    "C": "Man sollte individuell die kurze Zeit der Sozialisationsphase für viele Erfahrungen möglichst gut nutzen, ohne den Welpen zu überfordern.",
+    "D": "Bei einem Welpen braucht man nichts anders zu machen als mit einem erwachsenen Hund."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Aufzucht"
+}, {
+  "id": 20,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "20",
+  "uid": "legacy-20",
+  "type": "multi",
+  "prompt": "Welche Hilfsmittel in der Hundeerziehung sind tierschutzrechtlich bedenklich?",
+  "answers": {
+    "A": "Stachelhalsbänder und unbegrenzte Zughalsbänder.",
+    "B": "Sehr schmale, einschneidende Halsbänder, wie z. B. Ketten, zur Führung an der Leine.",
+    "C": "Stromreizgeräte, Geräte mit unangenehmen bis schmerzhaften Ultraschalltönen, Halsbänder mit auslösbarem Sprüh- oder Luftstoß.",
+    "D": "Clicker als Ankündigung für eine Belohnung."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hilfsmittel"
+}, {
+  "id": 21,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "21",
+  "uid": "legacy-21",
+  "type": "multi",
+  "prompt": "Was kann man über die Pubertätsphase von Hunden sagen?",
+  "answers": {
+    "A": "In der Pubertätsphase entwickelt sich die Fortpflanzungsfähigkeit von Hunden, das Interesse am anderen Geschlecht nimmt stark zu und das eigene Geschlecht wird vermehrt als Konkurrent betrachtet.",
+    "B": "Die Pubertät kann schon ab einem Alter von 5 Monaten einsetzen.",
+    "C": "Während der Pubertät sind Hunde häufig unkonzentriert und abgelenkt.",
+    "D": "Während der Pubertätsphase sollte man den Hund für unerwünschtes Verhalten und Ungehorsam strikt bestrafen, z.B. durch ein heftiges Schütteln im Nackenfell, denn der Mensch muss sich als Chef durchsetzen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme – Verständnis"
+}, {
+  "id": 22,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "22",
+  "uid": "legacy-22",
+  "type": "multi",
+  "prompt": "Welche Überlegungen muss man anstellen, wenn man sich einen Hund anschaffen will?",
+  "answers": {
+    "A": "Der ausgewählte Hund sollte von seiner Rasseveranlagung her möglichst gut zu einem passen. Das Aussehen sollte hingegen nicht ausschlaggebend für die Entscheidung sein.",
+    "B": "Beim Zusammenleben mit einem Hund könnten Probleme auftreten. Habe ich dann die Geduld, Zeit und Kraft mich darum zu kümmern?",
+    "C": "Gehört die Rasse, für die ich mich interessiere, zu einer der erlaubnispflichtigen Hunderassen, sodass ich mich erkundigen muss, ob spezielle Voraussetzungen für eine Erlaubnis zur Haltung erfüllt werden müssen?",
+    "D": "Gehört die Rasse, für die ich mich eigentlich interessiere, zu einer der Rassen mit sehr kurzer Nase, die Probleme mit der Atmung, den Augen, Beinen und der Wirbelsäule haben (sog. Qualzucht), sodass ich mich den Hunden zuliebe für eine andere Rasse entscheiden sollte?"
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundewahl"
+}, {
+  "id": 23,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "23",
+  "uid": "legacy-23",
+  "type": "multi",
+  "prompt": "Wer wäre der beste Ansprechpartner, wenn es zu Problemen im Zusammenleben kommt?",
+  "answers": {
+    "A": "Der Züchter oder ein anderer Halter derselben Rasse.",
+    "B": "Ein Tierarzt/ärztin, der/die sich auf Verhalten spezialisiert hat.",
+    "C": "Ein anderer Hundebesitzer, der seinen Hund gut unter Kontrolle hat.",
+    "D": "Ein/e moderne/r und erfahrene/r Hundetrainer/in, der/die im Bereich Problemverhalten fachlich nachweislich korrekt geschult ist und über positive Bestärkung arbeitet."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Maßnahmen"
+}, {
+  "id": 24,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "24",
+  "uid": "legacy-24",
+  "type": "multi",
+  "prompt": "Ist es für die Entwicklung des Welpen sehr wichtig, ob er in seinen ersten Lebenswochen zahlreiche Außenreize entspannt und positiv kennenlernt?",
+  "answers": {
+    "A": "Je mehr Reize der Welpe entspannt kennen lernt, desto mehr Verknüpfungen der Nervenbahnen werden in seinem Gehirn angelegt.",
+    "B": "Vielfältige Reizsituationen geben dem Welpen Selbstvertrauen und Sicherheit im Umgang mit neuen Situationen.",
+    "C": "Ein Welpe kann noch gar keine Reize verarbeiten.",
+    "D": "Die Entwicklung des Gehirns hängt nicht vom Angebot verschiedener Reize ab, sondern geschieht automatisch."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme – Verständnis"
+}, {
+  "id": 25,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "25",
+  "uid": "legacy-25",
+  "type": "multi",
+  "prompt": "Unter welchen Umständen kann ich meinen Hund in der Öffentlichkeit mit anderen Hunden spielen lassen?",
+  "answers": {
+    "A": "Im Hundeauslaufgebiet kann ich meinen Hund immer spielen lassen. Falls ein anderer Hund nicht spielen möchte, regeln die Hunde das unter sich.",
+    "B": "Wenn ich mit dem anderen Hundehalter abgeklärt habe, dass Spielkontakt erwünscht ist und beide Hunde frei laufen können.",
+    "C": "Wildes Spiel niemals an der Straße, an der Leine oder wenn sich andere Menschen oder Tiere durch die spielenden Hunde belästigt fühlen oder gefährdet werden könnten.",
+    "D": "Am sichersten ist es, wenn beide Hunde frei laufen können. Bei Welpen oder Hunden, die niemals abgeleint werden können, muss abgewogen werden zwischen der Chance auf ein ruhiges entspanntes Spiel und einer möglichen Verwicklungsgefahr der Leine oder der Leinen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundebegegnungen"
+}, {
+  "id": 26,
+  "images": [
+    "assets/questions/q026.webp"
+  ],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "26",
+  "uid": "legacy-26",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist neutral bis aufmerksam.",
+    "B": "Der Hund ist entspannt.",
+    "C": "Der Hund ist aggressiv.",
+    "D": "Der Hund ist unterwürfig."
+  },
+  "requiresVisual": true,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Bilder"
+}, {
+  "id": 27,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "27",
+  "uid": "legacy-27",
+  "type": "multi",
+  "prompt": "Unter welchen Umständen sollte man davon absehen, sich einen Hund anzuschaffen?",
+  "answers": {
+    "A": "Bei Berufstätigkeit, wenn der Hund mehr als sechs Stunden täglich allein sein müsste.",
+    "B": "Wenn absehbar ist, dass sich Berufs- oder Lebenssituation ändern werden und nicht sicher ist, ob Hundehaltung dann noch möglich ist.",
+    "C": "Wenn man keinen Garten hat.",
+    "D": "Wenn man eine starke Allergie auf Hundehaare hat."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundewahl"
+}, {
+  "id": 28,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "28",
+  "uid": "legacy-28",
+  "type": "multi",
+  "prompt": "Was kann zu Problemen zwischen Hunden und Kindern führen?",
+  "answers": {
+    "A": "Kinder können auf Spielideen kommen, die Hunden unangenehm sind.",
+    "B": "Kinder können Hundeverhalten missverstehen bzw. falsch deuten und verhalten sich dann aus Hundesicht unangemessen.",
+    "C": "Zwischen Kindern und Hunden gibt es keine Probleme, denn sie sind gleichermaßen spielbegeistert und verstehen sich immer gut.",
+    "D": "Beide, Kinder und Hunde, sind unberechenbar."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hund und Kind"
+}, {
+  "id": 29,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "29",
+  "uid": "legacy-29",
+  "type": "multi",
+  "prompt": "Welche Erfahrungen sind für ein reibungsloses Zusammenleben in der menschlichen Gesellschaft für einen Welpen wichtig?",
+  "answers": {
+    "A": "Er sollte in positiven Begegnungen viele verschiedene Menschen (von Babies bis zu alten Menschen) kennenlernen.",
+    "B": "Fahrten mit öffentlichen Verkehrsmitteln und Teilnahme am turbulenten Straßenverkehr, an die ein Hund je nach seinem Naturell schrittweise herangeführt werden sollte.",
+    "C": "Welpen sollten möglichst viel im heimischen Bereich gehalten werden, damit sie nicht überfordert werden.",
+    "D": "Aufenthalte im Zwinger, damit der Welpe lernen kann, auch einmal allein zu bleiben."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Aufzucht"
+}, {
+  "id": 30,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "30",
+  "uid": "legacy-30",
+  "type": "multi",
+  "prompt": "Darf man Hunde im Wald frei laufen lassen?",
+  "answers": {
+    "A": "Im Wald dürfen Hunde nur auf Wegen unangeleint mitgeführt werden, sofern nicht eine spezielle Leinenpflicht für das gesamte Gebiet besteht. In Naturschutzgebieten besteht grundsätzlich Leinenpflicht.",
+    "B": "Wenn der Hund nur manchmal ein paar Minuten außerhalb des Weges ist, darf man ihn frei laufen lassen, denn in so kurzer Zeit kann ein Hund im Wald keinen Schaden anrichten.",
+    "C": "Einen Hund sollte man nur dann frei laufen lassen, wenn man ihn zuverlässig in allen Situationen abrufen kann. Im Wald kann allein das Aufscheuchen von Wild zu Schäden führen. Dies kann durch Stress, das Erschöpfen von Energiereserven und das Flüchten des Wildes über die nächste Straße passieren.",
+    "D": "Gemäß dem Landesforstgesetz muss sich jeder, der den Wald betritt, so verhalten, dass die Lebensgemeinschaft Wald und die Bewirtschaftung des Waldes nicht gestört, der Wald nicht gefährdet, beschädigt oder verunreinigt wird. Die Erholung anderer darf nicht unzumutbar beeinträchtigt werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rechtliches"
+}, {
+  "id": 31,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "31",
+  "uid": "legacy-31",
+  "type": "multi",
+  "prompt": "Woran kann man erkennen, ob ein Hund einem anderen gegenüber Imponierverhalten zeigt?",
+  "answers": {
+    "A": "Er zeigt einen starren Blick am Gegner vorbei.",
+    "B": "Er macht sich groß (Kopf hoch, Ohren aufgerichtet, steifer Gang, Schwanz hoch).",
+    "C": "Er bellt und legt die Ohren an.",
+    "D": "Er stellt den Schwanz steil auf und vor Erregung wird oft ein schnelles Wedeln mit wenig Ausschlag gezeigt."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Fragen"
+}, {
+  "id": 32,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "32",
+  "uid": "legacy-32",
+  "type": "multi",
+  "prompt": "Welche Bedürfnisse des Hundes müssen bei artgerechter Haltung täglich ausreichend erfüllt werden?",
+  "answers": {
+    "A": "Der Hund muss ausreichend, d.h. mehrere Stunden täglich geistig und körperlich Beschäftigung haben. Dies muss dem Alter und dem Gesundheitszustand des Hundes angepasst werden.",
+    "B": "Der Hund muss jeden Tag ausreichend lange Sozialkontakte mit Menschen und Artgenossen haben. Dies muss den Bedürfnissen und Möglichkeiten des Hundes angepasst werden.",
+    "C": "Der Hund muss täglich ausreichend Futter erhalten und ständig frisches Wasser zur Verfügung haben.",
+    "D": "Der Hund sollte vorwiegend in einer Zwingeranlage mit gut isoliertem Boden gehalten werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Haltung"
+}, {
+  "id": 33,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "33",
+  "uid": "legacy-33",
+  "type": "multi",
+  "prompt": "Sollte man seinen Hund unbeaufsichtigt mit Kindern spielen lassen?",
+  "answers": {
+    "A": "Wenn der Hund und das Kind zusammenleben, ist das kein Problem, weil der Hund seine eigenen Familienmitglieder nie beißen bzw. verletzen würde.",
+    "B": "Wenn der Hund die Kinder kennt und mag, ist das kein Problem.",
+    "C": "Eine gute Aufsicht bei Kontakten zwischen Kindern und Hunden ist notwendig, weil es immer zu kritischen Situationen kommen kann.",
+    "D": "Nur, wenn es ein kleiner Hund ist, der den Kindern nichts tun kann."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hund und Kind"
+}, {
+  "id": 34,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "34",
+  "uid": "legacy-34",
+  "type": "multi",
+  "prompt": "Ist die Aufzucht von Welpen im Garten ideal?",
+  "answers": {
+    "A": "Der Garten ist eine natürliche Umgebung und das härtet ab.",
+    "B": "Bei einer ausschließlichen Aufzucht im Garten kann der Hund nicht genügend Erfahrungen mit Menschen und dem Leben in häuslicher Umgebung machen.",
+    "C": "Es kommt nicht darauf an, wo der Hund aufwächst, sondern wie viel ihm geboten wird. Bei einer Aufzucht im Garten muss sichergestellt sein, dass er dennoch ausreichend viele positive Kontakte mit Menschen, Umweltreizen (z.B. Staubsauger, Verkehr) und anderen Hunden hat.",
+    "D": "Im Garten lauern viele Krankheitserreger, deshalb sollten Welpen bis zur 12. Woche überhaupt nicht draußen gehalten werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Aufzucht"
+}, {
+  "id": 35,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "35",
+  "uid": "legacy-35",
+  "type": "multi",
+  "prompt": "Ist es sinnvoll, den Hund mit einem Mikrochip kennzeichnen zu lassen?",
+  "answers": {
+    "A": "Ja, per Mikrochip kann der Hund immer sicher seinem Besitzer zugeordnet werden. In NRW ist ein Mikrochip für Hunde über 20 kg oder 40 cm vorgeschrieben.",
+    "B": "Ja, die Daten eines Mikrochips, der nach den Iso-Richtlinien gefertigt ist, sind auch im Ausland lesbar.",
+    "C": "Ja, im Vergleich mit einer Tätowierung hat ein Mikrochip die Vorteile, dass eine Narkose entfällt und der Wundschmerz wesentlich geringer ist.",
+    "D": "Nein, es ist nicht sinnvoll, da der Mikrochip gesundheitlich belastend ist."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rechtliches"
+}, {
+  "id": 36,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "36",
+  "uid": "legacy-36",
+  "type": "multi",
+  "prompt": "Welche Risiken gibt es, wenn man aus erzieherischen Maßnahmen etwas nach seinem Hund wirft, z. B. einen Schlüssel oder eine Wurfkette?",
+  "answers": {
+    "A": "Der Hund kann Angst vor ähnlichen Geräuschen und Situationen bekommen. Z. B. kann es für einen Hund schwer sein zu unterscheiden, wann ein Schlüsselklimpern ihm gilt und wann nicht.",
+    "B": "Es gibt keine Risiken, es ist eine einfache Möglichkeit unerwünschtes Verhalten zu unterbrechen.",
+    "C": "Durch Schreck und Schmerz wird Stress erzeugt, der sich nachteilig auf das Lernen auswirkt und Unsicherheit und Angst fördert.",
+    "D": "Es kommt in vielen Fällen zu unbeabsichtigten Verknüpfungen und Verhaltensprobleme können gefördert oder ausgelöst werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hilfsmittel"
+}, {
+  "id": 37,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "37",
+  "uid": "legacy-37",
+  "type": "multi",
+  "prompt": "Nennen Sie Punkte, die man erfüllen muss, um einen Hund artgerecht zu halten.",
+  "answers": {
+    "A": "Der Hund braucht täglich häufige Kontaktmöglichkeiten zu Menschen und/oder Hunden.",
+    "B": "Hunde brauchen genügend Platz, um sich ausreichend bewegen zu können.",
+    "C": "Hunde brauchen ausreichend häufige (mind. dreimal täglich) und ausreichend lange (insgesamt mindestens ca. zwei Stunden am Tag für einen gesunden Hund) Spaziergänge.",
+    "D": "Es muss gewährleistet sein, dass der Hund im Krankheitsfall medizinisch versorgt werden kann."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Haltung"
+}, {
+  "id": 38,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "38",
+  "uid": "legacy-38",
+  "type": "multi",
+  "prompt": "Was sind typische „Fehler“ von Kindern bei Begegnungen mit einem Hund?",
+  "answers": {
+    "A": "Dem Hund direkt in die Augen starren.",
+    "B": "Den direkten Blick zum Hund meiden.",
+    "C": "Die Arme hochreißen, schreien oder wegrennen.",
+    "D": "Dem Hund über den Kopf streicheln."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hund und Kind"
+}, {
+  "id": 39,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "39",
+  "uid": "legacy-39",
+  "type": "multi",
+  "prompt": "Welche Punkte sind bei der Welpenerziehung wichtig?",
+  "answers": {
+    "A": "Mit der Erziehung sollte man grundsätzlich nicht in Welpentagen, sondern frühestens mit einem halben Jahr anfangen.",
+    "B": "Welpen können sich immer nur kurz konzentrieren.",
+    "C": "Einen Welpen sollte man niemals bestrafen, denn sonst fördert man Ängste gegenüber Menschen und der Welpe büßt Vertrauen in den Menschen ein.",
+    "D": "Durch frühzeitiges Training über positive Bestärkung fördert man die Bereitschaft zur Zusammenarbeit mit dem Menschen und erzielt besonders zuverlässige Ergebnisse."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Aufzucht"
+}, {
+  "id": 40,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "40",
+  "uid": "legacy-40",
+  "type": "multi",
+  "prompt": "Warum ist es wichtig, seinen Hund regelmäßig gegen Tollwut impfen zu lassen?",
+  "answers": {
+    "A": "Die Tollwutimpfung ist gesetzlich vorgeschrieben.",
+    "B": "Tollwut ist eine Infektionskrankheit, mit der sich auch Menschen infizieren können.",
+    "C": "Eine Tollwutimpfung ist überflüssig. Tollwut kommt in Deutschland überhaupt nicht mehr vor.",
+    "D": "Tollwutgeimpfte Hunde stehen gesetzlich besser da als ungeimpfte. Weiterhin ist sie für eine Einreise in viele Länder und Rückreise nach Deutschland vorgeschrieben."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Krankheiten"
+}, {
+  "id": 41,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "41",
+  "uid": "legacy-41",
+  "type": "multi",
+  "prompt": "Was bedeutet es, wenn ein Hund einem anderen den Kopf auf den Rücken legt?",
+  "answers": {
+    "A": "Er ist unterwürfig.",
+    "B": "Er macht eine Spielaufforderung.",
+    "C": "Er ist müde.",
+    "D": "Er zeigt eine Imponiergeste."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Fragen"
+}, {
+  "id": 42,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "42",
+  "uid": "legacy-42",
+  "type": "multi",
+  "prompt": "Welche Haltungsform ist wenig artgerecht und damit tierschutzrechtlich bedenklich?",
+  "answers": {
+    "A": "Die Haltung eines großen Hundes in einer kleinen Etagenwohnung, wenn man mit ihm täglich mehrere Stunden draußen unterwegs ist.",
+    "B": "Einen Hund im Krankheitsfall aus Kostengründen nicht tierärztlich behandeln zu lassen.",
+    "C": "Ein Einzeltier in der Wohnung oder im Zwinger mehr als acht Stunden täglich allein zu lassen.",
+    "D": "Einen gesunden jungen Hund jeden Tag dreimal für jeweils 15 Minuten an einer kurzen Leine auszuführen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Haltung"
+}, {
+  "id": 43,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "43",
+  "uid": "legacy-43",
+  "type": "multi",
+  "prompt": "Was ist beim Spielen von Kindern mit Hunden zu beachten?",
+  "answers": {
+    "A": "Es muss eine erwachsene Aufsichtsperson dabei sein, um eingreifen zu können, falls es einem Kind oder dem Hund zu wild oder zu viel werden sollte.",
+    "B": "Der Hund muss die Kinder als Chef ansehen, was man anhand von Unterordnungsübungen vorab testen kann.",
+    "C": "Der Hund darf nicht dazu neigen, Spielzeug gegen Kinder zu verteidigen.",
+    "D": "Wilde Rauf- und Rennspiele dürfen nicht gemacht werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hund und Kind"
+}, {
+  "id": 44,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "44",
+  "uid": "legacy-44",
+  "type": "multi",
+  "prompt": "Was muss man bei Übungen mit einem Welpen beachten?",
+  "answers": {
+    "A": "Man sollte liebevoll, aber konsequent mit ihm umgehen.",
+    "B": "Man sollte ihm im positiven Sinn viele Reizsituationen und Sozialkontakte bieten, um ihn an alltägliche Situationen zu gewöhnen, ohne ihn dabei zu überfordern.",
+    "C": "Auch bei einem Welpen muss man schon mit mäßigem Druck und Strenge arbeiten, damit er sich gar nicht erst unerwünschtes Verhalten angewöhnt.",
+    "D": "Übungen sollten spielerisch aufgebaut werden, denn so lernt der Welpe in einer stressfreien Übungsatmosphäre."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Aufzucht"
+}, {
+  "id": 45,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "45",
+  "uid": "legacy-45",
+  "type": "multi",
+  "prompt": "Was muss in Bezug auf die eigenen Wohnverhältnisse abgeklärt werden, bevor man sich einen Hund anschafft?",
+  "answers": {
+    "A": "Benötigt die Rasse, die man gerne haben möchte, besonders viel Platz oder fühlt sich besonders im Freien wohl?",
+    "B": "Die Wohnverhältnisse sind nicht wichtig, weil sich jeder Hund an die Wohnverhältnisse seines Halters anpasst.",
+    "C": "Ist in einer Mietwohnung die Haltung eines Hundes von Seiten des Vermieters wirklich sicher erlaubt?",
+    "D": "Wie bellfreudig ist die Rasse, die man gerne haben möchte und könnte Bellen ein Problem mit den Nachbarn geben?"
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundewahl"
+}, {
+  "id": 46,
+  "images": [
+    "assets/questions/q046.webp"
+  ],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "46",
+  "uid": "legacy-46",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist neutral bis aufmerksam.",
+    "B": "Der Hund ist erschöpft.",
+    "C": "Der Hund droht unsicher.",
+    "D": "Der Hund ist unterwürfig mit dem Ansatz einer beschwichtigenden Spielaufforderung."
+  },
+  "requiresVisual": true,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Bilder"
+}, {
+  "id": 47,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "47",
+  "uid": "legacy-47",
+  "type": "multi",
+  "prompt": "Hat es Vorteile, mehr als einen Hund zu halten?",
+  "answers": {
+    "A": "Ja, denn die Hunde haben dann immer einen Sozialpartner – besonders wenn man berufstätig und mehrere Stunden am Tag außer Haus ist.",
+    "B": "Ja, denn die Hunde werden nicht fettleibig, weil sie den ganzen Tag miteinander spielen.",
+    "C": "Ja, Hunde führen, wenn sie zu mehreren gehalten werden, ein artgerechteres Leben – vorausgesetzt sie verstehen sich untereinander gut.",
+    "D": "Ja, der Hund, der als zweiter hinzukommt, lernt doppelt so schnell, denn er guckt sich alles Wesentliche von dem anderen Hund ab."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundewahl"
+}, {
+  "id": 48,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "48",
+  "uid": "legacy-48",
+  "type": "multi",
+  "prompt": "Es kommt relativ häufig vor, dass Hunde Kinder im Gesicht verletzen. Warum?",
+  "answers": {
+    "A": "Das Gesicht des Kindes ist oft in Schnauzenhöhe.",
+    "B": "Kinder umarmen Hunde gerne und geben ihnen Küsse. Einigen Hunden ist diese Nähe zu viel und sie versuchen sich durch Schnappen aus der Situation zu befreien.",
+    "C": "Die Gesichtsverletzungen entstehen fast nie durch Bisse, sondern wenn die Kinder angesprungen werden und dabei hinfallen.",
+    "D": "Hunde können in seltenen Fällen versehentlich das Gesicht eines Kindes verletzen, wenn sie über das „Lefzenlecken“ Beschwichtigung signalisieren wollen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hund und Kind"
+}, {
+  "id": 49,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "49",
+  "uid": "legacy-49",
+  "type": "multi",
+  "prompt": "Wenn man einen Welpen kauft, sollte man",
+  "answers": {
+    "A": "besonders in der ersten Phase viel Zeit haben, um sich bestmöglich um den Hund kümmern zu können. Dabei muss man auch einplanen, dass es einige Monate dauern kann, bis der junge Hund weit genug im Alleinseinstraining ist, um einige Stunden allein bleiben zu können.",
+    "B": "den Züchter vorher „auf Herz und Nieren“ geprüft haben, um einen Hund mit guten charakterlichen und genetischen Anlagen zu bekommen.",
+    "C": "unbedingt einen Garten haben, denn sonst ist es zu problematisch, den Hund stubenrein zu bekommen.",
+    "D": "sicher sein, dass der Hund auch längerfristig zu dem Lebensstil und den Lebensumständen passt."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundewahl"
+}, {
+  "id": 50,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "50",
+  "uid": "legacy-50",
+  "type": "multi",
+  "prompt": "Darf man seinen Hund neben dem PKW herlaufen lassen?",
+  "answers": {
+    "A": "Nur, wenn man es eilig hat.",
+    "B": "Das ist laut Straßenverkehrsordnung verboten.",
+    "C": "Wenn der Hund langsam daran gewöhnt wird, darf man es machen.",
+    "D": "Nur auf Feldwegen darf man seinen Hund neben dem PKW herlaufen lassen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rechtliches"
+}, {
+  "id": 51,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "51",
+  "uid": "legacy-51",
+  "type": "multi",
+  "prompt": "Was bedeutet es, wenn ein Hund einen anderen Hund oder einen Menschen in angespannter Körperhaltung mit dem Blick fixiert?",
+  "answers": {
+    "A": "Es bedeutet, dass er den anderen gernhat.",
+    "B": "Es ist ein harmloses Imponierverhalten.",
+    "C": "Es ist ein offensives Drohverhalten.",
+    "D": "Es ist ein positives Sozialverhalten."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Fragen"
+}, {
+  "id": 52,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "52",
+  "uid": "legacy-52",
+  "type": "multi",
+  "prompt": "Gibt es Nachteile, wenn man mehr als einen Hund hält?",
+  "answers": {
+    "A": "Man muss doppelt so oft spazieren gehen, wenn es zu Problemen kommt, die ein Spazierengehen gleichzeitig mit beiden Hunden nicht zulassen.",
+    "B": "Man muss doppelt so viel Erziehungsarbeit leisten.",
+    "C": "Man muss doppelte Kosten für Futter, Tierarzt/ärztin, Hundesteuer, Versicherung, Ausstattung usw. tragen.",
+    "D": "Man hat zwar Nachteile, aber die Hunde gucken sich untereinander nur erwünschte Verhaltensweisen ab, sodass die Erziehung sehr einfach wird."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundewahl"
+}, {
+  "id": 53,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "53",
+  "uid": "legacy-53",
+  "type": "multi",
+  "prompt": "Wie soll ich mich verhalten, wenn ein fremder Hund auf mich und mein Kind zugestürmt kommt.",
+  "answers": {
+    "A": "Ich reiße mein Kind schnell hoch, um es aus der Gefahrenzone zu bringen.",
+    "B": "Ich schaue dem Hund in die Augen und verjage ihn.",
+    "C": "Ich bleibe ganz ruhig und stelle mich zwischen Hund und Kind und nehme mein Kind ggf. mit ruhigen Bewegungen auf den Arm.",
+    "D": "Ich reiße die Arme hoch und schreie den Hund an."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Öffentlichkeit"
+}, {
+  "id": 54,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "54",
+  "uid": "legacy-54",
+  "type": "multi",
+  "prompt": "Welche Dinge sprechen gegen den Erwerb eines Welpen dieser Herkunft?",
+  "answers": {
+    "A": "Die Hündin verbellt jeden, der in die Nähe kommt oder die Welpen bellen oder verstecken sich bzw. trauen sich nicht richtig an die Besucher heran.",
+    "B": "Die Hunde haben keine Ahnentafel.",
+    "C": "Es ist nicht möglich, die Mutterhündin mit ihren Welpen zu sehen, sondern nur die Welpen ohne die Hündin.",
+    "D": "Die Welpen rennen zu jedem hin."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundewahl"
+}, {
+  "id": 55,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "55",
+  "uid": "legacy-55",
+  "type": "multi",
+  "prompt": "Was ist zur Mitnahme von Hunden im Auto zu sagen? Kreuzen Sie die richtigen Aussagen an.",
+  "answers": {
+    "A": "Der Hund sollte auf dem Beifahrersitz sitzen.",
+    "B": "Der Hund muss immer im Kofferraum transportiert werden.",
+    "C": "Der Hund muss im Auto gesichert transportiert werden.",
+    "D": "Man kann den Hund z.B. in einer Transportbox, die auf dem Rücksitz oder im Kofferraum sicher befestigt ist, transportieren."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Haltung"
+}, {
+  "id": 56,
+  "images": [
+    "assets/questions/q056.webp"
+  ],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "56",
+  "uid": "legacy-56",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist ängstlich und unterwürfig.",
+    "B": "Der Hund ist neutral bis aufmerksam.",
+    "C": "Der Hund droht unsicher und ist erregt.",
+    "D": "Der Hund droht sicher."
+  },
+  "requiresVisual": true,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Bilder"
+}, {
+  "id": 57,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "57",
+  "uid": "legacy-57",
+  "type": "multi",
+  "prompt": "Woran erkennt man einen seriösen Züchter?",
+  "answers": {
+    "A": "Er züchtet in aller Regel Hunde verschiedener Rassen oder hält und verkauft zumindest nicht nur eine Rasse. Er hält diese Tiere in einer gut gepflegten, sauberen Zwingeranlage und achtet darauf, dass die Tiere nicht durch Besucher gestört werden.",
+    "B": "Er gibt gerne Auskunft und klärt die Interessenten auch über mögliche Nachteile der Rasse auf.",
+    "C": "Er hat ständig einen Wurf Welpen, um die Nachfrage nach der Rasse zu decken.",
+    "D": "Ein seriöser Züchter integriert die Welpen in seine Familie und bietet ihnen während der Aufzuchtphase zahlreiche Alltags- und Umweltreize."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundewahl"
+}, {
+  "id": 58,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "58",
+  "uid": "legacy-58",
+  "type": "multi",
+  "prompt": "Wie sollten sich Kinder verhalten, wenn sie einem fremden Hund begegnen?",
+  "answers": {
+    "A": "Normal weitergehen, ohne den Hund anzusehen bzw. anzusprechen.",
+    "B": "Den Halter fragen, ob sie sich dem Hund nähern dürfen, sofern sie das gerne machen möchten.",
+    "C": "Zügig auf den Hund zugehen und ihn streicheln.",
+    "D": "Vorsichtig auf den Hund zugehen und ihn ganz kurz von hinten auf den Rücken streicheln."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hund und Kind"
+}, {
+  "id": 59,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "59",
+  "uid": "legacy-59",
+  "type": "multi",
+  "prompt": "Was bedeutet es, wenn man seinen Hund bei unerwünschtem Verhalten blockiert?",
+  "answers": {
+    "A": "Unter Blockieren wird häufig verstanden, dass man sich körpersprachlich mehr oder minder offensichtlich drohend vor den Hund stellt.",
+    "B": "Empfindet der Hund es als bedrohlich, dass sein Halter ihn blockiert, fördert das Stress und Unsicherheit und damit auf Dauer aggressive oder andere unerwünschte Verhaltensweisen.",
+    "C": "Blockieren oder Schubsen eines Hundes mit unerwünschten Verhaltensweisen bringt den Hund dazu, ruhiges und entspanntes Verhalten zu lernen.",
+    "D": "Durch das Blockieren eines Hundes kann man effektiv unerwünschte Verhaltensweisen unterbinden, sodass der Hund verstehen kann, was er darf und was nicht."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Strafen"
+}, {
+  "id": 60,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "60",
+  "uid": "legacy-60",
+  "type": "multi",
+  "prompt": "Welche Rechtsgebiete können zum Beispiel für Hundehalter relevant sein?",
+  "answers": {
+    "A": "Strafrecht, Zivilrecht, Ordnungswidrigkeitenrecht, Tierschutzrecht.",
+    "B": "Landeshundegesetze und kommunale Bestimmungen.",
+    "C": "Tierschutz-Hundeverordnung.",
+    "D": "Keines, man kann sich notfalls damit herausreden, dass man den Gesetzestext nicht kennt."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rechtliches"
+}, {
+  "id": 61,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "61",
+  "uid": "legacy-61",
+  "type": "multi",
+  "prompt": "Was für eine Bedeutung hat es, wenn sich ein Hund flach auf den Boden legt und einen entgegenkommenden Hund mit dem Blick fixiert?",
+  "answers": {
+    "A": "Er möchte vermutlich einen „Angriff“ starten. Dieser Angriff kann spielerisch oder ernst ausgerichtet sein.",
+    "B": "Manche Hunde starten aus der Position keinen Angriff, sondern schaffen es einfach aufzustehen, wenn der andere Hund angekommen ist und gehen in normalen Sozialkontakt über.",
+    "C": "Es hat gar nichts mit dem anderen Hund zu tun, sondern ist ein Zeichen von starken Bauchschmerzen.",
+    "D": "Der liegende Hund macht sich klein, weil er Angst hat."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Fragen"
+}, {
+  "id": 62,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "62",
+  "uid": "legacy-62",
+  "type": "multi",
+  "prompt": "Was fördert eine vertrauensvolle Beziehung zu einem Hund?",
+  "answers": {
+    "A": "Der Hund muss im Haus immer auf seinem Platz liegen.",
+    "B": "Der Hund muss auf Spaziergängen hinter einem gehen.",
+    "C": "Der Hund kann sich darauf verlassen, dass sein Halter ihn nicht bedroht oder einschüchtert.",
+    "D": "Der Hund erlebt schöne Dinge mit seinem Halter."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Umgang und Verständnis"
+}, {
+  "id": 63,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "63",
+  "uid": "legacy-63",
+  "type": "multi",
+  "prompt": "Wie lange dauert die sogenannte Sozialisationsphase beim Welpen?",
+  "answers": {
+    "A": "Bis zum Abschluss der 8. Lebenswoche.",
+    "B": "Bis zum Abschluss der 12. bis maximal 16. Lebenswoche.",
+    "C": "Bis zur Geschlechtsreife.",
+    "D": "Bis zu einem Jahr."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Aufzucht"
+}, {
+  "id": 64,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "64",
+  "uid": "legacy-64",
+  "type": "multi",
+  "prompt": "Ist Anbindehaltung in Deutschland grundsätzlich erlaubt?",
+  "answers": {
+    "A": "Es gibt diesbezüglich keine besonderen Bestimmungen.",
+    "B": "Ja, wenn die Leine so lang ist, dass der Hund sich gut bewegen und bequem hinlegen kann, darf man ihn angebunden halten.",
+    "C": "Ja, aber die Leine muss mindestens drei Meter lang sein.",
+    "D": "Nein. Aber für Arbeitshunde gibt es bestimmte Ausnahmen. Dabei muss eine Betreuungsperson vorhanden sein, die Leine mindestens 3 Meter lang und gegen Aufdrehen gesichert sein und ein weiches breites Halsband oder Brustgeschirr verwendet werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Haltung"
+}, {
+  "id": 65,
+  "images": [
+    "assets/questions/q065.webp"
+  ],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "65",
+  "uid": "legacy-65",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist ängstlich und unterwürfig.",
+    "B": "Der Hund ist neutral bis aufmerksam.",
+    "C": "Der Hund ist müde.",
+    "D": "Der Hund droht unsicher und ist erregt."
+  },
+  "requiresVisual": true,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Bilder"
+}, {
+  "id": 66,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "66",
+  "uid": "legacy-66",
+  "type": "multi",
+  "prompt": "Was fördert ein problemloses Zusammenleben mit einem Hund?",
+  "answers": {
+    "A": "Training über positive Bestärkung.",
+    "B": "Der Hund muss auf Spaziergängen immer hinter einem gehen.",
+    "C": "Art-, rasse- und altersgerechte Beschäftigung und körperliche Betätigung.",
+    "D": "Jedes unerwünschte Verhalten muss konsequent bestraft werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Haltung"
+}, {
+  "id": 67,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "67",
+  "uid": "legacy-67",
+  "type": "multi",
+  "prompt": "Welche Verhaltensweisen des Besitzers können bei seinem Hund aggressives Verhalten auslösen, wenn der Hund unsicher ist oder ein Schmerzproblem beim Hund vorliegt?",
+  "answers": {
+    "A": "Er beugt sich über den Hund, um die Leine anzulegen.",
+    "B": "Er schiebt den Hund zur Seite.",
+    "C": "Er ignoriert den Hund, wenn dieser mit einem Ball ankommt und spielen möchte.",
+    "D": "Er greift plötzlich nach dem Hund."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme – Verständnis"
+}, {
+  "id": 68,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "68",
+  "uid": "legacy-68",
+  "type": "multi",
+  "prompt": "Warum sind gerade die ersten drei Monate im Leben eines Hundes so entscheidend?",
+  "answers": {
+    "A": "Die Hunde sammeln in dieser Zeit Erfahrungen, die ihnen im späteren Leben als Vergleichsmaßstab dienen.",
+    "B": "Die ersten drei Monate sind gar nicht so entscheidend. Alle wichtigen Erfahrungen kann ein Hund auch zu einem späteren Zeitpunkt im Leben machen.",
+    "C": "In dieser Zeit entwickelt sich das Gehirn besonders schnell. Durch gute Aufzuchtbedingungen fördert man Umweltsicherheit und soziale Sicherheit und beugt damit der Entstehung von Problemverhaltensweisen vor.",
+    "D": "Hunde binden sich in dieser Zeit unwiederbringlich an ihren Besitzer."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Aufzucht"
+}, {
+  "id": 69,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "69",
+  "uid": "legacy-69",
+  "type": "multi",
+  "prompt": "Ist es in Deutschland gestattet, einem Hund Rute oder Ohren zu kupieren?",
+  "answers": {
+    "A": "Dies ist durch bestimmte Rassebestimmungen vorgeschrieben.",
+    "B": "Nur innerhalb der ersten 16 Lebenswochen, weil die Hunde in dieser Zeit noch kein Schmerzempfinden haben.",
+    "C": "Es ist verboten.",
+    "D": "Für nachweislich jagdlich geführte Hunde kann es im Einzelfall Ausnahmen zum Kupieren der Rute geben."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rechtliches"
+}, {
+  "id": 70,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "70",
+  "uid": "legacy-70",
+  "type": "multi",
+  "prompt": "Was können im Training Hinweise für Stress sein?",
+  "answers": {
+    "A": "Hunde trainieren immer gerne, sodass sie dabei keinen negativen Stress haben können.",
+    "B": "„Stures“ Verhalten. Der Hund reagiert nicht oder nur mühselig auf eigentlich bekannte Signale oder Trainingsversuche. Denn Stress behindert das Lernen und das Abrufen bekannter Lerninhalte.",
+    "C": "Unruhiges bis hyperaktives Verhalten und Probleme mit der Konzentration.",
+    "D": "Spontanes und freudiges Reagieren auf bereits gut gelernte Signale für Trainingsinhalte."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Training"
+}, {
+  "id": 71,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "71",
+  "uid": "legacy-71",
+  "type": "multi",
+  "prompt": "Mein Hund hat beim Tierarzt/ärztin auf dem Tisch sehr viel Angst und knurrt auch. Was sind sinnvolle Maßnahmen?",
+  "answers": {
+    "A": "Ich bleibe selbst möglichst ruhig und entspannt.",
+    "B": "Ich sollte mich über ein „Medical Training“ informieren, um schrittweise über positive Bestärkung die Angst meines Hundes zu reduzieren.",
+    "C": "Das Knurren muss konsequent unterbunden werden, damit der Hund lernt, dass er sich nicht aggressiv verhalten darf.",
+    "D": "Man sollte ihn einmal laut anschreien oder ein lautes Geräusch machen, damit er aufhört sich so aufzuführen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Maßnahmen"
+}, {
+  "id": 72,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "72",
+  "uid": "legacy-72",
+  "type": "multi",
+  "prompt": "Aus welchen Gründen kann ein Hund an der Leine ziehen?",
+  "answers": {
+    "A": "Er ist dominant und will daher seinem Besitzer gegenüber durchsetzen, wo es lang geht.",
+    "B": "Er hat nicht gelernt, an lockerer Leine zu gehen.",
+    "C": "Es fällt ihm zu schwer so langsam zu gehen wie sein Halter oder ist zu abgelenkt, um sich auf artiges Gehen konzentrieren zu können.",
+    "D": "Er empfindet Angst und Stress und versucht aus der Situation weg zu ziehen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme – Verständnis"
+}, {
+  "id": 73,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "73",
+  "uid": "legacy-73",
+  "type": "multi",
+  "prompt": "Ab wann sollte man mit einem Welpen eine Welpenspielgruppe besuchen?",
+  "answers": {
+    "A": "So früh wie möglich. Welpen brauchen nicht nur sozialkompetente Althunde, sondern auch gleichaltrige Hunde zum Spielen, um ein möglichst gutes Sozialverhalten zu lernen. Ca. 3-4 Tage nach der Übernahme kann man mit einem gesunden Welpen eine Welpenspielgruppe besuchen.",
+    "B": "Ab dem vierten Lebensmonat, sofern der Welpe alle notwendigen Impfungen bekommen hat. Vorher sollte man auf keinen Fall den Welpen an andere Hunde heranlassen, um jegliches Infektionsrisiko zu vermeiden. Denn angemessenes Sozialverhalten ist Hunden angeboren, sodass ein Meiden von Kontakten in dem Alter kein Problem ist.",
+    "C": "Gar nicht, weil langes oder rauhes Welpenspiel den Gelenken schadet.",
+    "D": "Wenn der Welpe mit mindestens einem anderen Hund täglichen Kontakt hat, gar nicht, weil dieser Kontakt dem Hund für eine optimale Entwicklung reicht."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Aufzucht"
+}, {
+  "id": 74,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "74",
+  "uid": "legacy-74",
+  "type": "multi",
+  "prompt": "Ist die Kastration in Deutschland erlaubt?",
+  "answers": {
+    "A": "Ja, aber nur aus medizinischen Gründen, zur Verhinderung der unkontrollierten Fortpflanzung oder wenn die Kastration zur weiteren Haltung notwendig ist.",
+    "B": "Nein, die Kastration ist durch das Tierschutzgesetz grundsätzlich ohne jede Ausnahme verboten.",
+    "C": "Ja, aber nur wenn im Einzelfall die Vor- und Nachteile sorgfältig abgewogen werden und die Kastration zugunsten des Wohlbefindens des Hundes vorgenommen wird.",
+    "D": "Ja, aber erst ab einem Alter von einem Jahr und nur aus medizinischen Gründen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rechtliches"
+}, {
+  "id": 75,
+  "images": [
+    "assets/questions/q075.webp"
+  ],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "75",
+  "uid": "legacy-75",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist ängstlich und unterwürfig.",
+    "B": "Der Hund möchte am Bauch gestreichelt werden.",
+    "C": "Der Hund ist müde.",
+    "D": "Der Hund ist aggressiv."
+  },
+  "requiresVisual": true,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Bilder"
+}, {
+  "id": 76,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "76",
+  "uid": "legacy-76",
+  "type": "multi",
+  "prompt": "Warum kann ein junger oder ängstlicher Hund in Begrüßungssituationen Urin absetzen?",
+  "answers": {
+    "A": "Es handelt sich dabei in der Regel um mangelhafte Stubenreinheit.",
+    "B": "Es handelt sich dabei in der Regel um ein sogenanntes Unterwürfigkeitsharnen, womit der Hund seine Unterlegenheit unterstreicht. Ein solches Verhalten wirkt auf einen anderen Hund beschwichtigend.",
+    "C": "Es handelt sich dabei in der Regel um eine Provokation, womit der Hund testen will, ob er damit durchkommt.",
+    "D": "Es handelt sich dabei in der Regel um ein körperliches Problem der Blasenkontrolle."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Umgang und Verständnis"
+}, {
+  "id": 77,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "77",
+  "uid": "legacy-77",
+  "type": "multi",
+  "prompt": "Was ist zu tun, wenn ein Hund, der immer lieb und friedlich war, ganz plötzlich aggressives Verhalten zeigt?",
+  "answers": {
+    "A": "Der Hund sollte schnellstens dem/der Tierarzt/ärztin vorgestellt werden, denn er könnte Schmerzen oder eine Erkrankung haben, die ihn belastet.",
+    "B": "Man sollte ihn sofort eindrücklich bestrafen, denn so etwas darf man nicht durchgehen lassen.",
+    "C": "Gar nichts. Aggressives Verhalten ist ein normales Hundeverhalten.",
+    "D": "Man sollte lediglich die Fütterung umstellen und mehr Kohlenhydrate füttern."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Maßnahmen"
+}, {
+  "id": 78,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "78",
+  "uid": "legacy-78",
+  "type": "multi",
+  "prompt": "Können Hunde unsere Sprache verstehen?",
+  "answers": {
+    "A": "Hunde haben kein Sprachverständnis.",
+    "B": "Hunde verstehen sehr wohl, was man ihnen sprachlich erklärt, vor allem wenn sie etwas falsch gemacht haben.",
+    "C": "Hunde können keine Sprache verstehen, aber sie können in der Sprache einzelne Wörter als Klangfolge wiedererkennen, deren Bedeutung sie gelernt haben.",
+    "D": "Hunde können Sprache sehr gut verstehen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Umgang und Verständnis"
+}, {
+  "id": 79,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "79",
+  "uid": "legacy-79",
+  "type": "multi",
+  "prompt": "Was geschieht im Falle eines Unfalls, wenn ein Hund ungesichert im Auto transportiert wird?",
+  "answers": {
+    "A": "Er kann aus dem Fahrzeug geschleudert werden und weglaufen.",
+    "B": "Eigentlich kann nichts Schlimmes passieren, da die Hunde ja zumeist im Auto liegen.",
+    "C": "Der Hund kann bei einem Autounfall ein erhebliches Verletzungsrisiko für Insassen darstellen und auch selbst schwer verletzt werden.",
+    "D": "Dem Fahrer kann unabhängig vom Unfallhergang eine Teilschuld zugesprochen werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rechtliches"
+}, {
+  "id": 80,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "80",
+  "uid": "legacy-80",
+  "type": "multi",
+  "prompt": "Woran erkennen Sie, dass Hunde miteinander spielen?",
+  "answers": {
+    "A": "Sie zeigen gelegentlich eine Spielaufforderung.",
+    "B": "Im Spiel sind alle Spielpartner ausgelassen und fröhlich und in der Regel wechseln die Positionen.",
+    "C": "Im Spiel wird ein Hund in die Ecke getrieben oder umgeworfen. Der „Unterlegene“ quiekt hierbei laut auf, schnappt um sich und hat die Rute eingeklemmt.",
+    "D": "Alles ist Spiel, wenn keine offenen Wunden entstehen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundebegegnungen"
+}, {
+  "id": 81,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "81",
+  "uid": "legacy-81",
+  "type": "multi",
+  "prompt": "Führt eine Kastration des Rüden immer zur Verminderung der Aggression gegenüber anderen Rüden?",
+  "answers": {
+    "A": "Uneingeschränkt ja.",
+    "B": "Grundsätzlich nein.",
+    "C": "Nicht immer. Durch eine Kastration wirkt ein Rüde nicht mehr als Konkurrent auf andere Rüden und löst dadurch weniger aggressives Verhalten anderer Rüden aus. Zusätzlich kann ihm selbst das Streiten weniger wichtig werden. Es beeinflusst aber nicht sein erlerntes Sozialverhalten.",
+    "D": "Nur wenn männliche Hormone die Ursache für das aggressive Verhalten sind."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Maßnahmen"
+}, {
+  "id": 82,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "82",
+  "uid": "legacy-82",
+  "type": "multi",
+  "prompt": "Ist es ein Zeichen von Aggression, wenn ein Hund auf dem Spaziergang zu einer fremden Person hinrennt und diese unvermittelt anspringt?",
+  "answers": {
+    "A": "Nicht unbedingt, aber es ist ein Verhalten, das man über Training beeinflussen sollte, da es Leute gibt, die Angst vor Hunden haben, körperlich einem Hund nicht gewachsen sind oder es wegen ihrer Kleidung oder einfach grundsätzlich nicht mögen.",
+    "B": "Ja, Anspringen ist ein aggressives Verhalten.",
+    "C": "Nein, das Anspringen ist immer als Spielaufforderung zu verstehen.",
+    "D": "Nein, es ist grundsätzlich ein Zeichen großer Zuneigung."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme – Verständnis"
+}, {
+  "id": 83,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "83",
+  "uid": "legacy-83",
+  "type": "multi",
+  "prompt": "Gibt es gesetzliche Vorschriften für die Zwingerhaltung von Hunden?",
+  "answers": {
+    "A": "Nein, jeder Hundehalter kann entscheiden, wie er seinen Hund halten möchte.",
+    "B": "Ja, es gibt eine Tierschutz-Hundeverordnung.",
+    "C": "Ja, sie besagen, dass nur Hunde, die größer als 40 cm Schulterhöhe sind, in Zwingeranlagen gehalten werden dürfen.",
+    "D": "Ja, es müssen Anforderungen aus der Tierschutz-Hundeverordnung erfüllt werden. Dazu gehören die Größe und die Ausstattung des Zwingers, die Häufigkeit und Dauer des täglichen Auslaufs und der Sozialkontakte mit Menschen und Hunden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Haltung"
+}, {
+  "id": 84,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "84",
+  "uid": "legacy-84",
+  "type": "multi",
+  "prompt": "Was ist ein Kopfhalfter für Hunde und was muss man bei der Verwendung berücksichtigen?",
+  "answers": {
+    "A": "Ein Kopfhalfter ist ein spezieller Maulkorb, der dauerhaft das Maul des Hundes zusammenzieht, sodass er es nicht mehr aufmachen und beißen kann.",
+    "B": "Ein Kopfhalfter ähnelt einem Pferdehalfter, aber um die Schnauze ist eine flexible Schlaufe mit einem Ring für die Leine am unteren Ende. Es wird am sichersten mit einer Doppelleine verwendet. Der kleinere Haken der Leine wird am Kopfhalfter befestigt, der größere Haken am Halsband oder Brustgeschirr. Der Hund kann über das Kopfhalfter schmerzfrei gelenkt werden.",
+    "C": "An ein Kopfhalfter muss ein Hund schrittweise gewöhnt werden. Der/die Halter/in sollte mit professioneller Anleitung das sichere Führen des Hundes an einem Kopfhalfter erlernen.",
+    "D": "Mit einem Kopfhalfter muss ein Hund hecheln können. Es darf sich nicht schmerzhaft zusammenziehen und nicht in die Augen rutschen. Man muss auf eine sanfte Führung achten, um die Halswirbelsäule nicht zu belasten."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hilfsmittel"
+}, {
+  "id": 85,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "85",
+  "uid": "legacy-85",
+  "type": "multi",
+  "prompt": "In welcher der genannten Situationen können Hunde aggressiv reagieren?",
+  "answers": {
+    "A": "Wenn sie von einer fremden Person plötzlich angefasst werden und nicht ausweichen können.",
+    "B": "Wenn man sie beim Fressen stört.",
+    "C": "Beim Tierarzt/ärztin bei schmerzhaften Manipulationen oder aus Angst.",
+    "D": "Wenn man vermeidet, einem fremden Hund direkt in die Augen zu schauen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Ursachen und Vorbeugen"
+}, {
+  "id": 86,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "86",
+  "uid": "legacy-86",
+  "type": "multi",
+  "prompt": "Welche der aufgezählten Gesten können Hunde zur Beschwichtigung einsetzen?",
+  "answers": {
+    "A": "Sich-über-die-Nase-Lecken.",
+    "B": "Pföteln.",
+    "C": "Kopf abwenden.",
+    "D": "Einen starren Blick nach vorne."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Fragen"
+}, {
+  "id": 87,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "87",
+  "uid": "legacy-87",
+  "type": "multi",
+  "prompt": "Welche Vorteile bietet die Verwendung eines Kopfhalfters zusätzlich zum Halsband oder Brustgeschirr?",
+  "answers": {
+    "A": "Man kann mit Hilfe des Kopfhalfters den Kopf des Hundes sanft lenken und kontrollieren.",
+    "B": "Es bietet keine Vorteile. Im Gegenteil, die Verletzungsgefahr von Nase und Halswirbelsäule ist erheblich.",
+    "C": "Das Kräfteverhältnis zwischen Mensch und Hund wird zugunsten des Menschen verschoben.",
+    "D": "Keine, es hat den Nachteil, dass der zur Erziehung des Hundes notwendige Leinenruck nicht mehr ausgeführt werden kann."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hilfsmittel"
+}, {
+  "id": 88,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "88",
+  "uid": "legacy-88",
+  "type": "multi",
+  "prompt": "Was sind Anzeichen von Angst und Stress?",
+  "answers": {
+    "A": "Der Hund macht sich klein und versucht zu fliehen.",
+    "B": "Er hechelt und hat dabei den Schwanz eingeklemmt und die Ohren nach hinten gelegt.",
+    "C": "Er ist unruhig, gähnt und leckt sich häufig über die Nase.",
+    "D": "Er zeigt ein breites Wedeln mit dem Schwanz auf Höhe der Rückenlinie."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Fragen"
+}, {
+  "id": 89,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "89",
+  "uid": "legacy-89",
+  "type": "multi",
+  "prompt": "Wie erkennt ein Hund eine souveräne Führung seines Halters?",
+  "answers": {
+    "A": "Man dreht den Hund bei unerwünschtem Verhalten auf den Rücken, um ihm zu zeigen, dass man überlegen ist.",
+    "B": "Vertrauensvolles Training über positive Bestärkung.",
+    "C": "Verzicht auf Strafen als übliche Maßnahmen zur Erziehung.",
+    "D": "Man geht auf jeglichen Wunsch nach Aufmerksamkeit seines Hundes ein."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Umgang und Verständnis"
+}, {
+  "id": 90,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "90",
+  "uid": "legacy-90",
+  "type": "multi",
+  "prompt": "Birgt der Einsatz von Sprühflaschen oder Rappeldosen bestimmte Gefahren?",
+  "answers": {
+    "A": "Der Hund kann Angst vor ähnlichen Geräuschen und Situationen bekommen.",
+    "B": "Es ist eine einfache Möglichkeit unerwünschtes Verhalten zu unterbrechen.",
+    "C": "Durch Schreck wird Stress erzeugt.",
+    "D": "Es kommt in vielen Fällen zu unbeabsichtigten Verknüpfungen und Verhaltensprobleme können gefördert werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hilfsmittel"
+}, {
+  "id": 91,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "91",
+  "uid": "legacy-91",
+  "type": "multi",
+  "prompt": "Wie vermittelt man seinem Hund, dass man eine Führungspersönlichkeit für ihn ist?",
+  "answers": {
+    "A": "Man nimmt dem Hund regelmäßig einen Kauknochen oder das Futter weg.",
+    "B": "Man unterwirft den Hund, indem man ihn auf den Rücken dreht oder auf den Boden drückt, wenn er ein unerwünschtes Verhalten zeigt.",
+    "C": "Man ignoriert aufdringliches und forderndes Verhalten des Hundes.",
+    "D": "Man reagiert dem Hund gegenüber immer entspannt und souverän und fördert über positive Bestärkung erwünschte Verhaltensweisen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Umgang und Verständnis"
+}, {
+  "id": 92,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "92",
+  "uid": "legacy-92",
+  "type": "multi",
+  "prompt": "Was ist zu tun, wenn ein Hund Angstprobleme hat?",
+  "answers": {
+    "A": "Man sucht die Situation, bei der der Hund sehr viel Angst hat, immer wieder auf, damit der Hund sich gewöhnen kann.",
+    "B": "Man meidet die angstauslösenden Situationen soweit möglich und sucht einen Tierarzt/-ärztin auf, der/die auf Verhaltenstherapie spezialisiert ist.",
+    "C": "Angstprobleme können ein erhebliches Leiden darstellen und müssen behandelt werden.",
+    "D": "Solange das Angstproblem des Hundes im eigenen Alltag nicht stört, braucht man nichts zu unternehmen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Maßnahmen"
+}, {
+  "id": 93,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "93",
+  "uid": "legacy-93",
+  "type": "multi",
+  "prompt": "Was sind mögliche Ursachen, wenn ein Hund sich bei einer Begegnung mit einem anderen direkt aggressiv verhält?",
+  "answers": {
+    "A": "Der Hund will mit seinem aggressiven Verhalten den anderen Hund unterordnen und so seine Ranghöhe klarstellen.",
+    "B": "Der Hund ist unsicher im Sozialverhalten mit anderen Hunden.",
+    "C": "Der andere Hund hat gedroht, ohne dass es von den Menschen wahrgenommen wurde.",
+    "D": "Der Hund hat bereits erlebt, dass sein Halter bei Hundebegegnungen böse auf ihn werden kann und verhält sich daher aggressiv."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundebegegnungen"
+}, {
+  "id": 94,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "94",
+  "uid": "legacy-94",
+  "type": "multi",
+  "prompt": "Sollte man, wenn man einen Hund übernimmt, mit dem Hund zum/r Tierarzt/ärztin gehen, auch wenn der Hund einen gesunden Eindruck macht?",
+  "answers": {
+    "A": "Ja, damit der/die Tierarzt/ärztin anhand des Impfpasses überprüfen kann, ob der Hund ausreichend geimpft ist.",
+    "B": "Ja, damit sich der Hund an den/die Tierarzt/ärztin und die Abläufe in der Praxis gewöhnt.",
+    "C": "Nein, so etwas ist nicht notwendig und wäre eine übermäßige Belastung für den Hund.",
+    "D": "Ja, damit der/die Tierarzt/ärztin den Hund möglichst auch einmal gesund kennen lernen kann. Er/Sie kann dann krankheitsbedingte Veränderungen besser einordnen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Gesundheit"
+}, {
+  "id": 95,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "95",
+  "uid": "legacy-95",
+  "type": "multi",
+  "prompt": "Auf dem Hundespaziergang kommt einem ein/e Reiter/in entgegen. Wie soll man sich verhalten?",
+  "answers": {
+    "A": "Wenn der Hund Pferde kennt, braucht man nichts zu unternehmen, denn dann hat der Hund keine Angst.",
+    "B": "Man sollte den Hund heranrufen und an die Leine nehmen, bis Pferd und Reiter/in vorbei sind und man sicher weiß, dass der Hund nicht hinterherrennen wird.",
+    "C": "Wenn der/die Reiter/in nur „Schritt“ reitet, ist keine Gefahr gegeben, denn das langsame Reiten verleitet nicht zum Jagen.",
+    "D": "Man sollte seinen Hund grundsätzlich unter Kontrolle nehmen, da manche Pferde auch bei ruhigen und freundlichen Hunden ängstlich reagieren und dadurch Unfälle entstehen können."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Öffentlichkeit"
+}, {
+  "id": 96,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "96",
+  "uid": "legacy-96",
+  "type": "multi",
+  "prompt": "Was zeigt eine gute Bindung zwischen Mensch und Hund an?",
+  "answers": {
+    "A": "Der Hund verhält sich gegenüber seinem Menschen entspannt und unbefangen.",
+    "B": "Der Hund hat Spaß an Übungen, die „sein“ Mensch von ihm verlangt.",
+    "C": "Wenn die Bezugspersonen häufig wechseln, lernt der Hund eine grundsätzlich gute Bindung gegenüber allen Menschen.",
+    "D": "Bei einer guten Bindung zeigt ein Hund niemals Verhaltensprobleme."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Umgang und Verständnis"
+}, {
+  "id": 97,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "97",
+  "uid": "legacy-97",
+  "type": "multi",
+  "prompt": "Gibt es Dinge, die man prophylaktisch tun kann, damit der Hund gesund bleibt?",
+  "answers": {
+    "A": "Ja. Der Hund sollte z.B. regelmäßig geimpft und entwurmt werden.",
+    "B": "Ja, man sollte den ganzen Körper z.B. beim Streicheln täglich genau anschauen, um Veränderungen oder Parasitenbefall sofort zu erkennen.",
+    "C": "Ja, man sollte den Hund regelmäßig bei dem/der Tierarzt/ärztin vorstellen, um Erkrankungen frühzeitig erkennen zu können.",
+    "D": "Ja, einmal wöchentlich sollte man den Hund baden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Gesundheit"
+}, {
+  "id": 98,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "98",
+  "uid": "legacy-98",
+  "type": "multi",
+  "prompt": "Zwischen zwei Hunden entwickelt sich eine Rauferei. Wie sollte man reagieren?",
+  "answers": {
+    "A": "Man sollte die raufenden Hunde so lange möglichst laut anschreien, bis sie aufhören sich zu raufen.",
+    "B": "Man sollte sich möglichst gar nicht einmischen, sofern die Kräfteverhältnisse nicht zu extrem unterschiedlich sind. Beide Besitzer sollten sich kommentarlos und zügig in entgegengesetzter Richtung von den Hunden entfernen.",
+    "C": "Wenn nur zwei Hunde in die Rauferei verwickelt sind, sollte man die Hunde trennen, indem man am Schwanz oder an den Hinterbeinen zieht, und zwar gleichzeitig bei beiden Hunden.",
+    "D": "Man sollte den Hund, der angegriffen worden ist, hinterher trösten und den anderen streng zurechtweisen und bestrafen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundebegegnungen"
+}, {
+  "id": 99,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "99",
+  "uid": "legacy-99",
+  "type": "multi",
+  "prompt": "Welche Behandlungen können das Vertrauensverhältnis zwischen Hund und Halter schwächen?",
+  "answers": {
+    "A": "Der Einsatz von Strafen.",
+    "B": "Ein Maßregeln des Hundes, wenn er in einer Situation unerwünschtes Verhalten zeigt.",
+    "C": "Viel Beschäftigung mit dem Hund.",
+    "D": "Den Hund häufig in Situationen zwingen, die er schrecklich findet, wie z. B. unangenehmes oder gar schmerzhaftes Bürsten."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Strafen"
+}, {
+  "id": 100,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "100",
+  "uid": "legacy-100",
+  "type": "multi",
+  "prompt": "Welche Hilfsmittel können bei Problemen mit der Leinenführigkeit hilfreich sein?",
+  "answers": {
+    "A": "unbegrenzte Zughalsbänder.",
+    "B": "Kopfhalfter ohne einschnürende Zugwirkung.",
+    "C": "Brustgeschirre, bei denen man die Leine vorne an der Brust des Hundes einhakt (sog. Hareness Geschirre). Dies ist nur sinnvoll bei Hunden, die daran nicht so sehr ziehen, dass das Geschirr ständig stark das Vorderbein nach vorne drückt.",
+    "D": "Halsband mit einer Leine, an der man gut rucken kann."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hilfsmittel"
+}, {
+  "id": 101,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "101",
+  "uid": "legacy-101",
+  "type": "multi",
+  "prompt": "Wie viel Bewegung braucht ein Hund?",
+  "answers": {
+    "A": "Das ist abhängig von der Größe, dem Alter und dem Gesundheitszustand.",
+    "B": "Hunde brauchen nicht viel Bewegung. Es sind Tiere, die Gemütlichkeit lieben.",
+    "C": "Zu viel Bewegung schadet den Gelenken. Daher sollten Welpen und Junghunde nur 5 Minuten pro Lebensmonat Auslauf bekommen.",
+    "D": "Das ist abhängig von der Art und der Menge der Fütterung. Ein Hund, der viel Fleisch bekommt, braucht mehr Bewegung."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Haltung"
+}, {
+  "id": 102,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "102",
+  "uid": "legacy-102",
+  "type": "multi",
+  "prompt": "Auf einer Wiese spielt eine Gruppe von Kindern Fußball. Wie verhalten Sie sich mit Ihrem frei laufenden Hund?",
+  "answers": {
+    "A": "Wenn dies ein Hundeauslaufgebiet ist, darf ich den Hund frei laufen lassen. Ich erkläre den Fußballspielern/innen das und schicke sie weg.",
+    "B": "Ich muss gar nichts unternehmen, denn mein Hund ist nicht aggressiv. Für den Fall, dass er im Übermut den Ball kaputt machen sollte, habe ich eine Haftpflichtversicherung.",
+    "C": "Ich leine den Hund vorsichtshalber an, bis ich an den Ball spielenden Kindern vorbei bin und sicher weiß, dass der Hund nicht zurücklaufen wird.",
+    "D": "Man muss in solchen Situationen nur große Hunde anleinen, denn ein kleiner Hund kann einem Kind nicht gefährlich werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Öffentlichkeit"
+}, {
+  "id": 103,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "103",
+  "uid": "legacy-103",
+  "type": "multi",
+  "prompt": "Ist es wichtig mit einem Hund über positive Bestärkung zu üben, dass er sich überall anfassen lässt?",
+  "answers": {
+    "A": "Es fördert das gegenseitige Vertrauen.",
+    "B": "Es erleichtert Pflegemaßnahmen.",
+    "C": "Körperkontakte stärken die Bindung.",
+    "D": "Ein Hund, der gut untergeordnet ist, lässt sich überall problemlos anfassen, ohne dass man es extra üben muss."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme – Verständnis"
+}, {
+  "id": 104,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "104",
+  "uid": "legacy-104",
+  "type": "multi",
+  "prompt": "Wer ist für das Entfernen von Hundekot verantwortlich?",
+  "answers": {
+    "A": "Die Städte, denn dafür wird Hundesteuer bezahlt.",
+    "B": "Der Halter.",
+    "C": "Die Allgemeinheit. Jeder, der einen Hundehaufen sieht, muss ihn entfernen.",
+    "D": "Niemand. Hundekot muss nicht entfernt werden, denn es ist etwas Natürliches, mit dem man leben muss."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Öffentlichkeit"
+}, {
+  "id": 105,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "105",
+  "uid": "legacy-105",
+  "type": "multi",
+  "prompt": "In welchem Bereich liegt die normale Körpertemperatur des Hundes?",
+  "answers": {
+    "A": "Im After gemessen ca. 38 °C.",
+    "B": "Im After gemessen ca. 36 °C.",
+    "C": "Solange die Nase kühl und feucht ist, hat der Hund kein Fieber. Fiebermessen ist dann nicht notwendig.",
+    "D": "Ab einer Temperatur von 39,3 °C hat ein erwachsener Hund Fieber."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Gesundheit"
+}, {
+  "id": 106,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "106",
+  "uid": "legacy-106",
+  "type": "multi",
+  "prompt": "Wie verhalten Sie sich, wenn Sie auf dem Hundespaziergang an einem Kinderspielplatz vorbeikommen?",
+  "answers": {
+    "A": "Mein Hund liebt Kinder. Ich gucke, ob Kinder da sind, damit mein Hund mit den Kindern toben kann.",
+    "B": "In der Nähe von Kinderspielplätzen leine ich meinen Hund an. Dadurch kann ich vermeiden, dass sich jemand belästigt oder gefährdet fühlt.",
+    "C": "Wenn keine Kinder da sind, lasse ich den Hund laufen, denn er liebt es durch den Sand zu rennen.",
+    "D": "Ich habe einen kleinen Hund, der keine Gefahr für Kinder darstellt, deshalb lasse ich ihn einfach laufen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Öffentlichkeit"
+}, {
+  "id": 107,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "107",
+  "uid": "legacy-107",
+  "type": "multi",
+  "prompt": "Was sind sinnvolle Maßnahmen, um den Umgang von Kindern und Hunden sicherer zu gestalten?",
+  "answers": {
+    "A": "Man muss den Hund beobachten, ob er beim Umgang mit den Kindern wirklich entspannt und zufrieden ist und ihn im Zweifelsfall „retten“.",
+    "B": "Wenn ein Hund einen Maulkorb aufhat, kann man ihn immer zwischen Kindern laufen lassen. Denn dann ist sichergestellt, dass der Hund die Kinder nicht verletzten kann.",
+    "C": "Hunde, die unsicher oder ängstlich im Umgang mit Kindern sind, sollten an der Leine gehalten werden. Dabei muss Sorge dafür getragen werden, dass genügend Abstand zu den Kindern eingehalten werden kann, damit der Hund sich wohl fühlen kann. Bei Hunden mit Problemen mit Kindern kann die Gewöhnung an einen Maulkorb eine sinnvolle zusätzliche Sicherungsmaßnahme sein.",
+    "D": "Solange nicht wirklich klar ist, wie gut ein Hund mit Kindern einer bestimmten Altersklasse zurechtkommt, muss der Halter immer dichter am Hund als das Kind sein, um im Notfall dazwischen zu stehen. Dabei geht es sowohl darum, dass sich der Hund in nicht freundlicher Absicht dem jeweiligen Kind nähern könnte, als auch darum, dass sich das Kind unabsichtlich bedrohlich dem Hund nähern könnte."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hund und Kind"
+}, {
+  "id": 108,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "108",
+  "uid": "legacy-108",
+  "type": "multi",
+  "prompt": "In welcher der folgenden Situationen ist es angebracht, den Hund an der Leine zu halten?",
+  "answers": {
+    "A": "In der Innenstadt und an stark befahrenen Straßen.",
+    "B": "Im Treppenhaus und auf Zugangswegen von Mehrfamilienhäusern.",
+    "C": "In Hotels, in Läden oder in Restaurants.",
+    "D": "In Gebieten mit viel Wild."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Öffentlichkeit"
+}, {
+  "id": 109,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "109",
+  "uid": "legacy-109",
+  "type": "multi",
+  "prompt": "Kann es Probleme geben, wenn zwei angeleinte Hunde miteinander Kontakt aufnehmen?",
+  "answers": {
+    "A": "Ja, denn Hunde fühlen sich an der Leine grundsätzlich stärker und es kommt daher häufiger zu einer Rauferei.",
+    "B": "Ja. Wenn die Hunde umeinander herumlaufen, können sich die Leinen verheddern. Die Gefahr einer Rauferei ist dann sehr groß, da keiner der Hunde ein normales Sozialverhalten zeigen kann. Bei verhedderten Leinen ist es schwerer, eine Rauferei zu beenden.",
+    "C": "Ja, da Hunde an der Leine schlechter ausweichen können, können sie unsicherer sein und schneller aggressiv reagieren.",
+    "D": "Ja, es gibt Hunde, die an der Leine schneller aggressiv reagieren. Daher sollte man vorab klären, ob ein Kontakt der Hunde erwünscht ist und besonders umsichtig mit der Leine umgehen, sodass die Hunde möglichst nicht behindert werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundebegegnungen"
+}, {
+  "id": 110,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "110",
+  "uid": "legacy-110",
+  "type": "multi",
+  "prompt": "Ist es eine Frage des Alters eines Kindes, ob das Zusammenleben mit einem Hund reibungslos funktioniert?",
+  "answers": {
+    "A": "Es ist eine Frage der Sozialisation, ob ein Hund mit Kindern einer bestimmten Altersklasse gut zurechtkommt oder nicht.",
+    "B": "Es hat mit dem Alter des Kindes nichts zu tun. Ein Hund erkennt die Kinder der eigenen Familie immer als zugehörig und ist ihnen wohlgesonnen.",
+    "C": "Je kleiner die Kinder, desto wahrscheinlicher ist es, dass sie sich nicht rücksichtsvoll dem Hund gegenüber verhalten.",
+    "D": "Es gibt Hunde, denen wildes Toben im Haus zu viel werden kann. Daher kann es bei älteren oder ruhigen Kindern in solchen Fällen reibungsloser funktionieren."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hund und Kind"
+}, {
+  "id": 111,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "111",
+  "uid": "legacy-111",
+  "type": "multi",
+  "prompt": "Wie verhalten Sie sich, wenn Ihnen ein Jogger entgegenkommt und Ihr Hund frei läuft?",
+  "answers": {
+    "A": "Ich brauche nichts zu unternehmen, weil mein Hund höchstens zu dem Jogger hinläuft, ihn aber nicht belästigt oder beißt.",
+    "B": "Ich rufe meinen Hund zu mir, leine ihn an und lasse ihn erst wieder los, wenn ich sicher weiß, dass er den Jogger nicht verfolgen wird.",
+    "C": "Ich renne ein Stückchen mit dem Jogger mit. Das lenkt meinen Hund vom Jogger ab, denn er konzentriert sich dann nur auf mich.",
+    "D": "Ich bitte den Jogger möglichst langsam zu laufen, um meinen Hund nicht zum Hinterherrennen zu verleiten."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Öffentlichkeit"
+}, {
+  "id": 112,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "112",
+  "uid": "legacy-112",
+  "type": "multi",
+  "prompt": "Was ist bei der Sozialisierung eines Hundes auf Kinder zu beachten?",
+  "answers": {
+    "A": "Der Hund sollte besonders im Welpenalter rigoros vor Kindern abgeschirmt werden, denn Kinder wollen Hunde nur ärgern oder bedrängen.",
+    "B": "Man muss nur darauf achten, dass ein Hund freien Kontakt mit Kindern hat, bei denen er alles, was die Kinder mit ihm machen, ohne offensichtliche Gegenwehr erträgt.",
+    "C": "Der Hund braucht nur den Kontakt zu einem Kind, um ausreichend auf Kinder sozialisiert zu werden.",
+    "D": "Der Hund sollte im Welpenalter genügend Kontakte zu Kindern aller Altersstufen haben, die er wirklich als positiv erlebt."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hund und Kind"
+}, {
+  "id": 113,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "113",
+  "uid": "legacy-113",
+  "type": "multi",
+  "prompt": "Bei einer Kastration werden/wird",
+  "answers": {
+    "A": "beim männlichen Tier die Hoden entfernt, weibliche Tiere werden sterilisiert.",
+    "B": "die Hoden bzw. die Eierstöcke und ggf. die Gebärmutter entfernt.",
+    "C": "die Eileiter bzw. Samenleiter durchtrennt.",
+    "D": "die Zeugungsfähigkeit unwiederbringlich unterbunden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Geschlechter"
+}, {
+  "id": 114,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "114",
+  "uid": "legacy-114",
+  "type": "multi",
+  "prompt": "Was hat es zu bedeuten, wenn ein Hund seinen Knochen oder Spielzeug nicht abgeben will?",
+  "answers": {
+    "A": "Es handelt sich um einen Hund, dem die Ressource Knochen oder Spielzeug besonders wichtig ist, sodass er über positive Bestärkung lernen muss, Dinge gerne abzugeben.",
+    "B": "Ein Hund verteidigt nur seinen Knochen oder Spielzeug gegen Menschen, die er nicht als Rudelführer anerkennt.",
+    "C": "Hunde, die Spielzeug oder Knochen gegen Menschen verteidigen, wollen damit beweisen, dass sie dem Menschen übergeordnet sind.",
+    "D": "Es kann sich um einen Hund handeln, der bereits dafür bestraft wurde, wenn er etwas nicht hergeben wollte. Dies führt oft dazu, dass ein Hund sich aus Angst vor Strafen dazu genötigt sieht, noch aggressiver zu reagieren."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme – Verständnis"
+}, {
+  "id": 115,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "115",
+  "uid": "legacy-115",
+  "type": "multi",
+  "prompt": "Geben Sie die Dauer der Trächtigkeit einer Hündin an.",
+  "answers": {
+    "A": "3 Monate.",
+    "B": "Je nach Rasse zwischen vier Wochen und zwei Monaten.",
+    "C": "9 Monate.",
+    "D": "57 – 63 Tage."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Geschlechter"
+}, {
+  "id": 116,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "116",
+  "uid": "legacy-116",
+  "type": "multi",
+  "prompt": "Auf einer Hundewiese macht eine Gruppe von Kindern Picknick. Wie verhalten Sie sich, wenn Sie mit Ihrem freilaufenden Hund dort vorbeikommen?",
+  "answers": {
+    "A": "Da ich sicher weiß, dass mein Hund Kindern nichts tut, lasse ich ihn laufen.",
+    "B": "Ich leine meinen Hund auf jeden Fall an, denn ich möchte nicht, dass sich andere Menschen durch meinen Hund bedrängt fühlen oder Angst bekommen.",
+    "C": "Ich rufe den Kindern laut zu, dass mein Hund nichts tut.",
+    "D": "Ich erkläre den Kindern, dass picknicken in einem Hundeauslaufgebiet verboten ist und schicke sie weg."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Öffentlichkeit"
+}, {
+  "id": 117,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "117",
+  "uid": "legacy-117",
+  "type": "multi",
+  "prompt": "Welche Maßnahmen sind sinnvoll, um Verhaltensproblemen bei einem Hund vorzubeugen?",
+  "answers": {
+    "A": "Striktes Bestrafen unerwünschter Verhaltensweisen.",
+    "B": "Souveräner und verständnisvoller Umgang.",
+    "C": "Ignorieren ständiger Aufmerksamkeit fordernder Verhaltensweisen des Hundes.",
+    "D": "Training über positive Bestärkung."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Ursachen und Vorbeugen"
+}, {
+  "id": 118,
+  "images": [],
+  "options": [
+    "A",
+    "B"
+  ],
+  "correct": [
+    "A"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "118",
+  "uid": "legacy-118",
+  "type": "multi",
+  "prompt": "Kann eine Hündin bei der ersten Läufigkeit schon erfolgreich gedeckt werden?",
+  "answers": {
+    "A": "Ja.",
+    "B": "Nein."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Geschlechter"
+}, {
+  "id": 119,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "119",
+  "uid": "legacy-119",
+  "type": "multi",
+  "prompt": "Wie verhalten Sie sich, wenn Ihr Hund frei läuft und Ihnen eine Person mit angeleintem Hund entgegenkommt?",
+  "answers": {
+    "A": "Ich lasse meinen Hund immer zu dem anderen Hund laufen, denn meiner beißt nicht und Sozialkontakte mit Artgenossen sind wichtig für sein Wohlbefinden.",
+    "B": "Ich rufe meinen Hund zu mir und leine ihn auch an. Ich lasse ihn erst wieder frei, wenn ich sicher weiß, dass er nicht zu dem anderen Hund laufen wird.",
+    "C": "Ich leine meinen Hund ebenfalls an. Dann kann ich aus ausreichendem Abstand den Besitzer des anderen Hundes fragen, ob mein Hund seinen Hund begrüßen darf. Falls ja, kann ich meinen Hund wieder ableinen, sofern damit zu rechnen ist, dass sich die Hunde verstehen werden.",
+    "D": "Ich rufe meinen Hund und leine ihn an. Ich stelle mich mit meinem Hund so hin oder gehe mit so viel Abstand weiter, dass der andere Hundebesitzer ausreichend Abstand halten kann, wenn er mit seinem Hund vorbeigeht. Während dieser Begegnung achte ich darauf, dass mein Hund den anderen Hund nicht belästigt oder provoziert."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme – Verständnis"
+}, {
+  "id": 120,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "120",
+  "uid": "legacy-120",
+  "type": "multi",
+  "prompt": "Ist eine Haftpflichtversicherung für den Hund sinnvoll?",
+  "answers": {
+    "A": "Ja, denn jeder Hund kann einen Schaden verursachen, für den sein Halter dann haftet. Dies können z. B. bei Autounfällen, die zu dauerhaften Schäden von Personen führen, erhebliche Summen sein.",
+    "B": "In NRW ist eine Haftpflichtversicherung für Hunde ab 20 kg oder 40 cm Schulterhöhe vorgeschrieben.",
+    "C": "Ohne Haftpflichtversicherung darf der Hund gemäß den gesetzlichen Vorschriften in NRW nie frei laufen.",
+    "D": "Es ist nicht sinnvoll, sondern eine unnötige Geldausgabe. Die Wahrscheinlichkeit, dass ein Hund einen Schaden verursacht, ist zu gering."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Haltung"
+}, {
+  "id": 121,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "121",
+  "uid": "legacy-121",
+  "type": "multi",
+  "prompt": "Nennen Sie typische Signale, an denen man ängstlich-unterwürfiges Verhalten erkennen kann.",
+  "answers": {
+    "A": "Blickkontakt halten.",
+    "B": "Sich klein machen und ducken.",
+    "C": "Den Schwanz einziehen und die Ohren anlegen.",
+    "D": "Harnen bei geduckter Haltung oder auf dem Rücken liegend."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Fragen"
+}, {
+  "id": 122,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "122",
+  "uid": "legacy-122",
+  "type": "multi",
+  "prompt": "Wie sollte man sich als Halter eines unkastrierten Rüden verhalten, wenn einem auf dem Hundespaziergang eine läufige Hündin begegnet?",
+  "answers": {
+    "A": "Man darf seinen Rüden ganz normal laufen lassen, weil die Hündin an der Leine geführt werden muss.",
+    "B": "Man sollte seinen Rüden heranrufen und anleinen. Erst wenn man sicher weiß, dass er der Hündin nicht hinterherlaufen wird, kann man ihn wieder ableinen.",
+    "C": "Man sollte den Besitzer der Hündin darüber aufklären, dass er in öffentlichen Gebieten nicht mit einer läufigen Hündin laufen darf.",
+    "D": "Wenn die Hündin nicht gerade die „Steh-Tage“ hat, kann man den Rüden ohne aufzupassen mit der Hündin spielen lassen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundebegegnungen"
+}, {
+  "id": 123,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "123",
+  "uid": "legacy-123",
+  "type": "multi",
+  "prompt": "Was hat es zu bedeuten, wenn ein Hund an der Leine zieht?",
+  "answers": {
+    "A": "Er erkennt seinen Besitzer nicht als Rudelführer an.",
+    "B": "Er ist bewegungsfreudig und schafft es nicht, so langsam zu laufen wie der Mensch.",
+    "C": "Er versteht nicht, was sein Besitzer von ihm möchte.",
+    "D": "Er hat noch nicht oder noch nicht in allen Situationen und Stimmungen gelernt, an lockerer Leine zu laufen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme – Verständnis"
+}, {
+  "id": 124,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "124",
+  "uid": "legacy-124",
+  "type": "multi",
+  "prompt": "Wann werden die meisten Hündinnen das erste Mal läufig?",
+  "answers": {
+    "A": "Wenn sie ausgewachsen sind.",
+    "B": "Zwischen 6 und 12 Monaten.",
+    "C": "Frühestens mit 18 Monaten.",
+    "D": "Wenn man sie von Junghundefutter auf Erwachsenennahrung umstellt."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Geschlechter"
+}, {
+  "id": 125,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "125",
+  "uid": "legacy-125",
+  "type": "multi",
+  "prompt": "Was sind sinnvolle Maßnahmen bei einem hyperaktiven Hund?",
+  "answers": {
+    "A": "Man überprüft das Ausmaß an Beschäftigung, das man seinem Hund täglich bietet, ob es zu wenig oder zu viel ist. Ein besonders aktiver Hund kann bis zu drei Stunden täglich Auslauf benötigen.",
+    "B": "Man schickt den Hund zu Hause immer wieder strikt auf seinen Platz und zwingt ihn dort liegen zu bleiben, damit er lernt, sich ruhig zu verhalten.",
+    "C": "Man schenkt dem Hund zu Hause immer dann ruhige Aufmerksamkeit, wenn er sich ruhig verhält. Zu einer gemeinsamen Beschäftigung zu Hause fordert man den Hund nur dann auf, wenn er sich gerade ruhig verhält und keine Aufmerksamkeit fordert.",
+    "D": "Man findet ein Hobby im Hundesport oder einer Hundeschule, das dem Hund und einem selbst Spaß macht."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Maßnahmen"
+}, {
+  "id": 126,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "126",
+  "uid": "legacy-126",
+  "type": "multi",
+  "prompt": "Welche Verhaltensweisen zeigt ein Hund, der Angst hat und sich bedroht fühlt?",
+  "answers": {
+    "A": "Er versucht zu fliehen.",
+    "B": "Er versucht anzugreifen, wenn er nicht ausweichen kann.",
+    "C": "Er wedelt und bettelt nach Futter.",
+    "D": "Er pinkelt unter sich."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Fragen"
+}, {
+  "id": 127,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "127",
+  "uid": "legacy-127",
+  "type": "multi",
+  "prompt": "Wie viel sollte ein Hund zu fressen bekommen?",
+  "answers": {
+    "A": "So viel, wie er braucht, damit er eine schlanke Figur hat und weder zu- noch abnimmt.",
+    "B": "Allen Hunden kann man Futter zur freien Verfügung hinstellen, sie fressen nur so viel, wie sie brauchen.",
+    "C": "Wenn ein Hund nicht gut gehorcht, sollte man ihm zur Strafe an dem Tag nichts zu fressen geben.",
+    "D": "Hunde sollten immer ein bisschen Hunger haben, denn sonst neigen sie zu Ungehorsam."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Gesundheit"
+}, {
+  "id": 128,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "128",
+  "uid": "legacy-128",
+  "type": "multi",
+  "prompt": "Auf dem Hundespaziergang kommen Ihnen Leute entgegen, die sich angesichts Ihres Hundes deutlich unwohl fühlen. Wie verhalten Sie sich?",
+  "answers": {
+    "A": "Wenn es ein Ort ist, an dem man den Hund laufen lassen darf und der Hund brav ist, muss man nichts unternehmen.",
+    "B": "Ich gehe auf die Leute zu und versichere, dass der Hund ganz lieb ist.",
+    "C": "Ich rufe meinen Hund zu mir und erkläre ihm, dass die Leute Angst vor ihm haben. Ich sage ihm auch, dass er deswegen nicht traurig sein soll.",
+    "D": "Ich leine meinen Hund sofort an, denn andere Menschen dürfen sich durch meinen Hund nicht bedroht fühlen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Öffentlichkeit"
+}, {
+  "id": 129,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "129",
+  "uid": "legacy-129",
+  "type": "multi",
+  "prompt": "Besteht die Gefahr, durch Strafen einen Hund so zu schockieren, dass er das Vertrauen in einen verliert?",
+  "answers": {
+    "A": "Nicht, wenn man vorher ein gutes Verhältnis hatte.",
+    "B": "Bei sensiblen Hunden manchmal sogar mit Kleinigkeiten, besonders wenn die Handlung für den Hund „unlogisch“ ist.",
+    "C": "Durch inkonsequentes und launisches Vorgehen.",
+    "D": "Nur bei generell ängstlichen Hunden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Strafen"
+}, {
+  "id": 130,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "130",
+  "uid": "legacy-130",
+  "type": "multi",
+  "prompt": "In welcher Form sollte man dem Hund das Fressen darreichen?",
+  "answers": {
+    "A": "Unbedingt zweimal täglich im Napf, zwischendurch darf der Hund nichts bekommen.",
+    "B": "Futter muss immer zur freien Verfügung bereitstehen, denn alle Hunde wissen selbst am besten wie viel sie brauchen.",
+    "C": "Hunde brauchen weder feste Fütterungszeiten noch einen festen Fütterungsort. Man kann das gesamte Futter auch in Form von Belohnungshäppchen verfüttern, wenn man es möchte oder zum Training braucht.",
+    "D": "Das Futter kann man sehr gut nutzen, um den Hund dafür Übungen machen zu lassen. Denn „Leistung wird bezahlt“."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Gesundheit"
+}, {
+  "id": 131,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "131",
+  "uid": "legacy-131",
+  "type": "multi",
+  "prompt": "Achten Hunde auf die Körpersprache von Menschen?",
+  "answers": {
+    "A": "Hunde achten sehr auf die Körpersprache von Menschen.",
+    "B": "Nur, wenn man es ihnen beigebracht hat.",
+    "C": "Wie Menschen sich verhalten, ist Hunden egal.",
+    "D": "Hunde achten mehr auf die Körpersprache als auf die Worte von Menschen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Umgang und Verständnis"
+}, {
+  "id": 132,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "132",
+  "uid": "legacy-132",
+  "type": "multi",
+  "prompt": "Was sind häufige Ursachen für die Entstehung eines Angstproblems?",
+  "answers": {
+    "A": "Schlechte Erfahrungen, besonders, wenn sie in der Welpenzeit stattgefunden haben oder eine einmalige besonders schockierende schlechte Erfahrung.",
+    "B": "Mangelnde Erfahrungen = Sozialisations- und Habituationsdefizite.",
+    "C": "Schmerzen sind die häufigste körperliche Ursache für die Entstehung oder Verschlechterung von Verhaltensproblemen.",
+    "D": "Liebevoller und eindeutiger Umgang mit dem Hund, der seine Bedürfnisse und Möglichkeiten berücksichtigt."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Ursachen und Vorbeugen"
+}, {
+  "id": 133,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "133",
+  "uid": "legacy-133",
+  "type": "multi",
+  "prompt": "Man ertappt zwei Hunde beim Deckakt in der Phase des „Hängens“. Was kann man tun?",
+  "answers": {
+    "A": "Man sollte den Rüden so schnell wie möglich von der Hündin wegreißen, wenn kein Nachwuchs erwünscht ist.",
+    "B": "Man kann in diesem Moment nichts mehr tun. Die Dinge nehmen ihren Lauf. Man sollte danach so schnell wie möglich, innerhalb der nächsten zwei Tage, mit dem/der Tierarzt /ärztin über bestehende Möglichkeiten beraten.",
+    "C": "Man sollte die Hunde schnellstmöglich mit kaltem Wasser übergießen, um den Deckakt zu unterbinden und eine Trächtigkeit zu verhindern.",
+    "D": "Man darf die Tiere auf keinen Fall trennen, weil sie schwere Verletzungen an den Geschlechtsorganen bekommen würden. Man muss die gesamte Dauer des Deckaktes, also auch die Zeit des „Hängens“ abwarten."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Geschlechter"
+}, {
+  "id": 134,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "134",
+  "uid": "legacy-134",
+  "type": "multi",
+  "prompt": "Gibt es beim Üben mit einem ängstlichen Hund besondere Dinge zu bedenken?",
+  "answers": {
+    "A": "Hunde können nur lernen, wenn sie entspannt sind und keine Angst haben.",
+    "B": "Man muss darauf achten, keine bedrohlichen Gesten in den Übungen zu verwenden.",
+    "C": "Mit einem ängstlichen Hund sollte man lieber gar nicht trainieren, weil er aus Angst beißen könnte.",
+    "D": "Mit einem ängstlichen Hund kann man trainieren, wie mit jedem anderen auch."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Training"
+}, {
+  "id": 135,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "135",
+  "uid": "legacy-135",
+  "type": "multi",
+  "prompt": "Was versteht man unter dem Begriff Scheinträchtigkeit der Hündin?",
+  "answers": {
+    "A": "Es gibt eine normale hormonelle Scheinträchtigkeit im Anschluss an die deckbereiten Tage einer Läufigkeit, unter der eine Hündin aber nicht leidet. Sie ist unproblematisch und klingt von allein wieder ab.",
+    "B": "Hündinnen leiden oft an einer krankhaften Scheinträchtigkeit, die extrem verzögert oder gar nicht abklingt. In dem Fall ist tiermedizinische Hilfe nötig.",
+    "C": "Bei einer Scheinträchtigkeit sind mögliche Symptome Anschwellen des Gesäuges mit oder ohne Milchfluss, Sammeln und Behüten von Spielzeug, Lustlosigkeit und Stimmungsschwankungen. Es gibt Hündinnen, die so starke Symptome einer Scheinträchtigkeit haben, dass sie darunter leiden.",
+    "D": "Eine Scheinträchtigkeit bei Hündinnen tritt nur nach einer misslungenen Bedeckung auf."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Geschlechter"
+}, {
+  "id": 136,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "136",
+  "uid": "legacy-136",
+  "type": "multi",
+  "prompt": "Innerhalb welcher Zeit kann ein Hund eine Belohnung sicher mit seiner gezeigten Handlung verknüpfen?",
+  "answers": {
+    "A": "Es dürfen nicht mehr als eine, allerhöchstens zwei Sekunden vergehen.",
+    "B": "Man sollte den Hund innerhalb von fünf Sekunden belohnen.",
+    "C": "Es ist nicht von der Zeit abhängig, ob der Hund die Übung begreift, sondern nur von der Tatsache, ob die Futterbelohnung lecker genug ist.",
+    "D": "Man hat ein paar Minuten Zeit, besonders wenn der Hund die Handlung länger gezeigt hat."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Training"
+}, {
+  "id": 137,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "137",
+  "uid": "legacy-137",
+  "type": "multi",
+  "prompt": "Woran erkennen Sie die Läufigkeit einer Hündin?",
+  "answers": {
+    "A": "Erste Anzeichen können sein, dass Hündinnen plötzlich sehr zum Streunen und Ungehorsam neigen und gereizter gegenüber anderen Hündinnen reagieren können.",
+    "B": "Sie setzt häufiger als sonst Urin ab.",
+    "C": "Sie hat Durchfall.",
+    "D": "Sie blutet aus der Scheide."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Geschlechter"
+}, {
+  "id": 138,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "138",
+  "uid": "legacy-138",
+  "type": "multi",
+  "prompt": "Was kann passieren, wenn man bei einem Hund Strafen als Erziehungsmaßnahme einsetzt?",
+  "answers": {
+    "A": "Er wird die Übung schnell und zuverlässig ausführen, denn so lernt er, dass er gehorchen muss.",
+    "B": "Er kann scheu und unsicher werden, weil er kein Vertrauen mehr zu seinem Besitzer hat.",
+    "C": "Es passiert nichts Schlimmes. Hunde untereinander verhalten sich auch rigoros. Der Hund wird also große Freude bei den Übungen haben, wenn er erst verstanden hat, worum es geht.",
+    "D": "Er könnte unter Umständen aggressiv reagieren, weil er sich bedroht fühlt."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Strafen"
+}, {
+  "id": 139,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "139",
+  "uid": "legacy-139",
+  "type": "multi",
+  "prompt": "Ist es Spiel, wenn eine Gruppe von Hunden einem einzelnen Hund hinterherrennt und ihn in die Enge drängt?",
+  "answers": {
+    "A": "Nein, das kann unangemessenes Beuteverhalten sein.",
+    "B": "Nein, das kann man als Mobbing bezeichnen.",
+    "C": "Nein, die Gruppe von Hunden will den anderen Hund in der Rangfolge unterordnen.",
+    "D": "Ja, das ist eine typische Situation im Spiel."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundebegegnungen"
+}, {
+  "id": 140,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "140",
+  "uid": "legacy-140",
+  "type": "multi",
+  "prompt": "Ein sonst aktiver Hund ist ungewöhnlich ruhig und interessiert sich nicht besonders für das tägliche Geschehen. Was könnte das bedeuten?",
+  "answers": {
+    "A": "Gar nichts. Es ist nicht schlimm, wenn der Hund ruhig ist.",
+    "B": "In der Regel handelt es sich um eine normale Altersentwicklung.",
+    "C": "Das veränderte Verhalten kann ein Hinweis sein, dass mit dem Tier etwas nicht stimmt. Man sollte das bei dem/der Tierarzt /ärztin abklären lassen.",
+    "D": "Man sollte ihm sein Lieblingsfutter anbieten. Erst wenn er das nicht mehr frisst, wird ein Tierarztbesuch erforderlich."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Gesundheit"
+}, {
+  "id": 141,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "141",
+  "uid": "legacy-141",
+  "type": "multi",
+  "prompt": "Wie häufig und wie lange sollte man mit einem Hund üben?",
+  "answers": {
+    "A": "Ein Mal am Tag eine Stunde.",
+    "B": "So häufig wie es geht, aber immer nur kurz, dann kann sich der Hund am besten konzentrieren.",
+    "C": "Es ist besonders wichtig, dass man täglich immer zur selben Zeit übt, wie lange, ist abhängig vom Trainingsstand des Hundes.",
+    "D": "Zwei Übungen auf jedem Spaziergang sind absolut ausreichend, sonst wird der Hund überfordert."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Training"
+}, {
+  "id": 142,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "142",
+  "uid": "legacy-142",
+  "type": "multi",
+  "prompt": "Was ist zu tun, wenn der Hund seit zwei Tagen schlimmen Durchfall und Erbrechen hat?",
+  "answers": {
+    "A": "Man sollte zum/r Tierarzt/ärztin gehen. Der Hund kann innerhalb weniger Tage in lebensbedrohlicher Weise austrocknen.",
+    "B": "Man sollte dem Hund Kohletabletten verabreichen.",
+    "C": "Man muss dafür Sorge tragen, dass der Hund genug Flüssigkeit bekommt, die er auch bei sich behält, notfalls über eine Infusion von dem/der Tierarzt/ärztin.",
+    "D": "Man sollte dem Hund alle zwei Stunden eine kleine Portion Milch geben."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Krankheiten"
+}, {
+  "id": 143,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "143",
+  "uid": "legacy-143",
+  "type": "multi",
+  "prompt": "Stimmt es, dass man älteren Hunden nichts mehr beibringen kann?",
+  "answers": {
+    "A": "Ja, Hunde, die älter als ein Jahr sind, können nichts mehr lernen.",
+    "B": "Nein, Hunde können ihr Leben lang neue Dinge lernen.",
+    "C": "Nein, aber es ist einfacher, schon mit einem Welpen zu üben, dann gewöhnt sich der Hund nicht erst etwas Falsches an.",
+    "D": "Nein. Da ein Welpe noch nicht reif genug ist, sollte man überhaupt mit der Erziehung erst beginnen, wenn der Hund ein Jahr alt ist."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Training"
+}, {
+  "id": 144,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "144",
+  "uid": "legacy-144",
+  "type": "multi",
+  "prompt": "Gibt es Erkrankungen bei Hunden, gegen die man impfen kann, die auch Menschen bekommen können?",
+  "answers": {
+    "A": "Keine.",
+    "B": "Tollwut, wenn Speichel eines tollwuterkrankten Tieres in die Blutbahn kommt, z.B. durch einen Biss.",
+    "C": "Leptospirose.",
+    "D": "Krankheiten befallen immer nur eine Spezies."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Krankheiten"
+}, {
+  "id": 145,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "145",
+  "uid": "legacy-145",
+  "type": "multi",
+  "prompt": "Wie kann man vermeiden, dass der Hund durch Strafen das Vertrauen in seinen Besitzer verliert?",
+  "answers": {
+    "A": "Wenn man Ignorieren in geeigneten Situationen als Methode anwendet.",
+    "B": "Wenn das Unerwünschte, das der Hund gerne tun würde, für ihn erfolglos bleibt oder keinen Spaß macht, wie z. B. ein Bitterstoff auf einem Möbel, das der Hund ankauen möchte.",
+    "C": "Wenn man eine Rappeldose oder Wasserspritze verwendet, verbindet der Hund diese Strafe nie mit seinem Besitzer.",
+    "D": "Beim Schütteln am Nackenfell, denn eine Hündin maßregelt auf diese Art und Weise auch ihre Welpen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Strafen"
+}, {
+  "id": 146,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "146",
+  "uid": "legacy-146",
+  "type": "multi",
+  "prompt": "Die Magendrehung ist eine lebensgefährliche Erkrankung. Kreuzen Sie die passenden Aussagen an.",
+  "answers": {
+    "A": "Eine Magendrehung tritt hauptsächlich bei großen Hunderassen auf.",
+    "B": "Hunde sollten direkt nach dem Fressen möglichst eine Ruhepause von zwei Stunden einhalten.",
+    "C": "Hunde sollen direkt nach dem Fressen laufen, um schneller verdauen zu können.",
+    "D": "Die meisten Hunde profitieren von zwei bis drei Mahlzeiten am Tag."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Krankheiten"
+}, {
+  "id": 147,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "147",
+  "uid": "legacy-147",
+  "type": "multi",
+  "prompt": "Nennen Sie Möglichkeiten einen Hund zu belohnen.",
+  "answers": {
+    "A": "Mit Futterhäppchen.",
+    "B": "Mit Spielzeug bzw. einem Spiel.",
+    "C": "Man sollte den Hund fest an sich drücken, ihm ins Ohr sagen, dass er brav war und ihn auf den Kopf küssen.",
+    "D": "Mit allem, worüber der Hund sich in dem Moment wirklich freuen würde, sofern man es ihm mit der passenden zeitlichen Verknüpfung ermöglichen kann."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Training"
+}, {
+  "id": 148,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "148",
+  "uid": "legacy-148",
+  "type": "multi",
+  "prompt": "Welche Nebenwirkungen kann die Kastration einer Hündin hervorrufen?",
+  "answers": {
+    "A": "Kastrierte Hündinnen werden immer dick.",
+    "B": "Hündinnen werden in aller Regel durch die Kastration ängstlich oder aggressiv.",
+    "C": "Fellveränderungen können auftreten.",
+    "D": "Ein sehr kleiner Prozentsatz der kastrierten Hündinnen wird inkontinent, was im Großteil der Fälle erfolgreich medikamentell behandelt werden kann."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Geschlechter"
+}, {
+  "id": 149,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "149",
+  "uid": "legacy-149",
+  "type": "multi",
+  "prompt": "Wie verstehen Hunde strafende Handlungen durch ihre Besitzer?",
+  "answers": {
+    "A": "Hunde lernen dadurch, was sie dürfen und was nicht.",
+    "B": "Hunde lernen dadurch, dass Menschen sich in bestimmten Situationen aggressiv verhalten können.",
+    "C": "Hunde lernen dadurch Respekt vor Ihren Besitzern.",
+    "D": "Hunde können strafende Handlungen ihrer Besitzer mit der Stimmung ihrer Besitzer, der Situation oder zufällig gleichzeitig auftretenden Reizen in Verbindung bringen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Strafen"
+}, {
+  "id": 150,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "150",
+  "uid": "legacy-150",
+  "type": "multi",
+  "prompt": "Können im Zusammenhang mit Strafen Probleme auftreten?",
+  "answers": {
+    "A": "Der Hund kann Angst vor dem Strafenden, ihm ähnlichen Personen und ähnlichen Situationen bekommen.",
+    "B": "Der Hund kann aggressiv werden, wenn er sich bedroht fühlt oder Schmerzen empfindet.",
+    "C": "Bei jeder Strafe besteht das Risiko, dass der Hund andere gleichzeitig auftretende Reize verknüpft, sodass Problemverhaltensweisen gefördert werden können.",
+    "D": "Man braucht keine Probleme zu erwarten, denn Strafe ist etwas, was der Hund immer versteht."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Strafen"
+}, {
+  "id": 151,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "151",
+  "uid": "legacy-151",
+  "type": "multi",
+  "prompt": "Warum kann ein Hund dazu neigen, ständig Aufmerksamkeit bei seinem Besitzer zu fordern?",
+  "answers": {
+    "A": "Manche Hunde sind einfach dreist, was konsequent unterbunden werden muss.",
+    "B": "Hunde bieten ihren Besitzern viele Verhaltensweisen an. Sie behalten alles in Ausmaß und Häufigkeit bei, was bei ihren Besitzern zu Aufmerksamkeit führt.",
+    "C": "Besonders aktive Hunde und Hunde, die zu wenig Beschäftigung haben, können vermehrt zu Aufmerksamkeit heischendem Verhalten neigen.",
+    "D": "Hunde, die Aufmerksamkeit bei ihren Besitzern fordern, wollen ihre Besitzer manipulieren, um sie zu beherrschen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme – Verständnis"
+}, {
+  "id": 152,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "152",
+  "uid": "legacy-152",
+  "type": "multi",
+  "prompt": "Muss man auf die Zahngesundheit seines Hundes achten?",
+  "answers": {
+    "A": "Hunde können Probleme mit dem Zahnfleisch und den Zähnen bekommen, was zu erheblichen Leiden, Schmerzen und sogar Folgeschäden an Organen führen kann.",
+    "B": "Nur, wenn der Hund beginnt aus dem Maul zu riechen, kann man sich überlegen, ob man etwas unternehmen möchte.",
+    "C": "Bei Hunden sind die Zähne von Natur aus gesund, wenn man ihnen regelmäßig etwas zum Kauen gibt.",
+    "D": "Häufig merkt man erst, wenn der Hund weniger kaut, schlechter frisst oder aus dem Maul riecht, dass Probleme bestehen. Daher sollte man regelmäßig Zähne und Zahnfleisch kontrollieren bzw. kontrollieren lassen, um größeren Schäden vorzubeugen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Krankheiten"
+}, {
+  "id": 153,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "153",
+  "uid": "legacy-153",
+  "type": "multi",
+  "prompt": "Wie lernt ein Hund am besten alleine zu Hause zu bleiben?",
+  "answers": {
+    "A": "Er sollte im gesamten ersten halben Jahr niemals allein zu Hause gelassen werden.",
+    "B": "Im Idealfall beginnt man mit dem Training für das Alleinbleiben schon in Welpentagen. Dafür entfernt man sich manchmal für Sekunden und dehnt das über mehrere Wochen auf Minuten aus. Im Junghundalter dehnt man die Zeitspanne allmählich auf Stunden aus.",
+    "C": "Man sollte den Hund schrittweise an die Situation gewöhnen.",
+    "D": "Hunde können das von allein."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Ursachen und Vorbeugen"
+}, {
+  "id": 154,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "154",
+  "uid": "legacy-154",
+  "type": "multi",
+  "prompt": "Was sind Anzeichen eines Flohbefalls?",
+  "answers": {
+    "A": "Häufigeres Kratzen als sonst.",
+    "B": "Ein Hund, der regelmäßig gebadet wird, kann keine Flöhe haben.",
+    "C": "Beim Kämmen findet man kleine, schwarze Krümel im Fell.",
+    "D": "Flohbefall kann nur der/die Tierarzt/ärztin mittels eines aufwendigen Testverfahrens feststellen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Krankheiten"
+}, {
+  "id": 155,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "155",
+  "uid": "legacy-155",
+  "type": "multi",
+  "prompt": "Warum zerstören manche Hunde Teile der Wohnung, wenn sie alleine zu Hause bleiben müssen?",
+  "answers": {
+    "A": "Langeweile.",
+    "B": "Sie wollen sich am Besitzer rächen, denn am liebsten wären sie mitgegangen.",
+    "C": "Solche Hunde leiden häufig unter sogenannter Trennungsangst.",
+    "D": "Der Hund hat vermutlich Hunger."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Ursachen und Vorbeugen"
+}, {
+  "id": 156,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "156",
+  "uid": "legacy-156",
+  "type": "multi",
+  "prompt": "Was ist beim Verfüttern von Geflügel zu beachten?",
+  "answers": {
+    "A": "Hunde sollten generell keine Anteile von Geflügel bekommen.",
+    "B": "Geflügelknochen splittern leicht und können Verletzungen im Verdauungsapparat verursachen.",
+    "C": "Hunde sollten kein rohes Geflügelfleisch bekommen, da damit Salmonellen übertragen werden können. Auch Einfrieren tötet die Durchfall verursachenden Salmonellen nicht ab.",
+    "D": "Beim Verfüttern von Geflügel muss nichts Besonderes beachtet werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Krankheiten"
+}, {
+  "id": 157,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "157",
+  "uid": "legacy-157",
+  "type": "multi",
+  "prompt": "Können Hunde ein schlechtes Gewissen haben?",
+  "answers": {
+    "A": "Ja, aber nur, wenn sie vorher gelernt haben, dass sie bestimmte Dinge nicht tun dürfen.",
+    "B": "Nein, Hunde haben keine Moralvorstellung von Gut und Böse.",
+    "C": "Nein, obwohl es manchmal so aussieht. In Wirklichkeit haben sie eine negative Verknüpfung mit dem Besitzer oder der Situation gemacht und zeigen eine angeborene Körperhaltung, die Unterwürfigkeit und Ängstlichkeit signalisiert. Sie soll den Besitzer beschwichtigen.",
+    "D": "Ja, allerdings nur, wenn ihre Tat nicht länger als einen halben Tag zurückliegt, denn sie können sich Dinge nur einen halben Tag lang merken."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Umgang und Verständnis"
+}, {
+  "id": 158,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "158",
+  "uid": "legacy-158",
+  "type": "multi",
+  "prompt": "Was lässt sich über Schmerzen beim Hund sagen?",
+  "answers": {
+    "A": "Akute Schmerzen zeigen viele Hunde durch Aufjaulen. Chronische Schmerzen lassen sich hingegen oftmals schwer erkennen. Sie können sich durch ruhigeres Verhalten oder Auftreten oder Verschlechterung von Verhaltensproblemen zeigen.",
+    "B": "Schmerzen müssen beim Hund gemäß dem Tierschutzgesetz medizinisch behandelt werden.",
+    "C": "Chronische Schmerzen betreffen oft die Zähne, die Ohren, Magen und Darm und das Skelettsystem.",
+    "D": "Schmerzen sind der häufigste Auslöser oder Verstärker für Verhaltensprobleme, wie Angst und Aggression."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Gesundheit",
+  "note": "Lösungsschlüssel am 06.11.2026 anhand der offiziellen Rhein-Erft-PDF-Tabelle berichtigt: D ist ebenfalls richtig. Die Tabelle läuft über einen Seitenumbruch."
+}, {
+  "id": 159,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "159",
+  "uid": "legacy-159",
+  "type": "multi",
+  "prompt": "Bei Ihrer Rückkehr sehen Sie, dass Ihr Hund einen Haufen in die Wohnung gemacht hat. Warum kommt Ihr Hund geduckt zu Ihnen, als hätte er ein schlechtes Gewissen?",
+  "answers": {
+    "A": "Der Hund fühlt sich mit seinem Haufen in der Nähe selbst nicht wohl.",
+    "B": "Der Hund hat schon mal die Erfahrung gemacht, dass Sie in einer Situation mit hundlichen Hinterlassenschaften in der Wohnung schlechte Stimmung bekommen haben. Daher kommt er Ihnen unterwürfig entgegen, um Sie zu beschwichtigen.",
+    "C": "Der Hund weiß genau, was er falsch gemacht hat und kommt deshalb geduckt auf Sie zu.",
+    "D": "Der Hund hat ein schlechtes Gewissen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Umgang und Verständnis"
+}, {
+  "id": 160,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "160",
+  "uid": "legacy-160",
+  "type": "multi",
+  "prompt": "Wie kann man einem Hund klar machen, dass ein bestimmtes Verhalten unerwünscht ist?",
+  "answers": {
+    "A": "Wenn man laut schimpft, weiß der Hund, dass man mit seinem Verhalten nicht zufrieden ist und wird es nicht wieder zeigen.",
+    "B": "Wenn man weiß, was der Hund gerne in dem Moment haben oder erreichen möchte, kann man es ihm vorenthalten. Nur wenn er artig ist, kann er es bekommen.",
+    "C": "Unerwünschte Verhaltensweisen, die durch Angst oder Stress ausgelöst werden, lassen sich in kritischen Situationen nicht einfach beenden, weil sie emotional bedingt sind. Da Emotionen nicht einfach abgestellt werden können, müssen solche Verhaltensweisen Schritt für Schritt bearbeitet werden.",
+    "D": "Da es bei unerwünschten Verhaltensweisen oft schwierig sein kann, sie sinnvoll in kritischen Situationen zu beeinflussen, ist es besonders effektiv, möglichst vorausschauend den Hund so zu lenken, dass er sich von Anfang an erwünscht verhalten kann."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Maßnahmen",
+  "note": "Lösungsschlüssel am 06.11.2026 anhand der offiziellen Rhein-Erft-PDF-Tabelle berichtigt: D ist ebenfalls richtig. Die Tabelle läuft über einen Seitenumbruch."
+}, {
+  "id": 161,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "161",
+  "uid": "legacy-161",
+  "type": "multi",
+  "prompt": "In welchen Eigenschaften kann es bei Hunderassen große Unterschiede geben?",
+  "answers": {
+    "A": "Lauf- und Beschäftigungsbedürfnis",
+    "B": "Veranlagung zur territorialen Verteidigung",
+    "C": "Jagdbegeisterung",
+    "D": "Veranlagung zur Ängstlichkeit"
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rassen",
+  "note": "Lösungsschlüssel am 06.11.2026 anhand der offiziellen Rhein-Erft-PDF-Tabelle berichtigt: D ist ebenfalls richtig. Die Tabelle läuft über einen Seitenumbruch."
+}, {
+  "id": 162,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "162",
+  "uid": "legacy-162",
+  "type": "multi",
+  "prompt": "Was passiert, wenn man mit dem Hund eine bestimmte Übung immer am gleichen Ort macht?",
+  "answers": {
+    "A": "Er wird sie an anderen Orten gar nicht oder nicht genauso gut ausführen.",
+    "B": "Lernen ist nicht von einem bestimmten Ort abhängig. Er wird die Übung, wenn man sie häufig an einem Ort geübt hat, bald überall sicher ausführen können.",
+    "C": "Der Ort ist nicht wichtig im Hundetraining. Wichtig ist, dass man immer zur selben Tageszeit übt, damit der Hund sich an einen geregelten Tagesablauf gewöhnt.",
+    "D": "Es könnte passieren, dass der Hund diese Übung ohne Aufforderung macht, sobald er an diesen Ort kommt, weil er die Übung mit dem Ort verknüpft hat."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Training"
+}, {
+  "id": 163,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "163",
+  "uid": "legacy-163",
+  "type": "multi",
+  "prompt": "Ihr Hund hat in die Wohnung gemacht. Wie reagieren Sie?",
+  "answers": {
+    "A": "Ich nehme den Hund mit zu der Stelle, zeige ihm sein Geschäft und schimpfe mit ihm.",
+    "B": "Ich packe den Hund, trage ihn zum Ort des Vergehens und stoße ihn mit der Nase hinein, damit er es nie wieder macht.",
+    "C": "Ich begrüße den Hund normal und versuche mir meinen Ärger nicht anmerken zu lassen. Wahrscheinlich habe ich ihn zu lange allein gelassen, so dass er nicht einhalten konnte.",
+    "D": "Ich beseitige das Geschäft kommentarlos."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Maßnahmen"
+}, {
+  "id": 164,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "164",
+  "uid": "legacy-164",
+  "type": "multi",
+  "prompt": "Worauf muss man beim Einsatz von Belohnungen achten?",
+  "answers": {
+    "A": "Der Hund muss bis spätestens 2 Sekunden nach der erwünschten Handlung belohnt werden.",
+    "B": "Die Belohnung muss so gewählt werden, dass sie den Hund motiviert, aber ihn noch konzentrationsfähig hält.",
+    "C": "Futterbelohnungen sind nicht geeignet, denn sie verleiten den Hund nur zum Betteln.",
+    "D": "Der Hund sollte anfangs immer, später abhängig vom Schwierigkeitsgrad belohnt werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Training"
+}, {
+  "id": 165,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "165",
+  "uid": "legacy-165",
+  "type": "multi",
+  "prompt": "Was passiert, wenn man ein bestimmtes Verhalten mit Futter belohnt?",
+  "answers": {
+    "A": "Der Hund wird dieses Verhalten in Zukunft häufiger zeigen, weil er sich eine leckere Belohnung erhofft.",
+    "B": "Der Hund macht diese Handlung grundsätzlich nur noch, wenn er sieht, dass man Futter dabeihat.",
+    "C": "Der Hund wird unnötig verweichlicht, denn eigentlich soll er aus Treue zu mir brav sein und nicht, weil ich ihn mit Futter besteche.",
+    "D": "Der Hund wird mich als „Rudelführer“ nicht mehr ernst nehmen, weil er weiß, dass er bei mir Futter bekommen kann."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Training"
+}, {
+  "id": 166,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "166",
+  "uid": "legacy-166",
+  "type": "multi",
+  "prompt": "Wie kann man einen Hund dazu motivieren, zu einem zu kommen?",
+  "answers": {
+    "A": "Man kann sich hinhocken und ihn locken.",
+    "B": "Man sollte sich etwas nach vorne beugen und ihn drohend rufen, damit er weiß, wer das Sagen hat.",
+    "C": "Man sollte sich umdrehen, von dem Hund weglaufen und ihn dabei rufen.",
+    "D": "Man sollte ihn zum Training möglichst rufen, wenn er guckt und dann schnell von ihm weglaufen. Denn wenn er nicht guckt, kann es sein, dass er das Rufen gar nicht mitbekommt oder zu sehr abgelenkt ist, um zu reagieren."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Training"
+}, {
+  "id": 167,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "167",
+  "uid": "legacy-167",
+  "type": "multi",
+  "prompt": "Was sind mögliche Stresssymptome eines Hundes?",
+  "answers": {
+    "A": "Hecheln.",
+    "B": "Unruhiges Verhalten.",
+    "C": "Starkes Haaren und ggf. stumpfes Fell, bei länger anhaltendem Stress.",
+    "D": "Nach vorne gerichtete Ohren und Interesse an der Umwelt."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Ausdrucksverhalten Fragen"
+}, {
+  "id": 168,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "168",
+  "uid": "legacy-168",
+  "type": "multi",
+  "prompt": "Birgt der Einsatz von würgenden oder schmerzhaft einschnürenden Geschirren, Halsbändern oder Kopfhalftern bestimmte Gefahren?",
+  "answers": {
+    "A": "Der Hund kann durch die schlechten Erfahrungen mit seinem Halter Vertrauen in ihn verlieren und Angst vor ihm bekommen.",
+    "B": "Es birgt keine Gefahr, wenn man es richtig einsetzt. Der Hund lernt damit am besten, nicht an der Leine zu ziehen.",
+    "C": "Durch die würgende und/oder schmerzhafte Einwirkung wird Stress erzeugt.",
+    "D": "Es kommt in vielen Fällen zu fehlerhaften Verknüpfungen und die Hunde können ängstlicher und aggressiver werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hilfsmittel"
+}, {
+  "id": 169,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "169",
+  "uid": "legacy-169",
+  "type": "multi",
+  "prompt": "Aus welchem Grund ist es ratsam, dem Hund frühestmöglich beizubringen, nicht an Leuten hochzuspringen?",
+  "answers": {
+    "A": "Hunde können durch das Anspringen Menschen erschrecken oder unabsichtlich verletzen.",
+    "B": "Hunde können durch das Anspringen Kleidung beschmutzen oder zerreißen.",
+    "C": "Da es ein Zeichen großer Freude ist und nichts mit Aggressivität zu tun hat, wenn ein Hund springt, muss man dem Hund das Anspringen nicht abgewöhnen. Andere Menschen müssen das akzeptieren.",
+    "D": "Wenn ein Hund sich als Welpe angewöhnt Menschen anzuspringen, ist es für ihn besonders schwer zu verstehen, wenn er es als erwachsener Hund nicht mehr tun soll."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Ursachen und Vorbeugen"
+}, {
+  "id": 170,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "170",
+  "uid": "legacy-170",
+  "type": "multi",
+  "prompt": "Was kann man tun, wenn man nach einigen problematischen Begegnungen mit anderen Hunden feststellt, dass der eigene Hund mit Artgenossen nicht immer gut klarkommt?",
+  "answers": {
+    "A": "Man sollte Rat suchen bei einem/r modernen und erfahrenen Hundetrainer/in, der/die über positive Bestärkung arbeitet oder einem/r Tierarzt/ärztin, der/die auf Verhaltenstherapie spezialisiert ist.",
+    "B": "Man muss nichts unternehmen, denn es ist normal, dass sich Hunde auf dem Spaziergang mit Artgenossen beißen.",
+    "C": "Man sollte so einen Hund nicht behalten, sondern ins Tierheim geben oder einschläfern lassen, denn er stellt eine Gefahr dar.",
+    "D": "Man kann nicht mehr tun, als dem Hund einen Maulkorb anzulegen. Das Verhalten kann man nicht beeinflussen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Maßnahmen"
+}, {
+  "id": 171,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "171",
+  "uid": "legacy-171",
+  "type": "multi",
+  "prompt": "Welche gesundheitlichen Probleme haben sehr kurznasige Hunde, wie z. B. Französische Bulldoggen, sehr häufig, weswegen man diese Rassen auch als Qualzuchten bezeichnet?",
+  "answers": {
+    "A": "Sie bekommen in der Regel schlecht Luft und haben starke Atemgeräusche.",
+    "B": "Sie haben aufgrund von Wirbeldeformationen oft Rückenprobleme.",
+    "C": "Sie haben oft chronische Erkrankungen der Augen.",
+    "D": "Da sie schlecht Luft bekommen, können sie in der Regel körperlich nicht so aktiv sein, wie sie gerne sein würden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rassen"
+}, {
+  "id": 172,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "172",
+  "uid": "legacy-172",
+  "type": "multi",
+  "prompt": "Welche Umstände können bei Hunden zu Trennungsangst führen?",
+  "answers": {
+    "A": "Trennungsangst entsteht nicht, wenn man noch einen zweiten Hund hat.",
+    "B": "Der Hund hat nie individuell auf ihn abgestimmt gelernt, entspannt allein zu bleiben.",
+    "C": "Die Entwicklung von Trennungsangst ist erblich bedingt.",
+    "D": "Der Besitzer ist in einer Lebensphase viel zu Hause und lässt danach den Hund plötzlich wieder länger allein."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Ursachen und Vorbeugen"
+}, {
+  "id": 173,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "173",
+  "uid": "legacy-173",
+  "type": "multi",
+  "prompt": "Was sollte ich bedenken, wenn ich überlege, einen Hund aus Süd- oder Osteuropa über einen Tierschutz-Verein aufzunehmen?",
+  "answers": {
+    "A": "Der Hund sollte - kurz bevor er nach Deutschland gebracht wird - auf die im Herkunftsland vorkommenden Erkrankungen getestet werden. Im Herkunftsland muss eine Prophylaxe gegen solche Krankheiten übertragenden Zecken und Mücken erfolgen. In Deutschland sollte der Hund nachgetestet werden.",
+    "B": "Ich kann davon ausgehen, dass der Hund dankbar dafür ist, dass ich ihn bei mir aufnehme. Mit ein wenig Zeit und Geduld wird sich ein solcher Hund in jedem Fall an sein neues Zuhause gewöhnen, sodass man mit ihm alles unternehmen kann, was einem wichtig ist.",
+    "C": "Es ist zu bedenken, dass solche Hunde oft sehr ängstlich in Bezug auf Menschen und/oder Umgebungsreize, wie z. B. Straßenverkehr sind, weil sie in dieser Beziehung oft nur wenige und/oder schlechte Erfahrungen sammeln konnten. Daher können sie für die Haltung in dicht bewohnten Gegenden nicht geeignet sein.",
+    "D": "Ich muss nur darauf achten, dass der Hund korrekt geimpft und entwurmt ist, bevor er nach Deutschland kommt."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Hundewahl",
+  "note": "Formulierungsvariante: Die Kammer- und Rhein-Erft-Fassung unterscheiden sich im Antworttext. Der jeweilige Originalwortlaut bleibt erhalten."
+}, {
+  "id": 174,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "174",
+  "uid": "legacy-174",
+  "type": "multi",
+  "prompt": "Gibt es rechtliche Vorschriften zur Ausbildung von Hunden?",
+  "answers": {
+    "A": "Bei der Erziehung ist der Erfolg für den Menschen ausschlaggebend. Welche Methode man wählt, ist eine Meinungsfrage. Dabei zählt besonders die persönliche Einschätzung, was die sinnvollste Vorgehensweise bei seinem eigenen Hund ist.",
+    "B": "Laut dem Tierschutzgesetz darf man einem Hund nicht ohne vernünftigen Grund Schmerzen, Leiden oder Schäden zufügen. Ein vernünftiger Grund ist nicht, dass man gerne seinen Hund unter Verwendung von Strafmaßnahmen trainieren möchte oder nicht über ausreichendes Fachwissen verfügt, um hundegerecht das gewünschte Ziel zu erreichen.",
+    "C": "Gemäß der Tierschutz-Hundeverordnung ist es verboten, bei der Ausbildung, bei der Erziehung oder beim Training Stachelhalsbänder oder andere für die Hunde schmerzhafte Mittel zu verwenden.",
+    "D": "Es gibt Empfehlungen zur Ausbildung in der Tierschutz-Hundeverordnung, die aber nicht rechtlich bindend sind."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rechtliches"
+}, {
+  "id": 175,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "175",
+  "uid": "legacy-175",
+  "type": "multi",
+  "prompt": "Was muss man bei der Haltung einer Hündin mit Welpen berücksichtigen?",
+  "answers": {
+    "A": "Es gibt unter anderem Vorschriften zur Haltung in der Tierschutz-Hundeverordnung zum Platzbedarf, zur Gestaltung und Größe der Wurfkiste und einer Rückzugsmöglichkeit für die Hündin.",
+    "B": "Man trägt die Verantwortung dafür, dass die Welpen in entspannter Atmosphäre verschiedene Umweltreize und Sozialkontakte mit unterschiedlichen Menschen haben.",
+    "C": "Die Hündin braucht nur einen Platz, wo sie mit ihren Welpen sein kann. Ansonsten kümmert sich jede Hündin in allen Belangen um ihre Welpen.",
+    "D": "Welpen muss laut Tierschutz-Hundeverordnung ab einem Alter von fünf Wochen mindestens einmal täglich Auslauf im Freien gewährt werden, sofern sie im Haus aufgezogen werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Haltung"
+}, {
+  "id": 176,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "176",
+  "uid": "legacy-176",
+  "type": "multi",
+  "prompt": "Welche Krankheiten können in Deutschland durch Erreger in Zecken übertragen werden?",
+  "answers": {
+    "A": "FSME und Borreliose.",
+    "B": "Keine.",
+    "C": "Würmer.",
+    "D": "Anaplasmose, Babesiose, Ehrlichiose."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Krankheiten"
+}, {
+  "id": 177,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "177",
+  "uid": "legacy-177",
+  "type": "multi",
+  "prompt": "In welchen Situationen kann eine Hündin von einem Rüden erfolgreich gedeckt und tragend werden ?",
+  "answers": {
+    "A": "In den sogenannten Stehtagen, wenn der blutige Ausfluss nachlässt und eher fleischwasserfarben wird.",
+    "B": "Bei der ersten Läufigkeit ist eine erfolgreiche Bedeckung nicht möglich.",
+    "C": "Nur direkt zu Beginn einer Läufigkeit, wenn der blutige Ausfluss beginnt.",
+    "D": "Wenn es beim Deckakt zum sogenannten „Hängen“ kommt. Dabei stehen Hündin und Rüde mit dem Hinterteil aneinander, während der angeschwollene Penis des Rüden in der Hündin bleibt."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Geschlechter"
+}, {
+  "id": 178,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "178",
+  "uid": "legacy-178",
+  "type": "multi",
+  "prompt": "Welche Probleme können auftreten, wenn ein Hund länger alleine im Auto warten muss?",
+  "answers": {
+    "A": "Im Sommer kann es innerhalb von Minuten so warm werden, dass der Hund lebensbedrohliche Kreislaufprobleme bekommt.",
+    "B": "Im Auto kann nichts passieren, weil sich der Hund dort sicher aufhalten kann.",
+    "C": "Bei Minusgraden kann es sein, dass der Hund stark friert und deswegen krank wird.",
+    "D": "Da ein Hund seine Körpertemperatur nur über Hecheln und Schweißabsonderungen der Pfoten regulieren kann, bekommt er erheblich schneller als Menschen Probleme, wenn es im Auto zu warm wird."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Gesundheit"
+}, {
+  "id": 179,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "179",
+  "uid": "legacy-179",
+  "type": "multi",
+  "prompt": "Welche Themen sollte ich am besten mit meinem/r Tierarzt/-ärztin besprechen?",
+  "answers": {
+    "A": "Art und Häufigkeit einer Entwurmung.",
+    "B": "Nötige und sinnvolle Impfungen.",
+    "C": "Ein Besuch bei dem/r Tierarzt/-ärztin ist nur nötig, wenn es dem Hund schlecht geht.",
+    "D": "Art und Häufigkeit einer Zecken- und Flohprophylaxe."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Gesundheit"
+}, {
+  "id": 180,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "180",
+  "uid": "legacy-180",
+  "type": "multi",
+  "prompt": "Welche Impfungen können für meinen Hund sinnvoll sein?",
+  "answers": {
+    "A": "Die Grundimmunisierung von Welpen (3 Impfungen im Abstand von 3-4 Wochen mit ca. 8, 12 und 16 Lebenswochen) und die darauffolgende Impfung nach einem Jahr.",
+    "B": "Impfungen braucht mein Hund nur, wenn ich mit ihm ins Ausland fahren möchte.",
+    "C": "Auffrischungsimpfungen gegen Parvovirose, Staupe, Hepatitis, Leptospirose, Tollwut und Zwingerhusten-Komplex.",
+    "D": "Wenn Impfungen von vielen nicht vorgenommen werden, nehmen die entsprechenden Krankheiten und daraus entstehenden Todesfälle wieder zu."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Krankheiten"
+}, {
+  "id": 181,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "181",
+  "uid": "legacy-181",
+  "type": "multi",
+  "prompt": "An welchen Erkrankungen leiden Hunde oft, wenn sie aus Süd- oder Osteuropa kommen?",
+  "answers": {
+    "A": "Leishmaniose.",
+    "B": "Ehrlichiose, Anaplasmose, Babesiose.",
+    "C": "Rickettsiose.",
+    "D": "Herzwürmer."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Krankheiten"
+}, {
+  "id": 182,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "182",
+  "uid": "legacy-182",
+  "type": "multi",
+  "prompt": "Was muss ich bedenken, wenn ich mit meinem Hund ins Ausland reisen möchte?",
+  "answers": {
+    "A": "Gibt es in dem geplanten Reiseland und in den Ländern, die ich bis dahin durchqueren werde, Erkrankungen, vor denen mein Hund geschützt werden kann und sollte?",
+    "B": "Erfüllt mein Hund die nötigen Einreise- und Rückreisebestimmungen (z. B. Tollwutimpfung, EUPass, Microchip, Mitführung eines Maulkorbs)?",
+    "C": "Wenn mein Hund in Deutschland gemeldet ist, ist ein Grenzübertritt problemlos möglich.",
+    "D": "Ein Hund braucht keine Reisedokumente."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rechtliches"
+}, {
+  "id": 183,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "183",
+  "uid": "legacy-183",
+  "type": "multi",
+  "prompt": "Wann ist abgesehen vom Krankheitsfall der Besuch einer Tierarztpraxis bzw. ein Gespräch mit meinem/r Tierarzt/-ärztin wichtig?",
+  "answers": {
+    "A": "Bei Überlegungen bezüglich einer Kastration.",
+    "B": "Zum allgemeinen Gesundheitscheck.",
+    "C": "Für junge Hunde, um die Praxis stressfrei und spielerisch kennen zu lernen.",
+    "D": "Bei Fragen zu Impfungen, Entwurmungen und vorbeugenden Behandlungen gegen Zecken und Flöhe."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Gesundheit"
+}, {
+  "id": 184,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "184",
+  "uid": "legacy-184",
+  "type": "multi",
+  "prompt": "Was kann für herrenlose Hunde aus Süd- und Osteuropa ein erhebliches Problem darstellen, wenn sie nach Deutschland in ein neues Zuhause gebracht werden?",
+  "answers": {
+    "A": "Für Hunde ist ein Leben in Deutschland immer besser als im Herkunftsland.",
+    "B": "Das Leben als Einzelhund, wenn sie vorher immer mit anderen Hunden zusammengelebt haben.",
+    "C": "Das Leben vorwiegend im Haus und Ausgehen an der Leine, wenn sie vorher das freie Leben draußen kannten.",
+    "D": "Die Nähe zu Menschen und sämtliche Umweltreize, die sie in ihrem Leben vorher nicht kennen gelernt haben."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rassen"
+}, {
+  "id": 185,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "185",
+  "uid": "legacy-185",
+  "type": "multi",
+  "prompt": "Können bei der Übernahme eines herrenlosen Hundes aus Süd- oder Osteuropa Verhaltensprobleme auftreten?",
+  "answers": {
+    "A": "Eine nicht ausreichende Sozialisation und Habituation auf Menschen, Hunde und Umweltreize, die in der neuen Wohnumgebung vorhanden sind, kann zu Ängsten führen, die zu dauerhaften erheblichen Leiden führen und nicht ausreichend therapierbar sind.",
+    "B": "Hunde können wegen traumatischer Erlebnisse vor der Übernahme oder/und dem Transport lebenslang Probleme mit Ängsten haben.",
+    "C": "Hunde aus dem Tierschutz brauchen grundsätzlich nur liebevolle Behandlung und eine/n guten Hundetrainer/in, um sie zu unkomplizierten Begleithunden zu machen.",
+    "D": "Es können sehr spezielle Verhaltensweisen von Rassen des Herkunftslandes auftreten, die mit dem vorgesehenen Leben in Deutschland nicht zusammenpassen, wie z. B. eine übermäßige Veranlagung zur territorialen Verteidigung bei Herdenschutzhunden und ihren Mischlingen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rassen"
+}, {
+  "id": 186,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "186",
+  "uid": "legacy-186",
+  "type": "multi",
+  "prompt": "Welche gesundheitlichen Probleme haben stark verzwergte Rassen, wie z. B. der Chihuahua, sehr häufig, weswegen man diese Rassen auch als Qualzuchten bezeichnet?",
+  "answers": {
+    "A": "Rassetypische Krankheiten (z. B. Wasserkopf, Kniescheibenprobleme), die bereits frühzeitig im Leben zu erheblichen dauerhaften Leiden führen können.",
+    "B": "Der rassetypische Schädel in Form einer kleinen Kugel führt zu Problemen mit den Augen, dem Gehirn, dem Rückenmark und den Zähnen.",
+    "C": "Verzwergte Rassen sind nur klein, haben aber dadurch keine besonderen gesundheitlichen Probleme verglichen mit anderen Hunden.",
+    "D": "Es besteht eine besondere Gefahr für Knochenbrüche."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rassen"
+}, {
+  "id": 187,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "187",
+  "uid": "legacy-187",
+  "type": "multi",
+  "prompt": "Was muss man bei Kontakten mit anderen Hunden berücksichtigen, wenn man einen sehr kleinen Hund (ca. unter 5 kg) oder einen sehr großen Hund (ca. über 50 kg) halten möchte?",
+  "answers": {
+    "A": "Man muss nichts berücksichtigen. Hunde regeln alles immer unter sich. Daher sollten Besitzer/innen sich grundsätzlich bei Hundebegegnungen heraushalten.",
+    "B": "Sehr kleine Hunde können im Kontakt mit wesentlich größeren Hunden auch versehentlich verletzt werden.",
+    "C": "Sehr große Hunde müssen in besonderem Maße als Welpen und heranwachsende Hunde in Spielkontakten mit anderen Hunden lernen, rücksichtsvoll mit ihrer Kraft umzugehen.",
+    "D": "Es ist häufig schwer, für beide Hundetypen passende Spielpartner zu finden, weil man viele Kontakte aufgrund des Größenunterschieds nicht zulassen kann. Dies kann bei betroffenen Hunden zu einer Einschränkung der Lebensqualität führen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rassen"
+}, {
+  "id": 188,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "188",
+  "uid": "legacy-188",
+  "type": "multi",
+  "prompt": "Was muss man bei dem Umgang mit Ängsten von Hunden beachten?",
+  "answers": {
+    "A": "An Ängsten kann man am effektivsten beginnen zu arbeiten, wenn der Hund entspannt ist.",
+    "B": "Solange es einen selbst im Alltag nicht stört, braucht man sich um Ängste von seinem Hund nicht zu kümmern.",
+    "C": "Man sollte den Hund regelmäßig mit seinen Ängsten konfrontieren, damit er sich daran gewöhnen kann.",
+    "D": "Angst ist ein starkes Gefühl, dass erhebliche Leiden verursachen kann. Daher sollte man professionelle Hilfe in Anspruch nehmen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Maßnahmen"
+}, {
+  "id": 189,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "189",
+  "uid": "legacy-189",
+  "type": "multi",
+  "prompt": "Was sind die häufigsten Verhaltensänderungen bei einem Rüden nach der Kastration?",
+  "answers": {
+    "A": "Abnahme von Streunen nach läufigen Hündinnen.",
+    "B": "Abnahme von Markierverhalten.",
+    "C": "Abnahme von Streitigkeiten mit unkastrierten Rüden.",
+    "D": "Abnahme von Jagdverhalten."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Geschlechter"
+}, {
+  "id": 190,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "190",
+  "uid": "legacy-190",
+  "type": "multi",
+  "prompt": "Woran erkennt man eine gute Hundeschule?",
+  "answers": {
+    "A": "Den Hunden werden konsequent Grenzen gesetzt, indem Schnauzengriff, Nackenstoß oder auf den Rücken drehen bei unerwünschtem Verhalten angewendet werden.",
+    "B": "Der Hund geht gerne dorthin.",
+    "C": "Erwünschtes Verhalten wird in kleinen Schritten über positive Bestärkung aufgebaut.",
+    "D": "Es wird darauf geachtet, dass die Hunde nicht für unerwünschtes Verhalten unbeabsichtigt belohnt werden, indem der Halter sich um sie kümmert oder sie etwas machen lässt, was ihnen Freude macht."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Ursachen und Vorbeugen"
+}, {
+  "id": 191,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "191",
+  "uid": "legacy-191",
+  "type": "multi",
+  "prompt": "Welche Schwierigkeiten können durch Importhunde entstehen?",
+  "answers": {
+    "A": "Es können in keinem Fall Probleme entstehen.",
+    "B": "Für heimische Hunde wird der Infektionsdruck durch mitgebrachte Krankheitserreger erhöht, wenn die Tiere sie beim Import mitbringen.",
+    "C": "Unwissentliche Einschleppung von neuen Parasiten und Krankheitserregern, wenn die Hunde nicht fachlich korrekt und ausreichend oft vor und nach dem Import untersucht und behandelt wurden.",
+    "D": "Zusätzliche Belastungen der Tierheime, wenn die Hunde nicht in das neue Zuhause passen und abgegeben werden müssen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Öffentlichkeit"
+}, {
+  "id": 192,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "192",
+  "uid": "legacy-192",
+  "type": "multi",
+  "prompt": "Was sind mögliche Nebenwirkungen von dem Einsatz von Schreck- und Strafreizen zur Erziehung?",
+  "answers": {
+    "A": "Wenn die Strafe zeitlich sofort auf das unerwünschte Verhalten erfolgt, kommt es auch nicht zu Nebenwirkungen, weil der Hund dann sicher verstehen kann, worum es geht.",
+    "B": "Vertrauenseinbußen zum Halter.",
+    "C": "Verknüpfung mit zufällig gleichzeitig auftretenden Reizen, was die Ursache für Problemverhaltensweisen werden kann. Z. B. kann ein Leinenruck dazu führen, dass Leinenaggression gegenüber anderen Hunden ausgelöst oder verschlechtert wird.",
+    "D": "Angst vor ähnlichen Reizen, die dem Schreck- oder Strafreiz ähneln, wie z. B. Angst vor Zischgeräuschen durch die Verwendung einer Wasserspritze."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Strafen"
+}, {
+  "id": 193,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "193",
+  "uid": "legacy-193",
+  "type": "multi",
+  "prompt": "Wie bringt man einem Hund bei, dass er nicht aus Freude Menschen zur Begrüßung anspringt?",
+  "answers": {
+    "A": "Mit dem Anspringen möchte der Hund sich als Chef aufspielen und man muss ihn für das Anspringen bestrafen.",
+    "B": "Begrüßungen sollten möglichst ruhig und entspannt erfolgen, sodass keine große Aufregung oder Partystimmung bei dem Hund gefördert wird.",
+    "C": "Man kümmert sich nur um den Hund, wenn alle vier Pfoten auf dem Boden sind.",
+    "D": "Man verhindert das Anspringen, indem man den Hund eine bekannte Übung wie z. B. Sitz machen lässt, für die man ihn belohnt. Dies muss erfolgen, bevor der Hund das erste Mal bei einer Begegnung anspringen würde."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Ursachen und Vorbeugen"
+}, {
+  "id": 194,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "194",
+  "uid": "legacy-194",
+  "type": "multi",
+  "prompt": "Welche der folgenden Aussagen stehen sinngemäß im Tierschutzgesetz?",
+  "answers": {
+    "A": "Der Mensch hat eine besondere Verantwortung für den Schutz des Lebens und des Wohlbefindens der Tiere als Mitgeschöpf.",
+    "B": "Niemand darf einem Tier ohne vernünftigen Grund Schmerzen, Leiden oder Schäden zufügen.",
+    "C": "Niemand muss über die erforderlichen Kenntnisse und Fähigkeiten für die Haltung eines Hundes verfügen.",
+    "D": "Man darf die Möglichkeit eines Tieres zu artgemäßer Bewegung nicht so einschränken, dass ihm Schmerzen oder vermeidbare Leiden oder Schäden zugefügt werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rechtliches"
+}, {
+  "id": 195,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "195",
+  "uid": "legacy-195",
+  "type": "multi",
+  "prompt": "Wie kann man vorbeugen, dass ein Hund beginnt, andere Hunde anzupöbeln, wenn er an der Leine ist?",
+  "answers": {
+    "A": "Man drängt den Hund immer resolut hinter sich, wenn ein anderer Hund vorbei geht.",
+    "B": "Man lobt den Hund, wenn er artig an einem anderen Hund vorbei gegangen ist.",
+    "C": "Während ein Hund sich nähert und an einem vorbei geht, gibt man seinem Hund die Leckerchen so, dass sich der eigene Hund immer vom anderen Hund abwenden muss, um es zu fressen.",
+    "D": "Man lockt den eigenen Hund mit einem Leckerchen an dem vorbeigehenden Hund vorbei."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Probleme - Ursachen und Vorbeugen"
+}, {
+  "id": 196,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "196",
+  "uid": "legacy-196",
+  "type": "multi",
+  "prompt": "Kann man Hunde jeder Größe problemlos an der Leine bei sich halten?",
+  "answers": {
+    "A": "Es ist grundsätzlich nur eine Frage der Erziehung, ob man einen Hund in jeder Situation gut halten kann.",
+    "B": "Man kann in der Regel Hunde bis ca. zu einem Drittel des eigenen Körpergewichts gut halten.",
+    "C": "Vor allem aktiven gesunden Hunden fällt es selbst bei ausreichender Auslastung häufig sehr schwer, sich der Gangart ihres Menschen immer anzupassen. Daher kann es lange dauern, bis der Hunde den gewünschten Trainingsstand erreicht hat, ohne zu Ziehen an der Leine zu gehen.",
+    "D": "Bei glatter Straße oder in Situationen, in denen der Hund sehr aufgeregt oder ängstlich ist, kann es auch bei ansonsten gut leinenführigen Hunden schwer sein, sie an der Leine sicher halten zu können."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rassen"
+}, {
+  "id": 197,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "197",
+  "uid": "legacy-197",
+  "type": "multi",
+  "prompt": "Gibt es Hunderassen mit einer Veranlagung für bestimmte Krankheiten?",
+  "answers": {
+    "A": "Alle Rassen sind überzüchtet, sodass man nur mit einem Mischling einen gesunden Hund bekommen kann.",
+    "B": "Es gibt für fast alle Hunderassen rassetypische Krankheiten. Daher sollte man sich bei der Rassewahl auch gut informieren, für welche Krankheiten ein Risiko bestehen könnte.",
+    "C": "Eine Veranlagung für bestimmte Krankheiten können nicht nur Rassehunde haben, sondern auch Mischlinge aus ihnen.",
+    "D": "Wenn die Eltern gesund erscheinen, werden ihre Welpen in jedem Fall gesund sein."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Rassen"
+}, {
+  "id": 198,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "E",
+    "F"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "198",
+  "uid": "legacy-198",
+  "type": "multi",
+  "prompt": "Welche Hunde sind gemäß Landeshundegesetz NRW gefährlich?",
+  "answers": {
+    "A": "Chihuahuas.",
+    "B": "Hunde, die einen Menschen angegriffen und gebissen haben.",
+    "C": "Hunde, die einen Menschen in Gefahr drohender Weise angesprungen haben.",
+    "D": "Hunde, die auf den Mittagstisch springen und Lebensmittel erbeuten.",
+    "E": "Hunde, die einen anderen Hund gebissen haben, ohne selbst angegriffen worden zu sein.",
+    "F": "Hunde, die unkontrolliert andere Tiere hetzen, beißen oder reißen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Weitere Themen"
+}, {
+  "id": 199,
+  "images": [],
+  "options": [
+    "A",
+    "B"
+  ],
+  "correct": [
+    "A"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "199",
+  "uid": "legacy-199",
+  "type": "multi",
+  "prompt": "Wie viele gefährliche Hunde gemäß Landeshundegesetz NRW darf eine Einzelperson gleichzeitig führen?",
+  "answers": {
+    "A": "einen",
+    "B": "Mehr als einen, vorausgesetzt, die Hunde haben mit dieser Person zusammen eine Verhaltensprüfung absolviert."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Weitere Themen"
+}, {
+  "id": 200,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "200",
+  "uid": "legacy-200",
+  "type": "multi",
+  "prompt": "Welche Voraussetzungen gelten für die Erlaubniserteilung zur Haltung eines gemäß Landeshundegesetz NRW gefährlichen Hundes?",
+  "answers": {
+    "A": "Der Antragsteller stellt eine ausbruchsichere und verhaltensgerechte Unterbringung sicher.",
+    "B": "der Abschluss einer Hunde-Krankenversicherung.",
+    "C": "der Abschluss einer besonderen Haftpflichtversicherung.",
+    "D": "die fälschungssichere Kennzeichnung des Hundes.",
+    "E": "der regelmäßige Besuch einer Hundeschule."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Weitere Themen"
+}, {
+  "id": 201,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "201",
+  "uid": "legacy-201",
+  "type": "multi",
+  "prompt": "Welche der folgenden Aussagen sind richtig?",
+  "answers": {
+    "A": "Die Erlaubnis zur Haltung eines gefährlichen Hundes gilt deutschlandweit.",
+    "B": "Beim Spaziergang mit einem gefährlichen Hund muss die den Hund führende Person die Haltungserlaubnis oder eine Kopie mit sich führen und vorzeigen können.",
+    "C": "Auf öffentlichen Gehwegen müssen gefährliche Hunde angeleint werden.",
+    "D": "In Treppenhäusern privater Mehrfamilienhäuser müssen gefährliche Hunde nicht angeleint werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Weitere Themen"
+}, {
+  "id": 202,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "202",
+  "uid": "legacy-202",
+  "type": "multi",
+  "prompt": "Welche der folgenden Aussagen ist falsch?",
+  "answers": {
+    "A": "Ob mit einem gefährlichen Hund gezüchtet werden darf hängt von der erfolgreichen Teilnahme an einer Verhaltensprüfung ab.",
+    "B": "Im Rahmen des Bürokratieabbaugesetzes müssen die Abgabe oder das Versterben eines gefährlichen Hundes nur noch der für die Hundesteuer zuständigen Behörde mitgeteilt werden. Eine Weiterleitung der Information an die Ordnungsbehörde erfolgt durch die Steuerbehörde.",
+    "C": "Bei einem Wechsel des Haltungsortes unterrichtet die bisher zuständige Behörde die nunmehr zuständige Behörde bezüglich der Gefährlichkeit eines Hundes sowie die Erteilung von Erlaubnissen und Befreiungen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Weitere Themen"
+}, {
+  "id": 203,
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "E"
+  ],
+  "source": "Rhein-Erft 203",
+  "sourceId": "203",
+  "uid": "legacy-203",
+  "type": "multi",
+  "prompt": "In welchen Bereichen müssen Hunde gemäß Landeshundegesetz NRW angeleint werden?",
+  "answers": {
+    "A": "Innerorts, in bebauten Gebieten mit Publikumsverkehr, bei Menschenansammlungen.",
+    "B": "in allgemeinen Parkanlagen und auf Kinderspielplätzen.",
+    "C": "in ausgewiesenen Hundeauslaufbereichen.",
+    "D": "Zur Sicherung des Hundes in Gärten mit Fischteichen.",
+    "E": "in öffentlichen Gebäuden, Schulen und Kindergärten."
+  },
+  "requiresVisual": false,
+  "sourceKey": "legacy203",
+  "category": "Weitere Themen"
+}, {
+  "id": 1001,
+  "uid": "r97-1",
+  "source": "Rhein-Erft 97",
+  "sourceId": "1",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "prompt": "Gegen welche Krankheiten soll der Hund mit 12 Wochen geimpft werden?",
+  "answers": {
+    "A": "Staupe, Hepatitis",
+    "B": "Leptospirose, Parvovirose",
+    "C": "Tollwut",
+    "D": "Leukose",
+    "E": "Salmonellose"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1002,
+  "uid": "r97-2",
+  "source": "Rhein-Erft 97",
+  "sourceId": "2",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wie lange ist die Tollwutimpfbescheinigung in der BRD gültig?",
+  "answers": {
+    "A": "½ Jahr",
+    "B": "jeweils nach den Angaben des Impfstoffherstellers",
+    "C": "3 Jahre"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1003,
+  "uid": "r97-3",
+  "source": "Rhein-Erft 97",
+  "sourceId": "3",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Sie sind mit ihrem freilaufenden Hund unterwegs. Ein Jogger kommt Ihnen entgegen. Wie verhalten Sie sich?",
+  "answers": {
+    "A": "Ich lasse den Hund weiter laufen",
+    "B": "Ich bitte den Jogger, nicht so dicht vorbeizulaufen und sage, dass mein Hund nicht beißt.",
+    "C": "Ich leine den Hund an und führe ihn am Jogger vorbei"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1004,
+  "uid": "r97-4",
+  "source": "Rhein-Erft 97",
+  "sourceId": "4",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Der Hund sitzt im Sessel und knurrt, wenn sich jemand dazu setzen will",
+  "answers": {
+    "A": "normales Verhalten",
+    "B": "unterwürfiges Verhalten",
+    "C": "dominierendes Verhalten"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1005,
+  "uid": "r97-5",
+  "source": "Rhein-Erft 97",
+  "sourceId": "5",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Wann sind Welpen/Junghunde besonders empfänglich für soziale Eindrücke und Umweltreize (Sozialisierungsphase)?",
+  "answers": {
+    "A": "3. – 14. Woche",
+    "B": "1. - 3. Woche",
+    "C": "6. – 9. Monat"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1006,
+  "uid": "r97-6",
+  "source": "Rhein-Erft 97",
+  "sourceId": "6",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "prompt": "Wo müssen alle Hunde immer angeleint werden?",
+  "answers": {
+    "A": "in Naturschutzgebieten",
+    "B": "innerhalb bebauter Gebiete",
+    "C": "außerhalb bebauter Gebiete",
+    "D": "in Bus und Bahn"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1007,
+  "uid": "r97-7",
+  "source": "Rhein-Erft 97",
+  "sourceId": "7",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Warum reagieren viele Hunde an der Leine aggressiver?",
+  "answers": {
+    "A": "Die Hunde ärgern sich darüber, dass sie angeleint sind und übertragen ihre Wut auf den anderen Hund.",
+    "B": "Die Hunde können an der Leine nicht ausweichen und fühlen sich schneller bedroht.",
+    "C": "Die Hunde betrachten ihr Herrchen/Frauchen als ihr Rudel und fühlen sich mit dem Rudel im Rücken stärker"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1008,
+  "uid": "r97-8",
+  "source": "Rhein-Erft 97",
+  "sourceId": "8",
+  "images": [],
+  "options": [],
+  "type": "mapping",
+  "correct": [
+    "A:2",
+    "B:3",
+    "C:1"
+  ],
+  "mappingKeys": [
+    "A",
+    "B",
+    "C"
+  ],
+  "mappingChoices": [
+    "1",
+    "2",
+    "3"
+  ],
+  "prompt": "Verknüpfen Sie die Aussagen über die Aggressivität richtig miteinander",
+  "answers": {},
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen",
+  "mappingLabels": {
+    "A": "Hetzen von beweglichen Objekten",
+    "B": "Aggressionen gegen Menschen und / oder Hunde im eigenen Rudel bei unklaren Rangordnungsverhältnissen",
+    "C": "Aggression bei Annäherung von fremden Personen und Tieren an das Grundstück bzw. die Wohnung"
+  },
+  "mappingTargets": {
+    "1": "territoriale Aggression / Revieraggression",
+    "2": "Beuteaggression",
+    "3": "Dominanzaggression"
+  }
+}, {
+  "id": 1009,
+  "uid": "r97-9",
+  "source": "Rhein-Erft 97",
+  "sourceId": "9",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Welche Erreger sind die Verursacher der Tollwut?",
+  "answers": {
+    "A": "Bakterien",
+    "B": "Parasiten",
+    "C": "Viren"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1010,
+  "uid": "r97-10",
+  "source": "Rhein-Erft 97",
+  "sourceId": "10",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Die Anwendung eines Elektrohalsbandes",
+  "answers": {
+    "A": "ist verboten",
+    "B": "ist zur Erziehung schwer erziehbarer Hunde erlaubt",
+    "C": "ist für jeden uneingeschränkt erlaubt"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1011,
+  "uid": "r97-11",
+  "source": "Rhein-Erft 97",
+  "sourceId": "11",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Der Welpe sollte",
+  "answers": {
+    "A": "möglichst wenig Kontakt zur Umwelt bekommen, weil er sonst verunsichert wird",
+    "B": "Viel Kontakt zu Menschen, Artgenossen und Umweltreizen haben, damit er später in allen Situationen gut zurecht kommt",
+    "C": "Überwiegend im Zwinger gehalten werden"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1012,
+  "uid": "r97-12",
+  "source": "Rhein-Erft 97",
+  "sourceId": "12",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wie beeinflussen „Zerr“- und „Rauf“-Spiele zwischen Mensch und Hund das Selbstbewusstsein des Hundes, wenn er als Sieger aus diesen Spielen hervorgeht?",
+  "answers": {
+    "A": "Minderung",
+    "B": "Steigerung",
+    "C": "Keinen Einfluss"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1013,
+  "uid": "r97-13",
+  "source": "Rhein-Erft 97",
+  "sourceId": "13",
+  "images": [
+    "assets/sources/rhein97/13.webp"
+  ],
+  "options": [],
+  "type": "mapping",
+  "correct": [
+    "A:2",
+    "B:5",
+    "C:3",
+    "D:1",
+    "E:4"
+  ],
+  "mappingKeys": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "mappingChoices": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "prompt": "Ordnen Sie nachstehende Begriffe den abgebildeten Schwanzhaltungen zu:",
+  "answers": {},
+  "requiresVisual": true,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen",
+  "mappingLabels": {
+    "A": "drohend",
+    "B": "Angst",
+    "C": "Normalhaltung",
+    "D": "aufmerksam",
+    "E": "Demut"
+  }
+}, {
+  "id": 1014,
+  "uid": "r97-14",
+  "source": "Rhein-Erft 97",
+  "sourceId": "14",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "prompt": "Welche Rechtsgebiete sind für Hundehalter wichtig?",
+  "answers": {
+    "A": "Strafrecht",
+    "B": "Ordnungsrecht",
+    "C": "Zivilrecht",
+    "D": "Umweltrecht (Lärm)",
+    "E": "Tierschutzrecht"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1015,
+  "uid": "r97-15",
+  "source": "Rhein-Erft 97",
+  "sourceId": "15",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Ihr Hund befolgt bei einem Spaziergang alle Ihre Kommandos. Wie zeigen Sie Ihrem Hund, dass sein Verhalten richtig ist?",
+  "answers": {
+    "A": "Sie streicheln Ihren Hund ausdauernd, nachdem Sie zuhause angekommen sind",
+    "B": "Sie reagieren nicht weiter, da sie den Hund nicht bestrafen müssen",
+    "C": "Sie geben ihm bei der nächsten Fütterung sein Lieblingsfutter",
+    "D": "Sie loben ihn sofort nach jedem gut ausgeführten Kommando"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1016,
+  "uid": "r97-16",
+  "source": "Rhein-Erft 97",
+  "sourceId": "16",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Sie starten mit Ihrem Hund einen Spaziergang vom Auto aus.",
+  "answers": {
+    "A": "Hund aus dem Auto lassen und dann anleinen",
+    "B": "Hund anleinen und dann aus dem Auto lassen",
+    "C": "Hund aus dem Auto lassen und frei laufen lassen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1017,
+  "uid": "r97-17",
+  "source": "Rhein-Erft 97",
+  "sourceId": "17",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Warum müssen Welpen regelmäßig entwurmt werden?",
+  "answers": {
+    "A": "Weil sie bereits mit der Muttermilch mit Würmern infiziert werden",
+    "B": "Weil sie sich beim Kontakt mit Menschen mit Würmern infizieren",
+    "C": "Weil sich die Hunde am eigenen und Kot anderer Hunde mit Wurmeiern infizieren"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1018,
+  "uid": "r97-18",
+  "source": "Rhein-Erft 97",
+  "sourceId": "18",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Welche Hunderasse darf nicht mehr ohne Erlaubnis des Ordnungsamtes gehalten werden?",
+  "answers": {
+    "A": "Deutscher Schäferhund",
+    "B": "Bullterrier",
+    "C": "Bulldogge"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1019,
+  "uid": "r97-19",
+  "source": "Rhein-Erft 97",
+  "sourceId": "19",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Wodurch werden Ohrenkrankheiten verursacht?",
+  "answers": {
+    "A": "durch Blütenpollen",
+    "B": "durch Schmutz und Fremdkörper",
+    "C": "durch Milben"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1020,
+  "uid": "r97-20",
+  "source": "Rhein-Erft 97",
+  "sourceId": "20",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Sie gehen mit Ihrem freilaufenden Hund spazieren. Ein Spaziergänger bleibt zögernd und verängstigt stehen. Wie verhalten Sie sich?",
+  "answers": {
+    "A": "mit Kommando „Fuß“ zügig vorbeigehen",
+    "B": "den Hund weiter frei laufen lassen und selbst normal weitergehen",
+    "C": "den Hund anleinen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1021,
+  "uid": "r97-21",
+  "source": "Rhein-Erft 97",
+  "sourceId": "21",
+  "images": [
+    "assets/sources/rhein97/21.webp"
+  ],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "prompt": "Ihr Hund zeigt nebenstehendes Bild. Ihr Hund ist ......... (auch mehrere Antworten können richtig sein)",
+  "answers": {
+    "A": "aggressiv",
+    "B": "er hat Angst",
+    "C": "er droht",
+    "D": "keines von allem, das Verhalten legt sich wieder"
+  },
+  "requiresVisual": true,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1022,
+  "uid": "r97-22",
+  "source": "Rhein-Erft 97",
+  "sourceId": "22",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Hunde benötigen keine Rückzugsmöglichkeit (Zufluchtsort), da sie jederzeit engen Kontakt zu den Mitgliedern der Familie pflegen.",
+  "answers": {
+    "A": "stimmt",
+    "B": "stimmt nicht",
+    "C": "hängt von der Rasse ab"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1023,
+  "uid": "r97-23",
+  "source": "Rhein-Erft 97",
+  "sourceId": "23",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "D"
+  ],
+  "prompt": "Die unerwünschten Aggressionen des Hundes",
+  "answers": {
+    "A": "entstehen durch falsche Erziehung",
+    "B": "sind ausschließlich ererbte Eigenschaften",
+    "C": "können durch gezielte Ausbildung völlig unterdrückt werden",
+    "D": "können durch gezielte Ausbildung unter Kontrolle gehalten werden"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1024,
+  "uid": "r97-24",
+  "source": "Rhein-Erft 97",
+  "sourceId": "24",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Fertigfuttermittel bei erwachsenen, gesunden Hunden",
+  "answers": {
+    "A": "decken den Bedarf des Tieres",
+    "B": "müssen durch spezielle Futtermittel ergänzt werden",
+    "C": "dürfen in der Hundeernährung nicht ausschließlich verwendet werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1025,
+  "uid": "r97-25",
+  "source": "Rhein-Erft 97",
+  "sourceId": "25",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Sie gehen mit Ihrem frei laufenden Hund spazieren. Es kommt ein Spaziergänger entgegen, der bei Ihrem Auftauchen seinen Hund auf den Arm nimmt.",
+  "answers": {
+    "A": "den Hund weiter frei laufen lassen",
+    "B": "den Hund zu sich rufen und im großen Bogen vorbeigehen",
+    "C": "den Hund anleinen und den Entgegenkommenden mit Abstand passieren"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1026,
+  "uid": "r97-26",
+  "source": "Rhein-Erft 97",
+  "sourceId": "26",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Ein Hund, der als bereits erwachsenes Tier im Tierheim abgegeben wurde und an einen neuen Besitzer vermittelt wurde",
+  "answers": {
+    "A": "gehorcht von Natur aus besonders gut, weil er dankbar ist",
+    "B": "muss zuerst mit Vorsicht in verschiedenen Situationen beobachtet werden, weil man nicht wissen kann, ob er z.B. Kleinkinder aufgrund schlechter Erfahrungen nicht leiden kann",
+    "C": "kann aufgrund von schlechten Erfahrungen beim Vorbesitzer ein Tier sein, welches nur in erfahrene Hände gehört"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1027,
+  "uid": "r97-27",
+  "source": "Rhein-Erft 97",
+  "sourceId": "27",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wann in der Läufigkeit ist die Hündin empfängnisbereit?",
+  "answers": {
+    "A": "4. – 6. Tag der Läufigkeit",
+    "B": "9. -14. Tag der Läufigkeit",
+    "C": "Während der gesamten Dauer der Läufigkeit"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1028,
+  "uid": "r97-28",
+  "source": "Rhein-Erft 97",
+  "sourceId": "28",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Wie viele gefährliche Hunde darf eine Einzelperson gleichzeitig führen?",
+  "answers": {
+    "A": "Einen",
+    "B": "Zwei",
+    "C": "Unbegrenzt, vorausgesetzt die Hunde haben mit dieser Person zusammen eine Verhaltensprüfung absolviert"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1029,
+  "uid": "r97-29",
+  "source": "Rhein-Erft 97",
+  "sourceId": "29",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Welche Erziehungsmethoden sind beim Hund anzuwenden",
+  "answers": {
+    "A": "autoritär",
+    "B": "antiautoritär",
+    "C": "konsequent",
+    "D": "je nach eigener Lebensauffassung"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1030,
+  "uid": "r97-30",
+  "source": "Rhein-Erft 97",
+  "sourceId": "30",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "prompt": "Warum entwickeln sich Hunde zu Problemhunden?",
+  "answers": {
+    "A": "durch isolierte Haltung",
+    "B": "durch falsche Ausbildung",
+    "C": "durch Haltung an der Kette",
+    "D": "ist stets bereits angeboren"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1031,
+  "uid": "r97-31",
+  "source": "Rhein-Erft 97",
+  "sourceId": "31",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "prompt": "Warum verhalten sich Hunde häufig gegenüber Kindern anders als gegenüber erwachsenen Personen?",
+  "answers": {
+    "A": "weil sie Kinder als Respektspersonen ansehen",
+    "B": "weil Kinder ihr Verhalten plötzlich ändern, sich schnell und zum Teil unkontrolliert bewegen",
+    "C": "weil Kinder häufig plötzlich laut schreien",
+    "D": "weil sich Kinder unbewusst häufig falsch verhalten"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1032,
+  "uid": "r97-32",
+  "source": "Rhein-Erft 97",
+  "sourceId": "32",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Zecken sollten so schnell wie möglich entfernt werden. Wie geht man vor?",
+  "answers": {
+    "A": "Mit der Zeckenzange oder Pinzette vorsichtig herausdrehen",
+    "B": "Mit Öl bestreichen, damit die Zecke erstickt und von selbst abfällt",
+    "C": "Zecke mit den Fingern zusammendrücken und schnell herausreißen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1033,
+  "uid": "r97-33",
+  "source": "Rhein-Erft 97",
+  "sourceId": "33",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "D"
+  ],
+  "prompt": "Wie gehe ich mit einem zur Dominanz neigendem Hund um?",
+  "answers": {
+    "A": "Der Hund bekommt erst etwas zu Fressen wenn er ein Kommando, z.B. Sitz oder Platz, ausgeführt hat",
+    "B": "Der Hund geht immer als erster durch die Tür",
+    "C": "Ich spiele häufig mit meinem Hund und lasse ihn öfters gewinnen",
+    "D": "Wenn der Hund im Weg ist, muss er aufstehen und mich vorbeilassen",
+    "E": "Wenn der Hund knurrt, lasse ich ihn gewähren, weil er seine Ruhe haben will",
+    "F": "Der Hund darf neben mir auf dem Sofa sitzen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1034,
+  "uid": "r97-34",
+  "source": "Rhein-Erft 97",
+  "sourceId": "34",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "prompt": "Wie sollte ein Hund bestraft werden?",
+  "answers": {
+    "A": "durch einen scharf ausgesprochenes Kommando, z. B. „Pfui“, „Aus“",
+    "B": "durch Schicken auf seinen Platz",
+    "C": "durch Schläge mit einem Stock, bis er sich unterwirft",
+    "D": "durch Wegnahme des Gegenstandes, mit dem er gerade spielt",
+    "E": "durch Streichen des Spaziergangs"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1035,
+  "uid": "r97-35",
+  "source": "Rhein-Erft 97",
+  "sourceId": "35",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wie häufig muss ein Hund im Rahmen der Grundimmunisierung mindestens geimpft werden um einen stabilen Impfschutz auszubilden?",
+  "answers": {
+    "A": "einmal",
+    "B": "zweimal im Abstand von ca. 4 Wochen",
+    "C": "immer wenn er zum Tierarzt geht"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1036,
+  "uid": "r97-36",
+  "source": "Rhein-Erft 97",
+  "sourceId": "36",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Der Hund verlässt unbeaufsichtigt ein umfriedetes Grundstück. Wer trägt die Verantwortung für Schäden, die der Hund möglicherweise verursacht?",
+  "answers": {
+    "A": "Der Grundstückseigentümer",
+    "B": "Der, der die Tür offengelassen hat",
+    "C": "Der Hundeführer bzw. –halter",
+    "D": "Der Hund selbst"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1037,
+  "uid": "r97-37",
+  "source": "Rhein-Erft 97",
+  "sourceId": "37",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B"
+  ],
+  "prompt": "Ein gesunder American – Staffordshire – Terrier kann aus persönlichen Gründen nicht mehr gehalten werden. Wie kann ich ihn anderweitig unterbringen?",
+  "answers": {
+    "A": "Abgabe an geeignete Freunde oder Bekannte, die eine entsprechende Erlaubnis zur Haltung dieses Hundes beantragt haben.",
+    "B": "Abgabe an ein Tierheim",
+    "C": "Anbinden an einen Baum",
+    "D": "Einschläferung durch den Tierarzt"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1038,
+  "uid": "r97-38",
+  "source": "Rhein-Erft 97",
+  "sourceId": "38",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Den Hund an die Leine zu nehmen ist",
+  "answers": {
+    "A": "immer richtig",
+    "B": "situationsbedingt richtig",
+    "C": "falsch"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1039,
+  "uid": "r97-39",
+  "source": "Rhein-Erft 97",
+  "sourceId": "39",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B"
+  ],
+  "prompt": "Für welche Hunderassen kann nach Landeshundegesetz NRW eine Ausnahmegenehmigung für den Maulkorbzwang und die Leinenpflicht erteilt werden?",
+  "answers": {
+    "A": "Anlage 1 – Hunde (z.B. American Staffordshire Terrier)",
+    "B": "Anlage 2 – Hunde (z.B. Rottweiler)",
+    "C": "Hunde, die vom amtlichen Tierarzt als gefährlich beurteilt werden"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1040,
+  "uid": "r97-40",
+  "source": "Rhein-Erft 97",
+  "sourceId": "40",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C",
+    "D",
+    "E"
+  ],
+  "prompt": "Welche Hunde müssen mit Chip gekennzeichnet werden gemäß Landeshundegesetz NRW?",
+  "answers": {
+    "A": "Riesenschnauzer",
+    "B": "Westhighland-Terrier",
+    "C": "American Staffordshire-Terrier",
+    "D": "Deutscher Schäferhund",
+    "E": "Golden Retriever"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1041,
+  "uid": "r97-41",
+  "source": "Rhein-Erft 97",
+  "sourceId": "41",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Ein Kommando wird eingeübt",
+  "answers": {
+    "A": "nur über das Gehör",
+    "B": "nur über Körperkontakt",
+    "C": "nur über Sichtzeichen",
+    "D": "über alles zusammen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1042,
+  "uid": "r97-42",
+  "source": "Rhein-Erft 97",
+  "sourceId": "42",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "In welchem Alter sollen Welpen frühestens abgegeben werden?",
+  "answers": {
+    "A": "5. Lebenswoche",
+    "B": "8. Lebenswoche",
+    "C": "12. Lebenswoche"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1043,
+  "uid": "r97-43",
+  "source": "Rhein-Erft 97",
+  "sourceId": "43",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Wie groß muss die Zwingergrundfläche ohne Berechnung der Hundehütte mindestens für einen Rottweiler sein?",
+  "answers": {
+    "A": "8m²",
+    "B": "6 m²",
+    "C": "20 m²"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1044,
+  "uid": "r97-44",
+  "source": "Rhein-Erft 97",
+  "sourceId": "44",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Anzeichen der Läufigkeit (Hitze) der Hündin sind",
+  "answers": {
+    "A": "die Hündin wälzt sich auf dem Boden",
+    "B": "die Scham ist vergrößert",
+    "C": "blutiger bzw. grau – schleimiger Ausfluss"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1045,
+  "uid": "r97-45",
+  "source": "Rhein-Erft 97",
+  "sourceId": "45",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Wie kann ein Hund vor einer Infektion mit Viren geschützt werden?",
+  "answers": {
+    "A": "viel frische Luft",
+    "B": "hoher Gemüseanteil im Futter",
+    "C": "Impfung"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1046,
+  "uid": "r97-46",
+  "source": "Rhein-Erft 97",
+  "sourceId": "46",
+  "images": [],
+  "options": [
+    "A",
+    "B"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Worauf kann sehr harter Kot hindeuten?",
+  "answers": {
+    "A": "auf eine Fütterung mit Trockenfutter",
+    "B": "auf eine zu hohe Knochenration"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1047,
+  "uid": "r97-47",
+  "source": "Rhein-Erft 97",
+  "sourceId": "47",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Welche Hunde haben den höchsten Nährstoffbedarf?",
+  "answers": {
+    "A": "Rüden",
+    "B": "alte Hunde",
+    "C": "junge Hunde"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1048,
+  "uid": "r97-48",
+  "source": "Rhein-Erft 97",
+  "sourceId": "48",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Auf welche Art schmarotzt der Hundefloh?",
+  "answers": {
+    "A": "Er ernährt sich von Hautschuppen",
+    "B": "Er saugt Blut",
+    "C": "Er bohrt sich in die Oberhaut und ernährt sich von Gewebe"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1049,
+  "uid": "r97-49",
+  "source": "Rhein-Erft 97",
+  "sourceId": "49",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "C",
+    "D"
+  ],
+  "prompt": "Ihr Hund schüttelt ständig den Kopf. Das kann bedeuten",
+  "answers": {
+    "A": "Ihr Hund ist anderer Meinung als Sie, er meint „nein“",
+    "B": "der Hund träumt davon ein Beutetier totzuschütteln",
+    "C": "der Hund hat einen Fremdkörper im Gehörgang",
+    "D": "der Hund hat eine Gehörgangsentzündung"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1050,
+  "uid": "r97-50",
+  "source": "Rhein-Erft 97",
+  "sourceId": "50",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Beim Zusammensein von Hund und Kind sollte immer",
+  "answers": {
+    "A": "nur der Hund beobachtet werden",
+    "B": "Hund und Kind beobachtet werden",
+    "C": "Keine besondere Beobachtung nötig."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1051,
+  "uid": "r97-51",
+  "source": "Rhein-Erft 97",
+  "sourceId": "51",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Welche Bedeutung hat es, wenn ein Hund sich ablegt und einen entgegenkommenden Hund mit dem Blick fixiert?",
+  "answers": {
+    "A": "Er ist müde und möchte sich schnell noch ein wenig ausruhen",
+    "B": "Er möchte einen spielerischen oder ernsten „Angriff“ starten",
+    "C": "Es ist ein Zeichen von starken Bauchschmerzen",
+    "D": "Er verhält sich unterwürfig"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1052,
+  "uid": "r97-52",
+  "source": "Rhein-Erft 97",
+  "sourceId": "52",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wann entwickelt ein Hund Jagdverhalten?",
+  "answers": {
+    "A": "8. – 14. Lebenswoche",
+    "B": "6. – 12. Lebensmonat",
+    "C": "2 Jahre"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1053,
+  "uid": "r97-53",
+  "source": "Rhein-Erft 97",
+  "sourceId": "53",
+  "images": [],
+  "options": [
+    "A",
+    "B"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Kann die Dauer der täglichen Bewegungsmöglichkeiten im Freien das Verhalten des Hundes beeinflussen?",
+  "answers": {
+    "A": "ja",
+    "B": "nein"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1054,
+  "uid": "r97-54",
+  "source": "Rhein-Erft 97",
+  "sourceId": "54",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "prompt": "Wie kann ich meinen Hund loben?",
+  "answers": {
+    "A": "ausgiebiges Streicheln",
+    "B": "lobende Worte",
+    "C": "Nichtbeachtung",
+    "D": "Leckerlis (Futter)"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1055,
+  "uid": "r97-55",
+  "source": "Rhein-Erft 97",
+  "sourceId": "55",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "In der Familie sollte der Hund",
+  "answers": {
+    "A": "ein gleichberechtigtes Familienmitglied sein",
+    "B": "die Chefposition einnehmen",
+    "C": "die unterste Rangstellung einnehmen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1056,
+  "uid": "r97-56",
+  "source": "Rhein-Erft 97",
+  "sourceId": "56",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "prompt": "Ein Hund kann",
+  "answers": {
+    "A": "ausführliche Erklärungen des Hundehalters zu seinen Befehlen verstehen",
+    "B": "Erlebnisse miteinander in Verbindung bringen",
+    "C": "Erlebnisse im Gedächtnis behalten",
+    "D": "Sich an Reaktionen seiner Bezugsperson auf sein Verhalten erinnern"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1057,
+  "uid": "r97-57",
+  "source": "Rhein-Erft 97",
+  "sourceId": "57",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Im Gegensatz zu Menschen nimmt ein Hund seine Umgebung hauptsächlich wahr über",
+  "answers": {
+    "A": "das Gehör",
+    "B": "die Augen",
+    "C": "das Gefühl",
+    "D": "die Nase"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1058,
+  "uid": "r97-58",
+  "source": "Rhein-Erft 97",
+  "sourceId": "58",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "prompt": "Wie sollte ein Hund getadelt werden?",
+  "answers": {
+    "A": "durch Schläge",
+    "B": "über Leinenruck",
+    "C": "über die Stimme",
+    "D": "durch Schnauzengriff"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1059,
+  "uid": "r97-59",
+  "source": "Rhein-Erft 97",
+  "sourceId": "59",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Beim Zusammensein von Hund und Kind sollte immer",
+  "answers": {
+    "A": "nur der Hund beobachtet werden",
+    "B": "Hund und Kind beobachtet werden",
+    "C": "keine besondere Beobachtung nötig"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1060,
+  "uid": "r97-60",
+  "source": "Rhein-Erft 97",
+  "sourceId": "60",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Das Führen von zwei Hunden gleichzeitig ist",
+  "answers": {
+    "A": "gefahrlos, wenn beide angeleint sind",
+    "B": "gefahrlos, wenn ein Hund angeleint ist",
+    "C": "immer gefährlicher als das Führen eines einzelnen Hundes"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1061,
+  "uid": "r97-61",
+  "source": "Rhein-Erft 97",
+  "sourceId": "61",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B"
+  ],
+  "prompt": "Bei Reisen ins Ausland muss",
+  "answers": {
+    "A": "die Tollwutimpfung je nach Einreisebestimmungen des Urlaubslandes erfolgen",
+    "B": "der Hund gechippt sein und einen EU-Impfausweis besitzen",
+    "C": "darf der Hund nicht größer als 40 cm sein"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1062,
+  "uid": "r97-62",
+  "source": "Rhein-Erft 97",
+  "sourceId": "62",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Wie oft sollte ein Hund entwurmt werden?",
+  "answers": {
+    "A": "Als Prophylaxe 1 x jährlich vor der Impfung.",
+    "B": "Immer nach einer positiven Kotuntersuchung.",
+    "C": "Prophylaktisch alle 3 Monate, denn ein Hund kann sich jederzeit mit Würmern infizieren.",
+    "D": "Einmal nach dem Absetzen von der Mutter.",
+    "E": "Ein Hund muss nicht entwurmt werden, da der Darm sich selbst reinigt."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1063,
+  "uid": "r97-63",
+  "source": "Rhein-Erft 97",
+  "sourceId": "63",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B"
+  ],
+  "prompt": "Gibt es beim Üben mit einem ängstlichen Hund besondere Dinge zu beachten?",
+  "answers": {
+    "A": "Hunde können nur etwas lernen, wenn sie entspannt sind und keine Angst haben.",
+    "B": "Man muss darauf achten, keine bedrohlichen Gesten in die Übungen einzubauen.",
+    "C": "Mit einem ängstlichen Hund sollte man erst gar nicht trainieren, weil er aus der Angst heraus beißen könnte.",
+    "D": "Mit einem ängstlichen Hund kann man trainieren wie mit jedem anderen Hund auch"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1064,
+  "uid": "r97-64",
+  "source": "Rhein-Erft 97",
+  "sourceId": "64",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "prompt": "Welche Grundkommandos sollte ein Hund beherrschen?",
+  "answers": {
+    "A": "Sitz oder Platz",
+    "B": "Aus",
+    "C": "Pfötchen geben",
+    "D": "Komm oder Hier",
+    "E": "Türe öffnen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1065,
+  "uid": "r97-65",
+  "source": "Rhein-Erft 97",
+  "sourceId": "65",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Der Urahn des Hundes ist",
+  "answers": {
+    "A": "der Dingo",
+    "B": "der Wolf",
+    "C": "der Fuchs"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1066,
+  "uid": "r97-66",
+  "source": "Rhein-Erft 97",
+  "sourceId": "66",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Der Hund ist",
+  "answers": {
+    "A": "Einzelgänger",
+    "B": "lebt als gemischtgeschlechtliches Paar",
+    "C": "Rudeltier"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1067,
+  "uid": "r97-67",
+  "source": "Rhein-Erft 97",
+  "sourceId": "67",
+  "images": [],
+  "options": [
+    "A",
+    "B"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Aggressive Verhaltensweisen sind bei allen Hunden",
+  "answers": {
+    "A": "normal",
+    "B": "nicht normal"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1068,
+  "uid": "r97-68",
+  "source": "Rhein-Erft 97",
+  "sourceId": "68",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Wie lange ist die Tragezeit bei der Hündin",
+  "answers": {
+    "A": "45 Tage",
+    "B": "5 Monate",
+    "C": "Etwa 63 Tage"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1069,
+  "uid": "r97-69",
+  "source": "Rhein-Erft 97",
+  "sourceId": "69",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "prompt": "Gegen welche Infektionskrankheiten sollen Hundewelpen im Alter von 8 Wochen geimpft werden?",
+  "answers": {
+    "A": "Staupe",
+    "B": "Hepatitis (Infektiöse Leberentzündung)",
+    "C": "Leptospirose (,,Stuttgarter Hundeseuche“)",
+    "D": "Parvovirose (sog. Katzenseuche)",
+    "E": "Salmonellose",
+    "F": "keine Impfung, da der Hund noch zu jung ist"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1070,
+  "uid": "r97-70",
+  "source": "Rhein-Erft 97",
+  "sourceId": "70",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Die wichtigsten Nahrungs- bzw. Futtermittelbestandteile sind",
+  "answers": {
+    "A": "Eiweiß, Kohlehydrate, Fette, Vitamine, Mineralstoffe und Spurenelemente",
+    "B": "Knochen, Fett, Fleisch, Milch",
+    "C": "Quark, rohe Eier, Cerealien"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1071,
+  "uid": "r97-71",
+  "source": "Rhein-Erft 97",
+  "sourceId": "71",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "prompt": "Das Bewegungsbedürfnis ist abhängig von",
+  "answers": {
+    "A": "Rasse",
+    "B": "Alter",
+    "C": "Geschlecht",
+    "D": "Gesundheitszustand"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1072,
+  "uid": "r97-72",
+  "source": "Rhein-Erft 97",
+  "sourceId": "72",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B"
+  ],
+  "prompt": "Wie erkennt man den gesunden Hund?",
+  "answers": {
+    "A": "aufmerksames Wesen",
+    "B": "glänzendes Fell",
+    "C": "fehlender Appetit"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1073,
+  "uid": "r97-73",
+  "source": "Rhein-Erft 97",
+  "sourceId": "73",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "prompt": "Für welche Gesundheitsvorkehrungen sollte der Hundehalter sorgen?",
+  "answers": {
+    "A": "spezielle Schutzimpfungen",
+    "B": "regelmäßige Wurmkuren",
+    "C": "Pflege von Fell, Augen, Ohren und Gebiss",
+    "D": "wöchentliches Baden mit Hundeshampoo"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1074,
+  "uid": "r97-74",
+  "source": "Rhein-Erft 97",
+  "sourceId": "74",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Unter Ordnungsrecht fällt",
+  "answers": {
+    "A": "die Größe eines Hundezwingers",
+    "B": "das andauernde Gebell eines Hundes",
+    "C": "die Kontrolle der Anleinpflicht in ausgeschriebenen örtlichen Gebieten"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1075,
+  "uid": "r97-75",
+  "source": "Rhein-Erft 97",
+  "sourceId": "75",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Was ist zu bedenken, wenn Sie mit ihrem Hund in einem Tollwutsperrbezirk spazieren gehen.",
+  "answers": {
+    "A": "alle Hunde müssen grundsätzlich an der Leine geführt werden",
+    "B": "gegen Tollwut geimpfte Hunde dürfen frei laufen",
+    "C": "keine Einschränkungen",
+    "D": "gegen Tollwut geimpfte Hunde, die zuverlässig gehorchen, dürfen frei laufen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1076,
+  "uid": "r97-76",
+  "source": "Rhein-Erft 97",
+  "sourceId": "76",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Wann darf der Jagdausübungsberechtigte (Jäger) Hunde abschießen?",
+  "answers": {
+    "A": "wenn Hunde den Waldweg verlassen",
+    "B": "wenn Hunde ohne Leine neben dem Halter herlaufen",
+    "C": "wenn Hunde unkontrolliert Wild hetzen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1077,
+  "uid": "r97-77",
+  "source": "Rhein-Erft 97",
+  "sourceId": "77",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Sind alle Hunde gleich oder gibt es rassetypische Eigenschaften?",
+  "answers": {
+    "A": "Alle Hunde sind gleich.",
+    "B": "Je nach Rasse weisen die Hunde unterschiedliche Veranlagungen auf.",
+    "C": "Verschiedene Rassen unterscheiden sich nur durch ihr äußeres Erscheinungsbild.",
+    "D": "Rassetypische Eigenschaften gibt es nicht, aber anhand der Größe kann man die Hunde in „gefährlich“, „kinderfreundlich“, usw. unterteilen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1078,
+  "uid": "r97-78",
+  "source": "Rhein-Erft 97",
+  "sourceId": "78",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "prompt": "Welche Nachteile kann es geben, wenn man mehr als einen Hund hält?",
+  "answers": {
+    "A": "Man muss viel häufiger spazieren gehen.",
+    "B": "Man muss mehr Erziehungsarbeit leisten.",
+    "C": "Es treten mehr Kosten für Tierarzt, Futter, Versicherung usw. auf.",
+    "D": "Die Hunde können sich schneller in unerwünschte Verhaltensweisen hineinsteigern."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1079,
+  "uid": "r97-79",
+  "source": "Rhein-Erft 97",
+  "sourceId": "79",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "D"
+  ],
+  "prompt": "Darf ein Welpe schon verschiedenen Reizsituationen ausgesetzt werden?",
+  "answers": {
+    "A": "Die im Welpenalter gemachten Erfahrungen haben prägenden Charakter und die Tiere sind später im Verhalten sicherer.",
+    "B": "Die Welpen sind noch nicht so aufnahmefähig und sollten die ersten 5 Monate geschont werden.",
+    "C": "Die Welpen werden dadurch nervöser und schwerer zu halten.",
+    "D": "Die Erfahrungen im Welpenalter sind optimal für eine gute Entwicklung der Gehirnleistung."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1080,
+  "uid": "r97-80",
+  "source": "Rhein-Erft 97",
+  "sourceId": "80",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "D"
+  ],
+  "prompt": "Woran erkennt man einen seriösen Züchter?",
+  "answers": {
+    "A": "Er züchtet und verkauft Hunde verschiedener Rassen und achtet darauf, dass die Tiere nicht durch Besucher gestört werden.",
+    "B": "Ein seriöser Züchter gibt Auskunft über die Hunde und macht auf mögliche Nachteile der Rasse aufmerksam.",
+    "C": "Ein seriöser Züchter hat ständig einen Wurf Welpen, um die Nachfrage zu decken.",
+    "D": "Ein seriöser Züchter integriert die Welpen in der Familie und bietet bereits zahlreiche Alltags- und Umweltreize."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1081,
+  "uid": "r97-81",
+  "source": "Rhein-Erft 97",
+  "sourceId": "81",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "prompt": "Wie verhält sich ein ängstlicher Hund, der sich bedroht fühlt?",
+  "answers": {
+    "A": "Er versucht zu fliehen.",
+    "B": "Er wedelt und bettelt nach Futter.",
+    "C": "Er versucht anzugreifen, wenn er nicht ausweichen kann.",
+    "D": "Er pinkelt unter sich."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1082,
+  "uid": "r97-82",
+  "source": "Rhein-Erft 97",
+  "sourceId": "82",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "prompt": "Eine gute Beziehung des Hundes zum Besitzer erkennt man daran, dass",
+  "answers": {
+    "A": "sich der Hund häufig am Halter orientiert.",
+    "B": "der Hundehalter liebevoll und konsequent mit seinem Hund umgeht.",
+    "C": "Hund und Hundehalter ausgelassen aber kontrolliert miteinander spielen.",
+    "D": "der Hundehalter seinem Hund Futter gibt, wenn dieser nach einem Leckerchen bettelt."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1083,
+  "uid": "r97-83",
+  "source": "Rhein-Erft 97",
+  "sourceId": "83",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Kann man einen Hund unbeaufsichtigt mit Kindern spielen lassen?",
+  "answers": {
+    "A": "Wenn der Hund und das Kind zusammenleben, ist das kein Problem, weil der Hund ein Rudelmitglied nie beißen oder verletzen würde.",
+    "B": "Ja, aber nur, wenn der Hund die Kinder kennt und mag.",
+    "C": "Ohne Probleme, wenn es ein kleiner Hund ist.",
+    "D": "Es kann immer kritische Situationen geben, eine Aufsicht ist immer notwendig."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1084,
+  "uid": "r97-84",
+  "source": "Rhein-Erft 97",
+  "sourceId": "84",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Das Vertrauensverhältnis zwischen Hund und Halter kann beeinträchtigt werden durch",
+  "answers": {
+    "A": "den Einsatz von körperlichen Strafen.",
+    "B": "viel Beschäftigung mit dem Hund.",
+    "C": "aus Hundesicht unlogisches Verhalten."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1085,
+  "uid": "r97-85",
+  "source": "Rhein-Erft 97",
+  "sourceId": "85",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Welche Spiele mit Hunden sind auch für Kinder geeignet?",
+  "answers": {
+    "A": "Ballspiele.",
+    "B": "Zerren am Seil.",
+    "C": "Wilde Rauf- und Jagdspiele.",
+    "D": "Fährtensuchspiele."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1086,
+  "uid": "r97-86",
+  "source": "Rhein-Erft 97",
+  "sourceId": "86",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "prompt": "Wie verhält sich ein dominanter Hund gegenüber Menschen?",
+  "answers": {
+    "A": "Er bestimmt, wann und womit gespielt wird.",
+    "B": "Er ignoriert den Menschen in bestimmten Situationen.",
+    "C": "Er läuft auf dem Spaziergang immer hinter dem Menschen um ihn zu kontrollieren.",
+    "D": "Er schränkt die Bewegungsfreiheit des Menschen ein, d. h., er liegt im Weg und droht, wenn sich ein Mensch nähert."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1087,
+  "uid": "r97-87",
+  "source": "Rhein-Erft 97",
+  "sourceId": "87",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Älteren Hunden kann man nichts mehr beibringen.",
+  "answers": {
+    "A": "Hunde können ihr Leben lang neue Dinge lernen.",
+    "B": "Hunde, die älter als ein Jahr sind, lernen nichts mehr.",
+    "C": "Es ist einfacher, mit einem Welpen zu üben, dann gewöhnt sich der Hund nicht erst etwas Falsches an.",
+    "D": "Ein Junghund kann noch gar nichts lernen, erst wenn ein Hund älter ist, lohnt sich der Beginn einer Erziehung."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1088,
+  "uid": "r97-88",
+  "source": "Rhein-Erft 97",
+  "sourceId": "88",
+  "images": [
+    "assets/sources/rhein97/88.webp"
+  ],
+  "options": [],
+  "type": "mapping",
+  "correct": [
+    "1:C",
+    "2:A",
+    "3:B"
+  ],
+  "mappingKeys": [
+    "1",
+    "2",
+    "3"
+  ],
+  "mappingChoices": [
+    "A",
+    "B",
+    "C"
+  ],
+  "prompt": "Ordnen Sie die nachstehenden Begriffe den abgebildeten Körperhaltungen zu.",
+  "answers": {},
+  "requiresVisual": true,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1089,
+  "uid": "r97-89",
+  "source": "Rhein-Erft 97",
+  "sourceId": "89",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Ein freilaufender Hund kommt auf das Rufen des Tierhalters nicht zurück. Was kann man tun?",
+  "answers": {
+    "A": "Dem Hund nachlaufen, ihn einfangen und einen Termin in einer Hundeschule für ein Grundgehorsamstraining ausmachen",
+    "B": "Man sollte den Hund laut anschreien und mit Strafe drohen, damit er Angst bekommt und herankommt. Wenn der Hund älter ist, kann man nichts mehr machen.",
+    "C": "Man sollte den Hund nicht von der Leine lassen, wenn der Grundgehorsam nicht beherrscht wird"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1090,
+  "uid": "r97-90",
+  "source": "Rhein-Erft 97",
+  "sourceId": "90",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "D"
+  ],
+  "prompt": "Auf dem Hundespaziergang kommt einem ein Reiter entgegen. Wie soll man sich verhalten?",
+  "answers": {
+    "A": "Wenn der Hund Pferde kennt und vor ihnen keine Angst hat, braucht man nichts zu machen.",
+    "B": "Man ruft den Hund heran und leint ihn an, bis der Reiter vorbei ist und man sicher ist, dass der Hund nicht mehr hinterherläuft.",
+    "C": "Wenn der Reiter nur langsam reitet, ist keine Gefahr gegeben, denn die langsame Bewegung verleitet den Hund nicht zum Jagen.",
+    "D": "Man sollte seinen Hund grundsätzlich unter Kontrolle nehmen, da manche Pferde auch bei ruhigen und freundlichen Hunden ängstlich reagieren."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1091,
+  "uid": "r97-91",
+  "source": "Rhein-Erft 97",
+  "sourceId": "91",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wer ist für das Entfernen von Hundekot zuständig?",
+  "answers": {
+    "A": "Die Städte/Gemeinden, denn dafür wird Hundesteuer gezahlt.",
+    "B": "Der Hundehalter.",
+    "C": "Die Allgemeinheit. Jeder, der einen Hundehaufen sieht, muss ihn entfernen.",
+    "D": "Niemand. Hundekot muss nicht entfernt werden, er löst sich irgendwann auf."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1092,
+  "uid": "r97-92",
+  "source": "Rhein-Erft 97",
+  "sourceId": "92",
+  "images": [
+    "assets/sources/rhein97/92.webp"
+  ],
+  "options": [],
+  "type": "mapping",
+  "correct": [
+    "1:C",
+    "2:B",
+    "3:A"
+  ],
+  "mappingKeys": [
+    "1",
+    "2",
+    "3"
+  ],
+  "mappingChoices": [
+    "A",
+    "B",
+    "C"
+  ],
+  "prompt": "Ordnen Sie die nachstehenden Begriffe den abgebildeten Körperhaltungen zu.",
+  "answers": {},
+  "requiresVisual": true,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1093,
+  "uid": "r97-93",
+  "source": "Rhein-Erft 97",
+  "sourceId": "93",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "prompt": "Was sollte an Hunde nicht verfüttert werden?",
+  "answers": {
+    "A": "Röhrenknochen (z. B. vom Geflügel)",
+    "B": "gesalzene Küchenabfälle",
+    "C": "Pansen",
+    "D": "rohes Schweinefleisch"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1094,
+  "uid": "r97-94",
+  "source": "Rhein-Erft 97",
+  "sourceId": "94",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Wieviel Futter sollte ein Hund zu fressen bekommen?",
+  "answers": {
+    "A": "Man kann Futter zur freien Verfügung hinstellen, Hunde fressen nur soviel wie sie auch brauchen.",
+    "B": "Hunde sollten immer ein bisschen Hunger haben, denn sonst neigen sie zu Ungehorsam.",
+    "C": "Hunde sollten genug zu fressen bekommen, aber die Einhaltung eines Fastentages ist wichtig für das Wohlergehen.",
+    "D": "Soviel wie er braucht um eine schlanke Figur zu haben und dabei nicht ab- oder zunimmt."
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1095,
+  "uid": "r97-95",
+  "source": "Rhein-Erft 97",
+  "sourceId": "95",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Fertigfuttermittel bei erwachsenen, gesunden Hunden",
+  "answers": {
+    "A": "decken den Bedarf des Tieres",
+    "B": "dürfen in der Hundeernährung nicht ausschließlich verwendet werden",
+    "C": "können durch geeignete Ergänzungsfuttermittel (z.B. Kauknochen, Pansen usw.) ergänzt werden"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1096,
+  "uid": "r97-96",
+  "source": "Rhein-Erft 97",
+  "sourceId": "96",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "prompt": "Welche Hunderasse darf nicht mehr ohne die vorherige Erlaubnis des Ordnungsamtes gehalten werden?",
+  "answers": {
+    "A": "Rottweiler",
+    "B": "Mastino",
+    "C": "Deutscher Schäferhund",
+    "D": "Bullterrier",
+    "E": "Irischer Wolfshund",
+    "F": "Französische Bulldogge"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 1097,
+  "uid": "r97-97",
+  "source": "Rhein-Erft 97",
+  "sourceId": "97",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Durch welche rechtliche Vorschrift wird die artgerechte Haltung eines Hundes geregelt?",
+  "answers": {
+    "A": "Tierzuchtgesetz",
+    "B": "Tierseuchengesetz",
+    "C": "Landeshundegesetz NRW",
+    "D": "Tierschutz-Hundeverordnung"
+  },
+  "requiresVisual": false,
+  "sourceKey": "rhein97",
+  "category": "Weitere Themen"
+}, {
+  "id": 2001,
+  "uid": "koeln-a1",
+  "source": "Köln",
+  "sourceId": "A1",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "An welchen Körperteilen ist am schnellsten die Stimmung des Hundes abzulesen?",
+  "answers": {
+    "A": "an den Nackenhaaren",
+    "B": "an den Ohren",
+    "C": "am Schwanz",
+    "D": "an den Augen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2002,
+  "uid": "koeln-a2",
+  "source": "Köln",
+  "sourceId": "A2",
+  "images": [
+    "assets/sources/koeln/a2.webp"
+  ],
+  "options": [],
+  "type": "mapping",
+  "correct": [
+    "A:1",
+    "B:6",
+    "C:3",
+    "D:4",
+    "E:2",
+    "F:5"
+  ],
+  "mappingKeys": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "mappingChoices": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6"
+  ],
+  "prompt": "Ordnen Sie nachstehende Begriffe den abgebildeten Körperteilen zu:",
+  "answers": {},
+  "requiresVisual": true,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true,
+  "mappingLabels": {
+    "A": "aufmerksam",
+    "B": "ängstlich",
+    "C": "will spielen",
+    "D": "entspannt",
+    "E": "drohend",
+    "F": "unterwürfig"
+  }
+}, {
+  "id": 2003,
+  "uid": "koeln-a3",
+  "source": "Köln",
+  "sourceId": "A3",
+  "images": [
+    "assets/sources/koeln/a3.webp"
+  ],
+  "options": [],
+  "type": "mapping",
+  "correct": [
+    "A:3",
+    "B:1",
+    "C:2"
+  ],
+  "mappingKeys": [
+    "A",
+    "B",
+    "C"
+  ],
+  "mappingChoices": [
+    "1",
+    "2",
+    "3"
+  ],
+  "prompt": "Ordnen Sie nachstehende Begriffe den abgebildeten Kopfhaltungen zu:",
+  "answers": {},
+  "requiresVisual": true,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true,
+  "mappingLabels": {
+    "A": "ängstlich",
+    "B": "aufmerksam",
+    "C": "drohend"
+  }
+}, {
+  "id": 2004,
+  "uid": "koeln-a4",
+  "source": "Köln",
+  "sourceId": "A4",
+  "images": [],
+  "options": [],
+  "type": "mapping",
+  "correct": [
+    "A:2",
+    "B:3",
+    "C:1"
+  ],
+  "mappingKeys": [
+    "A",
+    "B",
+    "C"
+  ],
+  "mappingChoices": [
+    "1",
+    "2",
+    "3"
+  ],
+  "prompt": "Ordnen Sie nachstehende Begriffe den aufgeführten Geräuschen zu:",
+  "answers": {},
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true,
+  "mappingLabels": {
+    "A": "ängstlich",
+    "B": "aufmerksam",
+    "C": "drohend"
+  },
+  "mappingTargets": {
+    "1": "tiefes Knurren, Brummen",
+    "2": "Winseln",
+    "3": "lautlos"
+  }
+}, {
+  "id": 2005,
+  "uid": "koeln-a5",
+  "source": "Köln",
+  "sourceId": "A5",
+  "images": [
+    "assets/sources/koeln/a5.webp"
+  ],
+  "options": [],
+  "type": "mapping",
+  "correct": [
+    "A:2",
+    "B:5",
+    "C:3",
+    "D:1",
+    "E:4"
+  ],
+  "mappingKeys": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "mappingChoices": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "prompt": "Ordnen Sie nachstehende Begriffe den abgebildeten Schwanzhaltungen zu:",
+  "answers": {},
+  "requiresVisual": true,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true,
+  "mappingLabels": {
+    "A": "drohend",
+    "B": "Angst",
+    "C": "Normalhaltung",
+    "D": "aufmerksam",
+    "E": "Demut"
+  }
+}, {
+  "id": 2006,
+  "uid": "koeln-a6",
+  "source": "Köln",
+  "sourceId": "A6",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Sie haben einen kleineren Hund, ein großer fremder Hund kommt Ihnen entgegen. Wie verhalten Sie sich?",
+  "answers": {
+    "A": "Hund auf den Arm nehmen, um ihn aus der Gefahrenzone zu bringen.",
+    "B": "Versuchen, den großen Hund zu verscheuchen.",
+    "C": "Zügig mit Ihrem Hund Ihren Weg fortsetzen",
+    "D": "Versuchen auszuweichen, ansonsten den Weg zügig fortsetzen."
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2007,
+  "uid": "koeln-a7",
+  "source": "Köln",
+  "sourceId": "A7",
+  "images": [
+    "assets/sources/koeln/a7.webp"
+  ],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B"
+  ],
+  "prompt": "Ihr Hund zeigt untenstehendes Bild. Ist Ihr Hund .........",
+  "answers": {
+    "A": "aggressiv",
+    "B": "hat er Angst",
+    "C": "droht er",
+    "D": "keines von allem, das Verhalten legt sich wieder"
+  },
+  "requiresVisual": true,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2008,
+  "uid": "koeln-a8",
+  "source": "Köln",
+  "sourceId": "A8",
+  "images": [
+    "assets/sources/koeln/a8.webp"
+  ],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Ihr Hund zeigt untenstehendes Bild. Ist Ihr Hund .........",
+  "answers": {
+    "A": "aggressiv",
+    "B": "hat er Angst",
+    "C": "droht er",
+    "D": "keines von allem, das Verhalten legt sich wieder"
+  },
+  "requiresVisual": true,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2009,
+  "uid": "koeln-a9",
+  "source": "Köln",
+  "sourceId": "A9",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Ihr Hund läuft frei, nach mehr fachem Rufen kommt er nicht. Wie verhalten Sie sich?",
+  "answers": {
+    "A": "Sie laufen ihm nach und fangen ihn ein.",
+    "B": "Sie bleiben stehen und rufen bis er kommt.",
+    "C": "Sie rufen und drohen ihm Strafe an",
+    "D": "Sie drehen sich um und gehen weg",
+    "E": "Wenn der Hund dann doch kommt, wird er stark ausgeschimpft"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2010,
+  "uid": "koeln-a10",
+  "source": "Köln",
+  "sourceId": "A10",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Ihr Hund ist in eine Beißerei mit einem gleich großen Hund verwickelt. Wie verhalten Sie sich?",
+  "answers": {
+    "A": "Sie packen ihn am Hals und Rückenfell und ziehen ihn aus dem Geschehen.",
+    "B": "Sie versuchen gemeinsam mit ihm den Gegner zu verjagen.",
+    "C": "Sie ziehen an der Leine und schlagen notfalls auf ihn ein.",
+    "D": "Sie treten zurück und lassen dem Schicksal seinen Lauf, alles andere könnte für mich und meinen Hund gefährlich werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2011,
+  "uid": "koeln-a12",
+  "source": "Köln",
+  "sourceId": "A12",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "D"
+  ],
+  "prompt": "Durch die Leine wird ein aggressiver Hund",
+  "answers": {
+    "A": "stärker",
+    "B": "schwächer",
+    "C": "ist egal",
+    "D": "kontrollierbarer"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2012,
+  "uid": "koeln-a13",
+  "source": "Köln",
+  "sourceId": "A13",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Ein Hund nimmt seine Umgebung wahr, hauptsächlich",
+  "answers": {
+    "A": "über das Gehör",
+    "B": "über die Augen",
+    "C": "über das Gefühl",
+    "D": "über die Nase"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2013,
+  "uid": "koeln-a14",
+  "source": "Köln",
+  "sourceId": "A14",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "prompt": "Ein Hund kann bedingt",
+  "answers": {
+    "A": "abstrakt denken",
+    "B": "verknüpfen",
+    "C": "im Gedächtnis behalten",
+    "D": "aus dem Gedächtnis reproduzieren"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2014,
+  "uid": "koeln-a15",
+  "source": "Köln",
+  "sourceId": "A15",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Ein Kommando wird eingeübt",
+  "answers": {
+    "A": "nur über das Gehör",
+    "B": "nur über Körperkontakt",
+    "C": "nur über Sichtzeichen",
+    "D": "über alles zusammen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2015,
+  "uid": "koeln-a16",
+  "source": "Köln",
+  "sourceId": "A16",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "D"
+  ],
+  "prompt": "Wie beruhigen Sie ihren ängstlichen Hund?",
+  "answers": {
+    "A": "durch ruhiges Zureden",
+    "B": "durch striktes Kommando",
+    "C": "durch an die Leine legen",
+    "D": "durch Körperkontakt"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2016,
+  "uid": "koeln-a17",
+  "source": "Köln",
+  "sourceId": "A17",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Ihr Hund sieht ein Objekt, er knurrt und zieht die Lefzen hoch. Wie reagieren Sie?",
+  "answers": {
+    "A": "ableinen",
+    "B": "anleinen und mit Kommando die Richtung wechseln",
+    "C": "anleinen, begütigendes Zureden",
+    "D": "durch Vorwarnung an die Umgebung auf die Aggression des Hundes hinweisen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2017,
+  "uid": "koeln-a18",
+  "source": "Köln",
+  "sourceId": "A18",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "prompt": "Warum entwickeln sich Hunde zu Problemhunden?",
+  "answers": {
+    "A": "durch isolierte Haltung",
+    "B": "durch falsche Ausbildung",
+    "C": "durch Haltung an der Kette",
+    "D": "ist stets bereits angeboren"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2018,
+  "uid": "koeln-a19",
+  "source": "Köln",
+  "sourceId": "A19",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "prompt": "Wie sollte ein Hund getadelt werden?",
+  "answers": {
+    "A": "durch Schläge",
+    "B": "über Leinenruck",
+    "C": "über die Stimme",
+    "D": "durch Schnauzengriff"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2019,
+  "uid": "koeln-a20",
+  "source": "Köln",
+  "sourceId": "A20",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Beim Zusammensein von Hund und Kind sollte immer",
+  "answers": {
+    "A": "der Hund beobachtet werden",
+    "B": "Hund und Kind beobachtet werden",
+    "C": "Keine besondere Beobachtung nötig"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2020,
+  "uid": "koeln-a21",
+  "source": "Köln",
+  "sourceId": "A21",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "D"
+  ],
+  "prompt": "Die unerwünschten Aggressionen des Hundes",
+  "answers": {
+    "A": "entstehen durch falsche Erziehung",
+    "B": "sind ausschließlich ererbte Eigenschaften",
+    "C": "können durch gezielte Ausbildung völlig unterdrückt werden",
+    "D": "können durch gezielte Ausbildung unter Kontrolle gehalten werden"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2021,
+  "uid": "koeln-a22",
+  "source": "Köln",
+  "sourceId": "A22",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Sie gehen mit Ihrem freilaufenden Hund spazieren, es kommt ein Spaziergänger mit angeleintem Hund entgegen. Wie verhalten Sie sich?",
+  "answers": {
+    "A": "den Hund weiter frei laufen lassen",
+    "B": "den Hund weiter frei laufen lassen, aber nicht in der Nähe des anderen Hundes",
+    "C": "den Hund anleinen und den Entgegenkommenden mit Abstand passieren."
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2022,
+  "uid": "koeln-a23",
+  "source": "Köln",
+  "sourceId": "A23",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Kann man Hunde miteinander spielen lassen?",
+  "answers": {
+    "A": "jederzeit",
+    "B": "wenn sie sich kennen",
+    "C": "wenn es gut sozialisierte Tiere sind"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2023,
+  "uid": "koeln-a24",
+  "source": "Köln",
+  "sourceId": "A24",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Sie sind mit ihrem freilaufenden Hund unterwegs. Ein Jogger kommt Ihnen entgegen. Wie verhalten Sie sich?",
+  "answers": {
+    "A": "Ich lasse den Hund weiter laufen",
+    "B": "Ich bitte den Jogger, nicht so dicht vorbeizulaufen und sage, daß mein Hund nicht beißt.",
+    "C": "Ich leine den Hund an und führe ihn am Jogger vorbei"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2024,
+  "uid": "koeln-a25",
+  "source": "Köln",
+  "sourceId": "A25",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Sie starten mit Ihrem Hund einen Spaziergang vom Auto aus.",
+  "answers": {
+    "A": "Hund aus dem Auto lassen und dann anleinen",
+    "B": "Hund anleinen und dann aus dem Auto lassen",
+    "C": "Hund aus dem Auto lassen und frei laufen lassen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2025,
+  "uid": "koeln-a26",
+  "source": "Köln",
+  "sourceId": "A26",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Sie gehen mit Ihrem frei laufenden Hund spazieren. Es kommt ein Spaziergänger entgegen, der bei Ihrem Auftauchen seinen Hund auf den Arm nimmt.",
+  "answers": {
+    "A": "den Hund weiter frei laufen lassen",
+    "B": "den Hund zu sich rufen und im großen Bogen vorbeigehen",
+    "C": "den Hund anleinen und die andere Person darauf hinweisen, daß sie den Hund am Boden vorbeiführen kann"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2026,
+  "uid": "koeln-a27",
+  "source": "Köln",
+  "sourceId": "A27",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Sie gehen mit Ihrem freilaufenden Hund spazieren. Ein Spaziergänger bleibt zögernd und verängstigt stehen.",
+  "answers": {
+    "A": "mit Kommando „Fuß“ zügig vorbeigehen",
+    "B": "den Hund weiter frei laufen lassen und selbst normal weitergehen",
+    "C": "den Hund anleinen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2027,
+  "uid": "koeln-a28",
+  "source": "Köln",
+  "sourceId": "A28",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Eine entgegenkommende Person möchte Ihren Hund streicheln",
+  "answers": {
+    "A": "Ich lasse es in jedem Fall zu",
+    "B": "Ich ziehe den Hund weg",
+    "C": "Ich bitte die Person dies zu unterlassen und Abstand zu halten"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2028,
+  "uid": "koeln-a29",
+  "source": "Köln",
+  "sourceId": "A29",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Das Führen von zwei Hunden gleichzeitig ist",
+  "answers": {
+    "A": "gefahrlos, wenn beide angeleint sind",
+    "B": "gefahrlos, wenn ein Hund angeleint ist",
+    "C": "immer gefährlicher als das Führen eines einzelnen Hundes"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2029,
+  "uid": "koeln-a30",
+  "source": "Köln",
+  "sourceId": "A30",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Was sind die wichtigsten Dinge im Umgang mit dem Hund?",
+  "answers": {
+    "A": "Geduld, Lob und Konsequenz",
+    "B": "Ständige Unterdrückung",
+    "C": "Der tägliche häufige Kontakt"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2030,
+  "uid": "koeln-a31",
+  "source": "Köln",
+  "sourceId": "A31",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wann entwickelt ein Hund Jagdverhalten?",
+  "answers": {
+    "A": "8. – 14. Lebenswoche",
+    "B": "6. – 12. Lebensmonat",
+    "C": "2 Jahre"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2031,
+  "uid": "koeln-a32",
+  "source": "Köln",
+  "sourceId": "A32",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wie beeinflussen „Zerr“- und „Rauf“-Spiele zwischen Mensch und Hund das Selbstbewußtsein des Hundes, wenn er als Sieger aus diesen Spielen hervorgeht?",
+  "answers": {
+    "A": "Minderung",
+    "B": "Steigerung",
+    "C": "Keinen Einfluß"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2032,
+  "uid": "koeln-a33",
+  "source": "Köln",
+  "sourceId": "A33",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wie kann ein Welpenbesitzer die Beißhemmung anerziehen?",
+  "answers": {
+    "A": "die Beißhemmung ist genetisch festgelegt und kann nicht beeinflusst werden",
+    "B": "beißt ein Hund im Spiel zu fest zu, wird das Spiel unverzüglich unterbrochen",
+    "C": "beißt der Hund im Spiel zu fest zu, wird dem Hund erklärt, dass sein Verhalten nicht in Ordnung ist"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2033,
+  "uid": "koeln-a34",
+  "source": "Köln",
+  "sourceId": "A34",
+  "images": [],
+  "options": [
+    "A",
+    "B"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Kann die Dauer der täglichen Bewegungsmöglichkeit im Freien das Verhalten des Hundes beeinflussen?",
+  "answers": {
+    "A": "ja",
+    "B": "nein"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2034,
+  "uid": "koeln-a35",
+  "source": "Köln",
+  "sourceId": "A35",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wie wirkt sich die Kastration eines Rüden auf sein Aggressionsverhalten aus?",
+  "answers": {
+    "A": "gar nicht",
+    "B": "oft mäßigend",
+    "C": "steigernd"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2035,
+  "uid": "koeln-a36",
+  "source": "Köln",
+  "sourceId": "A36",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Die Kastration von Hündinnen beeinflußt das Aggressionsverhalten",
+  "answers": {
+    "A": "mäßigend",
+    "B": "steigernd",
+    "C": "gar nicht"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2036,
+  "uid": "koeln-a37",
+  "source": "Köln",
+  "sourceId": "A37",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Welche Erziehungsmethoden sind beim Hund anzuwenden",
+  "answers": {
+    "A": "autoritär",
+    "B": "antiautoritär",
+    "C": "konsequent",
+    "D": "je nach eigener Lebensauffassung"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2037,
+  "uid": "koeln-a38",
+  "source": "Köln",
+  "sourceId": "A38",
+  "images": [],
+  "options": [],
+  "type": "mapping",
+  "correct": [
+    "A:4",
+    "B:1",
+    "C:2",
+    "D:3"
+  ],
+  "mappingKeys": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "mappingChoices": [
+    "1",
+    "2",
+    "3",
+    "4"
+  ],
+  "prompt": "Verknüpfen Sie die folgenden Aussagen richtig miteinander",
+  "answers": {},
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true,
+  "mappingLabels": {
+    "A": "Herdenschutzhunde",
+    "B": "Wach-und Schutzhunde",
+    "C": "Jagdhunde",
+    "D": "Hunde der sogenannten Kampfhunderassen"
+  },
+  "mappingTargets": {
+    "1": "verfügen über ausgeprägte Revier- und Beuteaggression",
+    "2": "zeichnen sich durch ihre Jagd- und Beuteaggression aus",
+    "3": "weisen ein gewisses Potential gesteigerter Aggressivität auf",
+    "4": "entwickeln besonders in der Dämmerung und nachts einen ausgeprägten Schutztrieb"
+  }
+}, {
+  "id": 2038,
+  "uid": "koeln-a39",
+  "source": "Köln",
+  "sourceId": "A39",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "prompt": "Wie kann ich meinen Hund loben?",
+  "answers": {
+    "A": "ausgiebiges Streicheln",
+    "B": "lobende Worte",
+    "C": "Nichtbeachtung",
+    "D": "Leckerlis (Futter)"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2039,
+  "uid": "koeln-a40",
+  "source": "Köln",
+  "sourceId": "A40",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Die mütterliche Aggression",
+  "answers": {
+    "A": "ist bei der Hündin unbekannt",
+    "B": "tritt besonders in den ersten 3 Wochen der Welpenaufzucht auf (neonatale Phase)",
+    "C": "kommt auch bei der Scheintächtigkeit vor"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2040,
+  "uid": "koeln-a41",
+  "source": "Köln",
+  "sourceId": "A41",
+  "images": [],
+  "options": [],
+  "type": "mapping",
+  "correct": [
+    "A:2",
+    "B:3",
+    "C:1"
+  ],
+  "mappingKeys": [
+    "A",
+    "B",
+    "C"
+  ],
+  "mappingChoices": [
+    "1",
+    "2",
+    "3"
+  ],
+  "prompt": "Verknüpfen Sie die Aussagen über die Aggressivität richtig miteinander",
+  "answers": {},
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true,
+  "mappingLabels": {
+    "A": "Hetzen von beweglichen Objekten",
+    "B": "Aggressionen gegen Menschen und / oder Hunde im eigenen Rudel bei unklaren Rangordnungsverhältnissen",
+    "C": "Aggression bei Annäherung von fremden Personen und Tieren an das Grundstück bzw. die Wohnung"
+  },
+  "mappingTargets": {
+    "1": "territoriale Aggression / Revieraggression",
+    "2": "Beuteaggression",
+    "3": "Dominazaggression"
+  }
+}, {
+  "id": 2041,
+  "uid": "koeln-a42",
+  "source": "Köln",
+  "sourceId": "A42",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "prompt": "Warum verhalten sich Hunde häufig gegenüber Kindern anders als gegenüber erwachsenen Personen?",
+  "answers": {
+    "A": "weil sie Kinder als Respektspersonen ansehen",
+    "B": "weil Kinder ihr Verhalten plötzlich ändern, sich schnell und zum Teil unkontrolliert bewegen",
+    "C": "weil Kinder häufig plötzlich laut schreien",
+    "D": "weil sich Kinder häufig falsch verhalten"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2042,
+  "uid": "koeln-a43",
+  "source": "Köln",
+  "sourceId": "A43",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "In der Familie sollte der Hund",
+  "answers": {
+    "A": "ein gleichberechtigtes Familienmitglied sein",
+    "B": "die Chefposition einnehmen",
+    "C": "die unterste Rangstellung einnehmen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2043,
+  "uid": "koeln-a44",
+  "source": "Köln",
+  "sourceId": "A44",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Der Welpe sollte",
+  "answers": {
+    "A": "möglichst wenig Kontakt zur Umwelt bekommen, weil er sonst verunsichert wird",
+    "B": "Viel Kontakt zu Menschen, Artgenossen und Umweltreizen haben, damit er später in allen Situationen gut zurecht kommt",
+    "C": "Überwiegend im Zwinger gehalten werden"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2044,
+  "uid": "koeln-a45",
+  "source": "Köln",
+  "sourceId": "A45",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Der Welpe schnappt heftig im Spiel nach einem Menschen",
+  "answers": {
+    "A": "normales Verhalten",
+    "B": "sollte geduldet werden, da er noch so klein ist",
+    "C": "sollte gemaßregelt werden"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2045,
+  "uid": "koeln-a46",
+  "source": "Köln",
+  "sourceId": "A46",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "prompt": "Wie sollte ein Hund bestraft werden",
+  "answers": {
+    "A": "durch ein scharf ausgesprochenes Kommando, z. B. „Pfui“, „Aus“",
+    "B": "durch Schicken auf seinen Platz",
+    "C": "durch Schläge mit einem Stock, bis er sich unterwirft",
+    "D": "durch Wegnahme des Spielzeugs",
+    "E": "durch Streichen des Spaziergangs"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2046,
+  "uid": "koeln-a47",
+  "source": "Köln",
+  "sourceId": "A47",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "prompt": "Welche Grundkommandos sollte ein Hund beherrschen?",
+  "answers": {
+    "A": "Sitz oder Platz",
+    "B": "Aus",
+    "C": "Pfötchen geben",
+    "D": "Komm oder Hier",
+    "E": "Türe öffnen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2047,
+  "uid": "koeln-a48",
+  "source": "Köln",
+  "sourceId": "A48",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wann sollte ein Hund nach einer guten Aktion belohnt werden?",
+  "answers": {
+    "A": "nach 5 Minuten",
+    "B": "nach 1-2 Sekunden",
+    "C": "Zeit spielt keine Rolle"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2048,
+  "uid": "koeln-a49",
+  "source": "Köln",
+  "sourceId": "A49",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "D"
+  ],
+  "prompt": "Wie gehe ich mit einem zur Dominanz neigendem Hund um:",
+  "answers": {
+    "A": "Der Hund bekommt erst etwas zu Fressen wenn er ein Kommando, z.B. Sitz oder Platz, ausgeführt hat",
+    "B": "Der Hund geht immer als erster durch die Tür",
+    "C": "Ich spiele häufig mit meinem Hund und lasse ihn öfters gewinnen",
+    "D": "Wenn der Hund im Weg ist, muß er aufstehen und mich vorbeilassen",
+    "E": "Wenn der Hund knurrt, lasse ich ihn gewähren, weil er seine Ruhe haben will",
+    "F": "Der Hund darf neben mir auf dem Sofa sitzen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2049,
+  "uid": "koeln-a50",
+  "source": "Köln",
+  "sourceId": "A50",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Der Urahn des Hundes ist",
+  "answers": {
+    "A": "der Dingo",
+    "B": "der Wolf",
+    "C": "der Fuchs"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2050,
+  "uid": "koeln-a51",
+  "source": "Köln",
+  "sourceId": "A51",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Der Hund ist",
+  "answers": {
+    "A": "Einzelgänger",
+    "B": "lebt als gemischtgeschlechtliches Paar",
+    "C": "Rudeltier"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2051,
+  "uid": "koeln-a52",
+  "source": "Köln",
+  "sourceId": "A52",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Der Hund liebt es zu leben in einer",
+  "answers": {
+    "A": "Demokratie",
+    "B": "Anarchie",
+    "C": "Hierachie"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2052,
+  "uid": "koeln-a53",
+  "source": "Köln",
+  "sourceId": "A53",
+  "images": [],
+  "options": [
+    "A",
+    "B"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Aggressive Verhaltensweisen sind bei allen Hunden",
+  "answers": {
+    "A": "normal",
+    "B": "nicht normal"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2053,
+  "uid": "koeln-a54",
+  "source": "Köln",
+  "sourceId": "A54",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Eine gute Erziehung oder Ausbildung ist dazu geeignet",
+  "answers": {
+    "A": "Aggression zu fördern",
+    "B": "Aggression zu kontrollieren",
+    "C": "Weder noch"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2054,
+  "uid": "koeln-a55",
+  "source": "Köln",
+  "sourceId": "A55",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Der Hund sitzt im Sessel und knurrt, wenn sich jemand dazu setzen will",
+  "answers": {
+    "A": "normales Verhalten",
+    "B": "unterwürfiges Verhalten",
+    "C": "dominierendes Verhalten"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2055,
+  "uid": "koeln-a56",
+  "source": "Köln",
+  "sourceId": "A56",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B"
+  ],
+  "prompt": "Der Hund legt sich auf den Rücken",
+  "answers": {
+    "A": "er will am Bauch gekrault werden",
+    "B": "unterwürfiges Verhalten",
+    "C": "dominierendes Verhalten"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2056,
+  "uid": "koeln-a57",
+  "source": "Köln",
+  "sourceId": "A57",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Der Hund knurrt Gäste an, die die Wohnung betreten. Wie verhalten Sie sich?",
+  "answers": {
+    "A": "Gäste auffordern den Hund zu begrüßen",
+    "B": "Hund mit deutlichem Befehl auf seinen Platz schicken",
+    "C": "Hund gut zureden und mit Streicheln oder Leckerchen beruhigen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2057,
+  "uid": "koeln-a58",
+  "source": "Köln",
+  "sourceId": "A58",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Welche Aussagen über die Grundsätze bei Kommandos in der Hundeausbildung sind richtig?",
+  "answers": {
+    "A": "Kommandos können auch in Wortsätzen eingebaut werden",
+    "B": "Der Hund lernt am leichtesten einsilbige Kommandos",
+    "C": "Für dieselben Übungen sollten immer die gleichen Ausdrücke verwendet werden"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2058,
+  "uid": "koeln-b1",
+  "source": "Köln",
+  "sourceId": "B1",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Wie lang ist die Tragezeit bei der Hündin",
+  "answers": {
+    "A": "45 Tage",
+    "B": "5 Monate",
+    "C": "etwa 62 Tage"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2059,
+  "uid": "koeln-b2",
+  "source": "Köln",
+  "sourceId": "B2",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Wann sind Welpen/ Junghunde besonders empfänglich für soziale Eindrücke und Umweltreize( Sozialisierungsphase)?",
+  "answers": {
+    "A": "3. – 14. Woche",
+    "B": "1. - 3. Woche",
+    "C": "6. – 9. Monat"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2060,
+  "uid": "koeln-b3",
+  "source": "Köln",
+  "sourceId": "B3",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "In welchem Alter sollten Welpen frühestens abgegeben werden?",
+  "answers": {
+    "A": "5. Lebenswoche",
+    "B": "8. Lebenswoche",
+    "C": "12.Lebenswoche"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2061,
+  "uid": "koeln-b4",
+  "source": "Köln",
+  "sourceId": "B4",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "prompt": "Gegen welche Infektionskrankheiten sollten Hundewelpen im Alter von 8 Wochen geimpft werden?",
+  "answers": {
+    "A": "Staupe",
+    "B": "Hepatitis (Infektiöse Leberentzüdung)",
+    "C": "Leptospirose („ Stuttgarter Hundeseuche“)",
+    "D": "Parvovirose (sog. Katzenseuche)",
+    "E": "Maul- und Klauenseuche",
+    "F": "Salmonellose",
+    "G": "Blauzungenkrankheit",
+    "H": "Keine Impfung, da der Hund noch zu jung ist"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2062,
+  "uid": "koeln-b5",
+  "source": "Köln",
+  "sourceId": "B5",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Warum müssen Welpen regelmäßig entwurmt werden?",
+  "answers": {
+    "A": "weil sie bereits mit der Muttermilch mit Würmern infiziert werden",
+    "B": "Weil sie sich beim Kontakt mit Menschen mit Würmern infizieren",
+    "C": "Weil sich die Hunde am eigenen und Kot anderer Hunde mit Wurmeiern infizieren"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2063,
+  "uid": "koeln-b6",
+  "source": "Köln",
+  "sourceId": "B6",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Hunde benötigen keine Rückzugsmöglichkeit (Zufluchtsort), da sie jederzeit engen Kontakt zu den Mitgliedern der Familie pflegen.",
+  "answers": {
+    "A": "stimmt",
+    "B": "stimmt nicht",
+    "C": "hängt von der Rasse ab"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2064,
+  "uid": "koeln-b7",
+  "source": "Köln",
+  "sourceId": "B7",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Fertigfuttermittel bei erwachsenen, gesunden Hunden",
+  "answers": {
+    "A": "decken den Bedarf des Tieres",
+    "B": "müssen durch spezielle Futtermittel ergänzt werden",
+    "C": "dürfen in der Hundeernährung nicht ausschließlich verwendet werden."
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2065,
+  "uid": "koeln-b8",
+  "source": "Köln",
+  "sourceId": "B8",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Die wichtigsten Nahrungs- bzw. Futtermittelbestandteile sind",
+  "answers": {
+    "A": "Eiweiß, Kohlenhydrate, Fette, Vitamine, Mineralstoffe und Spurenelemente",
+    "B": "Knochen, Fett, Fleisch, Milch",
+    "C": "Quark, rohe Eier, Cerealien"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2066,
+  "uid": "koeln-b9",
+  "source": "Köln",
+  "sourceId": "B9",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "prompt": "Das Bewegungsbedürfnis ist abhängig vom",
+  "answers": {
+    "A": "Rasse",
+    "B": "Alter",
+    "C": "Geschlecht",
+    "D": "Gesundheitszustand",
+    "E": "Gewicht des Hundes"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2067,
+  "uid": "koeln-b10",
+  "source": "Köln",
+  "sourceId": "B10",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Gesunde, erwachsene Hunde, die z. B. im Haus leben und keinen Zugang zum Garten haben",
+  "answers": {
+    "A": "sollen mindestens 3x täglich Auslauf im Freien haben; dabei soll mindestens 1x ein 20 minütiges, kraftzehrendes Bewegungstraining durchgeführt werden.",
+    "B": "brauchen 1x täglich Auslauf im Freien",
+    "C": "brauchen nur 3x täglich zum Lösen aus dem Haus gelassen zu werden, z.B. auf ein Stück Brachland"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2068,
+  "uid": "koeln-b11",
+  "source": "Köln",
+  "sourceId": "B11",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Wie groß muss die Zwingergrundfläche ohne Berechnung der Hundehütte mindestens für einen Rottweiler sein?",
+  "answers": {
+    "A": "8 m²",
+    "B": "6 m²",
+    "C": "20 m²"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2069,
+  "uid": "koeln-b12",
+  "source": "Köln",
+  "sourceId": "B12",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Ein vertretbares Zuchtalter für Hündinnen",
+  "answers": {
+    "A": "frühestens 15 Monate",
+    "B": "der Eintritt der Geschlechtsreife",
+    "C": "ab der 2. Läufigkeit"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2070,
+  "uid": "koeln-b13",
+  "source": "Köln",
+  "sourceId": "B13",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wann in der Läufigkeit ist die Hündin deckbereit?",
+  "answers": {
+    "A": "4. – 6. Tag der Läufigkeit",
+    "B": "9. - 14. Tag der Läufigkeit",
+    "C": "Während der gesamten Dauer der Läufigkeit"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2071,
+  "uid": "koeln-b14",
+  "source": "Köln",
+  "sourceId": "B14",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Anzeichen der Läufigkeit ( Hitze ) der Hündin sind",
+  "answers": {
+    "A": "die Hündin wälzt sich auf dem Boden",
+    "B": "die Scham ist vergrößert",
+    "C": "blutiger bzw. grau-schleimiger Ausfluß"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2072,
+  "uid": "koeln-b15",
+  "source": "Köln",
+  "sourceId": "B15",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B"
+  ],
+  "prompt": "Wie erkennt man den gesunden Hund",
+  "answers": {
+    "A": "aufmerksames Wesen",
+    "B": "glänzendes Fell",
+    "C": "fehlender Appetit"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2073,
+  "uid": "koeln-b16",
+  "source": "Köln",
+  "sourceId": "B16",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Wie erkennt man, dass ein Hund krank ist",
+  "answers": {
+    "A": "Veränderungen der Körpertemperatur, des Pulses, der Atmung",
+    "B": "Gleichbleibender Appetit und Durst",
+    "C": "Teilnahmslosigkeit"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2074,
+  "uid": "koeln-b17",
+  "source": "Köln",
+  "sourceId": "B17",
+  "images": [],
+  "options": [
+    "A",
+    "B"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Worauf deutet ein sehr harter Kot hin?",
+  "answers": {
+    "A": "auf eine Fütterung mit Trockenfutter",
+    "B": "auf eine zu hohe Knochenration"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2075,
+  "uid": "koeln-b18",
+  "source": "Köln",
+  "sourceId": "B18",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Wie kann ein Hund vor einer Infektion mit Viren geschützt werden?",
+  "answers": {
+    "A": "viel frische Luft",
+    "B": "hoher Gemüseanteil im Futter",
+    "C": "Impfung"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2076,
+  "uid": "koeln-b19",
+  "source": "Köln",
+  "sourceId": "B19",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "prompt": "Für welche Gesundheitvorkehrungen sollte der Hundehalter sorgen?",
+  "answers": {
+    "A": "spezielle Schutzimpfungen",
+    "B": "regelmäßige Wurmkuren",
+    "C": "Pflege von Fell, Augen, Ohren und Gebiss",
+    "D": "Wöchentliches Baden mit Hundeschampoo"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2077,
+  "uid": "koeln-b20",
+  "source": "Köln",
+  "sourceId": "B20",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "prompt": "Gegen welche Krankheiten soll der Hund mit 12 Wochen geimpft werden?",
+  "answers": {
+    "A": "Staupe, Hepatitis",
+    "B": "Leptospirose, Parvovirose",
+    "C": "Tollwut",
+    "D": "Leukose",
+    "E": "Salmonellose"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2078,
+  "uid": "koeln-b21",
+  "source": "Köln",
+  "sourceId": "B21",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wer stellt die Impfbescheinigung bzw. den Internationalen Impfpaß aus?",
+  "answers": {
+    "A": "der Züchter",
+    "B": "der Tierarzt, der die Impfung durchgeführt hat",
+    "C": "die Veterinärämter"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2079,
+  "uid": "koeln-b22",
+  "source": "Köln",
+  "sourceId": "B22",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "prompt": "In welchem Zustand sollte sich der Hund zum Zeitpunkt der Impfung befinden?",
+  "answers": {
+    "A": "er soll gesund sein",
+    "B": "er soll frei von Würmern sein",
+    "C": "er soll frei von Ungeziefer sein",
+    "D": "er soll nüchtern sein"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2080,
+  "uid": "koeln-b23",
+  "source": "Köln",
+  "sourceId": "B23",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Welche Erreger sind die Verursacher der Tollwut?",
+  "answers": {
+    "A": "Bakterien",
+    "B": "Parasiten",
+    "C": "Viren"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2081,
+  "uid": "koeln-b24",
+  "source": "Köln",
+  "sourceId": "B24",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Wie werden die Tollwuterreger übertragen?",
+  "answers": {
+    "A": "mit dem Speichel",
+    "B": "mit dem Schweiß",
+    "C": "mit dem Kot"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2082,
+  "uid": "koeln-b25",
+  "source": "Köln",
+  "sourceId": "B25",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Wie wird die Tollwut hauptsächlich auf den Hund übertragen?",
+  "answers": {
+    "A": "durch den Biss des Fuchses",
+    "B": "durch den Kot von Rindern",
+    "C": "durch Mäuse"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2083,
+  "uid": "koeln-b26",
+  "source": "Köln",
+  "sourceId": "B26",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C"
+  ],
+  "prompt": "Wie soll der Zaun beschaffen sein, mit dem das Grundstück, auf dem der Hund gehalten wird, „ausbruchsicher“ eingezäunt werden muss?",
+  "answers": {
+    "A": "für den Hund unüberwindbar",
+    "B": "aus Stacheldraht",
+    "C": "so, dass der Hund sich nicht darunter durchgraben kann"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2084,
+  "uid": "koeln-b27",
+  "source": "Köln",
+  "sourceId": "B27",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Wie oft soll ein Zwinger oder der Aufenthaltsbereich des Hundes gereinigt werden?",
+  "answers": {
+    "A": "mindestens 1x täglich",
+    "B": "wöchentlich",
+    "C": "monatlich"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2085,
+  "uid": "koeln-b28",
+  "source": "Köln",
+  "sourceId": "B28",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Welche Hunde haben den höchsten Nährstoffbedarf?",
+  "answers": {
+    "A": "Hündinnen",
+    "B": "alte Hunde",
+    "C": "junge Hunde"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2086,
+  "uid": "koeln-b29",
+  "source": "Köln",
+  "sourceId": "B29",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Die Grundnahrung des Hundes sollte bestehen aus",
+  "answers": {
+    "A": "Gemüse mit tierischer Beikost",
+    "B": "schierem Fleisch",
+    "C": "Fleisch mit pflanzlicher Beikost",
+    "D": "Gemüse"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2087,
+  "uid": "koeln-b30",
+  "source": "Köln",
+  "sourceId": "B30",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "prompt": "Was sollte an einen Hund nicht verfüttert werden?",
+  "answers": {
+    "A": "Geflügelknochen",
+    "B": "Gewürzte Speisereste",
+    "C": "Rohes Schweine- und Rindfleisch",
+    "D": "Fisch"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2088,
+  "uid": "koeln-b31",
+  "source": "Köln",
+  "sourceId": "B31",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Welches Getränk muss Hunden immer zur Verfügung stehen?",
+  "answers": {
+    "A": "Tee",
+    "B": "Wasser",
+    "C": "Milch"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2089,
+  "uid": "koeln-b32",
+  "source": "Köln",
+  "sourceId": "B32",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Auf welche Art schmarotzt der Hundefloh?",
+  "answers": {
+    "A": "Er ernährt sich von Hautschuppen",
+    "B": "Er saugt Blut",
+    "C": "Er bohrt sich in die Oberhaut und ernährt sich von Gewebe"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2090,
+  "uid": "koeln-b33",
+  "source": "Köln",
+  "sourceId": "B33",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wie können Flöhe am Hund bekämpft werden?",
+  "answers": {
+    "A": "in dem man den Hund häufig schwimmen läßt",
+    "B": "durch Kontaktinsektizide, z. B. spezielle Halsbänder",
+    "C": "durch rohe Zwiebeln"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2091,
+  "uid": "koeln-b34",
+  "source": "Köln",
+  "sourceId": "B34",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Zecken sollten so schnell wie möglich entfernt werden. Wie geht man vor?",
+  "answers": {
+    "A": "Mit der Zeckenzange oder Pinzette vorsichtig herausdrehen",
+    "B": "Mit Öl bestreichen, damit die Zecke erstickt und von selbst abfällt",
+    "C": "Zecke mit den Fingern zusammendrücken und schnell herausreißen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2092,
+  "uid": "koeln-b35",
+  "source": "Köln",
+  "sourceId": "B35",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Zecken sind durch ihren Biß auch für den Hund gefährlich. Welche Krankheiten übertragen sie?",
+  "answers": {
+    "A": "Toxoplasmose",
+    "B": "Frühsommermeningoenzephalitis",
+    "C": "Borelliose"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2093,
+  "uid": "koeln-b36",
+  "source": "Köln",
+  "sourceId": "B36",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Rassespezifisch können bestimmte Augenkrankheiten auftreten. Welche Rasse neigt zu „Offenen Augen“ (Ektropium).",
+  "answers": {
+    "A": "Mastino Napoletano",
+    "B": "Bullterrier",
+    "C": "Kuvasz"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2094,
+  "uid": "koeln-b37",
+  "source": "Köln",
+  "sourceId": "B37",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Welche Rassen neigen zu verengten Augenspalten (Entropium)",
+  "answers": {
+    "A": "Mastino Napoletano",
+    "B": "Bullterrier",
+    "D": "Kuvasz"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2095,
+  "uid": "koeln-b38",
+  "source": "Köln",
+  "sourceId": "B38",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Wodurch werden Ohrenkrankheiten verursacht?",
+  "answers": {
+    "A": "durch Ohrenschmalz",
+    "B": "durch Schmutz und Fremdkörper",
+    "C": "durch Milben"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2096,
+  "uid": "koeln-b39",
+  "source": "Köln",
+  "sourceId": "B39",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "In welchem Alter werden Hündinnen geschlechtsreif?",
+  "answers": {
+    "A": "mit ca. 4 Monaten",
+    "B": "mit ca. 7 – 10 Monaten",
+    "C": "mit ca. 18 Monaten"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2097,
+  "uid": "koeln-b40",
+  "source": "Köln",
+  "sourceId": "B40",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wie lange dauert die Hitze bei einer gesunden Hündin insgesamt?",
+  "answers": {
+    "A": "ca. 10 Tage",
+    "B": "ca. 3 Wochen",
+    "C": "ca. 4 Wochen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2098,
+  "uid": "koeln-b41",
+  "source": "Köln",
+  "sourceId": "B41",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "prompt": "Wie erkennt man sicher die Hitze bei einer Hündin?",
+  "answers": {
+    "A": "am Anschwellen der Vagina",
+    "B": "am blutig-wässrigen Ausfluß",
+    "C": "am Verhalten der Rüden beim Zusammentreffen",
+    "D": "am besonders anhänglichen Verhalten der Hündin"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2099,
+  "uid": "koeln-b42",
+  "source": "Köln",
+  "sourceId": "B42",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Wie lange dauert der Deckakt bei Hunden normalerweise?",
+  "answers": {
+    "A": "ca. 1 Minute",
+    "B": "ca. 10 Minuten",
+    "C": "ca. 30 Minuten"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2100,
+  "uid": "koeln-b43",
+  "source": "Köln",
+  "sourceId": "B43",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wie oft im Jahr wird eine Hündin hitzig / läufig?",
+  "answers": {
+    "A": "immer nur einmal",
+    "B": "meist zweimal (im Frühjahr und Herbst)",
+    "C": "ungefähr viermal"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2101,
+  "uid": "koeln-b44",
+  "source": "Köln",
+  "sourceId": "B44",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Mit dem Hundekot können Krankheiten übertragen werden",
+  "answers": {
+    "A": "nein",
+    "B": "Würmer",
+    "C": "Salmonellen",
+    "D": "Toxoplasmen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2102,
+  "uid": "koeln-b45",
+  "source": "Köln",
+  "sourceId": "B45",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Wann darf ich meinen Hund im Auto zurücklassen?",
+  "answers": {
+    "A": "immer",
+    "B": "nur für kurze Zeit",
+    "C": "nie bei hohen Temperaturen in der prallen Sonne",
+    "D": "ja, aber nur im Kofferraum"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2103,
+  "uid": "koeln-b46",
+  "source": "Köln",
+  "sourceId": "B46",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "A"
+  ],
+  "prompt": "Die Anwendung eines Teletaktgerätes (Stromschläge )",
+  "answers": {
+    "A": "ist verboten",
+    "B": "ist zur Erziehung schwer erziehbarer Hunde erlaubt",
+    "C": "ist für jeden uneingeschränkt erlaubt"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2104,
+  "uid": "koeln-b47",
+  "source": "Köln",
+  "sourceId": "B47",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B"
+  ],
+  "prompt": "Der gesunde American-Staffordshire-Terrier kann aus persönlichen Gründen nicht mehr gehalten werden. Wie kann ich ihn anderweitig unterbringen?",
+  "answers": {
+    "A": "Abgabe an eine berechtigte Person, die eine entsprechende Erlaubnis zur Haltung dieses Hundes beantragt hat",
+    "B": "Abgabe an ein Tierheim",
+    "C": "Anbinden an einen Baum",
+    "D": "Einschläferung durch den Tierarzt"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2105,
+  "uid": "koeln-b48",
+  "source": "Köln",
+  "sourceId": "B48",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Was tun Sie, wenn Ihre Hündin der sogenannten Kampfhunderassen versehentlich gedeckt wurde?",
+  "answers": {
+    "A": "Ich warte bis zur Geburt der Welpen",
+    "B": "Ich suche meinen Tierarzt spätestens am nächsten Tag auf, um die Trächtigkeit zu verhindern.",
+    "C": "Ich muss die Hündin dann einschläfern lassen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2106,
+  "uid": "koeln-c1",
+  "source": "Köln",
+  "sourceId": "C1",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "prompt": "Welche Rechtsgebiete sind für Hundehalter wichtig?",
+  "answers": {
+    "A": "Strafrecht",
+    "B": "Ordnungsrecht",
+    "C": "Zivilrecht",
+    "D": "Umweltrecht (Lärm)",
+    "E": "Tierschutzrecht",
+    "F": "Nur in Ihrer Gemeinde bzw. Stadt geltende kommunale Regelungen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2107,
+  "uid": "koeln-c2",
+  "source": "Köln",
+  "sourceId": "C2",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Welches Gesetz, bzw. welche Verordnung, regelt die Mindestanforderungen an eine tierartgerechte Haltung von Hunden in Freien?",
+  "answers": {
+    "A": "Tierzuchtgesetz",
+    "B": "Tiertransport-Verordnung",
+    "C": "Tierschutzhunde-Verordnung",
+    "D": "Landeshundegesetz NRW"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2108,
+  "uid": "koeln-c3",
+  "source": "Köln",
+  "sourceId": "C3",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Mit welchen Hunderassen darf in NRW seit dem 01.01.03 nicht mehr gezüchtet werden?",
+  "answers": {
+    "A": "Bullmastiff",
+    "B": "Dogo Argentino",
+    "C": "Bullterrier",
+    "D": "Rottweiler"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2109,
+  "uid": "koeln-c4",
+  "source": "Köln",
+  "sourceId": "C4",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "type": "multi",
+  "correct": [
+    "D"
+  ],
+  "prompt": "Was ist zu bedenken, wenn Sie mit Ihrem Hund in einem Tollwutsperrbezirk spazieren gehen?",
+  "answers": {
+    "A": "Alle Hunde müssen grundsätzlich an der Leine geführt werden",
+    "B": "Gegen Tollwut geimpfte Hunde dürfen frei laufen",
+    "C": "Keine Einschränkungen",
+    "D": "Gegen Tollwut geimpfte Hunde, die zuverlässig gehorchen, dürfen frei laufen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2110,
+  "uid": "koeln-c5",
+  "source": "Köln",
+  "sourceId": "C5",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Wie lange ist die Tollwutimpfbescheinigung in der BRD gültig.",
+  "answers": {
+    "A": "½ Jahr",
+    "B": "Je nach Angabe des Impfstoff-Herstellers 1 bis 3 Jahre",
+    "C": "3 Jahre"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2111,
+  "uid": "koeln-c6",
+  "source": "Köln",
+  "sourceId": "C6",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Wann darf der Jagdausübungsberechtigte ( Jäger ) Hunde abschießen?",
+  "answers": {
+    "A": "wenn Hunde den Waldweg verlassen",
+    "B": "wenn Hunde ohne Leine neben dem Halter herlaufen",
+    "C": "wenn Hunde unkontrolliert Wild hetzen"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2112,
+  "uid": "koeln-c7",
+  "source": "Köln",
+  "sourceId": "C7",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B"
+  ],
+  "prompt": "Welche Hunderasse darf nicht mehr ohne Erlaubnis des Ordnungsamtes gehalten werden?",
+  "answers": {
+    "A": "Deutscher Schäferhund",
+    "B": "American Bulldog",
+    "C": "Dobermann"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2113,
+  "uid": "koeln-c8",
+  "source": "Köln",
+  "sourceId": "C8",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "B",
+    "C"
+  ],
+  "prompt": "Welche Hunderasse darf nur noch mit vorheriger Erlaubnis des Ordnungsamtes angeschafft werden, wenn ein besonderes privates oder ein öffentliches Interesse besteht?",
+  "answers": {
+    "A": "Rottweiler",
+    "B": "Bullterrier",
+    "C": "American-Staffordshire-Terrier"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2114,
+  "uid": "koeln-c9",
+  "source": "Köln",
+  "sourceId": "C9",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "type": "multi",
+  "correct": [
+    "C"
+  ],
+  "prompt": "Welche Hunde können nie von der Maulkorb- oder Leinenpflicht befreit werden?",
+  "answers": {
+    "A": "Pit Bullterrier",
+    "B": "American StaffordhireTerrier",
+    "C": "Im Einzelfall gefährliche Hunde gemäß § 3 Abs. 3 Landeshundegesetz"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 2115,
+  "uid": "koeln-c10",
+  "source": "Köln",
+  "sourceId": "C10",
+  "images": [],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "type": "multi",
+  "correct": [
+    "A",
+    "C",
+    "D",
+    "E"
+  ],
+  "prompt": "Welche Hunde müssen mit Chip gekennzeichnet werden gemäss Landeshundegesetz NRW?",
+  "answers": {
+    "A": "Riesenschnautzer",
+    "B": "Westhighland-Terrier",
+    "C": "Staffordshire-Terrier",
+    "D": "Deutscher Schäferhund",
+    "E": "Golden Retriever"
+  },
+  "requiresVisual": false,
+  "sourceKey": "koeln",
+  "category": "Weitere Themen",
+  "referenceOnly": true
+}, {
+  "id": 3006,
+  "uid": "kammer-6",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "6",
+  "sourcePage": 1,
+  "category": "Ausdrucksverhalten Bilder",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist neutral bis aufmerksam.",
+    "B": "Der Hund ist ängstlich.",
+    "C": "Der Hund droht sicher.",
+    "D": "Der Hund ist unterwürfig."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "requiresVisual": true,
+  "images": [
+    "assets/questions/q006.webp"
+  ]
+}, {
+  "id": 3016,
+  "uid": "kammer-16",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "16",
+  "sourcePage": 1,
+  "category": "Ausdrucksverhalten Bilder",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist neutral bis aufmerksam.",
+    "B": "Der Hund droht aus Unsicherheit.",
+    "C": "Der Hund ist friedfertig.",
+    "D": "Der Hund ist unterwürfig."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": true,
+  "images": [
+    "assets/questions/q016-1.webp"
+  ]
+}, {
+  "id": 3026,
+  "uid": "kammer-26",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "26",
+  "sourcePage": 1,
+  "category": "Ausdrucksverhalten Bilder",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist neutral bis aufmerksam.",
+    "B": "Der Hund ist entspannt.",
+    "C": "Der Hund ist aggressiv.",
+    "D": "Der Hund ist unterwürfig."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "requiresVisual": true,
+  "images": [
+    "assets/questions/q026.webp"
+  ]
+}, {
+  "id": 3046,
+  "uid": "kammer-46",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "46",
+  "sourcePage": 1,
+  "category": "Ausdrucksverhalten Bilder",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist neutral bis aufmerksam.",
+    "B": "Der Hund ist erschöpft.",
+    "C": "Der Hund droht unsicher.",
+    "D": "Der Hund ist unterwürfig mit dem Ansatz einer beschwichtigenden Spielaufforderung."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "requiresVisual": true,
+  "images": [
+    "assets/questions/q046.webp"
+  ]
+}, {
+  "id": 3056,
+  "uid": "kammer-56",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "56",
+  "sourcePage": 1,
+  "category": "Ausdrucksverhalten Bilder",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist ängstlich und unterwürfig.",
+    "B": "Der Hund ist neutral bis aufmerksam.",
+    "C": "Der Hund droht unsicher und ist erregt.",
+    "D": "Der Hund droht sicher."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "requiresVisual": true,
+  "images": [
+    "assets/questions/q056.webp"
+  ]
+}, {
+  "id": 3065,
+  "uid": "kammer-65",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "65",
+  "sourcePage": 2,
+  "category": "Ausdrucksverhalten Bilder",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist ängstlich und unterwürfig.",
+    "B": "Der Hund ist neutral bis aufmerksam.",
+    "C": "Der Hund ist müde.",
+    "D": "Der Hund droht unsicher und ist erregt."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": true,
+  "images": [
+    "assets/questions/q065.webp"
+  ]
+}, {
+  "id": 3075,
+  "uid": "kammer-75",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "75",
+  "sourcePage": 2,
+  "category": "Ausdrucksverhalten Bilder",
+  "type": "multi",
+  "prompt": "Welchen Ausdruck zeigt dieser Hund?",
+  "answers": {
+    "A": "Der Hund ist ängstlich und unterwürfig.",
+    "B": "Der Hund möchte am Bauch gestreichelt werden.",
+    "C": "Der Hund ist müde.",
+    "D": "Der Hund ist aggressiv."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "requiresVisual": true,
+  "images": [
+    "assets/questions/q075.webp"
+  ]
+}, {
+  "id": 3001,
+  "uid": "kammer-1",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "1",
+  "sourcePage": 3,
+  "category": "Ausdrucksverhalten Fragen",
+  "type": "multi",
+  "prompt": "Was sind typische Jagdverhaltensweisen?",
+  "answers": {
+    "A": "Suchen nach Beute.",
+    "B": "Hetzen.",
+    "C": "Schütteln der Beute.",
+    "D": "Anschleichen und Vorstehen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3031,
+  "uid": "kammer-31",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "31",
+  "sourcePage": 3,
+  "category": "Ausdrucksverhalten Fragen",
+  "type": "multi",
+  "prompt": "Woran kann man erkennen, ob ein Hund einem anderen gegenüber Imponierverhalten zeigt?",
+  "answers": {
+    "A": "Er zeigt einen starren Blick am Gegner vorbei.",
+    "B": "Er macht sich groß (Kopf hoch, Ohren aufgerichtet, steifer Gang, Schwanz hoch).",
+    "C": "Er bellt und legt die Ohren an.",
+    "D": "Er stellt den Schwanz steil auf und vor Erregung wird oft ein schnelles Wedeln mit wenig Ausschlag gezeigt."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3041,
+  "uid": "kammer-41",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "41",
+  "sourcePage": 3,
+  "category": "Ausdrucksverhalten Fragen",
+  "type": "multi",
+  "prompt": "Was bedeutet es, wenn ein Hund einem anderen den Kopf auf den Rücken legt?",
+  "answers": {
+    "A": "Er ist unterwürfig.",
+    "B": "Er macht eine Spielaufforderung.",
+    "C": "Er ist müde.",
+    "D": "Er zeigt eine Imponiergeste."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3051,
+  "uid": "kammer-51",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "51",
+  "sourcePage": 3,
+  "category": "Ausdrucksverhalten Fragen",
+  "type": "multi",
+  "prompt": "Was bedeutet es, wenn ein Hund einen anderen Hund oder einen Menschen in angespannter Körperhaltung mit dem Blick fixiert?",
+  "answers": {
+    "A": "Es bedeutet, dass er den anderen gernhat.",
+    "B": "Es ist ein harmloses Imponierverhalten.",
+    "C": "Es ist ein offensives Drohverhalten.",
+    "D": "Es ist ein positives Sozialverhalten."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3061,
+  "uid": "kammer-61",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "61",
+  "sourcePage": 3,
+  "category": "Ausdrucksverhalten Fragen",
+  "type": "multi",
+  "prompt": "Was für eine Bedeutung hat es, wenn sich ein Hund flach auf den Boden legt und einen entgegenkommenden Hund mit dem Blick fixiert?",
+  "answers": {
+    "A": "Er möchte vermutlich einen „Angriff“ starten. Dieser Angriff kann spielerisch oder ernst ausgerichtet sein.",
+    "B": "Manche Hunde starten aus der Position keinen Angriff, sondern schaffen es einfach aufzustehen, wenn der andere Hund angekommen ist und gehen in normalen Sozialkontakt über.",
+    "C": "Es hat gar nichts mit dem anderen Hund zu tun, sondern ist ein Zeichen von starken Bauchschmerzen.",
+    "D": "Der liegende Hund macht sich klein, weil er Angst hat."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3086,
+  "uid": "kammer-86",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "86",
+  "sourcePage": 4,
+  "category": "Ausdrucksverhalten Fragen",
+  "type": "multi",
+  "prompt": "Welche der aufgezählten Gesten können Hunde zur Beschwichtigung einsetzen?",
+  "answers": {
+    "A": "Sich-über-die-Nase-Lecken.",
+    "B": "Pföteln.",
+    "C": "Kopf abwenden.",
+    "D": "Einen starren Blick nach vorne."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3088,
+  "uid": "kammer-88",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "88",
+  "sourcePage": 4,
+  "category": "Ausdrucksverhalten Fragen",
+  "type": "multi",
+  "prompt": "Was sind Anzeichen von Angst und Stress?",
+  "answers": {
+    "A": "Der Hund macht sich klein und versucht zu fliehen.",
+    "B": "Er hechelt und hat dabei den Schwanz eingeklemmt und die Ohren nach hinten gelegt.",
+    "C": "Er ist unruhig, gähnt und leckt sich häufig über die Nase.",
+    "D": "Er zeigt ein breites Wedeln mit dem Schwanz auf Höhe der Rückenlinie."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3121,
+  "uid": "kammer-121",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "121",
+  "sourcePage": 4,
+  "category": "Ausdrucksverhalten Fragen",
+  "type": "multi",
+  "prompt": "Nennen Sie typische Signale, an denen man ängstlich-unterwürfiges Verhalten erkennen kann.",
+  "answers": {
+    "A": "Blickkontakt halten.",
+    "B": "Sich klein machen und ducken.",
+    "C": "Den Schwanz einziehen und die Ohren anlegen.",
+    "D": "Harnen bei geduckter Haltung oder auf dem Rücken liegend."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3126,
+  "uid": "kammer-126",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "126",
+  "sourcePage": 4,
+  "category": "Ausdrucksverhalten Fragen",
+  "type": "multi",
+  "prompt": "Welche Verhaltensweisen zeigt ein Hund, der Angst hat und sich bedroht fühlt?",
+  "answers": {
+    "A": "Er versucht zu fliehen.",
+    "B": "Er versucht anzugreifen, wenn er nicht ausweichen kann.",
+    "C": "Er wedelt und bettelt nach Futter.",
+    "D": "Er pinkelt unter sich."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3167,
+  "uid": "kammer-167",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "167",
+  "sourcePage": 4,
+  "category": "Ausdrucksverhalten Fragen",
+  "type": "multi",
+  "prompt": "Was sind mögliche Stresssymptome eines Hundes?",
+  "answers": {
+    "A": "Hecheln.",
+    "B": "Unruhiges Verhalten.",
+    "C": "Starkes Haaren und ggf. stumpfes Fell, bei länger anhaltendem Stress.",
+    "D": "Nach vorne gerichtete Ohren und Interesse an der Umwelt."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3002,
+  "uid": "kammer-2",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "2",
+  "sourcePage": 5,
+  "category": "Rassen",
+  "type": "multi",
+  "prompt": "Sind alle Hunde gleich oder gibt es rassetypische Eigenschaften?",
+  "answers": {
+    "A": "Alle Hunde sind gleich.",
+    "B": "Je nach Rasse weisen Hunde unterschiedliche Veranlagungen auf, z. B. in Bezug auf Jagdverhalten und Aktivität.",
+    "C": "Verschiedene Rassen unterscheiden sich nur durch ihr äußeres Erscheinungsbild.",
+    "D": "Rassetypische Eigenschaften gibt es nicht, aber anhand der Größe kann man eine Einteilung in „kinderfreundlich\", „gefährlich“, „leicht zu erziehen“ etc. treffen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3012,
+  "uid": "kammer-12",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "12",
+  "sourcePage": 5,
+  "category": "Rassen",
+  "type": "multi",
+  "prompt": "Was ist die Grundveranlagung, die jeder Hund in sich trägt?",
+  "answers": {
+    "A": "Hunde sind Jagdraubtiere.",
+    "B": "Hunde sind für das Zusammenleben mit Menschen geschaffen worden. Sie sind völlig abhängig vom Menschen und können alleine nicht existieren, da sie sich keine Nahrung beschaffen könnten.",
+    "C": "Hunde sind soziale Tiere und darauf ausgerichtet, in einem Gruppenverband zu leben.",
+    "D": "Hunde sind Aasfresser und suchen deshalb ständig nach toten Tieren."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3161,
+  "uid": "kammer-161",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "161",
+  "sourcePage": 5,
+  "category": "Rassen",
+  "type": "multi",
+  "prompt": "In welchen Eigenschaften kann es bei Hunderassen große Unterschiede geben?",
+  "answers": {
+    "A": "Lauf- und Beschäftigungsbedürfnis",
+    "B": "Veranlagung zur territorialen Verteidigung",
+    "C": "Jagdbegeisterung",
+    "D": "Veranlagung zur Ängstlichkeit"
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3171,
+  "uid": "kammer-171",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "171",
+  "sourcePage": 5,
+  "category": "Rassen",
+  "type": "multi",
+  "prompt": "Welche gesundheitlichen Probleme haben sehr kurznasige Hunde, wie z. B. Französische Bulldoggen, sehr häufig, weswegen man diese Rassen auch als Qualzuchten bezeichnet?",
+  "answers": {
+    "A": "Sie bekommen in der Regel schlecht Luft und haben starke Atemgeräusche.",
+    "B": "Sie haben aufgrund von Wirbeldeformationen oft Rückenprobleme.",
+    "C": "Sie haben oft chronische Erkrankungen der Augen.",
+    "D": "Da sie schlecht Luft bekommen, können sie in der Regel körperlich nicht so aktiv sein, wie sie gerne sein würden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3184,
+  "uid": "kammer-184",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "184",
+  "sourcePage": 6,
+  "category": "Rassen",
+  "type": "multi",
+  "prompt": "Was kann für herrenlose Hunde aus Süd- und Osteuropa ein erhebliches Problem darstellen, wenn sie nach Deutschland in ein neues Zuhause gebracht werden?",
+  "answers": {
+    "A": "Für Hunde ist ein Leben in Deutschland immer besser als im Herkunftsland.",
+    "B": "Das Leben als Einzelhund, wenn sie vorher immer mit anderen Hunden zusammengelebt haben.",
+    "C": "Das Leben vorwiegend im Haus und Ausgehen an der Leine, wenn sie vorher das freie Leben draußen kannten.",
+    "D": "Die Nähe zu Menschen und sämtliche Umweltreize, die sie in ihrem Leben vorher nicht kennen gelernt haben."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3185,
+  "uid": "kammer-185",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "185",
+  "sourcePage": 6,
+  "category": "Rassen",
+  "type": "multi",
+  "prompt": "Können bei der Übernahme eines herrenlosen Hundes aus Süd- oder Osteuropa Verhaltensprobleme auftreten?",
+  "answers": {
+    "A": "Eine nicht ausreichende Sozialisation und Habituation auf Menschen, Hunde und Umweltreize, die in der neuen Wohnumgebung vorhanden sind, kann zu Ängsten führen, die zu dauerhaften erheblichen Leiden führen und nicht ausreichend therapierbar sind.",
+    "B": "Hunde können wegen traumatischer Erlebnisse vor der Übernahme oder/und dem Transport lebenslang Probleme mit Ängsten haben.",
+    "C": "Hunde aus dem Tierschutz brauchen grundsätzlich nur liebevolle Behandlung und eine/n guten Hundetrainer/in, um sie zu unkomplizierten Begleithunden zu machen.",
+    "D": "Es können sehr spezielle Verhaltensweisen von Rassen des Herkunftslandes auftreten, die mit dem vorgesehenen Leben in Deutschland nicht zusammenpassen, wie z. B. eine übermäßige Veranlagung zur territorialen Verteidigung bei Herdenschutzhunden und ihren Mischlingen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3186,
+  "uid": "kammer-186",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "186",
+  "sourcePage": 6,
+  "category": "Rassen",
+  "type": "multi",
+  "prompt": "Welche gesundheitlichen Probleme haben stark verzwergte Rassen, wie z. B. der Chihuahua, sehr häufig, weswegen man diese Rassen auch als Qualzuchten bezeichnet?",
+  "answers": {
+    "A": "Rassetypische Krankheiten (z. B. Wasserkopf, Kniescheibenprobleme), die bereits frühzeitig im Leben zu erheblichen dauerhaften Leiden führen können.",
+    "B": "Der rassetypische Schädel in Form einer kleinen Kugel führt zu Problemen mit den Augen, dem Gehirn, dem Rückenmark und den Zähnen.",
+    "C": "Verzwergte Rassen sind nur klein, haben aber dadurch keine besonderen gesundheitlichen Probleme verglichen mit anderen Hunden.",
+    "D": "Es besteht eine besondere Gefahr für Knochenbrüche."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3187,
+  "uid": "kammer-187",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "187",
+  "sourcePage": 6,
+  "category": "Rassen",
+  "type": "multi",
+  "prompt": "Was muss man bei Kontakten mit anderen Hunden berücksichtigen, wenn man einen sehr kleinen Hund (ca. unter 5 kg) oder einen sehr großen Hund (ca. über 50 kg) halten möchte?",
+  "answers": {
+    "A": "Man muss nichts berücksichtigen. Hunde regeln alles immer unter sich. Daher sollten Besitzer/innen sich grundsätzlich bei Hundebegegnungen heraushalten.",
+    "B": "Sehr kleine Hunde können im Kontakt mit wesentlich größeren Hunden auch versehentlich verletzt werden.",
+    "C": "Sehr große Hunde müssen in besonderem Maße als Welpen und heranwachsende Hunde in Spielkontakten mit anderen Hunden lernen, rücksichtsvoll mit ihrer Kraft umzugehen.",
+    "D": "Es ist häufig schwer, für beide Hundetypen passende Spielpartner zu finden, weil man viele Kontakte aufgrund des Größenunterschieds nicht zulassen kann. Dies kann bei betroffenen Hunden zu einer Einschränkung der Lebensqualität führen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3196,
+  "uid": "kammer-196",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "196",
+  "sourcePage": 7,
+  "category": "Rassen",
+  "type": "multi",
+  "prompt": "Kann man Hunde jeder Größe problemlos an der Leine bei sich halten?",
+  "answers": {
+    "A": "Es ist grundsätzlich nur eine Frage der Erziehung, ob man einen Hund in jeder Situation gut halten kann.",
+    "B": "Man kann in der Regel Hunde bis ca. zu einem Drittel des eigenen Körpergewichts gut halten.",
+    "C": "Vor allem aktiven gesunden Hunden fällt es selbst bei ausreichender Auslastung häufig sehr schwer, sich der Gangart ihres Menschen immer anzupassen. Daher kann es lange dauern, bis der Hunde den gewünschten Trainingsstand erreicht hat, ohne zu Ziehen an der Leine zu gehen.",
+    "D": "Bei glatter Straße oder in Situationen, in denen der Hund sehr aufgeregt oder ängstlich ist, kann es auch bei ansonsten gut leinenführigen Hunden schwer sein, sie an der Leine sicher halten zu können."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3197,
+  "uid": "kammer-197",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "197",
+  "sourcePage": 7,
+  "category": "Rassen",
+  "type": "multi",
+  "prompt": "Gibt es Hunderassen mit einer Veranlagung für bestimmte Krankheiten?",
+  "answers": {
+    "A": "Alle Rassen sind überzüchtet, sodass man nur mit einem Mischling einen gesunden Hund bekommen kann.",
+    "B": "Es gibt für fast alle Hunderassen rassetypische Krankheiten. Daher sollte man sich bei der Rassewahl auch gut informieren, für welche Krankheiten ein Risiko bestehen könnte.",
+    "C": "Eine Veranlagung für bestimmte Krankheiten können nicht nur Rassehunde haben, sondern auch Mischlinge aus ihnen.",
+    "D": "Wenn die Eltern gesund erscheinen, werden ihre Welpen in jedem Fall gesund sein."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3003,
+  "uid": "kammer-3",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "3",
+  "sourcePage": 8,
+  "category": "Hund und Kind",
+  "type": "multi",
+  "prompt": "Ein Welpe oder ein Kind ist einem Hund gegenüber sehr aufdringlich. Welche Verhaltensweisen erwachsener Hunde sind normal und absolut hundetypisch?",
+  "answers": {
+    "A": "Knurren.",
+    "B": "Die Lefzen kräuseln.",
+    "C": "Der Hund tut nichts, weil Kinder und Welpen bei erwachsenen Hunden uneingeschränkt Narrenfreiheit haben.",
+    "D": "Steigerung aggressiver Verhaltensweisen, wie z.B. Schnappen oder Beißen, wenn Drohen des Hundes bestraft, gelobt/beruhigt, ignoriert oder nicht wahrgenommen wird."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3028,
+  "uid": "kammer-28",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "28",
+  "sourcePage": 8,
+  "category": "Hund und Kind",
+  "type": "multi",
+  "prompt": "Was kann zu Problemen zwischen Hunden und Kindern führen?",
+  "answers": {
+    "A": "Kinder können auf Spielideen kommen, die Hunden unangenehm sind.",
+    "B": "Kinder können Hundeverhalten missverstehen bzw. falsch deuten und verhalten sich dann aus Hundesicht unangemessen.",
+    "C": "Zwischen Kindern und Hunden gibt es keine Probleme, denn sie sind gleichermaßen spielbegeistert und verstehen sich immer gut.",
+    "D": "Beide, Kinder und Hunde, sind unberechenbar."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3033,
+  "uid": "kammer-33",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "33",
+  "sourcePage": 8,
+  "category": "Hund und Kind",
+  "type": "multi",
+  "prompt": "Sollte man seinen Hund unbeaufsichtigt mit Kindern spielen lassen?",
+  "answers": {
+    "A": "Wenn der Hund und das Kind zusammenleben, ist das kein Problem, weil der Hund seine eigenen Familienmitglieder nie beißen bzw. verletzen würde.",
+    "B": "Wenn der Hund die Kinder kennt und mag, ist das kein Problem.",
+    "C": "Eine gute Aufsicht bei Kontakten zwischen Kindern und Hunden ist notwendig, weil es immer zu kritischen Situationen kommen kann.",
+    "D": "Nur, wenn es ein kleiner Hund ist, der den Kindern nichts tun kann."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3038,
+  "uid": "kammer-38",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "38",
+  "sourcePage": 8,
+  "category": "Hund und Kind",
+  "type": "multi",
+  "prompt": "Was sind typische „Fehler“ von Kindern bei Begegnungen mit einem Hund?",
+  "answers": {
+    "A": "Dem Hund direkt in die Augen starren.",
+    "B": "Den direkten Blick zum Hund meiden.",
+    "C": "Die Arme hochreißen, schreien oder wegrennen.",
+    "D": "Dem Hund über den Kopf streicheln."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3043,
+  "uid": "kammer-43",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "43",
+  "sourcePage": 9,
+  "category": "Hund und Kind",
+  "type": "multi",
+  "prompt": "Was ist beim Spielen von Kindern mit Hunden zu beachten?",
+  "answers": {
+    "A": "Es muss eine erwachsene Aufsichtsperson dabei sein, um eingreifen zu können, falls es einem Kind oder dem Hund zu wild oder zu viel werden sollte.",
+    "B": "Der Hund muss die Kinder als Chef ansehen, was man anhand von Unterordnungsübungen vorab testen kann.",
+    "C": "Der Hund darf nicht dazu neigen, Spielzeug gegen Kinder zu verteidigen.",
+    "D": "Wilde Rauf- und Rennspiele dürfen nicht gemacht werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3048,
+  "uid": "kammer-48",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "48",
+  "sourcePage": 9,
+  "category": "Hund und Kind",
+  "type": "multi",
+  "prompt": "Es kommt relativ häufig vor, dass Hunde Kinder im Gesicht verletzen. Warum?",
+  "answers": {
+    "A": "Das Gesicht des Kindes ist oft in Schnauzenhöhe.",
+    "B": "Kinder umarmen Hunde gerne und geben ihnen Küsse. Einigen Hunden ist diese Nähe zu viel und sie versuchen sich durch Schnappen aus der Situation zu befreien.",
+    "C": "Die Gesichtsverletzungen entstehen fast nie durch Bisse, sondern wenn die Kinder angesprungen werden und dabei hinfallen.",
+    "D": "Hunde können in seltenen Fällen versehentlich das Gesicht eines Kindes verletzen, wenn sie über das „Lefzenlecken“ Beschwichtigung signalisieren wollen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3058,
+  "uid": "kammer-58",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "58",
+  "sourcePage": 9,
+  "category": "Hund und Kind",
+  "type": "multi",
+  "prompt": "Wie sollten sich Kinder verhalten, wenn sie einem fremden Hund begegnen?",
+  "answers": {
+    "A": "Normal weitergehen, ohne den Hund anzusehen bzw. anzusprechen.",
+    "B": "Den Halter fragen, ob sie sich dem Hund nähern dürfen, sofern sie das gerne machen möchten.",
+    "C": "Zügig auf den Hund zugehen und ihn streicheln.",
+    "D": "Vorsichtig auf den Hund zugehen und ihn ganz kurz von hinten auf den Rücken streicheln."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3107,
+  "uid": "kammer-107",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "107",
+  "sourcePage": 9,
+  "category": "Hund und Kind",
+  "type": "multi",
+  "prompt": "Was sind sinnvolle Maßnahmen, um den Umgang von Kindern und Hunden sicherer zu gestalten?",
+  "answers": {
+    "A": "Man muss den Hund beobachten, ob er beim Umgang mit den Kindern wirklich entspannt und zufrieden ist und ihn im Zweifelsfall „retten“.",
+    "B": "Wenn ein Hund einen Maulkorb aufhat, kann man ihn immer zwischen Kindern laufen lassen. Denn dann ist sichergestellt, dass der Hund die Kinder nicht verletzten kann.",
+    "C": "Hunde, die unsicher oder ängstlich im Umgang mit Kindern sind, sollten an der Leine gehalten werden. Dabei muss Sorge dafür getragen werden, dass genügend Abstand zu den Kindern eingehalten werden kann, damit der Hund sich wohl fühlen kann. Bei Hunden mit Problemen mit Kindern kann die Gewöhnung an einen Maulkorb eine sinnvolle zusätzliche Sicherungsmaßnahme sein.",
+    "D": "Solange nicht wirklich klar ist, wie gut ein Hund mit Kindern einer bestimmten Altersklasse zurechtkommt, muss der Halter immer dichter am Hund als das Kind sein, um im Notfall dazwischen zu stehen. Dabei geht es sowohl darum, dass sich der Hund in nicht freundlicher Absicht dem jeweiligen Kind nähern könnte, als auch darum, dass sich das Kind unabsichtlich bedrohlich dem Hund nähern könnte."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3110,
+  "uid": "kammer-110",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "110",
+  "sourcePage": 10,
+  "category": "Hund und Kind",
+  "type": "multi",
+  "prompt": "Ist es eine Frage des Alters eines Kindes, ob das Zusammenleben mit einem Hund reibungslos funktioniert?",
+  "answers": {
+    "A": "Es ist eine Frage der Sozialisation, ob ein Hund mit Kindern einer bestimmten Altersklasse gut zurechtkommt oder nicht.",
+    "B": "Es hat mit dem Alter des Kindes nichts zu tun. Ein Hund erkennt die Kinder der eigenen Familie immer als zugehörig und ist ihnen wohlgesonnen.",
+    "C": "Je kleiner die Kinder, desto wahrscheinlicher ist es, dass sie sich nicht rücksichtsvoll dem Hund gegenüber verhalten.",
+    "D": "Es gibt Hunde, denen wildes Toben im Haus zu viel werden kann. Daher kann es bei älteren oder ruhigen Kindern in solchen Fällen reibungsloser funktionieren."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3112,
+  "uid": "kammer-112",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "112",
+  "sourcePage": 10,
+  "category": "Hund und Kind",
+  "type": "multi",
+  "prompt": "Was ist bei der Sozialisierung eines Hundes auf Kinder zu beachten?",
+  "answers": {
+    "A": "Der Hund sollte besonders im Welpenalter rigoros vor Kindern abgeschirmt werden, denn Kinder wollen Hunde nur ärgern oder bedrängen.",
+    "B": "Man muss nur darauf achten, dass ein Hund freien Kontakt mit Kindern hat, bei denen er alles, was die Kinder mit ihm machen, ohne offensichtliche Gegenwehr erträgt.",
+    "C": "Der Hund braucht nur den Kontakt zu einem Kind, um ausreichend auf Kinder sozialisiert zu werden.",
+    "D": "Der Hund sollte im Welpenalter genügend Kontakte zu Kindern aller Altersstufen haben, die er wirklich als positiv erlebt."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3018,
+  "uid": "kammer-18",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "18",
+  "sourcePage": 11,
+  "category": "Umgang und Verständnis",
+  "type": "multi",
+  "prompt": "Ich beuge mich über einen Hund und möchte ihn streicheln. Er duckt sich und knurrt. Ich mache mich klein und strecke ihm meine Hand entgegen, damit er daran schnüffeln kann. In diesem Moment schnappt er nach mir. Was könnte der Grund dafür sein?",
+  "answers": {
+    "A": "Ein Hund, der so reagiert, muss früher geschlagen worden sein.",
+    "B": "Er hat die Geste des Über-ihn-Beugens und Handausstreckens als Bedrohung empfunden.",
+    "C": "Er ist grundsätzlich verhaltensgestört.",
+    "D": "Es ist normal, dass Hunde Gegner attackieren, die schwächer sind. Dadurch, dass man sich klein gemacht hat, hat man dem Hund signalisiert, dass man schwächer ist als er."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3062,
+  "uid": "kammer-62",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "62",
+  "sourcePage": 11,
+  "category": "Umgang und Verständnis",
+  "type": "multi",
+  "prompt": "Was fördert eine vertrauensvolle Beziehung zu einem Hund?",
+  "answers": {
+    "A": "Der Hund muss im Haus immer auf seinem Platz liegen.",
+    "B": "Der Hund muss auf Spaziergängen hinter einem gehen.",
+    "C": "Der Hund kann sich darauf verlassen, dass sein Halter ihn nicht bedroht oder einschüchtert.",
+    "D": "Der Hund erlebt schöne Dinge mit seinem Halter."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3078,
+  "uid": "kammer-78",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "78",
+  "sourcePage": 11,
+  "category": "Umgang und Verständnis",
+  "type": "multi",
+  "prompt": "Können Hunde unsere Sprache verstehen?",
+  "answers": {
+    "A": "Hunde haben kein Sprachverständnis.",
+    "B": "Hunde verstehen sehr wohl, was man ihnen sprachlich erklärt, vor allem wenn sie etwas falsch gemacht haben.",
+    "C": "Hunde können keine Sprache verstehen, aber sie können in der Sprache einzelne Wörter als Klangfolge wiedererkennen, deren Bedeutung sie gelernt haben.",
+    "D": "Hunde können Sprache sehr gut verstehen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3076,
+  "uid": "kammer-76",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "76",
+  "sourcePage": 11,
+  "category": "Umgang und Verständnis",
+  "type": "multi",
+  "prompt": "Warum kann ein junger oder ängstlicher Hund in Begrüßungssituationen Urin absetzen?",
+  "answers": {
+    "A": "Es handelt sich dabei in der Regel um mangelhafte Stubenreinheit.",
+    "B": "Es handelt sich dabei in der Regel um ein sogenanntes Unterwürfigkeitsharnen, womit der Hund seine Unterlegenheit unterstreicht. Ein solches Verhalten wirkt auf einen anderen Hund beschwichtigend.",
+    "C": "Es handelt sich dabei in der Regel um eine Provokation, womit der Hund testen will, ob er damit durchkommt.",
+    "D": "Es handelt sich dabei in der Regel um ein körperliches Problem der Blasenkontrolle."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3089,
+  "uid": "kammer-89",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "89",
+  "sourcePage": 12,
+  "category": "Umgang und Verständnis",
+  "type": "multi",
+  "prompt": "Wie erkennt ein Hund eine souveräne Führung seines Halters?",
+  "answers": {
+    "A": "Man dreht den Hund bei unerwünschtem Verhalten auf den Rücken, um ihm zu zeigen, dass man überlegen ist.",
+    "B": "Vertrauensvolles Training über positive Bestärkung.",
+    "C": "Verzicht auf Strafen als übliche Maßnahmen zur Erziehung.",
+    "D": "Man geht auf jeglichen Wunsch nach Aufmerksamkeit seines Hundes ein."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3091,
+  "uid": "kammer-91",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "91",
+  "sourcePage": 12,
+  "category": "Umgang und Verständnis",
+  "type": "multi",
+  "prompt": "Wie vermittelt man seinem Hund, dass man eine Führungspersönlichkeit für ihn ist?",
+  "answers": {
+    "A": "Man nimmt dem Hund regelmäßig einen Kauknochen oder das Futter weg.",
+    "B": "Man unterwirft den Hund, indem man ihn auf den Rücken dreht oder auf den Boden drückt, wenn er ein unerwünschtes Verhalten zeigt.",
+    "C": "Man ignoriert aufdringliches und forderndes Verhalten des Hundes.",
+    "D": "Man reagiert dem Hund gegenüber immer entspannt und souverän und fördert über positive Bestärkung erwünschte Verhaltensweisen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3096,
+  "uid": "kammer-96",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "96",
+  "sourcePage": 12,
+  "category": "Umgang und Verständnis",
+  "type": "multi",
+  "prompt": "Was zeigt eine gute Bindung zwischen Mensch und Hund an?",
+  "answers": {
+    "A": "Der Hund verhält sich gegenüber seinem Menschen entspannt und unbefangen.",
+    "B": "Der Hund hat Spaß an Übungen, die „sein“ Mensch von ihm verlangt.",
+    "C": "Wenn die Bezugspersonen häufig wechseln, lernt der Hund eine grundsätzlich gute Bindung gegenüber allen Menschen.",
+    "D": "Bei einer guten Bindung zeigt ein Hund niemals Verhaltensprobleme."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3131,
+  "uid": "kammer-131",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "131",
+  "sourcePage": 12,
+  "category": "Umgang und Verständnis",
+  "type": "multi",
+  "prompt": "Achten Hunde auf die Körpersprache von Menschen?",
+  "answers": {
+    "A": "Hunde achten sehr auf die Körpersprache von Menschen.",
+    "B": "Nur, wenn man es ihnen beigebracht hat.",
+    "C": "Wie Menschen sich verhalten, ist Hunden egal.",
+    "D": "Hunde achten mehr auf die Körpersprache als auf die Worte von Menschen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3157,
+  "uid": "kammer-157",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "157",
+  "sourcePage": 13,
+  "category": "Umgang und Verständnis",
+  "type": "multi",
+  "prompt": "Können Hunde ein schlechtes Gewissen haben?",
+  "answers": {
+    "A": "Ja, aber nur, wenn sie vorher gelernt haben, dass sie bestimmte Dinge nicht tun dürfen.",
+    "B": "Nein, Hunde haben keine Moralvorstellung von Gut und Böse.",
+    "C": "Nein, obwohl es manchmal so aussieht. In Wirklichkeit haben sie eine negative Verknüpfung mit dem Besitzer oder der Situation gemacht und zeigen eine angeborene Körperhaltung, die Unterwürfigkeit und Ängstlichkeit signalisiert. Sie soll den Besitzer beschwichtigen.",
+    "D": "Ja, allerdings nur, wenn ihre Tat nicht länger als einen halben Tag zurückliegt, denn sie können sich Dinge nur einen halben Tag lang merken."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3159,
+  "uid": "kammer-159",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "159",
+  "sourcePage": 13,
+  "category": "Umgang und Verständnis",
+  "type": "multi",
+  "prompt": "Bei Ihrer Rückkehr sehen Sie, dass Ihr Hund einen Haufen in die Wohnung gemacht hat. Warum kommt Ihr Hund geduckt zu Ihnen, als hätte er ein schlechtes Gewissen?",
+  "answers": {
+    "A": "Der Hund fühlt sich mit seinem Haufen in der Nähe selbst nicht wohl.",
+    "B": "Der Hund hat schon mal die Erfahrung gemacht, dass Sie in einer Situation mit hundlichen Hinterlassenschaften in der Wohnung schlechte Stimmung bekommen haben. Daher kommt er Ihnen unterwürfig entgegen, um Sie zu beschwichtigen.",
+    "C": "Der Hund weiß genau, was er falsch gemacht hat und kommt deshalb geduckt auf Sie zu.",
+    "D": "Der Hund hat ein schlechtes Gewissen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3070,
+  "uid": "kammer-70",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "70",
+  "sourcePage": 14,
+  "category": "Training",
+  "type": "multi",
+  "prompt": "Was können im Training Hinweise für Stress sein?",
+  "answers": {
+    "A": "Hunde trainieren immer gerne, sodass sie dabei keinen negativen Stress haben können.",
+    "B": "„Stures“ Verhalten. Der Hund reagiert nicht oder nur mühselig auf eigentlich bekannte Signale oder Trainingsversuche. Denn Stress behindert das Lernen und das Abrufen bekannter Lerninhalte.",
+    "C": "Unruhiges bis hyperaktives Verhalten und Probleme mit der Konzentration.",
+    "D": "Spontanes und freudiges Reagieren auf bereits gut gelernte Signale für Trainingsinhalte."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3134,
+  "uid": "kammer-134",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "134",
+  "sourcePage": 14,
+  "category": "Training",
+  "type": "multi",
+  "prompt": "Gibt es beim Üben mit einem ängstlichen Hund besondere Dinge zu bedenken?",
+  "answers": {
+    "A": "Hunde können nur lernen, wenn sie entspannt sind und keine Angst haben.",
+    "B": "Man muss darauf achten, keine bedrohlichen Gesten in den Übungen zu verwenden.",
+    "C": "Mit einem ängstlichen Hund sollte man lieber gar nicht trainieren, weil er aus Angst beißen könnte.",
+    "D": "Mit einem ängstlichen Hund kann man trainieren, wie mit jedem anderen auch."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3136,
+  "uid": "kammer-136",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "136",
+  "sourcePage": 14,
+  "category": "Training",
+  "type": "multi",
+  "prompt": "Innerhalb welcher Zeit kann ein Hund eine Belohnung sicher mit seiner gezeigten Handlung verknüpfen?",
+  "answers": {
+    "A": "Es dürfen nicht mehr als eine, allerhöchstens zwei Sekunden vergehen.",
+    "B": "Man sollte den Hund innerhalb von fünf Sekunden belohnen.",
+    "C": "Es ist nicht von der Zeit abhängig, ob der Hund die Übung begreift, sondern nur von der Tatsache, ob die Futterbelohnung lecker genug ist.",
+    "D": "Man hat ein paar Minuten Zeit, besonders wenn der Hund die Handlung länger gezeigt hat."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3141,
+  "uid": "kammer-141",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "141",
+  "sourcePage": 14,
+  "category": "Training",
+  "type": "multi",
+  "prompt": "Wie häufig und wie lange sollte man mit einem Hund üben?",
+  "answers": {
+    "A": "Ein Mal am Tag eine Stunde.",
+    "B": "So häufig wie es geht, aber immer nur kurz, dann kann sich der Hund am besten konzentrieren.",
+    "C": "Es ist besonders wichtig, dass man täglich immer zur selben Zeit übt, wie lange, ist abhängig vom Trainingsstand des Hundes.",
+    "D": "Zwei Übungen auf jedem Spaziergang sind absolut ausreichend, sonst wird der Hund überfordert."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3143,
+  "uid": "kammer-143",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "143",
+  "sourcePage": 15,
+  "category": "Training",
+  "type": "multi",
+  "prompt": "Stimmt es, dass man älteren Hunden nichts mehr beibringen kann?",
+  "answers": {
+    "A": "Ja, Hunde, die älter als ein Jahr sind, können nichts mehr lernen.",
+    "B": "Nein, Hunde können ihr Leben lang neue Dinge lernen.",
+    "C": "Nein, aber es ist einfacher, schon mit einem Welpen zu üben, dann gewöhnt sich der Hund nicht erst etwas Falsches an.",
+    "D": "Nein. Da ein Welpe noch nicht reif genug ist, sollte man überhaupt mit der Erziehung erst beginnen, wenn der Hund ein Jahr alt ist."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3147,
+  "uid": "kammer-147",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "147",
+  "sourcePage": 15,
+  "category": "Training",
+  "type": "multi",
+  "prompt": "Nennen Sie Möglichkeiten einen Hund zu belohnen.",
+  "answers": {
+    "A": "Mit Futterhäppchen.",
+    "B": "Mit Spielzeug bzw. einem Spiel.",
+    "C": "Man sollte den Hund fest an sich drücken, ihm ins Ohr sagen, dass er brav war und ihn auf den Kopf küssen.",
+    "D": "Mit allem, worüber der Hund sich in dem Moment wirklich freuen würde, sofern man es ihm mit der passenden zeitlichen Verknüpfung ermöglichen kann."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3162,
+  "uid": "kammer-162",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "162",
+  "sourcePage": 15,
+  "category": "Training",
+  "type": "multi",
+  "prompt": "Was passiert, wenn man mit dem Hund eine bestimmte Übung immer am gleichen Ort macht?",
+  "answers": {
+    "A": "Er wird sie an anderen Orten gar nicht oder nicht genauso gut ausführen.",
+    "B": "Lernen ist nicht von einem bestimmten Ort abhängig. Er wird die Übung, wenn man sie häufig an einem Ort geübt hat, bald überall sicher ausführen können.",
+    "C": "Der Ort ist nicht wichtig im Hundetraining. Wichtig ist, dass man immer zur selben Tageszeit übt, damit der Hund sich an einen geregelten Tagesablauf gewöhnt.",
+    "D": "Es könnte passieren, dass der Hund diese Übung ohne Aufforderung macht, sobald er an diesen Ort kommt, weil er die Übung mit dem Ort verknüpft hat."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3164,
+  "uid": "kammer-164",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "164",
+  "sourcePage": 15,
+  "category": "Training",
+  "type": "multi",
+  "prompt": "Worauf muss man beim Einsatz von Belohnungen achten?",
+  "answers": {
+    "A": "Der Hund muss bis spätestens 2 Sekunden nach der erwünschten Handlung belohnt werden.",
+    "B": "Die Belohnung muss so gewählt werden, dass sie den Hund motiviert, aber ihn noch konzentrationsfähig hält.",
+    "C": "Futterbelohnungen sind nicht geeignet, denn sie verleiten den Hund nur zum Betteln.",
+    "D": "Der Hund sollte anfangs immer, später abhängig vom Schwierigkeitsgrad belohnt werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3165,
+  "uid": "kammer-165",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "165",
+  "sourcePage": 16,
+  "category": "Training",
+  "type": "multi",
+  "prompt": "Was passiert, wenn man ein bestimmtes Verhalten mit Futter belohnt?",
+  "answers": {
+    "A": "Der Hund wird dieses Verhalten in Zukunft häufiger zeigen, weil er sich eine leckere Belohnung erhofft.",
+    "B": "Der Hund macht diese Handlung grundsätzlich nur noch, wenn er sieht, dass man Futter dabeihat.",
+    "C": "Der Hund wird unnötig verweichlicht, denn eigentlich soll er aus Treue zu mir brav sein und nicht, weil ich ihn mit Futter besteche.",
+    "D": "Der Hund wird mich als „Rudelführer“ nicht mehr ernst nehmen, weil er weiß, dass er bei mir Futter bekommen kann."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3166,
+  "uid": "kammer-166",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "166",
+  "sourcePage": 16,
+  "category": "Training",
+  "type": "multi",
+  "prompt": "Wie kann man einen Hund dazu motivieren, zu einem zu kommen?",
+  "answers": {
+    "A": "Man kann sich hinhocken und ihn locken.",
+    "B": "Man sollte sich etwas nach vorne beugen und ihn drohend rufen, damit er weiß, wer das Sagen hat.",
+    "C": "Man sollte sich umdrehen, von dem Hund weglaufen und ihn dabei rufen.",
+    "D": "Man sollte ihn zum Training möglichst rufen, wenn er guckt und dann schnell von ihm weglaufen. Denn wenn er nicht guckt, kann es sein, dass er das Rufen gar nicht mitbekommt oder zu sehr abgelenkt ist, um zu reagieren."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3005,
+  "uid": "kammer-5",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "5",
+  "sourcePage": 17,
+  "category": "Strafen",
+  "type": "multi",
+  "prompt": "Ist der Einsatz von Stromreizgeräten, unangenehmen Hochfrequenztönen und anderen Schmerz- und Schreckreizen für die Hundeerziehung sinnvoll?",
+  "answers": {
+    "A": "Es ist eine einfache und schnelle Methode, die sehr erfolgreich in der Erziehung eingesetzt werden kann.",
+    "B": "Der Hund weiß dann, dass er nicht mehr machen kann, was er will.",
+    "C": "Die Gefahr von Fehlverknüpfungen und Angstverhalten als Folge ist zu groß.",
+    "D": "Strafreize lösen beim Hund Stress aus, der je nach verwendetem Reiz und individueller Sensibilität erheblich sein kann."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3009,
+  "uid": "kammer-9",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "9",
+  "sourcePage": 17,
+  "category": "Strafen",
+  "type": "multi",
+  "prompt": "Was ist zu der Anwendung von Leinenrucken zur Erziehung zu sagen?",
+  "answers": {
+    "A": "Leinenrucke sind notwendig für die Erziehung zur Leinenführigkeit.",
+    "B": "Jegliche Anwendung von Leinenrucken kann zu Schmerzen führen und gilt als nicht tierschutzkonform.",
+    "C": "Für verhaltensauffällige Hunde ist die Arbeit mit Leinenrucken oftmals notwendig, um sie überhaupt trainieren zu können.",
+    "D": "Ständige Leinenrucke können zu verschiedenen körperlichen Schäden im Halsbereich führen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3059,
+  "uid": "kammer-59",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "59",
+  "sourcePage": 17,
+  "category": "Strafen",
+  "type": "multi",
+  "prompt": "Was bedeutet es, wenn man seinen Hund bei unerwünschtem Verhalten blockiert?",
+  "answers": {
+    "A": "Unter Blockieren wird häufig verstanden, dass man sich körpersprachlich mehr oder minder offensichtlich drohend vor den Hund stellt.",
+    "B": "Empfindet der Hund es als bedrohlich, dass sein Halter ihn blockiert, fördert das Stress und Unsicherheit und damit auf Dauer aggressive oder andere unerwünschte Verhaltensweisen.",
+    "C": "Blockieren oder Schubsen eines Hundes mit unerwünschten Verhaltensweisen bringt den Hund dazu, ruhiges und entspanntes Verhalten zu lernen.",
+    "D": "Durch das Blockieren eines Hundes kann man effektiv unerwünschte Verhaltensweisen unterbinden, sodass der Hund verstehen kann, was er darf und was nicht."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3099,
+  "uid": "kammer-99",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "99",
+  "sourcePage": 17,
+  "category": "Strafen",
+  "type": "multi",
+  "prompt": "Welche Behandlungen können das Vertrauensverhältnis zwischen Hund und Halter schwächen?",
+  "answers": {
+    "A": "Der Einsatz von Strafen.",
+    "B": "Ein Maßregeln des Hundes, wenn er in einer Situation unerwünschtes Verhalten zeigt.",
+    "C": "Viel Beschäftigung mit dem Hund.",
+    "D": "Den Hund häufig in Situationen zwingen, die er schrecklich findet, wie z. B. unangenehmes oder gar schmerzhaftes Bürsten."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3129,
+  "uid": "kammer-129",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "129",
+  "sourcePage": 18,
+  "category": "Strafen",
+  "type": "multi",
+  "prompt": "Besteht die Gefahr, durch Strafen einen Hund so zu schockieren, dass er das Vertrauen in einen verliert?",
+  "answers": {
+    "A": "Nicht, wenn man vorher ein gutes Verhältnis hatte.",
+    "B": "Bei sensiblen Hunden manchmal sogar mit Kleinigkeiten, besonders wenn die Handlung für den Hund „unlogisch“ ist.",
+    "C": "Durch inkonsequentes und launisches Vorgehen.",
+    "D": "Nur bei generell ängstlichen Hunden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3138,
+  "uid": "kammer-138",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "138",
+  "sourcePage": 18,
+  "category": "Strafen",
+  "type": "multi",
+  "prompt": "Was kann passieren, wenn man bei einem Hund Strafen als Erziehungsmaßnahme einsetzt?",
+  "answers": {
+    "A": "Er wird die Übung schnell und zuverlässig ausführen, denn so lernt er, dass er gehorchen muss.",
+    "B": "Er kann scheu und unsicher werden, weil er kein Vertrauen mehr zu seinem Besitzer hat.",
+    "C": "Es passiert nichts Schlimmes. Hunde untereinander verhalten sich auch rigoros. Der Hund wird also große Freude bei den Übungen haben, wenn er erst verstanden hat, worum es geht.",
+    "D": "Er könnte unter Umständen aggressiv reagieren, weil er sich bedroht fühlt."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3145,
+  "uid": "kammer-145",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "145",
+  "sourcePage": 18,
+  "category": "Strafen",
+  "type": "multi",
+  "prompt": "Wie kann man vermeiden, dass der Hund durch Strafen das Vertrauen in seinen Besitzer verliert?",
+  "answers": {
+    "A": "Wenn man Ignorieren in geeigneten Situationen als Methode anwendet.",
+    "B": "Wenn das Unerwünschte, das der Hund gerne tun würde, für ihn erfolglos bleibt oder keinen Spaß macht, wie z. B. ein Bitterstoff auf einem Möbel, das der Hund ankauen möchte.",
+    "C": "Wenn man eine Rappeldose oder Wasserspritze verwendet, verbindet der Hund diese Strafe nie mit seinem Besitzer.",
+    "D": "Beim Schütteln am Nackenfell, denn eine Hündin maßregelt auf diese Art und Weise auch ihre Welpen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3149,
+  "uid": "kammer-149",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "149",
+  "sourcePage": 18,
+  "category": "Strafen",
+  "type": "multi",
+  "prompt": "Wie verstehen Hunde strafende Handlungen durch ihre Besitzer?",
+  "answers": {
+    "A": "Hunde lernen dadurch, was sie dürfen und was nicht.",
+    "B": "Hunde lernen dadurch, dass Menschen sich in bestimmten Situationen aggressiv verhalten können.",
+    "C": "Hunde lernen dadurch Respekt vor Ihren Besitzern.",
+    "D": "Hunde können strafende Handlungen ihrer Besitzer mit der Stimmung ihrer Besitzer, der Situation oder zufällig gleichzeitig auftretenden Reizen in Verbindung bringen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3150,
+  "uid": "kammer-150",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "150",
+  "sourcePage": 19,
+  "category": "Strafen",
+  "type": "multi",
+  "prompt": "Können im Zusammenhang mit Strafen Probleme auftreten?",
+  "answers": {
+    "A": "Der Hund kann Angst vor dem Strafenden, ihm ähnlichen Personen und ähnlichen Situationen bekommen.",
+    "B": "Der Hund kann aggressiv werden, wenn er sich bedroht fühlt oder Schmerzen empfindet.",
+    "C": "Bei jeder Strafe besteht das Risiko, dass der Hund andere gleichzeitig auftretende Reize verknüpft, sodass Problemverhaltensweisen gefördert werden können.",
+    "D": "Man braucht keine Probleme zu erwarten, denn Strafe ist etwas, was der Hund immer versteht."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3192,
+  "uid": "kammer-192",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "192",
+  "sourcePage": 19,
+  "category": "Strafen",
+  "type": "multi",
+  "prompt": "Was sind mögliche Nebenwirkungen von dem Einsatz von Schreck- und Strafreizen zur Erziehung?",
+  "answers": {
+    "A": "Wenn die Strafe zeitlich sofort auf das unerwünschte Verhalten erfolgt, kommt es auch nicht zu Nebenwirkungen, weil der Hund dann sicher verstehen kann, worum es geht.",
+    "B": "Vertrauenseinbußen zum Halter.",
+    "C": "Verknüpfung mit zufällig gleichzeitig auftretenden Reizen, was die Ursache für Problemverhaltensweisen werden kann. Z. B. kann ein Leinenruck dazu führen, dass Leinenaggression gegenüber anderen Hunden ausgelöst oder verschlechtert wird.",
+    "D": "Angst vor ähnlichen Reizen, die dem Schreck- oder Strafreiz ähneln, wie z. B. Angst vor Zischgeräuschen durch die Verwendung einer Wasserspritze."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3017,
+  "uid": "kammer-17",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "17",
+  "sourcePage": 20,
+  "category": "Hundewahl",
+  "type": "multi",
+  "prompt": "Welche Überlegungen sind vor der Anschaffung eines Hundes wichtig?",
+  "answers": {
+    "A": "Ist die Hundehaltung erlaubt?",
+    "B": "Habe ich die zeitlichen und finanziellen Möglichkeiten, den Hund 12-15 Jahre lang sicher zu behalten und zu versorgen?",
+    "C": "Die Abstammung von Elterntieren, die auf vielen Ausstellungen Auszeichnungen gewonnen haben.",
+    "D": "Passt der ausgesuchte Hund von seiner Rasseveranlagung her tatsächlich zu meinem Lebensstil?"
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3022,
+  "uid": "kammer-22",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "22",
+  "sourcePage": 20,
+  "category": "Hundewahl",
+  "type": "multi",
+  "prompt": "Welche Überlegungen muss man anstellen, wenn man sich einen Hund anschaffen will?",
+  "answers": {
+    "A": "Der ausgewählte Hund sollte von seiner Rasseveranlagung her möglichst gut zu einem passen. Das Aussehen sollte hingegen nicht ausschlaggebend für die Entscheidung sein.",
+    "B": "Beim Zusammenleben mit einem Hund könnten Probleme auftreten. Habe ich dann die Geduld, Zeit und Kraft mich darum zu kümmern?",
+    "C": "Gehört die Rasse, für die ich mich interessiere, zu einer der erlaubnispflichtigen Hunderassen, sodass ich mich erkundigen muss, ob spezielle Voraussetzungen für eine Erlaubnis zur Haltung erfüllt werden müssen?",
+    "D": "Gehört die Rasse, für die ich mich eigentlich interessiere, zu einer der Rassen mit sehr kurzer Nase, die Probleme mit der Atmung, den Augen, Beinen und der Wirbelsäule haben (sog. Qualzucht), sodass ich mich den Hunden zuliebe für eine andere Rasse entscheiden sollte?"
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3027,
+  "uid": "kammer-27",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "27",
+  "sourcePage": 20,
+  "category": "Hundewahl",
+  "type": "multi",
+  "prompt": "Unter welchen Umständen sollte man davon absehen, sich einen Hund anzuschaffen?",
+  "answers": {
+    "A": "Bei Berufstätigkeit, wenn der Hund mehr als sechs Stunden täglich allein sein müsste.",
+    "B": "Wenn absehbar ist, dass sich Berufs- oder Lebenssituation ändern werden und nicht sicher ist, ob Hundehaltung dann noch möglich ist.",
+    "C": "Wenn man keinen Garten hat.",
+    "D": "Wenn man eine starke Allergie auf Hundehaare hat."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3045,
+  "uid": "kammer-45",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "45",
+  "sourcePage": 20,
+  "category": "Hundewahl",
+  "type": "multi",
+  "prompt": "Was muss in Bezug auf die eigenen Wohnverhältnisse abgeklärt werden, bevor man sich einen Hund anschafft?",
+  "answers": {
+    "A": "Benötigt die Rasse, die man gerne haben möchte, besonders viel Platz oder fühlt sich besonders im Freien wohl?",
+    "B": "Die Wohnverhältnisse sind nicht wichtig, weil sich jeder Hund an die Wohnverhältnisse seines Halters anpasst.",
+    "C": "Ist in einer Mietwohnung die Haltung eines Hundes von Seiten des Vermieters wirklich sicher erlaubt?",
+    "D": "Wie bellfreudig ist die Rasse, die man gerne haben möchte und könnte Bellen ein Problem mit den Nachbarn geben?"
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3047,
+  "uid": "kammer-47",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "47",
+  "sourcePage": 21,
+  "category": "Hundewahl",
+  "type": "multi",
+  "prompt": "Hat es Vorteile, mehr als einen Hund zu halten?",
+  "answers": {
+    "A": "Ja, denn die Hunde haben dann immer einen Sozialpartner – besonders wenn man berufstätig und mehrere Stunden am Tag außer Haus ist.",
+    "B": "Ja, denn die Hunde werden nicht fettleibig, weil sie den ganzen Tag miteinander spielen.",
+    "C": "Ja, Hunde führen, wenn sie zu mehreren gehalten werden, ein artgerechteres Leben – vorausgesetzt sie verstehen sich untereinander gut.",
+    "D": "Ja, der Hund, der als zweiter hinzukommt, lernt doppelt so schnell, denn er guckt sich alles Wesentliche von dem anderen Hund ab."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3049,
+  "uid": "kammer-49",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "49",
+  "sourcePage": 21,
+  "category": "Hundewahl",
+  "type": "multi",
+  "prompt": "Wenn man einen Welpen kauft, sollte man",
+  "answers": {
+    "A": "besonders in der ersten Phase viel Zeit haben, um sich bestmöglich um den Hund kümmern zu können. Dabei muss man auch einplanen, dass es einige Monate dauern kann, bis der junge Hund weit genug im Alleinseinstraining ist, um einige Stunden allein bleiben zu können.",
+    "B": "den Züchter vorher „auf Herz und Nieren“ geprüft haben, um einen Hund mit guten charakterlichen und genetischen Anlagen zu bekommen.",
+    "C": "unbedingt einen Garten haben, denn sonst ist es zu problematisch, den Hund stubenrein zu bekommen.",
+    "D": "sicher sein, dass der Hund auch längerfristig zu dem Lebensstil und den Lebensumständen passt."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3052,
+  "uid": "kammer-52",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "52",
+  "sourcePage": 21,
+  "category": "Hundewahl",
+  "type": "multi",
+  "prompt": "Gibt es Nachteile, wenn man mehr als einen Hund hält?",
+  "answers": {
+    "A": "Man muss doppelt so oft spazieren gehen, wenn es zu Problemen kommt, die ein Spazierengehen gleichzeitig mit beiden Hunden nicht zulassen.",
+    "B": "Man muss doppelt so viel Erziehungsarbeit leisten.",
+    "C": "Man muss doppelte Kosten für Futter, Tierarzt/ärztin, Hundesteuer, Versicherung, Ausstattung usw. tragen.",
+    "D": "Man hat zwar Nachteile, aber die Hunde gucken sich untereinander nur erwünschte Verhaltensweisen ab, sodass die Erziehung sehr einfach wird."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3054,
+  "uid": "kammer-54",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "54",
+  "sourcePage": 21,
+  "category": "Hundewahl",
+  "type": "multi",
+  "prompt": "Welche Dinge sprechen gegen den Erwerb eines Welpen dieser Herkunft?",
+  "answers": {
+    "A": "Die Hündin verbellt jeden, der in die Nähe kommt oder die Welpen bellen oder verstecken sich bzw. trauen sich nicht richtig an die Besucher heran.",
+    "B": "Die Hunde haben keine Ahnentafel.",
+    "C": "Es ist nicht möglich, die Mutterhündin mit ihren Welpen zu sehen, sondern nur die Welpen ohne die Hündin.",
+    "D": "Die Welpen rennen zu jedem hin."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3057,
+  "uid": "kammer-57",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "57",
+  "sourcePage": 22,
+  "category": "Hundewahl",
+  "type": "multi",
+  "prompt": "Woran erkennt man einen seriösen Züchter?",
+  "answers": {
+    "A": "Er züchtet in aller Regel Hunde verschiedener Rassen oder hält und verkauft zumindest nicht nur eine Rasse. Er hält diese Tiere in einer gut gepflegten, sauberen Zwingeranlage und achtet darauf, dass die Tiere nicht durch Besucher gestört werden.",
+    "B": "Er gibt gerne Auskunft und klärt die Interessenten auch über mögliche Nachteile der Rasse auf.",
+    "C": "Er hat ständig einen Wurf Welpen, um die Nachfrage nach der Rasse zu decken.",
+    "D": "Ein seriöser Züchter integriert die Welpen in seine Familie und bietet ihnen während der Aufzuchtphase zahlreiche Alltags- und Umweltreize."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3173,
+  "uid": "kammer-173",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "173",
+  "sourcePage": 22,
+  "category": "Hundewahl",
+  "type": "multi",
+  "prompt": "Was sollte ich bedenken, wenn ich überlege, einen Hund aus Süd- oder Osteuropa über einen Tierschutz-Verein aufzunehmen?",
+  "answers": {
+    "A": "Der Hund sollte - kurz bevor er nach Deutschland gebracht wird - auf die im Herkunftsland vorkommenden Erkrankungen getestet werden. In Deutschland sollte der Hund nachgetestet werden.",
+    "B": "Ich kann davon ausgehen, dass der Hund dankbar dafür ist, dass ich ihn bei mir aufnehme. Mit ein wenig Zeit und Geduld wird sich ein solcher Hund in jedem Fall an sein neues Zuhause gewöhnen, sodass man mit ihm alles unternehmen kann, was einem wichtig ist.",
+    "C": "Es ist zu bedenken, dass solche Hunde oft sehr ängstlich in Bezug auf Menschen und/oder Umgebungsreize, wie z. B. Straßenverkehr sind, weil sie in dieser Beziehung oft nur wenige und/oder schlechte Erfahrungen sammeln konnten. Daher können sie für die Haltung in dicht bewohnten Gegenden nicht geeignet sein.",
+    "D": "Ich muss nur darauf achten, dass der Hund korrekt geimpft und entwurmt ist, bevor er nach Deutschland kommt."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": [],
+  "note": "Formulierungsvariante: Die Kammer- und Rhein-Erft-Fassung unterscheiden sich im Antworttext. Der jeweilige Originalwortlaut bleibt erhalten."
+}, {
+  "id": 3008,
+  "uid": "kammer-8",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "8",
+  "sourcePage": 23,
+  "category": "Hundebegegnungen",
+  "type": "multi",
+  "prompt": "Zwei Hunde kämpfen miteinander. Die Besitzer stehen daneben und schreien die Hunde an, um den Kampf zu beenden. Wie interpretieren die Hunde dieses Verhalten?",
+  "answers": {
+    "A": "Durch das Anschreien bekommen die Hunde Angst und beenden den Kampf sofort.",
+    "B": "Durch die aggressive Stimmung der Besitzer steigt der Stress der Hunde und sie können daher weiterkämpfen.",
+    "C": "Das Schreien der Besitzer beeinflusst das Verhalten der Hunde nicht.",
+    "D": "Durch das Schreien verstehen die Hunde, dass sie nicht kämpfen sollen und hören daher auf."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3011,
+  "uid": "kammer-11",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "11",
+  "sourcePage": 23,
+  "category": "Hundebegegnungen",
+  "type": "multi",
+  "prompt": "Was versteht man unter dem sogenannten „Welpenschutz“?",
+  "answers": {
+    "A": "Welpen werden von ihrer Mutterhündin niemals im Stich gelassen.",
+    "B": "Welpen werden von erwachsenen Hunden nicht gebissen, denn sie stehen unter Welpenschutz. Ein erwachsener Hund, der nach einem Welpen schnappt, ist verhaltensgestört.",
+    "C": "Erwachsene Hunde lassen junge Hunde im ersten Lebensjahr alles machen, was sie wollen, weswegen man auch mit der Erziehung eines Hundes erst mit einem Jahr beginnen sollte.",
+    "D": "Es gibt keinen „Welpenschutz“. Den Welpen „schützt“ angemessenes, d.h. unterwürfiges und beschwichtigendes Verhalten."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3013,
+  "uid": "kammer-13",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "13",
+  "sourcePage": 23,
+  "category": "Hundebegegnungen",
+  "type": "multi",
+  "prompt": "Warum können Hunde an der Leine aggressiver reagieren?",
+  "answers": {
+    "A": "Hunde können an der Leine unsicherer gegenüber anderen Hunden sein und sich dadurch aggressiver verhalten, wenn sie in jungem Alter nie gelernt haben, dass man sich auch an der Leine entspannt begrüßen kann.",
+    "B": "Hunde können sich an der Leine nicht frei bewegen und ausweichen und können sich daher schneller bedroht fühlen und aggressiver reagieren.",
+    "C": "Hunde können frustriert sein, dass sie durch die Leine von einem Kontakt mit dem anderen Hund abgehalten werden und können sich deshalb aggressiv verhalten.",
+    "D": "Durch Versuche der Halter unerwünschtes Verhalten an der Leine durch harmlos erscheinende Korrekturen bis hin zu Schreck- oder Strafreizen zu unterbinden, wird aggressives Verhalten gefördert."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3025,
+  "uid": "kammer-25",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "25",
+  "sourcePage": 23,
+  "category": "Hundebegegnungen",
+  "type": "multi",
+  "prompt": "Unter welchen Umständen kann ich meinen Hund in der Öffentlichkeit mit anderen Hunden spielen lassen?",
+  "answers": {
+    "A": "Im Hundeauslaufgebiet kann ich meinen Hund immer spielen lassen. Falls ein anderer Hund nicht spielen möchte, regeln die Hunde das unter sich.",
+    "B": "Wenn ich mit dem anderen Hundehalter abgeklärt habe, dass Spielkontakt erwünscht ist und beide Hunde frei laufen können.",
+    "C": "Wildes Spiel niemals an der Straße, an der Leine oder wenn sich andere Menschen oder Tiere durch die spielenden Hunde belästigt fühlen oder gefährdet werden könnten.",
+    "D": "Am sichersten ist es, wenn beide Hunde frei laufen können. Bei Welpen oder Hunden, die niemals abgeleint werden können, muss abgewogen werden zwischen der Chance auf ein ruhiges entspanntes Spiel und einer möglichen Verwicklungsgefahr der Leine oder der Leinen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3080,
+  "uid": "kammer-80",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "80",
+  "sourcePage": 24,
+  "category": "Hundebegegnungen",
+  "type": "multi",
+  "prompt": "Woran erkennen Sie, dass Hunde miteinander spielen?",
+  "answers": {
+    "A": "Sie zeigen gelegentlich eine Spielaufforderung.",
+    "B": "Im Spiel sind alle Spielpartner ausgelassen und fröhlich und in der Regel wechseln die Positionen.",
+    "C": "Im Spiel wird ein Hund in die Ecke getrieben oder umgeworfen. Der „Unterlegene“ quiekt hierbei laut auf, schnappt um sich und hat die Rute eingeklemmt.",
+    "D": "Alles ist Spiel, wenn keine offenen Wunden entstehen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3093,
+  "uid": "kammer-93",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "93",
+  "sourcePage": 24,
+  "category": "Hundebegegnungen",
+  "type": "multi",
+  "prompt": "Was sind mögliche Ursachen, wenn ein Hund sich bei einer Begegnung mit einem anderen direkt aggressiv verhält?",
+  "answers": {
+    "A": "Der Hund will mit seinem aggressiven Verhalten den anderen Hund unterordnen und so seine Ranghöhe klarstellen.",
+    "B": "Der Hund ist unsicher im Sozialverhalten mit anderen Hunden.",
+    "C": "Der andere Hund hat gedroht, ohne dass es von den Menschen wahrgenommen wurde.",
+    "D": "Der Hund hat bereits erlebt, dass sein Halter bei Hundebegegnungen böse auf ihn werden kann und verhält sich daher aggressiv."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3098,
+  "uid": "kammer-98",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "98",
+  "sourcePage": 24,
+  "category": "Hundebegegnungen",
+  "type": "multi",
+  "prompt": "Zwischen zwei Hunden entwickelt sich eine Rauferei. Wie sollte man reagieren?",
+  "answers": {
+    "A": "Man sollte die raufenden Hunde so lange möglichst laut anschreien, bis sie aufhören sich zu raufen.",
+    "B": "Man sollte sich möglichst gar nicht einmischen, sofern die Kräfteverhältnisse nicht zu extrem unterschiedlich sind. Beide Besitzer sollten sich kommentarlos und zügig in entgegengesetzter Richtung von den Hunden entfernen.",
+    "C": "Wenn nur zwei Hunde in die Rauferei verwickelt sind, sollte man die Hunde trennen, indem man am Schwanz oder an den Hinterbeinen zieht, und zwar gleichzeitig bei beiden Hunden.",
+    "D": "Man sollte den Hund, der angegriffen worden ist, hinterher trösten und den anderen streng zurechtweisen und bestrafen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3109,
+  "uid": "kammer-109",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "109",
+  "sourcePage": 24,
+  "category": "Hundebegegnungen",
+  "type": "multi",
+  "prompt": "Kann es Probleme geben, wenn zwei angeleinte Hunde miteinander Kontakt aufnehmen?",
+  "answers": {
+    "A": "Ja, denn Hunde fühlen sich an der Leine grundsätzlich stärker und es kommt daher häufiger zu einer Rauferei.",
+    "B": "Ja. Wenn die Hunde umeinander herumlaufen, können sich die Leinen verheddern. Die Gefahr einer Rauferei ist dann sehr groß, da keiner der Hunde ein normales Sozialverhalten zeigen kann. Bei verhedderten Leinen ist es schwerer, eine Rauferei zu beenden.",
+    "C": "Ja, da Hunde an der Leine schlechter ausweichen können, können sie unsicherer sein und schneller aggressiv reagieren.",
+    "D": "Ja, es gibt Hunde, die an der Leine schneller aggressiv reagieren. Daher sollte man vorab klären, ob ein Kontakt der Hunde erwünscht ist und besonders umsichtig mit der Leine umgehen, sodass die Hunde möglichst nicht behindert werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3122,
+  "uid": "kammer-122",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "122",
+  "sourcePage": 25,
+  "category": "Hundebegegnungen",
+  "type": "multi",
+  "prompt": "Wie sollte man sich als Halter eines unkastrierten Rüden verhalten, wenn einem auf dem Hundespaziergang eine läufige Hündin begegnet?",
+  "answers": {
+    "A": "Man darf seinen Rüden ganz normal laufen lassen, weil die Hündin an der Leine geführt werden muss.",
+    "B": "Man sollte seinen Rüden heranrufen und anleinen. Erst wenn man sicher weiß, dass er der Hündin nicht hinterherlaufen wird, kann man ihn wieder ableinen.",
+    "C": "Man sollte den Besitzer der Hündin darüber aufklären, dass er in öffentlichen Gebieten nicht mit einer läufigen Hündin laufen darf.",
+    "D": "Wenn die Hündin nicht gerade die „Steh-Tage“ hat, kann man den Rüden ohne aufzupassen mit der Hündin spielen lassen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3139,
+  "uid": "kammer-139",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "139",
+  "sourcePage": 25,
+  "category": "Hundebegegnungen",
+  "type": "multi",
+  "prompt": "Ist es Spiel, wenn eine Gruppe von Hunden einem einzelnen Hund hinterherrennt und ihn in die Enge drängt?",
+  "answers": {
+    "A": "Nein, das kann unangemessenes Beuteverhalten sein.",
+    "B": "Nein, das kann man als Mobbing bezeichnen.",
+    "C": "Nein, die Gruppe von Hunden will den anderen Hund in der Rangfolge unterordnen.",
+    "D": "Ja, das ist eine typische Situation im Spiel."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3004,
+  "uid": "kammer-4",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "4",
+  "sourcePage": 26,
+  "category": "Aufzucht",
+  "type": "multi",
+  "prompt": "Bis zu welchem Alter bezeichnet man Hunde als „Welpen“?",
+  "answers": {
+    "A": "bis zu einem Jahr.",
+    "B": "von Geburt an bis zum Abschluss der sogenannten Sozialisationsphase, also ca. bis zur 12. bis maximal 16. Lebenswoche.",
+    "C": "Bis zur Geschlechtsreife.",
+    "D": "Hunde, die noch von der Mutterhündin gesäugt werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3014,
+  "uid": "kammer-14",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "14",
+  "sourcePage": 26,
+  "category": "Aufzucht",
+  "type": "multi",
+  "prompt": "Woran erkennen Sie eine empfehlenswerte Welpenspielgruppe?",
+  "answers": {
+    "A": "Es dürfen Hunde verschiedener Rassen teilnehmen. Die Gruppengröße beträgt in der Regel maximal 8 Welpen. Es dürfen nur gesunde Hunde bis ca. zur 16. Lebenswoche teilnehmen.",
+    "B": "Der/Die Trainer/in bestraft einen Welpen sofort oder erschreckt ihn mit einer Wasserspritze oder anderem, wenn er aggressives Verhalten zeigt, denn die Hunde sollen eine gute Sozialverträglichkeit lernen.",
+    "C": "Ängstlichen Welpen wird ein sicherer Rückzugsort beim Halter gewährt und „Grobiane“ liebevoll zu anderen Welpen abgelenkt. Bei sehr ängstlichen Hunden wird in ungestörter Atmosphäre Kontakt mit einem einzelnen passenden Welpen ermöglicht.",
+    "D": "Den Welpen werden viele verschiedene Reizsituationen geboten, damit sie „umweltsicher“ werden. Dabei bestimmt das schwächste Glied der Gruppe das Ausmaß der Reize."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3019,
+  "uid": "kammer-19",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "19",
+  "sourcePage": 26,
+  "category": "Aufzucht",
+  "type": "multi",
+  "prompt": "Was muss man bei einem Hund im Welpenalter in Bezug auf sein Verhalten besonders beachten?",
+  "answers": {
+    "A": "Ein Welpe sollte in positiver Weise alle Umweltsituationen, Kinder verschiedener Altersklassen und Erwachsene kennen lernen, mit denen er später zurechtkommen muss.",
+    "B": "Welpen sollten möglichst zurückgezogen und ruhig gehalten werden, da sie noch nicht so aufnahmefähig sind.",
+    "C": "Man sollte individuell die kurze Zeit der Sozialisationsphase für viele Erfahrungen möglichst gut nutzen, ohne den Welpen zu überfordern.",
+    "D": "Bei einem Welpen braucht man nichts anders zu machen als mit einem erwachsenen Hund."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3029,
+  "uid": "kammer-29",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "29",
+  "sourcePage": 26,
+  "category": "Aufzucht",
+  "type": "multi",
+  "prompt": "Welche Erfahrungen sind für ein reibungsloses Zusammenleben in der menschlichen Gesellschaft für einen Welpen wichtig?",
+  "answers": {
+    "A": "Er sollte in positiven Begegnungen viele verschiedene Menschen (von Babies bis zu alten Menschen) kennenlernen.",
+    "B": "Fahrten mit öffentlichen Verkehrsmitteln und Teilnahme am turbulenten Straßenverkehr, an die ein Hund je nach seinem Naturell schrittweise herangeführt werden sollte.",
+    "C": "Welpen sollten möglichst viel im heimischen Bereich gehalten werden, damit sie nicht überfordert werden.",
+    "D": "Aufenthalte im Zwinger, damit der Welpe lernen kann, auch einmal allein zu bleiben."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3034,
+  "uid": "kammer-34",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "34",
+  "sourcePage": 27,
+  "category": "Aufzucht",
+  "type": "multi",
+  "prompt": "Ist die Aufzucht von Welpen im Garten ideal?",
+  "answers": {
+    "A": "Der Garten ist eine natürliche Umgebung und das härtet ab.",
+    "B": "Bei einer ausschließlichen Aufzucht im Garten kann der Hund nicht genügend Erfahrungen mit Menschen und dem Leben in häuslicher Umgebung machen.",
+    "C": "Es kommt nicht darauf an, wo der Hund aufwächst, sondern wie viel ihm geboten wird. Bei einer Aufzucht im Garten muss sichergestellt sein, dass er dennoch ausreichend viele positive Kontakte mit Menschen, Umweltreizen (z.B. Staubsauger, Verkehr) und anderen Hunden hat.",
+    "D": "Im Garten lauern viele Krankheitserreger, deshalb sollten Welpen bis zur 12. Woche überhaupt nicht draußen gehalten werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3039,
+  "uid": "kammer-39",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "39",
+  "sourcePage": 27,
+  "category": "Aufzucht",
+  "type": "multi",
+  "prompt": "Welche Punkte sind bei der Welpenerziehung wichtig?",
+  "answers": {
+    "A": "Mit der Erziehung sollte man grundsätzlich nicht in Welpentagen, sondern frühestens mit einem halben Jahr anfangen.",
+    "B": "Welpen können sich immer nur kurz konzentrieren.",
+    "C": "Einen Welpen sollte man niemals bestrafen, denn sonst fördert man Ängste gegenüber Menschen und der Welpe büßt Vertrauen in den Menschen ein.",
+    "D": "Durch frühzeitiges Training über positive Bestärkung fördert man die Bereitschaft zur Zusammenarbeit mit dem Menschen und erzielt besonders zuverlässige Ergebnisse."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3044,
+  "uid": "kammer-44",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "44",
+  "sourcePage": 27,
+  "category": "Aufzucht",
+  "type": "multi",
+  "prompt": "Was muss man bei Übungen mit einem Welpen beachten?",
+  "answers": {
+    "A": "Man sollte liebevoll, aber konsequent mit ihm umgehen.",
+    "B": "Man sollte ihm im positiven Sinn viele Reizsituationen und Sozialkontakte bieten, um ihn an alltägliche Situationen zu gewöhnen, ohne ihn dabei zu überfordern.",
+    "C": "Auch bei einem Welpen muss man schon mit mäßigem Druck und Strenge arbeiten, damit er sich gar nicht erst unerwünschtes Verhalten angewöhnt.",
+    "D": "Übungen sollten spielerisch aufgebaut werden, denn so lernt der Welpe in einer stressfreien Übungsatmosphäre."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3063,
+  "uid": "kammer-63",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "63",
+  "sourcePage": 27,
+  "category": "Aufzucht",
+  "type": "multi",
+  "prompt": "Wie lange dauert die sogenannte Sozialisationsphase beim Welpen?",
+  "answers": {
+    "A": "Bis zum Abschluss der 8. Lebenswoche.",
+    "B": "Bis zum Abschluss der 12. bis maximal 16. Lebenswoche.",
+    "C": "Bis zur Geschlechtsreife.",
+    "D": "Bis zu einem Jahr."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3068,
+  "uid": "kammer-68",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "68",
+  "sourcePage": 28,
+  "category": "Aufzucht",
+  "type": "multi",
+  "prompt": "Warum sind gerade die ersten drei Monate im Leben eines Hundes so entscheidend?",
+  "answers": {
+    "A": "Die Hunde sammeln in dieser Zeit Erfahrungen, die ihnen im späteren Leben als Vergleichsmaßstab dienen.",
+    "B": "Die ersten drei Monate sind gar nicht so entscheidend. Alle wichtigen Erfahrungen kann ein Hund auch zu einem späteren Zeitpunkt im Leben machen.",
+    "C": "In dieser Zeit entwickelt sich das Gehirn besonders schnell. Durch gute Aufzuchtbedingungen fördert man Umweltsicherheit und soziale Sicherheit und beugt damit der Entstehung von Problemverhaltensweisen vor.",
+    "D": "Hunde binden sich in dieser Zeit unwiederbringlich an ihren Besitzer."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3073,
+  "uid": "kammer-73",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "73",
+  "sourcePage": 28,
+  "category": "Aufzucht",
+  "type": "multi",
+  "prompt": "Ab wann sollte man mit einem Welpen eine Welpenspielgruppe besuchen?",
+  "answers": {
+    "A": "So früh wie möglich. Welpen brauchen nicht nur sozialkompetente Althunde, sondern auch gleichaltrige Hunde zum Spielen, um ein möglichst gutes Sozialverhalten zu lernen. Ca. 3-4 Tage nach der Übernahme kann man mit einem gesunden Welpen eine Welpenspielgruppe besuchen.",
+    "B": "Ab dem vierten Lebensmonat, sofern der Welpe alle notwendigen Impfungen bekommen hat. Vorher sollte man auf keinen Fall den Welpen an andere Hunde heranlassen, um jegliches Infektionsrisiko zu vermeiden. Denn angemessenes Sozialverhalten ist Hunden angeboren, sodass ein Meiden von Kontakten in dem Alter kein Problem ist.",
+    "C": "Gar nicht, weil langes oder rauhes Welpenspiel den Gelenken schadet.",
+    "D": "Wenn der Welpe mit mindestens einem anderen Hund täglichen Kontakt hat, gar nicht, weil dieser Kontakt dem Hund für eine optimale Entwicklung reicht."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3007,
+  "uid": "kammer-7",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "7",
+  "sourcePage": 29,
+  "category": "Hilfsmittel",
+  "type": "multi",
+  "prompt": "Worauf muss man bei der Auswahl eines Maulkorbs achten?",
+  "answers": {
+    "A": "Ein Maulkorb muss bequem sitzen und darf nicht in die Augen rutschen. An das Tragen muss der Hund in kleinen Schritten über mehrere Wochen gewöhnt werden.",
+    "B": "Für längere Tragezeiten von mehr als wenigen Minuten muss gewährleistet sein, dass der Hund problemlos mit geöffnetem Maul hecheln und bei Bedarf trinken kann.",
+    "C": "Für einen kurzfristigen Gebrauch von wenigen Minuten kann eine enge Maulschlaufe aus weichem Material, mit der der Hund das Maul einfach nicht mehr aufmachen kann, akzeptabel sein.",
+    "D": "Bei Hunden, bei denen wirklich eine Verletzungsgefahr von anderen besteht, muss ein Maulkorb besondere Sicherheitskriterien erfüllen. Er muss so befestigt werden können, dass der Hund ihn nicht abstreifen kann und das Material und die Verarbeitung des Maulkorbs müssen besonders stabil sein."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3010,
+  "uid": "kammer-10",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "10",
+  "sourcePage": 29,
+  "category": "Hilfsmittel",
+  "type": "multi",
+  "prompt": "Darf man ängstlichen Hunden einen Maulkorb aufziehen, wenn es die Situation erfordern würde?",
+  "answers": {
+    "A": "Auf keinen Fall, weil der Hund noch mehr Angst bekommen würde.",
+    "B": "Wenn man den Hund schrittweise daran gewöhnt, stellt der Maulkorb keine Belastung dar.",
+    "C": "Ein ängstlicher Hund braucht sowieso keinen Maulkorb, weil er nicht aggressiv ist.",
+    "D": "Ängstliche Hunde könnten in Bedrängungssituationen beißen oder es können z. B. in öffentlichen Verkehrsmitteln Maulkorbpflicht für alle Hunde bestehen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3015,
+  "uid": "kammer-15",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "15",
+  "sourcePage": 29,
+  "category": "Hilfsmittel",
+  "type": "multi",
+  "prompt": "Welche der aufgeführten Erziehungshilfsmittel sind sinnvoll?",
+  "answers": {
+    "A": "Leine und breites, nicht würgendes Halsband oder gut sitzendes Brustgeschirr, ggf. zusätzlich Kopfhalfter für Hunde.",
+    "B": "Halsbänder mit einem auf Knopfdruck auslösbaren Sprühstoß.",
+    "C": "Geräte, die für den Hund unangenehme Geräusche im Ultraschallbereich erzeugen, um unerwünschtes Verhalten auf Knopfdruck zu beeinflussen.",
+    "D": "Erziehungsgeschirre mit Zugwirkung unter den Achseln."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3020,
+  "uid": "kammer-20",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "20",
+  "sourcePage": 29,
+  "category": "Hilfsmittel",
+  "type": "multi",
+  "prompt": "Welche Hilfsmittel in der Hundeerziehung sind tierschutzrechtlich bedenklich?",
+  "answers": {
+    "A": "Stachelhalsbänder und unbegrenzte Zughalsbänder.",
+    "B": "Sehr schmale, einschneidende Halsbänder, wie z. B. Ketten, zur Führung an der Leine.",
+    "C": "Stromreizgeräte, Geräte mit unangenehmen bis schmerzhaften Ultraschalltönen, Halsbänder mit auslösbarem Sprüh- oder Luftstoß.",
+    "D": "Clicker als Ankündigung für eine Belohnung."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3036,
+  "uid": "kammer-36",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "36",
+  "sourcePage": 30,
+  "category": "Hilfsmittel",
+  "type": "multi",
+  "prompt": "Welche Risiken gibt es, wenn man aus erzieherischen Maßnahmen etwas nach seinem Hund wirft, z. B. einen Schlüssel oder eine Wurfkette?",
+  "answers": {
+    "A": "Der Hund kann Angst vor ähnlichen Geräuschen und Situationen bekommen. Z. B. kann es für einen Hund schwer sein zu unterscheiden, wann ein Schlüsselklimpern ihm gilt und wann nicht.",
+    "B": "Es gibt keine Risiken, es ist eine einfache Möglichkeit unerwünschtes Verhalten zu unterbrechen.",
+    "C": "Durch Schreck und Schmerz wird Stress erzeugt, der sich nachteilig auf das Lernen auswirkt und Unsicherheit und Angst fördert.",
+    "D": "Es kommt in vielen Fällen zu unbeabsichtigten Verknüpfungen und Verhaltensprobleme können gefördert oder ausgelöst werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3084,
+  "uid": "kammer-84",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "84",
+  "sourcePage": 30,
+  "category": "Hilfsmittel",
+  "type": "multi",
+  "prompt": "Was ist ein Kopfhalfter für Hunde und was muss man bei der Verwendung berücksichtigen?",
+  "answers": {
+    "A": "Ein Kopfhalfter ist ein spezieller Maulkorb, der dauerhaft das Maul des Hundes zusammenzieht, sodass er es nicht mehr aufmachen und beißen kann.",
+    "B": "Ein Kopfhalfter ähnelt einem Pferdehalfter, aber um die Schnauze ist eine flexible Schlaufe mit einem Ring für die Leine am unteren Ende. Es wird am sichersten mit einer Doppelleine verwendet. Der kleinere Haken der Leine wird am Kopfhalfter befestigt, der größere Haken am Halsband oder Brustgeschirr. Der Hund kann über das Kopfhalfter schmerzfrei gelenkt werden.",
+    "C": "An ein Kopfhalfter muss ein Hund schrittweise gewöhnt werden. Der/die Halter/in sollte mit professioneller Anleitung das sichere Führen des Hundes an einem Kopfhalfter erlernen.",
+    "D": "Mit einem Kopfhalfter muss ein Hund hecheln können. Es darf sich nicht schmerzhaft zusammenziehen und nicht in die Augen rutschen. Man muss auf eine sanfte Führung achten, um die Halswirbelsäule nicht zu belasten."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3087,
+  "uid": "kammer-87",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "87",
+  "sourcePage": 30,
+  "category": "Hilfsmittel",
+  "type": "multi",
+  "prompt": "Welche Vorteile bietet die Verwendung eines Kopfhalfters zusätzlich zum Halsband oder Brustgeschirr?",
+  "answers": {
+    "A": "Man kann mit Hilfe des Kopfhalfters den Kopf des Hundes sanft lenken und kontrollieren.",
+    "B": "Es bietet keine Vorteile. Im Gegenteil, die Verletzungsgefahr von Nase und Halswirbelsäule ist erheblich.",
+    "C": "Das Kräfteverhältnis zwischen Mensch und Hund wird zugunsten des Menschen verschoben.",
+    "D": "Keine, es hat den Nachteil, dass der zur Erziehung des Hundes notwendige Leinenruck nicht mehr ausgeführt werden kann."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3090,
+  "uid": "kammer-90",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "90",
+  "sourcePage": 30,
+  "category": "Hilfsmittel",
+  "type": "multi",
+  "prompt": "Birgt der Einsatz von Sprühflaschen oder Rappeldosen bestimmte Gefahren?",
+  "answers": {
+    "A": "Der Hund kann Angst vor ähnlichen Geräuschen und Situationen bekommen.",
+    "B": "Es ist eine einfache Möglichkeit unerwünschtes Verhalten zu unterbrechen.",
+    "C": "Durch Schreck wird Stress erzeugt.",
+    "D": "Es kommt in vielen Fällen zu unbeabsichtigten Verknüpfungen und Verhaltensprobleme können gefördert werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3100,
+  "uid": "kammer-100",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "100",
+  "sourcePage": 31,
+  "category": "Hilfsmittel",
+  "type": "multi",
+  "prompt": "Welche Hilfsmittel können bei Problemen mit der Leinenführigkeit hilfreich sein?",
+  "answers": {
+    "A": "unbegrenzte Zughalsbänder.",
+    "B": "Kopfhalfter ohne einschnürende Zugwirkung.",
+    "C": "Brustgeschirre, bei denen man die Leine vorne an der Brust des Hundes einhakt (sog. Hareness- Geschirre). Dies ist nur sinnvoll bei Hunden, die daran nicht so sehr ziehen, dass das Geschirr ständig stark das Vorderbein nach vorne drückt.",
+    "D": "Halsband mit einer Leine, an der man gut rucken kann."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3168,
+  "uid": "kammer-168",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "168",
+  "sourcePage": 31,
+  "category": "Hilfsmittel",
+  "type": "multi",
+  "prompt": "Birgt der Einsatz von würgenden oder schmerzhaft einschnürenden Geschirren, Halsbändern oder Kopfhalftern bestimmte Gefahren?",
+  "answers": {
+    "A": "Der Hund kann durch die schlechten Erfahrungen mit seinem Halter Vertrauen in ihn verlieren und Angst vor ihm bekommen.",
+    "B": "Es birgt keine Gefahr, wenn man es richtig einsetzt. Der Hund lernt damit am besten, nicht an der Leine zu ziehen.",
+    "C": "Durch die würgende und/oder schmerzhafte Einwirkung wird Stress erzeugt.",
+    "D": "Es kommt in vielen Fällen zu fehlerhaften Verknüpfungen und die Hunde können ängstlicher und aggressiver werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3021,
+  "uid": "kammer-21",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "21",
+  "sourcePage": 32,
+  "category": "Probleme – Verständnis",
+  "type": "multi",
+  "prompt": "Was kann man über die Pubertätsphase von Hunden sagen?",
+  "answers": {
+    "A": "In der Pubertätsphase entwickelt sich die Fortpflanzungsfähigkeit von Hunden, das Interesse am anderen Geschlecht nimmt stark zu und das eigene Geschlecht wird vermehrt als Konkurrent betrachtet.",
+    "B": "Die Pubertät kann schon ab einem Alter von 5 Monaten einsetzen.",
+    "C": "Während der Pubertät sind Hunde häufig unkonzentriert und abgelenkt.",
+    "D": "Während der Pubertätsphase sollte man den Hund für unerwünschtes Verhalten und Ungehorsam strikt bestrafen, z.B. durch ein heftiges Schütteln im Nackenfell, denn der Mensch muss sich als Chef durchsetzen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3024,
+  "uid": "kammer-24",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "24",
+  "sourcePage": 32,
+  "category": "Probleme – Verständnis",
+  "type": "multi",
+  "prompt": "Ist es für die Entwicklung des Welpen sehr wichtig, ob er in seinen ersten Lebenswochen zahlreiche Außenreize entspannt und positiv kennenlernt?",
+  "answers": {
+    "A": "Je mehr Reize der Welpe entspannt kennen lernt, desto mehr Verknüpfungen der Nervenbahnen werden in seinem Gehirn angelegt.",
+    "B": "Vielfältige Reizsituationen geben dem Welpen Selbstvertrauen und Sicherheit im Umgang mit neuen Situationen.",
+    "C": "Ein Welpe kann noch gar keine Reize verarbeiten.",
+    "D": "Die Entwicklung des Gehirns hängt nicht vom Angebot verschiedener Reize ab, sondern geschieht automatisch."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3067,
+  "uid": "kammer-67",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "67",
+  "sourcePage": 32,
+  "category": "Probleme – Verständnis",
+  "type": "multi",
+  "prompt": "Welche Verhaltensweisen des Besitzers können bei seinem Hund aggressives Verhalten auslösen, wenn der Hund unsicher ist oder ein Schmerzproblem beim Hund vorliegt?",
+  "answers": {
+    "A": "Er beugt sich über den Hund, um die Leine anzulegen.",
+    "B": "Er schiebt den Hund zur Seite.",
+    "C": "Er ignoriert den Hund, wenn dieser mit einem Ball ankommt und spielen möchte.",
+    "D": "Er greift plötzlich nach dem Hund."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3072,
+  "uid": "kammer-72",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "72",
+  "sourcePage": 32,
+  "category": "Probleme – Verständnis",
+  "type": "multi",
+  "prompt": "Aus welchen Gründen kann ein Hund an der Leine ziehen?",
+  "answers": {
+    "A": "Er ist dominant und will daher seinem Besitzer gegenüber durchsetzen, wo es lang geht.",
+    "B": "Er hat nicht gelernt, an lockerer Leine zu gehen.",
+    "C": "Es fällt ihm zu schwer so langsam zu gehen wie sein Halter oder ist zu abgelenkt, um sich auf artiges Gehen konzentrieren zu können.",
+    "D": "Er empfindet Angst und Stress und versucht aus der Situation weg zu ziehen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3082,
+  "uid": "kammer-82",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "82",
+  "sourcePage": 33,
+  "category": "Probleme – Verständnis",
+  "type": "multi",
+  "prompt": "Ist es ein Zeichen von Aggression, wenn ein Hund auf dem Spaziergang zu einer fremden Person hinrennt und diese unvermittelt anspringt?",
+  "answers": {
+    "A": "Nicht unbedingt, aber es ist ein Verhalten, das man über Training beeinflussen sollte, da es Leute gibt, die Angst vor Hunden haben, körperlich einem Hund nicht gewachsen sind oder es wegen ihrer Kleidung oder einfach grundsätzlich nicht mögen.",
+    "B": "Ja, Anspringen ist ein aggressives Verhalten.",
+    "C": "Nein, das Anspringen ist immer als Spielaufforderung zu verstehen.",
+    "D": "Nein, es ist grundsätzlich ein Zeichen großer Zuneigung."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3103,
+  "uid": "kammer-103",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "103",
+  "sourcePage": 33,
+  "category": "Probleme – Verständnis",
+  "type": "multi",
+  "prompt": "Ist es wichtig mit einem Hund über positive Bestärkung zu üben, dass er sich überall anfassen lässt?",
+  "answers": {
+    "A": "Es fördert das gegenseitige Vertrauen.",
+    "B": "Es erleichtert Pflegemaßnahmen.",
+    "C": "Körperkontakte stärken die Bindung.",
+    "D": "Ein Hund, der gut untergeordnet ist, lässt sich überall problemlos anfassen, ohne dass man es extra üben muss."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3114,
+  "uid": "kammer-114",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "114",
+  "sourcePage": 33,
+  "category": "Probleme – Verständnis",
+  "type": "multi",
+  "prompt": "Was hat es zu bedeuten, wenn ein Hund seinen Knochen oder Spielzeug nicht abgeben will?",
+  "answers": {
+    "A": "Es handelt sich um einen Hund, dem die Ressource Knochen oder Spielzeug besonders wichtig ist, sodass er über positive Bestärkung lernen muss, Dinge gerne abzugeben.",
+    "B": "Ein Hund verteidigt nur seinen Knochen oder Spielzeug gegen Menschen, die er nicht als Rudelführer anerkennt.",
+    "C": "Hunde, die Spielzeug oder Knochen gegen Menschen verteidigen, wollen damit beweisen, dass sie dem Menschen übergeordnet sind.",
+    "D": "Es kann sich um einen Hund handeln, der bereits dafür bestraft wurde, wenn er etwas nicht hergeben wollte. Dies führt oft dazu, dass ein Hund sich aus Angst vor Strafen dazu genötigt sieht, noch aggressiver zu reagieren."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3119,
+  "uid": "kammer-119",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "119",
+  "sourcePage": 34,
+  "category": "Probleme – Verständnis",
+  "type": "multi",
+  "prompt": "Wie verhalten Sie sich, wenn Ihr Hund frei läuft und Ihnen eine Person mit angeleintem Hund entgegenkommt?",
+  "answers": {
+    "A": "Ich lasse meinen Hund immer zu dem anderen Hund laufen, denn meiner beißt nicht und Sozialkontakte mit Artgenossen sind wichtig für sein Wohlbefinden.",
+    "B": "Ich rufe meinen Hund zu mir und leine ihn auch an. Ich lasse ihn erst wieder frei, wenn ich sicher weiß, dass er nicht zu dem anderen Hund laufen wird.",
+    "C": "Ich leine meinen Hund ebenfalls an. Dann kann ich aus ausreichendem Abstand den Besitzer des anderen Hundes fragen, ob mein Hund seinen Hund begrüßen darf. Falls ja, kann ich meinen Hund wieder ableinen, sofern damit zu rechnen ist, dass sich die Hunde verstehen werden.",
+    "D": "Ich rufe meinen Hund und leine ihn an. Ich stelle mich mit meinem Hund so hin oder gehe mit so viel Abstand weiter, dass der andere Hundebesitzer ausreichend Abstand halten kann, wenn er mit seinem Hund vorbeigeht. Während dieser Begegnung achte ich darauf, dass mein Hund den anderen Hund nicht belästigt oder provoziert."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3123,
+  "uid": "kammer-123",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "123",
+  "sourcePage": 34,
+  "category": "Probleme – Verständnis",
+  "type": "multi",
+  "prompt": "Was hat es zu bedeuten, wenn ein Hund an der Leine zieht?",
+  "answers": {
+    "A": "Er erkennt seinen Besitzer nicht als Rudelführer an.",
+    "B": "Er ist bewegungsfreudig und schafft es nicht, so langsam zu laufen wie der Mensch.",
+    "C": "Er versteht nicht, was sein Besitzer von ihm möchte.",
+    "D": "Er hat noch nicht oder noch nicht in allen Situationen und Stimmungen gelernt, an lockerer Leine zu laufen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3151,
+  "uid": "kammer-151",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "151",
+  "sourcePage": 34,
+  "category": "Probleme – Verständnis",
+  "type": "multi",
+  "prompt": "Warum kann ein Hund dazu neigen, ständig Aufmerksamkeit bei seinem Besitzer zu fordern?",
+  "answers": {
+    "A": "Manche Hunde sind einfach dreist, was konsequent unterbunden werden muss.",
+    "B": "Hunde bieten ihren Besitzern viele Verhaltensweisen an. Sie behalten alles in Ausmaß und Häufigkeit bei, was bei ihren Besitzern zu Aufmerksamkeit führt.",
+    "C": "Besonders aktive Hunde und Hunde, die zu wenig Beschäftigung haben, können vermehrt zu Aufmerksamkeit heischendem Verhalten neigen.",
+    "D": "Hunde, die Aufmerksamkeit bei ihren Besitzern fordern, wollen ihre Besitzer manipulieren, um sie zu beherrschen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3085,
+  "uid": "kammer-85",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "85",
+  "sourcePage": 35,
+  "category": "Probleme - Ursachen und Vorbeugen",
+  "type": "multi",
+  "prompt": "In welcher der genannten Situationen können Hunde aggressiv reagieren?",
+  "answers": {
+    "A": "Wenn sie von einer fremden Person plötzlich angefasst werden und nicht ausweichen können.",
+    "B": "Wenn man sie beim Fressen stört.",
+    "C": "Beim Tierarzt/ärztin bei schmerzhaften Manipulationen oder aus Angst.",
+    "D": "Wenn man vermeidet, einem fremden Hund direkt in die Augen zu schauen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3117,
+  "uid": "kammer-117",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "117",
+  "sourcePage": 35,
+  "category": "Probleme - Ursachen und Vorbeugen",
+  "type": "multi",
+  "prompt": "Welche Maßnahmen sind sinnvoll, um Verhaltensproblemen bei einem Hund vorzubeugen?",
+  "answers": {
+    "A": "Striktes Bestrafen unerwünschter Verhaltensweisen.",
+    "B": "Souveräner und verständnisvoller Umgang.",
+    "C": "Ignorieren ständiger Aufmerksamkeit fordernder Verhaltensweisen des Hundes.",
+    "D": "Training über positive Bestärkung."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3132,
+  "uid": "kammer-132",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "132",
+  "sourcePage": 35,
+  "category": "Probleme - Ursachen und Vorbeugen",
+  "type": "multi",
+  "prompt": "Was sind häufige Ursachen für die Entstehung eines Angstproblems?",
+  "answers": {
+    "A": "Schlechte Erfahrungen, besonders, wenn sie in der Welpenzeit stattgefunden haben oder eine einmalige besonders schockierende schlechte Erfahrung.",
+    "B": "Mangelnde Erfahrungen = Sozialisations- und Habituationsdefizite.",
+    "C": "Schmerzen sind die häufigste körperliche Ursache für die Entstehung oder Verschlechterung von Verhaltensproblemen.",
+    "D": "Liebevoller und eindeutiger Umgang mit dem Hund, der seine Bedürfnisse und Möglichkeiten berücksichtigt."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3153,
+  "uid": "kammer-153",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "153",
+  "sourcePage": 35,
+  "category": "Probleme - Ursachen und Vorbeugen",
+  "type": "multi",
+  "prompt": "Wie lernt ein Hund am besten alleine zu Hause zu bleiben?",
+  "answers": {
+    "A": "Er sollte im gesamten ersten halben Jahr niemals allein zu Hause gelassen werden.",
+    "B": "Im Idealfall beginnt man mit dem Training für das Alleinbleiben schon in Welpentagen. Dafür entfernt man sich manchmal für Sekunden und dehnt das über mehrere Wochen auf Minuten aus. Im Junghundalter dehnt man die Zeitspanne allmählich auf Stunden aus.",
+    "C": "Man sollte den Hund schrittweise an die Situation gewöhnen.",
+    "D": "Hunde können das von allein."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3155,
+  "uid": "kammer-155",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "155",
+  "sourcePage": 35,
+  "category": "Probleme - Ursachen und Vorbeugen",
+  "type": "multi",
+  "prompt": "Warum zerstören manche Hunde Teile der Wohnung, wenn sie alleine zu Hause bleiben müssen?",
+  "answers": {
+    "A": "Langeweile.",
+    "B": "Sie wollen sich am Besitzer rächen, denn am liebsten wären sie mitgegangen.",
+    "C": "Solche Hunde leiden häufig unter sogenannter Trennungsangst.",
+    "D": "Der Hund hat vermutlich Hunger."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3169,
+  "uid": "kammer-169",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "169",
+  "sourcePage": 36,
+  "category": "Probleme - Ursachen und Vorbeugen",
+  "type": "multi",
+  "prompt": "Aus welchem Grund ist es ratsam, dem Hund frühestmöglich beizubringen, nicht an Leuten hochzuspringen?",
+  "answers": {
+    "A": "Hunde können durch das Anspringen Menschen erschrecken oder unabsichtlich verletzen.",
+    "B": "Hunde können durch das Anspringen Kleidung beschmutzen oder zerreißen.",
+    "C": "Da es ein Zeichen großer Freude ist und nichts mit Aggressivität zu tun hat, wenn ein Hund springt, muss man dem Hund das Anspringen nicht abgewöhnen. Andere Menschen müssen das akzeptieren.",
+    "D": "Wenn ein Hund sich als Welpe angewöhnt Menschen anzuspringen, ist es für ihn besonders schwer zu verstehen, wenn er es als erwachsener Hund nicht mehr tun soll."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3172,
+  "uid": "kammer-172",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "172",
+  "sourcePage": 36,
+  "category": "Probleme - Ursachen und Vorbeugen",
+  "type": "multi",
+  "prompt": "Welche Umstände können bei Hunden zu Trennungsangst führen?",
+  "answers": {
+    "A": "Trennungsangst entsteht nicht, wenn man noch einen zweiten Hund hat.",
+    "B": "Der Hund hat nie individuell auf ihn abgestimmt gelernt, entspannt allein zu bleiben.",
+    "C": "Die Entwicklung von Trennungsangst ist erblich bedingt.",
+    "D": "Der Besitzer ist in einer Lebensphase viel zu Hause und lässt danach den Hund plötzlich wieder länger allein."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3190,
+  "uid": "kammer-190",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "190",
+  "sourcePage": 36,
+  "category": "Probleme - Ursachen und Vorbeugen",
+  "type": "multi",
+  "prompt": "Woran erkennt man eine gute Hundeschule?",
+  "answers": {
+    "A": "Den Hunden werden konsequent Grenzen gesetzt, indem Schnauzengriff, Nackenstoß oder auf den Rücken drehen bei unerwünschtem Verhalten angewendet werden.",
+    "B": "Der Hund geht gerne dorthin.",
+    "C": "Erwünschtes Verhalten wird in kleinen Schritten über positive Bestärkung aufgebaut.",
+    "D": "Es wird darauf geachtet, dass die Hunde nicht für unerwünschtes Verhalten unbeabsichtigt belohnt werden, indem der Halter sich um sie kümmert oder sie etwas machen lässt, was ihnen Freude macht."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3193,
+  "uid": "kammer-193",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "193",
+  "sourcePage": 36,
+  "category": "Probleme - Ursachen und Vorbeugen",
+  "type": "multi",
+  "prompt": "Wie bringt man einem Hund bei, dass er nicht aus Freude Menschen zur Begrüßung anspringt?",
+  "answers": {
+    "A": "Mit dem Anspringen möchte der Hund sich als Chef aufspielen und man muss ihn für das Anspringen bestrafen.",
+    "B": "Begrüßungen sollten möglichst ruhig und entspannt erfolgen, sodass keine große Aufregung oder Partystimmung bei dem Hund gefördert wird.",
+    "C": "Man kümmert sich nur um den Hund, wenn alle vier Pfoten auf dem Boden sind.",
+    "D": "Man verhindert das Anspringen, indem man den Hund eine bekannte Übung wie z. B. Sitz machen lässt, für die man ihn belohnt. Dies muss erfolgen, bevor der Hund das erste Mal bei einer Begegnung anspringen würde."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3195,
+  "uid": "kammer-195",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "195",
+  "sourcePage": 37,
+  "category": "Probleme - Ursachen und Vorbeugen",
+  "type": "multi",
+  "prompt": "Wie kann man vorbeugen, dass ein Hund beginnt, andere Hunde anzupöbeln, wenn er an der Leine ist?",
+  "answers": {
+    "A": "Man drängt den Hund immer resolut hinter sich, wenn ein anderer Hund vorbei geht.",
+    "B": "Man lobt den Hund, wenn er artig an einem anderen Hund vorbei gegangen ist.",
+    "C": "Während ein Hund sich nähert und an einem vorbei geht, gibt man seinem Hund die Leckerchen so, dass sich der eigene Hund immer vom anderen Hund abwenden muss, um es zu fressen.",
+    "D": "Man lockt den eigenen Hund mit einem Leckerchen an dem vorbeigehenden Hund vorbei."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3023,
+  "uid": "kammer-23",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "23",
+  "sourcePage": 38,
+  "category": "Probleme - Maßnahmen",
+  "type": "multi",
+  "prompt": "Wer wäre der beste Ansprechpartner, wenn es zu Problemen im Zusammenleben kommt?",
+  "answers": {
+    "A": "Der Züchter oder ein anderer Halter derselben Rasse.",
+    "B": "Ein Tierarzt/ärztin, der/die sich auf Verhalten spezialisiert hat.",
+    "C": "Ein anderer Hundebesitzer, der seinen Hund gut unter Kontrolle hat.",
+    "D": "Ein/e moderne/r und erfahrene/r Hundetrainer/in, der/die im Bereich Problemverhalten fachlich nachweislich korrekt geschult ist und über positive Bestärkung arbeitet."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3071,
+  "uid": "kammer-71",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "71",
+  "sourcePage": 38,
+  "category": "Probleme - Maßnahmen",
+  "type": "multi",
+  "prompt": "Mein Hund hat beim Tierarzt/ärztin auf dem Tisch sehr viel Angst und knurrt auch. Was sind sinnvolle Maßnahmen?",
+  "answers": {
+    "A": "Ich bleibe selbst möglichst ruhig und entspannt.",
+    "B": "Ich sollte mich über ein „Medical Training“ informieren, um schrittweise über positive Bestärkung die Angst meines Hundes zu reduzieren.",
+    "C": "Das Knurren muss konsequent unterbunden werden, damit der Hund lernt, dass er sich nicht aggressiv verhalten darf.",
+    "D": "Man sollte ihn einmal laut anschreien oder ein lautes Geräusch machen, damit er aufhört sich so aufzuführen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3077,
+  "uid": "kammer-77",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "77",
+  "sourcePage": 38,
+  "category": "Probleme - Maßnahmen",
+  "type": "multi",
+  "prompt": "Was ist zu tun, wenn ein Hund, der immer lieb und friedlich war, ganz plötzlich aggressives Verhalten zeigt?",
+  "answers": {
+    "A": "Der Hund sollte schnellstens dem/der Tierarzt/ärztin vorgestellt werden, denn er könnte Schmerzen oder eine Erkrankung haben, die ihn belastet.",
+    "B": "Man sollte ihn sofort eindrücklich bestrafen, denn so etwas darf man nicht durchgehen lassen.",
+    "C": "Gar nichts. Aggressives Verhalten ist ein normales Hundeverhalten.",
+    "D": "Man sollte lediglich die Fütterung umstellen und mehr Kohlenhydrate füttern."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3081,
+  "uid": "kammer-81",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "81",
+  "sourcePage": 38,
+  "category": "Probleme - Maßnahmen",
+  "type": "multi",
+  "prompt": "Führt eine Kastration des Rüden immer zur Verminderung der Aggression gegenüber anderen Rüden?",
+  "answers": {
+    "A": "Uneingeschränkt ja.",
+    "B": "Grundsätzlich nein.",
+    "C": "Nicht immer. Durch eine Kastration wirkt ein Rüde nicht mehr als Konkurrent auf andere Rüden und löst dadurch weniger aggressives Verhalten anderer Rüden aus. Zusätzlich kann ihm selbst das Streiten weniger wichtig werden. Es beeinflusst aber nicht sein erlerntes Sozialverhalten.",
+    "D": "Nur wenn männliche Hormone die Ursache für das aggressive Verhalten sind."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3092,
+  "uid": "kammer-92",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "92",
+  "sourcePage": 39,
+  "category": "Probleme - Maßnahmen",
+  "type": "multi",
+  "prompt": "Was ist zu tun, wenn ein Hund Angstprobleme hat?",
+  "answers": {
+    "A": "Man sucht die Situation, bei der der Hund sehr viel Angst hat, immer wieder auf, damit der Hund sich gewöhnen kann.",
+    "B": "Man meidet die angstauslösenden Situationen soweit möglich und sucht einen Tierarzt/-ärztin auf, der/die auf Verhaltenstherapie spezialisiert ist.",
+    "C": "Angstprobleme können ein erhebliches Leiden darstellen und müssen behandelt werden.",
+    "D": "Solange das Angstproblem des Hundes im eigenen Alltag nicht stört, braucht man nichts zu unternehmen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3125,
+  "uid": "kammer-125",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "125",
+  "sourcePage": 39,
+  "category": "Probleme - Maßnahmen",
+  "type": "multi",
+  "prompt": "Was sind sinnvolle Maßnahmen bei einem hyperaktiven Hund?",
+  "answers": {
+    "A": "Man überprüft das Ausmaß an Beschäftigung, das man seinem Hund täglich bietet, ob es zu wenig oder zu viel ist. Ein besonders aktiver Hund kann bis zu drei Stunden täglich Auslauf benötigen.",
+    "B": "Man schickt den Hund zu Hause immer wieder strikt auf seinen Platz und zwingt ihn dort liegen zu bleiben, damit er lernt, sich ruhig zu verhalten.",
+    "C": "Man schenkt dem Hund zu Hause immer dann ruhige Aufmerksamkeit, wenn er sich ruhig verhält. Zu einer gemeinsamen Beschäftigung zu Hause fordert man den Hund nur dann auf, wenn er sich gerade ruhig verhält und keine Aufmerksamkeit fordert.",
+    "D": "Man findet ein Hobby im Hundesport oder einer Hundeschule, das dem Hund und einem selbst Spaß macht."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3160,
+  "uid": "kammer-160",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "160",
+  "sourcePage": 39,
+  "category": "Probleme - Maßnahmen",
+  "type": "multi",
+  "prompt": "Wie kann man einem Hund klar machen, dass ein bestimmtes Verhalten unerwünscht ist?",
+  "answers": {
+    "A": "Wenn man laut schimpft, weiß der Hund, dass man mit seinem Verhalten nicht zufrieden ist und wird es nicht wieder zeigen.",
+    "B": "Wenn man weiß, was der Hund gerne in dem Moment haben oder erreichen möchte, kann man es ihm vorenthalten. Nur wenn er artig ist, kann er es bekommen.",
+    "C": "Unerwünschte Verhaltensweisen, die durch Angst oder Stress ausgelöst werden, lassen sich in kritischen Situationen nicht einfach beenden, weil sie emotional bedingt sind. Da Emotionen nicht einfach abgestellt werden können, müssen solche Verhaltensweisen Schritt für Schritt bearbeitet werden.",
+    "D": "Da es bei unerwünschten Verhaltensweisen oft schwierig sein kann, sie sinnvoll in kritischen Situationen zu beeinflussen, ist es besonders effektiv, möglichst vorausschauend den Hund so zu lenken, dass er sich von Anfang an erwünscht verhalten kann."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3163,
+  "uid": "kammer-163",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "163",
+  "sourcePage": 39,
+  "category": "Probleme - Maßnahmen",
+  "type": "multi",
+  "prompt": "Ihr Hund hat in die Wohnung gemacht. Wie reagieren Sie?",
+  "answers": {
+    "A": "Ich nehme den Hund mit zu der Stelle, zeige ihm sein Geschäft und schimpfe mit ihm.",
+    "B": "Ich packe den Hund, trage ihn zum Ort des Vergehens und stoße ihn mit der Nase hinein, damit er es nie wieder macht.",
+    "C": "Ich begrüße den Hund normal und versuche mir meinen Ärger nicht anmerken zu lassen. Wahrscheinlich habe ich ihn zu lange allein gelassen, so dass er nicht einhalten konnte.",
+    "D": "Ich beseitige das Geschäft kommentarlos."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3170,
+  "uid": "kammer-170",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "170",
+  "sourcePage": 40,
+  "category": "Probleme - Maßnahmen",
+  "type": "multi",
+  "prompt": "Was kann man tun, wenn man nach einigen problematischen Begegnungen mit anderen Hunden feststellt, dass der eigene Hund mit Artgenossen nicht immer gut klarkommt?",
+  "answers": {
+    "A": "Man sollte Rat suchen bei einem/r modernen und erfahrenen Hundetrainer/in, der/die über positive Bestärkung arbeitet oder einem/r Tierarzt/ärztin, der/die auf Verhaltenstherapie spezialisiert ist.",
+    "B": "Man muss nichts unternehmen, denn es ist normal, dass sich Hunde auf dem Spaziergang mit Artgenossen beißen.",
+    "C": "Man sollte so einen Hund nicht behalten, sondern ins Tierheim geben oder einschläfern lassen, denn er stellt eine Gefahr dar.",
+    "D": "Man kann nicht mehr tun, als dem Hund einen Maulkorb anzulegen. Das Verhalten kann man nicht beeinflussen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3188,
+  "uid": "kammer-188",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "188",
+  "sourcePage": 40,
+  "category": "Probleme - Maßnahmen",
+  "type": "multi",
+  "prompt": "Was muss man bei dem Umgang mit Ängsten von Hunden beachten?",
+  "answers": {
+    "A": "An Ängsten kann man am effektivsten beginnen zu arbeiten, wenn der Hund entspannt ist.",
+    "B": "Solange es einen selbst im Alltag nicht stört, braucht man sich um Ängste von seinem Hund nicht zu kümmern.",
+    "C": "Man sollte den Hund regelmäßig mit seinen Ängsten konfrontieren, damit er sich daran gewöhnen kann.",
+    "D": "Angst ist ein starkes Gefühl, dass erhebliche Leiden verursachen kann. Daher sollte man professionelle Hilfe in Anspruch nehmen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3030,
+  "uid": "kammer-30",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "30",
+  "sourcePage": 41,
+  "category": "Rechtliches",
+  "type": "multi",
+  "prompt": "Darf man Hunde im Wald frei laufen lassen?",
+  "answers": {
+    "A": "Im Wald dürfen Hunde nur auf Wegen unangeleint mitgeführt werden, sofern nicht eine spezielle Leinenpflicht für das gesamte Gebiet besteht. In Naturschutzgebieten besteht grundsätzlich Leinenpflicht.",
+    "B": "Wenn der Hund nur manchmal ein paar Minuten außerhalb des Weges ist, darf man ihn frei laufen lassen, denn in so kurzer Zeit kann ein Hund im Wald keinen Schaden anrichten.",
+    "C": "Einen Hund sollte man nur dann frei laufen lassen, wenn man ihn zuverlässig in allen Situationen abrufen kann. Im Wald kann allein das Aufscheuchen von Wild zu Schäden führen. Dies kann durch Stress, das Erschöpfen von Energiereserven und das Flüchten des Wildes über die nächste Straße passieren.",
+    "D": "Gemäß dem Landesforstgesetz muss sich jeder, der den Wald betritt, so verhalten, dass die Lebensgemeinschaft Wald und die Bewirtschaftung des Waldes nicht gestört, der Wald nicht gefährdet, beschädigt oder verunreinigt wird. Die Erholung anderer darf nicht unzumutbar beeinträchtigt werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3035,
+  "uid": "kammer-35",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "35",
+  "sourcePage": 41,
+  "category": "Rechtliches",
+  "type": "multi",
+  "prompt": "Ist es sinnvoll, den Hund mit einem Mikrochip kennzeichnen zu lassen?",
+  "answers": {
+    "A": "Ja, per Mikrochip kann der Hund immer sicher seinem Besitzer zugeordnet werden. In NRW ist ein Mikrochip für Hunde über 20 kg oder 40 cm vorgeschrieben.",
+    "B": "Ja, die Daten eines Mikrochips, der nach den Iso-Richtlinien gefertigt ist, sind auch im Ausland lesbar.",
+    "C": "Ja, im Vergleich mit einer Tätowierung hat ein Mikrochip die Vorteile, dass eine Narkose entfällt und der Wundschmerz wesentlich geringer ist.",
+    "D": "Nein, es ist nicht sinnvoll, da der Mikrochip gesundheitlich belastend ist."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3050,
+  "uid": "kammer-50",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "50",
+  "sourcePage": 41,
+  "category": "Rechtliches",
+  "type": "multi",
+  "prompt": "Darf man seinen Hund neben dem PKW herlaufen lassen?",
+  "answers": {
+    "A": "Nur, wenn man es eilig hat.",
+    "B": "Das ist laut Straßenverkehrsordnung verboten.",
+    "C": "Wenn der Hund langsam daran gewöhnt wird, darf man es machen.",
+    "D": "Nur auf Feldwegen darf man seinen Hund neben dem PKW herlaufen lassen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3060,
+  "uid": "kammer-60",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "60",
+  "sourcePage": 41,
+  "category": "Rechtliches",
+  "type": "multi",
+  "prompt": "Welche Rechtsgebiete können zum Beispiel für Hundehalter relevant sein?",
+  "answers": {
+    "A": "Strafrecht, Zivilrecht, Ordnungswidrigkeitenrecht, Tierschutzrecht.",
+    "B": "Landeshundegesetze und kommunale Bestimmungen.",
+    "C": "Tierschutz-Hundeverordnung.",
+    "D": "Keines, man kann sich notfalls damit herausreden, dass man den Gesetzestext nicht kennt."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3069,
+  "uid": "kammer-69",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "69",
+  "sourcePage": 42,
+  "category": "Rechtliches",
+  "type": "multi",
+  "prompt": "Ist es in Deutschland gestattet, einem Hund Rute oder Ohren zu kupieren?",
+  "answers": {
+    "A": "Dies ist durch bestimmte Rassebestimmungen vorgeschrieben.",
+    "B": "Nur innerhalb der ersten 16 Lebenswochen, weil die Hunde in dieser Zeit noch kein Schmerzempfinden haben.",
+    "C": "Es ist verboten.",
+    "D": "Für nachweislich jagdlich geführte Hunde kann es im Einzelfall Ausnahmen zum Kupieren der Rute geben."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3074,
+  "uid": "kammer-74",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "74",
+  "sourcePage": 42,
+  "category": "Rechtliches",
+  "type": "multi",
+  "prompt": "Ist die Kastration in Deutschland erlaubt?",
+  "answers": {
+    "A": "Ja, aber nur aus medizinischen Gründen, zur Verhinderung der unkontrollierten Fortpflanzung oder wenn die Kastration zur weiteren Haltung notwendig ist.",
+    "B": "Nein, die Kastration ist durch das Tierschutzgesetz grundsätzlich ohne jede Ausnahme verboten.",
+    "C": "Ja, aber nur wenn im Einzelfall die Vor- und Nachteile sorgfältig abgewogen werden und die Kastration zugunsten des Wohlbefindens des Hundes vorgenommen wird.",
+    "D": "Ja, aber erst ab einem Alter von einem Jahr und nur aus medizinischen Gründen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3079,
+  "uid": "kammer-79",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "79",
+  "sourcePage": 42,
+  "category": "Rechtliches",
+  "type": "multi",
+  "prompt": "Was geschieht im Falle eines Unfalls, wenn ein Hund ungesichert im Auto transportiert wird?",
+  "answers": {
+    "A": "Er kann aus dem Fahrzeug geschleudert werden und weglaufen.",
+    "B": "Eigentlich kann nichts Schlimmes passieren, da die Hunde ja zumeist im Auto liegen.",
+    "C": "Der Hund kann bei einem Autounfall ein erhebliches Verletzungsrisiko für Insassen darstellen und auch selbst schwer verletzt werden.",
+    "D": "Dem Fahrer kann unabhängig vom Unfallhergang eine Teilschuld zugesprochen werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3174,
+  "uid": "kammer-174",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "174",
+  "sourcePage": 42,
+  "category": "Rechtliches",
+  "type": "multi",
+  "prompt": "Gibt es rechtliche Vorschriften zur Ausbildung von Hunden?",
+  "answers": {
+    "A": "Bei der Erziehung ist der Erfolg für den Menschen ausschlaggebend. Welche Methode man wählt, ist eine Meinungsfrage. Dabei zählt besonders die persönliche Einschätzung, was die sinnvollste Vorgehensweise bei seinem eigenen Hund ist.",
+    "B": "Laut dem Tierschutzgesetz darf man einem Hund nicht ohne vernünftigen Grund Schmerzen, Leiden oder Schäden zufügen. Ein vernünftiger Grund ist nicht, dass man gerne seinen Hund unter Verwendung von Strafmaßnahmen trainieren möchte oder nicht über ausreichendes Fachwissen verfügt, um hundegerecht das gewünschte Ziel zu erreichen.",
+    "C": "Gemäß der Tierschutz-Hundeverordnung ist es verboten, bei der Ausbildung, bei der Erziehung oder beim Training Stachelhalsbänder oder andere für die Hunde schmerzhafte Mittel zu verwenden.",
+    "D": "Es gibt Empfehlungen zur Ausbildung in der Tierschutz-Hundeverordnung, die aber nicht rechtlich bindend sind."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3182,
+  "uid": "kammer-182",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "182",
+  "sourcePage": 43,
+  "category": "Rechtliches",
+  "type": "multi",
+  "prompt": "Was muss ich bedenken, wenn ich mit meinem Hund ins Ausland reisen möchte?",
+  "answers": {
+    "A": "Gibt es in dem geplanten Reiseland und in den Ländern, die ich bis dahin durchqueren werde, Erkrankungen, vor denen mein Hund geschützt werden kann und sollte?",
+    "B": "Erfüllt mein Hund die nötigen Einreise- und Rückreisebestimmungen (z. B. Tollwutimpfung, EU- Pass, Microchip, Mitführung eines Maulkorbs)?",
+    "C": "Wenn mein Hund in Deutschland gemeldet ist, ist ein Grenzübertritt problemlos möglich.",
+    "D": "Ein Hund braucht keine Reisedokumente."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3194,
+  "uid": "kammer-194",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "194",
+  "sourcePage": 43,
+  "category": "Rechtliches",
+  "type": "multi",
+  "prompt": "Welche der folgenden Aussagen stehen sinngemäß im Tierschutzgesetz?",
+  "answers": {
+    "A": "Der Mensch hat eine besondere Verantwortung für den Schutz des Lebens und des Wohlbefindens der Tiere als Mitgeschöpf.",
+    "B": "Niemand darf einem Tier ohne vernünftigen Grund Schmerzen, Leiden oder Schäden zufügen.",
+    "C": "Niemand muss über die erforderlichen Kenntnisse und Fähigkeiten für die Haltung eines Hundes verfügen.",
+    "D": "Man darf die Möglichkeit eines Tieres zu artgemäßer Bewegung nicht so einschränken, dass ihm Schmerzen oder vermeidbare Leiden oder Schäden zugefügt werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3032,
+  "uid": "kammer-32",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "32",
+  "sourcePage": 44,
+  "category": "Haltung",
+  "type": "multi",
+  "prompt": "Welche Bedürfnisse des Hundes müssen bei artgerechter Haltung täglich ausreichend erfüllt werden?",
+  "answers": {
+    "A": "Der Hund muss ausreichend, d.h. mehrere Stunden täglich geistig und körperlich Beschäftigung haben. Dies muss dem Alter und dem Gesundheitszustand des Hundes angepasst werden.",
+    "B": "Der Hund muss jeden Tag ausreichend lange Sozialkontakte mit Menschen und Artgenossen haben. Dies muss den Bedürfnissen und Möglichkeiten des Hundes angepasst werden.",
+    "C": "Der Hund muss täglich ausreichend Futter erhalten und ständig frisches Wasser zur Verfügung haben.",
+    "D": "Der Hund sollte vorwiegend in einer Zwingeranlage mit gut isoliertem Boden gehalten werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3037,
+  "uid": "kammer-37",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "37",
+  "sourcePage": 44,
+  "category": "Haltung",
+  "type": "multi",
+  "prompt": "Nennen Sie Punkte, die man erfüllen muss, um einen Hund artgerecht zu halten.",
+  "answers": {
+    "A": "Der Hund braucht täglich häufige Kontaktmöglichkeiten zu Menschen und/oder Hunden.",
+    "B": "Hunde brauchen genügend Platz, um sich ausreichend bewegen zu können.",
+    "C": "Hunde brauchen ausreichend häufige (mind. dreimal täglich) und ausreichend lange (insgesamt mindestens ca. zwei Stunden am Tag für einen gesunden Hund) Spaziergänge.",
+    "D": "Es muss gewährleistet sein, dass der Hund im Krankheitsfall medizinisch versorgt werden kann."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3042,
+  "uid": "kammer-42",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "42",
+  "sourcePage": 44,
+  "category": "Haltung",
+  "type": "multi",
+  "prompt": "Welche Haltungsform ist wenig artgerecht und damit tierschutzrechtlich bedenklich?",
+  "answers": {
+    "A": "Die Haltung eines großen Hundes in einer kleinen Etagenwohnung, wenn man mit ihm täglich mehrere Stunden draußen unterwegs ist.",
+    "B": "Einen Hund im Krankheitsfall aus Kostengründen nicht tierärztlich behandeln zu lassen.",
+    "C": "Ein Einzeltier in der Wohnung oder im Zwinger mehr als acht Stunden täglich allein zu lassen.",
+    "D": "Einen gesunden jungen Hund jeden Tag dreimal für jeweils 15 Minuten an einer kurzen Leine auszuführen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3055,
+  "uid": "kammer-55",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "55",
+  "sourcePage": 44,
+  "category": "Haltung",
+  "type": "multi",
+  "prompt": "Was ist zur Mitnahme von Hunden im Auto zu sagen? Kreuzen Sie die richtigen Aussagen an.",
+  "answers": {
+    "A": "Der Hund sollte auf dem Beifahrersitz sitzen.",
+    "B": "Der Hund muss immer im Kofferraum transportiert werden.",
+    "C": "Der Hund muss im Auto gesichert transportiert werden.",
+    "D": "Man kann den Hund z.B. in einer Transportbox, die auf dem Rücksitz oder im Kofferraum sicher befestigt ist, transportieren."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3064,
+  "uid": "kammer-64",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "64",
+  "sourcePage": 45,
+  "category": "Haltung",
+  "type": "multi",
+  "prompt": "Ist Anbindehaltung in Deutschland grundsätzlich erlaubt?",
+  "answers": {
+    "A": "Es gibt diesbezüglich keine besonderen Bestimmungen.",
+    "B": "Ja, wenn die Leine so lang ist, dass der Hund sich gut bewegen und bequem hinlegen kann, darf man ihn angebunden halten.",
+    "C": "Ja, aber die Leine muss mindestens drei Meter lang sein.",
+    "D": "Nein. Aber für Arbeitshunde gibt es bestimmte Ausnahmen. Dabei muss eine Betreuungsperson vorhanden sein, die Leine mindestens 3 Meter lang und gegen Aufdrehen gesichert sein und ein weiches breites Halsband oder Brustgeschirr verwendet werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3066,
+  "uid": "kammer-66",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "66",
+  "sourcePage": 45,
+  "category": "Haltung",
+  "type": "multi",
+  "prompt": "Was fördert ein problemloses Zusammenleben mit einem Hund?",
+  "answers": {
+    "A": "Training über positive Bestärkung.",
+    "B": "Der Hund muss auf Spaziergängen immer hinter einem gehen.",
+    "C": "Art-, rasse- und altersgerechte Beschäftigung und körperliche Betätigung.",
+    "D": "Jedes unerwünschte Verhalten muss konsequent bestraft werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3083,
+  "uid": "kammer-83",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "83",
+  "sourcePage": 45,
+  "category": "Haltung",
+  "type": "multi",
+  "prompt": "Gibt es gesetzliche Vorschriften für die Zwingerhaltung von Hunden?",
+  "answers": {
+    "A": "Nein, jeder Hundehalter kann entscheiden, wie er seinen Hund halten möchte.",
+    "B": "Ja, es gibt eine Tierschutz-Hundeverordnung.",
+    "C": "Ja, sie besagen, dass nur Hunde, die größer als 40 cm Schulterhöhe sind, in Zwingeranlagen gehalten werden dürfen.",
+    "D": "Ja, es müssen Anforderungen aus der Tierschutz-Hundeverordnung erfüllt werden. Dazu gehören die Größe und die Ausstattung des Zwingers, die Häufigkeit und Dauer des täglichen Auslaufs und der Sozialkontakte mit Menschen und Hunden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3101,
+  "uid": "kammer-101",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "101",
+  "sourcePage": 45,
+  "category": "Haltung",
+  "type": "multi",
+  "prompt": "Wie viel Bewegung braucht ein Hund?",
+  "answers": {
+    "A": "Das ist abhängig von der Größe, dem Alter und dem Gesundheitszustand.",
+    "B": "Hunde brauchen nicht viel Bewegung. Es sind Tiere, die Gemütlichkeit lieben.",
+    "C": "Zu viel Bewegung schadet den Gelenken. Daher sollten Welpen und Junghunde nur 5 Minuten pro Lebensmonat Auslauf bekommen.",
+    "D": "Das ist abhängig von der Art und der Menge der Fütterung. Ein Hund, der viel Fleisch bekommt, braucht mehr Bewegung."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3120,
+  "uid": "kammer-120",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "120",
+  "sourcePage": 46,
+  "category": "Haltung",
+  "type": "multi",
+  "prompt": "Ist eine Haftpflichtversicherung für den Hund sinnvoll?",
+  "answers": {
+    "A": "Ja, denn jeder Hund kann einen Schaden verursachen, für den sein Halter dann haftet. Dies können z. B. bei Autounfällen, die zu dauerhaften Schäden von Personen führen, erhebliche Summen sein.",
+    "B": "In NRW ist eine Haftpflichtversicherung für Hunde ab 20 kg oder 40 cm Schulterhöhe vorgeschrieben.",
+    "C": "Ohne Haftpflichtversicherung darf der Hund gemäß den gesetzlichen Vorschriften in NRW nie frei laufen.",
+    "D": "Es ist nicht sinnvoll, sondern eine unnötige Geldausgabe. Die Wahrscheinlichkeit, dass ein Hund einen Schaden verursacht, ist zu gering."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3175,
+  "uid": "kammer-175",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "175",
+  "sourcePage": 46,
+  "category": "Haltung",
+  "type": "multi",
+  "prompt": "Was muss man bei der Haltung einer Hündin mit Welpen berücksichtigen?",
+  "answers": {
+    "A": "Es gibt unter anderem Vorschriften zur Haltung in der Tierschutz-Hundeverordnung zum Platzbedarf, zur Gestaltung und Größe der Wurfkiste und einer Rückzugsmöglichkeit für die Hündin.",
+    "B": "Man trägt die Verantwortung dafür, dass die Welpen in entspannter Atmosphäre verschiedene Umweltreize und Sozialkontakte mit unterschiedlichen Menschen haben.",
+    "C": "Die Hündin braucht nur einen Platz, wo sie mit ihren Welpen sein kann. Ansonsten kümmert sich jede Hündin in allen Belangen um ihre Welpen.",
+    "D": "Welpen muss laut Tierschutz-Hundeverordnung ab einem Alter von fünf Wochen mindestens einmal täglich Auslauf im Freien gewährt werden, sofern sie im Haus aufgezogen werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3094,
+  "uid": "kammer-94",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "94",
+  "sourcePage": 47,
+  "category": "Gesundheit",
+  "type": "multi",
+  "prompt": "Sollte man, wenn man einen Hund übernimmt, mit dem Hund zum/r Tierarzt/ärztin gehen, auch wenn der Hund einen gesunden Eindruck macht?",
+  "answers": {
+    "A": "Ja, damit der/die Tierarzt/ärztin anhand des Impfpasses überprüfen kann, ob der Hund ausreichend geimpft ist.",
+    "B": "Ja, damit sich der Hund an den/die Tierarzt/ärztin und die Abläufe in der Praxis gewöhnt.",
+    "C": "Nein, so etwas ist nicht notwendig und wäre eine übermäßige Belastung für den Hund.",
+    "D": "Ja, damit der/die Tierarzt/ärztin den Hund möglichst auch einmal gesund kennen lernen kann. Er/Sie kann dann krankheitsbedingte Veränderungen besser einordnen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3097,
+  "uid": "kammer-97",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "97",
+  "sourcePage": 47,
+  "category": "Gesundheit",
+  "type": "multi",
+  "prompt": "Gibt es Dinge, die man prophylaktisch tun kann, damit der Hund gesund bleibt?",
+  "answers": {
+    "A": "Ja. Der Hund sollte z.B. regelmäßig geimpft und entwurmt werden.",
+    "B": "Ja, man sollte den ganzen Körper z.B. beim Streicheln täglich genau anschauen, um Veränderungen oder Parasitenbefall sofort zu erkennen.",
+    "C": "Ja, man sollte den Hund regelmäßig bei dem/der Tierarzt/ärztin vorstellen, um Erkrankungen frühzeitig erkennen zu können.",
+    "D": "Ja, einmal wöchentlich sollte man den Hund baden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3105,
+  "uid": "kammer-105",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "105",
+  "sourcePage": 47,
+  "category": "Gesundheit",
+  "type": "multi",
+  "prompt": "In welchem Bereich liegt die normale Körpertemperatur des Hundes?",
+  "answers": {
+    "A": "Im After gemessen ca. 38 °C.",
+    "B": "Im After gemessen ca. 36 °C.",
+    "C": "Solange die Nase kühl und feucht ist, hat der Hund kein Fieber. Fiebermessen ist dann nicht notwendig.",
+    "D": "Ab einer Temperatur von 39,3 °C hat ein erwachsener Hund Fieber."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3127,
+  "uid": "kammer-127",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "127",
+  "sourcePage": 47,
+  "category": "Gesundheit",
+  "type": "multi",
+  "prompt": "Wie viel sollte ein Hund zu fressen bekommen?",
+  "answers": {
+    "A": "So viel, wie er braucht, damit er eine schlanke Figur hat und weder zu- noch abnimmt.",
+    "B": "Allen Hunden kann man Futter zur freien Verfügung hinstellen, sie fressen nur so viel, wie sie brauchen.",
+    "C": "Wenn ein Hund nicht gut gehorcht, sollte man ihm zur Strafe an dem Tag nichts zu fressen geben.",
+    "D": "Hunde sollten immer ein bisschen Hunger haben, denn sonst neigen sie zu Ungehorsam."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3130,
+  "uid": "kammer-130",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "130",
+  "sourcePage": 48,
+  "category": "Gesundheit",
+  "type": "multi",
+  "prompt": "In welcher Form sollte man dem Hund das Fressen darreichen?",
+  "answers": {
+    "A": "Unbedingt zweimal täglich im Napf, zwischendurch darf der Hund nichts bekommen.",
+    "B": "Futter muss immer zur freien Verfügung bereitstehen, denn alle Hunde wissen selbst am besten wie viel sie brauchen.",
+    "C": "Hunde brauchen weder feste Fütterungszeiten noch einen festen Fütterungsort. Man kann das gesamte Futter auch in Form von Belohnungshäppchen verfüttern, wenn man es möchte oder zum Training braucht.",
+    "D": "Das Futter kann man sehr gut nutzen, um den Hund dafür Übungen machen zu lassen. Denn „Leistung wird bezahlt“."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3140,
+  "uid": "kammer-140",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "140",
+  "sourcePage": 48,
+  "category": "Gesundheit",
+  "type": "multi",
+  "prompt": "Ein sonst aktiver Hund ist ungewöhnlich ruhig und interessiert sich nicht besonders für das tägliche Geschehen. Was könnte das bedeuten?",
+  "answers": {
+    "A": "Gar nichts. Es ist nicht schlimm, wenn der Hund ruhig ist.",
+    "B": "In der Regel handelt es sich um eine normale Altersentwicklung.",
+    "C": "Das veränderte Verhalten kann ein Hinweis sein, dass mit dem Tier etwas nicht stimmt. Man sollte das bei dem/der Tierarzt /ärztin abklären lassen.",
+    "D": "Man sollte ihm sein Lieblingsfutter anbieten. Erst wenn er das nicht mehr frisst, wird ein Tierarztbesuch erforderlich."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3158,
+  "uid": "kammer-158",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "158",
+  "sourcePage": 48,
+  "category": "Gesundheit",
+  "type": "multi",
+  "prompt": "Was lässt sich über Schmerzen beim Hund sagen?",
+  "answers": {
+    "A": "Akute Schmerzen zeigen viele Hunde durch Aufjaulen. Chronische Schmerzen lassen sich hingegen oftmals schwer erkennen. Sie können sich durch ruhigeres Verhalten oder Auftreten oder Verschlechterung von Verhaltensproblemen zeigen.",
+    "B": "Schmerzen müssen beim Hund gemäß dem Tierschutzgesetz medizinisch behandelt werden.",
+    "C": "Chronische Schmerzen betreffen oft die Zähne, die Ohren, Magen und Darm und das Skelettsystem.",
+    "D": "Schmerzen sind der häufigste Auslöser oder Verstärker für Verhaltensprobleme, wie Angst und Aggression."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": [],
+  "note": "Formulierungsvariante: Die Kammer- und Rhein-Erft-Fassung unterscheiden sich im Antworttext. Der jeweilige Originalwortlaut bleibt erhalten."
+}, {
+  "id": 3178,
+  "uid": "kammer-178",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "178",
+  "sourcePage": 48,
+  "category": "Gesundheit",
+  "type": "multi",
+  "prompt": "Welche Probleme können auftreten, wenn ein Hund länger alleine im Auto warten muss?",
+  "answers": {
+    "A": "Im Sommer kann es innerhalb von Minuten so warm werden, dass der Hund lebensbedrohliche Kreislaufprobleme bekommt.",
+    "B": "Im Auto kann nichts passieren, weil sich der Hund dort sicher aufhalten kann.",
+    "C": "Bei Minusgraden kann es sein, dass der Hund stark friert und deswegen krank wird.",
+    "D": "Da ein Hund seine Körpertemperatur nur über Hecheln und Schweißabsonderungen der Pfoten regulieren kann, bekommt er erheblich schneller als Menschen Probleme, wenn es im Auto zu warm wird."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3179,
+  "uid": "kammer-179",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "179",
+  "sourcePage": 49,
+  "category": "Gesundheit",
+  "type": "multi",
+  "prompt": "Welche Themen sollte ich am besten mit meinem/r Tierarzt/-ärztin besprechen?",
+  "answers": {
+    "A": "Art und Häufigkeit einer Entwurmung.",
+    "B": "Nötige und sinnvolle Impfungen.",
+    "C": "Ein Besuch bei dem/r Tierarzt/-ärztin ist nur nötig, wenn es dem Hund schlecht geht.",
+    "D": "Art und Häufigkeit einer Zecken- und Flohprophylaxe."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3183,
+  "uid": "kammer-183",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "183",
+  "sourcePage": 49,
+  "category": "Gesundheit",
+  "type": "multi",
+  "prompt": "Wann ist abgesehen vom Krankheitsfall der Besuch einer Tierarztpraxis bzw. ein Gespräch mit meinem/r Tierarzt/-ärztin wichtig?",
+  "answers": {
+    "A": "Bei Überlegungen bezüglich einer Kastration.",
+    "B": "Zum allgemeinen Gesundheitscheck.",
+    "C": "Für junge Hunde, um die Praxis stressfrei und spielerisch kennen zu lernen.",
+    "D": "Bei Fragen zu Impfungen, Entwurmungen und vorbeugenden Behandlungen gegen Zecken und Flöhe."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3113,
+  "uid": "kammer-113",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "113",
+  "sourcePage": 50,
+  "category": "Geschlechter",
+  "type": "multi",
+  "prompt": "Bei einer Kastration werden/wird",
+  "answers": {
+    "A": "beim männlichen Tier die Hoden entfernt, weibliche Tiere werden sterilisiert.",
+    "B": "die Hoden bzw. die Eierstöcke und ggf. die Gebärmutter entfernt.",
+    "C": "die Eileiter bzw. Samenleiter durchtrennt.",
+    "D": "die Zeugungsfähigkeit unwiederbringlich unterbunden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3115,
+  "uid": "kammer-115",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "115",
+  "sourcePage": 50,
+  "category": "Geschlechter",
+  "type": "multi",
+  "prompt": "Geben Sie die Dauer der Trächtigkeit einer Hündin an.",
+  "answers": {
+    "A": "3 Monate.",
+    "B": "Je nach Rasse zwischen vier Wochen und zwei Monaten.",
+    "C": "9 Monate.",
+    "D": "57 – 63 Tage."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3118,
+  "uid": "kammer-118",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "118",
+  "sourcePage": 50,
+  "category": "Geschlechter",
+  "type": "multi",
+  "prompt": "Kann eine Hündin bei der ersten Läufigkeit schon erfolgreich gedeckt werden?",
+  "answers": {
+    "A": "Ja.",
+    "B": "Nein."
+  },
+  "options": [
+    "A",
+    "B"
+  ],
+  "correct": [
+    "A"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3124,
+  "uid": "kammer-124",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "124",
+  "sourcePage": 50,
+  "category": "Geschlechter",
+  "type": "multi",
+  "prompt": "Wann werden die meisten Hündinnen das erste Mal läufig?",
+  "answers": {
+    "A": "Wenn sie ausgewachsen sind.",
+    "B": "Zwischen 6 und 12 Monaten.",
+    "C": "Frühestens mit 18 Monaten.",
+    "D": "Wenn man sie von Junghundefutter auf Erwachsenennahrung umstellt."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3133,
+  "uid": "kammer-133",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "133",
+  "sourcePage": 50,
+  "category": "Geschlechter",
+  "type": "multi",
+  "prompt": "Man ertappt zwei Hunde beim Deckakt in der Phase des „Hängens“. Was kann man tun?",
+  "answers": {
+    "A": "Man sollte den Rüden so schnell wie möglich von der Hündin wegreißen, wenn kein Nachwuchs erwünscht ist.",
+    "B": "Man kann in diesem Moment nichts mehr tun. Die Dinge nehmen ihren Lauf. Man sollte danach so schnell wie möglich, innerhalb der nächsten zwei Tage, mit dem/der Tierarzt /ärztin über bestehende Möglichkeiten beraten.",
+    "C": "Man sollte die Hunde schnellstmöglich mit kaltem Wasser übergießen, um den Deckakt zu unterbinden und eine Trächtigkeit zu verhindern.",
+    "D": "Man darf die Tiere auf keinen Fall trennen, weil sie schwere Verletzungen an den Geschlechtsorganen bekommen würden. Man muss die gesamte Dauer des Deckaktes, also auch die Zeit des „Hängens“ abwarten."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3135,
+  "uid": "kammer-135",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "135",
+  "sourcePage": 51,
+  "category": "Geschlechter",
+  "type": "multi",
+  "prompt": "Was versteht man unter dem Begriff Scheinträchtigkeit der Hündin?",
+  "answers": {
+    "A": "Es gibt eine normale hormonelle Scheinträchtigkeit im Anschluss an die deckbereiten Tage einer Läufigkeit, unter der eine Hündin aber nicht leidet. Sie ist unproblematisch und klingt von allein wieder ab.",
+    "B": "Hündinnen leiden oft an einer krankhaften Scheinträchtigkeit, die extrem verzögert oder gar nicht abklingt. In dem Fall ist tiermedizinische Hilfe nötig.",
+    "C": "Bei einer Scheinträchtigkeit sind mögliche Symptome Anschwellen des Gesäuges mit oder ohne Milchfluss, Sammeln und Behüten von Spielzeug, Lustlosigkeit und Stimmungsschwankungen. Es gibt Hündinnen, die so starke Symptome einer Scheinträchtigkeit haben, dass sie darunter leiden.",
+    "D": "Eine Scheinträchtigkeit bei Hündinnen tritt nur nach einer misslungenen Bedeckung auf."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3137,
+  "uid": "kammer-137",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "137",
+  "sourcePage": 51,
+  "category": "Geschlechter",
+  "type": "multi",
+  "prompt": "Woran erkennen Sie die Läufigkeit einer Hündin?",
+  "answers": {
+    "A": "Erste Anzeichen können sein, dass Hündinnen plötzlich sehr zum Streunen und Ungehorsam neigen und gereizter gegenüber anderen Hündinnen reagieren können.",
+    "B": "Sie setzt häufiger als sonst Urin ab.",
+    "C": "Sie hat Durchfall.",
+    "D": "Sie blutet aus der Scheide."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3148,
+  "uid": "kammer-148",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "148",
+  "sourcePage": 51,
+  "category": "Geschlechter",
+  "type": "multi",
+  "prompt": "Welche Nebenwirkungen kann die Kastration einer Hündin hervorrufen?",
+  "answers": {
+    "A": "Kastrierte Hündinnen werden immer dick.",
+    "B": "Hündinnen werden in aller Regel durch die Kastration ängstlich oder aggressiv.",
+    "C": "Fellveränderungen können auftreten.",
+    "D": "Ein sehr kleiner Prozentsatz der kastrierten Hündinnen wird inkontinent, was im Großteil der Fälle erfolgreich medikamentell behandelt werden kann."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3177,
+  "uid": "kammer-177",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "177",
+  "sourcePage": 51,
+  "category": "Geschlechter",
+  "type": "multi",
+  "prompt": "In welchen Situationen kann eine Hündin von einem Rüden erfolgreich gedeckt und tragend werden ?",
+  "answers": {
+    "A": "In den sogenannten Stehtagen, wenn der blutige Ausfluss nachlässt und eher fleischwasserfarben wird.",
+    "B": "Bei der ersten Läufigkeit ist eine erfolgreiche Bedeckung nicht möglich.",
+    "C": "Nur direkt zu Beginn einer Läufigkeit, wenn der blutige Ausfluss beginnt.",
+    "D": "Wenn es beim Deckakt zum sogenannten „Hängen“ kommt. Dabei stehen Hündin und Rüde mit dem Hinterteil aneinander, während der angeschwollene Penis des Rüden in der Hündin bleibt."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3189,
+  "uid": "kammer-189",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "189",
+  "sourcePage": 52,
+  "category": "Geschlechter",
+  "type": "multi",
+  "prompt": "Was sind die häufigsten Verhaltensänderungen bei einem Rüden nach der Kastration?",
+  "answers": {
+    "A": "Abnahme von Streunen nach läufigen Hündinnen.",
+    "B": "Abnahme von Markierverhalten.",
+    "C": "Abnahme von Streitigkeiten mit unkastrierten Rüden.",
+    "D": "Abnahme von Jagdverhalten."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3040,
+  "uid": "kammer-40",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "40",
+  "sourcePage": 53,
+  "category": "Krankheiten",
+  "type": "multi",
+  "prompt": "Warum ist es wichtig, seinen Hund regelmäßig gegen Tollwut impfen zu lassen?",
+  "answers": {
+    "A": "Die Tollwutimpfung ist gesetzlich vorgeschrieben.",
+    "B": "Tollwut ist eine Infektionskrankheit, mit der sich auch Menschen infizieren können.",
+    "C": "Eine Tollwutimpfung ist überflüssig. Tollwut kommt in Deutschland überhaupt nicht mehr vor.",
+    "D": "Tollwutgeimpfte Hunde stehen gesetzlich besser da als ungeimpfte. Weiterhin ist sie für eine Einreise in viele Länder und Rückreise nach Deutschland vorgeschrieben."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3142,
+  "uid": "kammer-142",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "142",
+  "sourcePage": 53,
+  "category": "Krankheiten",
+  "type": "multi",
+  "prompt": "Was ist zu tun, wenn der Hund seit zwei Tagen schlimmen Durchfall und Erbrechen hat?",
+  "answers": {
+    "A": "Man sollte zum/r Tierarzt/ärztin gehen. Der Hund kann innerhalb weniger Tage in lebensbedrohlicher Weise austrocknen.",
+    "B": "Man sollte dem Hund Kohletabletten verabreichen.",
+    "C": "Man muss dafür Sorge tragen, dass der Hund genug Flüssigkeit bekommt, die er auch bei sich behält, notfalls über eine Infusion von dem/der Tierarzt/ärztin.",
+    "D": "Man sollte dem Hund alle zwei Stunden eine kleine Portion Milch geben."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3144,
+  "uid": "kammer-144",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "144",
+  "sourcePage": 53,
+  "category": "Krankheiten",
+  "type": "multi",
+  "prompt": "Gibt es Erkrankungen bei Hunden, gegen die man impfen kann, die auch Menschen bekommen können?",
+  "answers": {
+    "A": "Keine.",
+    "B": "Tollwut, wenn Speichel eines tollwuterkrankten Tieres in die Blutbahn kommt, z.B. durch einen Biss.",
+    "C": "Leptospirose.",
+    "D": "Krankheiten befallen immer nur eine Spezies."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3146,
+  "uid": "kammer-146",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "146",
+  "sourcePage": 53,
+  "category": "Krankheiten",
+  "type": "multi",
+  "prompt": "Die Magendrehung ist eine lebensgefährliche Erkrankung. Kreuzen Sie die passenden Aussagen an.",
+  "answers": {
+    "A": "Eine Magendrehung tritt hauptsächlich bei großen Hunderassen auf.",
+    "B": "Hunde sollten direkt nach dem Fressen möglichst eine Ruhepause von zwei Stunden einhalten.",
+    "C": "Hunde sollen direkt nach dem Fressen laufen, um schneller verdauen zu können.",
+    "D": "Die meisten Hunde profitieren von zwei bis drei Mahlzeiten am Tag."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3152,
+  "uid": "kammer-152",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "152",
+  "sourcePage": 54,
+  "category": "Krankheiten",
+  "type": "multi",
+  "prompt": "Muss man auf die Zahngesundheit seines Hundes achten?",
+  "answers": {
+    "A": "Hunde können Probleme mit dem Zahnfleisch und den Zähnen bekommen, was zu erheblichen Leiden, Schmerzen und sogar Folgeschäden an Organen führen kann.",
+    "B": "Nur, wenn der Hund beginnt aus dem Maul zu riechen, kann man sich überlegen, ob man etwas unternehmen möchte.",
+    "C": "Bei Hunden sind die Zähne von Natur aus gesund, wenn man ihnen regelmäßig etwas zum Kauen gibt.",
+    "D": "Häufig merkt man erst, wenn der Hund weniger kaut, schlechter frisst oder aus dem Maul riecht, dass Probleme bestehen. Daher sollte man regelmäßig Zähne und Zahnfleisch kontrollieren bzw. kontrollieren lassen, um größeren Schäden vorzubeugen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3154,
+  "uid": "kammer-154",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "154",
+  "sourcePage": 54,
+  "category": "Krankheiten",
+  "type": "multi",
+  "prompt": "Was sind Anzeichen eines Flohbefalls?",
+  "answers": {
+    "A": "Häufigeres Kratzen als sonst.",
+    "B": "Ein Hund, der regelmäßig gebadet wird, kann keine Flöhe haben.",
+    "C": "Beim Kämmen findet man kleine, schwarze Krümel im Fell.",
+    "D": "Flohbefall kann nur der/die Tierarzt/ärztin mittels eines aufwendigen Testverfahrens feststellen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3156,
+  "uid": "kammer-156",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "156",
+  "sourcePage": 54,
+  "category": "Krankheiten",
+  "type": "multi",
+  "prompt": "Was ist beim Verfüttern von Geflügel zu beachten?",
+  "answers": {
+    "A": "Hunde sollten generell keine Anteile von Geflügel bekommen.",
+    "B": "Geflügelknochen splittern leicht und können Verletzungen im Verdauungsapparat verursachen.",
+    "C": "Hunde sollten kein rohes Geflügelfleisch bekommen, da damit Salmonellen übertragen werden können. Auch Einfrieren tötet die Durchfall verursachenden Salmonellen nicht ab.",
+    "D": "Beim Verfüttern von Geflügel muss nichts Besonderes beachtet werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3176,
+  "uid": "kammer-176",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "176",
+  "sourcePage": 54,
+  "category": "Krankheiten",
+  "type": "multi",
+  "prompt": "Welche Krankheiten können in Deutschland durch Erreger in Zecken übertragen werden?",
+  "answers": {
+    "A": "FSME und Borreliose.",
+    "B": "Keine.",
+    "C": "Würmer.",
+    "D": "Anaplasmose, Babesiose, Ehrlichiose."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3180,
+  "uid": "kammer-180",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "180",
+  "sourcePage": 55,
+  "category": "Krankheiten",
+  "type": "multi",
+  "prompt": "Welche Impfungen können für meinen Hund sinnvoll sein?",
+  "answers": {
+    "A": "Die Grundimmunisierung von Welpen (3 Impfungen im Abstand von 3-4 Wochen mit ca. 8, 12 und 16 Lebenswochen) und die darauffolgende Impfung nach einem Jahr.",
+    "B": "Impfungen braucht mein Hund nur, wenn ich mit ihm ins Ausland fahren möchte.",
+    "C": "Auffrischungsimpfungen gegen Parvovirose, Staupe, Hepatitis, Leptospirose, Tollwut und Zwingerhusten-Komplex.",
+    "D": "Wenn Impfungen von vielen nicht vorgenommen werden, nehmen die entsprechenden Krankheiten und daraus entstehenden Todesfälle wieder zu."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3181,
+  "uid": "kammer-181",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "181",
+  "sourcePage": 55,
+  "category": "Krankheiten",
+  "type": "multi",
+  "prompt": "An welchen Erkrankungen leiden Hunde oft, wenn sie aus Süd- oder Osteuropa kommen?",
+  "answers": {
+    "A": "Leishmaniose.",
+    "B": "Ehrlichiose, Anaplasmose, Babesiose.",
+    "C": "Rickettsiose.",
+    "D": "Herzwürmer."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3053,
+  "uid": "kammer-53",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "53",
+  "sourcePage": 56,
+  "category": "Öffentlichkeit",
+  "type": "multi",
+  "prompt": "Wie soll ich mich verhalten, wenn ein fremder Hund auf mich und mein Kind zugestürmt kommt.",
+  "answers": {
+    "A": "Ich reiße mein Kind schnell hoch, um es aus der Gefahrenzone zu bringen.",
+    "B": "Ich schaue dem Hund in die Augen und verjage ihn.",
+    "C": "Ich bleibe ganz ruhig und stelle mich zwischen Hund und Kind und nehme mein Kind ggf. mit ruhigen Bewegungen auf den Arm.",
+    "D": "Ich reiße die Arme hoch und schreie den Hund an."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3095,
+  "uid": "kammer-95",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "95",
+  "sourcePage": 56,
+  "category": "Öffentlichkeit",
+  "type": "multi",
+  "prompt": "Auf dem Hundespaziergang kommt einem ein/e Reiter/in entgegen. Wie soll man sich verhalten?",
+  "answers": {
+    "A": "Wenn der Hund Pferde kennt, braucht man nichts zu unternehmen, denn dann hat der Hund keine Angst.",
+    "B": "Man sollte den Hund heranrufen und an die Leine nehmen, bis Pferd und Reiter/in vorbei sind und man sicher weiß, dass der Hund nicht hinterherrennen wird.",
+    "C": "Wenn der/die Reiter/in nur „Schritt“ reitet, ist keine Gefahr gegeben, denn das langsame Reiten verleitet nicht zum Jagen.",
+    "D": "Man sollte seinen Hund grundsätzlich unter Kontrolle nehmen, da manche Pferde auch bei ruhigen und freundlichen Hunden ängstlich reagieren und dadurch Unfälle entstehen können."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3102,
+  "uid": "kammer-102",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "102",
+  "sourcePage": 56,
+  "category": "Öffentlichkeit",
+  "type": "multi",
+  "prompt": "Auf einer Wiese spielt eine Gruppe von Kindern Fußball. Wie verhalten Sie sich mit Ihrem frei laufenden Hund?",
+  "answers": {
+    "A": "Wenn dies ein Hundeauslaufgebiet ist, darf ich den Hund frei laufen lassen. Ich erkläre den Fußballspielern/innen das und schicke sie weg.",
+    "B": "Ich muss gar nichts unternehmen, denn mein Hund ist nicht aggressiv. Für den Fall, dass er im Übermut den Ball kaputt machen sollte, habe ich eine Haftpflichtversicherung.",
+    "C": "Ich leine den Hund vorsichtshalber an, bis ich an den Ball spielenden Kindern vorbei bin und sicher weiß, dass der Hund nicht zurücklaufen wird.",
+    "D": "Man muss in solchen Situationen nur große Hunde anleinen, denn ein kleiner Hund kann einem Kind nicht gefährlich werden."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "C"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3104,
+  "uid": "kammer-104",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "104",
+  "sourcePage": 56,
+  "category": "Öffentlichkeit",
+  "type": "multi",
+  "prompt": "Wer ist für das Entfernen von Hundekot verantwortlich?",
+  "answers": {
+    "A": "Die Städte, denn dafür wird Hundesteuer bezahlt.",
+    "B": "Der Halter.",
+    "C": "Die Allgemeinheit. Jeder, der einen Hundehaufen sieht, muss ihn entfernen.",
+    "D": "Niemand. Hundekot muss nicht entfernt werden, denn es ist etwas Natürliches, mit dem man leben muss."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3106,
+  "uid": "kammer-106",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "106",
+  "sourcePage": 57,
+  "category": "Öffentlichkeit",
+  "type": "multi",
+  "prompt": "Wie verhalten Sie sich, wenn Sie auf dem Hundespaziergang an einem Kinderspielplatz vorbeikommen?",
+  "answers": {
+    "A": "Mein Hund liebt Kinder. Ich gucke, ob Kinder da sind, damit mein Hund mit den Kindern toben kann.",
+    "B": "In der Nähe von Kinderspielplätzen leine ich meinen Hund an. Dadurch kann ich vermeiden, dass sich jemand belästigt oder gefährdet fühlt.",
+    "C": "Wenn keine Kinder da sind, lasse ich den Hund laufen, denn er liebt es durch den Sand zu rennen.",
+    "D": "Ich habe einen kleinen Hund, der keine Gefahr für Kinder darstellt, deshalb lasse ich ihn einfach laufen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3108,
+  "uid": "kammer-108",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "108",
+  "sourcePage": 57,
+  "category": "Öffentlichkeit",
+  "type": "multi",
+  "prompt": "In welcher der folgenden Situationen ist es angebracht, den Hund an der Leine zu halten?",
+  "answers": {
+    "A": "In der Innenstadt und an stark befahrenen Straßen.",
+    "B": "Im Treppenhaus und auf Zugangswegen von Mehrfamilienhäusern.",
+    "C": "In Hotels, in Läden oder in Restaurants.",
+    "D": "In Gebieten mit viel Wild."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3111,
+  "uid": "kammer-111",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "111",
+  "sourcePage": 57,
+  "category": "Öffentlichkeit",
+  "type": "multi",
+  "prompt": "Wie verhalten Sie sich, wenn Ihnen ein Jogger entgegenkommt und Ihr Hund frei läuft?",
+  "answers": {
+    "A": "Ich brauche nichts zu unternehmen, weil mein Hund höchstens zu dem Jogger hinläuft, ihn aber nicht belästigt oder beißt.",
+    "B": "Ich rufe meinen Hund zu mir, leine ihn an und lasse ihn erst wieder los, wenn ich sicher weiß, dass er den Jogger nicht verfolgen wird.",
+    "C": "Ich renne ein Stückchen mit dem Jogger mit. Das lenkt meinen Hund vom Jogger ab, denn er konzentriert sich dann nur auf mich.",
+    "D": "Ich bitte den Jogger möglichst langsam zu laufen, um meinen Hund nicht zum Hinterherrennen zu verleiten."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3116,
+  "uid": "kammer-116",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "116",
+  "sourcePage": 57,
+  "category": "Öffentlichkeit",
+  "type": "multi",
+  "prompt": "Auf einer Hundewiese macht eine Gruppe von Kindern Picknick. Wie verhalten Sie sich, wenn Sie mit Ihrem freilaufenden Hund dort vorbeikommen?",
+  "answers": {
+    "A": "Da ich sicher weiß, dass mein Hund Kindern nichts tut, lasse ich ihn laufen.",
+    "B": "Ich leine meinen Hund auf jeden Fall an, denn ich möchte nicht, dass sich andere Menschen durch meinen Hund bedrängt fühlen oder Angst bekommen.",
+    "C": "Ich rufe den Kindern laut zu, dass mein Hund nichts tut.",
+    "D": "Ich erkläre den Kindern, dass picknicken in einem Hundeauslaufgebiet verboten ist und schicke sie weg."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3128,
+  "uid": "kammer-128",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "128",
+  "sourcePage": 58,
+  "category": "Öffentlichkeit",
+  "type": "multi",
+  "prompt": "Auf dem Hundespaziergang kommen Ihnen Leute entgegen, die sich angesichts Ihres Hundes deutlich unwohl fühlen. Wie verhalten Sie sich?",
+  "answers": {
+    "A": "Wenn es ein Ort ist, an dem man den Hund laufen lassen darf und der Hund brav ist, muss man nichts unternehmen.",
+    "B": "Ich gehe auf die Leute zu und versichere, dass der Hund ganz lieb ist.",
+    "C": "Ich rufe meinen Hund zu mir und erkläre ihm, dass die Leute Angst vor ihm haben. Ich sage ihm auch, dass er deswegen nicht traurig sein soll.",
+    "D": "Ich leine meinen Hund sofort an, denn andere Menschen dürfen sich durch meinen Hund nicht bedroht fühlen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}, {
+  "id": 3191,
+  "uid": "kammer-191",
+  "source": "Tierärztekammern 2025",
+  "sourceKey": "kammer197",
+  "sourceId": "191",
+  "sourcePage": 58,
+  "category": "Öffentlichkeit",
+  "type": "multi",
+  "prompt": "Welche Schwierigkeiten können durch Importhunde entstehen?",
+  "answers": {
+    "A": "Es können in keinem Fall Probleme entstehen.",
+    "B": "Für heimische Hunde wird der Infektionsdruck durch mitgebrachte Krankheitserreger erhöht, wenn die Tiere sie beim Import mitbringen.",
+    "C": "Unwissentliche Einschleppung von neuen Parasiten und Krankheitserregern, wenn die Hunde nicht fachlich korrekt und ausreichend oft vor und nach dem Import untersucht und behandelt wurden.",
+    "D": "Zusätzliche Belastungen der Tierheime, wenn die Hunde nicht in das neue Zuhause passen und abgegeben werden müssen."
+  },
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correct": [
+    "B",
+    "C",
+    "D"
+  ],
+  "requiresVisual": false,
+  "images": []
+}];
+
+/** @type {Record<string, number[]>} Kataloge referenzieren IDs statt Fragekopien. */
+window.LHUNDG_POOLS = {
+  "legacy203": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203
+  ],
+  "rhein97": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019,
+    1020,
+    1021,
+    1022,
+    1023,
+    1024,
+    1025,
+    1026,
+    1027,
+    1028,
+    1029,
+    1030,
+    1031,
+    1032,
+    1033,
+    1034,
+    1035,
+    1036,
+    1037,
+    1038,
+    1039,
+    1040,
+    1041,
+    1042,
+    1043,
+    1044,
+    1045,
+    1046,
+    1047,
+    1048,
+    1049,
+    1050,
+    1051,
+    1052,
+    1053,
+    1054,
+    1055,
+    1056,
+    1057,
+    1058,
+    1059,
+    1060,
+    1061,
+    1062,
+    1063,
+    1064,
+    1065,
+    1066,
+    1067,
+    1068,
+    1069,
+    1070,
+    1071,
+    1072,
+    1073,
+    1074,
+    1075,
+    1076,
+    1077,
+    1078,
+    1079,
+    1080,
+    1081,
+    1082,
+    1083,
+    1084,
+    1085,
+    1086,
+    1087,
+    1088,
+    1089,
+    1090,
+    1091,
+    1092,
+    1093,
+    1094,
+    1095,
+    1096,
+    1097
+  ],
+  "koeln": [
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026,
+    2027,
+    2028,
+    2029,
+    2030,
+    2031,
+    2032,
+    2033,
+    2034,
+    2035,
+    2036,
+    2037,
+    2038,
+    2039,
+    2040,
+    2041,
+    2042,
+    2043,
+    2044,
+    2045,
+    2046,
+    2047,
+    2048,
+    2049,
+    2050,
+    2051,
+    2052,
+    2053,
+    2054,
+    2055,
+    2056,
+    2057,
+    2058,
+    2059,
+    2060,
+    2061,
+    2062,
+    2063,
+    2064,
+    2065,
+    2066,
+    2067,
+    2068,
+    2069,
+    2070,
+    2071,
+    2072,
+    2073,
+    2074,
+    2075,
+    2076,
+    2077,
+    2078,
+    2079,
+    2080,
+    2081,
+    2082,
+    2083,
+    2084,
+    2085,
+    2086,
+    2087,
+    2088,
+    2089,
+    2090,
+    2091,
+    2092,
+    2093,
+    2094,
+    2095,
+    2096,
+    2097,
+    2098,
+    2099,
+    2100,
+    2101,
+    2102,
+    2103,
+    2104,
+    2105,
+    2106,
+    2107,
+    2108,
+    2109,
+    2110,
+    2111,
+    2112,
+    2113,
+    2114,
+    2115
+  ],
+  "mgPool": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019,
+    1020,
+    1021,
+    1022,
+    1023,
+    1024,
+    1025,
+    1026,
+    1027,
+    1028,
+    1029,
+    1030,
+    1031,
+    1032,
+    1033,
+    1034,
+    1035,
+    1036,
+    1037,
+    1038,
+    1039,
+    1040,
+    1041,
+    1042,
+    1043,
+    1044,
+    1045,
+    1046,
+    1047,
+    1048,
+    1049,
+    1050,
+    1051,
+    1052,
+    1053,
+    1054,
+    1055,
+    1056,
+    1057,
+    1058,
+    1059,
+    1060,
+    1061,
+    1062,
+    1063,
+    1064,
+    1065,
+    1066,
+    1067,
+    1068,
+    1069,
+    1070,
+    1071,
+    1072,
+    1073,
+    1074,
+    1075,
+    1076,
+    1077,
+    1078,
+    1079,
+    1080,
+    1081,
+    1082,
+    1083,
+    1084,
+    1085,
+    1086,
+    1087,
+    1088,
+    1089,
+    1090,
+    1091,
+    1092,
+    1093,
+    1094,
+    1095,
+    1096,
+    1097,
+    2001,
+    2002,
+    2003,
+    2004,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2015,
+    2016,
+    2019,
+    2021,
+    2022,
+    2023,
+    2025,
+    2026,
+    2027,
+    2029,
+    2030,
+    2031,
+    2032,
+    2033,
+    2034,
+    2035,
+    2036,
+    2037,
+    2039,
+    2040,
+    2041,
+    2044,
+    2045,
+    2046,
+    2047,
+    2048,
+    2051,
+    2052,
+    2053,
+    2054,
+    2055,
+    2056,
+    2057,
+    2058,
+    2059,
+    2060,
+    2061,
+    2063,
+    2065,
+    2066,
+    2067,
+    2068,
+    2069,
+    2070,
+    2071,
+    2072,
+    2073,
+    2074,
+    2076,
+    2077,
+    2078,
+    2079,
+    2081,
+    2082,
+    2083,
+    2084,
+    2085,
+    2086,
+    2087,
+    2088,
+    2090,
+    2091,
+    2092,
+    2093,
+    2094,
+    2095,
+    2096,
+    2097,
+    2098,
+    2099,
+    2100,
+    2101,
+    2102,
+    2103,
+    2104,
+    2105,
+    2106,
+    2107,
+    2108,
+    2109,
+    2110,
+    2111,
+    2112,
+    2113,
+    2114,
+    2115
+  ],
+  "allPool": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019,
+    1020,
+    1021,
+    1022,
+    1023,
+    1024,
+    1025,
+    1026,
+    1027,
+    1028,
+    1029,
+    1030,
+    1031,
+    1032,
+    1033,
+    1034,
+    1035,
+    1036,
+    1037,
+    1038,
+    1039,
+    1040,
+    1041,
+    1042,
+    1043,
+    1044,
+    1045,
+    1046,
+    1047,
+    1048,
+    1049,
+    1050,
+    1051,
+    1052,
+    1053,
+    1054,
+    1055,
+    1056,
+    1057,
+    1058,
+    1059,
+    1060,
+    1061,
+    1062,
+    1063,
+    1064,
+    1065,
+    1066,
+    1067,
+    1068,
+    1069,
+    1070,
+    1071,
+    1072,
+    1073,
+    1074,
+    1075,
+    1076,
+    1077,
+    1078,
+    1079,
+    1080,
+    1081,
+    1082,
+    1083,
+    1084,
+    1085,
+    1086,
+    1087,
+    1088,
+    1089,
+    1090,
+    1091,
+    1092,
+    1093,
+    1094,
+    1095,
+    1096,
+    1097,
+    2001,
+    2002,
+    2003,
+    2004,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2015,
+    2016,
+    2019,
+    2021,
+    2022,
+    2023,
+    2025,
+    2026,
+    2027,
+    2029,
+    2030,
+    2031,
+    2032,
+    2033,
+    2034,
+    2035,
+    2036,
+    2037,
+    2039,
+    2040,
+    2041,
+    2044,
+    2045,
+    2046,
+    2047,
+    2048,
+    2051,
+    2052,
+    2053,
+    2054,
+    2055,
+    2056,
+    2057,
+    2058,
+    2059,
+    2060,
+    2061,
+    2063,
+    2065,
+    2066,
+    2067,
+    2068,
+    2069,
+    2070,
+    2071,
+    2072,
+    2073,
+    2074,
+    2076,
+    2077,
+    2078,
+    2079,
+    2081,
+    2082,
+    2083,
+    2084,
+    2085,
+    2086,
+    2087,
+    2088,
+    2090,
+    2091,
+    2092,
+    2093,
+    2094,
+    2095,
+    2096,
+    2097,
+    2098,
+    2099,
+    2100,
+    2101,
+    2102,
+    2103,
+    2104,
+    2105,
+    2106,
+    2107,
+    2108,
+    2109,
+    2110,
+    2111,
+    2112,
+    2113,
+    2114,
+    2115,
+    3173,
+    3158
+  ],
+  "kammer197": [
+    3006,
+    3016,
+    3026,
+    3046,
+    3056,
+    3065,
+    3075,
+    3001,
+    3031,
+    3041,
+    3051,
+    3061,
+    3086,
+    3088,
+    3121,
+    3126,
+    3167,
+    3002,
+    3012,
+    3161,
+    3171,
+    3184,
+    3185,
+    3186,
+    3187,
+    3196,
+    3197,
+    3003,
+    3028,
+    3033,
+    3038,
+    3043,
+    3048,
+    3058,
+    3107,
+    3110,
+    3112,
+    3018,
+    3062,
+    3078,
+    3076,
+    3089,
+    3091,
+    3096,
+    3131,
+    3157,
+    3159,
+    3070,
+    3134,
+    3136,
+    3141,
+    3143,
+    3147,
+    3162,
+    3164,
+    3165,
+    3166,
+    3005,
+    3009,
+    3059,
+    3099,
+    3129,
+    3138,
+    3145,
+    3149,
+    3150,
+    3192,
+    3017,
+    3022,
+    3027,
+    3045,
+    3047,
+    3049,
+    3052,
+    3054,
+    3057,
+    3173,
+    3008,
+    3011,
+    3013,
+    3025,
+    3080,
+    3093,
+    3098,
+    3109,
+    3122,
+    3139,
+    3004,
+    3014,
+    3019,
+    3029,
+    3034,
+    3039,
+    3044,
+    3063,
+    3068,
+    3073,
+    3007,
+    3010,
+    3015,
+    3020,
+    3036,
+    3084,
+    3087,
+    3090,
+    3100,
+    3168,
+    3021,
+    3024,
+    3067,
+    3072,
+    3082,
+    3103,
+    3114,
+    3119,
+    3123,
+    3151,
+    3085,
+    3117,
+    3132,
+    3153,
+    3155,
+    3169,
+    3172,
+    3190,
+    3193,
+    3195,
+    3023,
+    3071,
+    3077,
+    3081,
+    3092,
+    3125,
+    3160,
+    3163,
+    3170,
+    3188,
+    3030,
+    3035,
+    3050,
+    3060,
+    3069,
+    3074,
+    3079,
+    3174,
+    3182,
+    3194,
+    3032,
+    3037,
+    3042,
+    3055,
+    3064,
+    3066,
+    3083,
+    3101,
+    3120,
+    3175,
+    3094,
+    3097,
+    3105,
+    3127,
+    3130,
+    3140,
+    3158,
+    3178,
+    3179,
+    3183,
+    3113,
+    3115,
+    3118,
+    3124,
+    3133,
+    3135,
+    3137,
+    3148,
+    3177,
+    3189,
+    3040,
+    3142,
+    3144,
+    3146,
+    3152,
+    3154,
+    3156,
+    3176,
+    3180,
+    3181,
+    3053,
+    3095,
+    3102,
+    3104,
+    3106,
+    3108,
+    3111,
+    3116,
+    3128,
+    3191
+  ]
+};
+
+/** @type {Record<string, SachkundeQuestion[]>} Zur Laufzeit aufgelöste Kataloge. */
+window.LHUNDG_DATA = Object.fromEntries(
+  Object.entries(window.LHUNDG_POOLS)
+    .map(([key, ids]) => {
+      const byId = new Map(window.LHUNDG_QUESTIONS.map(question => [question.id, question]));
+      return [key, ids.map(id => byId.get(id))];
+    })
+);
+
+/** @type {Record<string, number[]>} Bildbreite und -höhe zur Vermeidung von Layoutsprüngen. */
+window.LHUNDG_IMAGE_SIZES = {
+  "assets/questions/q006.webp": [
+    867,
+    220
+  ],
+  "assets/questions/q026.webp": [
+    867,
+    197
+  ],
+  "assets/questions/q056.webp": [
+    867,
+    199
+  ],
+  "assets/questions/q016-1.webp": [
+    867,
+    461
+  ],
+  "assets/questions/q075.webp": [
+    867,
+    230
+  ],
+  "assets/questions/q046.webp": [
+    867,
+    232
+  ],
+  "assets/questions/q065.webp": [
+    867,
+    226
+  ],
+  "assets/sources/koeln/a7.webp": [
+    944,
+    386
+  ],
+  "assets/sources/koeln/a5.webp": [
+    944,
+    522
+  ],
+  "assets/sources/koeln/a2.webp": [
+    944,
+    616
+  ],
+  "assets/sources/koeln/a8.webp": [
+    944,
+    387
+  ],
+  "assets/sources/koeln/a3.webp": [
+    944,
+    313
+  ],
+  "assets/sources/rhein97/88.webp": [
+    944,
+    508
+  ],
+  "assets/sources/rhein97/92.webp": [
+    944,
+    386
+  ],
+  "assets/sources/rhein97/13.webp": [
+    944,
+    634
+  ],
+  "assets/sources/rhein97/21.webp": [
+    944,
+    334
+  ]
+};

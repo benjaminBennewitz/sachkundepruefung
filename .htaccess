@@ -5,7 +5,7 @@ DirectoryIndex index.html
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "no-referrer"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-YUCftXjbs8ObyfzdIApjuTKu90xqZElk9o8Pf6J1Kag='; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-Ite1PJwVsXIRBrMblxZQgOsMni7Q4ibevhIZ2L9SJPI='; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
   <FilesMatch "\.html$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
@@ -24,6 +24,7 @@ DirectoryIndex index.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteRule ^(?:scripts|dist|\.openai)(?:/|$) - [F,L]
+  RewriteRule ^scripts/(?!learning(?:/|$)|ui(?:/|$)|site-config\.js$) - [F,L]
+  RewriteRule ^(?:deployment|docs|dist|\.openai|\.git|\.vscode)(?:/|$) - [F,L]
   RewriteRule ^(?:README\.md|VALIDATION\.md|QUESTION_AUDIT\.json|validation\.json)$ - [F,L]
 </IfModule>

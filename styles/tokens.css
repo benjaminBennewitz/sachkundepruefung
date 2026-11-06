@@ -1,0 +1,135 @@
+/*###############################
+###
+###     styles/tokens.css
+###     NRW Sachkundeprüfung – Lernhilfe
+###     BASED ON: HTML5, CSS3, JavaScript
+###     AUTHOR: Benjamin Bennewitz
+###
+###
+###       ██████╗  ▀█
+###       ██╔══██╗ █▄
+###       ██████╦╝
+###       ██╔══██╗
+###       ██████╦╝
+###       ╚═════╝
+###
+###
+#################################*/
+
+/* ==========================================================================
+   INHALTSVERZEICHNIS
+   01   Helles Farbschema
+   02   Dunkles Farbschema
+   03   Systemfarbschema
+   ========================================================================== */
+
+/* ==========================================================================
+   01   Helles Farbschema
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+  --bg: #f5f3ed;
+  --surface: #fffdf8;
+  --subtle: #eeeee6;
+  --text: #242e2a;
+  --muted: #5e6862;
+  --line: #d4d9cc;
+  --accent: #195b4c;
+  --accent-hover: #104436;
+  --on-accent: #fffdf5;
+  --accent-bg: #e4eee4;
+  --rust: #9c481f;
+  --rust-bg: #f5e9db;
+  --ok: #216142;
+  --ok-bg: #e6f1e5;
+  --bad: #a42b2b;
+  --bad-bg: #fce8e3;
+  --focus: #98600d;
+  --shadow: 0 8px 30px #23382b07;
+  --control-line: #82907e;
+  --nav-bg: #e0ebda;
+  --nav-panel: #d2e2cc;
+  --nav-control: #eff5eb;
+  --nav-line: #a4b99b;
+  --nav-muted: #4d6249;
+  --question-bg: #fffdf8;
+  --answer-bg: #fafbf6;
+  --filter-bg: #eef0e8;
+  --control-hover: #e6eee0;
+}
+
+/* ==========================================================================
+   02   Dunkles Farbschema
+   ========================================================================== */
+
+:root[data-theme=dark] {
+  color-scheme: dark;
+  --bg: #171f1c;
+  --surface: #202a25;
+  --subtle: #2a352e;
+  --text: #eff1e8;
+  --muted: #bbc5bb;
+  --line: #465248;
+  --accent: #b5d8ac;
+  --accent-hover: #d2e9ca;
+  --on-accent: #17281d;
+  --accent-bg: #2e4333;
+  --rust: #f1bd8c;
+  --rust-bg: #3c3026;
+  --ok: #b2dba3;
+  --ok-bg: #263d2c;
+  --bad: #ffb2a6;
+  --bad-bg: #492b29;
+  --focus: #ffd284;
+  --shadow: none;
+  --control-line: #81917f;
+  --nav-bg: #293f30;
+  --nav-panel: #314b39;
+  --nav-control: #22382a;
+  --nav-line: #57715a;
+  --nav-muted: #c2d2bd;
+  --question-bg: #23322b;
+  --answer-bg: #1c2922;
+  --filter-bg: #1c2821;
+  --control-hover: #334c3a;
+}
+
+/* ==========================================================================
+   03   Systemfarbschema
+   ========================================================================== */
+
+@media (prefers-color-scheme:dark) {
+  :root:not([data-theme=light]) {
+    color-scheme: dark;
+    --bg: #171f1c;
+    --surface: #202a25;
+    --subtle: #2a352e;
+    --text: #eff1e8;
+    --muted: #bbc5bb;
+    --line: #465248;
+    --accent: #b5d8ac;
+    --accent-hover: #d2e9ca;
+    --on-accent: #17281d;
+    --accent-bg: #2e4333;
+    --rust: #f1bd8c;
+    --rust-bg: #3c3026;
+    --ok: #b2dba3;
+    --ok-bg: #263d2c;
+    --bad: #ffb2a6;
+    --bad-bg: #492b29;
+    --focus: #ffd284;
+    --shadow: none;
+    --control-line: #81917f;
+    --nav-bg: #293f30;
+    --nav-panel: #314b39;
+    --nav-control: #22382a;
+    --nav-line: #57715a;
+    --nav-muted: #c2d2bd;
+    --question-bg: #23322b;
+    --answer-bg: #1c2922;
+    --filter-bg: #1c2821;
+    --control-hover: #334c3a;
+  }
+}
+

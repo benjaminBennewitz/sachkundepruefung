@@ -1,113 +1,94 @@
-# NRW Sachkundeprüfung Lernhilfe · v13
+# NRW Sachkundeprüfung – Lernhilfe
 
-Kostenloser, unabhängiger Lerntrainer für das LHundG NRW. Statische HTML-/CSS-/JavaScript-Anwendung ohne Framework, Backend, Buildpflicht, Tracking oder externe Schriften.
+Kostenlose statische Lernhilfe mit lokalen Lernständen, quellenbezogenen Katalogen und Testreihen. HTML, CSS und JavaScript ohne Framework, Paketinstallation, Tracking oder externe Schriften.
 
-## Änderungen in v13
+Entwicklung und Design: Benjamin Bennewitz **[B²]**.
 
-- Einheitliche, sticky Navigation auf allen Seiten. Import, Export, Reset und Unterstützung per PayPal als beschriftete Icon-Schaltflächen; Hell-/Dunkel-Umschaltung über Sonne/Mond. Beim ersten Aufruf ohne gespeicherte Auswahl folgt die Darstellung dem System. Auf Inhaltsseiten führen Lernstand-Werkzeuge zum Trainer; dort ist die gewünschte Schaltfläche fokussiert und die Aktion erfordert einen weiteren bewussten Klick.
-- „Gut zu wissen“ als eigene Seite. Neue Seite „Hundewissen“ mit amtlich belegter Einordnung von § 3 / § 10 / § 11, Sachkunde und Verhaltensprüfung. Stand der Quellen 06.11.2026. Die aktuelle Landesverordnung und Verwaltungsvorschriften haben bei abweichenden alten Stadtinformationen Vorrang.
-- Testprofile: 34 aus Rhein-Erft 203, mindestens 24 richtig; MG-Simulation weiterhin 119 aus 398, mindestens 90 richtig; §-11-Übung 30 aus 197 ohne erfundene Bestehensgrenze. Alle Ziehungen sind zufällige Übungen ohne behauptete amtliche Themengewichtung. Die ursprüngliche MG-Speicheridentität bleibt kompatibel.
-- Deutlicher Sofort-Feedback-Schalter, im Lernmodus zunächst aktiv. Neue Präferenz `lhundg-instant-feedback-v2`, Standard An. Prüfbutton an jeder Frage, Lösung erst nach ausdrücklichem Prüfen. Im Test vor Abschluss gesperrt.
-- Einmaliger Unterstützungsdialog nach der ersten vollständigen Auswertung mit mindestens einer Antwort pro Browsersitzung; kein Hinweis nach einem bloßen Zwischenergebnis. Sitzungsmarkierung `lhundg-support-shown-v1`, keine Übermittlung oder Tracking. Header-Herz öffnet den Dialog jederzeit. Escape, Schließen und Fokus-Rückgabe werden unterstützt. Ohne persönliche PayPal-URL bleibt die Zahlungsaktion ausdrücklich als noch nicht eingerichtet gekennzeichnet; keine erfundene Empfängeradresse.
-- Impressum mit den vom Betreiber gelieferten Daten. Allgemeine Datenschutztexte und Hostingangaben aus design-code-repeat.de/datenschutz übernommen; für diese App unzutreffende Aussagen zu Infrastructure API / Kontaktformular / CSRF-Cookies entfernt. Lernspeicher, Sitzungsmarkierung und PayPal ergänzt. Der Originaltext und Abrufzeitpunkt sind als Entwicklerreferenz in scripts/fixtures/dcr-privacy-source.json abgelegt. Die tatsächlichen Log-Löschfristen am Server bleiben vom Betreiber mit den übernommenen allgemeinen Angaben abzugleichen.
-- Prominenter Disclaimer und Haftungshinweis mit Vorbehalt zwingender gesetzlicher Haftung. Keine Rechtsberatung und keine Garantie der Rechtswirksamkeit des Haftungstexts.
-- Neue Inhaltsseiten sind vollständig statisch, indexierbar und in Navigation, Footer und Sitemap verlinkt. Header und Disclaimer stammen zentral aus scripts/ui-shell.mjs; Fach- und Datenschutzinhalte aus scripts/content-pages.mjs.
+## Ordnerstruktur
 
-Dieser Patch setzt den eingespielten v12-Patch voraus. Den bestehenden assets-Ordner und data.js behalten. Fragen und Lösungen wurden in diesem Schritt nicht verändert. Als nächste konkrete Angabe fehlt der persönliche PayPal-Link. Die Freigabe der öffentlichen Wiederverwendung der Originalfragen/Abbildungen bleibt separat zu klären.
+| Pfad | Aufgabe |
+| --- | --- |
+| `*.html` | Startseite und statisch lesbare Informationsseiten |
+| `styles/tokens.css` | Zusammengefasste Farbwerte für Light, Dark und Systemmodus |
+| `styles/interface.css` | Dokumentierte Oberfläche, Zustände und responsive Layouts |
+| `scripts/learning/` | Trainer, Auswertung, Fragebestand und Quellen – vier zusammengehörige Dateien |
+| `scripts/ui/` | Theme vor dem Zeichnen, gemeinsame UI und Custom Controls – drei Dateien |
+| `scripts/pages/` | Seitengenerator, Inhaltsvorlagen und gemeinsamer Seitenrahmen; Datenschutz-Referenz daneben |
+| `scripts/quality/` | Datenprüfung, Pfadprüfung, Release-Prüfung und Core-Tests; offizielle Lösungsschlüssel daneben |
+| `scripts/site-config.js` | Domain, Betreiber, Hosting und optionaler PayPal-Link |
+| `scripts/config.mjs` | Gemeinsame Konfigurations- und Pfadfunktionen für lokale Werkzeuge |
+| `scripts/prepare-deployment.mjs` | Prüft die aktuellen Dateien und aktualisiert vor dem Deployment Seiten und SEO |
+| `scripts/migrate-structure.mjs` | Einmalige reversible Bereinigung bisheriger Dateipfade |
+| `deployment/` | Windows-Deployment, Linux-Serverskript und Anleitung |
+| `assets/` | Unveränderte Aufgabenabbildungen |
+| `docs/` | Datenprüfung, Audit und Anleitung für den Strukturpatch |
 
-## Patch einspielen
+Ein Skript-Unterordner enthält mindestens drei fachlich zusammengehörige Skriptdateien. Es werden keine leeren Modulhüllen oder Unterordner für einzelne Dateien angelegt.
 
-Nur die neuen und geänderten Dateien über den bestehenden Projektstand kopieren. Der bestehende Ordner `assets/` muss erhalten bleiben. Die Anwendung nutzt daraus nur noch fachlich notwendige Aufgabenabbildungen; vorhandene unbenutzte Screenshots werden weder geladen noch pauschal gelöscht. Eine kleine lokale SVG-Datei dient als Favicon. Alle Textdateien im Patch verwenden CRLF.
+## Strukturpatch einspielen
 
-## Noch vor dem öffentlichen Start erforderlich
-
-In `site-config.js` vervollständigen:
-
-- Betreiber: ladungsfähige Anschrift und Kontakt-E-Mail. Die gelieferten Betreiberangaben sind eingetragen.
-- Tatsächlicher Hostinganbieter, dessen Anschrift und die tatsächliche Protokollierung / Log-Löschfrist. Nicht durch eine erfundene Standardfrist ersetzen. Datenschutztext gegen die reale Konfiguration prüfen.
-- Persönlicher HTTPS-PayPal-Unterstützungslink. Nur paypal.com / paypal.me einschließlich www werden akzeptiert. Ohne gültigen Link wird kein funktionsloser Zahlungsbutton angeboten.
-- Falls die finale Domain anders lautet, `origin` korrigieren.
-
-Anschließend aus dem Projektverzeichnis:
+Den Patch im vorhandenen Projekt entpacken. Assets und Git-Verzeichnis behalten. Anschließend in CMD aus dem Projektordner:
 
 ```cmd
-node scripts/prepare-pages.mjs
-node scripts/validate-data.mjs
-node --test scripts/core.test.cjs
-node scripts/check-release.mjs --rights-confirmed
+node scripts\migrate-structure.mjs
+node scripts\migrate-structure.mjs --apply
 ```
 
-`--rights-confirmed` erst setzen, wenn die öffentliche Wiederverwendung der Fragen und Abbildungen tatsächlich erlaubt ist. Ein frei herunterladbares PDF ist keine automatische Wiederveröffentlichungslizenz. Das Skript meldet fehlende Angaben, ist aber keine Rechtsprüfung. Die gelieferten Betreiber- und vorhandenen Hostingangaben sind eingetragen; bei Änderungen der Infrastruktur bitte aktualisieren. Separate AGB wurden nicht angelegt.
+Der erste Aufruf prüft nur. Der zweite verschiebt alte Dateien nach vollständiger Vorprüfung in eine Sicherung **neben** dem Projekt. Individuell veränderte Altdateien führen vor der ersten Verschiebung zum Abbruch. Details: `docs/MIGRATION.md`.
 
-Die generierten Seiten sind echte statische HTML-Dateien: Quellen, Impressum und Datenschutz funktionieren ohne JavaScript. `prepare-pages.mjs` aktualisiert außerdem Sitemap, robots.txt und den CSP-Hash für die strukturierten Daten. Bei einer späteren Domainänderung genügt die neue Origin-Konfiguration und eine erneute Generierung.
+## Lokal starten und prüfen
 
-## Lernbereiche und geprüfte Inhalte
+Voraussetzung für die Werkzeuge: Node.js ab Version 20. Die Website selbst benötigt nur einen modernen Browser und einen statischen HTTP-Server. Es gibt keine npm-Abhängigkeiten.
 
-| Bereich | Fragen | Einordnung |
-| --- | ---: | --- |
-| Alle Quellen | 400 | Bisheriger Basispool plus zwei Formulierungsvarianten |
-| §-3-Basispool | 398 | Bisheriger MG-Pool, mit berichtigtem Rhein-Erft-Schlüssel |
-| Rhein-Erft 203 | 203 | Offizieller aktueller PDF-Schlüssel separat abgeglichen |
-| Rhein-Erft 97 | 97 | Zugesandte Fassung, bestehender Schlüssel übernommen |
-| Köln A/B/C | 115 | Zugesandte Fassung, A11 entfällt; eigener bestehender Schlüssel |
-| Tierärztekammern ab 2025 | 197 | Ergänzender Katalog für § 11, beide Kammern identischer Inhalt |
-| MG-Simulation | 119 | Aus 398 Basisfragen, bestanden ab 90, ohne Zeitlimit |
+Für die direkte Entwicklung den Projektordner über deinen lokalen Server öffnen, beispielsweise mit VS Code Live Server. Nicht per `file://` öffnen: Origin und Browserspeicher sollen dem späteren Betrieb entsprechen.
 
-Die beiden beigefügten Kammer-Lösungsdateien sind bytegleich. Die Fragefassungen stimmen in allen 197 extrahierten Fragen samt Antworttexten überein; lediglich Layoutabstände unterscheiden sich.
+```cmd
+node scripts\quality\check-paths.mjs
+node scripts\quality\validate-data.mjs
+node --test scripts\quality\core.test.cjs
+node scripts\prepare-deployment.mjs --check-only
+```
 
-Beim zusätzlichen Abgleich des alten Rhein-Erft-203-Datensatzes mit dem offiziell veröffentlichten PDF wurden drei Übertragungsfehler korrigiert: 158 → A/B/C/D, 160 → B/C/D, 161 → A/B/C/D. Das D steht in der Lösungstabelle nach einem Seitenumbruch auf Seite 50; die Überschriften stehen auf Seite 49. Alle 203 Schlüssel wurden positionsbezogen aus der offiziellen Tabelle verglichen, die fraglichen Seiten zusätzlich visuell geprüft. Keine Korrektur aus allgemeinem Hundewissen.
+Der letzte Befehl prüft die aktuellen Dateien ohne Kopie oder Ausgabeordner. Für die lokale Vorschau direkt die `index.html` im Projektordner über Live Server öffnen.
 
-Nach diesen Berichtigungen entsprechen 195 Kammerfragen vorhandenen Fragen mit identischen Antworten und Lösungen nach Formatierungsnormalisierung. Bei 158 und 173 sind Formulierungen verschieden; diese Varianten bleiben zusätzlich erhalten. `QUESTION_AUDIT.json` enthält den ursprünglichen Vergleich und die abschließende Einordnung inklusive Korrekturen.
+## Domain und Produktion
 
-Die öffentlich verlinkte Kölner Fassung Mai 2019 ist eine andere Ausgabe als der zugesandte Katalog, z. B. bei A1. Ihre Lösungen werden nicht auf die importierte Fassung übertragen. Zur exakt zugesandten Köln- und Rhein-Erft-97-Fassung liegt noch kein verifizierter öffentlicher Direktlink vor. Das ist auf der Quellen-Seite und an den betreffenden Fragen ausdrücklich gekennzeichnet. Keine erfundenen Original-Links.
+Die Domain steht noch nicht fest. `origin` in `scripts/site-config.js` bleibt deshalb leer. `robots.txt` erlaubt das Crawling mit `Allow: /`; die sechs Inhaltsseiten verwenden `index,follow`. Solange die Domain fehlt, werden keine falschen Canonicals und keine leere oder erfundene Sitemap ausgegeben. Sobald die tatsächliche Domain gesetzt ist, erzeugt der Seitengenerator eine lesbare Sitemap mit sechs vollständigen HTTPS-Adressen und ergänzt den Sitemap-Verweis in robots.txt.
 
-Die tatsächlichen MG-Fragen sind nicht bekannt. 119 / 90 / kein Zeitlimit beruhen auf einer privaten Mitteilung an den Initiator. Diese Angaben sind keine landesweite Regel und öffentlich nicht unabhängig bestätigt.
+Nach dem Einspielen von v19 einmal ausführen; dabei wird auch eine vorhandene leere Sitemap entfernt:
 
-## Bedienung und Zugänglichkeit
+```cmd
+node scripts\pages\prepare-pages.mjs
+```
 
-- Hell, dunkel oder Systemdarstellung; sofort vor dem ersten Zeichnen angewandt.
-- Responsive CSS-Grid-Layouts ab 320 px, begrenzte maximale Inhaltsbreite.
-- Fokusfrage, acht Fragen pro Listenseite oder TV-Ansicht; keine hunderte Fragekarten gleichzeitig im DOM.
-- Suche in Fragen und Antworttexten, Themenfilter für zugeordnete Themen, offene / beantwortete / geprüfte falsche Fragen sowie Merkliste.
-- Die Themen stammen aus dem Kammerkatalog und sind auf identische Original-IDs des großen Rhein-Erft-Katalogs übertragen. Andere Fragen tragen „Weitere Themen“, keine automatisch erfundenen Kategorien.
-- Mehrfachauswahl wird erst nach „Antwort prüfen“ bewertet. Jede Änderung entfernt die bisherige Einzelbewertung. In der Simulation gibt es vor der Gesamtauswertung kein Lösungsfeedback.
-- Zuordnungen sind erst nach Wahl aller Positionen vollständig. Textzuordnungen sind in getrennte Begriffe und Positionen aufgelöst; keine unlesbaren zusammenextrahierten PDF-Spalten.
-- Merkliste, Lernposition und Bewertungen werden je Lernbereich gespeichert.
-- Export / Import als lokale JSON-Datei, mit Schema- und Größenprüfung. Import führt bestätigte Antworten zusammen; gleiche Fragen werden durch importierte Antworten überschrieben. Bewertungen werden zurückgesetzt. Simulationen werden nicht exportiert.
-- Native Eingaben und Auswahlfelder, sichtbarer Fokus, beschriftete Fortschrittsanzeige, Skip-Link, Textmeldungen zusätzlich zu Farben, `prefers-reduced-motion`.
-- TV: Links/rechts Fragen, hoch/runter Antwortfokus, Home/End erste/letzte Frage, Enter Auswahl. In Suche/Selects werden die Tasten nicht abgefangen. Fehlernummern und Fragenübersicht haben eine rasterabhängige Pfeilnavigation.
+Nach Festlegung der tatsächlichen Domain kann sie in der Konfiguration oder für einen Build in CMD gesetzt werden:
 
-## Datenspeicherung
+```cmd
+set "LHUNDG_ORIGIN=https://DEINE-DOMAIN"
+node scripts\prepare-deployment.mjs --rights-confirmed
+```
 
-Die bisherigen Antwortschlüssel bleiben unverändert:
+`DEINE-DOMAIN` durch die echte Domain ersetzen. Für eine gültige Domain entstehen Canonicals, OpenGraph-URLs, JSON-LD und Sitemap automatisch. Der bestehende Schalter `--rights-confirmed` ist ausschließlich nach tatsächlicher Klärung der Übernahme der Fragen und Abbildungen zu verwenden. Ein leerer PayPal-Link verhindert die kostenlose Veröffentlichung nicht.
 
-- `lhundg-answers-v1`
-- `lhundg-answers-mg-v1`
-- `lhundg-answers-rhein97-v1`
-- `lhundg-answers-koeln-v1`
+Das vorbereitete Deployment ist in `deployment/README.md` beschrieben. Es wurde kein Server angesprochen und nichts veröffentlicht.
 
-Neue Bereiche: `lhundg-answers-all-v1`, `lhundg-answers-kammer197-v1`. Der neue Gesamtbereich übernimmt beim ersten Öffnen den alten MG-Lernstand, falls noch kein eigener Gesamtlernstand existiert. Die anschließende Speicherung bleibt getrennt.
+## Pflege und Konventionen
 
-UI-Metadaten: `lhundg-meta-<modus>-v2`; dazu `lhundg-instant-feedback-v1` und `lhundg-theme-v1`. Vorhandene numerische Stringwerte für Sofort-Feedback bleiben kompatibel. Ungültige Antworttokens werden beim Wiederherstellen verworfen. Bei blockiertem oder vollem Speicher bleibt die Anwendung bedienbar und weist auf die notwendige manuelle Sicherung hin.
+- Inhalte und Lösungen nur anhand ihrer Originalquelle ändern. Frage-IDs, Pool-IDs und Speicherschlüssel beim Umordnen beibehalten.
+- `scripts/pages/prepare-pages.mjs` nach Änderungen an Betreiberangaben oder Seitenvorlagen ausführen. Der Generator aktualisiert auch den CSP-Hash des JSON-LD-Blocks.
+- Öffentliche Skripte bleiben klassische Browser-Skripte in ihrer bisherigen Ladereihenfolge. Die Dateiverlagerung führt kein Framework und keine neue Laufzeitabhängigkeit ein.
+- CSS: Dateikopf mit `[B²]`, zweistelliges Inhaltsverzeichnis und dazu passende Abschnittskommentare; keine Inline-Kommentare. Kaskadenreihenfolge der UI-Regeln bleibt erhalten.
+- JavaScript: knappe deutsche JSDoc-Beschreibungen wie im Portfolio, Abstand zwischen Funktionen und ausgeschriebene Anweisungen. Typangaben bleiben an fachlichen Schnittstellen; offensichtliche UI-Helfer erhalten keine langen Parameterlisten. Der Fragetyp ist in `scripts/learning/data.js` dokumentiert.
+- Projektdateien verwenden CRLF. Das Linux-Serverskript verwendet bewusst LF; `.gitattributes` hält diese notwendige Ausnahme fest.
+- Das Deployment packt ausschließlich die öffentlichen Originaldateien direkt in ein temporäres TAR-Archiv. Es gibt keinen Build- oder Vorschauordner. Archive gehören nicht ins Repository.
 
-Prüfungen nutzen ausschließlich sessionStorage für Antworten/Prüfungszustand. Fragen-IDs in der URL werden auf exakt 119 eindeutige Einträge aus dem Basispool geprüft; fehlerhafte Auswahlen werden neu erzeugt. Die Kryptografie-API mit unverzerrtem Ziehen wird genutzt, sofern verfügbar.
+## Umstellung von v17 auf v18
 
-## Öffentlicher Betrieb, SEO und Performance
+Patch entpacken. Das bisherige Build-Skript und dessen erzeugte Kopie einmalig entfernen:
 
-- Sprechender statischer Titel, Beschreibung, Canonicals, Open Graph, WebApplication-JSON-LD ohne erfundene Bewertungen, Sitemap und robots.txt.
-- Simulationen und TV-URLs erhalten `noindex,follow`; Apache setzt dies zusätzlich als Header. Normale Katalog-URLs verweisen kanonisch auf die Startseite.
-- Keine externen Requests beim normalen Seitenaufruf. Quellen und PayPal sind reine ausgehende Links; keine Zahlungs-SDKs oder Drittanbieter-Assets.
-- Bilder nur für bildabhängige Aufgaben, lazy / async und mit festen intrinsischen Abmessungen.
-- `.htaccess`: Kompression, Cache-Steuerung, Referrer-Policy, CSP, kein Directory Listing. Entwicklungsdateien werden bei aktivem mod_rewrite nicht öffentlich ausgeliefert.
-- HTTPS am Hosting konfigurieren. `.htaccess` ist Apache-spezifisch; beim Live-Start auf Unterstützung, Header, Kompression und mögliche Hosting-Overrides prüfen.
-- Keine pauschale Garantie für Indexierung oder „100 Punkte“: Lighthouse und tatsächliche Server-Header müssen nach dem Deployment auf der realen Domain geprüft werden. Die Website wurde hier nicht auf den Produktivserver übertragen.
+```cmd
+del scripts\build.mjs
+rmdir /s /q dist
+```
 
-## Dateiverantwortlichkeiten
-
-`app.js`: Lernablauf, Filter, begrenztes Rendering, Auswertung, Navigation.
-`core.js`: reine Bewertungs-, Speicherprüfungs- und Zufallsauswahlfunktionen.
-`data.js`: kanonische Fragen, stabile IDs/UIDs, referenzierte Pools, Bildabmessungen.
-`sources.js`: Herkunft und verifizierte Referenz-Links.
-`theme.js` / `common.js`: Darstellung und PayPal-Link-Aktivierung.
-`site-config.js`: öffentliche Betreiberangaben.
-`scripts/`: lokale Inhaltsgenerierung und Prüfung; kein Laufzeit-Build erforderlich.
+Anschließend direkt im Projektordner entwickeln. Das Deployment prüft die aktuellen Dateien und archiviert sie ohne weitere Dateikopie.
