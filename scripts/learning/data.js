@@ -18306,7 +18306,7 @@ window.LHUNDG_IMAGE_SIZES = {
   ],
   "assets/questions/q075.webp": [
     867,
-    230
+    203
   ],
   "assets/questions/q046.webp": [
     867,
