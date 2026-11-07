@@ -17,7 +17,7 @@ Entwicklung und Design: Benjamin Bennewitz **[B²]**.
 | `scripts/quality/` | Datenprüfung, Pfadprüfung, Release-Prüfung und Core-Tests; offizielle Lösungsschlüssel daneben |
 | `scripts/site-config.js` | Domain, Betreiber, Hosting und optionaler PayPal-Link |
 | `scripts/config.mjs` | Gemeinsame Konfigurations- und Pfadfunktionen für lokale Werkzeuge |
-| `scripts/prepare-deployment.mjs` | Prüft die aktuellen Dateien und aktualisiert vor dem Deployment Seiten und SEO |
+| `scripts/prepare-deployment.mjs` | Prüft vorhandene Dateien für das direkte Deployment; HTML bleibt unverändert |
 | `scripts/migrate-structure.mjs` | Einmalige reversible Bereinigung bisheriger Dateipfade |
 | `deployment/` | Windows-Deployment, Linux-Serverskript und Anleitung |
 | `assets/` | Unveränderte Aufgabenabbildungen |
@@ -60,7 +60,7 @@ origin: 'https://hunde-sachkundetrainer.de',
 basePath: '/nrw',
 ```
 
-Der Seitengenerator erstellt Canonicals, OpenGraph-URLs, JSON-LD und alle sechs Sitemap-Einträge unter `/nrw/`. Nach Änderungen an Domain oder Landesbereich:
+Der Seitengenerator ist ein separat aufrufbares Pflegewerkzeug für Seitenvorlagen und SEO-Dateien. Er ist kein Teil des Deployments und schreibt HTML aus den Vorlagen neu. Nur ausdrücklich ausführen, wenn die Seiten aus diesen Vorlagen erzeugt werden sollen:
 
 ```cmd
 node scripts\pages\prepare-pages.mjs
@@ -77,7 +77,8 @@ Das vorbereitete Deployment ist in `deployment/README.md` beschrieben. Es wurde 
 ## Pflege und Konventionen
 
 - Inhalte und Lösungen nur anhand ihrer Originalquelle ändern. Frage-IDs, Pool-IDs und Speicherschlüssel beim Umordnen beibehalten.
-- `scripts/pages/prepare-pages.mjs` nach Änderungen an Betreiberangaben oder Seitenvorlagen ausführen. Der Generator aktualisiert auch den CSP-Hash des JSON-LD-Blocks.
+- Das Deployment verändert und formatiert keine HTML-Dateien. Es prüft und archiviert die vorhandenen Dateien. Der CSP-Hash in `.htaccess` wird bei verändertem JSON-LD passend aktualisiert.
+- `scripts/pages/prepare-pages.mjs` ist ein optionales, manuell gestartetes Pflegewerkzeug: Es ersetzt HTML aus den Vorlagen und ist kein Formatierer für handgepflegte Seiten.
 - Öffentliche Skripte bleiben klassische Browser-Skripte in ihrer bisherigen Ladereihenfolge. Die Dateiverlagerung führt kein Framework und keine neue Laufzeitabhängigkeit ein.
 - CSS: Dateikopf mit `[B²]`, zweistelliges Inhaltsverzeichnis und dazu passende Abschnittskommentare; keine Inline-Kommentare. Kaskadenreihenfolge der UI-Regeln bleibt erhalten.
 - JavaScript: knappe deutsche JSDoc-Beschreibungen wie im Portfolio, Abstand zwischen Funktionen und ausgeschriebene Anweisungen. Typangaben bleiben an fachlichen Schnittstellen; offensichtliche UI-Helfer erhalten keine langen Parameterlisten. Der Fragetyp ist in `scripts/learning/data.js` dokumentiert.

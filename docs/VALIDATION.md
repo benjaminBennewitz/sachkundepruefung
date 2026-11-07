@@ -125,3 +125,10 @@ Kein vollständiges WCAG-Konformitätsgutachten und keine Prüfung mit allen Scr
 - Der Patch enthält die Unterverzeichnis-Anpassungen aus v20 und kann auf v19 oder v20 eingespielt werden.
 - Keine Änderung an Fragen, Bildabmessungen, Lernständen oder Oberflächengestaltung.
 - Ausschließlich lokale Vorbereitung und Prüfungen; kein SSH, Upload oder Deployment.
+
+## HTML beim Deployment erhalten v22
+
+- Automatischen Aufruf von prepare-pages.mjs aus der Deployment-Vorbereitung entfernt.
+- Bestehende HTML-Dateien werden geprüft und unverändert archiviert, ohne Neuerzeugung oder Formatierung.
+- CSP-Hash wird aus dem bereits vorhandenen JSON-LD berechnet und bei Bedarf ausschließlich in .htaccess aktualisiert.
+- Vollständiger lokaler Vorbereitungslauf erfolgreich: alle sechs HTML-Dateien bytegleich vor und nach der Prüfung sowie im Archiv. Formatiertes JSON-LD einschließlich CRLF-Zeilenenden getestet; passender CSP-Hash bestätigt.
