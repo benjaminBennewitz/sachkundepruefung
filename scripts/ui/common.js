@@ -39,11 +39,30 @@
       'www.paypal.me'
     ].includes(url.hostname);
   } catch { }
+  /**
+   * Ergänzt das lokale PayPal-Zeichen, ohne den Linktext zu ersetzen.
+   * @param {HTMLAnchorElement} link Unterstützungslink im Footer oder Dialog.
+   * @returns {void}
+   */
+  function decoratePaypalLink(link) {
+    if (link.querySelector('.paypal-icon')) return;
+    const icon = document.createElement('img');
+    icon.className = 'paypal-icon';
+    icon.src = 'assets/icons/paypal.svg';
+    icon.alt = '';
+    icon.width = 24;
+    icon.height = 24;
+    icon.setAttribute('aria-hidden', 'true');
+    link.classList.add('paypal-button');
+    link.prepend(icon);
+  }
+
   document.querySelectorAll('[data-paypal]')
     .forEach(link => {
       if (validPaypal) {
         link.href = paypalUrl;
         link.hidden = false;
+        decoratePaypalLink(link);
       }
     });
   document.querySelectorAll('[data-support-pending]')
@@ -79,7 +98,8 @@
     link.href = paypalUrl;
     link.target = '_blank';
     link.rel = 'noopener noreferrer external';
-    link.textContent = 'Über PayPal unterstützen ↗';
+    link.textContent = 'Mit PayPal unterstützen';
+    decoratePaypalLink(link);
     actions.append(link);
   } else {
     const note = document.createElement('p');

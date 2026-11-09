@@ -95,3 +95,9 @@ rmdir /s /q dist
 ```
 
 Anschließend direkt im Projektordner entwickeln. Das Deployment prüft die aktuellen Dateien und archiviert sie ohne weitere Dateikopie.
+
+## Unterstützung und Favicon
+
+PayPal.Me: https://paypal.me/BBennewitz, zentral in scripts/site-config.js konfiguriert. Der Betrag ist frei wählbar. Das offizielle PayPal-Zeichen liegt lokal unter assets/icons/paypal.svg; Originalquelle: https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-mark-color.svg. Es wird kein Zahlungs-SDK eingebunden.
+
+Alle Seiten verlinken favicon.svg, favicon.png (96 × 96) und favicon.ico (16/32/48). Für die Domain-Startseite bereitet das Serverskript eine zeitweilige Weiterleitung nach /nrw/ vor. Das aktualisierte Serverskript muss vor dem nächsten Deployment erneut installiert werden; Details in deployment/README.md.

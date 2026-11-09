@@ -25,6 +25,7 @@
    05   Farbflächen und eigene Bedienelemente
    06   Fußzeile und Hinweise
    07   Kompakter Lernraum und responsive Anordnung
+   08   PayPal-Unterstützung
    ========================================================================== */
 
 /* ==========================================================================
@@ -3457,4 +3458,31 @@ html {
 
 html:has(#trainer) {
   scroll-padding-top: var(--header-height, 73px);
+}
+/* ==========================================================================
+   08   PayPal-Unterstützung
+   ========================================================================== */
+
+.paypal-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+}
+
+.paypal-icon {
+  display: block;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  box-sizing: content-box;
+  border: 1px solid #dce3eb;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.dialog-actions .paypal-button {
+  padding-inline: 12px;
 }

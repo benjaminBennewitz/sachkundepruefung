@@ -19,7 +19,7 @@ window.SITE_CONFIG = {
     email: 'kontakt@design-code-repeat.de',
     phone: '+49 162 9038166'
   },
-  paypalUrl: '',
+  paypalUrl: 'https://paypal.me/BBennewitz',
   hosting: {
     provider: 'netcup GmbH',
     address: 'Emmy-Noether-Straße 10, 76131 Karlsruhe, Deutschland',
