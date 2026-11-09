@@ -23,7 +23,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="scripts/ui/theme.js?v=19"></script>
   <link rel="stylesheet" href="styles/tokens.css?v=19">
-  <link rel="stylesheet" href="styles/interface.css?v=23">
+  <link rel="stylesheet" href="styles/interface.css?v=25">
   <script
     type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"NRW Sachkundeprüfung Lernhilfe","applicationCategory":"EducationalApplication","operatingSystem":"Webbrowser","inLanguage":"de","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Unabhängige Lernhilfe zum Landeshundegesetz NRW mit quellenbezogenen Fragen und Prüfungssimulation.","url":"https://hunde-sachkundetrainer.de/nrw/"}</script>
 
@@ -167,9 +167,6 @@
                 class="secondary" type="button">Katalog auswerten</button></div>
           </div>
           <div class="question-stage" id="questionStage" role="region" aria-label="Fragen und Rückmeldung" tabindex="0">
-            <p id="appNotice" class="notice" role="status" hidden></p>
-            <p id="examNotice" class="context-note" hidden>Simulation: Antworten werden erst bei der Auswertung
-              aufgelöst. Dein Lernstand bleibt unberührt.</p>
             <div id="result" class="result-panel" tabindex="-1" hidden></div>
             <div id="questions" class="questions"></div>
           </div>
@@ -195,6 +192,8 @@
     </section>
   </main>
   <footer class="site-footer wrap">
+    <p class="footer-scope">Aktuell gibt es die Lernhilfe nur für NRW. Weitere Bundesländer können auf Anfrage ergänzt werden. <a href="mailto:kontakt@design-code-repeat.de?subject=Sachkundenachweis%20f%C3%BCr%20Hunde%20%28Bundesland%29">Erweiterung per E-Mail anfragen</a> – bitte das Bundesland im Betreff angeben.</p>
+    
     <p class="footer-credit">© 2026 Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/"
         aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p>
     <nav aria-label="Rechtliches und Informationen"><a href="quellen.html">Originalquellen</a><a
@@ -207,11 +206,11 @@
         href="quellen.html">Originalquellen</a> kannst du auch ohne JavaScript öffnen.</p>
   </noscript>
   <script src="scripts/site-config.js?v=23" defer></script>
-  <script src="scripts/ui/common.js?v=23" defer></script>
+  <script src="scripts/ui/common.js?v=25" defer></script>
   <script src="scripts/learning/data.js?v=19" defer></script>
   <script src="scripts/learning/sources.js?v=19" defer></script>
   <script src="scripts/learning/core.js?v=19" defer></script>
-  <script src="scripts/learning/app.js?v=19" defer></script>
+  <script src="scripts/learning/app.js?v=25" defer></script>
   <script src="scripts/ui/controls.js?v=19" defer></script>
 </body>
 

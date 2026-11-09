@@ -31,19 +31,19 @@ export function header(file = 'index.html') {
     tool('import', 'Lernstand laden', 'id="importTrigger"') +
     '<input id="importProgress" type="file" accept="application/json,.json" hidden>' + tool(
       'export', 'Lernstand sichern', 'id="exportProgress"') + tool('reset',
-        'Diesen Lernbereich zurücksetzen', 'id="reset"') :
+      'Diesen Lernbereich zurücksetzen', 'id="reset"') :
     ['import', 'export', 'reset'].map((key, i) =>
-      `<a class="icon-button" aria-label="${['Lernstand laden', 'Lernstand sichern', 'Lernbereich zurücksetzen'][i]} – im Trainer" href="./?action=${key}#trainer">${svg(key)}<span class="tool-tip" aria-hidden="true">${['Laden', 'Sichern', 'Zurücksetzen'][i]} im Trainer</span></a>`
-    )
-      .join('');
-  return `<header class="site-header wrap"><a class="brand" href="./" aria-label="Sachkunde NRW – Startseite"><span class="brand-mark" aria-hidden="true">§</span><span>SACHKUNDE<span class="brand-sub">NRW / DIE LERNHILFE</span></span></a><nav class="header-nav" aria-label="Hauptnavigation">${[['index.html', 'Lernen', home ? '#trainer' : './#trainer'], ['gut-zu-wissen.html', 'Gut zu wissen', 'gut-zu-wissen.html'], ['hundewissen.html', 'Hundewissen', 'hundewissen.html'], ['quellen.html', 'Quellen', 'quellen.html']].map(([key, label, href]) => `<a href="${href}"${file === key ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav><div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge">${actions}${tool('heart', 'Über PayPal unterstützen', 'data-open-support')}${tool('sun', 'Farbschema wechseln', 'id="themeToggle"', svg('sun', 'theme-sun') + svg('moon', 'theme-moon'))}</div></header>`;
+      `<a class="icon-button" aria-label="${['Lernstand laden','Lernstand sichern','Lernbereich zurücksetzen'][i]} – im Trainer" href="./?action=${key}#trainer">${svg(key)}<span class="tool-tip" aria-hidden="true">${['Laden','Sichern','Zurücksetzen'][i]} im Trainer</span></a>`
+      )
+    .join('');
+  return `<header class="site-header wrap"><a class="brand" href="./" aria-label="Sachkunde NRW – Startseite"><span class="brand-mark" aria-hidden="true">§</span><span>SACHKUNDE<span class="brand-sub">NRW / DIE LERNHILFE</span></span></a><nav class="header-nav" aria-label="Hauptnavigation">${[['index.html','Lernen',home?'#trainer':'./#trainer'],['gut-zu-wissen.html','Gut zu wissen','gut-zu-wissen.html'],['hundewissen.html','Hundewissen','hundewissen.html'],['quellen.html','Quellen','quellen.html']].map(([key,label,href]) => `<a href="${href}"${file===key?' aria-current="page"':''}>${label}</a>`).join('')}</nav><div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge">${actions}${tool('heart','Über PayPal unterstützen','data-open-support')}${tool('sun','Farbschema wechseln','id="themeToggle"',svg('sun','theme-sun')+svg('moon','theme-moon'))}</div></header>`;
 }
 
 /** @type {string} Gemeinsamer Hinweis auf den unverbindlichen Charakter der Lernhilfe. */
 export const disclaimer =
   `<aside class="legal-disclaimer" aria-label="Wichtiger Hinweis zur Lernhilfe"><strong>REINE LERNHILFE. KEINE RECHTSBERATUNG. KEINE PRÜFUNGSGARANTIE.</strong><p>Dieses unabhängige Angebot ersetzt weder behördliche Auskünfte noch eine Sachkunde- oder Verhaltensprüfung. Für Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird keine Gewähr übernommen. Maßgeblich sind geltendes Recht und die Auskunft deiner zuständigen Behörde. Ein gutes Übungsergebnis garantiert kein Bestehen. <a href="impressum.html#haftung">Hinweise zur Haftung</a></p></aside>`;
 
-/** Erzeugt die gemeinsame Fußzeile mit Copyright, Entwicklerlink und Informationslinks. */
+/** Erzeugt die Fußzeile mit NRW-Hinweis, Kontakt, Copyright und Informationslinks. */
 export function footer(home = false) {
-  return `<footer class="site-footer wrap"><p class="footer-credit">© ${new Date().getFullYear()} Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/" aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p><nav aria-label="Rechtliches und Informationen"><a href="quellen.html">Originalquellen</a><a href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Hundewissen</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="${home ? '#trainer' : './#trainer'}">Zum Lernen ↑</a></nav></footer>`;
+  return `<footer class="site-footer wrap"><p class="footer-scope">Aktuell gibt es die Lernhilfe nur für NRW. Weitere Bundesländer können auf Anfrage ergänzt werden. <a href="mailto:kontakt@design-code-repeat.de?subject=Sachkundenachweis%20f%C3%BCr%20Hunde%20%28Bundesland%29">Erweiterung per E-Mail anfragen</a> – bitte das Bundesland im Betreff angeben.</p><p class="footer-credit">© ${new Date().getFullYear()} Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/" aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p><nav aria-label="Rechtliches und Informationen"><a href="quellen.html">Originalquellen</a><a href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Hundewissen</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="${home ? '#trainer' : './#trainer'}">Zum Lernen ↑</a></nav></footer>`;
 }

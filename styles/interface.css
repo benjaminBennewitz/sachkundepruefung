@@ -26,6 +26,8 @@
    06   Fußzeile und Hinweise
    07   Kompakter Lernraum und responsive Anordnung
    08   PayPal-Unterstützung
+   09   Wissensnavigation und Reisehinweise
+   10   Wiederverwendbare Modale, Toasts und ergänzende Seitenelemente
    ========================================================================== */
 
 /* ==========================================================================
@@ -965,13 +967,6 @@ legend {
   border-top: 1px solid var(--line);
 }
 
-.notice {
-  font-size: .8rem;
-  padding: 14px;
-  border: 1px solid var(--rust);
-  color: var(--rust);
-  border-radius: 10px;
-}
 
 .result-panel {
   border: 1px solid var(--accent);
@@ -2026,7 +2021,7 @@ html {
   line-height: 1.9;
 }
 
-.support-dialog {
+.ui-modal {
   width: min(560px, calc(100% - 32px));
   max-height: calc(100dvh - 40px);
   overflow: auto;
@@ -2038,27 +2033,27 @@ html {
   box-shadow: 0 24px 90px #0005;
 }
 
-.support-dialog::backdrop {
+.ui-modal::backdrop {
   background: #0e1b16a6;
   backdrop-filter: blur(3px);
 }
 
-.support-dialog-inner {
+.ui-modal-inner {
   display: grid;
   gap: 18px;
   padding: 32px;
 }
 
-.support-dialog h2 {
+.ui-modal h2 {
   font: 400 2rem/1.15 Georgia, serif;
 }
 
-.support-dialog p:not(.eyebrow):not(.microcopy) {
+.ui-modal p:not(.eyebrow):not(.microcopy) {
   font-size: .9rem;
   line-height: 1.8;
 }
 
-.support-dialog .eyebrow {
+.ui-modal .eyebrow {
   margin: 0;
 }
 
@@ -2138,7 +2133,7 @@ html {
     font-size: .8rem;
   }
 
-  .support-dialog-inner {
+  .ui-modal-inner {
     padding: 25px;
   }
 }
@@ -2204,11 +2199,11 @@ html {
     font-size: .73rem;
   }
 
-  .support-dialog h2 {
+  .ui-modal h2 {
     font-size: 1.65rem;
   }
 
-  .support-dialog-inner {
+  .ui-modal-inner {
     padding: 22px;
   }
 
@@ -3485,4 +3480,366 @@ html:has(#trainer) {
 
 .dialog-actions .paypal-button {
   padding-inline: 12px;
+}
+
+/* ==========================================================================
+   09   Wissensnavigation und Reisehinweise
+   AUTHOR: Benjamin Bennewitz [B²]
+   ========================================================================== */
+
+.knowledge-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 185px), 1fr));
+  gap: 10px;
+  margin-block: 24px 30px;
+}
+
+.knowledge-nav a {
+  display: grid;
+  align-items: center;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: .82rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.knowledge-nav a:hover {
+  background: var(--control-hover);
+}
+
+.travel-section {
+  margin-top: 46px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.travel-section > .eyebrow {
+  color: var(--accent);
+}
+
+.travel-note {
+  margin-block: 24px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-inline-start: 4px solid var(--accent);
+  border-radius: 12px;
+  background: var(--accent-bg);
+}
+
+.travel-note > :first-child {
+  margin-top: 0;
+}
+
+.travel-note > :last-child,
+.travel-card-body > :last-child {
+  margin-bottom: 0;
+}
+
+.travel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-items: start;
+  margin-block: 22px 30px;
+}
+
+.travel-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  scroll-margin-top: 110px;
+}
+
+.travel-card summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 68px;
+  padding: 16px;
+  list-style: none;
+  font-size: .86rem;
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+.travel-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.travel-card summary::after {
+  content: "+";
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  color: var(--accent);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.travel-card[open] summary::after {
+  content: "−";
+}
+
+.travel-card summary:hover {
+  background: var(--control-hover);
+}
+
+.travel-card[open] summary {
+  border-bottom: 1px solid var(--line);
+  border-radius: 12px 12px 0 0;
+}
+
+.travel-tag {
+  grid-column: 1;
+  color: var(--accent);
+  font-size: .72rem;
+  font-weight: 500;
+}
+
+.travel-card-body {
+  padding: 0 18px 18px;
+  overflow-wrap: anywhere;
+}
+
+.travel-card-body .source-links {
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  line-height: 1.8;
+}
+
+.travel-card-body ul,
+.travel-checklist {
+  padding-inline-start: 20px;
+}
+
+.travel-card-body li + li,
+.travel-checklist li + li {
+  margin-top: 10px;
+}
+
+@media (max-width: 680px) {
+  .travel-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .travel-note {
+    padding: 16px;
+  }
+}
+
+/* ==========================================================================
+   10   Wiederverwendbare Modale, Toasts und ergänzende Seitenelemente
+   AUTHOR: Benjamin Bennewitz [B²]
+   ========================================================================== */
+
+.header-nav a {
+  padding: 8px 10px;
+  margin: -8px -10px;
+  border-radius: 8px;
+  transition: background-color .15s ease, color .15s ease;
+}
+
+.header-nav a:hover,
+.header-nav a:focus-visible {
+  background: var(--accent-bg);
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.header-nav a:active {
+  background: var(--nav-panel);
+}
+
+.site-footer .footer-scope {
+  flex-basis: 100%;
+  max-width: 85ch;
+  margin: 0 0 4px;
+  font-size: .77rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+html.knowledge-page {
+  scroll-behavior: smooth;
+}
+
+.keyboard-guide {
+  display: grid;
+  gap: 10px;
+  margin-block: 20px;
+}
+
+.keyboard-guide > div {
+  display: grid;
+  grid-template-columns: minmax(110px, auto) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.keyboard-guide dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+kbd {
+  display: inline-grid;
+  min-width: 30px;
+  min-height: 30px;
+  place-items: center;
+  padding: 2px 7px;
+  border: 1px solid var(--control-line);
+  border-bottom-width: 3px;
+  border-radius: 6px;
+  background: var(--subtle);
+  color: var(--text);
+  font: 600 .78rem/1.4 ui-monospace, Consolas, monospace;
+  vertical-align: baseline;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html.modal-open {
+  overflow: hidden;
+}
+
+.ui-modal h2,
+.ui-modal p {
+  margin: 0;
+}
+
+.ui-modal .dialog-actions {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+}
+
+.danger-button {
+  background: var(--bad-bg);
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+.danger-button:hover {
+  background: var(--bad-bg);
+  color: var(--bad);
+  box-shadow: inset 0 0 0 1px var(--bad);
+}
+
+.toast-region {
+  position: fixed;
+  inset-inline-end: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 60;
+  display: grid;
+  gap: 10px;
+  width: min(440px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  pointer-events: none;
+}
+
+.ui-toast {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  gap: 12px;
+  align-items: start;
+  padding: 16px 10px 16px 18px;
+  border: 1px solid var(--control-line);
+  border-inline-start: 5px solid var(--accent);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 8px 32px #0003;
+  overflow-wrap: anywhere;
+  pointer-events: auto;
+}
+
+.ui-toast strong {
+  display: block;
+  font-size: .85rem;
+}
+
+.ui-toast p {
+  margin: 6px 0 0;
+  font-size: .84rem;
+  line-height: 1.6;
+}
+
+.ui-toast--success {
+  border-inline-start-color: var(--ok);
+}
+
+.ui-toast--warning {
+  border-inline-start-color: var(--rust);
+  background: var(--rust-bg);
+}
+
+.ui-toast--error {
+  border-inline-start-color: var(--bad);
+  background: var(--bad-bg);
+}
+
+.toast-close {
+  display: grid;
+  width: 44px;
+  min-height: 44px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.toast-close:hover {
+  background: var(--control-hover);
+  color: var(--text);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 480px) {
+  .keyboard-guide > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .ui-modal .dialog-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.knowledge-page {
+    scroll-behavior: auto;
+  }
+
+  .header-nav a {
+    transition: none;
+  }
 }

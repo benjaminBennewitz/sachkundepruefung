@@ -8,6 +8,7 @@
 /* global LHUNDG_DATA, LHUNDG_CORE, LHUNDG_SOURCES */
 (() => {
   'use strict';
+  const ui = window.LHUNDG_UI;
   const {
     exact,
     randomQuestions,
@@ -91,6 +92,7 @@
   const config = modes[mode];
   const isExam = Number.isInteger(config.examCount);
   let storageFailed = false;
+  let storageWarningShown = false;
 
   /** Liest JSON aus dem Browserspeicher; Speichersperren unterbrechen das Lernen nicht. */
   function readStorage(kind, key, fallback = null) {
@@ -113,12 +115,13 @@
     }
   }
 
-  /** Zeigt bei gesperrtem oder vollem Speicher einen Hinweis zur lokalen Sicherung. */
+  /** Zeigt Speicherprobleme einmalig als bleibenden Toast; das Lernen bleibt bedienbar. */
   function showStorageWarning() {
-    if (!storageFailed) return;
-    $('storageNote')
-      .textContent =
-      'Dein Browser blockiert die Speicherung oder der Speicher ist voll. Du kannst weiterlernen; sichere deinen Lernstand vor dem Schließen über „Lernstand sichern“.';
+    if (!storageFailed || storageWarningShown) return;
+    storageWarningShown = true;
+    ui.toast('Dein Browser blockiert die Speicherung oder der Speicher ist voll. Du kannst weiterlernen; sichere deinen Lernstand vor dem Schließen über „Lernstand sichern“.', {
+      type: 'warning', key: 'storage-failed', duration: 0
+    });
   }
   const pool = LHUNDG_DATA[config.pool];
   let questions = pool;
@@ -190,12 +193,14 @@
     return el;
   }
 
-  /** Gibt eine Statusmeldung im bestehenden Live-Bereich aus. */
-  function notice(text) {
-    $('appNotice')
-      .textContent = text;
-    $('appNotice')
-      .hidden = false;
+  /**
+   * Zeigt eine Rückmeldung außerhalb des Lernlayouts.
+   * @param {string} text Verständliche Status- oder Fehlermeldung.
+   * @param {'info'|'success'|'warning'|'error'} [type] Bedeutung des Toasts.
+   * @returns {void}
+   */
+  function notice(text, type = 'info') {
+    ui.toast(text, { type });
   }
 
   /** Sichert Antworten und Metadaten getrennt nach Katalog oder laufendem Test. */
@@ -240,8 +245,7 @@
   updateFeedbackToggle();
   $('instantFeedback')
     .disabled = isExam;
-  $('examNotice')
-    .hidden = !isExam;
+  if (isExam) notice('Test gestartet. Antworten werden erst bei der Auswertung aufgelöst. Dein Katalog-Lernstand bleibt erhalten.');
   $('intermediate')
     .hidden = isExam;
   $('evaluate')
@@ -706,16 +710,23 @@
       render();
     });
 
-  /** Wertet vollständige Antwortmengen aus und zeigt Fehler sowie Lernquote an. */
-  function evaluate(intermediate = false) {
+  /**
+   * Wertet Antwortmengen aus und fragt vor dem Abschluss unvollständiger Tests nach.
+   * @param {boolean} [intermediate] Bewertet nur bereits vollständig beantwortete Fragen.
+   * @returns {Promise<void>} Wird nach Bestätigung und Darstellung der Auswertung erfüllt.
+   */
+  async function evaluate(intermediate = false) {
     const chosen = intermediate ? questions.filter(q => complete(q, state.answers.get(q.id))) :
       questions;
     if (!intermediate && isExam && !state.finished) {
       const open = chosen.filter(q => !complete(q, state.answers.get(q.id)))
         .length;
-      if (open && !confirm(
-        `Noch ${open} Fragen sind offen oder unvollständig und werden als falsch gewertet. Simulation jetzt auswerten?`
-      )) return;
+      if (open && !await ui.confirm({
+        title: 'Test jetzt auswerten?',
+        message: `Noch ${open} Fragen sind offen oder unvollständig und werden als falsch gewertet.`,
+        confirmLabel: 'Jetzt auswerten',
+        cancelLabel: 'Weiter beantworten'
+      })) return;
     }
     if (isExam) state.finished = true;
     for (const q of chosen) state.checked.set(q.id, signature(q));
@@ -794,10 +805,14 @@
   $('evaluate')
     .addEventListener('click', () => evaluate(false));
   $('reset')
-    .addEventListener('click', () => {
-      if (!confirm(
-        'Antworten, Bewertungen und Merkliste in diesem Lernbereich löschen? Andere Lernbereiche bleiben erhalten.'
-      )) return;
+    .addEventListener('click', async () => {
+      if (!await ui.confirm({
+        title: 'Lernbereich zurücksetzen?',
+        message: 'Antworten, Bewertungen und Merkliste in diesem Lernbereich werden gelöscht. Andere Lernbereiche bleiben erhalten.',
+        confirmLabel: 'Ja, zurücksetzen',
+        cancelLabel: 'Nein, weiterlernen',
+        danger: true
+      })) return;
       state.answers.clear();
       state.bookmarks.clear();
       state.checked.clear();
@@ -807,12 +822,16 @@
         .hidden = true;
       persist();
       goTo(questions[0].id);
-      notice('Dieser Lernbereich wurde zurückgesetzt.');
+      notice('Dieser Lernbereich wurde zurückgesetzt.', 'success');
     });
   $('startExam')
-    .addEventListener('click', () => {
-      if (isExam && !state.finished && state.answers.size && !confirm(
-        'Aktuelle Simulation verlassen und eine neue starten?')) return;
+    .addEventListener('click', async () => {
+      if (isExam && !state.finished && state.answers.size && !await ui.confirm({
+        title: 'Neue Testreihe starten?',
+        message: 'Du verlässt die laufende Simulation und startest eine neue zufällige Auswahl.',
+        confirmLabel: 'Neue Testreihe',
+        cancelLabel: 'Im Test bleiben'
+      })) return;
       const profile = modes[$('testSelect')
         .value];
       const selected = randomQuestions(LHUNDG_DATA[profile.pool], profile.examCount);
@@ -858,7 +877,7 @@
       link.click();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
       notice(
-        'Lernstand exportiert. Prüfungssimulationen sind nicht Bestandteil der Sicherung.');
+        'Lernstand-Datei zum Speichern bereitgestellt. Prüfungssimulationen sind nicht Bestandteil der Sicherung.', 'success');
     });
 
   $('importProgress')
@@ -895,9 +914,11 @@
         }
         if (!updates.length) throw new Error(
           'Die Datei enthält keinen bekannten Lernbereich.');
-        if (!confirm(
-          'Lernstände zusammenführen? Bei derselben Frage ersetzt die importierte Antwort die bisherige. Bewertungen werden zurückgesetzt.'
-        )) return;
+        if (!await ui.confirm({
+          title: 'Lernstand laden?',
+          message: 'Lernstände werden zusammengeführt. Bei derselben Frage ersetzt die importierte Antwort die bisherige. Bewertungen werden zurückgesetzt.',
+          confirmLabel: 'Laden und zusammenführen'
+        })) return;
         for (const update of updates) {
           const existing = validAnswers(readStorage('localStorage', update.entry.key, {}),
             LHUNDG_DATA[update.entry.pool]);
@@ -921,10 +942,11 @@
         $('result')
           .hidden = true;
         applyFilters();
-        notice('Lernstand geladen. Deine Antworten wurden zusammengeführt.');
+        notice(storageFailed ? 'Lernstand übernommen. Die dauerhafte Speicherung ist eingeschränkt; bitte sichere ihn zusätzlich als Datei.' :
+          'Lernstand geladen. Deine Antworten wurden zusammengeführt.', storageFailed ? 'warning' : 'success');
       } catch (error) {
-        notice(error instanceof Error ? error.message :
-          'Die Datei konnte nicht geladen werden.');
+        notice(error instanceof SyntaxError ? 'Die Datei ist beschädigt oder enthält kein gültiges JSON. Bitte wähle eine exportierte Lernstand-Datei.' :
+          error instanceof Error ? error.message : 'Die Datei konnte nicht geladen werden.', 'error');
       } finally {
         event.target.value = '';
       }
