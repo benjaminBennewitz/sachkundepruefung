@@ -582,13 +582,14 @@ progress::-moz-progress-bar {
   font-size: .6rem;
 }
 
-.exam-panel h3 {
+.exam-panel .test-title {
+  margin: 0;
   font-family: Georgia, serif;
   font-size: 1.5rem;
   font-weight: 400;
 }
 
-.exam-panel p:not(.eyebrow) {
+.exam-panel p:not(.eyebrow):not(.test-title) {
   font-size: .79rem;
   color: var(--muted);
 }
@@ -811,10 +812,10 @@ progress::-moz-progress-bar {
 }
 
 .question-images img {
-  width: 100%;
-  max-width: 600px;
+  width: auto;
+  max-width: min(100%, 600px);
   height: auto;
-  max-height: 400px;
+  max-height: 260px;
   object-fit: contain;
   background: #fff;
   border-radius: 8px;
@@ -1044,6 +1045,10 @@ legend {
 
 .info-section {
   padding-block: 85px 60px;
+}
+
+.info-section > h2 {
+  margin-bottom: 20px;
 }
 
 .faq-grid {
@@ -2398,7 +2403,7 @@ html {
   border-radius: 12px;
 }
 
-.sidebar .exam-panel p:not(.eyebrow) {
+.sidebar .exam-panel p:not(.eyebrow):not(.test-title) {
   color: var(--nav-muted);
 }
 
@@ -3228,7 +3233,8 @@ html {
   gap: 10px;
 }
 
-.sidebar .exam-panel h3 {
+.sidebar .exam-panel .test-title {
+  margin: 0;
   font-family: inherit;
   font-size: .88rem;
   font-weight: 750;

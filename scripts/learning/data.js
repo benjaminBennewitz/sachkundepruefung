@@ -18289,67 +18289,67 @@ window.LHUNDG_DATA = Object.fromEntries(
 /** @type {Record<string, number[]>} Bildbreite und -höhe zur Vermeidung von Layoutsprüngen. */
 window.LHUNDG_IMAGE_SIZES = {
   "assets/questions/q006.webp": [
-    867,
-    220
+    325,
+    182
   ],
   "assets/questions/q026.webp": [
-    867,
-    197
+    293,
+    173
   ],
   "assets/questions/q056.webp": [
-    867,
-    199
+    230,
+    165
   ],
   "assets/questions/q016-1.webp": [
-    867,
-    461
+    350,
+    167
   ],
   "assets/questions/q075.webp": [
-    867,
-    203
+    348,
+    132
   ],
   "assets/questions/q046.webp": [
-    867,
-    232
+    320,
+    146
   ],
   "assets/questions/q065.webp": [
-    867,
-    226
+    280,
+    193
   ],
   "assets/sources/koeln/a7.webp": [
-    944,
-    386
+    162,
+    128
   ],
   "assets/sources/koeln/a5.webp": [
-    944,
-    522
+    527,
+    270
   ],
   "assets/sources/koeln/a2.webp": [
-    944,
-    616
+    505,
+    318
   ],
   "assets/sources/koeln/a8.webp": [
-    944,
-    387
+    200,
+    181
   ],
   "assets/sources/koeln/a3.webp": [
-    944,
-    313
+    556,
+    156
   ],
   "assets/sources/rhein97/88.webp": [
-    944,
-    508
+    695,
+    175
   ],
   "assets/sources/rhein97/92.webp": [
-    944,
-    386
+    655,
+    188
   ],
   "assets/sources/rhein97/13.webp": [
-    944,
-    634
+    480,
+    330
   ],
   "assets/sources/rhein97/21.webp": [
-    944,
-    334
+    168,
+    160
   ]
 };

@@ -56,11 +56,37 @@ const draft = incomplete ?
   '<p class="release-note">Entwurf: Betreiber- und Hostingangaben sind noch unvollständig. Vor Veröffentlichung in scripts/site-config.js ergänzen und diese Seiten mit node scripts/pages/prepare-pages.mjs neu erzeugen.</p>' :
   '';
 
-/** Erzeugt eine semantische Inhaltsseite mit gemeinsamer Navigation und konfigurierbaren SEO-Metadaten. */
+/** Dokumenttitel und Kurztexte für die öffentlichen Informationsseiten. */
+const searchMetadata = {
+  'hundewissen.html': {
+    'title': 'Listenhunde & Haltungsauflagen in NRW | Hundewissen',
+    'description': 'Listenhunde in NRW: Orientierung zu Haltungsauflagen, Sachkundenachweis, Maulkorb, Leinenpflicht und Wesenstest – mit Links zu Behörden und Rechtstexten.'
+  },
+  'quellen.html': {
+    'title': 'Sachkunde NRW: Fragenkataloge und Originalquellen',
+    'description': 'Quellen der Sachkunde-Fragen für Hunde in NRW: Rhein-Erft, Köln und Tierärztekammern. Originalunterlagen, Lösungsschlüssel und Grenzen der Testreihen.'
+  },
+  'gut-zu-wissen.html': {
+    'title': 'Sachkundeprüfung NRW: Testreihen, Lerntipps & Hundereisen',
+    'description': 'Hilfe zum kostenlosen Sachkunde-Trainer für NRW: passende Testreihe wählen, Lernstand speichern und Regeln für Reisen mit Hund nachlesen.'
+  }
+};
+
+/**
+ * Erzeugt eine Inhaltsseite mit gemeinsamer Navigation und SEO-Metadaten.
+ * @param {string} file Zieldatei im Projektordner.
+ * @param {string} title Sichtbare Hauptüberschrift.
+ * @param {string} description Kurzbeschreibung, sofern kein SEO-Eintrag vorliegt.
+ * @param {string} content HTML des Seiteninhalts aus den lokalen Vorlagen.
+ * @param {boolean} [noindex=false] Schließt einen Entwurf von der Indexierung aus.
+ * @returns {void}
+ */
 function page(file, title, description, content, noindex = false) {
+  const documentTitle = searchMetadata[file]?.title ?? `${title} | Sachkunde NRW`;
+  description = searchMetadata[file]?.description ?? description;
   const html =
     `<!doctype html>
-<html lang="de"${file === 'gut-zu-wissen.html' ? ' class="knowledge-page"' : ''}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="robots" content="${noindex ? 'noindex,follow' : 'index,follow'}"><title>${escape(title)} | Sachkunde NRW</title><meta name="description" content="${escape(description)}">${config.origin ? `<link rel="canonical" href="${escape(config.siteUrl)}/${file}">` : ''}<meta property="og:type" content="website"><meta property="og:locale" content="de_DE"><meta property="og:title" content="${escape(title)} | Sachkunde NRW"><meta property="og:description" content="${escape(description)}">${config.origin ? `<meta property="og:url" content="${escape(config.siteUrl)}/${file}">` : ''}<link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">  <link rel="icon" href="favicon.png" type="image/png" sizes="96x96">  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script src="scripts/ui/theme.js?v=19"></script><link rel="stylesheet" href="styles/tokens.css?v=19"><link rel="stylesheet" href="styles/interface.css?v=25"></head>
+<html lang="de"${file === 'gut-zu-wissen.html' ? ' class="knowledge-page"' : ''}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="robots" content="${noindex ? 'noindex,follow' : 'index,follow'}"><title>${escape(documentTitle)}</title><meta name="description" content="${escape(description)}">${config.origin ? `<link rel="canonical" href="${escape(config.siteUrl)}/${file}">` : ''}<meta property="og:type" content="website"><meta property="og:locale" content="de_DE"><meta property="og:title" content="${escape(documentTitle)}"><meta property="og:description" content="${escape(description)}">${config.origin ? `<meta property="og:url" content="${escape(config.siteUrl)}/${file}">` : ''}<link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">  <link rel="icon" href="favicon.png" type="image/png" sizes="96x96">  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script src="scripts/ui/theme.js?v=19"></script><link rel="stylesheet" href="styles/tokens.css?v=19"><link rel="stylesheet" href="styles/interface.css?v=26"></head>
 <body><a class="skip-link" href="#inhalt">Zum Inhalt</a>${header(file)}
 <main id="inhalt" class="prose wrap" tabindex="-1"><p class="eyebrow">SACHKUNDE / NRW</p><h1>${escape(title)}</h1>${['quellen.html','gut-zu-wissen.html','hundewissen.html'].includes(file) ? disclaimer : ''}${content}</main>${footer()}<script src="scripts/site-config.js?v=23" defer></script><script src="scripts/ui/common.js?v=25" defer></script><script src="scripts/ui/controls.js?v=19" defer></script></body></html>`;
   writeFileSync(resolve(root, file), html.replace(/\r?\n/g, '\r\n'));

@@ -55,6 +55,7 @@ run(['scripts/quality/validate-data.mjs']);
 run(['--test', 'scripts/quality/core.test.cjs']);
 if (!checkOnly) syncStructuredDataHash();
 run(['scripts/quality/check-paths.mjs']);
+run(['scripts/quality/check-seo.mjs']);
 if (!checkOnly) run(['scripts/quality/check-release.mjs', ...process.argv.slice(2)
   .filter(arg => arg === '--rights-confirmed')
 ]);

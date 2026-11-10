@@ -5,14 +5,15 @@ DirectoryIndex index.html
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "no-referrer"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-0B+AcTll1XkwS4hOdU7Us0lrgQSdFwlOfdQ98dPp0gA='; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-vnuMJpwgjbekhS1DMBiMebwHFYZlgmHjpDi7oV29joM='; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
   <FilesMatch "\.html$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
   <FilesMatch "\.(js|css)$">
     Header set Cache-Control "public, max-age=86400"
+    Header set Cache-Control "public, max-age=2592000" "expr=%{QUERY_STRING} =~ /(^|&)v=[0-9]+(&|$)/"
   </FilesMatch>
-  <FilesMatch "\.(webp|svg)$">
+  <FilesMatch "\.(webp|svg|png|ico)$">
     Header set Cache-Control "public, max-age=31536000"
   </FilesMatch>
   Header always set X-Robots-Tag "noindex, follow" "expr=%{QUERY_STRING} =~ /(^|&)(mode=(mgexam|exam34|exam11)|tv=1)(&|$)/"

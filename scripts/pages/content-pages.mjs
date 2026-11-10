@@ -271,7 +271,7 @@ ${renderSection(sections.find(s => s.title==='Deine Rechte'))}<p>Eine Beschwerde
 <h2>Quellen statt Prüfungsgarantie</h2><p>Viele der verwendeten Fragenkataloge wurden mir von den zuständigen Ämtern persönlich zugesandt oder sind öffentlich abrufbar. Persönlich zugesandte Unterlagen haben nicht immer eine öffentliche Originaladresse; das wird bei den Quellen kenntlich gemacht.</p><p>Jede Frage nennt ihre Herkunft und Originalnummer. Nicht öffentlich belegte PDF-Adressen und abweichende Fassungen sind gekennzeichnet. Ältere Aussagen in Originalfragen können vom aktuellen Recht oder heutigen fachlichen Empfehlungen abweichen. Die Wertung folgt dem bezeichneten Lösungsschlüssel; aktuelle rechtliche Orientierung findest du auf <a href="hundewissen.html">Hundewissen</a>.</p>
 ${travelContent}
 <p><a class="primary button" href="./#trainer">Zum Lerntrainer →</a></p>`);
-  page('hundewissen.html', 'Hundehaltung & Sachkunde in NRW',
+  page('hundewissen.html', 'Listenhunde & Haltungsauflagen in NRW',
     'Amtlich belegte Orientierung zu Listenhunden, § 3, § 10, § 11, Sachkundenachweis und Verhaltensprüfung in NRW.',
     `
 <p>„Listenhund“, Sachkunde und Wesenstest werden oft in einem Atemzug genannt. Sie beschreiben aber unterschiedliche Dinge: die rechtliche Einordnung des Hundes, Kenntnisse des Menschen und die Beurteilung des Hund-Halter-Gespanns. Diese Übersicht ist allgemeine Orientierung für Nordrhein-Westfalen, Stand 6. November 2026.</p>

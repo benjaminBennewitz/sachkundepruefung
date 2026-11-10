@@ -21,10 +21,19 @@
   const params = new URLSearchParams(location.search);
   const header = document.querySelector('.site-header');
 
-  /** Überträgt die tatsächliche Headerhöhe in den responsiven Layout-Token. */
-  const updateHeaderHeight = () => document.documentElement.style.setProperty('--header-height',
-    `${header.getBoundingClientRect().height}px`);
-  updateHeaderHeight();
+  /**
+   * Übernimmt die vom Browser gemeldete Headerhöhe ohne zusätzliche Layout-Messung.
+   * @param {ResizeObserverEntry[]} entries Größenänderungen des Headers.
+   * @returns {void}
+   */
+  function updateHeaderHeight([entry]) {
+    const box = entry.borderBoxSize?.[0] ?? entry.borderBoxSize;
+    const height = `${box?.blockSize ?? header.getBoundingClientRect().height}px`;
+    const style = document.documentElement.style;
+    if (style.getPropertyValue('--header-height') !== height) {
+      style.setProperty('--header-height', height);
+    }
+  }
   new ResizeObserver(updateHeaderHeight).observe(header);
   const modes = {
     all: {
@@ -283,15 +292,16 @@
       .append(option);
   }
   const navButtons = new Map();
+  const navigationFragment = document.createDocumentFragment();
   for (const [index, q] of questions.entries()) {
     const label = ['all', 'mg', 'mgexam', 'exam34', 'exam11'].includes(mode) ? String(index + 1) :
       q.sourceId;
     const b = button(label, 'nav-q', () => goTo(q.id));
     b.title = `${q.source} · Originalfrage ${q.sourceId}`;
     navButtons.set(q.id, b);
-    $('questionNav')
-      .append(b);
+    navigationFragment.append(b);
   }
+  $('questionNav').append(navigationFragment);
 
   /** Aktualisiert Fortschritt, Fragenübersicht und zugängliche Zustandsangaben. */
   function updateOverview() {
@@ -482,7 +492,7 @@
     bookmark.setAttribute('aria-pressed', String(state.bookmarks.has(q.id)));
     header.append(bookmark);
     card.append(header);
-    const prompt = node('h4', q.prompt, 'question-prompt');
+    const prompt = node('h3', q.prompt, 'question-prompt');
     prompt.tabIndex = -1;
     prompt.id = `prompt-${q.id}`;
     card.append(prompt);
@@ -510,7 +520,7 @@
       const images = node('div', undefined, 'question-images');
       for (const [i, src] of q.images.entries()) {
         const img = document.createElement('img');
-        img.src = src;
+        img.src = `${src}?v=26`;
         img.alt =
           `Aufgabenabbildung zu ${q.source}, Frage ${q.sourceId}${q.images.length > 1 ? `, Teil ${i + 1}` : ''}. Die dargestellte Haltung ist Gegenstand der Frage.`;
         img.loading = 'lazy';
