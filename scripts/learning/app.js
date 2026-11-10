@@ -513,7 +513,7 @@
     provenance.append(link);
     card.append(provenance);
     if (q.referenceOnly) card.append(node('p',
-      'Dieser Lernbereich nutzt den bereitgestellten Kölner Übungsbogen. Aktuelle Veröffentlichungen der Stadt können davon abweichen; Lösungen gelten jeweils nur für ihre Fassung.',
+      'Dieser Lernbereich nutzt den bereitgestellten Kölner Übungsbogen; Lösungen gelten nur für diese Fassung. Bochum empfiehlt den öffentlichen Kölner Katalog zur Themenvorbereitung. Veröffentlichte Fassungen können von diesem Übungsbogen abweichen. Keine Nachbildung der Bochumer Prüfung.',
       'source-note'));
     if (q.note) card.append(node('p', q.note, 'source-note'));
     if (q.requiresVisual) {
