@@ -19,7 +19,7 @@ Fragen, Antworten, Schlüssel, IDs, Lernstände und Testlogik bleiben unverände
 | LHundG NRW | NRW-Regeln für Kategorien, Nachweise und Pflichten; der verlinkte Fassungsstand gilt ab 27.09.2016 | Rhein-Erft 203: 198–203 ergänzen das allgemeine Wissen; Köln und Rhein-Erft 97 enthalten weitere Rechtsfragen. Der Kammerkatalog endet bei 197 und enthält diese sechs Zusatzfragen nicht. |
 | Essener Serviceportal 41286 | Örtliche Verwaltungsinformation zu Anzeige und Haltungserlaubnis | Hilft bei Zuständigkeiten und Unterlagen. Liefert weder einen Essener Fragenkatalog noch Fragenzahl, Zeitlimit oder Bestehensgrenze. |
 
-Ergänzende Essener Prüfungsseite: Empfohlen werden Hundewissen und Originalrechtstexte; verbreitete Internetfragebögen allein werden ausdrücklich als nicht ausreichend bezeichnet. Die private E-Mail-Auskunft vom 11.11.2026 bestätigt, dass das Essener Veterinäramt nur §-3-Prüfungen anbietet. Daraus folgt keine amtliche Anerkennung unseres Trainers.
+Ergänzende Essener Prüfungsseite: Empfohlen werden Hundewissen und Originalrechtstexte; verbreitete Internetfragebögen allein werden ausdrücklich als nicht ausreichend bezeichnet. Die privaten E-Mail-Auskünfte vom 11.11.2026 bestätigen die ausschließliche §-3-Prüfungszuständigkeit und inzwischen die unten dokumentierten Rahmenbedingungen. Daraus folgt keine amtliche Anerkennung unseres Trainers.
 
 ## Nachvollziehbare Themenstichproben
 
@@ -51,7 +51,7 @@ Das Essener Portal enthält neben zutreffenden Detailangaben auch verkürzte For
 
 ## Ortsgliederung und Quellenkonflikte
 
-- **Essen:** Prüfungszuständigkeit aus privater Mail; Vorbereitungshinweise und Verwaltungsverfahren aus öffentlichen Seiten. Kein eigenes Testprofil ableitbar.
+- **Essen:** Prüfungszuständigkeit und Rahmenbedingungen aus privaten Mails; Vorbereitungshinweise und Verwaltungsverfahren aus öffentlichen Seiten. Eine originalgetreue Auswertung ist ohne das unveröffentlichte Teilpunkteschema und den Originalfragenkatalog nicht ableitbar.
 - **Bochum:** V27-Einordnung bleibt erhalten; öffentliche Kölner Unterlagen dienen nach privater Auskunft der Themenvorbereitung, der Bochumer Katalog wurde nicht überlassen.
 - **Köln:** Öffentliche Angabe 34 Fragen / mindestens 24 vollständig richtige Antworten. Der importierte Katalog ist eine abweichende Fassung; die vorhandene 34er-Übung stammt aus Rhein-Erft.
 - **Rhein-Erft-Kreis:** Vorbereitungskatalog und Teilnahmehinweise sind öffentlich; die beiden vorhandenen Fassungen bleiben getrennt.
@@ -78,3 +78,22 @@ Die privaten Nachrichten werden weder vollständig veröffentlicht noch als Nutz
 ## Technische Prüfung
 
 Datenvalidierung und sechs bestehende Funktionstests erfolgreich; 189 lokale Verweise sowie SEO, Canonicals, Sitemap und CSP geprüft. Neue Wissensabschnitte und Ortskarten im Browser in Light/Dark Mode geprüft, Essen per Tastatur geöffnet und geschlossen. Inhaltsvorlage und ausgeliefertes HTML stimmen überein. Fragenbestand und Lernlogik sind bytegleich zu V27. Kein Build und keine HTML-Neugenerierung beim Deployment.
+
+## Ergänzung V29: bestätigte Essener Rahmenbedingungen
+
+Nach weiteren vom Betreiber bereitgestellten Antworten der Stadt Essen vom 11. November 2026:
+
+| Merkmal | Bestätigte Angabe |
+| --- | --- |
+| Form und Umfang | Schriftliche Prüfung, ca. 50 Fragen |
+| Zeit | Grundsätzlich kein Zeitlimit |
+| Teile | Biologie und Gesundheit; Verhalten und Erziehung; Recht |
+| Verteilung | Ungefähr gleichmäßig, keine feste Fragenzahl pro Teil bestätigt |
+| Bestehen | 75 % der Punkte; die Grenze gilt auch für jeden Teil einzeln |
+| Teilpunkte | Bei unvollständiger richtiger Auswahl möglich; keine vollständige Berechnungsformel veröffentlicht |
+| Nachgespräch | Insbesondere bei knapp verfehlter Bestehensgrenze |
+| Legasthenie | Rein mündliche Prüfung unter Umständen als besonderer Einzelfall möglich |
+
+Die Behörde hat ausdrücklich erklärt, dass weitere Bewertungsdetails nicht zur Veröffentlichung vorgesehen sind. Der Patch dokumentiert diese Grenze und enthält kein ausgedachtes Punkteschema. Insbesondere werden weder ein genereller Nullpunktwert bei jeder Falschauswahl noch eine feste Gewichtung einzelner Antworten behauptet. Ebenso werden aus ca. 50 Fragen keine verbindlichen 17/17/16 Fragen abgeleitet. Punktequoten sind nicht mit einer Quote vollständig richtig beantworteter Fragen gleichzusetzen.
+
+Es entsteht kein neuer Essener Testmodus. Fragen, Lösungsschlüssel, Lernstände und bestehende Auswertungen bleiben unverändert. Die Hinweise in Hundewissen, Quellen und beiden Seitenvorlagen sind synchron aktualisiert. Die frühere Aussage, konkrete Prüfungsbedingungen lägen nicht vor, wurde ersetzt. Der Quellenstand bezieht sich auf die privaten Antworten, nicht auf eine entsprechende Veröffentlichung der Stadt.
