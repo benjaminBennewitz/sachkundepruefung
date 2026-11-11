@@ -32,10 +32,10 @@ const mapping = {
 test('Multiple Choice verlangt alle richtigen Antworten ohne zusätzliche Auswahl', () => {
   assert(exact(new Set(['C', 'A']), multi.correct));
   for (const selection of [
-      [],
-      ['A'],
-      ['A', 'B', 'C']
-    ]) assert(!exact(new Set(selection), multi.correct));
+    [],
+    ['A'],
+    ['A', 'B', 'C']
+  ]) assert(!exact(new Set(selection), multi.correct));
 });
 test('Zuordnung wertet die vollständigen Paare und erkennt Teilantworten', () => {
   assert(exact(new Set(['b:1', 'a:2']), mapping.correct));
@@ -85,9 +85,9 @@ test('Bestehensgrenze der Simulation liegt bei 90 von 119', () => {
 
 test('Neue Testreihen ziehen 34 bzw. 30 eindeutige Fragen aus ihrem eigenen Pool', () => {
   for (const [size, count] of [
-      [203, 34],
-      [197, 30]
-    ]) {
+    [203, 34],
+    [197, 30]
+  ]) {
     const pool = Array.from({
       length: size
     }, (_, id) => ({
@@ -116,9 +116,11 @@ function loadEssen() {
   vm.runInContext(readFileSync(resolve(__dirname, '../learning/essen.js'), 'utf8'), context);
   assert.equal(JSON.stringify(context.window.LHUNDG_QUESTIONS), original);
   assert.equal(JSON.stringify(context.window.LHUNDG_POOLS), pools);
-  return { questions: context.window.LHUNDG_DATA.essenExamples,
+  return {
+    questions: context.window.LHUNDG_DATA.essenExamples,
     sections: context.window.LHUNDG_ESSEN_SECTIONS,
-    originals: context.window.LHUNDG_DATA.legacy203 };
+    originals: context.window.LHUNDG_DATA.legacy203
+  };
 }
 
 test('Essen-Beispiel enthält 50 eindeutige Fragen in 17/17/16, ohne Originale zu verändern', () => {

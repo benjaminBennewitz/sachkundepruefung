@@ -62,6 +62,6 @@ for (const name of htmlFiles) {
 for (const name of readdirSync(resolve(root, 'styles'))) {
   const file = resolve(root, 'styles', name);
   for (const match of readFileSync(file, 'utf8')
-      .matchAll(/url\(\s*['"]?([^'"\s)]+)['"]?\s*\)/g)) checkReference(match[1], file);
+    .matchAll(/url\(\s*['"]?([^'"\s)]+)['"]?\s*\)/g)) checkReference(match[1], file);
 }
 console.log(`${htmlFiles.length} HTML-Seiten und ${checked} lokale Verweise geprüft.`);

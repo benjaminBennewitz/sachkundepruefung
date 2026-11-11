@@ -128,7 +128,7 @@
 
     return options => {
       const result = sequence.then(() => present(options));
-      sequence = result.catch(() => {});
+      sequence = result.catch(() => { });
       return result;
     };
   }
@@ -282,10 +282,12 @@
      * @returns {Promise<boolean>} Ob ausdrücklich bestätigt wurde.
      */
     async confirm({ title, message, confirmLabel = 'Bestätigen', cancelLabel = 'Abbrechen', danger = false }) {
-      return await modal({ title, message, actions: [
-        { label: cancelLabel, value: 'cancel', autofocus: true },
-        { label: confirmLabel, value: 'confirm', primary: true, danger }
-      ] }) === 'confirm';
+      return await modal({
+        title, message, actions: [
+          { label: cancelLabel, value: 'cancel', autofocus: true },
+          { label: confirmLabel, value: 'confirm', primary: true, danger }
+        ]
+      }) === 'confirm';
     }
   });
 

@@ -1047,7 +1047,7 @@ legend {
   padding-block: 85px 60px;
 }
 
-.info-section > h2 {
+.info-section>h2 {
   margin-bottom: 20px;
 }
 
@@ -3460,6 +3460,7 @@ html {
 html:has(#trainer) {
   scroll-padding-top: var(--header-height, 73px);
 }
+
 /* ==========================================================================
    08   PayPal-Unterstützung
    ========================================================================== */
@@ -3524,7 +3525,7 @@ html:has(#trainer) {
   border-top: 1px solid var(--line);
 }
 
-.travel-section > .eyebrow {
+.travel-section>.eyebrow {
   color: var(--accent);
 }
 
@@ -3537,12 +3538,12 @@ html:has(#trainer) {
   background: var(--accent-bg);
 }
 
-.travel-note > :first-child {
+.travel-note> :first-child {
   margin-top: 0;
 }
 
-.travel-note > :last-child,
-.travel-card-body > :last-child {
+.travel-note> :last-child,
+.travel-card-body> :last-child {
   margin-bottom: 0;
 }
 
@@ -3624,8 +3625,8 @@ html:has(#trainer) {
   padding-inline-start: 20px;
 }
 
-.travel-card-body li + li,
-.travel-checklist li + li {
+.travel-card-body li+li,
+.travel-checklist li+li {
   margin-top: 10px;
 }
 
@@ -3682,7 +3683,7 @@ html.knowledge-page {
   margin-block: 20px;
 }
 
-.keyboard-guide > div {
+.keyboard-guide>div {
   display: grid;
   grid-template-columns: minmax(110px, auto) minmax(0, 1fr);
   gap: 18px;
@@ -3830,7 +3831,7 @@ html.modal-open {
 }
 
 @media (max-width: 480px) {
-  .keyboard-guide > div {
+  .keyboard-guide>div {
     grid-template-columns: minmax(0, 1fr);
     gap: 10px;
   }

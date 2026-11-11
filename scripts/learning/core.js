@@ -99,16 +99,20 @@
       const correct = items.filter(question => exact(answers.get(question.id) || new Set(),
         question.correct)).length;
       const required = Math.ceil(items.length * 0.75);
-      return { ...section, correct, total: items.length, required,
-        passed: items.length > 0 && correct >= required };
+      return {
+        ...section, correct, total: items.length, required,
+        passed: items.length > 0 && correct >= required
+      };
     });
     const correct = results.reduce((sum, section) => sum + section.correct, 0);
     const required = Math.ceil(questions.length * 0.75);
     const covered = questions.every(question => sections.some(section =>
       section.id === question.examSection));
-    return { correct, total: questions.length, required,
+    return {
+      correct, total: questions.length, required,
       passed: covered && results.length > 0 && results.every(section => section.passed) &&
-        correct >= required, sections: results };
+        correct >= required, sections: results
+    };
   }
   const api = {
     exact,

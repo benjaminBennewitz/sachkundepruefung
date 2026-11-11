@@ -31,12 +31,12 @@ export function header(file = 'index.html') {
     tool('import', 'Lernstand laden', 'id="importTrigger"') +
     '<input id="importProgress" type="file" accept="application/json,.json" hidden>' + tool(
       'export', 'Lernstand sichern', 'id="exportProgress"') + tool('reset',
-      'Diesen Lernbereich zurücksetzen', 'id="reset"') :
+        'Diesen Lernbereich zurücksetzen', 'id="reset"') :
     ['import', 'export', 'reset'].map((key, i) =>
-      `<a class="icon-button" aria-label="${['Lernstand laden','Lernstand sichern','Lernbereich zurücksetzen'][i]} – im Trainer" href="./?action=${key}#trainer">${svg(key)}<span class="tool-tip" aria-hidden="true">${['Laden','Sichern','Zurücksetzen'][i]} im Trainer</span></a>`
-      )
-    .join('');
-  return `<header class="site-header wrap"><a class="brand" href="./" aria-label="Sachkunde NRW – Startseite"><span class="brand-mark" aria-hidden="true">§</span><span>SACHKUNDE<span class="brand-sub">NRW / DIE LERNHILFE</span></span></a><nav class="header-nav" aria-label="Hauptnavigation">${[['index.html','Lernen',home?'#trainer':'./#trainer'],['gut-zu-wissen.html','Gut zu wissen','gut-zu-wissen.html'],['hundewissen.html','Hundewissen','hundewissen.html'],['quellen.html','Quellen','quellen.html']].map(([key,label,href]) => `<a href="${href}"${file===key?' aria-current="page"':''}>${label}</a>`).join('')}</nav><div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge">${actions}${tool('heart','Über PayPal unterstützen','data-open-support')}${tool('sun','Farbschema wechseln','id="themeToggle"',svg('sun','theme-sun')+svg('moon','theme-moon'))}</div></header>`;
+      `<a class="icon-button" aria-label="${['Lernstand laden', 'Lernstand sichern', 'Lernbereich zurücksetzen'][i]} – im Trainer" href="./?action=${key}#trainer">${svg(key)}<span class="tool-tip" aria-hidden="true">${['Laden', 'Sichern', 'Zurücksetzen'][i]} im Trainer</span></a>`
+    )
+      .join('');
+  return `<header class="site-header wrap"><a class="brand" href="./" aria-label="Sachkunde NRW – Startseite"><span class="brand-mark" aria-hidden="true">§</span><span>SACHKUNDE<span class="brand-sub">NRW / DIE LERNHILFE</span></span></a><nav class="header-nav" aria-label="Hauptnavigation">${[['index.html', 'Lernen', home ? '#trainer' : './#trainer'], ['gut-zu-wissen.html', 'Gut zu wissen', 'gut-zu-wissen.html'], ['hundewissen.html', 'Hundewissen', 'hundewissen.html'], ['quellen.html', 'Quellen', 'quellen.html']].map(([key, label, href]) => `<a href="${href}"${file === key ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav><div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge">${actions}${tool('heart', 'Über PayPal unterstützen', 'data-open-support')}${tool('sun', 'Farbschema wechseln', 'id="themeToggle"', svg('sun', 'theme-sun') + svg('moon', 'theme-moon'))}</div></header>`;
 }
 
 /** @type {string} Gemeinsamer Hinweis auf den unverbindlichen Charakter der Lernhilfe. */

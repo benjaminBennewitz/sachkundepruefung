@@ -776,15 +776,15 @@
     const sectionScore = config.sections ? evaluateSections(chosen, state.answers, config.sections) : null;
     result.append(node('h3', sectionScore ? sectionScore.passed ? 'Beispieltest nach Übungswertung bestanden.' :
       'Beispieltest: Noch ein bisschen üben.' : intermediate ? 'Dein Zwischenstand' : isExam ? config.passCount ===
-      null ? 'Deine §-11-Lernquote' : correct >= config.passCount ? 'Übungstest bestanden.' :
-      'Noch ein bisschen üben.' : 'Deine Auswertung'));
+        null ? 'Deine §-11-Lernquote' : correct >= config.passCount ? 'Übungstest bestanden.' :
+        'Noch ein bisschen üben.' : 'Deine Auswertung'));
     result.append(node('p', sectionScore ?
       'Unverbindliches, geschätztes Beispiel. Eigene Übungswertung: 1 Punkt nur bei vollständig richtiger Auswahl; sonst 0 Punkte. Keine Teilpunkte. Mindestens 75 % je Teil und insgesamt (38 von 50). Die unbekannte Essener Teilpunktewertung und ein Nachgespräch werden nicht nachgebildet.' : intermediate ?
-      `Nur ${chosen.length} vollständig beantwortete Fragen wurden gewertet.` : isExam ?
-        config.passCount === null ?
-          'Diese Übungsrunde hat keine verbindliche Bestehensgrenze. Die prüfende Stelle beurteilt deine Sachkunde, gegebenenfalls im Gespräch.' :
-          `Mindestens ${config.passCount} von ${config.examCount} sind in diesem Übungstest erforderlich. Keine Garantie für die echte Prüfung.` :
-        'Alle Fragen dieses Lernbereichs wurden gewertet. Offene und unvollständige Antworten zählen als falsch.'
+        `Nur ${chosen.length} vollständig beantwortete Fragen wurden gewertet.` : isExam ?
+          config.passCount === null ?
+            'Diese Übungsrunde hat keine verbindliche Bestehensgrenze. Die prüfende Stelle beurteilt deine Sachkunde, gegebenenfalls im Gespräch.' :
+            `Mindestens ${config.passCount} von ${config.examCount} sind in diesem Übungstest erforderlich. Keine Garantie für die echte Prüfung.` :
+          'Alle Fragen dieses Lernbereichs wurden gewertet. Offene und unvollständige Antworten zählen als falsch.'
     ));
     const stats = node('div', undefined, 'result-stats');
     for (const [value, label] of [

@@ -88,13 +88,13 @@ function page(file, title, description, content, noindex = false) {
     `<!doctype html>
 <html lang="de"${['gut-zu-wissen.html', 'hundewissen.html'].includes(file) ? ' class="knowledge-page"' : ''}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="robots" content="${noindex ? 'noindex,follow' : 'index,follow'}"><title>${escape(documentTitle)}</title><meta name="description" content="${escape(description)}">${config.origin ? `<link rel="canonical" href="${escape(config.siteUrl)}/${file}">` : ''}<meta property="og:type" content="website"><meta property="og:locale" content="de_DE"><meta property="og:title" content="${escape(documentTitle)}"><meta property="og:description" content="${escape(description)}">${config.origin ? `<meta property="og:url" content="${escape(config.siteUrl)}/${file}">` : ''}<link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">  <link rel="icon" href="favicon.png" type="image/png" sizes="96x96">  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script src="scripts/ui/theme.js?v=19"></script><link rel="stylesheet" href="styles/tokens.css?v=19"><link rel="stylesheet" href="styles/interface.css?v=26"></head>
 <body><a class="skip-link" href="#inhalt">Zum Inhalt</a>${header(file)}
-<main id="inhalt" class="prose wrap" tabindex="-1"><p class="eyebrow">SACHKUNDE / NRW</p><h1>${escape(title)}</h1>${['quellen.html','gut-zu-wissen.html','hundewissen.html'].includes(file) ? disclaimer : ''}${content}</main>${footer()}<script src="scripts/site-config.js?v=23" defer></script><script src="scripts/ui/common.js?v=25" defer></script><script src="scripts/ui/controls.js?v=19" defer></script></body></html>`;
+<main id="inhalt" class="prose wrap" tabindex="-1"><p class="eyebrow">SACHKUNDE / NRW</p><h1>${escape(title)}</h1>${['quellen.html', 'gut-zu-wissen.html', 'hundewissen.html'].includes(file) ? disclaimer : ''}${content}</main>${footer()}<script src="scripts/site-config.js?v=23" defer></script><script src="scripts/ui/common.js?v=25" defer></script><script src="scripts/ui/controls.js?v=19" defer></script></body></html>`;
   writeFileSync(resolve(root, file), html.replace(/\r?\n/g, '\r\n'));
 }
 page('impressum.html', 'Impressum',
   'Anbieter und Kontakt der unabhängigen, kostenlosen NRW-Sachkunde-Lernhilfe.',
   `${draft}<h2>Anbieter und Kontakt</h2><p>${escape(operator.name)}<br>${address}</p><p>E-Mail: ${email}<br>Telefon: ${escape(operator.phone)}</p><h2>Über dieses Projekt</h2><p>Die NRW Sachkundeprüfung Lernhilfe ist ein unabhängiges, kostenlos zugängliches Lernangebot. Sie wird nicht von einer Behörde oder Tierärztekammer betrieben. Der Trainer erteilt keinen Sachkundenachweis und ersetzt keine Prüfung oder behördliche Auskunft.</p><p>Fragen und Lösungen basieren auf den unter <a href="quellen.html">Quellen</a> beschriebenen Unterlagen. Eigene unverbindliche Beispielfragen sind gesondert gekennzeichnet. Verbindlich sind die Vorgaben der zuständigen Stelle. Hinweise auf Übertragungsfehler nehmen wir über die angegebene Kontaktadresse entgegen.</p><h2>Freiwillige Unterstützung</h2><p>Die Nutzung bleibt kostenlos. Eine freiwillige Unterstützung über einen externen PayPal-Link ist keine Voraussetzung für die Nutzung und begründet keinen Anspruch auf zusätzliche Leistungen. Es wird keine Spendenbescheinigung ausgestellt.</p><h2 id="haftung">Hinweise zu Inhalten und Haftung</h2><p><strong>Keine Rechtsberatung, keine behördliche Auskunft und keine Garantie für das Bestehen einer Prüfung.</strong> Die Texte und Fragen dienen ausschließlich dem Lernen und der allgemeinen Orientierung. Für Richtigkeit, Vollständigkeit und Aktualität wird keine Gewähr übernommen. Insbesondere können ältere Originalfragen vom aktuellen Recht oder heutigen fachlichen Empfehlungen abweichen.</p><p>Soweit gesetzlich zulässig, ist eine Haftung für Schäden durch die Nutzung der unentgeltlichen Lerninhalte ausgeschlossen. Unberührt bleiben gesetzlich zwingende Ansprüche, insbesondere wegen Vorsatzes, grober Fahrlässigkeit sowie wegen Verletzung von Leben, Körper oder Gesundheit. Dieser Hinweis hebt gesetzliche Verantwortlichkeiten nicht auf.</p><p>Eine pauschale Distanzierung von verlinkten Inhalten ersetzt keine gesetzliche Pflicht. Bei konkreten Hinweisen auf Rechtsverletzungen oder Übertragungsfehler werden die betroffenen Inhalte geprüft und erforderlichenfalls berichtigt oder entfernt.</p>`
-  );
+);
 page('quellen.html', 'Quellen & Originalunterlagen',
   'Herkunft der LHundG-NRW-Lernfragen, Originalquellen und Unterschiede zwischen § 3 und § 11.',
   `
@@ -136,7 +136,7 @@ page('quellen.html', 'Quellen & Originalunterlagen',
         <a href="hundewissen.html#staedte">Vorbereitung nach Stadt und Kreis</a></p>
     </section>
 <h2>Originale und Nutzungsrechte</h2><p>Die Rechte an den Fragen und Abbildungen verbleiben bei den jeweiligen Rechteinhabern. Die Bereitstellung eines PDFs zum Download bedeutet nicht automatisch eine freie Lizenz zur Wiederveröffentlichung in einem Online-Trainer. Die Freigabe zur öffentlichen Übernahme der hier verwendeten Texte und Abbildungen ist vor dem öffentlichen Start zu klären. Die Originalseiten der Herausgeber werden verlinkt; eigene oder direkte PDF-Downloads werden nicht angeboten.</p><p><a class="primary button" href="./#trainer">Zurück zum Lernen →</a></p>`
-  );
+);
 createContentPages(page, {
   root,
   config,
@@ -161,7 +161,7 @@ index = index.replace(/(<meta name="robots" content=")[^"]*(")/, '$1index,follow
 if (config.origin) {
   index = index.replace('</head>',
     `<link rel="canonical" href="${escape(config.siteUrl)}/"><meta property="og:url" content="${escape(config.siteUrl)}/"></head>`
-    );
+  );
 }
 index = index.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/, (match,
   start, value, end) => {
