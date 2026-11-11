@@ -31,6 +31,7 @@
  */
 
 /** @type {SachkundeQuestion[]} Vollständiger unveränderter Quellbestand. */
+// Quellbezogene Originalobjekte: gleiche Themen aus unterschiedlichen Fassungen behalten ihre eigenen IDs.
 window.LHUNDG_QUESTIONS = [{
   "id": 1,
   "images": [],
@@ -16852,6 +16853,7 @@ window.LHUNDG_QUESTIONS = [{
 }];
 
 /** @type {Record<string, number[]>} Kataloge referenzieren IDs statt Fragekopien. */
+// Pools speichern ausschließlich stabile Frage-IDs und vervielfachen keine vollständigen Frageobjekte.
 window.LHUNDG_POOLS = {
   "legacy203": [
     1,
@@ -18278,15 +18280,17 @@ window.LHUNDG_POOLS = {
 };
 
 /** @type {Record<string, SachkundeQuestion[]>} Zur Laufzeit aufgelöste Kataloge. */
+// Löst die Pool-IDs für die bisherige synchrone Datenladung in Referenzen auf dieselben Frageobjekte auf.
 window.LHUNDG_DATA = Object.fromEntries(
   Object.entries(window.LHUNDG_POOLS)
     .map(([key, ids]) => {
-      const byId = new Map(window.LHUNDG_QUESTIONS.map(question => [question.id, question]));
+      const byId = new Map(window.LHUNDG_QUESTIONS.map(question => [question.id, question]));  // Ordnet stabile Frage-IDs den Originalobjekten für die Poolreferenzen zu.
       return [key, ids.map(id => byId.get(id))];
     })
 );
 
 /** @type {Record<string, number[]>} Bildbreite und -höhe zur Vermeidung von Layoutsprüngen. */
+// Bekannte Bildmaße reservieren den benötigten Platz vor dem Laden der Aufgabenabbildungen.
 window.LHUNDG_IMAGE_SIZES = {
   "assets/questions/q006.webp": [
     325,

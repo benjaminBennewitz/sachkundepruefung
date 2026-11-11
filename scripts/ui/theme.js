@@ -1,14 +1,17 @@
 /* scripts/ui/theme.js */
 
 /**
- * @file Frühe Anwendung des Farbschemas.
- * @description Wendet die gespeicherte Farbwahl vor dem ersten Zeichnen an, ohne externe Ressourcen zu laden.
+ * @file Frühe Anwendung der gespeicherten Farbwahl vor dem ersten Zeichnen.
+ * @description Frühe Anwendung der gespeicherten Farbwahl vor dem ersten Zeichnen.
  * @author Benjamin Bennewitz [B²]
  */
+'use strict';
 
 try {
-  const theme = localStorage.getItem('lhundg-theme-v1');
+  const theme = localStorage.getItem('lhundg-theme-v1');  // Unveränderter historischer Schlüssel der expliziten Farbwahl.
+
+  // Andere oder fehlende Speicherwerte lassen die systemweite Farbwahl unverändert wirken.
   if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
 } catch {
-  /* Ohne Browserspeicher bleibt das System-Farbschema aktiv. */
+  // Ohne verfügbaren Browserspeicher bleibt das System-Farbschema aktiv.
 }

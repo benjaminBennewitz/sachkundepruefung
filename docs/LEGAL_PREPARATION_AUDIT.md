@@ -1,6 +1,15 @@
-# Themenabgleich: Vorbereitung auf die Sachkunde nach LHundG NRW
+# Fachlicher Themen- und Quellenabgleich
 
-Stand: 11. November 2026 · Benjamin Bennewitz [B²]
+Dokumentierter Quellen-/Abgleichstand: 11.11.2026 · Benjamin Bennewitz [B²].
+Die Dokumentationsbereinigung aktualisiert keine Rechtslage und führt keinen neuen
+behördlichen oder veterinärmedizinischen Audit durch.
+
+Der folgende Abgleich betrifft die **612 ursprünglichen Quellfragen**, nicht die später
+hinzugefügten 16 eigenen Rechtsbeispiele. Dort beschriebene Lücken sind deshalb keine
+Behauptung, dass eine entsprechende Frage heute auch im eigenen Beispielpool fehlt.
+Herkunft und Grenzen dieses Pools: [ESSEN_EXAMPLE.md](ESSEN_EXAMPLE.md).
+Technische Schlüsselprüfung: [DEVELOPMENT.md](DEVELOPMENT.md), historischer Detailnachweis:
+[QUESTION_AUDIT.json](QUESTION_AUDIT.json).
 
 ## Ergebnis und Reichweite
 
@@ -8,7 +17,7 @@ Die vorhandenen Kataloge bieten eine breite Übungsgrundlage für Verhalten, Kö
 
 Grundlage des Abgleichs sind alle 612 quellbezogenen Datensätze aus scripts/learning/data.js einschließlich ihrer Antwortmöglichkeiten. Der kombinierte Lernpool umfasst 400 Fragen/Varianten, der Basispool 398. Die Einzelkataloge enthalten 203, 97, 115 bzw. 197 Fragen. Es wurden Themen und rechtlich relevante Antwortstellen untersucht, nicht alle veterinärmedizinischen Aussagen fachlich neu begutachtet. Die vorhandene Prüfung offizieller Lösungsschlüssel belegt die Übertragung der Vorlage, nicht automatisch deren heutige rechtliche Vollständigkeit. Suchtreffer, bloße Erwähnung und echte Detailabfrage wurden unterschieden.
 
-Fragen, Antworten, Schlüssel, IDs, Lernstände und Testlogik bleiben unverändert. Ergänzungen stehen im Wissensteil und in den Quellen. Die Ortsgliederung ergänzt den gemeinsamen NRW-Leseplan; es entstehen keine doppelten Rechtskapitel oder neuen Ortsprüfungen.
+Die öffentlichen Erläuterungen stehen unmittelbar in `hundewissen.html`, `gut-zu-wissen.html` und `quellen.html`. Dieser Nachweis beschreibt deren fachlichen Hintergrund; er ist keine zweite veröffentlichte Inhaltsfassung.
 
 ## Abgleich der vier angefragten Links
 
@@ -19,7 +28,7 @@ Fragen, Antworten, Schlüssel, IDs, Lernstände und Testlogik bleiben unverände
 | LHundG NRW | NRW-Regeln für Kategorien, Nachweise und Pflichten; der verlinkte Fassungsstand gilt ab 27.09.2016 | Rhein-Erft 203: 198–203 ergänzen das allgemeine Wissen; Köln und Rhein-Erft 97 enthalten weitere Rechtsfragen. Der Kammerkatalog endet bei 197 und enthält diese sechs Zusatzfragen nicht. |
 | Essener Serviceportal 41286 | Örtliche Verwaltungsinformation zu Anzeige und Haltungserlaubnis | Hilft bei Zuständigkeiten und Unterlagen. Liefert weder einen Essener Fragenkatalog noch Fragenzahl, Zeitlimit oder Bestehensgrenze. |
 
-Ergänzende Essener Prüfungsseite: Empfohlen werden Hundewissen und Originalrechtstexte; verbreitete Internetfragebögen allein werden ausdrücklich als nicht ausreichend bezeichnet. Die privaten E-Mail-Auskünfte vom 11.11.2026 bestätigen die ausschließliche §-3-Prüfungszuständigkeit und inzwischen die unten dokumentierten Rahmenbedingungen. Daraus folgt keine amtliche Anerkennung unseres Trainers.
+Ergänzende Essener Prüfungsseite: Empfohlen werden Hundewissen und Originalrechtstexte; verbreitete Internetfragebögen allein werden ausdrücklich als nicht ausreichend bezeichnet. Die privaten E-Mail-Auskünfte vom 11.11.2026 bestätigen die ausschließliche §-3-Prüfungszuständigkeit und die in [ESSEN_EXAMPLE.md](ESSEN_EXAMPLE.md) dokumentierten Rahmenbedingungen. Daraus folgt keine amtliche Anerkennung unseres Trainers.
 
 ## Nachvollziehbare Themenstichproben
 
@@ -47,7 +56,7 @@ Diese Punkte rechtfertigen keinen Austausch der Originalschlüssel anhand eines 
 
 ## Umgang mit verkürzten kommunalen Angaben
 
-Das Essener Portal enthält neben zutreffenden Detailangaben auch verkürzte Formulierungen. In der Kurzbeschreibung steht „schwerer als 20 kg“, im ausführlichen Abschnitt korrekt „mindestens 20 kg“. Die pauschale Halterdefinition anhand von sechs Wochen sollte ebenfalls nicht als allgemeine Wartefrist übernommen werden: Nr. 4.1.1 VV LHundG NRW unterscheidet tatsächliche Bestimmungsmacht und kurzfristige Pflege/Verwahrung. Außerdem wird die Maulkorbpflicht verkürzt „ab dem 6. Lebensmonat“ beschrieben; maßgeblich ist die Formulierung in § 5 Abs. 2 LHundG NRW zur Vollendung des sechsten Lebensmonats. Der Patch verlinkt das Portal als Verfahrensinformation, übernimmt diese Verkürzungen aber nicht als neue Lernregeln.
+Das Essener Portal enthält neben zutreffenden Detailangaben auch verkürzte Formulierungen. In der Kurzbeschreibung steht „schwerer als 20 kg“, im ausführlichen Abschnitt korrekt „mindestens 20 kg“. Die pauschale Halterdefinition anhand von sechs Wochen sollte ebenfalls nicht als allgemeine Wartefrist übernommen werden: Nr. 4.1.1 VV LHundG NRW unterscheidet tatsächliche Bestimmungsmacht und kurzfristige Pflege/Verwahrung. Außerdem wird die Maulkorbpflicht verkürzt „ab dem 6. Lebensmonat“ beschrieben; maßgeblich ist die Formulierung in § 5 Abs. 2 LHundG NRW zur Vollendung des sechsten Lebensmonats. Das Portal ist als Verfahrensinformation einzuordnen; diese Verkürzungen sind keine neuen Lernregeln.
 
 ## Ortsgliederung und Quellenkonflikte
 
@@ -75,45 +84,3 @@ Das Essener Portal enthält neben zutreffenden Detailangaben auch verkürzte For
 
 Die privaten Nachrichten werden weder vollständig veröffentlicht noch als Nutzungserlaubnis für fremde Prüfungskataloge ausgelegt.
 
-## Technische Prüfung
-
-Datenvalidierung und sechs bestehende Funktionstests erfolgreich; 189 lokale Verweise sowie SEO, Canonicals, Sitemap und CSP geprüft. Neue Wissensabschnitte und Ortskarten im Browser in Light/Dark Mode geprüft, Essen per Tastatur geöffnet und geschlossen. Inhaltsvorlage und ausgeliefertes HTML stimmen überein. Fragenbestand und Lernlogik sind bytegleich zu V27. Kein Build und keine HTML-Neugenerierung beim Deployment.
-
-## Ergänzung V29: bestätigte Essener Rahmenbedingungen
-
-Nach weiteren vom Betreiber bereitgestellten Antworten der Stadt Essen vom 11. November 2026:
-
-| Merkmal | Bestätigte Angabe |
-| --- | --- |
-| Form und Umfang | Schriftliche Prüfung, ca. 50 Fragen |
-| Zeit | Grundsätzlich kein Zeitlimit |
-| Teile | Biologie und Gesundheit; Verhalten und Erziehung; Recht |
-| Verteilung | Ungefähr gleichmäßig, keine feste Fragenzahl pro Teil bestätigt |
-| Bestehen | 75 % der Punkte; die Grenze gilt auch für jeden Teil einzeln |
-| Teilpunkte | Bei unvollständiger richtiger Auswahl möglich; keine vollständige Berechnungsformel veröffentlicht |
-| Nachgespräch | Insbesondere bei knapp verfehlter Bestehensgrenze |
-| Legasthenie | Rein mündliche Prüfung unter Umständen als besonderer Einzelfall möglich |
-
-Die Behörde hat ausdrücklich erklärt, dass weitere Bewertungsdetails nicht zur Veröffentlichung vorgesehen sind. Der Patch dokumentiert diese Grenze und enthält kein ausgedachtes Punkteschema. Insbesondere werden weder ein genereller Nullpunktwert bei jeder Falschauswahl noch eine feste Gewichtung einzelner Antworten behauptet. Ebenso werden aus ca. 50 Fragen keine verbindlichen 17/17/16 Fragen abgeleitet. Punktequoten sind nicht mit einer Quote vollständig richtig beantworteter Fragen gleichzusetzen.
-
-Es entsteht kein neuer Essener Testmodus. Fragen, Lösungsschlüssel, Lernstände und bestehende Auswertungen bleiben unverändert. Die Hinweise in Hundewissen, Quellen und beiden Seitenvorlagen sind synchron aktualisiert. Die frühere Aussage, konkrete Prüfungsbedingungen lägen nicht vor, wurde ersetzt. Der Quellenstand bezieht sich auf die privaten Antworten, nicht auf eine entsprechende Veröffentlichung der Stadt.
-
-
-## Ergänzung V30: geschätzte Essen-Beispielsimulation
-
-Auf Wunsch des Betreibers gibt es jetzt einen eigenen Beispielmodus. Die historische V29-Aussage
-„kein neuer Essener Testmodus“ beschreibt nur den damaligen Patch.
-
-- Bestätigte Rahmenbedingungen: ungefähr 50 Fragen, drei ungefähr gleich große Teile,
-  grundsätzlich kein Zeitlimit, 75 % insgesamt und in jedem Teil.
-- Eigene Annahmen: exakt 50 Fragen, Verteilung 17/17/16, gleiches Gewicht pro Frage,
-  1 Punkt nur bei exakt vollständiger richtiger Auswahl, sonst 0. Keine Teilpunkte.
-- Übungsgrenzen: 13/17, 13/17 und 12/16; mindestens 38/50 insgesamt. Kein Ausgleich zwischen Teilen.
-- Keine Rekonstruktion der nicht veröffentlichten Essener Bewertung oder des Nachgesprächs.
-- 34 bestehende Rhein-Erft-203-Fragen werden kopiert und Themen zugeordnet. Wortlaut, Schlüssel,
-  Quellen und die ursprünglichen Lernkataloge bleiben unverändert.
-- 16 eigene Rechtsfragen sind bei jeder Anzeige als geschätztes, nicht verbindliches Beispiel markiert.
-  Jede nennt Vorschrift und Originalquelle; ihre Erläuterung erscheint erst nach Auswertung.
-- Festes 50er-Beispielset, zufällige Reihenfolge; antwortenbasierter Prüfungsspeicher getrennt vom Katalog.
-- Rechtsabgleich am 11.11.2026 mit Originaltexten: TierSchG, TierSchHuV, LHundG NRW.
-  Keine behördliche Bestätigung. Vollständige Fragenübersicht: ESSEN_EXAMPLE.md.

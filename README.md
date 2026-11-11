@@ -1,111 +1,165 @@
 # NRW Sachkundeprüfung – Lernhilfe
 
-Kostenlose statische Lernhilfe mit lokalen Lernständen, quellenbezogenen Katalogen und Testreihen. HTML, CSS und JavaScript ohne Framework, Paketinstallation, Tracking oder externe Schriften.
+Kostenlose statische Lernhilfe mit lokalen Lernständen, quellenbezogenen Katalogen und
+Testreihen. HTML, CSS und JavaScript ohne Framework, Paketinstallation, Werbung,
+Tracking oder externe Schriften.
 
 Entwicklung und Design: Benjamin Bennewitz **[B²]**.
+
+## Verbindliche Inhaltsquelle
+
+Die sechs HTML-Dateien im Projekt-Root sind die **Single Source of Truth**:
+`index.html`, `gut-zu-wissen.html`, `hundewissen.html`, `quellen.html`, `impressum.html`
+und `datenschutz.html`.
+
+Inhalte, Header, Footer, Hinweise und Seitenmetadaten werden direkt dort gepflegt.
+Es gibt keine zweite Fassung dieser Seiten in Generator-JavaScript oder zusätzlichen
+HTML-Vorlagen und keinen Seitengenerator. Der Browser verwendet genau diese vorhandenen Dateien. Fragenkataloge und interaktiver
+Lernzustand bleiben unabhängig davon in den bestehenden Lernskripten.
+
+Das Deployment prüft und archiviert den gepflegten Stand. Es erzeugt keine Seiten,
+minifiziert nichts und ändert weder HTML-Formatierung noch Einrückung oder Zeilenenden.
+Lediglich der vorhandene CSP-Hash in `.htaccess` wird bei geändertem JSON-LD abgeglichen;
+der HTML-Inhalt selbst bleibt dabei unangetastet.
 
 ## Ordnerstruktur
 
 | Pfad | Aufgabe |
 | --- | --- |
-| `*.html` | Startseite und statisch lesbare Informationsseiten |
-| `styles/tokens.css` | Zusammengefasste Farbwerte für Light, Dark und Systemmodus |
-| `styles/interface.css` | Dokumentierte Oberfläche, Zustände und responsive Layouts |
-| `scripts/learning/` | Trainer, Auswertung, Fragebestand und Quellen – vier zusammengehörige Dateien |
-| `scripts/ui/` | Theme vor dem Zeichnen, gemeinsame UI und Custom Controls – drei Dateien |
-| `scripts/pages/` | Seitengenerator, Inhaltsvorlagen und gemeinsamer Seitenrahmen; Datenschutz-Referenz daneben |
-| `scripts/quality/` | Datenprüfung, Pfadprüfung, Release-Prüfung und Core-Tests; offizielle Lösungsschlüssel daneben |
-| `scripts/site-config.js` | Domain, Betreiber, Hosting und optionaler PayPal-Link |
-| `scripts/config.mjs` | Gemeinsame Konfigurations- und Pfadfunktionen für lokale Werkzeuge |
-| `scripts/prepare-deployment.mjs` | Prüft vorhandene Dateien für das direkte Deployment; HTML bleibt unverändert |
-| `scripts/migrate-structure.mjs` | Einmalige reversible Bereinigung bisheriger Dateipfade |
-| `deployment/` | Windows-Deployment, Linux-Serverskript und Anleitung |
-| `assets/` | Unveränderte Aufgabenabbildungen |
-| `docs/` | Datenprüfung, Audit und Anleitung für den Strukturpatch |
+| `*.html` | Einzige Inhaltsquelle der öffentlichen Seiten |
+| `styles/tokens.css` | Farben für Light, Dark und Systemmodus |
+| `styles/interface.css` | Oberfläche, Zustände und responsive Layouts |
+| `scripts/learning/` | Trainer, Profile, Zustand, Ansichten, Auswertung und Fragenbestand |
+| `scripts/ui/` | Frühe Theme-Anwendung, gemeinsame UI und Custom Controls |
+| `scripts/quality/` | Daten-, Pfad-, SEO-, Release- und Funktionsprüfungen |
+| `scripts/site-config.js` | Laufzeit- und Prüfkonfiguration einschließlich Domain, Betreiber, Hosting und PayPal |
+| `scripts/config.mjs` | Gemeinsame Pfade und Konfiguration der lokalen Prüfwerkzeuge |
+| `scripts/prepare-deployment.mjs` | Vorprüfung für die direkte Archivierung der vorhandenen Dateien |
+| `deployment/` | Vorhandenes Windows-Deployment, Serverskript und Anleitung |
+| `assets/` | Lokale Aufgabenabbildungen und Werkzeugsymbole |
+| `docs/` | Quellen, Audits, Pflegekonventionen und dokumentierte Prüfungen |
 
-Ein Skript-Unterordner enthält mindestens drei fachlich zusammengehörige Skriptdateien. Es werden keine leeren Modulhüllen oder Unterordner für einzelne Dateien angelegt.
+Ein Skript-Unterordner enthält mindestens drei fachlich zusammengehörige Dateien.
+Der nicht mehr benötigte Seitenordner und der alte einmalige Strukturmigrator sind entfernt.
 
-## Strukturpatch einspielen
+## Lokal entwickeln und prüfen
 
-Den Patch im vorhandenen Projekt entpacken. Assets und Git-Verzeichnis behalten. Anschließend in CMD aus dem Projektordner:
-
-```cmd
-node scripts\migrate-structure.mjs
-node scripts\migrate-structure.mjs --apply
-```
-
-Der erste Aufruf prüft nur. Der zweite verschiebt alte Dateien nach vollständiger Vorprüfung in eine Sicherung **neben** dem Projekt. Individuell veränderte Altdateien führen vor der ersten Verschiebung zum Abbruch. Details: `docs/MIGRATION.md`.
-
-## Lokal starten und prüfen
-
-Voraussetzung für die Werkzeuge: Node.js ab Version 20. Die Website selbst benötigt nur einen modernen Browser und einen statischen HTTP-Server. Es gibt keine npm-Abhängigkeiten.
-
-Für die direkte Entwicklung den Projektordner über deinen lokalen Server öffnen, beispielsweise mit VS Code Live Server. Nicht per `file://` öffnen: Origin und Browserspeicher sollen dem späteren Betrieb entsprechen.
+Die Werkzeuge benötigen Node.js ab Version 20. Die Website benötigt einen modernen Browser
+und einen statischen HTTP-Server, beispielsweise VS Code Live Server. Nicht über `file://`
+öffnen, damit Origin und Browserspeicher dem späteren Betrieb entsprechen.
 
 ```cmd
 node scripts\quality\check-paths.mjs
 node scripts\quality\validate-data.mjs
-node --test scripts\quality\core.test.cjs
+node --test scripts\quality\core.test.cjs scripts\quality\session.test.cjs scripts\quality\checks.test.mjs
+node --test scripts\quality\html-preservation.test.mjs
 node scripts\prepare-deployment.mjs --check-only
 ```
 
-Der letzte Befehl prüft die aktuellen Dateien ohne Kopie oder Ausgabeordner. Für die lokale Vorschau direkt die `index.html` im Projektordner über Live Server öffnen.
+Die HTML-Erhaltungstests führen die echte Deployment-Vorbereitung ausschließlich in
+aufgeräumten temporären Projektkopien aus. Sie laufen separat, damit sich die Vorprüfung
+nicht über ihren eigenen Integrationstest erneut aufruft. Geprüft werden sowohl die reine
+Vorprüfung als auch der CSP-Abgleich bei bewusst formatiertem JSON-LD.
 
-## Domain und Produktion
+Der Datenvalidator liest im Standardlauf ausschließlich vorhandene Dateien. Zum bewussten
+Aktualisieren der dokumentierten Prüfaufnahme dient:
 
-Die Projektadresse ist **https://hunde-sachkundetrainer.de/nrw/**. In `scripts/site-config.js` werden Hauptdomain und Landesbereich getrennt gepflegt:
+```cmd
+node scripts\quality\validate-data.mjs --write-report
+```
+
+Der Bericht trennt das aktuelle technische Prüfdatum vom gespeicherten Quellenstand.
+Er bestätigt keine erneute PDF- oder Rechtsprüfung. Die Vorprüfung bindet auch die
+Regressionstests der Qualitätswerkzeuge ein. Dateiaufgaben, Prüfumfang und Grenzen:
+[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md).
+
+## Inhalte und gemeinsame Bereiche pflegen
+
+- Texte unmittelbar in der jeweiligen Root-HTML-Datei ändern.
+- Gemeinsame Navigation, Footer und Hinweise bei einer Änderung in allen betroffenen
+  Root-Seiten abgleichen. Keine zusätzliche Inhaltskopie in einem Skript anlegen.
+- Betreiberangaben unmittelbar in Impressum und Datenschutz pflegen. Die vorhandene
+  Konfiguration für Laufzeit und Release-Prüfung erzeugt daraus keine Texte.
+- Titel, Beschreibung, Canonical und OpenGraph direkt in den Seitenköpfen pflegen;
+  strukturierte Daten stehen unmittelbar in `index.html`.
+- Neue öffentliche Seiten oder Domain-/Pfadänderungen auch in `sitemap.xml`, `robots.txt`
+  und der bestehenden Prüfkonfiguration berücksichtigen.
+- Fragen und Lösungsschlüssel nur mit belegter Originalquelle ändern. IDs, Poolreferenzen
+  und Speicherschlüssel bei technischen Umordnungen erhalten.
+
+Architektur und technische Pflege: [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md).
+Reisehinweise: [docs/TRAVEL_NOTES.md](docs/TRAVEL_NOTES.md).
+
+## Domain und Deployment
+
+Die Projektadresse ist **https://hunde-sachkundetrainer.de/nrw/**. Die Prüfkonfiguration
+trennt Origin und Landespfad in `scripts/site-config.js`:
 
 ```js
 origin: 'https://hunde-sachkundetrainer.de',
 basePath: '/nrw',
 ```
 
-Der Seitengenerator ist ein separat aufrufbares Pflegewerkzeug für Seitenvorlagen und SEO-Dateien. Er ist kein Teil des Deployments und schreibt HTML aus den Vorlagen neu. Nur ausdrücklich ausführen, wenn die Seiten aus diesen Vorlagen erzeugt werden sollen:
+`LHUNDG_ORIGIN` und `LHUNDG_BASE_PATH` können die Prüfwerte überschreiben. Sie schreiben
+keine neuen Angaben in die Root-Seiten. Die vorhandenen Canonicals, JSON-LD- und
+Sitemap-Adressen müssen zu diesen Werten passen; Abweichungen werden geprüft.
 
-```cmd
-node scripts\pages\prepare-pages.mjs
-```
+Die eigentliche robots.txt muss an der Domainwurzel liegen und auf
+**https://hunde-sachkundetrainer.de/nrw/sitemap.xml** verweisen. Das bestehende Serverskript
+legt sie bei Bedarf an und behält eine vorhandene Domain-robots.txt bei.
 
-Optional überschreiben `LHUNDG_ORIGIN` und `LHUNDG_BASE_PATH` die gespeicherten Werte. Für die lokale Entwicklung bleibt die vorhandene `index.html` im Projektordner verwendbar, da interne Links und Assets relative Pfade nutzen.
+Das lokale Deployment archiviert ausdrücklich die öffentlichen Originaldateien in ein
+temporäres TAR-Archiv. Keine Minifizierung, kein Build, kein `dist`-Ordner und keine
+zusätzliche Veröffentlichungskopie. Tests, Werkzeuge und Dokumentation bleiben ausgeschlossen.
+Anleitung: [deployment/README.md](deployment/README.md).
 
-Die eigentliche robots.txt muss an **https://hunde-sachkundetrainer.de/robots.txt** liegen und auf **https://hunde-sachkundetrainer.de/nrw/sitemap.xml** verweisen. Das Server-Skript legt sie bei Bedarf an. Eine bereits vorhandene Domain-robots.txt wird beibehalten; ihr Sitemap-Verweis ist dann beim Einrichten zu ergänzen.
+Der vorhandene Schalter `--rights-confirmed` dokumentiert ausschließlich eine tatsächlich
+vom Betreiber abgegebene Freigabe. Er erteilt keine Rechte automatisch. Vor dem nächsten
+Deployment von V38 das aktualisierte Serverskript installieren: Seine Dateifreigabe kennt
+die neuen UI-Module. Anleitung: [deployment/README.md](deployment/README.md).
 
-Der bestehende Schalter `--rights-confirmed` ist ausschließlich nach tatsächlicher Klärung der Übernahme der Fragen und Abbildungen zu verwenden. Ein leerer PayPal-Link verhindert die kostenlose Veröffentlichung nicht.
+## Code und Dokumentation
 
-Das vorbereitete Deployment ist in `deployment/README.md` beschrieben. Es wurde kein Server angesprochen und nichts veröffentlicht.
+Die Browser-Skripte bleiben klassische Skripte in ihrer bestehenden Ladereihenfolge.
+Kommentare erklären Variablen, Aufrufe und Entscheidungen. Ergänzende Kommentare verwenden
+`//`; Kommentare zu Bedingungen und Schleifen stehen darüber. Kurze rechte Kommentare
+sind innerhalb zusammengehöriger Blöcke ausgerichtet. JSDoc steht mehrzeilig: Beschreibung,
+Parameter und Rückgabe jeweils in eigenen Zeilen. Leerzeilen trennen Variablenblöcke,
+Abfragen und weitere Verarbeitung. Die Dateiköpfe bleiben erhalten.
 
-## Pflege und Konventionen
+Ziel sind höchstens 400 Zeilen je Funktionsdatei und 20 Zeilen je Fachfunktion einschließlich
+Dokumentation. Der unveränderte Lern-Altbestand `question-view.js` hat noch 414 Zeilen.
+Kurze bekannte Funktionsausnahmen und Modulaufgaben stehen gesammelt in
+[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md).
 
-- Inhalte und Lösungen nur anhand ihrer Originalquelle ändern. Frage-IDs, Pool-IDs und Speicherschlüssel beim Umordnen beibehalten.
-- Das Deployment verändert und formatiert keine HTML-Dateien. Es prüft und archiviert die vorhandenen Dateien. Der CSP-Hash in `.htaccess` wird bei verändertem JSON-LD passend aktualisiert.
-- `scripts/pages/prepare-pages.mjs` ist ein optionales, manuell gestartetes Pflegewerkzeug: Es ersetzt HTML aus den Vorlagen und ist kein Formatierer für handgepflegte Seiten.
-- Öffentliche Skripte bleiben klassische Browser-Skripte in ihrer bisherigen Ladereihenfolge. Die Dateiverlagerung führt kein Framework und keine neue Laufzeitabhängigkeit ein.
-- CSS: Dateikopf mit `[B²]`, zweistelliges Inhaltsverzeichnis und dazu passende Abschnittskommentare; keine Inline-Kommentare. Kaskadenreihenfolge der UI-Regeln bleibt erhalten.
-- JavaScript: knappe deutsche JSDoc-Beschreibungen wie im Portfolio, Abstand zwischen Funktionen und ausgeschriebene Anweisungen. Typangaben bleiben an fachlichen Schnittstellen; offensichtliche UI-Helfer erhalten keine langen Parameterlisten. Der Fragetyp ist in `scripts/learning/data.js` dokumentiert.
-- Projektdateien verwenden CRLF. Das Linux-Serverskript verwendet bewusst LF; `.gitattributes` hält diese notwendige Ausnahme fest.
-- Das Deployment packt ausschließlich die öffentlichen Originaldateien direkt in ein temporäres TAR-Archiv. Es gibt keinen Build- oder Vorschauordner. Archive gehören nicht ins Repository.
-
-## Umstellung von v17 auf v18
-
-Patch entpacken. Das bisherige Build-Skript und dessen erzeugte Kopie einmalig entfernen:
-
-```cmd
-del scripts\build.mjs
-rmdir /s /q dist
-```
-
-Anschließend direkt im Projektordner entwickeln. Das Deployment prüft die aktuellen Dateien und archiviert sie ohne weitere Dateikopie.
+CSS behält Autorenblock, Inhaltsverzeichnis und Abschnittsschema; keine Inline-Kommentare.
+Projekttexte verwenden CRLF. Das ausführbare Linux-Serverskript behält entsprechend
+`.gitattributes` bewusst LF. Archive gehören nicht ins Repository.
 
 ## Unterstützung und Favicon
 
-PayPal.Me: https://paypal.me/BBennewitz, zentral in scripts/site-config.js konfiguriert. Der Betrag ist frei wählbar. Das offizielle PayPal-Zeichen liegt lokal unter assets/icons/paypal.svg; Originalquelle: https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-mark-color.svg. Es wird kein Zahlungs-SDK eingebunden.
+PayPal.Me: https://paypal.me/BBennewitz, zentral als Laufzeitwert in `scripts/site-config.js`.
+Alle Lernfunktionen bleiben kostenlos. Das PayPal-Zeichen liegt lokal unter
+`assets/icons/paypal.svg`; es wird kein Zahlungs-SDK geladen.
 
-Alle Seiten verlinken favicon.svg, favicon.png (96 × 96) und favicon.ico (16/32/48). Für die Domain-Startseite bereitet das Serverskript eine zeitweilige Weiterleitung nach /nrw/ vor. Das aktualisierte Serverskript muss vor dem nächsten Deployment erneut installiert werden; Details in deployment/README.md.
+Die Root-Seiten verlinken `favicon.svg`, `favicon.png` und `favicon.ico`.
+Die bestehende Domainweiterleitung nach `/nrw/` wird vom vorhandenen Serverskript gepflegt.
 
+## Prüfungsprofile und Quellen
 
-### V30 · Essen als unverbindliches Beispiel
+Das Essen-Beispiel verwendet 50 Fragen mit eigener 17/17/16-Verteilung und einer ausdrücklich
+eigenen Wertung ohne Teilpunkte. Es rekonstruiert keine Essener Originalprüfung.
+Herkunft und Grenzen: [docs/ESSEN_EXAMPLE.md](docs/ESSEN_EXAMPLE.md).
 
-Unter Testreihen steht ein geschätzter Beispieltest mit 50 Fragen bereit. Er nutzt eine eigene
-17/17/16-Verteilung, bestehende Katalogfragen und 16 ausdrücklich gekennzeichnete Rechts-Beispielfragen.
-Die Übungswertung ohne Teilpunkte verlangt 75 % je Teil und insgesamt und bildet die nicht
-veröffentlichte Essener Bewertung nicht nach. Details und Fragenprüfung: `docs/ESSEN_EXAMPLE.md`.
+## Ergänzende Dokumentation
+
+| Datei | Zweck |
+| --- | --- |
+| [DEVELOPMENT.md](docs/DEVELOPMENT.md) | Architektur, UI-Schnittstellen, Qualitätsprüfung und Pflege |
+| [LEGAL_PREPARATION_AUDIT.md](docs/LEGAL_PREPARATION_AUDIT.md) | Fachlicher Themenabgleich, Quellenlücken und Ortskonflikte |
+| [ESSEN_EXAMPLE.md](docs/ESSEN_EXAMPLE.md) | Private Behördenauskunft, eigene Annahmen und Herkunft eigener Fragen |
+| [TRAVEL_NOTES.md](docs/TRAVEL_NOTES.md) | Redaktionelle Reisehinweise, offene Quellenkonflikte und amtliche Links |
+
+`docs/QUESTION_AUDIT.json` bleibt als historischer Detailnachweis erhalten.
+`docs/validation.json` ist die nur auf ausdrücklichen Aufruf aktualisierte technische Prüfaufnahme.
+Alte Refactor- und Versionsprotokolle werden nicht parallel weitergeführt.

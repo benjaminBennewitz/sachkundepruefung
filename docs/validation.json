@@ -1,15 +1,19 @@
 {
-  "version": 21,
-  "date": "2026-11-06",
+  "version": 36,
+  "date": "2026-11-11",
+  "referenceDate": "2026-11-06",
+  "verification": "Lokaler Struktur- und Referenzvergleich; keine erneute PDF- oder Rechtsprüfung.",
   "counts": {
     "legacy203": 203,
     "rhein97": 97,
     "koeln": 115,
     "mgPool": 398,
     "allPool": 400,
-    "kammer197": 197
+    "kammer197": 197,
+    "essenExamples": 50
   },
   "canonicalQuestions": 612,
+  "exampleQuestions": 16,
   "missingKeys": 0,
   "invalidKeys": 0,
   "missingAssets": 0,

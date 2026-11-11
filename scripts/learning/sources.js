@@ -10,6 +10,9 @@
  * @type {Record<string, {label: string, page: string}>}
  * Originalverweise werden ausschließlich auf einen ausdrücklichen Klick geöffnet.
  */
+
+// sourceKey jeder Frage verweist auf genau einen dieser Herkunftsnachweise.
+// label benennt die verwendete Fassung; page führt zur Originalquelle oder zur dokumentierten Herkunft.
 window.LHUNDG_SOURCES = {
   essenExample: {
     label: 'Eigene, unverbindliche Rechtsfrage',

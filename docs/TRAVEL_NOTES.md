@@ -1,14 +1,15 @@
 # Reisehinweise – redaktionelle Pflege
 
-Stand: 9. November 2026. Umfang: kurze private Reisen ab NRW, 15 andere deutsche Bundesländer sowie Niederlande, Österreich, Belgien und Italien. Kein Umzug, Tierhandel oder Transport mit Halterwechsel. Weitere Länder und Transitländer sind nicht freigegeben.
+Dokumentierter Recherche-/Quellenstand: 9. November 2026. Keine erneute Rechtsprüfung durch
+diese Dokumentationsbereinigung. Umfang: kurze private Reisen ab NRW, 15 andere deutsche Bundesländer sowie Niederlande, Österreich, Belgien und Italien. Kein Umzug, Tierhandel oder Transport mit Halterwechsel. Weitere Länder und Transitländer sind vom dokumentierten Umfang nicht abgedeckt.
 
 ## Pflege
 
-Die veröffentlichte gut-zu-wissen.html ist direkt deploybar. Die optionale Vorlage scripts/pages/content-pages.mjs enthält denselben Abschnitt in travelContent. Änderungen an beiden Stellen synchron halten; den Generator nicht beim Deployment ausführen. Die vorhandene HTML-Formatierung bleibt erhalten.
+Die veröffentlichte gut-zu-wissen.html ist direkt deploybar und die einzige Inhaltsquelle für die Reisehinweise. Änderungen ausschließlich dort pflegen. Es gibt keine parallele Vorlage und keinen Seitengenerator. Das Deployment erhält die vorhandene HTML-Formatierung.
 
 Die Kurzübersicht ist keine individuelle rechtliche Freigabe. Genehmigungen, Einstufungen und lokale Regeln müssen am Reiseziel bestätigt werden. NRW-Nachweise gelten dort nicht automatisch.
 
-## Besonders erneut prüfen
+## Für die nächste fachliche Aktualisierung
 
 - Bayern: Die Polizei nennt keine Haltungserlaubnis bei kurzen Ferienaufenthalten; Freising veröffentlicht dennoch eigene Anmelde-/Genehmigungsanforderungen. Dieser Unterschied ist offengelegt.
 - Hessen: Die Vier-Wochen-Ausnahme betrifft den Sachkundenachweis bei Maulkorbführung, nicht sämtliche Erlaubnispflichten. Die Behörden-PDF hat einen alten Dateinamen, enthält aber die VVHundeVO mit Geltung ab 13.01.2026.
@@ -61,8 +62,4 @@ Die Kurzübersicht ist keine individuelle rechtliche Freigabe. Genehmigungen, Ei
 - HundVerbrEinfVO: § 2 Abs. 2 und 3 ↗: https://www.gesetze-im-internet.de/hundverbreinfvo/__2.html
 - Mitführpflichten: § 3 ↗: https://www.gesetze-im-internet.de/hundverbreinfvo/__3.html
 
-## Technische Prüfung
-
-19 statische Aufklappbereiche, Inhalte ohne JavaScript verfügbar. Keine neuen Skripte oder externen Assets. Vorhandene Theme-Tokens verwendet. Enter-Bedienung und Öffnungszustand, Light/Dark sowie 320- und 768-Pixel-Einbettungen ohne horizontalen Seitenüberlauf geprüft. Sechs HTML-Seiten, 166 lokale Verweise und Syntax der geänderten Vorlagendateien geprüft.
-
-Kein Deployment durchgeführt. Keine Neuinstallation des Serverskripts nötig; regulär deployen.
+Technische Pflege und Prüfgrenzen: [DEVELOPMENT.md](DEVELOPMENT.md).

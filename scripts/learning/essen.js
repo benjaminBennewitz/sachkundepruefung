@@ -5,7 +5,7 @@
  * @description Eigene Rechtsfragen und getrennte Auswahl vorhandener Katalogfragen. Keine Essener Originalfragen.
  * @author Benjamin Bennewitz [B²]
  */
-/* global LHUNDG_DATA */
+// global LHUNDG_DATA
 (() => {
   'use strict';
 
@@ -15,6 +15,7 @@
    */
 
   /** @type {{id: string, label: string}[]} Die Dreiteilung ist bestätigt, die konkrete Verteilung unsere Annahme. */
+  // Bestätigte Themenbereiche; die konkrete Fragenverteilung bleibt eine eigene Annahme.
   const sections = [
     { id: 'biology', label: 'Biologie und Gesundheit' },
     { id: 'behavior', label: 'Verhalten und Erziehung' },
@@ -22,6 +23,7 @@
   ];
 
   /** @type {EssenQuestion[]} Eigene, nicht amtlich bestätigte Beispiele; Rechtsabgleich vom 11.11.2026. */
+  // 16 eigene Rechtsbeispiele; Kennzeichnung, Rechtsgrundlage und Erklärung gehören zu jeder Frage.
   const lawQuestions = [
     {
       "id": 4001,
@@ -552,13 +554,16 @@
    */
   function selectQuestions(ids, section) {
     return ids.map(id => {
-      const question = LHUNDG_DATA.legacy203.find(item => item.id === id);
+      const question = LHUNDG_DATA.legacy203.find(item => item.id === id);  // Originalfrage aus Rhein-Erft 203; übernommen wird anschließend nur eine Kopie.
+      // Eine fehlende Originalfrage bricht den Aufbau ab, statt still einen unvollständigen Test zu erzeugen.
       if (!question) throw new Error(`Fehlende Essen-Beispielfrage: ${id}`);
       return { ...question, examSection: section };
     });
   }
 
+  // Stellt die gemeinsamen Abschnittsnamen für Profilbeschreibung, Fragenkarten und Teilwertung bereit.
   window.LHUNDG_ESSEN_SECTIONS = sections;
+  // Baut das feste 17/17/16-Beispiel aus kopierten Originalfragen und eigenen Rechtsbeispielen auf.
   LHUNDG_DATA.essenExamples = [
     ...selectQuestions([94, 97, 105, 113, 115, 118, 124, 127, 130, 133, 137, 140, 142, 146, 152, 154, 158], 'biology'),
     ...selectQuestions([1, 3, 8, 9, 11, 13, 18, 21, 24, 25, 28, 31, 33, 51, 62, 70, 77], 'behavior'),
