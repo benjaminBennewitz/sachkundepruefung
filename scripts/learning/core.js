@@ -84,11 +84,38 @@
     return question.type === 'mapping' ? question.mappingKeys.every(key => [...selected].some(v =>
       v.startsWith(`${key}:`))) : selected.size > 0;
   }
+  /**
+   * Wertet die eigene Beispielsimulation ohne Teilpunkte aus; jeder Teil muss separat bestehen.
+   * @param {Array<SachkundeQuestion & {examSection: string}>} questions Vollständige Testauswahl.
+   * @param {Map<number, Set<string>>} answers Gewählte Antworten nach Frage-ID.
+   * @param {{id: string, label: string}[]} sections Erwartete Prüfungsteile.
+   * @returns {{correct: number, total: number, required: number, passed: boolean,
+   *   sections: {id: string, label: string, correct: number, total: number, required: number, passed: boolean}[]}}
+   * Gesamtergebnis mit aufgerundeter 75-Prozent-Grenze; fehlende oder unbekannte Teile bestehen nicht.
+   */
+  function evaluateSections(questions, answers, sections) {
+    const results = sections.map(section => {
+      const items = questions.filter(question => question.examSection === section.id);
+      const correct = items.filter(question => exact(answers.get(question.id) || new Set(),
+        question.correct)).length;
+      const required = Math.ceil(items.length * 0.75);
+      return { ...section, correct, total: items.length, required,
+        passed: items.length > 0 && correct >= required };
+    });
+    const correct = results.reduce((sum, section) => sum + section.correct, 0);
+    const required = Math.ceil(questions.length * 0.75);
+    const covered = questions.every(question => sections.some(section =>
+      section.id === question.examSection));
+    return { correct, total: questions.length, required,
+      passed: covered && results.length > 0 && results.every(section => section.passed) &&
+        correct >= required, sections: results };
+  }
   const api = {
     exact,
     randomQuestions,
     validAnswers,
-    complete
+    complete,
+    evaluateSections
   };
   if (typeof module !== 'undefined') module.exports = api;
   else root.LHUNDG_CORE = api;

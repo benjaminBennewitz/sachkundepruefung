@@ -101,3 +101,11 @@ Anschließend direkt im Projektordner entwickeln. Das Deployment prüft die aktu
 PayPal.Me: https://paypal.me/BBennewitz, zentral in scripts/site-config.js konfiguriert. Der Betrag ist frei wählbar. Das offizielle PayPal-Zeichen liegt lokal unter assets/icons/paypal.svg; Originalquelle: https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-mark-color.svg. Es wird kein Zahlungs-SDK eingebunden.
 
 Alle Seiten verlinken favicon.svg, favicon.png (96 × 96) und favicon.ico (16/32/48). Für die Domain-Startseite bereitet das Serverskript eine zeitweilige Weiterleitung nach /nrw/ vor. Das aktualisierte Serverskript muss vor dem nächsten Deployment erneut installiert werden; Details in deployment/README.md.
+
+
+### V30 · Essen als unverbindliches Beispiel
+
+Unter Testreihen steht ein geschätzter Beispieltest mit 50 Fragen bereit. Er nutzt eine eigene
+17/17/16-Verteilung, bestehende Katalogfragen und 16 ausdrücklich gekennzeichnete Rechts-Beispielfragen.
+Die Übungswertung ohne Teilpunkte verlangt 75 % je Teil und insgesamt und bildet die nicht
+veröffentlichte Essener Bewertung nicht nach. Details und Fragenprüfung: `docs/ESSEN_EXAMPLE.md`.

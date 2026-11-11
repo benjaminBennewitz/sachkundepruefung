@@ -11,6 +11,10 @@
  * Originalverweise werden ausschließlich auf einen ausdrücklichen Klick geöffnet.
  */
 window.LHUNDG_SOURCES = {
+  essenExample: {
+    label: 'Eigene, unverbindliche Rechtsfrage',
+    page: 'quellen.html#essen-beispiel'
+  },
   legacy203: {
     label: 'Rhein-Erft-Kreis · 203',
     page: 'https://portal.rhein-erft-kreis.de/detail/-/vr-bis-detail/dienstleistung/42735/show'

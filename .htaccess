@@ -16,7 +16,7 @@ DirectoryIndex index.html
   <FilesMatch "\.(webp|svg|png|ico)$">
     Header set Cache-Control "public, max-age=31536000"
   </FilesMatch>
-  Header always set X-Robots-Tag "noindex, follow" "expr=%{QUERY_STRING} =~ /(^|&)(mode=(mgexam|exam34|exam11)|tv=1)(&|$)/"
+  Header always set X-Robots-Tag "noindex, follow" "expr=%{QUERY_STRING} =~ /(^|&)(mode=(mgexam|exam34|exam11|essenexam)|tv=1)(&|$)/"
 </IfModule>
 
 <IfModule mod_deflate.c>

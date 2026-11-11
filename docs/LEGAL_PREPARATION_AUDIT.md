@@ -97,3 +97,23 @@ Nach weiteren vom Betreiber bereitgestellten Antworten der Stadt Essen vom 11. N
 Die Behörde hat ausdrücklich erklärt, dass weitere Bewertungsdetails nicht zur Veröffentlichung vorgesehen sind. Der Patch dokumentiert diese Grenze und enthält kein ausgedachtes Punkteschema. Insbesondere werden weder ein genereller Nullpunktwert bei jeder Falschauswahl noch eine feste Gewichtung einzelner Antworten behauptet. Ebenso werden aus ca. 50 Fragen keine verbindlichen 17/17/16 Fragen abgeleitet. Punktequoten sind nicht mit einer Quote vollständig richtig beantworteter Fragen gleichzusetzen.
 
 Es entsteht kein neuer Essener Testmodus. Fragen, Lösungsschlüssel, Lernstände und bestehende Auswertungen bleiben unverändert. Die Hinweise in Hundewissen, Quellen und beiden Seitenvorlagen sind synchron aktualisiert. Die frühere Aussage, konkrete Prüfungsbedingungen lägen nicht vor, wurde ersetzt. Der Quellenstand bezieht sich auf die privaten Antworten, nicht auf eine entsprechende Veröffentlichung der Stadt.
+
+
+## Ergänzung V30: geschätzte Essen-Beispielsimulation
+
+Auf Wunsch des Betreibers gibt es jetzt einen eigenen Beispielmodus. Die historische V29-Aussage
+„kein neuer Essener Testmodus“ beschreibt nur den damaligen Patch.
+
+- Bestätigte Rahmenbedingungen: ungefähr 50 Fragen, drei ungefähr gleich große Teile,
+  grundsätzlich kein Zeitlimit, 75 % insgesamt und in jedem Teil.
+- Eigene Annahmen: exakt 50 Fragen, Verteilung 17/17/16, gleiches Gewicht pro Frage,
+  1 Punkt nur bei exakt vollständiger richtiger Auswahl, sonst 0. Keine Teilpunkte.
+- Übungsgrenzen: 13/17, 13/17 und 12/16; mindestens 38/50 insgesamt. Kein Ausgleich zwischen Teilen.
+- Keine Rekonstruktion der nicht veröffentlichten Essener Bewertung oder des Nachgesprächs.
+- 34 bestehende Rhein-Erft-203-Fragen werden kopiert und Themen zugeordnet. Wortlaut, Schlüssel,
+  Quellen und die ursprünglichen Lernkataloge bleiben unverändert.
+- 16 eigene Rechtsfragen sind bei jeder Anzeige als geschätztes, nicht verbindliches Beispiel markiert.
+  Jede nennt Vorschrift und Originalquelle; ihre Erläuterung erscheint erst nach Auswertung.
+- Festes 50er-Beispielset, zufällige Reihenfolge; antwortenbasierter Prüfungsspeicher getrennt vom Katalog.
+- Rechtsabgleich am 11.11.2026 mit Originaltexten: TierSchG, TierSchHuV, LHundG NRW.
+  Keine behördliche Bestätigung. Vollständige Fragenübersicht: ESSEN_EXAMPLE.md.

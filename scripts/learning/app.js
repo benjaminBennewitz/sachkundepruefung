@@ -13,7 +13,8 @@
     exact,
     randomQuestions,
     validAnswers,
-    complete
+    complete,
+    evaluateSections
   } = LHUNDG_CORE;
 
   /** Sucht ein bekanntes Element im Dokument. */
@@ -87,6 +88,15 @@
       examCount: 30,
       passCount: null,
       description: '30 zufällige Kammerfragen für große Hunde. Lernquote ohne verbindliche Bestehensgrenze; das erforderliche Gespräch und die Entscheidung der prüfenden Stelle werden nicht simuliert.'
+    },
+    essenexam: {
+      pool: 'essenExamples',
+      title: 'Essen · geschätztes Beispiel',
+      key: null,
+      examCount: 50,
+      passCount: 38,
+      sections: window.LHUNDG_ESSEN_SECTIONS,
+      description: 'Unverbindliches, geschätztes Beispiel: 50 Fragen ohne Zeitlimit. Eigene Aufteilung 17 / 17 / 16; 34 vorhandene Katalogfragen und 16 eigene Rechtsfragen. Übungswertung: 1 Punkt nur bei vollständig richtiger Auswahl, keine Teilpunkte. Mindestens 75 % insgesamt UND je Teil; keine Essener Originalprüfung.'
     },
     mgexam: {
       pool: 'mgPool',
@@ -249,6 +259,15 @@
     .addEventListener('change', event => changeMode(event.target.value));
   $('modeTitle')
     .textContent = config.title;
+  const exampleNotice = $('exampleNotice');
+  exampleNotice.hidden = !config.sections;
+  if (config.sections) exampleNotice.append(
+    node('strong', 'Unverbindliches, geschätztes Beispiel. '),
+    document.createTextNode('Eigene Auswahl und Übungswertung; keine Essener Originalprüfung. '),
+    Object.assign(node('a', 'Aufteilung, Quellen und Wertung'), {
+      href: 'gut-zu-wissen.html#essen-beispiel'
+    })
+  );
   $('viewSelect')
     .value = state.view;
   updateFeedbackToggle();
@@ -294,7 +313,7 @@
   const navButtons = new Map();
   const navigationFragment = document.createDocumentFragment();
   for (const [index, q] of questions.entries()) {
-    const label = ['all', 'mg', 'mgexam', 'exam34', 'exam11'].includes(mode) ? String(index + 1) :
+    const label = ['all', 'mg', 'mgexam', 'exam34', 'exam11', 'essenexam'].includes(mode) ? String(index + 1) :
       q.sourceId;
     const b = button(label, 'nav-q', () => goTo(q.id));
     b.title = `${q.source} · Originalfrage ${q.sourceId}`;
@@ -500,18 +519,26 @@
     const source = LHUNDG_SOURCES[q.sourceKey];
     const provenance = node('div', undefined, 'question-source');
     provenance.append(node('span',
-      `${source.label} · Originalfrage ${q.sourceId}${q.sourcePage ? ` · Vorlagenseite ${q.sourcePage}` : ''} · ${q.category}`
+      `${source.label} · ${q.example ? 'Beispielfrage' : 'Originalfrage'} ${q.sourceId}${q.sourcePage ? ` · Vorlagenseite ${q.sourcePage}` : ''} · ${q.category}`
     ));
-    const external = source.page.startsWith('https://');
-    const link = node('a', external ? 'Originalquelle beim Herausgeber ↗' :
+    const sourceUrl = q.sourceUrl || source.page;
+    const external = sourceUrl.startsWith('https://');
+    const link = node('a', q.example ? `Rechtsgrundlage: ${q.legalReference} ↗` : external ? 'Originalquelle beim Herausgeber ↗' :
       'Herkunft dieses Übungsbogens →');
-    link.href = source.page;
+    link.href = sourceUrl;
     if (external) {
       link.target = '_blank';
       link.rel = 'noopener noreferrer external';
     }
     provenance.append(link);
     card.append(provenance);
+    if (config.sections) {
+      const section = config.sections.find(item => item.id === q.examSection);
+      card.append(node('p', `Prüfungsteil: ${section.label}`, 'microcopy'));
+    }
+    if (q.example) card.append(node('p',
+      'Eigene Beispielfrage – geschätztes, nicht verbindliches Beispiel. Keine Essener Originalfrage.',
+      'source-note'));
     if (q.referenceOnly) card.append(node('p',
       'Dieser Lernbereich nutzt den bereitgestellten Kölner Übungsbogen; Lösungen gelten nur für diese Fassung. Bochum empfiehlt den öffentlichen Kölner Katalog zur Themenvorbereitung. Veröffentlichte Fassungen können von diesem Übungsbogen abweichen. Keine Nachbildung der Bochumer Prüfung.',
       'source-note'));
@@ -643,7 +670,7 @@
       const format = token => q.type === 'mapping' ? token.replace(':', ' → ') :
         `${token}: ${q.answers[token]}`;
       feedback.textContent =
-        `${right ? 'Richtig! ' : `Deine Auswahl: ${selected.size ? [...selected].map(v => v.replace(':', ' → ')).join(', ') : 'keine'}. `}Lösung laut Quelle:\n${q.correct.map(format).join('\n')}`;
+        `${right ? 'Richtig! ' : `Deine Auswahl: ${selected.size ? [...selected].map(v => v.replace(':', ' → ')).join(', ') : 'keine'}. `}${q.example ? 'Lösung der eigenen Beispielfrage' : 'Lösung laut Quelle'}:\n${q.correct.map(format).join('\n')}${q.explanation ? `\n\nEinordnung: ${q.explanation}` : ''}`;
     }
   }
 
@@ -746,10 +773,13 @@
     const correct = chosen.length - wrong.length;
     const result = $('result');
     result.replaceChildren();
-    result.append(node('h3', intermediate ? 'Dein Zwischenstand' : isExam ? config.passCount ===
+    const sectionScore = config.sections ? evaluateSections(chosen, state.answers, config.sections) : null;
+    result.append(node('h3', sectionScore ? sectionScore.passed ? 'Beispieltest nach Übungswertung bestanden.' :
+      'Beispieltest: Noch ein bisschen üben.' : intermediate ? 'Dein Zwischenstand' : isExam ? config.passCount ===
       null ? 'Deine §-11-Lernquote' : correct >= config.passCount ? 'Übungstest bestanden.' :
       'Noch ein bisschen üben.' : 'Deine Auswertung'));
-    result.append(node('p', intermediate ?
+    result.append(node('p', sectionScore ?
+      'Unverbindliches, geschätztes Beispiel. Eigene Übungswertung: 1 Punkt nur bei vollständig richtiger Auswahl; sonst 0 Punkte. Keine Teilpunkte. Mindestens 75 % je Teil und insgesamt (38 von 50). Die unbekannte Essener Teilpunktewertung und ein Nachgespräch werden nicht nachgebildet.' : intermediate ?
       `Nur ${chosen.length} vollständig beantwortete Fragen wurden gewertet.` : isExam ?
         config.passCount === null ?
           'Diese Übungsrunde hat keine verbindliche Bestehensgrenze. Die prüfende Stelle beurteilt deine Sachkunde, gegebenenfalls im Gespräch.' :
@@ -768,6 +798,19 @@
       stats.append(stat);
     }
     result.append(stats);
+    if (sectionScore) {
+      result.append(node('h4', 'Alle drei Teile müssen mindestens 75 % erreichen.'));
+      const sections = node('div', undefined, 'result-stats');
+      for (const section of sectionScore.sections) {
+        const stat = node('div', undefined, 'result-stat');
+        stat.append(node('strong', `${section.correct} / ${section.total}`),
+          node('span', section.label),
+          node('p', `${section.passed ? 'Erreicht' : 'Nicht erreicht'} · mindestens ${section.required} richtig`));
+        sections.append(stat);
+      }
+      result.append(sections, node('p',
+        'Die Verteilung 17 / 17 / 16 ist unsere Annahme. Ein gutes Gesamtergebnis gleicht einen nicht bestandenen Teil nicht aus.'));
+    }
     if (wrong.length) {
       result.append(node('p', 'Zu einer falschen oder offenen Frage springen:'));
       const errors = node('div', undefined, 'error-number-grid');

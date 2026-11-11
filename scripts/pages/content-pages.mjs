@@ -315,7 +315,9 @@ const preparationContent = `
           </ul>
           <p>Die öffentliche Seite empfiehlt neben Hundewissen die Originalrechtstexte; Internetfragebögen allein
             reichen zur Vorbereitung nicht aus. Ein Essener Originalfragenkatalog liegt uns nicht vor.
-            Die Punktewertung und die mündliche Beurteilung werden hier nicht nachgebildet.
+            Die genaue Essener Punktewertung und die mündliche Beurteilung werden hier nicht nachgebildet.
+            Unser <a href="./?mode=essenexam#trainer">unverbindlicher Beispieltest mit 50 Fragen</a>
+            nutzt eine eigene Auswahl und eine eigene Wertung; <a href="gut-zu-wissen.html#essen-beispiel">Annahmen und Grenzen</a>.
             <a href="quellen.html#essen">Quelle und Grenzen der Essener Angaben</a>.</p>
           <p><a href="https://www.essen.de/leben/umwelt/veterinaerwesen/hundehaltung.de.html" target="_blank" rel="noopener noreferrer external">Essen: Prüfungsvorbereitung ↗</a> ·
             <a href="https://service.essen.de/detail/-/vr-bis-detail/dienstleistung/41286/show" target="_blank" rel="noopener noreferrer external">Essen: Anmeldung und Erlaubnis ↗</a></p>
@@ -405,7 +407,31 @@ ${renderSection(sections.find(s => s.title==='Deine Rechte'))}<p>Eine Beschwerde
       Die <a href="hundewissen.html#lernabdeckung">Themenbewertung der Kataloge</a> zeigt zusätzlichen Lernbedarf;
       <a href="hundewissen.html#staedte">Ortsinformationen</a> helfen bei der Vorbereitung für deine Prüfstelle.</p>
 <h2 id="lerntrainer">Direktes Feedback zu jeder Frage</h2><p><strong>„Sofort-Feedback: An“</strong> zeigt im Lernmodus bei jeder Frage einen eigenen Button „Antwort prüfen“. Wähle zunächst alle passenden Antworten aus und drücke dann auf den Button. Erst jetzt erscheinen die Wertung und die richtige Lösung der Quelle. Eine geänderte Antwort setzt die Bewertung zurück; du kannst erneut prüfen. Bei Zuordnungen müssen zunächst alle Positionen ausgefüllt sein.</p><p>Der Schalter lässt sich jederzeit ausschalten. In Testreihen bleibt Einzelfeedback bis zur Abschlussauswertung gesperrt, damit die Lösungen den Test nicht vorwegnehmen.</p>
-<h2 id="testreihen">Welche Testreihe passt zu mir?</h2><div class="table-scroll"><table><thead><tr><th>Testreihe</th><th>Fragenbasis</th><th>Wertung in dieser Lernhilfe</th></tr></thead><tbody><tr><td>§ 3 / § 10 · Rhein-Erft</td><td>34 zufällige Fragen aus dem 203er-Katalog</td><td>Mindestens 24 vollständig richtig; Eckdaten aus dem veröffentlichten Rhein-Erft-PDF. Keine identische amtliche Auswahl.</td></tr><tr><td>§ 3 · MG-Simulation</td><td>119 Fragen aus dem bisherigen 398er-Basispool</td><td>Mindestens 90 richtig, kein Zeitlimit; privat mitgeteilte Eckdaten, keine veröffentlichte Originalprüfung.</td></tr><tr><td>§ 11 · Kammer-Übung</td><td>30 zufällige Fragen aus dem 197er-Kammerkatalog</td><td>Lernquote ohne verbindliches Bestanden/Nicht-bestanden. Zufällige Übung, keine Nachbildung der amtlichen Themenauswahl oder des Gesprächs.</td></tr></tbody></table></div><p>Für die tierärztliche Sachkunde nach § 11 nennt die Tierärztekammer Nordrhein 30 Fragen und ein anschließendes Informationsgespräch; eine festgesetzte Fehlerquote gibt sie nicht an. Die Unterschiede betreffen insbesondere den zulässigen Nachweisweg, die lokale Prüfung und zusätzliche Rechtsfragen – nicht ein völlig anderes Grundwissen über Hunde.</p><p class="source-links">${ref('kammer','Tierärztekammer Nordrhein: Ablauf und Bewertung')} · ${ref('koeln','Stadt Köln: Sachkundenachweis')} · <a href="quellen.html#rhein203">Rhein-Erft: Originalquelle und Herkunft</a></p>
+
+<section aria-labelledby="essen-beispiel">
+  <h2 id="essen-beispiel">Essen: unverbindlicher Beispieltest</h2>
+  <p><strong>Geschätztes Beispiel, keine Essener Originalprüfung.</strong> Die Stadt hat keinen Fragenkatalog
+    bereitgestellt. Wir haben 34 passende Fragen aus dem vorhandenen Rhein-Erft-203-Katalog ausgewählt
+    und 16 eigene Rechtsfragen anhand von TierSchG, TierSchHuV und LHundG NRW formuliert.
+    Die eigenen Fragen sind im Test ausdrücklich gekennzeichnet und verlinken die jeweilige Rechtsgrundlage.
+    Eine Aufnahme dieser Fragen in die echte Prüfung wird nicht zugesichert.</p>
+  <ul>
+    <li><strong>Eigene Aufteilung:</strong> 17 Fragen Biologie und Gesundheit, 17 Verhalten und Erziehung,
+      16 Recht. Bestätigt ist nur eine ungefähr gleichmäßige Verteilung, keine exakte Stückzahl.</li>
+    <li><strong>Eigene Übungswertung:</strong> Pro Frage 1 Punkt nur bei vollständig richtiger Auswahl,
+      sonst 0 Punkte – auch bei teilweise richtiger Auswahl. Diese strengere Übungsregel bildet die nicht
+      veröffentlichte Essener Teilpunkteberechnung nicht nach.</li>
+    <li><strong>Bestanden in dieser Übung:</strong> mindestens 13 von 17, 13 von 17 und 12 von 16
+      Fragen richtig. Jeder Teil muss 75 % erreichen, ebenso das Gesamtergebnis (mindestens 38 von 50).</li>
+    <li><strong>Ablauf:</strong> ohne Zeitlimit; alle 50 Fragen in neuer Zufallsreihenfolge.
+      Lösungen und Erläuterungen erscheinen erst nach der Gesamtauswertung. Dein Katalog-Lernstand bleibt getrennt.</li>
+  </ul>
+  <p>Der begrenzte Beispielumfang deckt nicht alle möglichen Prüfungsthemen ab. Lies zusätzlich die
+    <a href="hundewissen.html#recht">aktuellen Rechtstexte</a> und bestätige die Bedingungen bei der Prüfstelle.
+    <a href="quellen.html#essen-beispiel">Herkunft, Rechtsstand und Grenzen</a>.</p>
+  <p><a class="primary button" href="./?mode=essenexam#trainer">Geschätzten Essen-Beispieltest starten →</a></p>
+</section>
+<h2 id="testreihen">Welche Testreihe passt zu mir?</h2><div class="table-scroll"><table><thead><tr><th>Testreihe</th><th>Fragenbasis</th><th>Wertung in dieser Lernhilfe</th></tr></thead><tbody><tr><td>§ 3 / § 10 · Rhein-Erft</td><td>34 zufällige Fragen aus dem 203er-Katalog</td><td>Mindestens 24 vollständig richtig; Eckdaten aus dem veröffentlichten Rhein-Erft-PDF. Keine identische amtliche Auswahl.</td></tr><tr><td>§ 3 · MG-Simulation</td><td>119 Fragen aus dem bisherigen 398er-Basispool</td><td>Mindestens 90 richtig, kein Zeitlimit; privat mitgeteilte Eckdaten, keine veröffentlichte Originalprüfung.</td></tr><tr><td>§ 11 · Kammer-Übung</td><td>30 zufällige Fragen aus dem 197er-Kammerkatalog</td><td>Lernquote ohne verbindliches Bestanden/Nicht-bestanden. Zufällige Übung, keine Nachbildung der amtlichen Themenauswahl oder des Gesprächs.</td></tr><tr><td>§ 3 · Essen · geschätztes Beispiel</td><td>50 feste Beispielfragen in Zufallsreihenfolge: 34 Katalogfragen und 16 eigene Rechtsfragen</td><td>Eigene Wertung ohne Teilpunkte: mindestens 75 % je Teil und insgesamt. Keine Essener Originalprüfung. <a href="#essen-beispiel">Details und Annahmen</a>.</td></tr></tbody></table></div><p>Für die tierärztliche Sachkunde nach § 11 nennt die Tierärztekammer Nordrhein 30 Fragen und ein anschließendes Informationsgespräch; eine festgesetzte Fehlerquote gibt sie nicht an. Die Unterschiede betreffen insbesondere den zulässigen Nachweisweg, die lokale Prüfung und zusätzliche Rechtsfragen – nicht ein völlig anderes Grundwissen über Hunde.</p><p class="source-links">${ref('kammer','Tierärztekammer Nordrhein: Ablauf und Bewertung')} · ${ref('koeln','Stadt Köln: Sachkundenachweis')} · <a href="quellen.html#rhein203">Rhein-Erft: Originalquelle und Herkunft</a></p>
 <h2>Wann zählt eine Frage als richtig?</h2><p>Alle laut zugehörigem Lösungsschlüssel richtigen Antworten müssen gewählt sein, zusätzliche falsche Antworten dürfen nicht gewählt sein. Jede Zuordnung muss stimmen. Die Zwischenwertung bezieht sich nur auf vollständig beantwortete Fragen. Die Gesamtauswertung zählt offene und unvollständige Antworten als falsch. Der Status „Beantwortet“ ist noch keine richtige Lösung.</p>
 <h2>Lernstand mitnehmen oder zurücksetzen</h2><p>Oben in der Navigation findest du „Lernstand sichern“, „Lernstand laden“ und „Lernbereich zurücksetzen“. Eine Sicherung ist eine lokale JSON-Datei ohne Konto oder Cloud-Synchronisation. Beim Import werden die Lernstände nach Bestätigung zusammengeführt; importierte Antworten ersetzen vorhandene Antworten derselben Frage, Bewertungen werden zurückgesetzt. Zurücksetzen löscht nur den aktuell gewählten Lernbereich.</p>
 <h2 id="tastatur">Ansichten und Tastatur</h2>
@@ -418,7 +444,7 @@ ${renderSection(sections.find(s => s.title==='Deine Rechte'))}<p>Eine Beschwerde
   <div><dt><kbd>Home</kbd> <kbd>End</kbd></dt><dd>Zur ersten oder letzten Frage springen (Pos1/Ende).</dd></div>
 </dl>
 <p>In Such- und Auswahlfeldern gelten weiterhin deren übliche Tasten. Modale lassen sich mit <kbd>Esc</kbd> abbrechen.</p>
-<h2>Quellen statt Prüfungsgarantie</h2><p>Viele der verwendeten Fragenkataloge wurden mir von den zuständigen Ämtern persönlich zugesandt oder sind öffentlich abrufbar. Persönlich zugesandte Unterlagen haben nicht immer eine öffentliche Originaladresse; das wird bei den Quellen kenntlich gemacht.</p><p>Jede Frage nennt ihre Herkunft und Originalnummer. Nicht öffentlich belegte PDF-Adressen und abweichende Fassungen sind gekennzeichnet. Ältere Aussagen in Originalfragen können vom aktuellen Recht oder heutigen fachlichen Empfehlungen abweichen. Die Wertung folgt dem bezeichneten Lösungsschlüssel; aktuelle rechtliche Orientierung findest du auf <a href="hundewissen.html">Hundewissen</a>.</p>
+<h2>Quellen statt Prüfungsgarantie</h2><p>Viele der verwendeten Fragenkataloge wurden mir von den zuständigen Ämtern persönlich zugesandt oder sind öffentlich abrufbar. Persönlich zugesandte Unterlagen haben nicht immer eine öffentliche Originaladresse; das wird bei den Quellen kenntlich gemacht.</p><p>Katalogfragen nennen ihre Herkunft und Originalnummer; eigene Beispielfragen sind ausdrücklich gekennzeichnet. Nicht öffentlich belegte PDF-Adressen und abweichende Fassungen sind gekennzeichnet. Ältere Aussagen in Originalfragen können vom aktuellen Recht oder heutigen fachlichen Empfehlungen abweichen. Die Wertung folgt dem bezeichneten Lösungsschlüssel; aktuelle rechtliche Orientierung findest du auf <a href="hundewissen.html">Hundewissen</a>.</p>
 ${travelContent}
 <p><a class="primary button" href="./#trainer">Zum Lerntrainer →</a></p>`);
   page('hundewissen.html', 'Listenhunde & Haltungsauflagen in NRW',

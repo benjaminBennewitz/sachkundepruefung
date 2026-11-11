@@ -122,12 +122,13 @@
             </details>
           </div>
           <details class="test-options" open>
-            <summary>Testreihen · 34 / 119 / 30 Fragen <span aria-hidden="true">＋</span></summary>
+            <summary>Testreihen · 34 / 119 / 30 / 50 Fragen <span aria-hidden="true">＋</span></summary>
             <div class="exam-panel">
               <p class="test-title">Testreihe</p><label for="testSelect">Prüfungsprofil</label><select id="testSelect">
                 <option value="exam34">§ 3 / § 10 · Rhein-Erft · 34 Fragen</option>
                 <option value="mgexam">§ 3 · MG-Simulation · 119 Fragen</option>
                 <option value="exam11">§ 11 · Kammer-Übung · 30 Fragen</option>
+                <option value="essenexam">§ 3 · Essen · geschätztes Beispiel · 50 Fragen</option>
               </select>
               <details class="test-profile-info">
                 <summary>Details zum Prüfungsprofil</summary>
@@ -139,6 +140,7 @@
         </aside>
         <div class="workspace">
           <div class="trainer-controls">
+            <p id="exampleNotice" class="source-note" hidden></p>
             <div class="study-toolbar">
               <div class="catalog-heading">
                 <h2 id="modeTitle">Alle Quellen</h2><span id="matchCount" class="microcopy" role="status"
@@ -252,9 +254,10 @@
   <script src="scripts/site-config.js?v=23" defer></script>
   <script src="scripts/ui/common.js?v=25" defer></script>
   <script src="scripts/learning/data.js?v=26" defer></script>
-  <script src="scripts/learning/sources.js?v=19" defer></script>
-  <script src="scripts/learning/core.js?v=19" defer></script>
-  <script src="scripts/learning/app.js?v=27" defer></script>
+  <script src="scripts/learning/essen.js?v=30" defer></script>
+  <script src="scripts/learning/sources.js?v=30" defer></script>
+  <script src="scripts/learning/core.js?v=30" defer></script>
+  <script src="scripts/learning/app.js?v=30" defer></script>
   <script src="scripts/ui/controls.js?v=19" defer></script>
 </body>
 
