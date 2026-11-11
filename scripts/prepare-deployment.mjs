@@ -98,8 +98,15 @@ function syncStructuredDataHash() {
   if (updated !== headers) writeFileSync(path, updated);
 }
 
-run(['scripts/quality/validate-data.mjs']);                                                                               // Prüft Fragen, eigene Beispiele und Poolreferenzen ohne Berichtsschreiben.
-run(['--test', 'scripts/quality/core.test.cjs', 'scripts/quality/session.test.cjs', 'scripts/quality/checks.test.mjs']);  // Prüft Bewertung, Zustand und die Qualitätswerkzeuge.
+run(['scripts/quality/validate-data.mjs']);  // Prüft Fragen, eigene Beispiele und Poolreferenzen ohne Berichtsschreiben.
+// Prüft Bewertung, Zustand und die Qualitätswerkzeuge.
+run([
+  '--test',
+  'scripts/quality/core.test.cjs',
+  'scripts/quality/session.test.cjs',
+  'scripts/quality/filters.test.cjs',
+  'scripts/quality/checks.test.mjs'
+]);
 
 // Die reine Vorprüfung darf auch den bestehenden CSP-Hash nicht neu schreiben.
 if (!checkOnly) syncStructuredDataHash();

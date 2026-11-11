@@ -144,34 +144,16 @@ window.LHUNDG_TRAINER.Controller = class Controller {
     this.dom.get('instantFeedback').addEventListener('click', () => this.view.toggleFeedback());               // Schaltet die manuelle Einzelprüfung im Lernmodus um.
   }
 
-  /** Bindet Suche mit Verzögerung sowie Status- und Themenfilter an. */
+  /**
+   * Verbindet die vorhandenen Filter und die direkten Such-/Merklistenaktionen.
+   *
+   * @returns {void} Kein Rückgabewert.
+   */
   bindFilters() {
-    this.dom.get('search').addEventListener('input', () => this.scheduleSearch());  // Übernimmt erst die letzte Sucheingabe nach einer kurzen Eingabepause.
-    // Filtert nach offen, beantwortet, geprüft falsch oder gemerkt.
-    this.dom.get('statusFilter').addEventListener('change', event => {
-      this.session.state.status = event.target.value;
-      this.view.applyFilters();                                                     // Zeigt nach der Zustandsänderung erneut nur die aktuell passenden Fragen.
-    });
-    // Beschränkt den Katalog auf das ausgewählte Thema.
-    this.dom.get('categoryFilter').addEventListener('change', event => {
-      this.session.state.category = event.target.value;
-      this.view.applyFilters();                                                     // Zeigt nach der Zustandsänderung erneut nur die aktuell passenden Fragen.
-    });
-    // Hebt sämtliche Filter auf und öffnet die erste Katalogfrage.
-    this.dom
-      .get('clearFilters')
-      .addEventListener('click', () => this.view.goTo(this.session.questions[0].id));
+    this.view.filters.bind();  // Verwendet ausschließlich die Filtersteuerung der bestehenden Lernansicht.
   }
 
-  /** Übernimmt erst die letzte Sucheingabe, um unnötige Neuaufbauten zu vermeiden. */
-  scheduleSearch() {
-    clearTimeout(this.searchTimer);  // Verwirft die noch ausstehende Suche der vorherigen Eingabe.
-    // Merkt die verzögerte Suche, damit eine neue Eingabe die vorherige Anforderung verwerfen kann.
-    this.searchTimer = setTimeout(() => {
-      this.session.state.search = this.dom.get('search').value.trim().toLocaleLowerCase('de');
-      this.view.applyFilters();      // Zeigt nach der Zustandsänderung erneut nur die aktuell passenden Fragen.
-    }, 140);
-  }
+
 
   /** Bindet Auswertung, Rücksetzen und Dateisicherung an bestehende Bedienelemente an. */
   bindTools() {
@@ -203,7 +185,7 @@ window.LHUNDG_TRAINER.Controller = class Controller {
     // Abbrechen lässt Antworten, Bewertungen und Merkliste unverändert.
     if (!accepted) return;
 
-    this.session.reset();                                                                    // Leert nur den aktuellen Lernbereich; andere Kataloge bleiben erhalten.
+    this.session.reset();  // Leert nur den aktuellen Lernbereich; andere Kataloge bleiben erhalten.
     this.dom.get('result').hidden = true;
     this.session.persist();                                                                  // Sichert Antworten und Metadaten im zuständigen Katalog- oder Sitzungsspeicher.
     this.view.goTo(this.session.questions[0].id);                                            // Öffnet die Zielkarte ohne aktive Filter und führt den Fokus zur Frage.

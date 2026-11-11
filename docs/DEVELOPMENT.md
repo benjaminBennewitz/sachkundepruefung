@@ -1,6 +1,6 @@
 # Technische Dokumentation
 
-Pflegestand: 11.11.2026, Codebasis V38 · Benjamin Bennewitz [B²].
+Pflegestand: 11.11.2026, Codebasis V40 · Benjamin Bennewitz [B²].
 Diese Datei beschreibt Architektur, Schnittstellen und Pflege. Einstieg und lokale Befehle:
 [README](../README.md). Serverinstallation und Veröffentlichung:
 [Deployment-Anleitung](../deployment/README.md).
@@ -31,7 +31,8 @@ und `.cjs` für CommonJS. Node.js ab Version 20 genügt; kein Framework, Bundler
 | `dom.js` | Sichere DOM-Helfer und gemeinsame Typverweise |
 | `session.js` | Fragenfolge, Zustand, Wiederherstellung und Speicherzugriff |
 | `question-view.js` | Fragenkarte, Abbildungen, Herkunft und Lösungsfeedback |
-| `learning-view.js` | Ansichten, Suche, Filter, Fortschritt, Navigation und Fokus |
+| `learning-view.js` | Ansichten, Fortschritt, Navigation und Fokus |
+| `filter-view.js` | Suchtreffer, direkte Merkliste, Status-/Themenfilter und gefilterte Fragenverweise |
 | `results.js` | Abschlussbestätigung, Übungswertung und Ergebnisdarstellung |
 | `progress.js` | Vollständige Importvalidierung, Zusammenführung und Katalogexport |
 | `keyboard.js` | TV-Steuerung und Bewegung im Fragenraster |
@@ -46,13 +47,15 @@ erzeugt die laufende Anwendung. Zustände werden über Konstruktorparameter weit
 Die verbindliche Reihenfolge steht in `index.html`: zentrale Konfiguration, gemeinsame UI,
 Daten, Essen-Erweiterung, Quellen, Core, Profile, DOM, Session, Fragenansicht, Lernansicht,
 Ergebnisse, Sicherungen, Tastatur, Controller, App und anschließend Custom Controls.
+`filter-view.js` wird vor `learning-view.js` eingebunden; die Lernansicht erzeugt genau eine
+Filtersteuerung mit demselben Session-Zustand.
 
 ### UI und zentrale Skripte
 
 | Datei unter `scripts/ui/` | Verantwortung |
 | --- | --- |
 | `theme.js` | Frühe gespeicherte Farbwahl ohne Modulabhängigkeiten |
-| `shared.js` | Sichere Text-/DOM-Helfer, lokales PayPal-Icon und Farbwahlschalter |
+| `shared.js` | Sichere Text-/DOM-Helfer, PayPal-Icon, Farbwahlschalter und native Details-Animation |
 | `modal.js` | Nativer Dialog, Aktionen, Warteschlange und Fokus-Rückgabe |
 | `toast-item.js` | Einzelne Meldung mit pausierbarer Laufzeit und Schließen |
 | `toasts.js` | Warteschlange, Duplikatschutz und getrennte Live-Ankündigungen |
@@ -137,6 +140,41 @@ nach Abschluss. Import wird vollständig validiert, bevor Speicheränderungen er
 Export enthält Katalogstände, keine Prüfungssitzungen. Speicherfehler lassen den aktiven
 Arbeitsspeicher nutzbar und erzeugen höchstens einen bleibenden Warnhinweis.
 
+## Such-/Merklistenführung und Bewegung
+
+Die Merkliste war bereits im Lernstatusfilter vorhanden und besitzt jetzt einen direkten,
+auch im leeren Zustand bedienbaren Zugang mit Anzahl. Er öffnet ausschließlich die Merker
+des aktuellen Lernbereichs als Achter-Liste und hebt vorherige Text-/Themenfilter auf.
+Die Überschrift kennzeichnet die Merkliste; `Alle Fragen anzeigen` führt zurück zum Katalog.
+Eine danach gewählte Suche oder ein Thema darf die Merkliste weiter eingrenzen. Leere
+Merklisten und nur durch Filter verborgene Merker erhalten unterschiedliche Erklärungen.
+Die gespeicherten Antwort-, Merker- und Bewertungsschlüssel ändern sich nicht.
+
+Suche bleibt eine wörtliche, deutsch kleingeschriebene Suche in Originalnummer, Fragetext
+und sämtlichen Antworttexten. Der sichtbare Hinweis nennt diesen Umfang. Treffer-Navigation
+und Fragenraster zeigen dieselbe Folge; Raster-Direktsprünge erhalten die Filter. Andere
+Direktsprünge, etwa Fehlernavigation oder Filterlöschen, verwenden weiterhin den vollständigen
+Katalog. Nach Entfernen letzter Merker bleibt eine existierende Achterseite erreichbar.
+`Treffer als Liste anzeigen` synchronisiert auch das native Ansichts-Control und dessen
+sichtbare Combobox. Es entsteht kein zweiter Lernstand und keine neue Ergebnisseite.
+
+`DetailsMotion` in `shared.js` verbindet jeweils nur den direkten Summary-Auslöser mit
+seinem nativen Details-Element. Beide Höhen werden tatsächlich aus dem vorhandenen Layout
+gemessen; keine feste Maximalhöhe. 240-ms-Animationen lassen sich am Zwischenstand umkehren.
+Programmatische Offen-Zustände, verschachtelte Bereiche und Summary-Links bleiben unabhängig.
+Bei `prefers-reduced-motion: reduce` oder fehlendem `Element.animate` wird unmittelbar
+umgeschaltet. Select-Menüs nutzen ergänzend CSS-Übergänge für Browser mit diskreten
+Display-Transitionen; ohne diese Unterstützung bleibt die bisherige unmittelbare Bedienung.
+
+Runde Icon-Buttons erhalten explizite Innenabstände und mittige SVG-Zellen. Bookmark-Buttons
+behalten quadratische Maße auch im mobilen Layout; der Such-Löschbutton verwendet eine
+explizite Zeilenhöhe. Farben und Zustände verwenden ausschließlich vorhandene Design-Tokens.
+Die CSS-Datei wurde syntaktisch geparst; der bestehende Autorenblock blieb unverändert.
+Der lokale Chromium-Start war wegen gesperrter Socket-Erzeugung nicht möglich. Pixelgenaue
+Zentrierung, tatsächliche Animationswirkung und native Tastatur-/Dialogdetails benötigen
+deshalb weiterhin die Sichtprüfung im realen Browser; die DOM-Tests simulieren Geometrie
+und Animationsabschluss.
+
 ## Qualitätsprüfung und Nachweise
 
 | Werkzeug unter `scripts/quality/` | Prüfumfang |
@@ -146,6 +184,7 @@ Arbeitsspeicher nutzbar und erzeugen höchstens einen bleibenden Warnhinweis.
 | `check-seo.mjs` | Titel, Beschreibungen, H1, Canonical, OpenGraph, Indexierung, Sitemap, robots.txt und JSON-LD/CSP |
 | `check-release.mjs` | Konfigurationsangaben, optionales PayPal-Ziel und manuelle Rechtebestätigung |
 | `core.test.cjs`, `session.test.cjs` | Bewertung, Zufallsauswahl, reale Profilwerte, Speicher, Import und Export |
+| `filters.test.cjs` | Antworttext-Suche, Statusregeln, Merkliste, Treffergrenzen und gefilterte Navigation |
 | `checks.test.mjs` | Bewusst fehlerhafte Eingaben für die Qualitätswerkzeuge |
 | `html-preservation.test.mjs` | Bytegenauer HTML-Erhalt bei Vorprüfung und CSP-Abgleich |
 | `learning-fixtures.cjs`, `quality-fixtures.mjs` | Isolierte Datenkontexte, Speicherersatz und temporäre Prüfeingaben |
@@ -171,12 +210,16 @@ Markupparsing berücksichtigt Kommentare, Rohtext, echte Attributnamen und versc
 Quotes. Fehlendes Startseiten-JSON-LD und Hashes in Kommentaren, `style-src` oder
 Report-Only-Headern gelten nicht als Scriptfreigabe.
 
-Zuletzt für V38 dokumentiert: 41 Projekttests, 44 DOM-Prüfungen mit jsdom 26 und fünf
-zusätzliche Script-Prüfungen erfolgreich. Die DOM-Serie enthält dieselben 19 Fälle gegen
-V37 und V38 sowie Initialisierung der sechs Root-Seiten. Die zusätzlichen Prüfumgebungen
-sind keine Projektabhängigkeiten. Archivprüfung akzeptierte das vollständige Paket und
-wies fehlende Pflichtmodule sowie unbekannte Scripts ab. Frühere PageSpeed-Werte und
-Browser-Sichtungen sind keine neue Messung des aktuellen Stands.
+Zuletzt für V40 geprüft: 49 Projekttests einschließlich acht neuer Filtertests und zwei
+HTML-Erhaltungstests erfolgreich. Die Deployment-Vorprüfung führt davon 47 aus; die beiden
+HTML-Integrationstests bleiben wegen ihres eigenen Vorbereitungsaufrufs separat.
+
+Zusätzlich 63 DOM-Prüfungen erfolgreich: die bisherigen 44 UI-Vergleiche/Seiteninitialisierungen
+sowie 19 neue Abläufe für direkte Merkliste, gespeicherte Antworten, Suchtreffer, Listenwechsel,
+Raster-Tastatur, leere Zustände, Themenfilter und Auf-/Zuklappen. Die zusätzlichen DOM-
+Prüfumgebungen sind keine Projektabhängigkeiten. Ein vollständiges öffentliches Archiv wurde
+lokal akzeptiert, ein fehlendes Filtermodul und unbekannte Scripts werden abgewiesen.
+Frühere PageSpeed-Werte und Browser-Sichtungen sind keine neue Messung des aktuellen Stands.
 
 Grenzen: kein vollständiger HTML-/CSS-/Apache-Parser, keine externen Linkabrufe, keine
 Prüfung von CSS-Escapes, CSS-Imports oder `srcset`. Die DOM-Simulation verwendet Ersatz für
@@ -208,13 +251,15 @@ Aktuell dokumentierte kurze Funktionsausnahmen:
 | Learning / `controller.js` | `configureExamControls` (21) |
 | Learning / `core.js` | `validAnswers` (22), `evaluateSections` (21) |
 | Learning / `keyboard.js` | `handleTv` (25), `moveInGrid` (21) |
-| Learning / `learning-view.js` | `updateNavigationButton` (22) |
+| Learning / `learning-view.js` | `updateNavigationButton` (22), `goTo` (23) |
+| Learning / `filter-view.js` | `matchesStatus` (25) |
 | Learning / `progress.js` | `import` (24) |
 | Learning / `question-view.js` | `render` (21), `createImage` (21), `createInput` (22), `update` (21) |
 | Learning / `results.js` | `title` (22) |
 | Quality / `check-release.mjs` | `checkPaypal` (22), `checkApproval` (21) |
 | Quality / `check-seo.mjs` | `scriptPolicies` (21), `pageMetadata` (23), `checkMetadata` (21) |
 | Quality / `core.test.cjs` | `loadEssen` (21), `answerCounts` (21) |
+| Quality / `filters.test.cjs` | `environment` (25) |
 | Quality / `data-rules.mjs` | `checkIdentity` (21) |
 | Quality / `learning-fixtures.cjs` | `browserScope` (22) |
 | Quality / `quality-fixtures.mjs` | `fixture` (23) |
@@ -224,6 +269,7 @@ Aktuell dokumentierte kurze Funktionsausnahmen:
 | UI / `controls.js` | `buildSearch` (23), `initializeSearch` (22) |
 | UI / `select-keyboard.js` | `constructor` (22), `findMatch` (21) |
 | UI / `select.js` | `choose` (22) |
+| UI / `shared.js` | `DetailsMotion.toggle` (22) |
 
 ## Datenladung, SEO und Veröffentlichung
 
@@ -253,5 +299,6 @@ Das Deployment prüft und archiviert öffentliche Originaldateien. Kein `dist`, 
 keine Minifizierung/HTML-Umformatierung. Nur der vorhandene JSON-LD-Hash in `.htaccess`
 darf bei normaler Vorbereitung angepasst werden. `--rights-confirmed` dokumentiert eine
 tatsächliche Betreiberfreigabe, erteilt keine Rechte. Vor dem nächsten Deployment muss
-das V38-Serverskript mit seiner Liste der acht neuen UI-Dateien installiert sein.
+das V40-Serverskript mit der zusätzlichen Pflichtdatei `scripts/learning/filter-view.js`
+installiert sein. Die V38-UI-Dateifreigaben bleiben darin erhalten.
 Installation und regulärer Ablauf bleiben ausschließlich in der Deployment-Anleitung.

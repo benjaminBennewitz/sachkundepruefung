@@ -12,6 +12,7 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
     this.state = session.state;                                                                        // Gemeinsam genutzter Zustand; keine zweite Kopie des Lernstands.
     this.dom = window.LHUNDG_TRAINER.dom;                                                              // Vorhandene sichere Helfer zum Erzeugen und Auffinden von DOM-Elementen.
     this.core = window.LHUNDG_CORE;                                                                    // DOM-unabhängige Regeln für Vollständigkeit, Validierung und Wertung.
+    this.filters = new window.LHUNDG_TRAINER.FilterView(session, this);                                // Gemeinsame Such- und Merkliste ohne zweiten Lernzustand.
     this.navButtons = new Map();                                                                       // Bereits erzeugte Fragenbuttons nach stabiler Frage-ID.
     this.cards = new window.LHUNDG_TRAINER.QuestionView(session, refilter => this.refresh(refilter));  // Erzeugt Karten und meldet Änderungen zur Synchronisierung an die Lernansicht.
   }
@@ -63,8 +64,8 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
 
     // Erzeugt für jede Frage ihren Direktverweis mit Position und nachvollziehbarer Herkunft.
     this.session.questions.forEach((question, index) => {
-      const label = numbered ? String(index + 1) : question.sourceId;                // Sichtbare laufende Nummer oder Originalnummer des Einzelkatalogs.
-      const button = this.dom.button(label, 'nav-q', () => this.goTo(question.id));  // Direktnavigation zur zugehörigen stabilen Frage-ID.
+      const label = numbered ? String(index + 1) : question.sourceId;                                       // Sichtbare laufende Nummer oder Originalnummer des Einzelkatalogs.
+      const button = this.dom.button(label, 'nav-q', () => this.goTo(question.id, { keepFilters: true }));  // Direktnavigation zur zugehörigen stabilen Frage-ID.
 
       button.title = `${question.source} · Originalfrage ${question.sourceId}`;
       this.navButtons.set(question.id, button);
@@ -88,7 +89,8 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
 
   /** Aktualisiert Fortschritt und erreichbare Zustände der Fragenübersicht. */
   updateOverview() {
-    this.updateProgress();  // Aktualisiert die Anzahl vollständig beantworteter Fragen unabhängig von ihrer Richtigkeit.
+    this.filters.updateBookmarks();  // Aktualisiert die direkt sichtbare Anzahl nach jedem Setzen oder Entfernen eines Sterns.
+    this.updateProgress();           // Aktualisiert die Anzahl vollständig beantworteter Fragen unabhängig von ihrer Richtigkeit.
     // IDs der aktuell angezeigten Fragen für aria-current im Fragenraster.
     const visible = new Set(
       this.state.items
@@ -102,8 +104,8 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
 
   /** Aktualisiert sichtbare und zugängliche Fortschrittsangaben. */
   updateProgress() {
-    const progress = this.dom.get('progressBar');        // Natives Fortschrittselement mit zugänglicher Beschriftung.
-    const total = this.session.questions.length;         // Gesamtumfang des aktiven Katalogs oder Tests, unabhängig von Filtern.
+    const progress = this.dom.get('progressBar');  // Natives Fortschrittselement mit zugänglicher Beschriftung.
+    const total = this.session.questions.length;   // Gesamtumfang des aktiven Katalogs oder Tests, unabhängig von Filtern.
     // Vollständig beantwortete Fragen; Richtigkeit wird hier nicht vorausgesetzt.
     const answered = this.session.questions.filter(question =>
       this.core.complete(question, this.state.answers.get(question.id))
@@ -142,64 +144,42 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
     button.setAttribute('aria-label', label);
   }
 
-  /** @param {SachkundeQuestion} question Frage. @returns {boolean} Treffer für Text, Status und Thema. */
-  matchesFilters(question) {
-    const text = `${question.sourceId} ${question.prompt} ${Object.values(question.answers).join(' ')}`;  // Gemeinsamer Suchtext aus Originalnummer, Frage und Antworttexten.
-    const search = !this.state.search || text.toLocaleLowerCase('de').includes(this.state.search);        // Ohne Suchbegriff sind alle Texte zugelassen; sonst gilt deutsche Kleinschreibung.
-    const category = this.state.category === 'all' || question.category === this.state.category;          // Alle Themen oder die ausdrücklich gewählte Kategorie.
 
-    return search && category && this.matchesStatus(question);
+
+
+  /**
+   * Synchronisiert die gefilterte Fragenfolge über die gemeinsame Filtersteuerung.
+   *
+   * @param {object} [options] Bestehende Optionen reset und focus.
+   * @returns {void} Kein Rückgabewert.
+   */
+  applyFilters(options = {}) {
+    this.filters.apply(options);  // Behält die von Controller, Ergebnissen und Sicherungen verwendete Schnittstelle.
   }
 
-  /** Prüft den gewählten Lernstatus; eine Antwort allein gilt noch nicht als bewertet. */
-  matchesStatus(question) {
-    const selected = this.state.answers.get(question.id);  // Gespeicherte Antwort dieser Frage; sie kann noch fehlen.
-    const status = this.state.status;                      // Gewählter Lernstatusfilter des aktuellen Katalogs.
-
-    // Ohne Statusfilter bleibt jede Frage zugelassen.
-    if (status === 'all') return true;
-    // Offen bedeutet noch nicht vollständig beantwortet, nicht automatisch falsch.
-    if (status === 'open') return !this.core.complete(question, selected);
-    // Beantwortet verlangt Vollständigkeit, aber noch keine richtige oder geprüfte Lösung.
-    if (status === 'answered') return this.core.complete(question, selected);
-    // Die Merkliste berücksichtigt ausschließlich ausdrücklich markierte Fragen.
-    if (status === 'bookmarked') return this.state.bookmarks.has(question.id);
-
-    // Der Fehlerfilter verlangt eine ausdrückliche Bewertung und eine nicht exakt richtige Auswahl.
-    return status === 'wrong' && this.state.checked.has(question.id) &&
-      !this.core.exact(selected || new Set(), question.correct);
-  }
-
-  /** @param {{reset?: boolean, focus?: boolean}} [options] Position zurücksetzen und Frage fokussieren. */
-  applyFilters({ reset = true, focus = false } = {}) {
-    this.state.items = this.session.questions.filter(question => this.matchesFilters(question));
-    // Eine neue Filterauswahl beginnt normalerweise bei der ersten passenden Frage.
-    if (reset) this.state.index = 0;
-    this.state.index = Math.max(0, Math.min(this.state.index, this.state.items.length - 1));
-    const active = Boolean(this.state.search || this.state.status !== 'all' || this.state.category !== 'all');  // Mindestens ein Text-, Status- oder Themenfilter ist gesetzt.
-
-    this.dom.get('clearFilters').hidden = !active;
-    this.dom.get('matchCount').hidden = !active;
-    this.dom.get('matchCount').textContent =
-      `${this.state.items.length} von ${this.session.questions.length} Fragen`;
-    this.render(focus);  // Baut die aktuelle Darstellung aus dem bereits bestehenden Lernzustand auf.
-  }
-
-  /** Setzt Modell und native Filter zurück; Custom Controls werden beim Rendern synchronisiert. */
+  /**
+   * Setzt bestehende Such-, Status- und Themenfilter einschließlich offener Sucheingaben zurück.
+   *
+   * @returns {void} Kein Rückgabewert.
+   */
   clearFilters() {
-    this.state.search = '';
-    this.state.status = 'all';
-    this.state.category = 'all';
-
-    this.dom.get('search').value = '';
-    this.dom.get('statusFilter').value = 'all';
-    this.dom.get('categoryFilter').value = 'all';
+    this.filters.clear();  // Native Controls und Modell bleiben in derselben bisherigen Zustandsquelle.
   }
 
-  /** @param {number} id Bekannte Frage-ID, zu der ohne Filter gewechselt wird. */
-  goTo(id) {
-    this.clearFilters();  // Setzt Filtermodell und sichtbare Controls auf alle Fragen zurück.
-    this.state.index = this.session.questions.findIndex(question => question.id === id);
+  /**
+   * Öffnet eine bekannte Frage und erhält auf Wunsch die aktuelle Trefferfolge.
+   *
+   * @param {number} id Stabile Frage-ID des gewählten Ziels.
+   * @param {object} [options] Kontext des Direktsprungs.
+   * @param {boolean} [options.keepFilters] Bestehende Suche und Merkliste erhalten.
+   * @returns {void} Kein Rückgabewert.
+   */
+  goTo(id, { keepFilters = false } = {}) {
+    // Trefferverweise erhalten Suchbegriff und Merkliste; sonstige Direktsprünge öffnen den ganzen Katalog.
+    if (!keepFilters) this.clearFilters();                                      // Setzt Filtermodell und sichtbare Controls auf alle Fragen zurück.
+    const questions = keepFilters ? this.state.items : this.session.questions;  // Maßgebliche Reihenfolge dieses Direktsprungs.
+
+    this.state.index = questions.findIndex(question => question.id === id);
     // In der Listenansicht wird auf den Anfang der betreffenden Achterseite ausgerichtet.
     if (this.state.view === 'list') this.state.index = Math.floor(this.state.index / 8) * 8;
 
@@ -207,6 +187,16 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
     this.applyFilters({ reset: false });  // Rendert die gezielt gewählte Frage, ohne ihren eben gesetzten Index zurückzusetzen.
     this.session.persist();               // Sichert Antworten und Metadaten im zuständigen Katalog- oder Sitzungsspeicher.
 
+    this.revealQuestion(id);  // Fokussiert nach dem Rendern genau das gewählte Ziel innerhalb seiner Seite.
+  }
+
+  /**
+   * Fokussiert eine bereits gerenderte Zielkarte, auch innerhalb einer Trefferliste.
+   *
+   * @param {number} id Stabile ID der gerade geöffneten Frage.
+   * @returns {void} Kein Rückgabewert.
+   */
+  revealQuestion(id) {
     // Die Zielkarte existiert erst nach dem Rendern der neuen Fragenseite.
     const card = this.dom.get(`q-${id}`);  // Nach dem Rendern neu erzeugte Karte als Ziel für Sichtbarkeit und Fokus.
 
@@ -217,6 +207,7 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
   /** @param {boolean} [focus=false] Fokussiert die erste sichtbare Frage ohne Scrollsprung. */
   render(focus = false) {
     window.refreshCustomControls?.();  // Synchronisiert die sichtbaren Custom Controls mit ihren nativen Auswahlwerten.
+    this.filters.updateSummary();      // Hält Listenaktion und Filterhinweis auch beim reinen Ansichtswechsel synchron.
     document.body.classList.toggle('tv-mode', this.state.view === 'tv');
 
     this.dom.get('questions').replaceChildren(this.createQuestionPage());
@@ -238,23 +229,20 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
     // Ohne Treffer wird ein verständlicher Leerzustand anstelle einer leeren Fragenfläche gezeigt.
     if (!visible.length) {
       fragment.append(this.dom.node('p',
-        'Hier ist noch nichts. Ändere die Filter oder prüfe zuerst einige Antworten, um Fehler zu wiederholen.',
+        this.filters.emptyMessage(),
         'empty-state'
       ));
     }
 
     return fragment;
   }
-  /** Synchronisiert Blätteraktionen und Positionsangabe mit dem gefilterten Ergebnis. */
+  /**
+   * Aktualisiert die Blätteraktionen innerhalb des aktuellen Katalogs oder Suchergebnisses.
+   *
+   * @returns {void} Kein Rückgabewert.
+   */
   updatePagination() {
-    const end = Math.min(this.state.index + this.pageSize(), this.state.items.length);  // Letzte vorhandene Frage dieser Seite; nie größer als die Treffermenge.
-    const range = this.pageSize() > 1 ? `–${end}` : '';                                 // Die Listenansicht ergänzt die Endposition, Einzelansichten benötigen keine Spanne.
-    const position = `${this.state.index + 1}${range} von ${this.state.items.length}`;  // Lesbare Position innerhalb der aktuell gefilterten Fragen.
-
-    this.dom.get('previous').disabled = this.state.index <= 0;
-    this.dom.get('next').disabled = this.state.index + this.pageSize() >= this.state.items.length;
-    // Ohne gefilterte Treffer wird keine scheinbar gültige Fragenposition angezeigt.
-    this.dom.get('position').textContent = this.state.items.length ? position : 'Keine Treffer';
+    this.filters.updatePagination();  // Treffer erhalten ausdrücklich benannte Vor-/Zurückaktionen.
   }
 
   /** Fokussiert die sichtbare Überschrift und bringt nur bei Bedarf die Karte in den Lesebereich. */
@@ -323,15 +311,26 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
   /** @param {string} value Neue Ansicht; hält die Listenposition auf einer Seitengrenze. */
   changeView(value) {
     this.state.view = value;
+    this.dom.get('viewSelect').value = value;  // Auch direkte Listenaktionen halten das native Modell und den sichtbaren Combobox-Wert synchron.
     this.state.index = Math.floor(this.state.index / this.pageSize()) * this.pageSize();
+    this.syncViewUrl();      // Hält einen direkten Wechsel aus der TV-Ansicht auch in der Adresse synchron.
+    this.filters.updateSummary();  // Hält den Listen-Zugang auch bei einem direkten Ansichtswechsel synchron.
+    this.render(true);       // Rendert die neue Ansicht mit passender Seitengrenze und bewusstem Fokuswechsel.
+    this.session.persist();  // Sichert Antworten und Metadaten im zuständigen Katalog- oder Sitzungsspeicher.
+  }
+
+  /**
+   * Synchronisiert ausschließlich den TV-Parameter mit der bereits gewählten Ansicht.
+   *
+   * @returns {void} Kein Rückgabewert.
+   */
+  syncViewUrl() {
     const url = new URL(location.href);  // Kopie der Adresse zum Synchronisieren des TV-Parameters.
 
     // Nur die TV-Ansicht benötigt den URL-Parameter; andere Ansichten entfernen ihn wieder.
-    if (value === 'tv') url.searchParams.set('tv', '1');
+    if (this.state.view === 'tv') url.searchParams.set('tv', '1');
     else url.searchParams.delete('tv');
     history.replaceState(null, '', url);  // Aktualisiert die Adresse ohne Seitenreload und ohne zusätzlichen Verlaufseintrag.
-    this.render(true);                    // Rendert die neue Ansicht mit passender Seitengrenze und bewusstem Fokuswechsel.
-    this.session.persist();               // Sichert Antworten und Metadaten im zuständigen Katalog- oder Sitzungsspeicher.
   }
 
   /** Aktualisiert Text und zugänglichen Zustand des Feedback-Schalters. */

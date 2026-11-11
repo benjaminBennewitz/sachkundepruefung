@@ -23,7 +23,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="scripts/ui/theme.js?v=38"></script>
   <link rel="stylesheet" href="styles/tokens.css?v=19">
-  <link rel="stylesheet" href="styles/interface.css?v=26">
+  <link rel="stylesheet" href="styles/interface.css?v=40">
   <script
     type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Hunde-Sachkundetrainer NRW","applicationCategory":"EducationalApplication","operatingSystem":"Webbrowser","inLanguage":"de","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Sachkundenachweis für Hunde in NRW: kostenlos online üben, mit Fragenkatalogen, Sofort-Feedback und Testreihen. Ohne Anmeldung, mit Originalquellen.","url":"https://hunde-sachkundetrainer.de/nrw/"}</script>
 
@@ -115,6 +115,9 @@
                 %</span></div><progress id="progressBar" value="0" max="100">0 %</progress>
             <p class="microcopy">Beantwortet bedeutet noch nicht richtig.</p>
             <button id="resume" class="secondary" type="button">Weiterlernen →</button>
+            <!-- BLOCK START: Direkter Zugang zur Merkliste -->
+            <button id="showBookmarks" class="secondary bookmark-access" type="button" aria-pressed="false">★ Merkliste (0)</button>
+            <!-- BLOCK END: Direkter Zugang zur Merkliste -->
             <details class="nav-details">
               <summary>Fragenübersicht <span aria-hidden="true">＋</span></summary>
               <p class="microcopy">○ Offen · ● Beantwortet · ✓ Richtig · × Falsch · ★ Gemerkt</p>
@@ -143,8 +146,7 @@
             <p id="exampleNotice" class="source-note" hidden></p>
             <div class="study-toolbar">
               <div class="catalog-heading">
-                <h2 id="modeTitle">Alle Quellen</h2><span id="matchCount" class="microcopy" role="status"
-                  hidden></span><button id="clearFilters" class="text-button" type="button" hidden>Filter
+                <h2 id="modeTitle">Alle Quellen</h2><button id="clearFilters" class="text-button" type="button" hidden>Filter
                   löschen</button>
               </div><label class="view-control" for="viewSelect">Ansicht<select id="viewSelect">
                   <option value="focus">Fokus</option>
@@ -163,6 +165,13 @@
                 </select></label><label for="categoryFilter">Thema<select id="categoryFilter">
                   <option value="all">Alle Themen</option>
                 </select></label></div>
+            <!-- BLOCK START: Suchtreffer und gefilterte Fragen -->
+            <div id="filterResults" class="filter-results" hidden>
+              <p id="matchCount" role="status" aria-live="polite" hidden></p>
+              <p class="microcopy">Blättere unten mit Zurück und Weiter durch die passenden Fragen oder öffne die Listenansicht.</p>
+              <button id="showMatchList" class="secondary" type="button">Treffer als Liste anzeigen</button>
+            </div>
+            <!-- BLOCK END: Suchtreffer und gefilterte Fragen -->
             <div class="learning-actions" role="group" aria-label="Feedback und Auswertung"><button id="instantFeedback"
                 class="feedback-toggle" type="button" aria-pressed="true">Sofort-Feedback: An</button><button
                 id="intermediate" class="secondary" type="button">Zwischenergebnis</button><button id="evaluate"
@@ -260,12 +269,12 @@
         href="quellen.html">Originalquellen</a> kannst du auch ohne JavaScript öffnen.</p>
   </noscript>
   <script src="scripts/site-config.js?v=38" defer></script>
-  <script src="scripts/ui/shared.js?v=38" defer></script>
+  <script src="scripts/ui/shared.js?v=40" defer></script>
   <script src="scripts/ui/modal.js?v=38" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
-  <script src="scripts/ui/common.js?v=38" defer></script>
+  <script src="scripts/ui/common.js?v=40" defer></script>
   <script src="scripts/learning/data.js?v=33" defer></script>
   <script src="scripts/learning/essen.js?v=33" defer></script>
   <script src="scripts/learning/sources.js?v=33" defer></script>
@@ -274,11 +283,12 @@
   <script src="scripts/learning/dom.js?v=33" defer></script>
   <script src="scripts/learning/session.js?v=33" defer></script>
   <script src="scripts/learning/question-view.js?v=33" defer></script>
-  <script src="scripts/learning/learning-view.js?v=33" defer></script>
+  <script src="scripts/learning/filter-view.js?v=40" defer></script>
+  <script src="scripts/learning/learning-view.js?v=40" defer></script>
   <script src="scripts/learning/results.js?v=33" defer></script>
   <script src="scripts/learning/progress.js?v=33" defer></script>
-  <script src="scripts/learning/keyboard.js?v=33" defer></script>
-  <script src="scripts/learning/controller.js?v=33" defer></script>
+  <script src="scripts/learning/keyboard.js?v=40" defer></script>
+  <script src="scripts/learning/controller.js?v=40" defer></script>
   <script src="scripts/learning/app.js?v=33" defer></script>
   <script src="scripts/ui/select-view.js?v=38" defer></script>
   <script src="scripts/ui/select-keyboard.js?v=38" defer></script>

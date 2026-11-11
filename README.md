@@ -51,7 +51,7 @@ und einen statischen HTTP-Server, beispielsweise VS Code Live Server. Nicht übe
 ```cmd
 node scripts\quality\check-paths.mjs
 node scripts\quality\validate-data.mjs
-node --test scripts\quality\core.test.cjs scripts\quality\session.test.cjs scripts\quality\checks.test.mjs
+node --test scripts\quality\core.test.cjs scripts\quality\session.test.cjs scripts\quality\filters.test.cjs scripts\quality\checks.test.mjs
 node --test scripts\quality\html-preservation.test.mjs
 node scripts\prepare-deployment.mjs --check-only
 ```
@@ -115,8 +115,8 @@ Anleitung: [deployment/README.md](deployment/README.md).
 
 Der vorhandene Schalter `--rights-confirmed` dokumentiert ausschließlich eine tatsächlich
 vom Betreiber abgegebene Freigabe. Er erteilt keine Rechte automatisch. Vor dem nächsten
-Deployment von V38 das aktualisierte Serverskript installieren: Seine Dateifreigabe kennt
-die neuen UI-Module. Anleitung: [deployment/README.md](deployment/README.md).
+Deployment von V40 das aktualisierte Serverskript installieren: Seine Dateifreigabe kennt
+auch das neue Such-/Merklistenmodul `scripts/learning/filter-view.js`. Anleitung: [deployment/README.md](deployment/README.md).
 
 ## Code und Dokumentation
 
@@ -135,6 +135,19 @@ Kurze bekannte Funktionsausnahmen und Modulaufgaben stehen gesammelt in
 CSS behält Autorenblock, Inhaltsverzeichnis und Abschnittsschema; keine Inline-Kommentare.
 Projekttexte verwenden CRLF. Das ausführbare Linux-Serverskript behält entsprechend
 `.gitattributes` bewusst LF. Archive gehören nicht ins Repository.
+
+## Merkliste, Suche und aufklappbare Bereiche
+
+Der direkte Button **Merkliste (Anzahl)** öffnet die gemerkten Fragen des aktuellen Lernbereichs
+als Achter-Liste. Sterne und Lernstände bleiben unter ihren bisherigen Speicherschlüsseln.
+Suche berücksichtigt Frage- und Antworttexte; Trefferzahl, Fragenübersicht und Vor-/Zurück-
+Navigation beziehen sich auf dieselbe gefilterte Folge. **Treffer als Liste anzeigen** wechselt
+in die vorhandene Listenansicht. Weitere Status-/Themenfilter bleiben erkennbar berücksichtigt.
+
+Native Aufklappbereiche öffnen und schließen animiert, auch bei schnellen Gegenklicks.
+Bei reduzierter Bewegung oder fehlender Animations-API erfolgt der Zustandswechsel unmittelbar.
+Moderne Browser animieren zusätzlich die Select-Menüs; ältere Browser behalten die Bedienung
+mit unmittelbarem Menüwechsel. Details und Prüfgrenzen: [DEVELOPMENT.md](docs/DEVELOPMENT.md).
 
 ## Unterstützung und Favicon
 

@@ -28,6 +28,7 @@
    08   PayPal-Unterstützung
    09   Wissensnavigation und Reisehinweise
    10   Wiederverwendbare Modale, Toasts und ergänzende Seitenelemente
+   11   Auffindbare Sammlungen und gemeinsame Bewegungsregeln
    ========================================================================== */
 
 /* ==========================================================================
@@ -764,6 +765,8 @@ progress::-moz-progress-bar {
   line-height: 1;
   min-height: 44px;
   width: 44px;
+  height: 44px;
+  padding: 0;
   background: var(--subtle);
   color: var(--accent);
   border-radius: 50%;
@@ -1577,6 +1580,7 @@ body.tv-mode .site-footer {
 
   .bookmark {
     width: 38px;
+    height: 38px;
     min-height: 38px;
   }
 
@@ -1886,6 +1890,11 @@ html {
   place-items: center;
   width: 42px;
   height: 42px;
+  min-height: 0;
+  padding: 0;
+  line-height: 1;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   border: 1px solid var(--control-line);
   border-radius: 50%;
   background: var(--surface);
@@ -1901,6 +1910,10 @@ html {
 
 .icon-button svg {
   display: block;
+  grid-area: 1 / 1;
+  justify-self: center;
+  align-self: center;
+  flex: none;
 }
 
 .icon-button[data-open-support] {
@@ -2796,6 +2809,7 @@ html {
   border: 0;
   border-radius: 50%;
   font-size: 1.3rem;
+  line-height: 1;
   background: var(--subtle);
   color: var(--text);
   cursor: pointer;
@@ -3642,6 +3656,7 @@ html:has(#trainer) {
 
 /* ==========================================================================
    10   Wiederverwendbare Modale, Toasts und ergänzende Seitenelemente
+   11   Auffindbare Sammlungen und gemeinsame Bewegungsregeln
    AUTHOR: Benjamin Bennewitz [B²]
    ========================================================================== */
 
@@ -3847,6 +3862,101 @@ html.modal-open {
   }
 
   .header-nav a {
+    transition: none;
+  }
+}
+/* ==========================================================================
+   11   Auffindbare Sammlungen und gemeinsame Bewegungsregeln
+   ========================================================================== */
+
+/* Runde Schalter verwenden eine explizite Mitte statt einer Text-Baseline. */
+.icon-button,
+.bookmark,
+.search-clear,
+.brand-mark {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Direkter Merklisten-Zugang bleibt auch vor dem ersten gesetzten Stern bedienbar. */
+.bookmark-access {
+  width: 100%;
+  white-space: normal;
+}
+
+.bookmark-access[aria-pressed=true] {
+  color: var(--accent);
+  background: var(--accent-bg);
+  border-color: var(--accent);
+}
+
+/* Suchumfang und Ergebnisaktion stehen gemeinsam unmittelbar unter den Filtern. */
+.filter-results {
+  display: grid;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--control-line);
+  border-radius: 10px;
+  background: var(--subtle);
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.filter-results p {
+  margin: 0;
+}
+
+.filter-results #matchCount {
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.filter-results button {
+  justify-self: start;
+  white-space: normal;
+}
+
+/* Während nativer Details-Animationen wird ausschließlich der überstehende Inhalt abgeschnitten. */
+.details-animating {
+  overflow: hidden;
+}
+
+/* Aufklapp-Symbole erhalten denselben ruhigen Bewegungsrhythmus wie ihre Inhalte. */
+.nav-details>summary>span,
+.test-options>summary>span,
+.extra-tools>summary>span {
+  transition: transform 240ms ease;
+}
+
+/* Moderne Browser animieren auch das Ausblenden der nativen hidden-Listbox diskret. */
+@supports (transition-behavior: allow-discrete) {
+  .select-menu {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 160ms ease, transform 160ms ease, display 160ms allow-discrete;
+  }
+
+  .select-menu[hidden] {
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+  }
+
+  @starting-style {
+    .select-menu {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+  }
+}
+
+/* Die Systempräferenz unterbindet sowohl native Höhenanimation als auch ergänzende CSS-Bewegung. */
+@media (prefers-reduced-motion: reduce) {
+  .select-menu,
+  .nav-details>summary>span,
+  .test-options>summary>span,
+  .extra-tools>summary>span {
     transition: none;
   }
 }

@@ -15,12 +15,12 @@ window.LHUNDG_TRAINER.Keyboard = class Keyboard {
 
   /** Bindet einmalig TV-Tasten sowie die beiden Fragenraster an. */
   bind() {
-    document.addEventListener('keydown', event => this.handleTv(event));        // Verbindet Tastendrücke im Dokument mit der kontextabhängigen TV-Steuerung.
+    document.addEventListener('keydown', event => this.handleTv(event));  // Verbindet Tastendrücke im Dokument mit der kontextabhängigen TV-Steuerung.
     // Gibt dem Fragenraster eine eigene Bewegung anhand seiner tatsächlichen Spaltenzahl.
     this.dom
       .get('questionNav')
       .addEventListener('keydown', event =>
-        this.moveInGrid(event, this.dom.get('questionNav'), [...this.view.navButtons.values()])
+        this.moveInGrid(event, this.dom.get('questionNav'), [...this.view.navButtons.values()].filter(button => !button.hidden))
       );
     // Ergänzt bei vorhandenen Fehlern die Tastatursteuerung des Fehlerrasters.
     this.dom.get('result').addEventListener('keydown', event => {
@@ -39,7 +39,7 @@ window.LHUNDG_TRAINER.Keyboard = class Keyboard {
     // Außerhalb der TV-Ansicht, bei Tastenkombinationen oder offenem Ergebnis greift die TV-Steuerung nicht ein.
     if (this.state.view !== 'tv' || modified || resultVisible) return false;
 
-    const target = event.target;                          // Element, von dem der aktuelle Tastendruck ausgeht.
+    const target = event.target;  // Element, von dem der aktuelle Tastendruck ausgeht.
     // Eingabefelder und editierbare Inhalte behalten ihre eigene Tastaturbedienung.
     const editing = target.matches('select, input[type=search], input[type=file], textarea') ||
       target.isContentEditable;
@@ -61,17 +61,17 @@ window.LHUNDG_TRAINER.Keyboard = class Keyboard {
       this.view.step(event.key === 'ArrowRight' ? 1 : -1);  // Blättert im gefilterten Ergebnis und erhält die passende Fokusführung.
     // Andernfalls gilt: Aufwärts und abwärts bewegen den Fokus innerhalb der Antworten.
     } else if (['ArrowDown', 'ArrowUp'].includes(event.key)) {
-      this.moveBetweenAnswers(event);                       // Bewegt den Fokus zwischen aktivierbaren Antworten und sichtbarer Prüfaktion.
+      this.moveBetweenAnswers(event);  // Bewegt den Fokus zwischen aktivierbaren Antworten und sichtbarer Prüfaktion.
     // Andernfalls gilt: Home und End springen zur ersten beziehungsweise letzten gefilterten Frage.
     } else if (event.key === 'Home' || event.key === 'End') {
-      event.preventDefault();                               // Verhindert die konkurrierende Standardaktion für eine hier behandelte Taste.
+      event.preventDefault();  // Verhindert die konkurrierende Standardaktion für eine hier behandelte Taste.
       // Home wählt Index null, End die letzte vorhandene Frage der aktuellen Treffermenge.
       this.state.index = event.key === 'Home' ? 0 : Math.max(0, this.state.items.length - 1);
-      this.view.render(true);                               // Zeigt das per Home oder End gewählte Ziel mit kontrollierter Fokusführung.
-      this.view.session.persist();                          // Sichert die per Tastatur geänderte Position im zum Modus gehörenden Speicher.
+      this.view.render(true);       // Zeigt das per Home oder End gewählte Ziel mit kontrollierter Fokusführung.
+      this.view.session.persist();  // Sichert die per Tastatur geänderte Position im zum Modus gehörenden Speicher.
     // Andernfalls gilt: Enter übernimmt bei nativen Antwortfeldern dieselbe Auswahlaktion wie ein Klick.
     } else if (event.key === 'Enter' && event.target.matches('input[type=checkbox],input[type=radio]')) {
-      event.preventDefault();                               // Verhindert die konkurrierende Standardaktion für eine hier behandelte Taste.
+      event.preventDefault();  // Verhindert die konkurrierende Standardaktion für eine hier behandelte Taste.
       event.target.click();
     }
   }

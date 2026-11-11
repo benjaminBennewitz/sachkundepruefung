@@ -54,6 +54,7 @@
   window.LHUNDG_UI = Object.freeze({ modal: modal.open.bind(modal), toast: toasts.show.bind(toasts), confirm });
   window.openSupportDialog = support.open.bind(support);
 
-  ui.bindTheme();  // Synchronisiert Farbwahl, Tooltip und zugängliche Schalterbeschriftung.
-  support.bind();  // Aktiviert vorhandene Footer-Links und manuelle Unterstützungsdialoge.
+  ui.bindDetails();  // Animiert native Aufklappbereiche auf sämtlichen Root-Seiten.
+  ui.bindTheme();    // Synchronisiert Farbwahl, Tooltip und zugängliche Schalterbeschriftung.
+  support.bind();    // Aktiviert vorhandene Footer-Links und manuelle Unterstützungsdialoge.
 })(window.LHUNDG_UI_PARTS);
