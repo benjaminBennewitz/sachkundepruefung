@@ -66,6 +66,39 @@ Das Essener Portal enthält neben zutreffenden Detailangaben auch verkürzte For
 - **Rhein-Erft-Kreis:** Vorbereitungskatalog und Teilnahmehinweise sind öffentlich; die beiden vorhandenen Fassungen bleiben getrennt.
 - **Mönchengladbach:** Die private, vom Betreiber bestätigte Auskunft liegt der bestehenden 119er-Simulation zugrunde. Die am 11.11.2026 abgerufene Stadtseite nennt 99 Fragen. Beide Quellenstände werden offen benannt. Kein Überschreiben der bestätigten Simulation, keine Übernahme einer neuen Bestehensgrenze. Aktuellen Umfang vor dem Termin mit der Prüfstelle abgleichen.
 
+## Technischer Nachweis der Katalogbereinigung
+
+Diese Details wurden am 11.11.2026 aus der öffentlichen Quellenseite in diesen Nachweis übernommen.
+Sie dokumentieren den bisherigen Abgleich, keine erneute Prüfung der Lösungsschlüssel.
+Der Basispool umfasst 398 Fragen. Nach Berichtigung dreier Übertragungsfehler entsprechen 195 der
+197 Kammerfragen bereits vorhandenen Fragen samt Antwortmöglichkeiten und Lösungen (nach Normalisierung
+von Formatierung und Satzzeichen). Zwei Formulierungsvarianten ergänzen den Gesamtpool auf 400 Fragen;
+der separate Kammer-Lernbereich enthält alle 197 Fragen.
+
+| Originalfrage | Feststellung | Umsetzung |
+| --- | --- | --- |
+| 158 | Rhein-Erft-Schlüssel enthielt nur A, B, C; Antworttext unterscheidet sich geringfügig. | D anhand des offiziellen PDFs ergänzt; Formulierungsvariante separat. |
+| 160 | Im bisherigen Rhein-Erft-Datensatz fehlte D. | Korrigiert auf B, C, D. |
+| 161 | Im bisherigen Rhein-Erft-Datensatz fehlte D. | Korrigiert auf A, B, C, D. |
+| 173 | Antwort A im Kammerkatalog ist kürzer; Lösung bleibt A, C. | Beide Formulierungen bleiben quellbezogen erhalten. |
+
+Die drei fehlenden D-Antworten stehen in der offiziellen Rhein-Erft-Lösungstabelle hinter einem
+Seitenumbruch (Seiten 49–50). Es wurden keine Lösungen aus allgemeinem Hundewissen abgeleitet.
+Eine Frage ist nur bei vollständiger richtiger Auswahl ohne zusätzliche falsche Antwort korrekt.
+Der maschinenlesbare Detailnachweis bleibt in [QUESTION_AUDIT.json](QUESTION_AUDIT.json).
+
+## Ergänzte Originalverweise am 11.11.2026
+
+- Köln: Das öffentliche PDF hat den Stand Mai 2019. Es bleibt als abweichende Referenzfassung
+  gekennzeichnet und ersetzt nicht die Herkunft des zugesandten 115er-Bogens.
+- Rhein-Erft: Das beigefügte `LHundG_2025 (1).pdf` enthält den 203er-Fragenkatalog. Der offizielle
+  Download wird bei Rhein-Erft 203 verlinkt. Daraus folgt keine Identität mit dem zugesandten 97er-Bogen.
+  Ein öffentlicher Originallink für genau die 97er-Fassung bleibt undokumentiert.
+- Bergheim: Das Kreisportal nennt dort den Sitz des zuständigen Kreis-Veterinäramts.
+  Die Ortsangabe begründet keinen eigenständigen Bergheimer Fragenkatalog.
+- Bochum: Die private Auskunft vom 10.11.2026 erhält eine eigene Quellenkarte; ihre Grenzen bleiben erhalten.
+- Direkte Links zu Original-PDFs sind ausdrücklich gewünscht. Eigene PDF-Kopien werden weiterhin nicht angeboten.
+
 ## Quellen
 
 - https://www.gesetze-im-internet.de/tierschg/BJNR012770972.html
@@ -79,7 +112,9 @@ Das Essener Portal enthält neben zutreffenden Detailangaben auch verkürzte For
 - https://service.essen.de/detail/-/vr-bis-detail/dienstleistung/41286/show
 - https://www.essen.de/leben/umwelt/veterinaerwesen/hundehaltung.de.html
 - https://www.stadt-koeln.de/service/produkt/sachkundenachweis-fuer-hundehalterinnen
+- https://www.stadt-koeln.de/mediaasset/content/pdf57/sachkundenachweis_pruefungsfragenkatalog_gefaehrliche_hunde052019_.pdf
 - https://portal.rhein-erft-kreis.de/detail/-/vr-bis-detail/dienstleistung/42735/show
+- https://portal.rhein-erft-kreis.de/detail/-/vr-bis-detail/dokument/40985/download?_19_WAR_vrportlet_priv_r_p_action=vr-bis-detail-dienstleistung-show
 - https://www.moenchengladbach.de/rathaus/buergerinfo-a-z/recht-soziales-jugend-gesundheit-verbraucherschutz-dezernat-v/fachbereich-verbraucherschutz-und-tiergesundheit-39/tiergesundheit/sachkundepruefungen-lhundg-nrw
 
 Die privaten Nachrichten werden weder vollständig veröffentlicht noch als Nutzungserlaubnis für fremde Prüfungskataloge ausgelegt.
