@@ -14,6 +14,7 @@ window.LHUNDG_TRAINER.QuestionView = class QuestionView {
     this.session = session;                // Gemeinsame Sitzung als einzige Quelle für Lern- und Prüfungszustand.
     this.state = session.state;            // Gemeinsam genutzter Zustand; keine zweite Kopie des Lernstands.
     this.dom = window.LHUNDG_TRAINER.dom;  // Vorhandene sichere Helfer zum Erzeugen und Auffinden von DOM-Elementen.
+    this.feedback = new window.LHUNDG_TRAINER.QuestionFeedback(session);
     this.onChange = onChange;              // Rückmeldung an die Lernansicht nach Änderungen an Antwort oder Merkliste.
   }
 
@@ -36,6 +37,8 @@ window.LHUNDG_TRAINER.QuestionView = class QuestionView {
     if (question.mappingTargets) card.append(this.createMappingContext(question));
 
     card.append(this.createFieldset(question), this.createActions(question, card), feedback);
+    const explanation = this.feedback.createExplanation(question);
+    if (explanation) card.append(explanation);
     this.update(question, card);  // Bringt Status, Prüfbutton und Rückmeldung der bestehenden Karte auf denselben Stand.
 
     return card;
@@ -310,8 +313,19 @@ window.LHUNDG_TRAINER.QuestionView = class QuestionView {
   updateBookmark(question, bookmark) {
     const marked = this.state.bookmarks.has(question.id);  // Aktueller Merkzustand für Textsymbol und aria-pressed.
 
-    // Ein gefüllter Stern steht für eine vorhandene Markierung, ein leerer für eine unmarkierte Frage.
-    bookmark.textContent = marked ? '★' : '☆';
+    /* Die SVG-Geometrie bleibt zentriert; Füllung und Auswahlzustand werden gemeinsam per CSS gesetzt. */
+    if (!bookmark.firstElementChild) {
+      const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      const star = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+      icon.setAttribute('viewBox', '0 0 24 24');
+      icon.setAttribute('class', 'bookmark-icon');
+      icon.setAttribute('aria-hidden', 'true');
+      icon.setAttribute('focusable', 'false');
+      star.setAttribute('points', '12,3 14.8,8.7 21,9.6 16.5,14 17.6,20.2 12,17.3 6.4,20.2 7.5,14 3,9.6 9.2,8.7');
+      star.setAttribute('transform', 'translate(0 .4)');
+      icon.append(star);
+      bookmark.append(icon);
+    }
     bookmark.setAttribute('aria-pressed', String(marked));
   }
 
@@ -370,59 +384,8 @@ window.LHUNDG_TRAINER.QuestionView = class QuestionView {
     );
   }
 
-  /** Synchronisiert Status, Prüfaktion und Lösungsfeedback einer bestehenden Fragenkarte. */
+  /** Aktualisiert Quellenlösung und Lernhinweis gemeinsam mit dem bestehenden Bewertungszustand. */
   update(question, card) {
-    const selected = this.state.answers.get(question.id) || new Set();   // Aktuelle Auswahl oder eine leere Menge für unbeantwortete Fragen.
-    const checked = this.state.checked.has(question.id);                 // Die Antwort wurde ausdrücklich geprüft; erst dann ist Lösungsfeedback zulässig.
-    const right = window.LHUNDG_CORE.exact(selected, question.correct);  // Exakte Gleichheit mit dem vollständigen Lösungsschlüssel.
-    const check = card.querySelector('.question-check');                 // Vorhandener Prüfbutton, dessen Verfügbarkeit zur Vollständigkeit passen muss.
-    const feedback = card.querySelector('.feedback');                    // Bestehender Rückmeldebereich für die geprüfte Auswahl.
-
-    card.classList.toggle('correct', checked && right);
-    card.classList.toggle('wrong', checked && !right);
-    card.querySelector('.status-pill').textContent = this.statusText(question, selected, checked, right);
-
-    // Die Einzelprüfung verlangt mindestens eine Auswahl oder eine vollständige Zuordnung.
-    check.disabled = !window.LHUNDG_CORE.complete(question, selected);
-    // Eine bereits ausgewertete Auswahl kann über denselben Button erneut geprüft werden.
-    check.textContent = checked ? 'Erneut prüfen' : 'Antwort prüfen';
-
-    feedback.hidden = !checked;
-    // Nur ausdrücklich geprüfte Antworten erhalten einen sichtbaren Lösungstext.
-    if (checked) feedback.textContent = this.feedbackText(question, selected, right);
-  }
-
-  /** Formuliert den Kartenstatus; Bewertung hat Vorrang vor bloßer Vollständigkeit. */
-  statusText(question, selected, checked, right) {
-    // Eine vorhandene Bewertung hat Vorrang vor den Zuständen beantwortet, teilweise und offen.
-    if (checked) return right ? '✓ Richtig' : '× Falsch';
-    
-    // Vollständige, aber ungeprüfte Antworten werden noch nicht als richtig oder falsch bezeichnet.
-    if (window.LHUNDG_CORE.complete(question, selected)) return '● Beantwortet';
-
-    // Eine unvollständige Auswahl heißt teilweise, eine leere Auswahl bleibt offen.
-    return selected.size ? 'Teilweise' : '○ Offen';
-  }
-
-  /** Formatiert eine Lösung als Zuordnungspaar oder als Antwortbuchstabe mit Antworttext. */
-  formatSolution(question, token) {
-    // Zuordnungen erhalten Pfeile; normale Antworten enthalten Buchstabe und Antworttext.
-    return question.type === 'mapping'
-      ? token.replace(':', ' → ')
-      : `${token}: ${question.answers[token]}`;
-  }
-
-  /** Formuliert das aufgelöste Ergebnis mit klarer Trennung von Original- und Beispiellösung. */
-  feedbackText(question, selected, right) {
-    // Lesbare Auswahl mit Zuordnungspfeilen; ohne Tokens steht ausdrücklich keine.
-    const selection = selected.size
-      ? [...selected].map(value => value.replace(':', ' → ')).join(', ')
-      : 'keine';
-    const prefix = right ? 'Richtig! ' : `Deine Auswahl: ${selection}. `;                             // Richtige Antworten werden bestätigt, bei Fehlern wird die eigene Auswahl genannt.
-    const source = question.example ? 'Lösung der eigenen Beispielfrage' : 'Lösung laut Quelle';      // Kennzeichnet eigene Beispiellösungen statt einer angeblich amtlichen Quelle.
-    const solution = question.correct.map(token => this.formatSolution(question, token)).join('\n');  // Vollständiger Lösungsschlüssel mit je einer Antwort pro Zeile.
-    const explanation = question.explanation ? `\n\nEinordnung: ${question.explanation}` : '';        // Optionale fachliche Einordnung, sichtbar erst zusammen mit dem Lösungsfeedback.
-
-    return `${prefix}${source}:\n${solution}${explanation}`;
+    this.feedback.update(question, card);
   }
 };

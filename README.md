@@ -51,7 +51,7 @@ und einen statischen HTTP-Server, beispielsweise VS Code Live Server. Nicht übe
 ```cmd
 node scripts\quality\check-paths.mjs
 node scripts\quality\validate-data.mjs
-node --test scripts\quality\core.test.cjs scripts\quality\session.test.cjs scripts\quality\filters.test.cjs scripts\quality\checks.test.mjs
+node --test scripts\quality\core.test.cjs scripts\quality\session.test.cjs scripts\quality\filters.test.cjs scripts\quality\explanations.test.cjs scripts\quality\checks.test.mjs
 node --test scripts\quality\html-preservation.test.mjs
 node scripts\prepare-deployment.mjs --check-only
 ```

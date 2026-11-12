@@ -302,3 +302,43 @@ tatsächliche Betreiberfreigabe, erteilt keine Rechte. Vor dem nächsten Deploym
 das V40-Serverskript mit der zusätzlichen Pflichtdatei `scripts/learning/filter-view.js`
 installiert sein. Die V38-UI-Dateifreigaben bleiben darin erhalten.
 Installation und regulärer Ablauf bleiben ausschließlich in der Deployment-Anleitung.
+
+## Grundlagen und optionale Frageerklärungen (12.11.2026)
+
+- `grundlagen.html` ist die alleinige Inhaltsquelle. Das bestehende Modal zeigt zunächst eine kurze Begrüßung; „Grundlagen lesen“ lädt nur den zugehörigen Inhaltsbereich in das Modal. Die HTML-Seite bleibt direkt und ohne JavaScript lesbar. Keine doppelte Pflege, kein iframe.
+- `foundations.js` merkt das Schließen unter dem bestehenden Schlüssel `lhundg-foundations-dismissed-v1`. In Prüfungen, TV-Ansicht und bei gezielt angeforderten Werkzeugen erscheint keine automatische Begrüßung. Der manuelle Zugang funktioniert unabhängig vom Speicherzustand; modifizierte Linkklicks behalten den normalen Browserablauf.
+- `explanations.js` enthält 27 ergänzende Texte mit dauerhaften Original-UIDs. Lösungen und Bewertungsregeln bleiben unverändert. Alle sieben Hundebilder innerhalb der ersten 100 Fragen haben Hinweise; Frage 56 vergleicht die Originalbilder 6 und 16, ohne unklare Merkmale zu erfinden.
+- `question-feedback.js` trennt Quellenlösung, ergänzende Erklärung und Sichtbarkeit. Im Test werden Erklärungen erst nach Abschluss verfügbar; eine Antwortänderung verwirft die Anzeige bis zur erneuten Prüfung.
+- Die Startseite verwendet einen einspaltigen Hero mit sichtbarem Warnhinweis und Abstand vor dem Lernbereich. Projektclaim und Über-Link stehen im Header; Projekthinweise öffnen ein Modal. Die Seitenleiste behält ihre farbliche Eigenständigkeit.
+- Desktop-Lernraum: maximal 700 px hoch, mindestens 480 px, mit intern scrollbar erreichbaren Fragen. Kein erzwungenes Strecken einer kurzen Fragekarte. Antwortschrift und Mindestbedienflächen bleiben lesbar; keine globale Verkleinerung der Seite.
+- `ModalOptions.content` erlaubt vertrauenswürdigen lokalen Projektinhalt innerhalb derselben nativen Modal- und Fokussteuerung. Ladefehler führen zur regulären Grundlagen-Seite. Die Zustandslogik wird automatisiert geprüft; die visuelle Prüfung muss vor Veröffentlichung im Zielbrowser erfolgen.
+- Lokales Deploymentpaket, serverseitige Positivliste und Sitemap enthalten die neue HTML-Seite. Vor Deployment muss die installierte Serverkopie aktualisiert werden. Patchdateien werden mit CRLF geliefert.
+
+### Korrektur der visuellen Hierarchie (12.11.2026)
+
+- Alle Hauptnavigationen verlinken die eigenständige Grundlagen-Seite, dort mit `aria-current="page"`. Der bisherige Grundlagen-Zugang und die Startbegrüßung bleiben erhalten.
+- Logo und Projektclaim stehen als zusammengehörige Headergruppe. Der Link „Über diese Lernhilfe“ nutzt das gemeinsame Modal; ohne JavaScript führt er zum bestehenden Haftungshinweis. Es gibt keinen aufklappbaren Hero-Hinweis mehr.
+- Der sichtbare Warnhinweis steht direkt beim Titel-Subtext. Einspaltiger Hero und eine Trennlinie mit Abstand vor dem Trainer ersetzen die Verdichtung am Seitenanfang.
+- Sidebar und Prüfungsprofil verwenden wieder die bestehenden Nav-Farbtokens in Light/Dark. Die Seitenleiste hat auf Desktop wieder 260 px Breite. Nur Such- und Filterfelder werden gezielt auf 38 px Mindesthöhe reduziert, einschließlich eigener Select-Trigger.
+- Fragen, Lösungen, Grundlageninhalte und Speicherzustände werden durch diese Layoutkorrektur nicht verändert. Eine visuelle Browserprüfung ist in dieser Umgebung weiterhin nicht verfügbar.
+
+### Navigation, Fokus und kompakte Lösungen (12.11.2026)
+
+- Der sichtbare Linkname lautet jetzt „Haltung & Recht“; URL und bestehende Sprungziele von `hundewissen.html` bleiben erhalten.
+- Seite und innere Lern-/Navigationsbereiche scrollen nativ weich. Die expliziten JS-Sprünge verwenden `auto`, damit die CSS-Präferenz und Reduced Motion gelten. Mausrad- und Touch-Eingaben werden nicht abgefangen.
+- Fokusrahmen sind 2 px stark. Der Merkschalter misst 31 statt 44 px; eine geometrisch zentrierte SVG ersetzt das fontabhängige Sternzeichen.
+- Bei falschen Antworten stehen die vollständigen Antworttexte der Quellenlösung direkt untereinander. Richtige Antworten werden nur kurz bestätigt. Die optionale ergänzende Erklärung bleibt an die Prüfungssperre gebunden.
+- Richtige Fragen behalten eine transparente Kartenfläche; Status, Rand und Lösungsfeedback kennzeichnen das Ergebnis. Die Fragenübersicht verwendet eine schmale Scrollbar. Die visuelle Browserprüfung bleibt in dieser Umgebung offen.
+
+### TV-Sichtbarkeit und Zustandslegende (12.11.2026)
+
+- Die überholte Regel `body.tv-mode .hero+.wrap` wurde entfernt: Seit der Trainer unmittelbar auf den Hero folgt, blendete sie den gesamten Lernbereich aus. Im TV-Modus werden nur ausdrücklich benannte ergänzende Bereiche ausgeblendet.
+- Die kompakte Symbollegende beschreibt Füllung, Statuszeichen und Merker der echten Fragenübersicht; sie enthält keine nachgebildeten Fragenbuttons.
+- Aktivierte Feedback-, Merklisten- und Merkschalter sowie geöffnete/ausgewählte Select-Zustände nutzen `--accent` und `--on-accent` wie der Weiter-Button. Hover bleibt erkennbar; semantische Richtig/Falsch-Farben sind davon getrennt.
+- Die Fragenkarte bleibt transparent und erhält keinen Verlauf oder Lichtsaum. Die visuelle Browserprüfung bleibt in dieser Umgebung offen.
+
+### Lesbare Lösungsliste und reduzierte Legende (12.11.2026)
+
+- Die Quellenlösung ist kein Aufklappbereich mehr. Bei Fehlern wird jede richtige Antwort vollständig in einer eigenen Zeile angezeigt; bei richtigen Antworten genügt „Richtig!“. „Antwort verstehen“ bleibt unabhängig davon als optionaler Lernhinweis erhalten.
+- Die Legende verwendet kleine Symbole ohne nachgebildete Fragenbuttons: offener Kreis für offen, grüner gefüllter Kreis für beantwortet, offener Kreis mit Häkchen für richtig, roter gefüllter Kreis mit Kreuz für falsch und ausschließlich ein Stern für gemerkt.
+- Richtige Navigationsfelder haben wieder dieselbe ungefüllte Grundfläche wie offene Felder; grüner Rahmen und Häkchen unterscheiden ihren Zustand. Bewertungsregeln und Lösungsschlüssel bleiben unverändert.

@@ -23,7 +23,8 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="scripts/ui/theme.js?v=38"></script>
   <link rel="stylesheet" href="styles/tokens.css?v=19">
-  <link rel="stylesheet" href="styles/interface.css?v=40">
+  <link rel="stylesheet" href="styles/interface.css?v=48">
+  <link rel="stylesheet" href="styles/foundations.css?v=46">
   <script
     type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Hunde-Sachkundetrainer NRW","applicationCategory":"EducationalApplication","operatingSystem":"Webbrowser","inLanguage":"de","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Sachkundenachweis für Hunde in NRW: kostenlos online üben, mit Fragenkatalogen, Sofort-Feedback und Testreihen. Ohne Anmeldung, mit Originalquellen.","url":"https://hunde-sachkundetrainer.de/nrw/"}</script>
 
@@ -36,12 +37,20 @@
 
 <body>
   <a class="skip-link" href="#trainer">Zum Lerntrainer</a>
-  <header class="site-header wrap"><a class="brand" href="./" aria-label="Sachkunde NRW – Startseite"><span
-        class="brand-mark" aria-hidden="true">§</span><span>SACHKUNDE<span class="brand-sub">NRW / DIE
-          LERNHILFE</span></span></a>
+  <header class="site-header wrap">
+    <!-- BLOCK START: Marke und Projekthinweise -->
+    <div class="header-brand-group"><a class="brand" href="./" aria-label="Sachkunde NRW – Startseite"><span
+          class="brand-mark" aria-hidden="true">§</span><span>SACHKUNDE<span class="brand-sub">NRW / DIE
+            LERNHILFE</span></span></a>
+      <div class="header-project">
+        <p>Unabhängig. Werbefrei. Kostenlos.</p>
+        <a href="impressum.html#haftung" data-open-about aria-haspopup="dialog">Über diese Lernhilfe</a>
+      </div>
+    </div>
+    <!-- BLOCK END: Marke und Projekthinweise -->
     <nav class="header-nav" aria-label="Hauptnavigation"><a href="#trainer" aria-current="page">Lernen</a><a
-        href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Hundewissen</a><a
-        href="quellen.html">Quellen</a></nav>
+        href="grundlagen.html">Grundlagen</a><a href="gut-zu-wissen.html">Gut zu wissen</a><a
+        href="hundewissen.html">Haltung &amp; Recht</a><a href="quellen.html">Quellen</a></nav>
     <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><button class="icon-button"
         type="button" aria-label="Lernstand laden" id="importTrigger"><svg class="" width="20" height="20"
           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
@@ -78,25 +87,17 @@
   <main>
     <section class="hero wrap" aria-labelledby="heroTitle">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Kostenlos. Ohne Anmeldung. Für alle.</p>
+        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Sachkunde / Nordrhein-Westfalen</p>
         <h1 id="heroTitle">NRW Sachkundeprüfung<span>Deine Lernhilfe.</span></h1>
-        <p class="hero-intro">Dein kostenloser Online-Trainer für den Sachkundenachweis für Hunde in NRW.
-          Übe in deinem Tempo für die Sachkundeprüfung nach dem Landeshundegesetz – ohne Anmeldung.</p>
+        <p class="hero-intro">Für den Sachkundenachweis in NRW. Lerne in deinem Tempo – ohne Anmeldung.</p>
+        <!-- BLOCK START: Sichtbarer Hinweis zur Lernhilfe -->
+        <p class="hero-warning"><span aria-hidden="true">⚠</span> Lernhilfe · keine behördliche Prüfung oder
+          Bescheinigung.</p>
+        <!-- BLOCK END: Sichtbarer Hinweis zur Lernhilfe -->
         <div class="hero-links"><a class="primary button" href="#trainer">Jetzt lernen <span
               aria-hidden="true">↗</span></a><a href="quellen.html">Zu den Originalquellen →</a></div>
       </div>
-      <aside class="hero-note"><span class="note-index">01 / GEMEINSAM LERNEN</span>
-        <p>Ein kleines privates Lernprojekt.<br><strong>Jetzt für alle, die mit Hund durchs Leben gehen.</strong></p>
-        <!--hero-disclaimer:start-->
-        <aside class="legal-disclaimer" aria-label="Wichtiger Hinweis zur Lernhilfe"><strong>REINE LERNHILFE. KEINE
-            RECHTSBERATUNG. KEINE PRÜFUNGSGARANTIE.</strong>
-          <p>Dieses unabhängige Angebot ersetzt weder behördliche Auskünfte noch eine Sachkunde- oder Verhaltensprüfung.
-            Für Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird keine Gewähr übernommen. Maßgeblich sind
-            geltendes Recht und die Auskunft deiner zuständigen Behörde. Ein gutes Übungsergebnis garantiert kein
-            Bestehen. <a href="impressum.html#haftung">Hinweise zur Haftung</a></p>
-        </aside><!--hero-disclaimer:end-->
-        <div class="note-bottom"><span>Unabhängig & werbefrei</span><span aria-hidden="true">↗</span></div>
-      </aside>
+
     </section>
     <!--legal-disclaimer:start--><!--legal-disclaimer:end-->
     <section id="trainer" class="trainer wrap" aria-labelledby="modeTitle" tabindex="-1">
@@ -116,11 +117,24 @@
             <p class="microcopy">Beantwortet bedeutet noch nicht richtig.</p>
             <button id="resume" class="secondary" type="button">Weiterlernen →</button>
             <!-- BLOCK START: Direkter Zugang zur Merkliste -->
-            <button id="showBookmarks" class="secondary bookmark-access" type="button" aria-pressed="false">★ Merkliste (0)</button>
+            <button id="showBookmarks" class="secondary bookmark-access" type="button" aria-pressed="false">★ Merkliste
+              (0)</button>
             <!-- BLOCK END: Direkter Zugang zur Merkliste -->
             <details class="nav-details">
               <summary>Fragenübersicht <span aria-hidden="true">＋</span></summary>
-              <p class="microcopy">○ Offen · ● Beantwortet · ✓ Richtig · × Falsch · ★ Gemerkt</p>
+              <!-- BLOCK START: Kompakte Zustandslegende -->
+              <div class="nav-legend" role="group" aria-label="Legende zur Fragenübersicht">
+                <span class="nav-legend-item"><span class="legend-marker" aria-hidden="true"><span
+                      class="legend-dot"></span></span>Offen</span>
+                <span class="nav-legend-item"><span class="legend-marker legend-marker--answered"
+                    aria-hidden="true"><span class="legend-dot legend-dot--filled"></span></span>Beantwortet</span>
+                <span class="nav-legend-item"><span class="legend-marker legend-marker--correct"
+                    aria-hidden="true"><span class="legend-dot"></span>✓</span>Richtig</span>
+                <span class="nav-legend-item"><span class="legend-marker legend-marker--wrong" aria-hidden="true"><span
+                      class="legend-dot legend-dot--filled"></span>×</span>Falsch</span>
+                <span class="nav-legend-item"><span class="legend-star" aria-hidden="true">★</span>Gemerkt</span>
+              </div>
+              <!-- BLOCK END: Kompakte Zustandslegende -->
               <div id="questionNav" class="question-nav" aria-label="Zu einer Frage wechseln"></div>
             </details>
           </div>
@@ -146,7 +160,8 @@
             <p id="exampleNotice" class="source-note" hidden></p>
             <div class="study-toolbar">
               <div class="catalog-heading">
-                <h2 id="modeTitle">Alle Quellen</h2><button id="clearFilters" class="text-button" type="button" hidden>Filter
+                <h2 id="modeTitle">Alle Quellen</h2><a id="foundationsLink" href="grundlagen.html">Grundlagen</a><button
+                  id="clearFilters" class="text-button" type="button" hidden>Filter
                   löschen</button>
               </div><label class="view-control" for="viewSelect">Ansicht<select id="viewSelect">
                   <option value="focus">Fokus</option>
@@ -168,7 +183,8 @@
             <!-- BLOCK START: Suchtreffer und gefilterte Fragen -->
             <div id="filterResults" class="filter-results" hidden>
               <p id="matchCount" role="status" aria-live="polite" hidden></p>
-              <p class="microcopy">Blättere unten mit Zurück und Weiter durch die passenden Fragen oder öffne die Listenansicht.</p>
+              <p class="microcopy">Blättere unten mit Zurück und Weiter durch die passenden Fragen oder öffne die
+                Listenansicht.</p>
               <button id="showMatchList" class="secondary" type="button">Treffer als Liste anzeigen</button>
             </div>
             <!-- BLOCK END: Suchtreffer und gefilterte Fragen -->
@@ -224,7 +240,7 @@
         </details>
         <details>
           <summary>Wo finde ich Haltungsauflagen, Leinenpflicht und Maulkorbregeln?</summary>
-          <p>Auf „Hundewissen“ findest du eine erste Einordnung zu Hundehaltung und Sachkunde in NRW
+          <p>Auf „Haltung &amp; Recht“ findest du eine erste Einordnung zu Hundehaltung und Sachkunde in NRW
             mit Behördenquellen und Rechtstexten. Verbindliche Auskunft zu deinem Hund gibt die zuständige Behörde.
             <a href="hundewissen.html#vorbereitung">Haltungsauflagen und zuständige Stellen</a>.
           </p>
@@ -260,7 +276,7 @@
     <p class="footer-credit">© 2026 Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/"
         aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p>
     <nav aria-label="Rechtliches und Informationen"><a href="quellen.html">Originalquellen</a><a
-        href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Hundewissen</a><a
+        href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a
         href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="#trainer">Zum Lernen ↑</a>
     </nav>
   </footer>
@@ -270,11 +286,11 @@
   </noscript>
   <script src="scripts/site-config.js?v=38" defer></script>
   <script src="scripts/ui/shared.js?v=40" defer></script>
-  <script src="scripts/ui/modal.js?v=38" defer></script>
+  <script src="scripts/ui/modal.js?v=43" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
-  <script src="scripts/ui/common.js?v=40" defer></script>
+  <script src="scripts/ui/common.js?v=44" defer></script>
   <script src="scripts/learning/data.js?v=33" defer></script>
   <script src="scripts/learning/essen.js?v=33" defer></script>
   <script src="scripts/learning/sources.js?v=33" defer></script>
@@ -282,14 +298,17 @@
   <script src="scripts/learning/profiles.js?v=33" defer></script>
   <script src="scripts/learning/dom.js?v=33" defer></script>
   <script src="scripts/learning/session.js?v=33" defer></script>
-  <script src="scripts/learning/question-view.js?v=33" defer></script>
+  <script src="scripts/learning/explanations.js?v=42" defer></script>
+  <script src="scripts/learning/question-feedback.js?v=48" defer></script>
+  <script src="scripts/learning/question-view.js?v=48" defer></script>
   <script src="scripts/learning/filter-view.js?v=40" defer></script>
-  <script src="scripts/learning/learning-view.js?v=40" defer></script>
+  <script src="scripts/learning/learning-view.js?v=46" defer></script>
   <script src="scripts/learning/results.js?v=33" defer></script>
   <script src="scripts/learning/progress.js?v=33" defer></script>
   <script src="scripts/learning/keyboard.js?v=40" defer></script>
   <script src="scripts/learning/controller.js?v=40" defer></script>
-  <script src="scripts/learning/app.js?v=33" defer></script>
+  <script src="scripts/learning/foundations.js?v=43" defer></script>
+  <script src="scripts/learning/app.js?v=42" defer></script>
   <script src="scripts/ui/select-view.js?v=38" defer></script>
   <script src="scripts/ui/select-keyboard.js?v=38" defer></script>
   <script src="scripts/ui/select.js?v=38" defer></script>

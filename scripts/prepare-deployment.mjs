@@ -105,6 +105,7 @@ run([
   'scripts/quality/core.test.cjs',
   'scripts/quality/session.test.cjs',
   'scripts/quality/filters.test.cjs',
+  'scripts/quality/explanations.test.cjs',
   'scripts/quality/checks.test.mjs'
 ]);
 

@@ -25,6 +25,7 @@
    * @property {string} message Beschreibung der Entscheidung.
    * @property {string} [eyebrow] Kurzer Kontext über der Überschrift.
    * @property {string} [note] Zusätzlicher Hinweis unter den Aktionen.
+   * @property {HTMLElement} [content] Optionaler Inhalt aus einer lokalen, vertrauenswürdigen Projektseite.
    * @property {ModalAction[]} actions Verfügbare Dialogaktionen.
    * @property {HTMLElement} [returnFocus] Fokusziel nach dem Schließen.
    */
@@ -73,6 +74,13 @@
         this.dialog.addEventListener('close', () => this.finish(origin, resolve), { once: true });
         document.documentElement.classList.add('modal-open');
         this.dialog.showModal();
+        /* Längere Lesetexte beginnen oben, statt durch eine Aktion am Ende nach unten zu springen. */
+        if (options.content) {
+          const title = this.dialog.querySelector('#uiModalTitle');
+          title.tabIndex = -1;
+          title.focus({ preventScroll: true });
+          this.dialog.scrollTop = 0;
+        }
       });
     }
 
@@ -104,7 +112,10 @@
       // Der Kontext über der Überschrift ist optional.
       if (options.eyebrow) card.append(ui.node('p', options.eyebrow, 'eyebrow'));
 
-      card.append(this.title(options.title), this.message(options.message), this.actions(options.actions));
+      card.append(this.title(options.title), this.message(options.message));
+      /* Eingehängte Projektinhalte behalten native Links und Überschriften ohne HTML-Interpolation. */
+      if (options.content) card.append(options.content);
+      card.append(this.actions(options.actions));
 
       // Ein Zusatzhinweis wird nur bei tatsächlich vorhandenem Text angehängt.
       if (options.note) card.append(ui.node('p', options.note, 'microcopy'));

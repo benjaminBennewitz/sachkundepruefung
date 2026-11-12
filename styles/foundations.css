@@ -1,0 +1,129 @@
+/*###############################
+###
+###     foundations.css
+###     Hunde-Sachkundetrainer NRW
+###     BASED ON: HTML5, CSS3, JavaScript
+###     AUTHOR: Benjamin Bennewitz
+###
+###
+###       ██████╗  ▀█
+###       ██╔══██╗ █▄
+###       ██████╦╝
+###       ██╔══██╗
+###       ██████╦╝
+###       ╚═════╝
+###
+#################################*/
+
+/* ===========================================================================
+   INHALTSVERZEICHNIS
+   01   Grundlagen und Zugang
+   02   Optionale Frageerklärungen
+   03   Grundlagen im gemeinsamen Modal
+   ========================================================================== */
+
+/* ===========================================================================
+   01   Grundlagen und Zugang
+   ========================================================================== */
+
+.question-explanation[hidden] {
+  display: none;
+}
+
+#foundationsLink {
+  font-size: .8rem;
+}
+
+.foundations-content {
+  padding-block: 8px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.foundations-return {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+/* ===========================================================================
+   02   Optionale Frageerklärungen
+   ========================================================================== */
+
+.question-explanation {
+  margin-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--text);
+}
+
+.question-explanation > summary {
+  padding: 12px 4px;
+  min-height: 44px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.question-explanation > summary:hover {
+  color: var(--accent-hover);
+}
+
+.question-explanation > summary:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.explanation-content {
+  max-width: 75ch;
+  padding: 0 4px 8px;
+  overflow-wrap: anywhere;
+}
+
+.explanation-content p {
+  margin: 0 0 12px;
+}
+
+.explanation-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.explanation-comparison figure {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.explanation-comparison img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.explanation-comparison figcaption {
+  margin-top: 10px;
+  font-size: .85rem;
+}
+
+/* ===========================================================================
+   03   Grundlagen im gemeinsamen Modal
+   ========================================================================== */
+
+.ui-modal:has(.foundations-content) {
+  width: min(760px, calc(100% - 32px));
+}
+
+.ui-modal .foundations-content {
+  border: 0;
+  padding: 0;
+}
+
+.ui-modal .foundations-content h3 {
+  margin: 24px 0 10px;
+  font-size: 1.05rem;
+}
+
+.ui-modal .foundations-content p {
+  margin-top: 12px;
+}

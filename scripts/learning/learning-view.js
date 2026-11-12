@@ -268,7 +268,7 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
 
     // Die Seite bewegt sich nur, wenn die Karte vom Header verdeckt ist oder außerhalb des Fensters liegt.
     if (top < headerBottom + 16 || top >= window.innerHeight) {
-      window.scrollBy({ top: top - headerBottom - 16, behavior: 'instant' });
+      window.scrollBy({ top: top - headerBottom - 16, behavior: 'auto' });
     }
   }
 
@@ -277,10 +277,10 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
     const trainerTop = scrollY + this.dom.get('trainer').getBoundingClientRect().top;            // Absolute Dokumentposition des Lernbereichs.
     const headerHeight = document.querySelector('.site-header').getBoundingClientRect().height;  // Platz für den sichtbaren Header beim Ausrichten des Lernbereichs.
 
-    window.scrollTo({ top: trainerTop - headerHeight, behavior: 'instant' });
+    window.scrollTo({ top: trainerTop - headerHeight, behavior: 'auto' });
     stage.scrollTo({
       top: stage.scrollTop + card.getBoundingClientRect().top - stage.getBoundingClientRect().top,
-      behavior: 'instant'
+      behavior: 'auto'
     });
   }
 

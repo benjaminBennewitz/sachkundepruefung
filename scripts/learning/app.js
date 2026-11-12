@@ -14,5 +14,6 @@
 
   const controller = new trainer.Controller(session, view);  // Verbindet die Module mit den vorhandenen Bedienelementen.
 
+  trainer.bindFoundations(session);
   controller.start();  // Startet den Trainer erst, nachdem Zustand und Anzeige miteinander verbunden sind.
 })();
