@@ -1,8 +1,8 @@
 /* scripts/quality/navigation.test.cjs */
 
 /**
- * @file Zustands- und Fokusprüfung der mobilen Hauptnavigation.
- * @description Prüft Originalelemente, Menüabschluss und Rückkehr zum Desktop ohne zusätzliche DOM-Abhängigkeit.
+ * @file Zustands- und Fokusprüfung der bildschirmfüllenden Hauptnavigation.
+ * @description Prüft Originalelemente, Dialogabschluss und Rückkehr zum Desktop ohne zusätzliche DOM-Abhängigkeit.
  * @author Benjamin Bennewitz [B²]
  */
 const { test } = require('node:test');
@@ -25,7 +25,11 @@ function setup() {
       this.listeners = {};
       this.attributes = {};
       this.hidden = false;
-      this.classList = { toggle: (name, active) => { this.mobile = active; } };
+      const classes = new Set();
+      this.classList = {
+        toggle: (name, active) => active ? classes.add(name) : classes.delete(name),
+        contains: name => classes.has(name)
+      };
     }
     append(...nodes) { for (const node of nodes) this.insertBefore(node, null); }
     insertBefore(node, sibling) {
@@ -54,11 +58,14 @@ function setup() {
     getAttribute(name) { return this.attributes[name]; }
     addEventListener(name, handler) { this.listeners[name] = handler; }
     focus() { document.activeElement = this; }
+    showModal() { this.open = true; }
+    close() { this.open = false; }
   }
   const header = new Node('header', 'site-header');
   const brand = new Node('div', 'header-brand-group');
   const project = new Node('div', 'header-project');
   const navigation = new Node('nav', 'header-nav');
+  navigation.append(new Node('a'));
   const tools = new Node('div', 'header-tools');
   const support = new Node('button');
   support.support = true;
@@ -67,7 +74,7 @@ function setup() {
   brand.append(project);
   header.append(brand, navigation, tools);
   document = {
-    activeElement: null, listeners: {},
+    activeElement: null, listeners: {}, body: new Node('body'), documentElement: new Node('html'),
     querySelector: () => header,
     createElement: tag => new Node(tag),
     createComment: () => new Node('comment'),
@@ -78,34 +85,63 @@ function setup() {
     document, window: { matchMedia: () => viewport }
   });
   return { header, brand, project, navigation, tools, support, theme, document, viewport,
-    panel: header.querySelector('.header-navigation-panel'), toggle: header.querySelector('.icon-button header-menu-toggle'), Node };
+    panel: header.querySelector('.header-navigation-panel'), toggle: header.querySelector('.icon-button header-menu-toggle'),
+    overlay: document.body.querySelector('.mobile-navigation-overlay'),
+    close: document.body.querySelector('.mobile-navigation-close'), Node };
 }
 
-test('Mobil bündelt Originalnavigation und Werkzeuge, das Herz bleibt neben dem Burger', () => {
+test('Mobil öffnet die Originalnavigation als nativen Dialog mit eigenem Schließen-Button', () => {
   const ui = setup();
   assert.equal(ui.panel.hidden, true);
   assert.equal(ui.support.parent, ui.header);
   assert.equal(ui.project.parent, ui.panel);
-  assert.equal(ui.theme.parent, ui.tools);
   ui.toggle.listeners.click();
-  assert.equal(ui.toggle.getAttribute('aria-expanded'), 'true');
+  assert.equal(ui.overlay.open, true);
+  assert.equal(ui.panel.parent, ui.overlay);
   assert.equal(ui.panel.hidden, false);
+  assert.equal(ui.toggle.getAttribute('aria-expanded'), 'true');
+  assert.equal(ui.toggle.getAttribute('aria-haspopup'), 'dialog');
+  assert.equal(ui.document.documentElement.classList.contains('navigation-open'), true);
+  assert.equal(ui.document.activeElement, ui.close);
+});
+
+test('Escape hebt die Scrollsperre auf und gibt den Fokus zum Burger zurück', () => {
+  const ui = setup();
+  ui.toggle.listeners.click();
   let prevented = false;
-  ui.header.listeners.keydown({ key: 'Escape', preventDefault() { prevented = true; } });
+  ui.overlay.listeners.cancel({ preventDefault() { prevented = true; } });
   assert.equal(prevented, true);
+  assert.equal(ui.overlay.open, false);
   assert.equal(ui.panel.hidden, true);
+  assert.equal(ui.panel.parent, ui.header);
+  assert.equal(ui.document.documentElement.classList.contains('navigation-open'), false);
   assert.equal(ui.document.activeElement, ui.toggle);
 });
 
-test('Desktop erhält dieselben Bedienelemente und deren bisherige Reihenfolge zurück', () => {
+test('Schließen-Taste und Seitennavigation schließen den Dialog ohne Werkzeugkopien', () => {
+  const ui = setup();
+  ui.toggle.listeners.click();
+  ui.close.listeners.click();
+  assert.equal(ui.overlay.open, false);
+  assert.equal(ui.document.activeElement, ui.toggle);
+  ui.toggle.listeners.click();
+  ui.navigation.listeners.click({ target: new ui.Node('a') });
+  assert.equal(ui.overlay.open, false);
+  assert.equal(ui.toggle.getAttribute('aria-expanded'), 'false');
+  assert.equal(ui.theme.parent, ui.tools);
+});
+
+test('Desktop schließt den Dialog, entsperrt die Seite und erhält die Originalelemente zurück', () => {
   const ui = setup();
   ui.toggle.listeners.click();
   ui.viewport.matches = false;
   ui.viewport.change();
+  assert.equal(ui.overlay.open, false);
   assert.equal(ui.panel.hidden, false);
   assert.equal(ui.support.parent, ui.tools);
   assert.equal(ui.project.parent, ui.brand);
-  assert.ok(ui.tools.children.indexOf(ui.theme) < ui.tools.children.indexOf(ui.support));
+  assert.equal(ui.document.documentElement.classList.contains('navigation-open'), false);
+  assert.equal(ui.document.activeElement, ui.navigation.querySelector('a'));
   ui.theme.focus();
   ui.viewport.matches = true;
   ui.viewport.change();
@@ -113,24 +149,12 @@ test('Desktop erhält dieselben Bedienelemente und deren bisherige Reihenfolge z
   assert.equal(ui.document.activeElement, ui.toggle);
 });
 
-test('Seitennavigation, Außenklick und Verlassen per Tab schließen das mobile Menü', () => {
+test('Ein verspätetes natives close-Ereignis schließt ein erneut geöffnetes Menü nicht', () => {
   const ui = setup();
   ui.toggle.listeners.click();
-  ui.navigation.listeners.click({ target: new ui.Node('a') });
-  assert.equal(ui.panel.hidden, true);
+  ui.close.listeners.click();
   ui.toggle.listeners.click();
-  ui.document.listeners.click({ target: new ui.Node('main') });
-  assert.equal(ui.panel.hidden, true);
-  ui.toggle.listeners.click();
-  ui.header.listeners.focusout({ relatedTarget: new ui.Node('input') });
-  assert.equal(ui.panel.hidden, true);
-});
-
-test('Ein vom Menü geöffneter Dialog behält sein sichtbares Rücksprungziel', () => {
-  const ui = setup();
-  const dialog = new ui.Node('dialog');
-  ui.toggle.listeners.click();
-  ui.header.listeners.focusout({ relatedTarget: dialog });
-  ui.document.listeners.click({ target: dialog });
-  assert.equal(ui.panel.hidden, false);
+  ui.overlay.listeners.close();
+  assert.equal(ui.overlay.open, true);
+  assert.equal(ui.document.documentElement.classList.contains('navigation-open'), true);
 });

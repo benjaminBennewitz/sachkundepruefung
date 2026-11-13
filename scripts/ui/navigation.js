@@ -2,7 +2,7 @@
 
 /**
  * @file Gemeinsame mobile Hauptnavigation.
- * @description Bündelt vorhandene Links und Werkzeuge ohne doppelte Bedienelemente oder IDs.
+ * @description Verwendet vorhandene Links und Werkzeuge in einem bildschirmfüllenden nativen Navigationsdialog.
  * @author Benjamin Bennewitz [B²]
  */
 'use strict';
@@ -18,6 +18,10 @@
   const project = header.querySelector('.header-project');
   const panel = document.createElement('div');
   const toggle = document.createElement('button');
+  const overlay = document.createElement('dialog');
+  const topbar = document.createElement('div');
+  const title = document.createElement('h2');
+  const close = document.createElement('button');
   const supportHome = document.createComment('Position der Unterstützung im Desktop-Header');
   const projectHome = document.createComment('Position der Projekthinweise im Desktop-Header');
   support?.before(supportHome);
@@ -26,25 +30,45 @@
   panel.className = 'header-navigation-panel';
   toggle.type = 'button';
   toggle.className = 'icon-button header-menu-toggle';
-  toggle.textContent = '☰';
   toggle.setAttribute('aria-controls', panel.id);
-  toggle.setAttribute('aria-expanded', 'false');
-  toggle.setAttribute('aria-label', 'Menü öffnen');
+  toggle.setAttribute('aria-haspopup', 'dialog');
+  overlay.className = 'mobile-navigation-overlay';
+  overlay.setAttribute('aria-labelledby', 'mobile-navigation-title');
+  topbar.className = 'mobile-navigation-topbar';
+  title.id = 'mobile-navigation-title';
+  title.textContent = 'Menü';
+  close.type = 'button';
+  close.className = 'mobile-navigation-close';
+  close.textContent = 'Schließen ×';
+  topbar.append(title, close);
+  overlay.append(topbar);
+  document.body.append(overlay);
   header.append(panel, toggle);
   panel.append(navigation, tools);
 
   /**
-   * Öffnet oder schließt das mobile Menü und synchronisiert seine Zugänglichkeit.
+   * Öffnet das native Menü mit Fokusbegrenzung oder stellt Header und Scrollen wieder her.
    * @param {boolean} expanded Gewünschter Zustand.
-   * @param {boolean} [restoreFocus] Fokus bei Escape zum Auslöser zurückgeben.
+   * @param {boolean} [restoreFocus] Fokus beim manuellen Schließen zum Auslöser zurückgeben.
    * @returns {void} Kein Rückgabewert.
    */
   function setExpanded(expanded, restoreFocus = false) {
-    panel.hidden = viewport.matches && !expanded;
-    toggle.setAttribute('aria-expanded', String(expanded));
-    toggle.setAttribute('aria-label', expanded ? 'Menü schließen' : 'Menü öffnen');
-    toggle.textContent = expanded ? '×' : '☰';
-    if (restoreFocus) toggle.focus();
+    const opened = viewport.matches && expanded;
+    toggle.setAttribute('aria-expanded', String(opened));
+    toggle.setAttribute('aria-label', opened ? 'Menü schließen' : 'Menü öffnen');
+    toggle.textContent = opened ? '×' : '☰';
+    document.documentElement.classList.toggle('navigation-open', opened);
+    panel.hidden = viewport.matches && !opened;
+    if (opened) {
+      overlay.append(panel);
+      if (!overlay.open) overlay.showModal();
+      overlay.scrollTop = 0;
+      close.focus({ preventScroll: true });
+    } else {
+      if (overlay.open) overlay.close();
+      header.insertBefore(panel, toggle);
+      if (restoreFocus) toggle.focus({ preventScroll: true });
+    }
   }
 
   /**
@@ -63,24 +87,20 @@
     }
     setExpanded(false);
     if (viewport.matches && panel.contains(activeElement)) toggle.focus();
+    if (!viewport.matches && topbar.contains(activeElement)) navigation.querySelector('a')?.focus();
   }
 
-  toggle.addEventListener('click', () => setExpanded(toggle.getAttribute('aria-expanded') !== 'true'));
-  header.addEventListener('keydown', event => {
-    if (event.key !== 'Escape' || toggle.getAttribute('aria-expanded') !== 'true') return;
+  toggle.addEventListener('click', () => setExpanded(!overlay.open));
+  close.addEventListener('click', () => setExpanded(false, true));
+  overlay.addEventListener('cancel', event => {
     event.preventDefault();
     setExpanded(false, true);
   });
+  overlay.addEventListener('close', () => {
+    if (!overlay.open) setExpanded(false);
+  });
   navigation.addEventListener('click', event => {
     if (viewport.matches && event.target.closest('a')) setExpanded(false);
-  });
-  document.addEventListener('click', event => {
-    if (viewport.matches && !header.contains(event.target) && !event.target.closest('dialog')) setExpanded(false);
-  });
-  header.addEventListener('focusout', event => {
-    if (viewport.matches && !header.contains(event.relatedTarget) && !event.relatedTarget?.closest('dialog')) {
-      setExpanded(false);
-    }
   });
   viewport.addEventListener('change', syncViewport);
   syncViewport();

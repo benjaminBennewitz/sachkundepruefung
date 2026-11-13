@@ -370,18 +370,27 @@ Installation und regulärer Ablauf bleiben ausschließlich in der Deployment-Anl
   nicht erneut gegen das PDF abgeglichen. Häufigkeiten, unklare Motive und feste
   Entwicklungsgrenzen werden nicht als gesicherte Tatsachen ergänzt.
 - `scripts/ui/navigation.js` bündelt bis 800 px die vorhandene Hauptnavigation,
-  Projekthinweise und Werkzeuge. Logo, Unterstützungsherz und Burger bleiben im Kopf.
+  Projekthinweise und Werkzeuge. Logo, Unterstützungsherz und Burger bleiben im geschlossenen Kopf.
   Dieselben DOM-Elemente und Ereignisbindungen werden auf Desktop zurückverwendet;
-  keine zusätzlichen IDs, Kopien von Werkzeugen oder gespeicherten Menüzustände.
-- Menü: `aria-expanded`, `aria-controls`, Escape mit Fokusrückgabe, Abschluss bei
-  Außenklick, Seitennavigation und Verlassen per Tab. Vom Menü geöffnete native Dialoge
-  behalten ihr sichtbares Rücksprungziel. Keine zusätzliche Fokusfalle für das Dropdown.
-- `styles/navigation.css` ergänzt bestehende Tokens und Zustände für beide Farbschemata.
-  Das Menü kann bei geringer Bildschirmhöhe selbst scrollen. Ohne JavaScript bleibt
-  die bestehende Navigation sichtbar. Es gibt keine zusätzliche Animation.
-- Die Server-Positivliste berücksichtigt die beiden neuen Navigationsdateien.
-  Vor dem Deployment die Serverkopie gemäß `deployment/README.md` erneut installieren.
+  keine zusätzlichen Kopien von Werkzeugen oder gespeicherten Menüzustände.
+- Die ursprüngliche Dropdown-Ausführung wurde durch einen bildschirmfüllenden nativen
+  Navigationsdialog ersetzt. Große einspaltige Links mit mindestens 64 px Höhe; bestehende
+  Werkzeugbuttons bleiben zweispaltig. Eine fest sichtbare Kopfzeile bietet „Schließen ×“.
+- Der native Dialog übernimmt Fokusbegrenzung und Inertheit der Hintergrundseite. Escape
+  und Schließen geben den Fokus zum Burger zurück. Eine getrennte `navigation-open`-Klasse
+  sperrt das Scrollen der Seite, ohne die Klassen des gemeinsamen Bestätigungsdialogs zu ändern.
+  Bestehende Bestätigungs-/Informationsdialoge können über dem Menü geöffnet werden.
+- Beim Desktopwechsel wird das Menü geschlossen und die Scrollsperre aufgehoben. Ein
+  verspätetes natives close-Ereignis darf ein inzwischen erneut geöffnetes Menü nicht schließen.
+- `styles/navigation.css` verwendet die bestehenden Tokens für beide Farbschemata. Die
+  Navigation füllt 100dvh; bei kleinen Höhen scrollt ihr Inhalt, die Schließen-Leiste bleibt
+  erreichbar. Safe-Area-Abstände werden berücksichtigt. Kein neues Animationsverhalten.
+- Die vorhandene Server-Positivliste enthält die beiden Navigationsdateien bereits;
+  für diese Folgeänderung werden keine weiteren Deploymentdateien eingeführt.
 - Automatisiert: Hinweise und Prüfungssperre, Quellenlinks, Originalelemente der Navigation,
-  Wechsel Mobil/Desktop, Escape, Tab-Abschluss und Dialog-Rücksprungziel.
-  Eine visuelle Browserprüfung war in der Ausführungsumgebung nicht möglich
-  (Chromium konnte wegen gesperrter Prozess-Sockets nicht starten).
+  nativer Dialogzustand, Escape, Schließen, Seitennavigation, Mobil/Desktop-Wechsel und
+  verspätete close-Ereignisse. Fokusbegrenzung durch den Browser wird vom nativen Dialog
+  bereitgestellt; ein echter visueller Browserlauf ist damit nicht ersetzt.
+- Prüfgrenze: Die lokale Vorschau war aus dem Cloud-Browser nicht erreichbar
+  (ERR_CONNECTION_REFUSED). Chromium konnte zuvor wegen gesperrter Prozess-Sockets
+  nicht lokal starten. Eine visuelle Prüfung wird daher nicht als bestanden behauptet.
