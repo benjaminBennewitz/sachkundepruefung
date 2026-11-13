@@ -160,15 +160,16 @@
     grid-template-columns: minmax(0, 1fr);
     grid-column: auto;
     grid-row: auto;
-    gap: 0;
+    gap: 6px;
     font-size: clamp(1.35rem, 5vw, 1.8rem);
   }
 
   .header-navigation-panel .header-nav a {
     display: flex;
     align-items: center;
-    min-height: 64px;
-    padding: 14px 4px;
+    min-height: 76px;
+    margin: 0;
+    padding: 20px 12px;
     border-bottom: 1px solid var(--line);
     font-size: inherit;
     font-weight: 650;
@@ -176,13 +177,6 @@
     white-space: normal;
   }
 
-  .header-navigation-panel .header-nav a::after {
-    content: '→';
-    margin-inline-start: auto;
-    padding-inline-start: 16px;
-    font-size: 1rem;
-    color: var(--muted);
-  }
 
   .header-navigation-panel .header-nav [aria-current] {
     color: var(--accent);
