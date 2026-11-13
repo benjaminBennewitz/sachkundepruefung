@@ -342,3 +342,46 @@ Installation und regulärer Ablauf bleiben ausschließlich in der Deployment-Anl
 - Die Quellenlösung ist kein Aufklappbereich mehr. Bei Fehlern wird jede richtige Antwort vollständig in einer eigenen Zeile angezeigt; bei richtigen Antworten genügt „Richtig!“. „Antwort verstehen“ bleibt unabhängig davon als optionaler Lernhinweis erhalten.
 - Die Legende verwendet kleine Symbole ohne nachgebildete Fragenbuttons: offener Kreis für offen, grüner gefüllter Kreis für beantwortet, offener Kreis mit Häkchen für richtig, roter gefüllter Kreis mit Kreuz für falsch und ausschließlich ein Stern für gemerkt.
 - Richtige Navigationsfelder haben wieder dieselbe ungefüllte Grundfläche wie offene Felder; grüner Rahmen und Häkchen unterscheiden ihren Zustand. Bewertungsregeln und Lösungsschlüssel bleiben unverändert.
+
+
+## Quellenbezogene Lernhinweise und mobile Navigation · 13.11.2026
+
+- Ergänzende Hinweise: 66 statt 27 Einträge, ausschließlich an bestehende Original-UIDs gebunden.
+  Die 39 zusätzlichen Texte erfassen die neuen Rückmeldungen bis Gesamtpool-Position 261 und
+  die übrigen Fragen der übermittelten Fehlerliste. Eine rote Markierung wird nicht als
+  Nachweis für fehlendes Wissen oder Unaufmerksamkeit interpretiert.
+- Originalfragen, Antworten, Lösungsschlüssel, Reihenfolge und Bewertung sind unverändert.
+  Der neuere Fix zur Katalogauswertung ist im zugrunde gelegten Stand bereits enthalten.
+- `caution` kennzeichnet begriffliche, fachliche oder rechtliche Vorbehalte. Erst nach
+  ausdrücklicher Prüfung erscheint „Antwort verstehen · Quelle beachten“; bei einem Treffer
+  lautet die Rückmeldung „Richtig nach hinterlegtem Katalogschlüssel“. In laufenden Prüfungen
+  bleiben Lösung und Hinweise verborgen. Antwortänderungen schließen den Hinweis weiterhin.
+- `references` enthält benannte externe Fach- oder Rechtsquellen. Das bisherige `sourceUrl`
+  bleibt kompatibel. Links werden als sichere DOM-Elemente erzeugt, ohne fremdes HTML.
+- Prioritäre Auffälligkeiten im zugesandten 97er-Bogen (Originalnummern, keine UI-Positionen):
+  24 Fertigfutter/Alleinfuttermittel; 29 autoritär; 32 Zeckenentfernung; 33 Dominanz;
+  37 beantragte statt vorhandene Erlaubnis; 42 achte Lebenswoche statt über acht Wochen;
+  43 Zwingerfläche ohne Körperhöhe; 55 Rangstellung; 58 Leinenruck/Schnauzengriff.
+  Zusätzlich Hinweise zu 5, 7 und 27 sowie ausgewählten Formulierungen im 203er-Katalog.
+- Katalogwidersprüche nennen die konkrete Fassung und Originalnummer. Keine Empfehlung
+  wird als Aussage des Herausgebers ausgegeben; keine aktuelle Prüfungsverwendung behauptet.
+- Prüfgrenzen: gezielte Einordnung anhand der verlinkten Fach-/Rechtsquellen, keine neue
+  vollständige fachliche Prüfung aller 400 Fragen. Der zugesandte 97er-Originalbogen wurde
+  nicht erneut gegen das PDF abgeglichen. Häufigkeiten, unklare Motive und feste
+  Entwicklungsgrenzen werden nicht als gesicherte Tatsachen ergänzt.
+- `scripts/ui/navigation.js` bündelt bis 800 px die vorhandene Hauptnavigation,
+  Projekthinweise und Werkzeuge. Logo, Unterstützungsherz und Burger bleiben im Kopf.
+  Dieselben DOM-Elemente und Ereignisbindungen werden auf Desktop zurückverwendet;
+  keine zusätzlichen IDs, Kopien von Werkzeugen oder gespeicherten Menüzustände.
+- Menü: `aria-expanded`, `aria-controls`, Escape mit Fokusrückgabe, Abschluss bei
+  Außenklick, Seitennavigation und Verlassen per Tab. Vom Menü geöffnete native Dialoge
+  behalten ihr sichtbares Rücksprungziel. Keine zusätzliche Fokusfalle für das Dropdown.
+- `styles/navigation.css` ergänzt bestehende Tokens und Zustände für beide Farbschemata.
+  Das Menü kann bei geringer Bildschirmhöhe selbst scrollen. Ohne JavaScript bleibt
+  die bestehende Navigation sichtbar. Es gibt keine zusätzliche Animation.
+- Die Server-Positivliste berücksichtigt die beiden neuen Navigationsdateien.
+  Vor dem Deployment die Serverkopie gemäß `deployment/README.md` erneut installieren.
+- Automatisiert: Hinweise und Prüfungssperre, Quellenlinks, Originalelemente der Navigation,
+  Wechsel Mobil/Desktop, Escape, Tab-Abschluss und Dialog-Rücksprungziel.
+  Eine visuelle Browserprüfung war in der Ausführungsumgebung nicht möglich
+  (Chromium konnte wegen gesperrter Prozess-Sockets nicht starten).

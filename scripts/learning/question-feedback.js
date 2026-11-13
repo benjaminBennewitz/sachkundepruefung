@@ -26,16 +26,20 @@ window.LHUNDG_TRAINER.QuestionFeedback = class QuestionFeedback {
     const details = this.dom.node('details', undefined, 'question-explanation');
     const content = this.dom.node('div', undefined, 'explanation-content');
     details.hidden = true;
-    details.append(this.dom.node('summary', 'Antwort verstehen'));
+    details.append(this.dom.node('summary', entry.caution ? 'Antwort verstehen · Quelle beachten' : 'Antwort verstehen'));
     content.append(this.dom.node('p', 'Ergänzende Erklärung des Trainers', 'microcopy'));
+    if (entry.caution) content.append(this.dom.node('p', entry.caution, 'source-note'));
     content.append(this.dom.node('p', entry.text));
     if (entry.note) content.append(this.dom.node('p', entry.note, 'source-note'));
-    if (entry.sourceUrl) {
-      const link = this.dom.node('a', 'Fachliche Quelle ↗');
-      link.href = entry.sourceUrl;
+    const references = entry.references || (entry.sourceUrl ? [{ url: entry.sourceUrl, label: 'Fachliche Quelle' }] : []);
+    for (const reference of references) {
+      const paragraph = this.dom.node('p');
+      const link = this.dom.node('a', `${reference.label} ↗`);
+      link.href = reference.url;
       link.target = '_blank';
       link.rel = 'noopener noreferrer external';
-      content.append(link);
+      paragraph.append(link);
+      content.append(paragraph);
     }
     if (entry.comparisons) content.append(this.createComparison(entry.comparisons));
     details.append(content);
@@ -128,7 +132,9 @@ window.LHUNDG_TRAINER.QuestionFeedback = class QuestionFeedback {
 
   /** Formuliert das aufgelöste Ergebnis mit klarer Trennung von Original- und Beispiellösung. */
   feedbackText(question, selected, right) {
-    if (right) return 'Richtig!';
+    if (right) return window.LHUNDG_EXPLANATIONS[question.uid]?.caution
+      ? 'Richtig nach hinterlegtem Katalogschlüssel. Bitte den Hinweis „Quelle beachten“ lesen.'
+      : 'Richtig!';
     /* Lesbare Auswahl mit Zuordnungspfeilen; ohne Tokens steht ausdrücklich keine. */
 
     const selection = selected.size

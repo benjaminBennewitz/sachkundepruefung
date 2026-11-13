@@ -76,16 +76,53 @@ test('Alle Erklärungen sind an vorhandene Original-UIDs gebunden und ändern ke
   const env = setup();
   const before = JSON.stringify(env.scope.LHUNDG_QUESTIONS);
   const entries = Object.entries(env.scope.LHUNDG_EXPLANATIONS);
-  assert.equal(entries.length, 27);
+  assert.equal(entries.length, 66);
   for (const [uid, entry] of entries) {
     const question = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === uid);
-    assert.equal(question?.sourceKey, 'legacy203');
+    assert.ok(['legacy203', 'rhein97'].includes(question?.sourceKey));
     assert.ok(entry.text.length > 0);
     if (entry.sourceUrl) assert.equal(new URL(entry.sourceUrl).protocol, 'https:');
+    for (const reference of entry.references || []) {
+      assert.equal(new URL(reference.url).protocol, 'https:');
+      assert.ok(reference.label.length > 0);
+    }
     env.feedback.feedbackText(question, new Set(question.correct), true);
   }
   assert.equal(env.feedback.createExplanation({ uid: 'unbekannt' }), null);
   assert.equal(JSON.stringify(env.scope.LHUNDG_QUESTIONS), before);
+});
+
+test('Problematische Schlüssel werden als Katalogtreffer eingeordnet und verraten im Test keine Lösung', () => {
+  const env = setup('mode=exam34');
+  const question = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === 'r97-58');
+  const selected = new Set(question.correct);
+  assert.match(env.feedback.feedbackText(question, selected, true), /nach hinterlegtem Katalogschlüssel/);
+  env.current.state.answers.set(question.id, selected);
+  env.current.state.checked.set(question.id, env.current.signature(question));
+  env.feedback.update(question, env.card);
+  assert.equal(env.fields['.feedback'].hidden, true);
+  assert.equal(env.fields['.question-explanation'].hidden, true);
+  env.current.state.finished = true;
+  env.feedback.update(question, env.card);
+  assert.match(env.fields['.feedback'].textContent, /Quelle beachten/);
+  assert.equal(env.fields['.question-explanation'].hidden, false);
+});
+
+test('Quellenhinweise bleiben getrennt von Originalantworten und verlinken benannte Fachquellen', () => {
+  const env = setup();
+  env.feedback.dom = {
+    node: (tag, text, className) => ({ tag, text, className, children: [], append(...nodes) { this.children.push(...nodes); } })
+  };
+  const question = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === 'r97-58');
+  const details = env.feedback.createExplanation(question);
+  assert.equal(details.hidden, true);
+  assert.match(details.children[0].text, /Quelle beachten/);
+  const content = details.children[1];
+  assert.match(content.children[1].text, /Katalogwiderspruch/);
+  const links = content.children.flatMap(node => node.children).filter(node => node.tag === 'a');
+  assert.equal(links.length, 2);
+  assert.ok(links.every(link => link.rel.includes('noopener') && link.target === '_blank'));
+  assert.deepEqual(Array.from(question.correct), ['B', 'C', 'D']);
 });
 
 /**
