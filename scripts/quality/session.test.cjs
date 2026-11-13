@@ -197,3 +197,29 @@ test('Export schließt Prüfungsdaten aus und nutzt bei Speichersperren den akti
   assert.deepEqual(plain(data.legacy203.answers), { 1: ['B'] });
   assert.deepEqual(Object.keys(data), ['all', 'mg', 'legacy203', 'rhein97', 'koeln', 'kammer197']);
 });
+
+test('Katalogauswertung zählt offene Fragen, zeigt Lösungen aber nur für vollständige Antworten', () => {
+  const env = environment(['data', 'essen', 'core', 'profiles', 'session', 'results']);
+  const current = session(env);
+  const answered = current.questions.find(question => question.type !== 'mapping');
+  const partial = current.questions.find(question => question.type === 'mapping' && question.mappingKeys.length > 1);
+  const open = current.questions.find(question => question !== answered && question !== partial);
+  current.state.answers.set(answered.id, new Set(answered.correct));
+  current.state.answers.set(partial.id, new Set([partial.correct[0]]));
+
+  const results = new env.trainer.Results(current, { render() {} });
+  const chosen = results.questionsToEvaluate(false);
+  results.markEvaluated(chosen);
+  const score = results.calculate(chosen);
+  assert.equal(score.total, current.questions.length);
+  assert.equal(score.correct, 1);
+  assert.deepEqual([...current.state.checked.keys()], [answered.id]);
+
+  /* Simuliert alte Lernstände mit irrtümlich gespeicherten Bewertungen. */
+  current.state.checked.set(open.id, '');
+  current.state.checked.set(partial.id, current.signature(partial));
+  current.persist();
+  const restored = session(env);
+  assert.deepEqual([...restored.state.checked.keys()], [answered.id]);
+  assert.equal(restored.signature(partial), current.signature(partial));
+});

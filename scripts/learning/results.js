@@ -85,7 +85,11 @@ window.LHUNDG_TRAINER.Results = class Results {
     // Nur Prüfungsmodi benötigen einen sitzungsbezogenen Abschlussstatus.
     if (this.session.isExam) this.state.finished = true;
     // Bindet jede Bewertung an die aktuelle Auswahl, damit spätere Änderungen sie ungültig machen.
-    for (const question of chosen) this.state.checked.set(question.id, this.session.signature(question));
+    for (const question of chosen) {
+      if (this.session.canShowEvaluation(question)) {
+        this.state.checked.set(question.id, this.session.signature(question));
+      }
+    }
     this.session.persist();  // Sichert Antworten und Metadaten im zuständigen Katalog- oder Sitzungsspeicher.
     this.view.render();      // Zeigt die aktualisierten Karten und synchronisiert ihre Zustände mit der Navigation.
   }
@@ -164,7 +168,7 @@ window.LHUNDG_TRAINER.Results = class Results {
         this.createErrors(score.wrong)
       );
     }
-    result.append(this.createActions(score.wrong.length > 0));
+    result.append(this.createActions(score.wrong.some(question => this.state.checked.has(question.id))));
   }
 
   /** @param {object} score Ergebnis. @returns {HTMLElement} Gesamtstatistik. */

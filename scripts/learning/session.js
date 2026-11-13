@@ -145,6 +145,15 @@ window.LHUNDG_TRAINER.Session = class Session {
     return ['focus', 'list', 'tv'].includes(saved) ? saved : 'focus';
   }
 
+  /**
+   * @param {SachkundeQuestion} question Frage im aktiven Lernbereich.
+   * @returns {boolean} Ob die Lösung für die aktuelle Auswahl sichtbar werden darf.
+   */
+  canShowEvaluation(question) {
+    if (this.isExam) return this.state.finished;
+    return window.LHUNDG_CORE.complete(question, this.state.answers.get(question.id));
+  }
+
   /** Übernimmt Bewertungen nur für die unveränderte Antwort und abgeschlossene Tests. */
   restoreChecked() {
     const meta = this.readMeta();  // Gespeicherte Bewertungssignaturen des aktuellen Lernbereichs.
@@ -154,7 +163,7 @@ window.LHUNDG_TRAINER.Session = class Session {
       const signature = this.signature(question);  // Sortierte aktuelle Antwort, die exakt zur gespeicherten Bewertung passen muss.
 
       // Bewertungen gelten nur für dieselbe Antwortsignatur und bei Tests erst nach dem Abschluss.
-      if ((!this.isExam || this.state.finished) && meta.checked?.[question.id] === signature) {
+      if (this.canShowEvaluation(question) && meta.checked?.[question.id] === signature) {
         this.state.checked.set(question.id, signature);
       }
     }
