@@ -37,7 +37,7 @@
 
     const icon = node('img', '', 'paypal-icon');  // Dekoratives Icon mit bewusst leerem Alternativtext.
 
-    Object.assign(icon, { src: 'assets/icons/paypal.svg', alt: '', width: 24, height: 24 });
+    Object.assign(icon, { src: 'assets/public/icons/paypal.svg', alt: '', width: 24, height: 24 });
     icon.setAttribute('aria-hidden', 'true');
     link.classList.add('paypal-button');
     link.prepend(icon);

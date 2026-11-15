@@ -36,7 +36,8 @@ der HTML-Inhalt selbst bleibt dabei unangetastet.
 | `scripts/config.mjs` | Gemeinsame Pfade und Konfiguration der lokalen Prüfwerkzeuge |
 | `scripts/prepare-deployment.mjs` | Vorprüfung für die direkte Archivierung der vorhandenen Dateien |
 | `deployment/` | Vorhandenes Windows-Deployment, Serverskript und Anleitung |
-| `assets/` | Lokale Aufgabenabbildungen und Werkzeugsymbole |
+| `assets/public/` | Versionierte Websitebilder und Icons (Foto und PayPal) |
+| `assets/questions/`, `assets/sources/` | Lokale Fragen- und Quellenabbildungen (von Git ausgeschlossen) |
 | `docs/` | Quellen, Audits, Pflegekonventionen und dokumentierte Prüfungen |
 
 Ein Skript-Unterordner enthält mindestens drei fachlich zusammengehörige Dateien.
@@ -153,7 +154,14 @@ mit unmittelbarem Menüwechsel. Details und Prüfgrenzen: [DEVELOPMENT.md](docs/
 
 PayPal.Me: https://paypal.me/BBennewitz, zentral als Laufzeitwert in `scripts/site-config.js`.
 Alle Lernfunktionen bleiben kostenlos. Das PayPal-Zeichen liegt lokal unter
-`assets/icons/paypal.svg`; es wird kein Zahlungs-SDK geladen.
+`assets/public/icons/paypal.svg`; es wird kein Zahlungs-SDK geladen. Das Icon stammt aus
+Font Awesome Free 6.7.2 von Fonticons, Inc. (CC BY 4.0, https://fontawesome.com/license/free).
+
+Versioniert werden ausschließlich Assets unter `assets/public/`. Die Ordner
+`assets/questions/` und `assets/sources/` sind durch `.gitignore` ausgenommen,
+werden für eine vollständige Website aber weiterhin lokal benötigt und direkt
+in das Deployment-Archiv aufgenommen. Ein frischer Git-Clone enthält diese
+Bilder nicht; vor einer Veröffentlichung müssen sie separat bereitgestellt werden.
 
 Die Root-Seiten verlinken `favicon.svg`, `favicon.png` und `favicon.ico`.
 Die bestehende Domainweiterleitung nach `/nrw/` wird vom vorhandenen Serverskript gepflegt.

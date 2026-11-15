@@ -7,7 +7,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, statSync } from 'node:fs';
+import { readFileSync, statSync, rmSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fixture, edit, run, snapshot } from './quality-fixtures.mjs';
 import { elements } from './markup.mjs';
@@ -89,6 +89,17 @@ test('Pfadprüfung lehnt einen fehlenden Verweis mit einfachen Quotes ab', conte
 
   expectStatus(result, 1);
   assert.match(result.stderr, /missing-quality-target/);
+});
+
+test('Pfadprüfung meldet fehlende öffentliche Icons aus dynamischen Browser-Verweisen', context => {
+  const root = fixture(context);
+
+  rmSync(resolve(root, 'assets/public/icons/paypal.svg'));
+
+  const result = run(root, 'quality/check-paths.mjs');
+
+  expectStatus(result, 1);
+  assert.match(result.stderr, /Fehlender Asset-Verweis: assets\/public\/icons\/paypal\.svg/);
 });
 
 test('Pfadprüfung ignoriert auskommentierte Links und zählt data-id nicht als ID', context => {

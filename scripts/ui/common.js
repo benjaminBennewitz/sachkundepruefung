@@ -75,6 +75,8 @@
   window.openSupportDialog = support.open.bind(support);
 
   bindAbout();
+  /* Persönliche Entstehungsgeschichte im gemeinsamen Dialog anzeigen. */
+  ui.bindStory(modal);
   ui.bindDetails();  // Animiert native Aufklappbereiche auf sämtlichen Root-Seiten.
   ui.bindTheme();    // Synchronisiert Farbwahl, Tooltip und zugängliche Schalterbeschriftung.
   support.bind();    // Aktiviert vorhandene Footer-Links und manuelle Unterstützungsdialoge.

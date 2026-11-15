@@ -29,6 +29,7 @@
    09   Wissensnavigation und Reisehinweise
    10   Wiederverwendbare Modale, Toasts und ergänzende Seitenelemente
    11   Auffindbare Sammlungen und gemeinsame Bewegungsregeln
+   12   Persönliche Entstehungsgeschichte
    ========================================================================== */
 
 /* ==========================================================================
@@ -3815,6 +3816,7 @@ html:has(#trainer) {
 /* ==========================================================================
    10   Wiederverwendbare Modale, Toasts und ergänzende Seitenelemente
    11   Auffindbare Sammlungen und gemeinsame Bewegungsregeln
+   12   Persönliche Entstehungsgeschichte
    AUTHOR: Benjamin Bennewitz [B²]
    ========================================================================== */
 
@@ -4025,6 +4027,7 @@ html.modal-open {
 }
 /* ==========================================================================
    11   Auffindbare Sammlungen und gemeinsame Bewegungsregeln
+   12   Persönliche Entstehungsgeschichte
    ========================================================================== */
 
 /* Seitenanker und programmgesteuerte Bewegungen verwenden dieselbe native Scrollpräferenz. */
@@ -4150,5 +4153,143 @@ html,
   .sidebar,
   .ui-modal {
     scroll-behavior: auto;
+  }
+}
+
+/* ==========================================================================
+   12   Persönliche Entstehungsgeschichte
+   ========================================================================== */
+
+/* Mehr Platz für den redaktionellen Lesetext, ohne andere Modale zu verändern. */
+.ui-modal:has(.story-content) {
+  width: min(840px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+}
+
+.ui-modal:has(.story-content) .ui-modal-inner {
+  gap: 18px;
+  padding: clamp(20px, 4vw, 36px);
+}
+
+.ui-modal:has(.story-content) #uiModalMessage {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.story-content {
+  display: grid;
+  gap: 22px;
+  min-width: 0;
+}
+
+.story-close {
+  position: sticky;
+  top: 10px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  justify-self: end;
+  width: 44px;
+  height: 44px;
+  margin: -9px 2px -66px 0;
+  padding: 0;
+  border: 1px solid var(--control-line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.8rem;
+  line-height: 1;
+  box-shadow: 0 3px 14px #0002;
+}
+
+.story-close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.story-close:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.story-photo {
+  margin: 0;
+}
+
+.story-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 360px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center 47%;
+  border-radius: 12px;
+}
+
+.story-photo figcaption {
+  padding-top: 8px;
+  color: var(--muted);
+  font-size: .78rem;
+  font-style: italic;
+  text-align: right;
+}
+
+.story-copy {
+  display: grid;
+  gap: 17px;
+  max-width: 70ch;
+  margin-inline: auto;
+}
+
+.ui-modal .story-content p:not(.eyebrow):not(.microcopy) {
+  margin: 0;
+  font-size: .98rem;
+  line-height: 1.8;
+}
+
+.ui-modal .story-content p.story-dedication:not(.eyebrow):not(.microcopy) {
+  font-family: Georgia, serif;
+  font-size: 1.35rem;
+}
+
+.ui-modal .story-content p.story-quote:not(.eyebrow):not(.microcopy) {
+  padding-left: 18px;
+  border-left: 3px solid var(--accent);
+  font-family: Georgia, serif;
+  font-size: 1.12rem;
+}
+
+.story-signature {
+  display: grid;
+  gap: 2px;
+  margin-top: 6px !important;
+}
+
+.story-signature span {
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+@media (max-width: 600px) {
+  .ui-modal:has(.story-content) {
+    inset: 0;
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    max-height: 100dvh;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .story-photo img {
+    max-height: none;
+    aspect-ratio: 4 / 3;
+  }
+
+  .story-copy {
+    gap: 15px;
   }
 }

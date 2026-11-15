@@ -1,4 +1,5 @@
 .openai/
 *.tar.gz
-/assets/
+/assets/*
+!/assets/public/
 /deployment/

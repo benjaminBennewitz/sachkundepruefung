@@ -181,8 +181,31 @@ function checkStyles() {
   for (const name of names) checkStyleFile(name);
 }
 
+/**
+ * Prüft dynamische Bildverweise aus Browser-Skripten einschließlich der nicht versionierten Fragenbilder.
+ *
+ * @returns {void} Kein Rückgabewert.
+ */
+function checkScriptAssets() {
+  const scripts = ['scripts/ui/shared.js', 'scripts/ui/story.js', 'scripts/learning/data.js'];
+
+  for (const name of scripts) {
+    const source = readFileSync(resolve(root, name), 'utf8');
+    const references = source.matchAll(/assets\/[a-z0-9/_-]+\.(?:svg|webp|png|jpe?g)/gi);
+
+    for (const reference of references) {
+      const target = resolve(root, reference[0]);
+
+      assert(insideRoot(target), `Asset verlässt das Projekt: ${reference[0]}`);
+      assert(existsSync(target) && statSync(target).isFile(), `Fehlender Asset-Verweis: ${reference[0]}`);
+      checked++;
+    }
+  }
+}
+
 // Die Prüfung liest vorhandene Seiten und Assets; sie erzeugt oder formatiert nichts.
 for (const name of htmlFiles) checkPage(name);
 
-checkStyles();  // Prüft ergänzend sämtliche CSS-Dateiverweise.
+checkStyles();       // Prüft ergänzend sämtliche CSS-Dateiverweise.
+checkScriptAssets(); // Prüft auch dynamische lokale Bilder aus JavaScript.
 console.log(`${htmlFiles.length} HTML-Seiten und ${checked} lokale Verweise geprüft.`);
