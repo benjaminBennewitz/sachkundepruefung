@@ -277,7 +277,9 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
     const trainerTop = scrollY + this.dom.get('trainer').getBoundingClientRect().top;            // Absolute Dokumentposition des Lernbereichs.
     const headerHeight = document.querySelector('.site-header').getBoundingClientRect().height;  // Platz für den sichtbaren Header beim Ausrichten des Lernbereichs.
 
-    window.scrollTo({ top: trainerTop - headerHeight, behavior: 'auto' });
+    if (!document.body.classList.contains('learning-page')) {
+      window.scrollTo({ top: trainerTop - headerHeight, behavior: 'auto' });
+    }
     stage.scrollTo({
       top: stage.scrollTop + card.getBoundingClientRect().top - stage.getBoundingClientRect().top,
       behavior: 'auto'

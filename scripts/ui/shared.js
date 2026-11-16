@@ -148,7 +148,9 @@
      */
     toggle(opening) {
       const from = this.element.getBoundingClientRect().height;                // Sichtbarer Zwischenstand vor dem Abbruch einer vorherigen Animation.
-      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;  // Aktuelle Systempräferenz wird bei jeder Bedienung neu gelesen.
+      /* Systempräferenz und ausdrücklich reduzierte Bewegung gelten auch für die JS-Animation. */
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches ||
+        ['reduced', 'off'].includes(document.documentElement.dataset.motion);
 
       this.animation?.cancel();
       this.animation = null;

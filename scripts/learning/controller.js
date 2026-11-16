@@ -87,6 +87,10 @@ window.LHUNDG_TRAINER.Controller = class Controller {
 
   /** Hält Testoptionen auf kleinen Bildschirmen zunächst geschlossen. */
   configureTestOptions() {
+    if (document.body.classList.contains('learning-page')) {
+      document.querySelector('.test-options').open = true;
+      return;
+    }
     const mobile = matchMedia('(max-width: 800px)');          // Beobachtet den Wechsel zur kompakten Ansicht bis 800 Pixel.
     const options = document.querySelector('.test-options');  // Aufklappbarer Bereich für Testprofile und Teststart.
 

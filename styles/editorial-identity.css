@@ -1,0 +1,398 @@
+/*###############################
+###
+###     editorial-identity.css
+###     Hunde-Sachkundetrainer NRW
+###     BASED ON: HTML5, CSS3, JavaScript
+###     AUTHOR: Benjamin Bennewitz
+###
+###
+###       ██████╗  ▀█
+###       ██╔══██╗ █▄
+###       ██████╦╝
+###       ██╔══██╗
+###       ██████╦╝
+###       ╚═════╝
+###
+#################################*/
+
+/* ===========================================================================
+   INHALTSVERZEICHNIS
+   01   Bild und Typografie im Einstieg
+   02   Seitenauftakte, Wissen und Quellen
+   03   FAQ und Unterstützung
+   04   Responsive Anordnung
+   ========================================================================== */
+
+/* ===========================================================================
+   01   Bild und Typografie im Einstieg
+   ========================================================================== */
+
+@media screen {
+  .hero--companion {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0;
+    margin-block: 28px 0;
+    padding: 0;
+    border-radius: var(--radius-lg);
+    background: var(--highlight);
+    color: var(--highlight-ink);
+  }
+
+  .hero--companion .hero-copy {
+    min-width: 0;
+    padding: clamp(28px, 4vw, 56px);
+    align-self: center;
+  }
+
+  .hero--companion .eyebrow, .hero--companion .hero-warning {
+    color: var(--highlight-ink);
+  }
+
+  .hero--companion h1 {
+    max-width: none;
+    color: var(--highlight-ink);
+    font-size: clamp(2.7rem, 4.5vw, 4.5rem);
+    line-height: .98;
+    letter-spacing: -.065em;
+    font-weight: 800;
+  }
+
+  .hero--companion h1 span {
+    display: block;
+    margin-top: 8px;
+    color: inherit;
+    font: inherit;
+  }
+
+  .hero--companion .hero-intro {
+    max-width: 43ch;
+    margin-top: 22px;
+    color: inherit;
+    font-size: .94rem;
+  }
+
+  .hero--companion .hero-links {
+    gap: 12px 22px;
+    margin-top: 24px;
+  }
+
+  .hero--companion .hero-links a {
+    color: var(--highlight-ink);
+    font-weight: 700;
+    font-size: .83rem;
+  }
+
+  .hero--companion .hero-links .primary {
+    padding: 13px 22px;
+    background: var(--brand-forest);
+    border-color: var(--brand-forest);
+    color: var(--brand-cream);
+  }
+
+  .hero--companion .hero-links .primary:hover {
+    background: var(--brand-forest-hover);
+  }
+
+  .hero--companion .hero-warning {
+    margin-top: 18px;
+    font-size: .72rem;
+  }
+
+  .hero-principles {
+    margin-top: 22px;
+    font-size: .7rem;
+    font-weight: 750;
+    letter-spacing: .02em;
+  }
+
+  .companion {
+    display: grid;
+    grid-template-rows: minmax(240px, 1fr) auto;
+    min-width: 0;
+    margin: 0;
+    background: var(--brand-forest);
+    color: var(--brand-cream);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  }
+
+  .companion-image {
+    position: relative;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 0 var(--radius-lg) 0 0;
+  }
+
+  .companion-image img {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 39%;
+  }
+
+  .companion figcaption {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 16px;
+    align-items: center;
+    padding: 20px 24px;
+    font-size: .77rem;
+  }
+
+  .companion figcaption a {
+    color: var(--highlight);
+    font-size: .8rem;
+    font-weight: 700;
+  }
+
+  .companion figcaption small {
+    grid-column: 1 / -1;
+    color: var(--brand-soft);
+    font-size: .75rem;
+  }
+
+}
+/* ===========================================================================
+   02   Seitenauftakte, Wissen und Quellen
+   ========================================================================== */
+
+@media screen {
+  .prose {
+    max-width: 1120px;
+    padding-block: 28px 16px;
+  }
+
+  .page-masthead {
+    margin-bottom: 32px;
+    padding: clamp(24px, 4vw, 48px);
+    border-radius: var(--radius-lg);
+    background: var(--highlight);
+    color: var(--highlight-ink);
+  }
+
+  .prose .page-masthead :is(h1, .eyebrow) {
+    color: inherit;
+    margin: 0;
+  }
+
+  .prose .page-masthead h1 {
+    max-width: 22ch;
+    margin-top: 20px;
+    font-size: clamp(2.4rem, 5vw, 4.8rem);
+    line-height: 1.02;
+    font-weight: 800;
+  }
+
+  .prose :is(p, ul, ol, dl) {
+    max-width: 78ch;
+  }
+
+  .prose p, .prose li {
+    color: var(--text);
+    font-size: .96rem;
+    line-height: 1.8;
+  }
+
+  .prose h2 {
+    margin-block: 44px 18px;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+  }
+
+  .legal-disclaimer, .context-note, .travel-note, .release-note {
+    padding: 18px 22px;
+    border: 1px solid var(--line);
+    border-inline-start: 5px solid var(--rust);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    background: var(--surface);
+  }
+
+  .legal-disclaimer p {
+    max-width: 100%;
+    font-size: .78rem;
+    color: var(--muted);
+  }
+
+  .source-cards {
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .source-card {
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-top: 8px solid var(--highlight);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+  }
+
+  .source-card h2 {
+    margin: 0 0 18px;
+    font-size: 1.5rem;
+  }
+
+  .source-card p {
+    font-size: .88rem;
+  }
+
+  .knowledge-nav a {
+    padding: 16px 20px;
+    border: 1px solid var(--control-line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    box-shadow: inset 4px 0 var(--accent);
+  }
+
+  .knowledge-nav a:hover {
+    background: var(--accent-bg);
+  }
+
+  .prose table {
+    margin: 0;
+    background: var(--surface);
+    font-size: .85rem;
+  }
+
+  .prose th {
+    padding: 16px;
+    background: var(--brand-forest);
+    color: var(--brand-cream);
+    border-color: #78917b;
+  }
+
+  .prose td {
+    padding: 16px;
+    vertical-align: top;
+  }
+
+  .table-scroll {
+    margin-block: 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+  }
+
+  .travel-card, .keyboard-guide > div {
+    border-radius: var(--radius-md);
+    background: var(--surface);
+  }
+
+  .travel-card[open] > summary {
+    background: var(--accent-bg);
+  }
+}
+/* ===========================================================================
+   03   FAQ und Unterstützung
+   ========================================================================== */
+
+@media screen {
+  .info-section {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr);
+    gap: 48px;
+    padding-block: 80px;
+  }
+
+  .section-intro h2 {
+    max-width: 14ch;
+    font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+    line-height: 1.05;
+  }
+
+  .faq-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    border-top: 2px solid var(--accent);
+  }
+
+  .faq-grid details {
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .faq-grid summary {
+    padding: 22px 12px;
+    font-size: 1rem;
+    letter-spacing: -.02em;
+  }
+
+  .faq-grid details[open] {
+    background: var(--surface);
+  }
+
+  .faq-grid p {
+    padding: 0 12px 24px;
+    font-size: .9rem;
+  }
+
+  .support-section {
+    padding: clamp(28px, 4vw, 56px);
+    gap: 36px;
+    border: 0;
+    border-radius: var(--radius-lg);
+    background: var(--highlight);
+    color: var(--highlight-ink);
+  }
+
+  .support-section :is(.eyebrow, p:not(.eyebrow)) {
+    color: inherit;
+  }
+
+  .support-section h2 {
+    font: 800 clamp(2rem, 3.5vw, 3.4rem)/1.05 var(--display-font);
+    letter-spacing: -.055em;
+  }
+
+  .support-section .primary:hover {
+    background: var(--brand-forest-hover);
+  }
+
+  .support-section .primary {
+    background: var(--brand-forest);
+    color: var(--brand-cream);
+    border-color: var(--brand-forest);
+  }
+}
+/* ===========================================================================
+   04   Responsive Anordnung
+   ========================================================================== */
+
+@media screen and (max-width: 800px) {
+  .hero--companion, .info-section, .support-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero--companion h1 {
+    font-size: clamp(2.6rem, 8vw, 4.2rem);
+    max-width: 15ch;
+  }
+
+  .companion {
+    grid-template-rows: clamp(230px, 50vw, 350px) auto;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+
+  .companion-image {
+    border-radius: 0;
+  }
+  .companion figcaption {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .info-section {
+    gap: 28px;
+    padding-block: 48px;
+  }
+
+  .source-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .support-action {
+    justify-self: stretch;
+    max-width: 100%;
+  }
+}

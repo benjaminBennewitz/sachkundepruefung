@@ -1,0 +1,283 @@
+/*###############################
+###
+###     workspace.css
+###     Hunde-Sachkundetrainer NRW
+###     BASED ON: HTML5, CSS3, JavaScript
+###     AUTHOR: Benjamin Bennewitz
+###
+###
+###       ██████╗  ▀█
+###       ██╔══██╗ █▄
+###       ██████╦╝
+###       ██╔══██╗
+###       ██████╦╝
+###       ╚═════╝
+###
+#################################*/
+
+/* ===========================================================================
+   INHALTSVERZEICHNIS
+   01   Lernseite und verfügbare Bildschirmhöhe
+   02   Katalog und kompakte Werkzeugleiste
+   03   Ausgelagerte Lernwerkzeuge
+   04   Kleine Ansichten, Textvergrößerung und Druck
+   ========================================================================== */
+
+/* ===========================================================================
+   01   Lernseite und verfügbare Bildschirmhöhe
+   ========================================================================== */
+
+@media screen and (min-width: 1000px) and (min-height: 620px) {
+  .learning-page {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .learning-page .site-header {
+    position: relative;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 16px;
+  }
+
+  .learning-page .header-nav, .learning-page .header-tools {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .learning-page .header-project {
+    display: none;
+  }
+
+  .learning-page main.trainer {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 16px var(--page-gutter);
+    overflow: hidden;
+  }
+
+  .learning-page .learning-layout, .learning-page.tv-mode .learning-layout {
+    grid-template-columns: 252px minmax(0, 1fr);
+    height: 100%;
+    min-height: 0;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .learning-page .learning-layout > .sidebar {
+    position: static;
+    overflow: visible;
+    max-height: none;
+    min-height: 0;
+    align-content: start;
+  }
+
+  .learning-page .workspace {
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    height: 100%;
+    min-height: 0;
+    gap: 10px;
+  }
+
+  .learning-page .question-stage {
+    overflow: auto;
+    min-height: 0;
+    scrollbar-gutter: auto;
+  }
+}
+
+/* ===========================================================================
+   02   Katalog und kompakte Werkzeugleiste
+   ========================================================================== */
+
+@media screen {
+  .learning-page .trainer {
+    border: 0;
+    padding-block: 20px;
+  }
+
+  .learning-page .sidebar {
+    padding: 18px;
+    gap: 18px;
+  }
+
+  .workspace-shortcuts {
+    display: grid;
+    gap: 10px;
+  }
+
+  .learning-page .storage-note {
+    margin: 0;
+    padding: 12px 0 0;
+    color: var(--nav-muted);
+    border-color: var(--nav-line);
+    font-size: .72rem;
+  }
+
+  .learning-page .workspace-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px 16px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+  }
+
+  .workspace-toolbar .study-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 16px;
+    min-width: 0;
+  }
+
+  .workspace-toolbar .view-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .75rem;
+  }
+
+  .workspace-toolbar :is(.source-note, .filter-results) {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+
+  .workspace-toolbar .filter-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .workspace-toolbar .filter-results .microcopy {
+    display: none;
+  }
+
+  .workspace-toolbar .filter-results button {
+    min-height: 32px;
+    padding: 5px 10px;
+  }
+
+  .learning-page .question-card,
+  .learning-page.tv-mode .question-card {
+    padding: 18px;
+  }
+
+  .learning-page .question-card-head {
+    margin-bottom: 10px;
+  }
+
+  .learning-page .question-prompt {
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+
+  .learning-page .question-source {
+    margin-block: 8px 12px;
+  }
+
+  .learning-page .answer-option {
+    padding: 10px 12px;
+    min-height: 48px;
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+
+  .learning-page .question-images img {
+    max-height: 160px;
+  }
+
+  .learning-page .pagination {
+    padding: 8px;
+  }
+}
+
+/* ===========================================================================
+   03   Ausgelagerte Lernwerkzeuge
+   ========================================================================== */
+
+@media screen {
+  .ui-modal:has(.learning-tool-content) {
+    width: min(860px, calc(100% - 32px));
+  }
+
+  .learning-tool-content {
+    display: grid;
+    gap: 18px;
+  }
+
+  .learning-tool-content .filters {
+    padding: 0;
+    border: 0;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .learning-tool-content .exam-panel {
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .learning-tool-content .test-options > summary,
+  .learning-tool-content .nav-details > summary {
+    display: none;
+  }
+
+  .learning-tool-content .test-options,
+  .learning-tool-content .nav-details {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .learning-tool-content .question-nav {
+    overflow: visible;
+    max-height: none;
+  }
+
+  .learning-tool-content .learning-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+}
+
+/* ===========================================================================
+   04   Kleine Ansichten, Textvergrößerung und Druck
+   ========================================================================== */
+
+@media screen and (max-width: 999px), screen and (max-height: 619px) {
+  .learning-page .learning-layout {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .learning-page .workspace, .learning-page .question-stage {
+    height: auto;
+    overflow: visible;
+  }
+
+  .learning-page .sidebar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .learning-page .workspace-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media print {
+  .workspace-toolbar, .workspace-shortcuts, #learningToolDepot {
+    display: none;
+  }
+}

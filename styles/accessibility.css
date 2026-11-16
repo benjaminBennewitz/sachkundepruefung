@@ -1,0 +1,228 @@
+/*###############################
+###
+###     accessibility.css
+###     Hunde-Sachkundetrainer NRW
+###     BASED ON: HTML5, CSS3, JavaScript
+###     AUTHOR: Benjamin Bennewitz
+###
+###
+###       ██████╗  ▀█
+###       ██╔══██╗ █▄
+###       ██████╦╝
+###       ██╔══██╗
+###       ██████╦╝
+###       ╚═════╝
+###
+#################################*/
+
+/* ===========================================================================
+   INHALTSVERZEICHNIS
+   01   Panel und Textgröße
+   02   Kontrast- und Farbrollen
+   03   Ruhige Darstellung und Bewegung
+   04   Erreichbare Inhalte bei vergrößerten Texten
+   ========================================================================== */
+
+/* ===========================================================================
+   01   Panel und Textgröße
+   ========================================================================== */
+
+:root[data-text-size=large] {
+  font-size: 112.5%;
+}
+
+:root[data-text-size=larger] {
+  font-size: 125%;
+}
+
+.accessibility-content {
+  display: grid;
+  gap: 20px;
+}
+
+.accessibility-group {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.accessibility-group legend {
+  margin-bottom: 10px;
+  color: var(--text);
+  font-weight: 750;
+  font-size: .85rem;
+}
+
+.accessibility-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.accessibility-choices button {
+  min-height: 44px;
+  padding: 10px 14px;
+}
+
+.accessibility-choices button[aria-pressed=true] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+  box-shadow: inset 0 0 0 1px currentColor;
+}
+
+.ui-modal:has(.accessibility-content) {
+  width: min(650px, calc(100% - 24px));
+}
+
+/* ===========================================================================
+   02   Kontrast- und Farbrollen
+   ========================================================================== */
+
+:root {
+  --high-bg: #fff;
+  --high-text: #111;
+  --high-muted: #222;
+  --high-line: #444;
+  --high-accent: #123d2f;
+  --high-on-accent: #fff;
+  --vision-ok: #174f97;
+  --vision-ok-bg: #e8f0ff;
+  --vision-bad: #924000;
+  --vision-bad-bg: #ffead0;
+}
+
+:root[data-theme=dark] {
+  --high-bg: #101610;
+  --high-text: #fff;
+  --high-muted: #eee;
+  --high-line: #ddd;
+  --high-accent: #ffcca5;
+  --high-on-accent: #101610;
+  --vision-ok: #b5d2ff;
+  --vision-ok-bg: #213c57;
+  --vision-bad: #ffd39d;
+  --vision-bad-bg: #493420;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme=light]) {
+    --high-bg: #101610;
+    --high-text: #fff;
+    --high-muted: #eee;
+    --high-line: #ddd;
+    --high-accent: #ffcca5;
+    --high-on-accent: #101610;
+    --vision-ok: #b5d2ff;
+    --vision-ok-bg: #213c57;
+    --vision-bad: #ffd39d;
+    --vision-bad-bg: #493420;
+  }
+}
+
+:root[data-contrast=high] {
+  --bg: var(--high-bg);
+  --surface: var(--high-bg);
+  --paper: var(--high-bg);
+  --question-bg: var(--high-bg);
+  --answer-bg: var(--high-bg);
+  --text: var(--high-text);
+  --muted: var(--high-muted);
+  --line: var(--high-line);
+  --control-line: var(--high-line);
+  --accent: var(--high-accent);
+  --on-accent: var(--high-on-accent);
+}
+
+:root[data-color-vision=blue-amber] {
+  --ok: var(--vision-ok);
+  --ok-bg: var(--vision-ok-bg);
+  --bad: var(--vision-bad);
+  --bad-bg: var(--vision-bad-bg);
+}
+
+:root[data-color-vision=blue-amber] :is(.sidebar, .select-menu[data-palette=forest]) {
+  --ok: #b5d2ff;
+  --ok-bg: #213c57;
+  --bad: #ffd39d;
+  --bad-bg: #493420;
+}
+
+/* ===========================================================================
+   03   Ruhige Darstellung und Bewegung
+   ========================================================================== */
+
+:root:is([data-motion=reduced], [data-motion=off]) {
+  scroll-behavior: auto;
+}
+
+:root:is([data-motion=reduced], [data-motion=off]) *,
+:root:is([data-motion=reduced], [data-motion=off]) *::before,
+:root:is([data-motion=reduced], [data-motion=off]) *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+@media screen {
+  :root[data-comfort=simple] .companion {
+    display: none;
+  }
+
+  :root[data-comfort=simple] .hero--companion {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  :root[data-comfort=simple] .page-masthead {
+    padding: 24px;
+  }
+
+  :root[data-comfort=simple] .page-masthead h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* ===========================================================================
+   04   Erreichbare Inhalte bei vergrößerten Texten
+   ========================================================================== */
+
+@media screen {
+  :root:is([data-text-size=large], [data-text-size=larger]) .learning-page {
+    display: block;
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  :root:is([data-text-size=large], [data-text-size=larger]) .learning-page main.trainer,
+  :root:is([data-text-size=large], [data-text-size=larger]) .learning-page .learning-layout,
+  :root:is([data-text-size=large], [data-text-size=larger]) .learning-page .workspace {
+    height: auto;
+    min-height: 0;
+  }
+
+  :root:is([data-text-size=large], [data-text-size=larger]) .learning-page .workspace {
+    grid-template-rows: auto auto auto;
+  }
+
+  :root:is([data-text-size=large], [data-text-size=larger]) .learning-page .question-stage {
+    overflow: visible;
+  }
+
+  :root:is([data-text-size=large], [data-text-size=larger]) .learning-page .site-header {
+    position: sticky;
+    top: 0;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  :root:is([data-text-size=large], [data-text-size=larger]) .learning-page .header-nav {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+}
+
+@media print {
+  [data-open-accessibility], .accessibility-content {
+    display: none;
+  }
+}

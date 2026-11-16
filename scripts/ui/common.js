@@ -74,6 +74,7 @@
   window.LHUNDG_UI = Object.freeze({ modal: modal.open.bind(modal), toast: toasts.show.bind(toasts), confirm });
   window.openSupportDialog = support.open.bind(support);
 
+  ui.bindAccessibility(modal);
   bindAbout();
   /* Persönliche Entstehungsgeschichte im gemeinsamen Dialog anzeigen. */
   ui.bindStory(modal);

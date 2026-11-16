@@ -198,6 +198,7 @@
      * @returns {void} Kein Rückgabewert.
      */
     position() {
+      this.mountMenu();
       const { rect, inset, viewportWidth, width, upwards, height } = this.menuBounds();  // Gemeinsam berechnete Viewport-Grenzen.
 
       this.menu.style.width = `${width}px`;
@@ -205,6 +206,17 @@
       this.menu.style.left = `${Math.max(inset, Math.min(rect.left, viewportWidth - width - inset))}px`;
       this.menu.style.top = upwards ? 'auto' : `${Math.max(inset, rect.bottom + 6)}px`;
       this.menu.style.bottom = upwards ? `${innerHeight - rect.top + 6}px` : 'auto';
+    }
+
+    /**
+     * Erhält Dialogbedienbarkeit und die Farbrolle des Auslösers bei ausgelagerten Menüs.
+     * @returns {void} Kein Rückgabewert.
+     */
+    mountMenu() {
+      const dialog = this.trigger.closest('dialog[open]');
+      const parent = dialog || document.body;
+      if (this.menu.parentElement !== parent) parent.append(this.menu);
+      this.menu.dataset.palette = this.trigger.closest('.sidebar') ? 'forest' : 'default';
     }
 
     /**

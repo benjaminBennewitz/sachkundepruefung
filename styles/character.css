@@ -1,0 +1,377 @@
+/*###############################
+###
+###     character.css
+###     Hunde-Sachkundetrainer NRW
+###     BASED ON: HTML5, CSS3, JavaScript
+###     AUTHOR: Benjamin Bennewitz
+###
+###
+###       ██████╗  ▀█
+###       ██╔══██╗ █▄
+###       ██████╦╝
+###       ██╔══██╗
+###       ██████╦╝
+###       ╚═════╝
+###
+#################################*/
+
+/* ===========================================================================
+   INHALTSVERZEICHNIS
+   01   Typografie, Abstände und Bedienelemente
+   02   Gemeinsamer Seitenkopf und mobile Navigation
+   03   Fußzeile, Dialoge und Rückmeldungen
+   04   Kleine Viewports und reduzierte Bewegung
+   ========================================================================== */
+
+/* ===========================================================================
+   01   Typografie, Abstände und Bedienelemente
+   ========================================================================== */
+
+@media screen {
+  body {
+    background: var(--bg);
+    font-family: var(--body-font);
+  }
+
+  .wrap {
+    width: min(1440px, calc(100% - var(--page-gutter) * 2));
+  }
+
+  h1, h2, h3 {
+    font-family: var(--display-font);
+    font-weight: 750;
+    letter-spacing: -.045em;
+    text-wrap: balance;
+  }
+
+  .eyebrow, .panel-kicker {
+    font-family: var(--body-font);
+    font-size: .7rem;
+    font-weight: 750;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  button, .button, input, select, .select-trigger, .feedback-toggle {
+    border-radius: var(--radius-sm);
+  }
+
+  .primary, .secondary, .button, .feedback-toggle {
+    min-height: 44px;
+    font-weight: 700;
+    letter-spacing: -.015em;
+  }
+
+  .primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  .primary:hover {
+    background: var(--accent-hover);
+    color: var(--on-accent);
+  }
+
+  .primary:active, .secondary:active {
+    box-shadow: inset 0 0 0 2px currentColor;
+  }
+
+  .secondary {
+    background: var(--surface);
+    color: var(--text);
+  }
+
+  input, select, .select-trigger, .search-control {
+    background: var(--answer-bg);
+    border-color: var(--control-line);
+    border-radius: var(--radius-sm);
+  }
+
+  .select-menu {
+    border: 1px solid var(--control-line);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    box-shadow: 0 12px 32px #102a2026;
+    padding: 6px;
+  }
+
+  .select-option {
+    border-radius: var(--radius-sm);
+    min-height: 40px;
+  }
+
+  .select-option[aria-selected=true] {
+    background: var(--accent);
+    color: var(--on-accent);
+    border-color: var(--accent);
+    font-weight: 750;
+  }
+
+  .select-option[aria-selected=true] .option-mark {
+    color: currentColor;
+  }
+
+  :is(button, a, input, select, summary, [tabindex]):focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  button:disabled {
+    opacity: .5;
+    box-shadow: none;
+  }
+}
+
+/* ===========================================================================
+   02   Gemeinsamer Seitenkopf und mobile Navigation
+   ========================================================================== */
+
+@media screen {
+  .site-header.wrap {
+    width: 100%;
+    padding: 16px max(var(--page-gutter), calc((100% - 1440px) / 2));
+    background: var(--brand-forest);
+    border: 0;
+    color: var(--brand-cream);
+  }
+
+  .site-header .brand {
+    color: var(--brand-cream);
+    font-size: 1.05rem;
+    letter-spacing: -.035em;
+  }
+
+  .site-header .brand-mark {
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: var(--highlight);
+    color: var(--highlight-ink);
+  }
+
+  .site-header .brand-sub {
+    margin-top: 6px;
+    color: var(--brand-soft);
+    font-size: .6rem;
+    letter-spacing: .14em;
+  }
+
+  .site-header .header-project {
+    border-inline-start-color: #78917b;
+  }
+
+  .site-header .header-project p {
+    color: var(--brand-soft);
+  }
+
+  .site-header .header-project a {
+    color: var(--highlight);
+  }
+
+  .site-header .header-nav {
+    gap: 14px;
+  }
+
+  .site-header .header-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    margin: 0;
+    padding: 8px 12px;
+    color: var(--brand-cream);
+    border-radius: var(--radius-sm);
+    font-size: .8rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .site-header .header-nav a:hover,
+  .site-header .header-nav a:focus-visible {
+    background: var(--brand-forest-hover);
+  }
+
+  .site-header .header-nav [aria-current=page] {
+    background: var(--highlight);
+    color: var(--highlight-ink);
+  }
+
+  .site-header .icon-button {
+    border: 1px solid #78917b;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--brand-cream);
+  }
+
+  .site-header .icon-button:hover {
+    background: var(--brand-forest-hover);
+    border-color: var(--brand-cream);
+  }
+
+  .site-header .icon-button[data-open-support] {
+    background: var(--highlight);
+    border-color: var(--highlight);
+    color: var(--highlight-ink);
+  }
+
+  .site-header :is(a, button):focus-visible {
+    outline-color: var(--highlight);
+  }
+
+  .mobile-navigation-overlay[open] {
+    background: var(--bg);
+  }
+
+  .mobile-navigation-topbar {
+    background: var(--brand-forest);
+    color: var(--brand-cream);
+    border: 0;
+  }
+
+  .mobile-navigation-close {
+    background: var(--highlight);
+    border-color: var(--highlight);
+    color: var(--highlight-ink);
+  }
+
+  .mobile-navigation-close:hover {
+    background: var(--highlight-hover);
+    color: var(--highlight-ink);
+  }
+
+  .hero--companion a:focus-visible, .support-section a:focus-visible {
+    outline-color: var(--brand-forest);
+  }
+
+  .mobile-navigation-overlay .header-nav [aria-current=page] {
+    background: var(--highlight);
+    color: var(--highlight-ink);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+  }
+}
+
+/* ===========================================================================
+   03   Fußzeile, Dialoge und Rückmeldungen
+   ========================================================================== */
+
+@media screen {
+  .site-footer.wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    width: 100%;
+    margin-top: 64px;
+    padding: 48px max(var(--page-gutter), calc((100% - 1440px) / 2));
+    gap: 24px 64px;
+    border: 0;
+    background: var(--brand-forest);
+    color: var(--brand-cream);
+  }
+
+  .site-footer .footer-brand {
+    color: var(--brand-cream);
+    font: 800 clamp(1.8rem, 3vw, 2.6rem)/1 var(--display-font);
+    letter-spacing: -.045em;
+  }
+
+  .footer-brand span {
+    display: block;
+    margin-top: 12px;
+    color: var(--highlight);
+    font: 500 .8rem/1.5 var(--body-font);
+    letter-spacing: .01em;
+  }
+
+  .site-footer .footer-scope {
+    grid-column: 2;
+    max-width: 60ch;
+    color: var(--brand-soft);
+    font-size: .8rem;
+  }
+
+  .site-footer :is(a, .footer-credit) {
+    color: var(--brand-cream);
+  }
+
+  .site-footer a:hover {
+    color: var(--highlight);
+  }
+
+  .site-footer nav {
+    gap: 4px 22px;
+  }
+
+  .site-footer nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+  }
+
+  .site-footer a:focus-visible, .companion a:focus-visible {
+    outline-color: var(--highlight);
+  }
+
+  .ui-modal, .ui-toast {
+    border-radius: var(--radius-md);
+  }
+
+  .ui-modal {
+    border-color: var(--control-line);
+  }
+
+  .ui-modal-inner {
+    border-top: 8px solid var(--highlight);
+  }
+
+  .ui-modal h2 {
+    font: 750 clamp(1.5rem, 3vw, 2rem)/1.1 var(--display-font);
+    letter-spacing: -.04em;
+  }
+
+  .ui-modal:has(.story-content) .ui-modal-inner {
+    border-top: 0;
+  }
+}
+
+/* ===========================================================================
+   04   Kleine Viewports und reduzierte Bewegung
+   ========================================================================== */
+
+@media screen and (max-width: 800px) {
+  .site-header.wrap.has-mobile-navigation {
+    padding-block: 12px;
+  }
+
+  .site-footer.wrap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+    padding-block: 36px;
+  }
+
+  .site-footer .footer-scope {
+    grid-column: auto;
+  }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .primary, .secondary, .icon-button, .select-trigger {
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+  }
+}
+
+@media screen {
+  .start-learning {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-top: 40px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+  }
+}

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#f5f3ed">
+  <meta name="theme-color" content="#1d4233">
   <meta name="robots" content="index,follow">
   <title>Sachkundenachweis Hund NRW: kostenloser Online-Trainer</title>
   <meta name="description"
@@ -21,10 +21,16 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="icon" href="favicon.png" type="image/png" sizes="96x96">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <script src="scripts/ui/accessibility-state.js?v=55"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
-  <link rel="stylesheet" href="styles/tokens.css?v=19">
+  <link rel="stylesheet" href="styles/tokens.css?v=54">
   <link rel="stylesheet" href="styles/interface.css?v=49">
   <link rel="stylesheet" href="styles/navigation.css?v=52">
+  <link rel="stylesheet" href="styles/character.css?v=55">
+  <link rel="stylesheet" href="styles/editorial-identity.css?v=54">
+  <link rel="stylesheet" href="styles/accessibility.css?v=55">
+
+
   <link rel="stylesheet" href="styles/foundations.css?v=46">
   <script
     type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Hunde-Sachkundetrainer NRW","applicationCategory":"EducationalApplication","operatingSystem":"Webbrowser","inLanguage":"de","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Sachkundenachweis für Hunde in NRW: kostenlos online üben, mit Fragenkatalogen, Sofort-Feedback und Testreihen. Ohne Anmeldung, mit Originalquellen.","url":"https://hunde-sachkundetrainer.de/nrw/"}</script>
@@ -37,41 +43,42 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#trainer">Zum Lerntrainer</a>
+  <a class="skip-link" href="lernen.html#trainer">Zum Lerntrainer</a>
   <header class="site-header wrap" id="geschichte">
     <!-- BLOCK START: Marke und Projekthinweise -->
     <div class="header-brand-group"><a class="brand" href="./" aria-label="Sachkunde NRW – Startseite"><span
           class="brand-mark" aria-hidden="true">§</span><span>SACHKUNDE<span class="brand-sub">NRW / DIE
             LERNHILFE</span></span></a>
       <div class="header-project">
-        <p>Unabhängig. Werbefrei. Kostenlos.</p>
+        <p>Wissen für Mensch &amp; Hund.</p>
         <a href="impressum.html#haftung" data-open-about aria-haspopup="dialog">Über diese Lernhilfe</a>
       </div>
     </div>
     <!-- BLOCK END: Marke und Projekthinweise -->
-    <nav class="header-nav" aria-label="Hauptnavigation"><a href="#trainer" aria-current="page">Lernen</a><a
-        href="grundlagen.html">Grundlagen</a><a href="gut-zu-wissen.html">Gut zu wissen</a><a
-        href="hundewissen.html">Haltung &amp; Recht</a><a href="quellen.html">Quellen</a></nav>
-    <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><button class="icon-button"
-        type="button" aria-label="Lernstand laden" id="importTrigger"><svg class="" width="20" height="20"
+    <nav class="header-nav" aria-label="Hauptnavigation"><a href="./" aria-current="page">Start</a><a href="lernen.html#trainer">Lernen</a><a
+        href="grundlagen.html">Grundlagen</a><a href="gut-zu-wissen.html">Gut
+        zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a href="quellen.html"
+       >Quellen</a>
+    </nav>
+    <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><a class="icon-button"
+        aria-label="Lernstand laden – im Trainer" href="lernen.html?action=import#trainer"><svg class="" width="20" height="20"
           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
           stroke-linejoin="round" aria-hidden="true">
           <path d="M12 16V4m-4 4 4-4 4 4M5 16v5h14v-5" />
-        </svg><span class="tool-tip" aria-hidden="true">Lernstand laden</span></button><input id="importProgress"
-        type="file" accept="application/json,.json" hidden><button class="icon-button" type="button"
-        aria-label="Lernstand sichern" id="exportProgress"><svg class="" width="20" height="20" viewBox="0 0 24 24"
-          fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"
-          aria-hidden="true">
-          <path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" />
-        </svg><span class="tool-tip" aria-hidden="true">Lernstand sichern</span></button><button class="icon-button"
-        type="button" aria-label="Diesen Lernbereich zurücksetzen" id="reset"><svg class="" width="20" height="20"
+        </svg><span class="tool-tip" aria-hidden="true">Laden im Trainer</span></a><a class="icon-button"
+        aria-label="Lernstand sichern – im Trainer" href="lernen.html?action=export#trainer"><svg class="" width="20" height="20"
           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
           stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" />
+        </svg><span class="tool-tip" aria-hidden="true">Sichern im Trainer</span></a><a class="icon-button"
+        aria-label="Lernbereich zurücksetzen – im Trainer" href="lernen.html?action=reset#trainer"><svg class="" width="20"
+          height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
           <path d="M4 11a8 8 0 1 1 2 7M4 4v7h7" />
-        </svg><span class="tool-tip" aria-hidden="true">Diesen Lernbereich zurücksetzen</span></button><button
-        class="icon-button" type="button" aria-label="Über PayPal unterstützen" data-open-support><svg class=""
-          width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        </svg><span class="tool-tip" aria-hidden="true">Zurücksetzen im Trainer</span></a><button class="icon-button"
+        type="button" aria-label="Über PayPal unterstützen" data-open-support><svg class="" width="20" height="20"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
           <path
             d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
         </svg><span class="tool-tip" aria-hidden="true">Über PayPal unterstützen</span></button><button
@@ -83,132 +90,51 @@
         </svg><svg class="theme-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z" />
-        </svg><span class="tool-tip" aria-hidden="true">Farbschema wechseln</span></button></div>
+        </svg><span class="tool-tip" aria-hidden="true">Farbschema wechseln</span></button><button class="icon-button" type="button" data-open-accessibility aria-label="Barrierefreiheit einstellen" aria-haspopup="dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7M8 8l1 6m7-6-1 6"/>
+        </svg><span class="tool-tip" aria-hidden="true">Barrierefreiheit</span></button></div>
   </header>
   <main>
-    <section class="hero wrap" aria-labelledby="heroTitle">
+    <!-- BLOCK START: Einstieg für Mensch und Hund -->
+    <section class="hero hero--companion wrap" aria-labelledby="heroTitle">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Sachkunde / Nordrhein-Westfalen</p>
-        <h1 id="heroTitle">NRW Sachkundeprüfung<span>Deine Lernhilfe.</span></h1>
-        <p class="hero-intro">Für den Sachkundenachweis in NRW. Lerne in deinem Tempo – ohne Anmeldung.</p>
-        <!-- BLOCK START: Sichtbarer Hinweis zur Lernhilfe -->
-        <p class="hero-warning"><span aria-hidden="true">⚠</span> Lernhilfe · keine behördliche Prüfung oder
-          Bescheinigung.</p>
-        <!-- BLOCK END: Sichtbarer Hinweis zur Lernhilfe -->
-        <div class="hero-links"><a class="primary button" href="#trainer">Jetzt lernen <span
-              aria-hidden="true">↗</span></a><a href="quellen.html">Zu den Originalquellen →</a></div>
-      </div>
-
-    </section>
-    <!--legal-disclaimer:start--><!--legal-disclaimer:end-->
-    <section id="trainer" class="trainer wrap" aria-labelledby="modeTitle" tabindex="-1">
-      <div class="learning-layout">
-        <aside class="sidebar" aria-label="Lernbereiche und Fragenübersicht">
-          <div class="side-panel">
-            <label for="modeSelect">Fragenkatalog</label><select id="modeSelect">
-              <option value="all">Alle Quellen · 400 Fragen</option>
-              <option value="mg">§-3-Basispool · 398 Fragen</option>
-              <option value="rhein97">Rhein-Erft · 97 Fragen</option>
-              <option value="koeln">Köln · 115 Fragen</option>
-              <option value="legacy203">Rhein-Erft · 203 Fragen</option>
-              <option value="kammer197">Tierärztekammern · 197 Fragen (§ 11)</option>
-            </select>
-            <div class="progress-meta"><strong id="progressText">0 beantwortet</strong><span id="progressPercent">0
-                %</span></div><progress id="progressBar" value="0" max="100">0 %</progress>
-            <p class="microcopy">Beantwortet bedeutet noch nicht richtig.</p>
-            <button id="resume" class="secondary" type="button">Weiterlernen →</button>
-            <!-- BLOCK START: Direkter Zugang zur Merkliste -->
-            <button id="showBookmarks" class="secondary bookmark-access" type="button" aria-pressed="false">★ Merkliste
-              (0)</button>
-            <!-- BLOCK END: Direkter Zugang zur Merkliste -->
-            <details class="nav-details">
-              <summary>Fragenübersicht <span aria-hidden="true">＋</span></summary>
-              <!-- BLOCK START: Kompakte Zustandslegende -->
-              <div class="nav-legend" role="group" aria-label="Legende zur Fragenübersicht">
-                <span class="nav-legend-item"><span class="legend-marker" aria-hidden="true"><span
-                      class="legend-dot"></span></span>Offen</span>
-                <span class="nav-legend-item"><span class="legend-marker legend-marker--answered"
-                    aria-hidden="true"><span class="legend-dot legend-dot--filled"></span></span>Beantwortet</span>
-                <span class="nav-legend-item"><span class="legend-marker legend-marker--correct"
-                    aria-hidden="true"><span class="legend-dot"></span>✓</span>Richtig</span>
-                <span class="nav-legend-item"><span class="legend-marker legend-marker--wrong" aria-hidden="true"><span
-                      class="legend-dot legend-dot--filled"></span>×</span>Falsch</span>
-                <span class="nav-legend-item"><span class="legend-star" aria-hidden="true">★</span>Gemerkt</span>
-              </div>
-              <!-- BLOCK END: Kompakte Zustandslegende -->
-              <div id="questionNav" class="question-nav" aria-label="Zu einer Frage wechseln"></div>
-            </details>
-          </div>
-          <details class="test-options" open>
-            <summary>Testreihen · 34 / 119 / 30 / 50 Fragen <span aria-hidden="true">＋</span></summary>
-            <div class="exam-panel">
-              <p class="test-title">Testreihe</p><label for="testSelect">Prüfungsprofil</label><select id="testSelect">
-                <option value="exam34">§ 3 / § 10 · Rhein-Erft · 34 Fragen</option>
-                <option value="mgexam">§ 3 · MG-Simulation · 119 Fragen</option>
-                <option value="exam11">§ 11 · Kammer-Übung · 30 Fragen</option>
-                <option value="essenexam">§ 3 · Essen · geschätztes Beispiel · 50 Fragen</option>
-              </select>
-              <details class="test-profile-info">
-                <summary>Details zum Prüfungsprofil</summary>
-                <p id="testDescription"></p>
-              </details><button id="startExam" class="primary" type="button">Test starten ↗</button><a
-                href="gut-zu-wissen.html#testreihen" class="microcopy">Welche Testreihe passt zu mir?</a>
-            </div>
-          </details>
-        </aside>
-        <div class="workspace">
-          <div class="trainer-controls">
-            <p id="exampleNotice" class="source-note" hidden></p>
-            <div class="study-toolbar">
-              <div class="catalog-heading">
-                <h2 id="modeTitle">Alle Quellen</h2><a id="foundationsLink" href="grundlagen.html">Grundlagen</a><button
-                  id="clearFilters" class="text-button" type="button" hidden>Filter
-                  löschen</button>
-              </div><label class="view-control" for="viewSelect">Ansicht<select id="viewSelect">
-                  <option value="focus">Fokus</option>
-                  <option value="list">Liste · 8 pro Seite</option>
-                  <option value="tv">TV / Fernbedienung</option>
-                </select></label>
-            </div>
-            <div class="filters"><label class="search-label" for="search">Fragen durchsuchen<input id="search"
-                  type="search" placeholder="z. B. Maulkorb, Verhalten …" maxlength="150"
-                  autocomplete="off"></label><label for="statusFilter">Lernstatus<select id="statusFilter">
-                  <option value="all">Alle Fragen</option>
-                  <option value="open">Noch offen</option>
-                  <option value="answered">Beantwortet</option>
-                  <option value="wrong">Fehler wiederholen</option>
-                  <option value="bookmarked">Merkliste</option>
-                </select></label><label for="categoryFilter">Thema<select id="categoryFilter">
-                  <option value="all">Alle Themen</option>
-                </select></label></div>
-            <!-- BLOCK START: Suchtreffer und gefilterte Fragen -->
-            <div id="filterResults" class="filter-results" hidden>
-              <p id="matchCount" role="status" aria-live="polite" hidden></p>
-              <p class="microcopy">Blättere unten mit Zurück und Weiter durch die passenden Fragen oder öffne die
-                Listenansicht.</p>
-              <button id="showMatchList" class="secondary" type="button">Treffer als Liste anzeigen</button>
-            </div>
-            <!-- BLOCK END: Suchtreffer und gefilterte Fragen -->
-            <div class="learning-actions" role="group" aria-label="Feedback und Auswertung"><button id="instantFeedback"
-                class="feedback-toggle" type="button" aria-pressed="true">Sofort-Feedback: An</button><button
-                id="intermediate" class="secondary" type="button">Zwischenergebnis</button><button id="evaluate"
-                class="secondary" type="button">Katalog auswerten</button></div>
-          </div>
-          <div class="question-stage" id="questionStage" role="region" aria-label="Fragen und Rückmeldung" tabindex="0">
-            <div id="result" class="result-panel" tabindex="-1" hidden></div>
-            <div id="questions" class="questions"></div>
-          </div>
-          <div class="pagination" aria-label="Fragenseiten"><button id="previous" class="secondary" type="button">←
-              Zurück</button><span id="position" role="status"></span><button id="next" class="primary"
-              type="button">Weiter →</button></div>
+        <p class="eyebrow">Dein Sachkundetrainer / NRW</p>
+        <h1 id="heroTitle">Sachkunde lernen.<span>Hunde verstehen.</span></h1>
+        <p class="hero-intro">Für die Prüfung und das Leben mit Hund. Übe mit Fragenkatalogen, prüfe dein Wissen
+          und wiederhole gezielt deine Fehler.</p>
+        <div class="hero-links">
+          <a class="primary button" href="lernen.html#trainer">Jetzt lernen <span aria-hidden="true">↗</span></a>
+          <a href="grundlagen.html">Grundlagen lesen →</a>
         </div>
+        <p class="hero-warning">Unabhängige Lernhilfe · keine behördliche Prüfung oder Bescheinigung.</p>
+        <p class="hero-principles">Kostenlos. Ohne Konto. Ohne Werbung.</p>
       </div>
-      <p class="storage-note" id="storageNote">Deine Antworten bleiben in diesem Browser. Kein Konto, keine Übertragung
-        deines Lernstands. <a href="datenschutz.html#browserspeicher">Mehr zur Speicherung</a></p>
+      <figure class="companion">
+        <div class="companion-image">
+          <img src="assets/public/lernfreund-platzhalter.webp" width="960" height="640"
+            alt="KI-Bildplatzhalter: eine gestromte Hündin auf einer Wiese."
+            fetchpriority="high" decoding="async">
+        </div>
+        <figcaption>
+          <span>Hinter diesem Trainer steckt eine Geschichte.</span>
+          <a href="#geschichte" data-open-story aria-haspopup="dialog">Unsere Geschichte <span aria-hidden="true">↗</span></a>
+          <small>KI-Bildplatzhalter · später deine Hündin</small>
+        </figcaption>
+      </figure>
+    </section>
+    <!-- BLOCK END: Einstieg für Mensch und Hund -->
+    <!--legal-disclaimer:start--><!--legal-disclaimer:end-->
+    <section id="trainer" class="start-learning wrap" aria-labelledby="trainerTitle">
+      <div><p class="eyebrow">01 / Dein Lernplatz</p><h2 id="trainerTitle">In Ruhe lernen.<br>Gezielt üben.</h2>
+        <p>Fragenkataloge, Merkliste und Testreihen haben jetzt ihren eigenen Lernbereich.</p></div>
+      <a class="primary button" href="lernen.html">Lernbereich öffnen <span aria-hidden="true">↗</span></a>
     </section>
     <section class="info-section wrap" aria-labelledby="trainerFaqTitle">
-      <p class="eyebrow">FRAGEN ZUR SACHKUNDE</p>
-      <h2 id="trainerFaqTitle">Sachkundenachweis für Hunde in NRW: kurz erklärt</h2>
+      <div class="section-intro">
+        <p class="eyebrow">02 / Gut vorbereitet</p>
+        <h2 id="trainerFaqTitle">Sachkunde,<br>kurz erklärt.</h2>
+      </div>
       <div class="faq-grid">
         <details>
           <summary>Kann ich für den Sachkundenachweis kostenlos online üben?</summary>
@@ -257,7 +183,7 @@
     </section>
     <section class="support-section wrap">
       <div>
-        <p class="eyebrow">WISSEN TEILEN STATT VERKAUFEN</p>
+        <p class="eyebrow">03 / Wissen teilen statt verkaufen</p>
         <h2>Für dich kostenlos.<br>Mit deiner Hilfe für viele.</h2>
       </div>
       <div class="support-action"><a data-paypal class="primary button" href="#" rel="noopener noreferrer external"
@@ -269,6 +195,9 @@
     </section>
   </main>
   <footer class="site-footer wrap">
+    <!-- BLOCK START: Gemeinsame Fußzeilenmarke -->
+    <a class="footer-brand" href="./">SACHKUNDE<span>Für Mensch &amp; Hund. / NRW</span></a>
+    <!-- BLOCK END: Gemeinsame Fußzeilenmarke -->
     <p class="footer-scope">Aktuell gibt es die Lernhilfe nur für NRW. Weitere Bundesländer können auf Anfrage ergänzt
       werden. <a
         href="mailto:kontakt@design-code-repeat.de?subject=Sachkundenachweis%20f%C3%BCr%20Hunde%20%28Bundesland%29">Erweiterung
@@ -279,41 +208,26 @@
     <nav aria-label="Rechtliches und Informationen"><a href="./#geschichte" data-open-story
         aria-haspopup="dialog">Die Geschichte hinter dem Trainer</a><a href="quellen.html">Originalquellen</a><a
         href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a
-        href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="#trainer">Zum Lernen ↑</a>
+        href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="lernen.html#trainer">Zum Lernen ↑</a>
     </nav>
   </footer>
   <noscript>
     <p class="wrap context-note">Der interaktive Trainer benötigt JavaScript. Die <a
         href="quellen.html">Originalquellen</a> kannst du auch ohne JavaScript öffnen.</p>
   </noscript>
+  <script src="scripts/ui/learning-entry.js?v=55" defer></script>
   <script src="scripts/site-config.js?v=38" defer></script>
-  <script src="scripts/ui/shared.js?v=40" defer></script>
+  <script src="scripts/ui/shared.js?v=55" defer></script>
   <script src="scripts/ui/modal.js?v=43" defer></script>
   <script src="scripts/ui/story.js?v=1" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
   <script src="scripts/ui/navigation.js?v=51" defer></script>
-  <script src="scripts/ui/common.js?v=45" defer></script>
-  <script src="scripts/learning/data.js?v=33" defer></script>
-  <script src="scripts/learning/essen.js?v=33" defer></script>
-  <script src="scripts/learning/sources.js?v=33" defer></script>
-  <script src="scripts/learning/core.js?v=33" defer></script>
-  <script src="scripts/learning/profiles.js?v=33" defer></script>
-  <script src="scripts/learning/dom.js?v=33" defer></script>
-  <script src="scripts/learning/session.js?v=49" defer></script>
-  <script src="scripts/learning/explanations.js?v=50" defer></script>
-  <script src="scripts/learning/question-feedback.js?v=50" defer></script>
-  <script src="scripts/learning/question-view.js?v=48" defer></script>
-  <script src="scripts/learning/filter-view.js?v=40" defer></script>
-  <script src="scripts/learning/learning-view.js?v=46" defer></script>
-  <script src="scripts/learning/results.js?v=49" defer></script>
-  <script src="scripts/learning/progress.js?v=33" defer></script>
-  <script src="scripts/learning/keyboard.js?v=40" defer></script>
-  <script src="scripts/learning/controller.js?v=40" defer></script>
-  <script src="scripts/learning/foundations.js?v=43" defer></script>
-  <script src="scripts/learning/app.js?v=42" defer></script>
-  <script src="scripts/ui/select-view.js?v=38" defer></script>
+  <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
+  <script src="scripts/ui/accessibility-panel.js?v=55" defer></script>
+  <script src="scripts/ui/common.js?v=55" defer></script>
+  <script src="scripts/ui/select-view.js?v=55" defer></script>
   <script src="scripts/ui/select-keyboard.js?v=38" defer></script>
   <script src="scripts/ui/select.js?v=38" defer></script>
   <script src="scripts/ui/controls.js?v=38" defer></script>

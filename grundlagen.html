@@ -19,10 +19,15 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="icon" href="favicon.png" type="image/png" sizes="96x96">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <script src="scripts/ui/accessibility-state.js?v=55"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
-  <link rel="stylesheet" href="styles/tokens.css?v=19">
+  <link rel="stylesheet" href="styles/tokens.css?v=54">
   <link rel="stylesheet" href="styles/interface.css?v=49">
   <link rel="stylesheet" href="styles/navigation.css?v=52">
+  <link rel="stylesheet" href="styles/character.css?v=55">
+  <link rel="stylesheet" href="styles/editorial-identity.css?v=54">
+  <link rel="stylesheet" href="styles/accessibility.css?v=55">
+
   <link rel="stylesheet" href="styles/foundations.css?v=46">
 </head>
 
@@ -33,27 +38,27 @@
           class="brand-mark" aria-hidden="true">§</span><span>SACHKUNDE<span class="brand-sub">NRW / DIE
             LERNHILFE</span></span></a>
       <div class="header-project">
-        <p>Unabhängig. Werbefrei. Kostenlos.</p>
+        <p>Wissen für Mensch &amp; Hund.</p>
         <a href="impressum.html#haftung" data-open-about aria-haspopup="dialog">Über diese Lernhilfe</a>
       </div>
     </div>
     <!-- BLOCK END: Marke und Projekthinweise -->
-    <nav class="header-nav" aria-label="Hauptnavigation"><a href="./#trainer">Lernen</a><a href="grundlagen.html"
+    <nav class="header-nav" aria-label="Hauptnavigation"><a href="lernen.html#trainer">Lernen</a><a href="grundlagen.html"
         aria-current="page">Grundlagen</a><a href="gut-zu-wissen.html">Gut
         zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a href="quellen.html">Quellen</a>
     </nav>
     <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><a class="icon-button"
-        aria-label="Lernstand laden – im Trainer" href="./?action=import#trainer"><svg class="" width="20" height="20"
+        aria-label="Lernstand laden – im Trainer" href="lernen.html?action=import#trainer"><svg class="" width="20" height="20"
           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
           stroke-linejoin="round" aria-hidden="true">
           <path d="M12 16V4m-4 4 4-4 4 4M5 16v5h14v-5" />
         </svg><span class="tool-tip" aria-hidden="true">Laden im Trainer</span></a><a class="icon-button"
-        aria-label="Lernstand sichern – im Trainer" href="./?action=export#trainer"><svg class="" width="20" height="20"
+        aria-label="Lernstand sichern – im Trainer" href="lernen.html?action=export#trainer"><svg class="" width="20" height="20"
           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
           stroke-linejoin="round" aria-hidden="true">
           <path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" />
         </svg><span class="tool-tip" aria-hidden="true">Sichern im Trainer</span></a><a class="icon-button"
-        aria-label="Lernbereich zurücksetzen – im Trainer" href="./?action=reset#trainer"><svg class="" width="20"
+        aria-label="Lernbereich zurücksetzen – im Trainer" href="lernen.html?action=reset#trainer"><svg class="" width="20"
           height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
           stroke-linejoin="round" aria-hidden="true">
           <path d="M4 11a8 8 0 1 1 2 7M4 4v7h7" />
@@ -72,12 +77,21 @@
         </svg><svg class="theme-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z" />
-        </svg><span class="tool-tip" aria-hidden="true">Farbschema wechseln</span></button></div>
+        </svg><span class="tool-tip" aria-hidden="true">Farbschema wechseln</span></button><button class="icon-button" type="button" data-open-accessibility aria-label="Barrierefreiheit einstellen" aria-haspopup="dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7M8 8l1 6m7-6-1 6"/>
+        </svg><span class="tool-tip" aria-hidden="true">Barrierefreiheit</span></button></div>
   </header>
   <main id="inhalt" class="prose wrap" tabindex="-1">
+    <!-- BLOCK START: Seitenauftakt -->
+    <header class="page-masthead">
+      <p class="eyebrow">01 / Grundlagen</p>
+      <h1 id="foundationsTitle">Grundlagen</h1>
+    </header>
+    <!-- BLOCK END: Seitenauftakt -->
     <!-- BLOCK START: Grundlagen für den Fragenkatalog -->
     <section id="grundlagen" class="foundations-content" aria-labelledby="foundationsTitle">
-      <h1 id="foundationsTitle">Grundlagen</h1>
+
       <p>Diese Einführung verbindet wichtige Themen aus dem Fragenkatalog. Sie ist ergänzendes Lernmaterial des
         Trainers.
         Für die Bewertung einer Originalfrage gilt der Lösungsschlüssel ihrer jeweiligen Quelle. Lies Frage und
@@ -145,11 +159,14 @@
         <a href="hundewissen.html#recht">Rechtstexte und den Leseplan</a>. Die ergänzenden Frageerklärungen verlinken
         bei Bedarf weitere Fachquellen.
       </p>
-      <p><a class="primary foundations-return" href="./#trainer">Zu den Fragen →</a></p>
+      <p><a class="primary foundations-return" href="lernen.html#trainer">Zu den Fragen →</a></p>
     </section>
     <!-- BLOCK END: Grundlagen für den Fragenkatalog -->
   </main>
   <footer class="site-footer wrap">
+    <!-- BLOCK START: Gemeinsame Fußzeilenmarke -->
+    <a class="footer-brand" href="./">SACHKUNDE<span>Für Mensch &amp; Hund. / NRW</span></a>
+    <!-- BLOCK END: Gemeinsame Fußzeilenmarke -->
     <p class="footer-scope">Aktuell gibt es die Lernhilfe nur für NRW. Weitere Bundesländer können auf Anfrage ergänzt
       werden. <a
         href="mailto:kontakt@design-code-repeat.de?subject=Sachkundenachweis%20f%C3%BCr%20Hunde%20%28Bundesland%29">Erweiterung
@@ -160,18 +177,20 @@
     <nav aria-label="Rechtliches und Informationen"><a href="./#geschichte" data-open-story
         aria-haspopup="dialog">Die Geschichte hinter dem Trainer</a><a href="quellen.html">Originalquellen</a><a
         href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a
-        href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="./#trainer">Zum Lernen
+        href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="lernen.html#trainer">Zum Lernen
         ↑</a></nav>
   </footer>
   <script src="scripts/site-config.js?v=38" defer></script>
-  <script src="scripts/ui/shared.js?v=40" defer></script>
+  <script src="scripts/ui/shared.js?v=55" defer></script>
   <script src="scripts/ui/modal.js?v=43" defer></script>
   <script src="scripts/ui/story.js?v=1" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
   <script src="scripts/ui/navigation.js?v=51" defer></script>
-  <script src="scripts/ui/common.js?v=45" defer></script>
+  <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
+  <script src="scripts/ui/accessibility-panel.js?v=55" defer></script>
+  <script src="scripts/ui/common.js?v=55" defer></script>
   <script src="scripts/ui/controls.js?v=38" defer></script>
 </body>
 

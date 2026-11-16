@@ -1,0 +1,238 @@
+/*###############################
+###
+###     learning-identity.css
+###     Hunde-Sachkundetrainer NRW
+###     BASED ON: HTML5, CSS3, JavaScript
+###     AUTHOR: Benjamin Bennewitz
+###
+###
+###       ██████╗  ▀█
+###       ██╔══██╗ █▄
+###       ██████╦╝
+###       ██╔══██╗
+###       ██████╦╝
+###       ╚═════╝
+###
+#################################*/
+
+/* ===========================================================================
+   INHALTSVERZEICHNIS
+   01   Vollständige Farbrolle für Katalog und ausgelagerte Menüs
+   02   Fragen, Antworten und Auswertung
+   03   Eindeutige Zustände im Fragenraster
+   ========================================================================== */
+
+/* ===========================================================================
+   01   Vollständige Farbrolle für Katalog und ausgelagerte Menüs
+   ========================================================================== */
+
+@media screen {
+  .sidebar, .select-menu[data-palette=forest] {
+    --text: #fff8e9;
+    --muted: #d4dfca;
+    --accent: #f1b88e;
+    --accent-hover: #facaa6;
+    --accent-bg: #38543d;
+    --on-accent: #203a30;
+    --surface: #284d3b;
+    --subtle: #335a44;
+    --line: #6d8973;
+    --control-line: #99af96;
+    --control-hover: #335a44;
+    --nav-bg: #1d4233;
+    --nav-panel: #284d3b;
+    --nav-control: #284d3b;
+    --nav-line: #6d8973;
+    --nav-muted: #d4dfca;
+    --filter-bg: #284d3b;
+    --ok: #b9dfb1;
+    --ok-bg: #294631;
+    --bad: #ffb7b2;
+    --bad-bg: #513334;
+    --focus: #facaa6;
+    color: var(--text);
+  }
+
+  .sidebar {
+    border: 0;
+    border-radius: var(--radius-md);
+    background: var(--brand-forest);
+  }
+
+  .sidebar .panel-kicker {
+    color: var(--accent);
+    font-size: .65rem;
+  }
+
+  .sidebar label {
+    color: var(--text);
+  }
+
+  .sidebar .select-trigger {
+    background: var(--surface);
+    border-color: var(--control-line);
+    color: var(--text);
+  }
+
+  .sidebar .select-trigger:hover {
+    background: var(--subtle);
+    border-color: var(--accent);
+  }
+
+  .sidebar .select-trigger[aria-expanded=true] {
+    background: var(--accent);
+    color: var(--on-accent);
+    border-color: var(--accent);
+  }
+
+  .sidebar .secondary {
+    border-color: var(--control-line);
+    background: transparent;
+    color: var(--text);
+  }
+
+  .sidebar .secondary:hover {
+    background: var(--nav-panel);
+  }
+
+  .sidebar .bookmark-access[aria-pressed=true] {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+}
+
+/* ===========================================================================
+   02   Fragen, Antworten und Auswertung
+   ========================================================================== */
+
+@media screen {
+  .catalog-heading :is(h2, h3) {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.35;
+    letter-spacing: -.025em;
+  }
+
+  .question-card, .question-card.correct, .question-card.wrong {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--question-bg);
+    box-shadow: none;
+  }
+
+  .question-card.correct {
+    border-color: var(--ok);
+  }
+
+  .question-card.wrong {
+    border-color: var(--bad);
+  }
+
+  .question-number {
+    padding: 5px 9px;
+    width: fit-content;
+    border-radius: 4px;
+    background: var(--highlight);
+    color: var(--highlight-ink);
+    font-size: .72rem;
+    letter-spacing: .03em;
+  }
+
+  .question-prompt {
+    font-weight: 700;
+    letter-spacing: -.025em;
+  }
+
+  .status-pill, .bookmark, .answer-option {
+    border-radius: var(--radius-sm);
+  }
+
+  .answer-option {
+    border: 1px solid var(--control-line);
+    background: var(--answer-bg);
+  }
+
+  .answer-option:hover {
+    background: var(--control-hover);
+    border-color: var(--accent);
+  }
+
+  .answer-option:has(input:checked) {
+    background: var(--accent-bg);
+    border-color: var(--accent);
+    box-shadow: inset 0 0 0 1px var(--accent);
+  }
+
+  .answer-option:has(input:focus-visible) {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  .answer-letter {
+    color: var(--text);
+    font-weight: 800;
+  }
+
+  .pagination {
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    border: 1px solid var(--line);
+  }
+
+  .pagination .primary {
+    background: var(--highlight);
+    border-color: var(--highlight);
+    color: var(--highlight-ink);
+  }
+
+  .pagination .primary:hover {
+    background: var(--highlight-hover);
+  }
+
+  .pagination #position {
+    color: var(--text);
+    font-weight: 650;
+  }
+
+  .result-panel {
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-md);
+    background: var(--accent-bg);
+  }
+}
+
+/* ===========================================================================
+   03   Eindeutige Zustände im Fragenraster
+   ========================================================================== */
+
+@media screen {
+  .nav-q, .sidebar .nav-q {
+    border: 1px solid var(--control-line);
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--text);
+  }
+
+  .nav-q.answered, .sidebar .nav-q.answered {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  .nav-q.correct, .sidebar .nav-q.correct {
+    border-color: var(--ok);
+    background: var(--ok-bg);
+    color: var(--ok);
+  }
+
+  .nav-q.wrong, .sidebar .nav-q.wrong {
+    border-color: var(--bad);
+    background: var(--bad-bg);
+    color: var(--bad);
+  }
+
+  .nav-q[aria-current], .sidebar .nav-q[aria-current] {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+}
