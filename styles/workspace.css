@@ -27,7 +27,7 @@
    01   Lernseite und verfügbare Bildschirmhöhe
    ========================================================================== */
 
-@media screen and (min-width: 1000px) and (min-height: 620px) {
+@media screen and (min-width: 1000px) and (min-height: 720px) {
   .learning-page {
     display: grid;
     grid-template-rows: auto minmax(0, 1fr);
@@ -255,7 +255,7 @@
    04   Kleine Ansichten, Textvergrößerung und Druck
    ========================================================================== */
 
-@media screen and (max-width: 999px), screen and (max-height: 619px) {
+@media screen and (max-width: 999px), screen and (max-height: 719px) {
   .learning-page .learning-layout {
     height: auto;
     min-height: 0;

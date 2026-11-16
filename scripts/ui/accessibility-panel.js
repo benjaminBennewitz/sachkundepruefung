@@ -55,24 +55,17 @@
       return fieldset;
     }
 
-    /** @returns {HTMLElement} Bedienpanel mit denselben Präferenzgruppen wie die Referenz. */
+    /** @returns {HTMLElement} Kompaktes Bedienpanel für Text, Kontrast, Statusfarben und Vorlesen. */
     function build() {
       const panel = ui.node('div', '', 'accessibility-content');
-      const quick = ui.node('div', '', 'accessibility-choices');
-      const calm = ui.node('button', 'Ruhige Darstellung', 'secondary');
-      const reset = ui.node('button', 'Zurücksetzen', 'secondary');
-      calm.type = reset.type = 'button';
-      calm.addEventListener('click', () => access.set({ motion: 'off', comfort: 'simple', contrast: 'high' }));
-      reset.addEventListener('click', () => access.reset());
-      quick.append(calm, reset);
-      panel.append(quick,
-        group('Textgröße', 'textSize', [['normal', '100 %'], ['large', '112,5 %'], ['larger', '125 %']]),
-        group('Bewegung', 'motion', [['system', 'Wie im System'], ['reduced', 'Reduziert'], ['off', 'Aus']]),
-        group('Oberfläche', 'comfort', [['expressive', 'Gestaltet'], ['simple', 'Ruhig']]),
+      const preferences = ui.node('div', '', 'accessibility-preferences');
+      preferences.append(
+        group('Textgröße', 'textSize', [['normal', '100 %'], ['large', '125 %'], ['larger', '150 %']]),
         group('Kontrast', 'contrast', [['normal', 'Normal'], ['high', 'Hoch']]),
-        group('Farben unterscheiden', 'colorVision', [['default', 'Standard'], ['blue-amber', 'Blau / Orange']]));
-      panel.append(ui.node('p', 'Die alternative Palette unterscheidet Erfolg und Fehler mit Blau und Orange. ' +
-        'Zeichen und Beschriftungen bleiben in beiden Paletten erhalten.', 'microcopy'));
+        group('Statusfarben', 'colorVision', [['default', 'Standard'], ['blue-amber', 'Blau / Orange']]));
+      panel.append(preferences);
+      const reading = ui.node('fieldset', '', 'accessibility-group');
+      reading.append(ui.node('legend', 'Vorlesen'));
       const controls = ui.node('div', '', 'accessibility-choices');
       for (const [action, label] of [['start', 'Vorlesen'], ['pause', 'Pause'], ['stop', 'Stoppen']]) {
         const button = ui.node('button', label, 'secondary');
@@ -84,8 +77,13 @@
       const status = ui.node('p', '', 'microcopy');
       status.dataset.speechStatus = '';
       status.setAttribute('role', 'status');
-      panel.append(controls, status, ui.node('p', 'Deine Auswahl wird nur in diesem Browser gespeichert. ' +
-        'Vergrößerte Texte dürfen mehr Platz benötigen; Inhalte bleiben erreichbar.', 'microcopy'));
+      reading.append(controls, status);
+      const footer = ui.node('div', '', 'accessibility-footer');
+      const reset = ui.node('button', 'Zurücksetzen', 'text-button');
+      reset.type = 'button';
+      reset.addEventListener('click', () => access.reset());
+      footer.append(ui.node('p', 'Einstellungen bleiben in diesem Browser.', 'microcopy'), reset);
+      panel.append(reading, footer);
       return panel;
     }
 
@@ -96,7 +94,7 @@
         try {
           content = build();
           update();
-          await modal.open({ title: 'Barrierefreiheit', message: 'Passe die Darstellung und das Lesen an deine Bedürfnisse an.',
+          await modal.open({ title: 'Barrierefreiheit', message: 'Text, Kontrast und Vorlesen anpassen.',
             content, returnFocus: trigger, actions: [{ label: 'Fertig', value: 'close', primary: true }] });
         } finally {
           opening = false;

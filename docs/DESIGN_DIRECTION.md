@@ -2,7 +2,8 @@
 
 Stand: 16. November 2026. Apricot, Waldgrün, warmes Weiß, kräftige Sans-Serif-
 Typografie und die gemeinsame Formensprache bleiben die gestalterische Grundlage.
-Ein globales Linienmuster oder andere Hintergrundtexturen gibt es nicht.
+Ein globales Linienmuster oder andere Hintergrundtexturen gibt es nicht. Die
+Stitch-Referenz ergänzt Inhaltsideen und Bildrhythmus, ohne ihre Optik zu übernehmen.
 
 ## Aktueller Stand
 
@@ -17,7 +18,8 @@ Die zusätzliche Trennung schafft Platz für Fragen, ohne den Einstieg zu verän
 | `styles/editorial-identity.css` | Einstieg, Seitenauftakte und Wissensinhalte |
 | `styles/learning-identity.css` | Lernkomponenten und vollständige Farbzustände |
 | `styles/workspace.css` | Verfügbare Lernhöhe, Werkzeugdialoge und kleine Viewports |
-| `styles/accessibility.css` | Präferenzen für Textgröße, Bewegung, Kontrast und Farben |
+| `styles/accessibility.css` | Kompaktes Menü, Textgröße, Kontrast und Statusfarben |
+| `styles/learning-overview.css` | Persönliche Kennzahlen, Katalogkarten und Bildabschnitt |
 
 Die bestehenden funktionalen Basis-Styles werden weiterverwendet. Es gibt
 keine Frameworkmigration, keinen neuen Build und keine zusätzlichen Bibliotheken.

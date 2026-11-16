@@ -9,16 +9,13 @@
 
 (() => {
   const key = 'lhundg-accessibility-v1';
-  const systemMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const choices = {
     textSize: ['normal', 'large', 'larger'],
-    motion: ['system', 'reduced', 'off'],
-    comfort: ['expressive', 'simple'],
     contrast: ['normal', 'high'],
     colorVision: ['default', 'blue-amber']
   };
   const defaults = Object.freeze({
-    textSize: 'normal', motion: 'system', comfort: 'expressive', contrast: 'normal', colorVision: 'default'
+    textSize: 'normal', contrast: 'normal', colorVision: 'default'
   });
 
   /**
@@ -45,9 +42,9 @@
 
   /** @returns {void} Synchronisiert Dokumentattribute und informiert aktive Bedienelemente. */
   function apply() {
-    Object.assign(document.documentElement.dataset, preferences, {
-      motion: preferences.motion === 'system' ? (systemMotion.matches ? 'reduced' : 'full') : preferences.motion
-    });
+    Object.assign(document.documentElement.dataset, preferences);
+    delete document.documentElement.dataset.motion;
+    delete document.documentElement.dataset.comfort;
     window.dispatchEvent(new CustomEvent('lhundg:accessibility-change'));
   }
 
@@ -73,6 +70,5 @@
   window.LHUNDG_ACCESS = {
     normalize, defaults, get: () => ({ ...preferences }), set, reset: () => set(defaults)
   };
-  systemMotion.addEventListener('change', apply);
   apply();
 })();

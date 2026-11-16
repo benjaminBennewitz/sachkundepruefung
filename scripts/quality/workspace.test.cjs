@@ -46,7 +46,7 @@ function preferences({ saved = null, blocked = false } = {}) {
 test('Ungültige Präferenzen und fremde Schlüssel werden nicht ins Dokument übernommen', () => {
   const env = preferences({ saved: '{"textSize":"huge","motion":"off","unknown":"bad","contrast":"high"}' });
   assert.equal(env.access.get().textSize, 'normal');
-  assert.equal(env.document.documentElement.dataset.motion, 'off');
+  assert.equal(env.document.documentElement.dataset.motion, undefined);
   assert.equal(env.document.documentElement.dataset.contrast, 'high');
   assert.equal(env.document.documentElement.dataset.unknown, undefined);
   assert.equal(env.values.get('learning-progress'), 'unverändert');
@@ -61,15 +61,13 @@ test('Gesperrter Speicher verhindert weder Schriftvergrößerung noch Zurückset
   assert.equal(env.values.get('learning-progress'), 'unverändert');
 });
 
-test('Systembewegung wird respektiert; ein ausdrückliches Aus bleibt bei Systemwechseln erhalten', () => {
-  const env = preferences();
-  env.motion.matches = true;
-  env.motion.changed();
-  assert.equal(env.document.documentElement.dataset.motion, 'reduced');
-  env.access.set({ motion: 'off' });
-  env.motion.matches = false;
-  env.motion.changed();
-  assert.equal(env.document.documentElement.dataset.motion, 'off');
+test('Entfernte Bewegungs- und Oberflächenoptionen werden auch aus alten Speicherständen verworfen', () => {
+  const env = preferences({ saved: '{"textSize":"large","motion":"off","comfort":"simple"}' });
+  assert.equal(env.access.get().textSize, 'large');
+  assert.equal(env.access.get().motion, undefined);
+  assert.equal(env.access.get().comfort, undefined);
+  assert.equal(env.document.documentElement.dataset.motion, undefined);
+  assert.equal(env.document.documentElement.dataset.comfort, undefined);
 });
 
 test('Alte Prüfungslinks behalten Modus, Fragenfolge und TV-Parameter', () => {

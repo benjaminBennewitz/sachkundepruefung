@@ -21,14 +21,15 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="icon" href="favicon.png" type="image/png" sizes="96x96">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <script src="scripts/ui/accessibility-state.js?v=55"></script>
+  <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
   <link rel="stylesheet" href="styles/tokens.css?v=54">
   <link rel="stylesheet" href="styles/interface.css?v=49">
   <link rel="stylesheet" href="styles/navigation.css?v=52">
-  <link rel="stylesheet" href="styles/character.css?v=55">
+  <link rel="stylesheet" href="styles/character.css?v=56">
   <link rel="stylesheet" href="styles/editorial-identity.css?v=54">
-  <link rel="stylesheet" href="styles/accessibility.css?v=55">
+  <link rel="stylesheet" href="styles/accessibility.css?v=56">
+  <link rel="stylesheet" href="styles/learning-overview.css?v=56">
 
 
   <link rel="stylesheet" href="styles/foundations.css?v=46">
@@ -105,7 +106,7 @@
           und wiederhole gezielt deine Fehler.</p>
         <div class="hero-links">
           <a class="primary button" href="lernen.html#trainer">Jetzt lernen <span aria-hidden="true">↗</span></a>
-          <a href="grundlagen.html">Grundlagen lesen →</a>
+          <a href="#kataloge">Katalog wählen →</a>
         </div>
         <p class="hero-warning">Unabhängige Lernhilfe · keine behördliche Prüfung oder Bescheinigung.</p>
         <p class="hero-principles">Kostenlos. Ohne Konto. Ohne Werbung.</p>
@@ -125,14 +126,90 @@
     </section>
     <!-- BLOCK END: Einstieg für Mensch und Hund -->
     <!--legal-disclaimer:start--><!--legal-disclaimer:end-->
-    <section id="trainer" class="start-learning wrap" aria-labelledby="trainerTitle">
-      <div><p class="eyebrow">01 / Dein Lernplatz</p><h2 id="trainerTitle">In Ruhe lernen.<br>Gezielt üben.</h2>
-        <p>Fragenkataloge, Merkliste und Testreihen haben jetzt ihren eigenen Lernbereich.</p></div>
-      <a class="primary button" href="lernen.html">Lernbereich öffnen <span aria-hidden="true">↗</span></a>
+    <!-- BLOCK START: Persönlicher Lernüberblick -->
+    <section id="trainer" class="learning-overview wrap" aria-labelledby="trainerTitle">
+      <div id="learningOverview">
+        <div class="overview-heading"><div><p class="eyebrow">01 / Dein Lernplatz</p>
+          <h2 id="trainerTitle" data-overview-title>Dein Lernüberblick</h2></div>
+          <a class="primary button" href="lernen.html" data-overview-continue>Weiterlernen ↗</a></div>
+        <dl class="overview-kpis">
+          <div><dt>Beantwortet</dt><dd data-overview="answered">—</dd></div>
+          <div><dt>Richtig geprüft</dt><dd data-overview="correct">—</dd></div>
+          <div><dt>Zum Wiederholen</dt><dd data-overview="wrong">—</dd></div>
+          <div><dt>Gemerkt</dt><dd data-overview="bookmarked">—</dd></div>
+        </dl>
+        <p class="overview-note" data-overview-note>Dein Überblick wird beim nächsten Lernen aktualisiert.</p>
+        <p class="microcopy">Ein Katalog, ein Lernstand. Kein Zusammenzählen überlappender Fragen, keine Prüfungsvorhersage.</p>
+      </div>
     </section>
+    <!-- BLOCK END: Persönlicher Lernüberblick -->
+    <!-- BLOCK START: Direkte Katalog- und Testauswahl -->
+    <section id="kataloge" class="catalogue-section wrap" aria-labelledby="cataloguesTitle">
+      <div class="catalogue-heading"><div><p class="eyebrow">02 / Wähle deinen Einstieg</p>
+        <h2 id="cataloguesTitle">Dein Katalog.<br>Dein Tempo.</h2></div>
+        <p>Sechs getrennte Lernbereiche. Wähle die Quelle, mit der du dich vorbereiten möchtest.</p></div>
+      <div class="catalogue-grid">
+        <article class="catalogue-card" data-catalogue-mode="all" data-question-count="400">
+          <p class="catalogue-count"><strong>400</strong> Fragen</p>
+          <h3>Alle Quellen</h3><p>Der Gesamtpool mit Quellenvarianten und eigenem Lernstand.</p>
+          <a href="lernen.html?mode=all" data-catalogue-start>Katalog öffnen <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="catalogue-card" data-catalogue-mode="mg" data-question-count="398">
+          <p class="catalogue-count"><strong>398</strong> Fragen</p>
+          <h3>§-3-Basispool</h3><p>Zusammengestellter Basispool aus den bereitgestellten Quellen.</p>
+          <a href="lernen.html?mode=mg" data-catalogue-start>Katalog öffnen <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="catalogue-card" data-catalogue-mode="koeln" data-question-count="115">
+          <p class="catalogue-count"><strong>115</strong> Fragen</p>
+          <h3>Köln · A / B / C</h3><p>Bereitgestellter Übungsbogen mit seinen Originalnummern.</p>
+          <a href="lernen.html?mode=koeln" data-catalogue-start>Katalog öffnen <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="catalogue-card" data-catalogue-mode="rhein97" data-question-count="97">
+          <p class="catalogue-count"><strong>97</strong> Fragen</p>
+          <h3>Rhein-Erft · 97</h3><p>Zugesandte Fassung mit eigenem Lösungsschlüssel.</p>
+          <a href="lernen.html?mode=rhein97" data-catalogue-start>Katalog öffnen <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="catalogue-card" data-catalogue-mode="legacy203" data-question-count="203">
+          <p class="catalogue-count"><strong>203</strong> Fragen</p>
+          <h3>Rhein-Erft · 203</h3><p>Veröffentlichter Katalog, getrennt von der 97er-Fassung.</p>
+          <a href="lernen.html?mode=legacy203" data-catalogue-start>Katalog öffnen <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="catalogue-card" data-catalogue-mode="kammer197" data-question-count="197">
+          <p class="catalogue-count"><strong>197</strong> Fragen</p>
+          <h3>Tierärztekammern</h3><p>§-11-Lernkatalog für große Hunde; ergänzendes Wissen für § 3.</p>
+          <a href="lernen.html?mode=kammer197" data-catalogue-start>Katalog öffnen <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+      <div class="test-launcher" aria-labelledby="quickTestsTitle">
+        <div><h3 id="quickTestsTitle">Lieber einen Probelauf?</h3>
+          <p>Übungsprofile mit unterschiedlichen Quellen und Bedingungen. Keine amtlichen Originalprüfungen.</p></div>
+        <div class="test-shortcuts">
+          <a href="lernen.html?mode=exam34"><strong>34</strong><span>Rhein-Erft-Übung</span></a>
+          <a href="lernen.html?mode=mgexam"><strong>119</strong><span>MG-Simulation</span></a>
+          <a href="lernen.html?mode=exam11"><strong>30</strong><span>§-11-Übung</span></a>
+          <a href="lernen.html?mode=essenexam"><strong>50</strong><span>Essen · geschätztes Beispiel</span></a>
+        </div>
+        <a href="gut-zu-wissen.html#testreihen">Quellen und Bedingungen der Testreihen →</a>
+      </div>
+    </section>
+    <!-- BLOCK END: Direkte Katalog- und Testauswahl -->
+    <!-- BLOCK START: Bildabschnitt und Lernwege -->
+    <section class="learning-story wrap" aria-labelledby="learningStoryTitle">
+      <div><p class="eyebrow">03 / Wissen im Alltag</p>
+        <h2 id="learningStoryTitle">Es geht um mehr<br>als die Prüfung.</h2>
+        <p>Verhalten verstehen, Begegnungen aufmerksam begleiten und Verantwortung übernehmen.
+          Unsere Grundlagen verbinden die Themen der Fragenkataloge mit dem Leben mit Hund.</p>
+        <ul><li>Fehler gezielt wiederholen.</li><li>Bei ausgewählten Fragen die Antwort verstehen.</li>
+          <li>Quellen und kommunale Unterschiede einordnen.</li></ul>
+        <a href="grundlagen.html">In die Grundlagen einlesen →</a></div>
+      <figure><img src="assets/public/miteinander-platzhalter.webp" width="1200" height="800"
+          alt="KI-Bildplatzhalter: eine Hündin liegt entspannt neben einem Menschen auf einem Weg."
+          loading="lazy" decoding="async"><figcaption>Platz für ein persönliches Bild · KI-Platzhalter</figcaption></figure>
+    </section>
+    <!-- BLOCK END: Bildabschnitt und Lernwege -->
     <section class="info-section wrap" aria-labelledby="trainerFaqTitle">
       <div class="section-intro">
-        <p class="eyebrow">02 / Gut vorbereitet</p>
+        <p class="eyebrow">04 / Gut vorbereitet</p>
         <h2 id="trainerFaqTitle">Sachkunde,<br>kurz erklärt.</h2>
       </div>
       <div class="faq-grid">
@@ -183,7 +260,7 @@
     </section>
     <section class="support-section wrap">
       <div>
-        <p class="eyebrow">03 / Wissen teilen statt verkaufen</p>
+        <p class="eyebrow">05 / Wissen teilen statt verkaufen</p>
         <h2>Für dich kostenlos.<br>Mit deiner Hilfe für viele.</h2>
       </div>
       <div class="support-action"><a data-paypal class="primary button" href="#" rel="noopener noreferrer external"
@@ -215,9 +292,10 @@
     <p class="wrap context-note">Der interaktive Trainer benötigt JavaScript. Die <a
         href="quellen.html">Originalquellen</a> kannst du auch ohne JavaScript öffnen.</p>
   </noscript>
+  <script src="scripts/ui/learning-overview.js?v=56" defer></script>
   <script src="scripts/ui/learning-entry.js?v=55" defer></script>
   <script src="scripts/site-config.js?v=38" defer></script>
-  <script src="scripts/ui/shared.js?v=55" defer></script>
+  <script src="scripts/ui/shared.js?v=56" defer></script>
   <script src="scripts/ui/modal.js?v=43" defer></script>
   <script src="scripts/ui/story.js?v=1" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
@@ -225,7 +303,7 @@
   <script src="scripts/ui/support.js?v=38" defer></script>
   <script src="scripts/ui/navigation.js?v=51" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
-  <script src="scripts/ui/accessibility-panel.js?v=55" defer></script>
+  <script src="scripts/ui/accessibility-panel.js?v=56" defer></script>
   <script src="scripts/ui/common.js?v=55" defer></script>
   <script src="scripts/ui/select-view.js?v=55" defer></script>
   <script src="scripts/ui/select-keyboard.js?v=38" defer></script>

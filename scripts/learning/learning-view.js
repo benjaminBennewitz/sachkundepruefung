@@ -119,6 +119,7 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
     progress.max = total;
     progress.textContent = `${percent} %`;
     progress.setAttribute('aria-label', `${answered} von ${total} Fragen beantwortet`);
+    window.LHUNDG_TRAINER.Insights?.refresh(this.session);
   }
 
   /** Synchronisiert Farben, Markierung und zugängliche Beschriftung eines Fragenverweises. */

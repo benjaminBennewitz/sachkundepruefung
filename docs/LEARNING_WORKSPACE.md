@@ -17,7 +17,7 @@ Eintrag; Prüfungs- und TV-Varianten bleiben wie bisher noindex.
 
 ## Bildschirmhöhe und Scrollverhalten
 
-Auf Desktop ab 1000 Pixel Breite und 620 Pixel Höhe besteht die Lernseite aus
+Auf Desktop ab 1000 Pixel Breite und 720 Pixel Höhe besteht die Lernseite aus
 zwei Grid-Zeilen: tatsächlich hohe Kopfzeile und verbleibender Lernraum.
 Die Seite nutzt `100dvh`; das Padding liegt innerhalb dieser Höhe. Es gibt
 keinen zweiten Abzug einer geschätzten Kopfzeile oder einer großen Überschrift.
@@ -64,18 +64,16 @@ Dialog, ohne Angular oder zusätzliche Abhängigkeiten.
 
 | Einstellung | Verhalten |
 | --- | --- |
-| Textgröße | 100 %, 112,5 % oder 125 %; bei Vergrößerung freier Seitenfluss |
-| Bewegung | Systempräferenz, reduziert oder aus; gilt auch für JS-Akkordeons |
-| Oberfläche | Gestaltet oder ruhiger Einstieg mit reduziertem Bild-/Titelumfang |
+| Textgröße | 100 %, 125 % oder 150 %; bei Vergrößerung freier Seitenfluss |
 | Kontrast | Zusätzliche Kontrastrollen für helles und dunkles Schema |
 | Statusfarben | Standard oder Blau/Orange; keine medizinische Farbsehkorrektur behauptet |
 | Vorlesen | Sichtbare Frage samt Antworten oder redaktionelle Hauptinhalte |
-| Ruhige Darstellung | Bewegung aus, ruhige Oberfläche und hoher Kontrast |
 | Zurücksetzen | Nur A11y-Präferenzen zurücksetzen, Lernstände bleiben erhalten |
 
 Die Einstellungen werden unter `lhundg-accessibility-v1` gespeichert. Gesperrter
 Speicher verhindert die aktuelle Anwendung nicht. Fremde oder ungültige
-Speicherwerte werden verworfen. Standardbewegung folgt der Systempräferenz.
+Speicherwerte werden verworfen. Bewegung folgt automatisch der Systempräferenz; zusätzliche Bewegungs- und
+Oberflächenoptionen sind nicht mehr im Menü. Alte Werte werden nicht mehr angewendet.
 
 Vorlesen startet nur auf ausdrücklichen Klick und ausschließlich mit einer
 vom Browser als lokal gemeldeten deutschen Stimme. Fehlt diese, wird dies
@@ -90,10 +88,11 @@ Grundlagen; externe Verbindungen werden dadurch nicht freigegeben.
 
 ## Prüfung
 
-- 73 Tests ausgeführt: 67 bestanden. Die neun neuen Tests bestehen vollständig.
+- 81 Tests ausgeführt: 75 bestanden. Die 17 Tests zu Lernwerkzeugen und
+  Kennzahlen bestehen vollständig.
   Die sechs bestehenden Fehler betreffen weiterhin fehlende Alt-Assets in der
   bereitgestellten Projekt-ZIP. Keine Aufgabenbilder wurden erfunden oder ersetzt.
-- Neue Tests prüfen Speichergrenzen und Rücksetzen, Systembewegung, erhaltene
+- Neue Tests prüfen Speichergrenzen und Rücksetzen, bereinigte Altdaten, erhaltene
   Lernparameter, lokale Stimmen, Ausschluss verborgener Lösungen, Stoppen alter
   Sprachaufträge und den Dialog-/Farbkontext der Select-Menüs.
 - SEO-Prüfung für acht Seiten erfolgreich. Statische HTML-/CSS-Verweise werden
@@ -108,7 +107,7 @@ Grundlagen; externe Verbindungen werden dadurch nicht freigegeben.
   Übernahme lokal kontrollieren. Eine pauschale WCAG-Konformität wird nicht behauptet.
 
 Empfohlene lokale Prüfung: 1440×900, 1366×768, 1024×768, 390×844 und 320×640;
-Light/Dark/Systemmodus, Textgröße 125 %, Browserzoom 200 %, Fokus/Liste/TV,
+Light/Dark/Systemmodus, Textgröße 150 %, Browserzoom 200 %, Fokus/Liste/TV,
 lange Fragen und Abbildungen, alle Select-Zustände, Merkliste, Fragenraster,
 Testneustart mit Bestätigung sowie Wechsel zwischen beiden Farbpaletten.
 
@@ -120,3 +119,43 @@ wird nicht verändert. Die vorhandenen Bild-Assets weiterverwenden. Vor dem
 nächsten Deployment das aktualisierte Serverskript gemäß `deployment/README.md`
 erneut installieren. Das lokale Archiv-CMD nimmt jetzt auch `lernen.html` auf.
 Es wurde nichts committed oder veröffentlicht.
+
+## Ergänzung V56: Lernüberblick und Inhalte aus der Stitch-Referenz
+
+Die Referenz liefert die Idee für persönliche Kennzahlen, direkte Katalogkarten,
+separate Übungsprofile und einen Bildabschnitt. Farben, Typografie und Formensprache
+bleiben die vorhandene Apricot-Identität. Zahlen und unzutreffende Prüfungsaussagen
+der Referenz wurden nicht übernommen.
+
+Die Begrüßungsseite zeigt sechs echte Kataloge und vier vorhandene Testprofile mit
+deren aktuellen Größen. Der neue Lernüberblick bezieht sich ausschließlich auf den
+zuletzt verwendeten Katalog. Die Kataloge werden wegen ihrer überlappenden Fragen
+nicht zusammengerechnet. Geprüft richtig/falsch setzt eine vollständige Antwort
+und eine noch gültige Prüfsignatur voraus. Eine Übungsquote ist keine Vorhersage
+für eine Prüfung. In laufenden Prüfungssimulationen bleiben die zusätzlichen
+Kennzahlen verborgen.
+
+Der Trainer schreibt unter `lhundg-overview-v1` eine kleine lokale Zusammenfassung
+ohne Einzelantworten, Zeitstempel oder Verlauf. Nur veränderte Zähler werden erneut
+gespeichert. Die Startseite lädt dafür weiterhin keine großen Fragenbestände.
+Ohne gültige Zusammenfassung erscheinen Gedankenstriche mit Erklärung; ein
+vorhandener alter Lernstand wird beim nächsten Öffnen des Katalogs berücksichtigt.
+
+Das A11y-Panel wurde auf Schriftgröße, Kontrast, Statusfarben und Vorlesen gekürzt.
+Die Basisschrift verwendet jetzt `rem` statt einer festen Pixelgröße. Die zuvor
+pauschal erzwungene zusätzliche Navigationszeile bei Textvergrößerung entfällt;
+die Navigation kann bei tatsächlichem Platzmangel umbrechen. Vergrößerte Inhalte
+bleiben weiterhin im freien Dokumentfluss erreichbar.
+
+Zusätzlicher Bildplatzhalter: `assets/public/miteinander-platzhalter.webp`,
+1200 × 800 Pixel. Mit dem Bildgenerator erstelltes natürliches Motiv: gestromte
+Hündin mit weißer Brust und begleitender Hand auf einem ruhigen Weg, warmes Licht,
+Waldgrün und erdige Apricot-Töne, ohne Schrift und Logos. Sichtbar als KI-Platzhalter
+gekennzeichnet, später durch ein eigenes Foto zu ersetzen. Das ursprüngliche
+persönliche Geschichtenbild wurde nicht verändert.
+
+Dieses Folgepatch setzt `Sachkundetrainer_Lernarbeitsplatz_A11y_Patch.zip` voraus.
+Es enthält nur die seitdem geänderten oder neuen Dateien. Neue Module, Styles und
+das zusätzliche WebP sind in der strikten Deployment-Dateiliste berücksichtigt.
+Die visuelle Browserprüfung sowie ein praktischer Vergleich der Schriftgrößen
+auf den Zielgeräten bleiben offen; Struktur- und Funktionstests ersetzen sie nicht.

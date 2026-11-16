@@ -1,0 +1,359 @@
+/*###############################
+###
+###     learning-overview.css
+###     Hunde-Sachkundetrainer NRW
+###     BASED ON: HTML5, CSS3, JavaScript
+###     AUTHOR: Benjamin Bennewitz
+###
+###
+###       ██████╗  ▀█
+###       ██╔══██╗ █▄
+###       ██████╦╝
+###       ██╔══██╗
+###       ██████╦╝
+###       ╚═════╝
+###
+#################################*/
+
+/* ===========================================================================
+   INHALTSVERZEICHNIS
+   01   Persönlicher Lernüberblick
+   02   Kataloge und Übungsprofile
+   03   Persönlicher Bildabschnitt
+   04   Kompakte Kennzahlen im Trainer
+   05   Kleine Viewports und Druck
+   ========================================================================== */
+
+/* ===========================================================================
+   01   Persönlicher Lernüberblick
+   ========================================================================== */
+
+@media screen {
+  .learning-overview {
+    margin-top: 32px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+  }
+
+  .overview-heading, .catalogue-heading {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px 32px;
+  }
+
+  .overview-heading h2 {
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  }
+
+  .overview-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin: 24px 0 18px;
+  }
+
+  .overview-kpis > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+    padding-inline-start: 14px;
+    border-inline-start: 3px solid var(--highlight);
+  }
+
+  .overview-kpis dt {
+    font-size: .78rem;
+    color: var(--muted);
+  }
+
+  .overview-kpis dd {
+    order: -1;
+    margin: 0;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -.045em;
+  }
+
+  .overview-note {
+    font-size: .85rem;
+    font-weight: 650;
+    margin-bottom: 6px;
+  }
+}
+
+/* ===========================================================================
+   02   Kataloge und Übungsprofile
+   ========================================================================== */
+
+@media screen {
+  .catalogue-section {
+    padding-block: 56px 0;
+  }
+
+  .catalogue-heading {
+    align-items: end;
+    margin-bottom: 24px;
+  }
+
+  .catalogue-heading h2 {
+    font-size: clamp(2.1rem, 3.8vw, 3.5rem);
+    line-height: 1.02;
+  }
+
+  .catalogue-heading > p {
+    max-width: 44ch;
+    color: var(--muted);
+    font-size: .95rem;
+  }
+
+  .catalogue-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .catalogue-card {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 12px;
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+  }
+
+  .catalogue-count {
+    color: var(--muted);
+    font-size: .78rem;
+  }
+
+  .catalogue-count strong {
+    color: var(--text);
+    font-size: 2.6rem;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -.05em;
+    margin-inline-end: 6px;
+  }
+
+  .catalogue-card h3 {
+    font-size: 1.45rem;
+  }
+
+  .catalogue-card > p:not(.catalogue-count) {
+    color: var(--muted);
+    font-size: .88rem;
+    line-height: 1.65;
+  }
+
+  .catalogue-card > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 44px;
+    margin-top: 4px;
+    font-size: .85rem;
+    font-weight: 700;
+  }
+
+  .catalogue-card:focus-within {
+    border-color: var(--accent);
+  }
+
+  .test-launcher {
+    display: grid;
+    gap: 20px;
+    margin-top: 24px;
+    padding: 28px;
+    background: var(--brand-forest);
+    color: var(--brand-cream);
+    border-radius: var(--radius-md);
+  }
+
+  .test-launcher h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .test-launcher p {
+    color: var(--brand-soft);
+    font-size: .85rem;
+  }
+
+  .test-launcher > a {
+    color: var(--highlight);
+    width: fit-content;
+    font-size: .83rem;
+  }
+
+  .test-shortcuts {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .test-shortcuts a {
+    display: grid;
+    gap: 8px;
+    padding: 16px;
+    border: 1px solid #78917b;
+    border-radius: var(--radius-sm);
+    color: var(--brand-cream);
+    text-decoration: none;
+    font-size: .8rem;
+  }
+
+  .test-shortcuts a:hover {
+    background: var(--brand-forest-hover);
+    color: var(--brand-cream);
+  }
+
+  .test-shortcuts strong {
+    color: var(--highlight);
+    font-size: 1.9rem;
+    line-height: 1;
+  }
+
+  .test-launcher a:focus-visible {
+    outline-color: var(--highlight);
+  }
+}
+
+/* ===========================================================================
+   03   Persönlicher Bildabschnitt
+   ========================================================================== */
+
+@media screen {
+  .learning-story {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 40px;
+    margin-top: 48px;
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    background: var(--subtle);
+  }
+
+  .learning-story h2 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+
+  .learning-story p:not(.eyebrow), .learning-story li {
+    max-width: 50ch;
+    font-size: .92rem;
+    line-height: 1.75;
+  }
+
+  .learning-story ul {
+    padding-inline-start: 20px;
+    margin-block: 18px;
+  }
+
+  .learning-story figure {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .learning-story img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+  }
+
+  .learning-story figcaption {
+    margin-top: 10px;
+    font-size: .72rem;
+    color: var(--muted);
+  }
+}
+
+/* ===========================================================================
+   04   Kompakte Kennzahlen im Trainer
+   ========================================================================== */
+
+@media screen {
+  .learning-kpis {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin: 0;
+  }
+
+  .learning-kpis > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px 4px;
+    text-align: center;
+    border: 1px solid var(--nav-line);
+    border-radius: var(--radius-sm);
+    background: var(--nav-panel);
+  }
+
+  .learning-kpis dt {
+    color: var(--nav-muted);
+    font-size: .72rem;
+    line-height: 1.1;
+  }
+
+  .learning-kpis dd {
+    order: -1;
+    margin: 0;
+    color: var(--text);
+    font-size: 1.25rem;
+    line-height: 1;
+    font-weight: 800;
+  }
+
+  .learning-insights .microcopy {
+    margin-top: 8px;
+    font-size: .72rem;
+    line-height: 1.35;
+  }
+}
+
+/* ===========================================================================
+   05   Kleine Viewports und Druck
+   ========================================================================== */
+
+@media screen and (max-width: 999px) {
+  .catalogue-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .learning-story {
+    gap: 24px;
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .learning-overview {
+    padding: 20px;
+  }
+
+  .overview-kpis, .test-shortcuts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .catalogue-grid, .learning-story {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .catalogue-card, .test-launcher {
+    padding: 22px;
+  }
+}

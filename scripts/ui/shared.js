@@ -148,9 +148,8 @@
      */
     toggle(opening) {
       const from = this.element.getBoundingClientRect().height;                // Sichtbarer Zwischenstand vor dem Abbruch einer vorherigen Animation.
-      /* Systempräferenz und ausdrücklich reduzierte Bewegung gelten auch für die JS-Animation. */
-      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches ||
-        ['reduced', 'off'].includes(document.documentElement.dataset.motion);
+      /* Die Systempräferenz gilt auch für die JavaScript-Animation des Akkordeons. */
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       this.animation?.cancel();
       this.animation = null;
