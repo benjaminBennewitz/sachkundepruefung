@@ -42,6 +42,26 @@
    02   Bildschirmfüllendes mobiles Menü
    ========================================================================== */
 
+/* Das mobile Raster gilt vor dem DOM-Umbau; ohne JavaScript bleiben die Links sichtbar. */
+@media screen and (scripting: enabled) and (max-width: 800px) {
+  .site-header.wrap {
+    grid-template-columns: minmax(0, 1fr) 44px 44px;
+    gap: 10px;
+    padding-block: 12px;
+  }
+
+  .site-header.wrap > .header-brand-group {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .site-header.wrap > .header-nav,
+  .site-header.wrap > .header-tools,
+  .site-header.wrap > .header-brand-group > .header-project {
+    display: none;
+  }
+}
+
 @media (max-width: 800px) {
   html:has(.has-mobile-navigation) {
     scroll-padding-top: 88px;

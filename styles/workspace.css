@@ -330,21 +330,21 @@
    ========================================================================== */
 
 @media screen and (max-width: 1200px) {
-  .workspace-toolbar .filters {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  .workspace-toolbar .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media screen and (max-width: 600px) {
-  .learning-tool-content .question-nav {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
+  .learning-tool-content .question-nav { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
 
 @media screen and (max-width: 480px) {
-  .workspace-toolbar .filters {
-    grid-template-columns: minmax(0, 1fr);
-  }
+  .workspace-toolbar .filters { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Vor der Bindung gelten dieselben geschlossenen Bereiche wie nach dem Start. */
+@media screen and (scripting: enabled) and (max-width: 999px), screen and (scripting: enabled) and (max-height: 719px) {
+  .workspace-panel-toggle[hidden] { display: flex !important; }
+  .workspace-panel-toggle[hidden] + .workspace-panel-content { display: none; }
 }
 
 @media screen and (max-width: 999px), screen and (max-height: 719px) {
@@ -377,9 +377,7 @@
     overflow: visible;
   }
 
-  .learning-page .sidebar {
-    grid-template-columns: minmax(0, 1fr);
-  }
+  .learning-page .sidebar { grid-template-columns: minmax(0, 1fr); }
 
   .learning-page .workspace-toolbar {
     grid-template-columns: minmax(0, 1fr);
