@@ -204,3 +204,39 @@ Wiederherstellung. Der UI-Aufruf erfolgt erst nach zwei unabhängigen Bestätigu
 Beim Löschen anderer Personen bleiben aktive Lernstände unverändert. Gegenüber anderen
 Tabs verhindern Profilkennung und interne Instanzkennung erneute Schreibzugriffe
 veralteter Sessions. Der Vergleich verwendet ausschließlich die benannten Personen.
+
+
+## Mobile Aktionsbereiche und Fragenübersicht
+
+Lernbereich/Aktionen und Suche/Filter lassen sich auf kompakten Viewports getrennt
+aufklappen. Beide beginnen geschlossen; Desktop zeigt sämtliche Controls. Die
+Steuerung verwendet echte Buttons mit `aria-controls`/`aria-expanded` und dieselben
+Originalcontrols. Beim Verbergen werden zugehörige Select-Menüs geschlossen und
+gegebenenfalls der Fokus zurückgegeben. Die mobile Wahl bleibt beim Fensterwechsel
+innerhalb der aktuellen Seite erhalten. Zusätzlicher Browserspeicher wird nicht benutzt.
+Ein kurzer Hinweis im Filterkopf macht aktive Einschränkungen auch geschlossen sichtbar.
+
+Der Rückweg „Nach oben“ steht im Lernbereich im normalen Footerfluss unter der
+Fragennavigation. Er kann deshalb keine Weiter-Aktion überdecken. Auf anderen Seiten
+bleibt die vorhandene schwebende Scrolltaste erhalten.
+
+Die Fragenübersicht reicht ihre Originallegende an den optionalen fixierten Kopf des
+gemeinsamen Modals weiter. Titel, Schließen-Button, Einleitung und Legende bleiben beim
+Scrollen sichtbar. Beim Schließen kehrt die Legende vor das ursprüngliche Fragenraster
+zurück. Auf sehr niedrigen Displays und bei stärkster Textvergrößerung bleibt der Kopf
+im normalen Fluss, damit die Nummern erreichbar sind.
+
+Schließen-Symbole werden zentral als geometrische CSS-Kreuze mit dekorativer Semantik
+erzeugt. Dialoge, Meldungen, Suchfeld und mobile Navigation verwenden denselben Helfer.
+Die Beschriftungen und vorhandenen Tastatur-/Fokusregeln bleiben erhalten.
+
+### Prüfung der Ressourcen
+
+Statische Prüfung am 17. November 2026: Alle automatisch eingebundenen HTML-Assets
+liegen lokal; keine externen Stylesheets, Fontdateien, Iconfonts, Preconnects oder
+Google-API-Einbindungen gefunden. Die Gestaltung nutzt Systemschriften sowie lokale
+SVGs, Inline-SVGs, CSS-Symbole und einzelne Systemschriftzeichen. Der einzige gefundene
+Fetch-Aufruf lädt `grundlagen.html` vom eigenen Ursprung. Quellen- und PayPal-Links
+sind externe Linkziele, keine automatisch nachgeladenen Schrift- oder Iconressourcen.
+Die vorhandene CSP beschränkt Ressourcen und Verbindungen auf den eigenen Ursprung.
+Die Prüfung ersetzt keinen Netzwerkmitschnitt im Browser.

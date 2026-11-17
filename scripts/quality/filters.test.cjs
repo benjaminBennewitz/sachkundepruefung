@@ -193,3 +193,12 @@ test('Merkliste bleibt leer bedienbar, und die Filterbindung verbindet ihren dir
   assert.equal(session.state.status, 'bookmarked');
   assert.equal(get('showBookmarks').attributes.get('aria-pressed'), 'true');
 });
+
+
+test('Der kompakte Filterkopf macht auch eingeklappte Einschränkungen erkennbar', () => {
+  const p = environment();
+  p.filters.apply();
+  assert.equal(p.get('filterToggleSummary').textContent, 'Alle Fragen');
+  p.filters.setFilter('status', 'bookmarked');
+  assert.equal(p.get('filterToggleSummary').textContent, '0 Treffer · aktiv');
+});

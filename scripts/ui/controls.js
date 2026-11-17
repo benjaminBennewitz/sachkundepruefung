@@ -83,10 +83,11 @@
     const label = ui.node('label', 'Fragen durchsuchen');  // Bisheriger sichtbarer Beschriftungstext.
     const frame = ui.node('div', '', 'search-control');    // Rahmen für Symbol, unveränderten Input und Löschbutton.
     const icon = ui.node('span', '', 'search-symbol');     // Rein dekoratives Suchsymbol aus den vorhandenen Styles.
-    const clear = ui.node('button', '×', 'search-clear');  // Eigenständig bedienbarer Löschbutton.
+    const clear = ui.node('button', '', 'search-clear');
 
     label.htmlFor = search.id;
     icon.setAttribute('aria-hidden', 'true');
+    clear.append(ui.closeIcon());
     configureClear(clear, search);
     oldLabel.replaceWith(group);
     frame.append(icon, search, clear);

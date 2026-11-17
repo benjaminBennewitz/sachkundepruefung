@@ -25,6 +25,13 @@
     return element;
   }
 
+  /** @returns {HTMLElement} Rein geometrisches, dekoratives Schließen-Symbol ohne Schrift oder externe Ressource. */
+  function closeIcon() {
+    const icon = node('span', '', 'ui-close-icon');
+    icon.setAttribute('aria-hidden', 'true');
+    return icon;
+  }
+
   /**
    * Ergänzt das lokale PayPal-Zeichen, ohne Linktext oder Ziel zu verändern.
    *
@@ -242,5 +249,5 @@
   }
 
   // Interne Bausteine werden in stabiler Script-Reihenfolge ergänzt; die öffentliche API entsteht in common.js.
-  window.LHUNDG_UI_PARTS = { node, decoratePaypalLink, bindTheme, bindDetails };
+  window.LHUNDG_UI_PARTS = { node, closeIcon, decoratePaypalLink, bindTheme, bindDetails };
 })();

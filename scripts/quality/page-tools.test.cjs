@@ -49,27 +49,30 @@ test('FAQ öffnet stets nur einen Eintrag derselben Gruppe; andere Details bleib
 });
 
 /** Richtet eine Seite mit einem Ortsprofil und der gemeinsamen Scrollaktion ein. */
-function page() {
+function page({ learning = false } = {}) {
   const city = detail(null);
   const content = {};
   city.querySelector = selector => selector === '.city-content' ? content : city.summary;
   city.append = node => { city.restored = node; };
   const listeners = {};
   const controls = [];
+  const placements = [];
   const calls = [];
-  const ui = { node: () => ({ handlers: {}, setAttribute() {},
+  const ui = { node: (tag, text) => ({ textContent: text, handlers: {}, setAttribute() {},
     addEventListener(name, handler) { this.handlers[name] = handler; } }) };
   const window = { LHUNDG_UI_PARTS: ui, scrollY: 0,
     addEventListener(name, handler) { listeners[name] = handler; },
     scrollTo(options) { calls.push(options); } };
   const document = { querySelectorAll: () => [city],
-    body: { append(node) { controls.push(node); } },
+    getElementById: id => learning && id === 'learningScrollTop' ?
+      { append(node) { controls.push(node); placements.push('learning'); } } : null,
+    body: { append(node) { controls.push(node); placements.push('body'); } },
     querySelector: () => ({ focus() { calls.push('focus'); } }) };
   load('page-tools', { window, document, matchMedia: () => ({ matches: true }) });
   let close;
   let dialog;
   ui.bindPageTools({ open(options) { dialog = options; return new Promise(resolve => { close = resolve; }); } });
-  return { window, city, content, controls, calls, listeners, close: () => close('close'), get dialog() { return dialog; } };
+  return { window, city, content, controls, placements, calls, listeners, close: () => close('close'), get dialog() { return dialog; } };
 }
 
 test('Ortsinhalt öffnet im gemeinsamen Dialog und kehrt in den geschlossenen Eintrag zurück', async () => {
@@ -96,4 +99,14 @@ test('Zum-Seitenanfang erscheint erst nach Scrollen und berücksichtigt reduzier
   assert.equal(p.calls[0].top, 0);
   assert.equal(p.calls[0].behavior, 'auto');
   assert.equal(p.calls[1], 'focus');
+});
+
+
+test('Im Lernbereich liegt der Rückweg im vorgesehenen Footer-Platz statt über der Navigation', () => {
+  const p = page({ learning: true });
+  assert.deepEqual(p.placements, ['learning']);
+  assert.equal(p.controls[0].textContent, 'Nach oben ↑');
+  p.window.scrollY = 500;
+  p.listeners.scroll();
+  assert.equal(p.controls[0].hidden, false);
 });

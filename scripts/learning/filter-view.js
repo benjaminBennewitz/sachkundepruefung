@@ -187,6 +187,7 @@ window.LHUNDG_TRAINER.FilterView = class FilterView {
   updateSummary() {
     const active = Boolean(this.state.search || this.state.status !== 'all' || this.state.category !== 'all');  // Mindestens eine Einschränkung ist gesetzt.
 
+    this.dom.get('filterToggleSummary').textContent = active ? `${this.state.items.length} Treffer · aktiv` : 'Alle Fragen';
     this.dom.get('clearFilters').hidden = !active;
     this.dom.get('filterResults').hidden = !active;
     this.dom.get('matchCount').hidden = !active;

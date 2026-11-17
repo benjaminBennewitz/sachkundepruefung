@@ -28,6 +28,7 @@
    * @property {HTMLElement} [content] Optionaler Inhalt aus einer lokalen, vertrauenswürdigen Projektseite.
    * @property {ModalAction[]} actions Verfügbare Dialogaktionen.
    * @property {HTMLElement} [returnFocus] Fokusziel nach dem Schließen.
+   * @property {HTMLElement} [stickyHeader] Bestehender Zusatzinhalt im beim Scrollen fixierten Dialogkopf.
    * @property {boolean} [closeButton] Zeigt einen beschrifteten Schließen-Button neben dem Titel.
    */
 
@@ -110,22 +111,29 @@
     buildCard(options) {
       const card = ui.node('div', '', 'ui-modal-inner');  // Gemeinsamer Rahmen für Texte und Aktionen.
 
+      const header = options.stickyHeader ? ui.node('div', '', 'ui-modal-sticky-header') : card;
+
       // Der Kontext über der Überschrift ist optional.
-      if (options.eyebrow) card.append(ui.node('p', options.eyebrow, 'eyebrow'));
+      if (options.eyebrow) header.append(ui.node('p', options.eyebrow, 'eyebrow'));
 
       if (options.closeButton) {
         const heading = ui.node('div', '', 'ui-modal-heading');
-        const close = ui.node('button', '×', 'icon-button ui-modal-close');
+        const close = ui.node('button', '', 'icon-button ui-modal-close');
+        close.append(ui.closeIcon());
         close.type = 'button';
         close.setAttribute('aria-label', 'Dialog schließen');
         close.title = 'Schließen';
         close.addEventListener('click', () => this.dialog.close('close'));
         heading.append(this.title(options.title), close);
-        card.append(heading);
+        header.append(heading);
       } else {
-        card.append(this.title(options.title));
+        header.append(this.title(options.title));
       }
-      card.append(this.message(options.message));
+      header.append(this.message(options.message));
+      if (options.stickyHeader) {
+        header.append(options.stickyHeader);
+        card.append(header);
+      }
       /* Eingehängte Projektinhalte behalten native Links und Überschriften ohne HTML-Interpolation. */
       if (options.content) card.append(options.content);
       card.append(this.actions(options.actions));

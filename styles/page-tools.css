@@ -19,6 +19,7 @@
    INHALTSVERZEICHNIS
    01   Ortsübersicht und Bildausschnitt
    02   Zum Seitenanfang
+   03   Lokale Schließen-Symbole
    ========================================================================== */
 
 /* ===========================================================================
@@ -107,3 +108,30 @@
 @media print {
   .scroll-top { display: none; }
 }
+
+
+/* ===========================================================================
+   03   Lokale Schließen-Symbole
+   ========================================================================== */
+
+.ui-close-icon { display: block; position: relative; flex: 0 0 18px; width: 18px; height: 18px; }
+.ui-close-icon::before, .ui-close-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.ui-close-icon::after { transform: translate(-50%, -50%) rotate(-45deg); }
+:is(.ui-modal-close, .toast-close, .search-clear, .mobile-navigation-close) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+:is(.ui-modal-close, .toast-close, .search-clear) { padding: 0; }
+.mobile-navigation-close { gap: 8px; }

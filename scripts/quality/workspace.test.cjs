@@ -190,6 +190,7 @@ test('Optionaler Dialog-Schließen-Button ist beschriftet und schließt dieselbe
         addEventListener(name, handler) { this.handlers[name] = handler; } };
     }
   };
+  ui.closeIcon = () => ui.node('span', '', 'ui-close-icon');
   load('modal', { window: { LHUNDG_UI_PARTS: ui } });
   const modal = Object.create(ui.Modal.prototype);
   let closed;
@@ -198,8 +199,15 @@ test('Optionaler Dialog-Schließen-Button ist beschriftet und schließt dieselbe
   const close = card.children[0].children.find(child => child.tag === 'button');
   assert.equal(close.attributes['aria-label'], 'Dialog schließen');
   assert.equal(close.type, 'button');
+  assert.equal(close.children[0].className, 'ui-close-icon');
   close.handlers.click();
   assert.equal(closed, 'close');
   const regular = modal.buildCard({ title: 'Hinweis', message: 'Weiterlernen.', actions: [] });
   assert.equal(regular.children[0].tag, 'h2');
+  const legend = ui.node('div', '', 'nav-legend');
+  const sticky = modal.buildCard({ title: 'Fragenübersicht', message: 'Frage wählen.', closeButton: true,
+    stickyHeader: legend, content: ui.node('div', '', 'learning-tool-content'), actions: [] });
+  assert.equal(sticky.children[0].className, 'ui-modal-sticky-header');
+  assert.equal(sticky.children[0].children.at(-1), legend);
+  assert.equal(sticky.children[1].className, 'learning-tool-content');
 });

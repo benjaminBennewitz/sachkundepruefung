@@ -29,12 +29,12 @@
   <link rel="stylesheet" href="styles/character.css?v=62">
   <link rel="stylesheet" href="styles/editorial-identity.css?v=62">
   <link rel="stylesheet" href="styles/accessibility.css?v=58">
-  <link rel="stylesheet" href="styles/page-tools.css?v=62">
+  <link rel="stylesheet" href="styles/page-tools.css?v=69">
   <link rel="stylesheet" href="styles/learner-profiles.css?v=64">
   <link rel="stylesheet" href="styles/magazine.css?v=65">
   <link rel="stylesheet" href="styles/learning-overview.css?v=57">
   <link rel="stylesheet" href="styles/learning-identity.css?v=62">
-  <link rel="stylesheet" href="styles/workspace.css?v=61">
+  <link rel="stylesheet" href="styles/workspace.css?v=68">
 
   <link rel="stylesheet" href="styles/foundations.css?v=62">
 
@@ -108,6 +108,10 @@
     <!-- BLOCK START: Bildschirmfüllender Lernarbeitsplatz -->
     <div class="learning-layout">
       <aside class="sidebar" aria-label="Lernbereiche und Fragenübersicht">
+          <!-- BLOCK START: Mobiles Aktionsmenü -->
+          <button class="workspace-panel-toggle" type="button" data-mobile-toggle aria-controls="learningActions"
+            aria-expanded="true" hidden><span>Lernbereich &amp; Aktionen</span><span data-learner-name>Dein Lernstand</span></button>
+          <div id="learningActions" class="workspace-panel-content">
           <div class="side-panel">
             <p class="panel-kicker">Lernen &amp; Wiederholen</p>
             <!-- BLOCK START: Aktives Personenprofil -->
@@ -151,9 +155,15 @@
             <a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a> ·
             <a id="foundationsLink" href="grundlagen.html">Grundlagen</a> ·
             <a href="datenschutz.html#browserspeicher">Datenschutz</a> · <a href="impressum.html">Impressum</a></p>
+          </div>
+          <!-- BLOCK END: Mobiles Aktionsmenü -->
         </aside>
       <div class="workspace">
           <div class="workspace-toolbar">
+            <!-- BLOCK START: Mobile Filtersteuerung -->
+            <button class="workspace-panel-toggle" type="button" data-mobile-toggle aria-controls="learningFilters"
+              aria-expanded="true" hidden><span>Suche &amp; Filter</span><span id="filterToggleSummary">Alle Fragen</span></button>
+            <div id="learningFilters" class="workspace-panel-content">
             <h2 id="modeTitle" class="visually-hidden">Alle Quellen</h2>
             <!-- BLOCK START: Direkte Suche und Lernfilter -->
             <div class="filters"><label class="search-label" for="search">Fragen durchsuchen<input id="search"
@@ -179,6 +189,8 @@
                 Listenansicht.</p>
               <button id="showMatchList" class="secondary" type="button">Treffer als Liste anzeigen</button>
             </div>
+            </div>
+            <!-- BLOCK END: Mobile Filtersteuerung -->
           </div>
           <div class="question-stage" id="questionStage" role="region" aria-label="Fragen und Rückmeldung" tabindex="0">
             <div id="result" class="result-panel" tabindex="-1" hidden></div>
@@ -193,6 +205,9 @@
             <div class="pagination" aria-label="Fragenseiten"><button id="previous" class="secondary" type="button">←
               Zurück</button><span id="position" role="status"></span><button id="next" class="primary"
               type="button">Weiter →</button></div>
+            <!-- BLOCK START: Rückweg ohne schwebende Überlagerung -->
+            <div id="learningScrollTop" class="learning-scroll-top"></div>
+            <!-- BLOCK END: Rückweg ohne schwebende Überlagerung -->
           </div>
           <!-- BLOCK END: Direkte Lernaktionen und Fragennavigation -->
 
@@ -243,17 +258,17 @@
   </noscript>
   <script src="scripts/ui/learner-state.js?v=64" defer></script>
   <script src="scripts/site-config.js?v=38" defer></script>
-  <script src="scripts/ui/shared.js?v=62" defer></script>
-  <script src="scripts/ui/modal.js?v=58" defer></script>
+  <script src="scripts/ui/shared.js?v=67" defer></script>
+  <script src="scripts/ui/modal.js?v=67" defer></script>
   <script src="scripts/ui/story.js?v=62" defer></script>
-  <script src="scripts/ui/toast-item.js?v=38" defer></script>
+  <script src="scripts/ui/toast-item.js?v=67" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
-  <script src="scripts/ui/navigation.js?v=51" defer></script>
+  <script src="scripts/ui/navigation.js?v=67" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
   <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
   <script src="scripts/ui/release.js?v=65" defer></script>
-  <script src="scripts/ui/page-tools.js?v=62" defer></script>
+  <script src="scripts/ui/page-tools.js?v=67" defer></script>
   <script src="scripts/ui/learner-panel.js?v=64" defer></script>
   <script src="scripts/ui/common.js?v=63" defer></script>
   <script src="scripts/learning/data.js?v=33" defer></script>
@@ -266,7 +281,7 @@
   <script src="scripts/learning/explanations.js?v=50" defer></script>
   <script src="scripts/learning/question-feedback.js?v=62" defer></script>
   <script src="scripts/learning/question-view.js?v=48" defer></script>
-  <script src="scripts/learning/filter-view.js?v=40" defer></script>
+  <script src="scripts/learning/filter-view.js?v=67" defer></script>
   <script src="scripts/learning/insights.js?v=63" defer></script>
   <script src="scripts/learning/learning-view.js?v=56" defer></script>
   <script src="scripts/learning/results.js?v=49" defer></script>
@@ -275,11 +290,11 @@
   <script src="scripts/learning/controller.js?v=62" defer></script>
   <script src="scripts/learning/foundations.js?v=43" defer></script>
   <script src="scripts/learning/app.js?v=64" defer></script>
-  <script src="scripts/learning/workspace-tools.js?v=61" defer></script>
+  <script src="scripts/learning/workspace-tools.js?v=67" defer></script>
   <script src="scripts/ui/select-view.js?v=55" defer></script>
   <script src="scripts/ui/select-keyboard.js?v=38" defer></script>
   <script src="scripts/ui/select.js?v=38" defer></script>
-  <script src="scripts/ui/controls.js?v=38" defer></script>
+  <script src="scripts/ui/controls.js?v=67" defer></script>
 </body>
 
 </html>

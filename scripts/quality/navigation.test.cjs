@@ -81,9 +81,9 @@ function setup() {
     addEventListener(name, handler) { this.listeners[name] = handler; }
   };
   const viewport = { matches: true, addEventListener(name, handler) { this.change = handler; } };
-  vm.runInNewContext(readFileSync(resolve(__dirname, '../ui/navigation.js'), 'utf8'), {
-    document, window: { matchMedia: () => viewport }
-  });
+  const scope = { document, window: { matchMedia: () => viewport } };
+  vm.runInNewContext(readFileSync(resolve(__dirname, '../ui/shared.js'), 'utf8'), scope);
+  vm.runInNewContext(readFileSync(resolve(__dirname, '../ui/navigation.js'), 'utf8'), scope);
   return { header, brand, project, navigation, tools, support, theme, document, viewport,
     panel: header.querySelector('.header-navigation-panel'), toggle: header.querySelector('.icon-button header-menu-toggle'),
     overlay: document.body.querySelector('.mobile-navigation-overlay'),

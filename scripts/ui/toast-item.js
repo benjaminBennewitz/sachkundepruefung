@@ -52,8 +52,9 @@
      * @returns {HTMLButtonElement} Zugänglich beschrifteter Button.
      */
     closeButton(label) {
-      const close = ui.node('button', '×', 'toast-close');  // Rein textbasiertes Zeichen ohne Icon-Abhängigkeit.
+      const close = ui.node('button', '', 'toast-close');
 
+      close.append(ui.closeIcon());
       close.type = 'button';
       close.setAttribute('aria-label', `${label} schließen`);
       close.addEventListener('click', () => this.dismiss());

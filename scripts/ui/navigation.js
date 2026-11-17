@@ -39,7 +39,8 @@
   title.textContent = 'Menü';
   close.type = 'button';
   close.className = 'mobile-navigation-close';
-  close.textContent = 'Schließen ×';
+  close.textContent = 'Schließen';
+  close.append(window.LHUNDG_UI_PARTS.closeIcon());
   topbar.append(title, close);
   overlay.append(topbar);
   document.body.append(overlay);
@@ -56,7 +57,8 @@
     const opened = viewport.matches && expanded;
     toggle.setAttribute('aria-expanded', String(opened));
     toggle.setAttribute('aria-label', opened ? 'Menü schließen' : 'Menü öffnen');
-    toggle.textContent = opened ? '×' : '☰';
+    toggle.textContent = opened ? '' : '☰';
+    if (opened) toggle.append(window.LHUNDG_UI_PARTS.closeIcon());
     document.documentElement.classList.toggle('navigation-open', opened);
     panel.hidden = viewport.matches && !opened;
     if (opened) {

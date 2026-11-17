@@ -39,12 +39,13 @@
       });
     }
 
-    const button = ui.node('button', '↑', 'scroll-top');
+    const learningSlot = document.getElementById?.('learningScrollTop');
+    const button = ui.node('button', learningSlot ? 'Nach oben ↑' : '↑', 'scroll-top');
     button.type = 'button';
     button.hidden = true;
     button.setAttribute('aria-label', 'Zum Seitenanfang');
     button.title = 'Zum Seitenanfang';
-    document.body.append(button);
+    (learningSlot || document.body).append(button);
     const update = () => { button.hidden = window.scrollY < 400; };
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('pageshow', update);
