@@ -11,7 +11,7 @@
   /**
    * Erzeugt den ausschließlich projektseitig gepflegten, vertrauenswürdigen Inhalt der Geschichte.
    *
-   * @returns {HTMLElement} Artikel mit Foto, Bildunterschrift und persönlichem Bericht.
+   * @returns {HTMLElement} Artikel mit Foto und persönlichem Bericht.
    */
   function storyContent() {
     const article = document.createElement('article');
@@ -22,7 +22,6 @@
       <figure class="story-photo">
         <img src="assets/public/du-und-ich.webp" width="1440" height="956"
           alt="Benjamin und seine Hündin auf einem Felsen vor einem Wasserfall." decoding="async">
-        <figcaption>Mit ihr fing alles an.</figcaption>
       </figure>
       <div class="story-copy">
         <p>Am 15. September 2026 musste ich mich von meiner geliebten Hündin verabschieden. Wer schon einmal einen Hund verloren hat, weiß, welche Leere ein solcher Abschied hinterlässt. Ich hatte mir fest vorgenommen, erst einmal keinen neuen Hund aufzunehmen. Ich wollte mir Zeit geben, zu trauern und den Verlust zu verarbeiten.</p>

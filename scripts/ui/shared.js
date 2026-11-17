@@ -95,6 +95,8 @@
   /**
    * Verbindet einen nativen Aufklappbereich mit einer unterbrechbaren Höhenanimation.
    */
+  const detailsControllers = new WeakMap();
+
   class DetailsMotion {
     /**
      * Erhält native Semantik und verbindet Maus-/Tastaturklicks am vorhandenen Summary.
@@ -103,6 +105,10 @@
      * @returns {DetailsMotion} Steuerung ohne veränderten anfänglichen Offen-Zustand.
      */
     constructor(element) {
+      this.group = element.getAttribute('name');
+      /* Die eigene Animation steuert Gruppen synchron, ohne gegen native Schließereignisse zu arbeiten. */
+      if (this.group) element.removeAttribute('name');
+      detailsControllers.set(element, this);
       this.element = element;                                    // Der bestehende native Aufklappbereich bleibt die Inhaltsquelle.
       this.summary = element.querySelector(':scope > summary');  // Ausschließlich der eigene Auslöser, keine verschachtelten Bereiche.
       // Laufende Höhe kann bei schnellen Gegenklicks am sichtbaren Zwischenstand weitergeführt werden.
@@ -137,16 +143,30 @@
      */
     onToggle() {
       // Native Toggle-Ereignisse während der eigenen Animation dürfen deren Endziel nicht überschreiben.
-      if (!this.animation) this.targetOpen = this.element.open;
+      if (!this.animation) {
+        this.targetOpen = this.element.open;
+        if (this.targetOpen) this.closePeers();
+      }
+    }
+
+    /** Schließt andere Einträge derselben exklusiven Gruppe einschließlich laufender Animationen. */
+    closePeers() {
+      if (!this.group) return;
+      for (const element of document.querySelectorAll('details')) {
+        const controller = detailsControllers.get(element);
+        if (controller !== this && controller?.group === this.group && controller.targetOpen) {
+          controller.toggle(false);
+        }
+      }
     }
 
     /**
-     * Wechselt den nativen Zustand mit Animation oder unmittelbar bei reduzierter Bewegung.
-     *
+     * Wechselt den nativen Zustand und berücksichtigt die Systempräferenz für Bewegung.
      * @param {boolean} opening Gewünschter endgültiger Offen-Zustand.
      * @returns {void} Kein Rückgabewert.
      */
     toggle(opening) {
+      if (opening) this.closePeers();
       const from = this.element.getBoundingClientRect().height;                // Sichtbarer Zwischenstand vor dem Abbruch einer vorherigen Animation.
       /* Die Systempräferenz gilt auch für die JavaScript-Animation des Akkordeons. */
       const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -218,7 +238,7 @@
    */
   function bindDetails() {
     // Auch verschachtelte Bereiche besitzen jeweils ihren eigenen Summary und Animationszustand.
-    for (const element of document.querySelectorAll('details')) new DetailsMotion(element);
+    for (const element of document.querySelectorAll('details:not([data-city-dialog])')) new DetailsMotion(element);
   }
 
   // Interne Bausteine werden in stabiler Script-Reihenfolge ergänzt; die öffentliche API entsteht in common.js.

@@ -17,7 +17,9 @@ const vm = require('node:vm');
 function memoryStorage() {
   const values = new Map();  // Pro Test ein unabhängiger Speicher; kein Zustand gelangt in einen anderen Test.
 
-  return { values, getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) };
+  return { values, get length() { return values.size; }, key: index => [...values.keys()][index] ?? null,
+    getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value),
+    removeItem: key => values.delete(key) };
 }
 
 /**

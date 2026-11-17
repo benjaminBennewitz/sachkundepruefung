@@ -16,14 +16,14 @@ window.LHUNDG_TRAINER = {
       pool: 'allPool',
       title: 'Alle Quellen',
       key: 'lhundg-answers-all-v1',
-      description: '400 Fragen und Quellenvarianten. Kammerfragen nach § 11 ergänzen den bisherigen §-3-Basispool.'
+      description: '400 Fragen und Quellenvarianten. Kammerfragen nach § 11 ergänzen den bisherigen Basispool.'
     },
     // Bisheriger §-3-Basispool, ohne Behauptung eines unveröffentlichten MG-Originalkatalogs.
     mg: {
       pool: 'mgPool',
-      title: '§-3-Basispool',
+      title: 'Basispool',
       key: 'lhundg-answers-mg-v1',
-      description: '398 Fragen aus den bereitgestellten Rhein-Erft- und Köln-Katalogen. Keine unveröffentlichten MG-Originalfragen.'
+      description: '398 Fragen aus den ursprünglichen Rhein-Erft- und Köln-Vorlagen. Themen für §§ 3, 10 und 11 mit großen Überschneidungen zum Kammerkatalog; kein amtlicher Prüfungsbogen.'
     },
     // Rhein-Erft-203-Fassung mit dem ältesten weiter gültigen Antwortschlüssel.
     legacy203: {
@@ -60,7 +60,7 @@ window.LHUNDG_TRAINER = {
       key: null,
       examCount: 34,
       passCount: 24,
-      description: '34 zufällige Fragen aus dem Rhein-Erft-203-Katalog. Übung nach dessen veröffentlichten Eckdaten: mindestens 24 richtig, kein Originalprüfungsbogen.'
+      description: 'Unverbindliche, geschätzte Prüfungssimulation. 34 zufällige Fragen aus dem Rhein-Erft-203-Katalog. Übung nach dessen veröffentlichten Eckdaten: mindestens 24 richtig, kein Originalprüfungsbogen.'
     },
     // 30 Kammerfragen als Lernquote ohne verbindliche Bestehensgrenze.
     exam11: {
@@ -69,7 +69,7 @@ window.LHUNDG_TRAINER = {
       key: null,
       examCount: 30,
       passCount: null,
-      description: '30 zufällige Kammerfragen für große Hunde. Lernquote ohne verbindliche Bestehensgrenze; das erforderliche Gespräch und die Entscheidung der prüfenden Stelle werden nicht simuliert.'
+      description: 'Unverbindliche, geschätzte Prüfungssimulation. 30 zufällige Kammerfragen für große Hunde. Lernquote ohne verbindliche Bestehensgrenze; das erforderliche Gespräch und die Entscheidung der prüfenden Stelle werden nicht simuliert.'
     },
     // Eigenes 50er-Beispiel mit gesonderten Teilgrenzen; keine Essener Originalprüfung.
     essenexam: {
@@ -79,16 +79,16 @@ window.LHUNDG_TRAINER = {
       examCount: 50,
       passCount: 38,
       sections: window.LHUNDG_ESSEN_SECTIONS,
-      description: 'Unverbindliches, geschätztes Beispiel: 50 Fragen ohne Zeitlimit. Eigene Aufteilung 17 / 17 / 16; 34 vorhandene Katalogfragen und 16 eigene Rechtsfragen. Übungswertung: 1 Punkt nur bei vollständig richtiger Auswahl, keine Teilpunkte. Mindestens 75 % insgesamt UND je Teil; keine Essener Originalprüfung.'
+      description: 'Unverbindliche, geschätzte Prüfungssimulation. Unverbindliches, geschätztes Beispiel: 50 Fragen ohne Zeitlimit. Eigene Aufteilung 17 / 17 / 16; 34 vorhandene Katalogfragen und 16 eigene Rechtsfragen. Übungswertung: 1 Punkt nur bei vollständig richtiger Auswahl, keine Teilpunkte. Mindestens 75 % insgesamt UND je Teil; keine Essener Originalprüfung.'
     },
     // 119er-Simulation nach privater Behördenauskunft; kein öffentlich belegter MG-Originalbogen.
     mgexam: {
       pool: 'mgPool',
-      title: 'MG-Simulation · 119 Fragen',
+      title: 'Mönchengladbach · 119 Fragen',
       key: null,
       examCount: 119,
       passCount: 90,
-      description: 'Ohne Zeitlimit. Bestanden ab 90 richtigen Antworten. Nach privat mitgeteilten Eckdaten; keine Originalprüfung.'
+      description: '119 zufällige Fragen aus dem Basispool. Unverbindliche, geschätzte Prüfungssimulation nach persönlicher Behördenauskunft: ohne Zeitlimit, Übungsziel 90 richtige Antworten. Keine MG-Originalfragen.'
     }
   }
 };

@@ -93,7 +93,7 @@ Grundlagen; externe Verbindungen werden dadurch nicht freigegeben.
 
 ## Prüfung
 
-- 91 Tests bestanden, einschließlich der bisherigen 17 Prüfungen zu Lernwerkzeugen
+- 99 Tests bestanden, einschließlich der bisherigen 17 Prüfungen zu Lernwerkzeugen
   und Kennzahlen sowie sechs Prüfungen zum Release-Einstieg. Zusätzliche Prüfungen betreffen
   den Schließen-Button und das Anwenden der alternativen Statuspalette. Die aktuelle
   Projekt-ZIP enthält die zuvor fehlenden Original-Assets.
@@ -156,3 +156,51 @@ unverändert. Alle neuen öffentlichen Dateien sind in der strikten
 Deployment-Dateiliste berücksichtigt.
 Die visuelle Browserprüfung sowie ein praktischer Vergleich der Schriftgrößen
 auf den Zielgeräten bleiben offen; Struktur- und Funktionstests ersetzen sie nicht.
+
+## Fehlende richtige Antworten
+
+Nach einer ausdrücklich geprüften Antwort kennzeichnet die Karte weiterhin ihre
+Gesamtwertung. Zusätzlich werden richtig gewählte Antworten grün, falsch
+gewählte rot und fehlende richtige Antworten gelb/amber dargestellt. Die
+Beschriftungen „Richtig gewählt“, „Falsch gewählt“ und „Fehlte“ machen die
+Bedeutung auch ohne Farberkennung verständlich. Fehlende Antworten besitzen
+zusätzlich einen gestrichelten Rahmen. Die Blau/Orange-Einstellung übernimmt
+die bekannten Richtig-/Falsch-Rollen; „Fehlte“ bleibt eine eigene Hinweisrolle.
+
+Eine geänderte Auswahl entfernt alle alten Markierungen und Beschriftungen bis
+zur erneuten Prüfung. Laufende Simulationen zeigen keine Lösungshinweise; erst
+nach dem Abschluss werden die Zustände freigegeben. Bewertungsregeln und
+Katalogschlüssel werden dafür nicht verändert.
+
+
+## Personenprofile
+
+`ui/learner-state.js` verwaltet ausschließlich Personen und Schlüssel.
+`ui/learner-panel.js` verwendet den vorhandenen gemeinsamen Dialog. Die konfigurierte
+Eigenschaft `LHUNDG_TRAINER.profiles` bezeichnet weiterhin Katalog- und Testprofile.
+Die Personen heißen im Code deshalb ausdrücklich `LHUNDG_LEARNERS`.
+
+`Session` bindet die Personenkennung beim Start fest und kapselt die Schlüsselbildung
+in `storageKey()`. Import, Export und Metadaten verwenden weiterhin diese Session;
+Kennzahlen und Startseitenvergleich greifen auf dieselbe Schlüsselbildung zu.
+Standard behält die alten Schlüssel ohne destruktive oder duplizierende Migration.
+Eine globale Profilwahl aus einem anderen Tab wechselt niemals eine laufende Session.
+
+Der Trainer wartet auf `LHUNDG_LEARNERS_READY`, bevor er Lernstände liest oder den
+Grundlagenhinweis öffnet. Dadurch bleibt die Reihenfolge Update, erste Profilwahl,
+Grundlagen erhalten. Beim späteren Profilwechsel wird der bisherige Zustand gesichert;
+eine laufende Prüfungsfolge wird nicht an die neue Person weitergereicht.
+
+
+### Profilverwaltung ohne vorgegebene Person
+
+`list()` liefert nur selbst benannte Personen. Ein früherer Eintrag mit Kennung
+`standard` und Name `Standard` bleibt für die Datenübernahme unsichtbar. Ohne benannte
+Person funktioniert der alte Lernstand weiter. Die historische Kennung bleibt ein
+internes Detail und wird nicht als zusätzliches Vergleichsprofil gezählt.
+
+`remove()` sichert betroffene Werte vor der Mutation und versucht bei Fehlern die
+Wiederherstellung. Der UI-Aufruf erfolgt erst nach zwei unabhängigen Bestätigungen.
+Beim Löschen anderer Personen bleiben aktive Lernstände unverändert. Gegenüber anderen
+Tabs verhindern Profilkennung und interne Instanzkennung erneute Schreibzugriffe
+veralteter Sessions. Der Vergleich verwendet ausschließlich die benannten Personen.

@@ -108,7 +108,7 @@
 
   .companion {
     display: grid;
-    grid-template-rows: minmax(240px, 1fr) auto;
+    grid-template-rows: minmax(240px, 1fr);
     min-width: 0;
     margin: 0;
     background: var(--nav-bg);
@@ -129,28 +129,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 39%;
-  }
-
-  .companion figcaption {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 8px 16px;
-    align-items: center;
-    padding: 20px 24px;
-    font-size: .77rem;
-  }
-
-  .companion figcaption a {
-    color: var(--accent);
-    font-size: .8rem;
-    font-weight: 700;
-  }
-
-  .companion figcaption small {
-    grid-column: 1 / -1;
-    color: var(--nav-muted);
-    font-size: .75rem;
+    object-position: center top;
   }
 
 }
@@ -371,17 +350,13 @@
   }
 
   .companion {
-    grid-template-rows: clamp(230px, 50vw, 350px) auto;
+    grid-template-rows: clamp(230px, 50vw, 350px);
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   }
 
   .companion-image {
     border-radius: 0;
   }
-  .companion figcaption {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
   .info-section {
     gap: 28px;
     padding-block: 48px;

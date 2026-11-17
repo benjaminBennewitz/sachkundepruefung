@@ -50,13 +50,16 @@ window.LHUNDG_TRAINER.Progress = class Progress {
   export() {
     this.session.persist();  // Sichert Antworten und Metadaten im zuständigen Katalog- oder Sitzungsspeicher.
 
-    const data = { format: 'lhundg-learning', version: 1, catalogues: this.collectCatalogues() };  // Versioniertes Sicherungsformat mit sämtlichen Kataloglernständen.
+    const person = window.LHUNDG_LEARNERS?.current();
+    const profile = person ? { name: person.name, goal: person.goal } : undefined;
+    const data = { format: 'lhundg-learning', version: 1, profile, catalogues: this.collectCatalogues() };  // Versioniertes Sicherungsformat mit sämtlichen Kataloglernständen.
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });          // Als JSON kodierter Dateiinhalt für den lokalen Browserdownload.
     const url = URL.createObjectURL(blob);                                                         // Temporäre Objektadresse; sie wird nach der Download-Anforderung freigegeben.
     const link = this.dom.node('a');                                                               // Nicht sichtbarer Downloadauslöser mit einem datierten Dateinamen.
 
     link.href = url;
-    link.download = `sachkunde-lernstand-${new Date().toISOString().slice(0, 10)}.json`;
+    const slug = (person?.name || 'standard').replace(/[^a-z0-9äöüß-]+/gi, '-').slice(0, 32);
+    link.download = `sachkunde-lernstand-${slug}-${new Date().toISOString().slice(0, 10)}.json`;
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);  // Gibt die temporäre Downloadadresse nach der Anforderung wieder frei.
     // Bestätigt die Downloadbereitstellung; ein tatsächliches Speichern auf dem Datenträger ist nicht nachweisbar.
@@ -177,6 +180,7 @@ window.LHUNDG_TRAINER.Progress = class Progress {
     return window.LHUNDG_UI.confirm({
       title: 'Lernstand laden?',
       message:
+        `Die Datei wird in das aktive Profil „${window.LHUNDG_LEARNERS?.current().name || 'Standard'}“ geladen. ` +
         'Lernstände werden zusammengeführt. Bei derselben Frage ersetzt die importierte Antwort die bisherige. Bewertungen werden zurückgesetzt.',
       confirmLabel: 'Laden und zusammenführen'
     });

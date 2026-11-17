@@ -20,7 +20,7 @@ window.LHUNDG_TRAINER.Controller = class Controller {
   start() {
     this.configureControls();           // Stellt die Oberfläche auf den aktiven Lern- oder Prüfungsmodus ein.
     this.configureTestOptions();        // Passt die Testauswahl an die aktuelle Bildschirmbreite an.
-    this.showExampleNotice();           // Kennzeichnet das Essen-Profil ausdrücklich als unverbindliches Beispiel.
+    this.showExampleNotice();           // Kennzeichnet jedes Prüfungsprofil als unverbindliche Simulation.
     this.configureIndexing();           // Schließt Prüfungs- und TV-Varianten von der Suchmaschinenindexierung aus.
     this.bindNavigation();              // Verbindet Katalogwechsel, Ansichtswechsel und Blätteraktionen.
     this.bindFilters();                 // Aktiviert Textsuche, Themenauswahl und Lernstatusfilter.
@@ -101,20 +101,18 @@ window.LHUNDG_TRAINER.Controller = class Controller {
     });
   }
 
-  /** Kennzeichnet die eigene Essen-Simulation vor dem Fragenteil. */
+  /** Kennzeichnet jede Prüfungssimulation mit Profil, eigener Annäherung und nachvollziehbarer Einordnung. */
   showExampleNotice() {
-    const notice = this.dom.get('exampleNotice');                        // Vorhandener Hinweisbereich über den Fragen.
-    const link = this.dom.node('a', 'Aufteilung, Quellen und Wertung');  // Verweist auf Herkunft, Annahmen und Wertung des Essen-Beispiels.
-
-    notice.hidden = !this.session.config.sections;
-
-    // Ohne Beispielprofil bleibt der Hinweis verborgen und erhält keinen zusätzlichen Inhalt.
+    const notice = this.dom.get('exampleNotice');
+    notice.hidden = !this.session.isExam;
     if (notice.hidden) return;
-
-    link.href = 'gut-zu-wissen.html#essen-beispiel';
-    notice.append(
-      this.dom.node('strong', 'Unverbindliches, geschätztes Beispiel. '),
-      document.createTextNode('Eigene Auswahl und Übungswertung; keine Essener Originalprüfung. '),
+    const example = Boolean(this.session.config.sections);
+    const link = this.dom.node('a', 'Grundlage und Annahmen');
+    link.href = example ? 'gut-zu-wissen.html#essen-beispiel' : 'gut-zu-wissen.html#simulation';
+    notice.replaceChildren(
+      this.dom.node('strong', this.session.config.title + ' · '),
+      document.createTextNode('Unverbindliche, geschätzte Prüfungssimulation. ' +
+        (example ? 'Mit gekennzeichneten eigenen Beispielfragen. ' : 'Eigene Auswahl und angenäherte Prüfungssituation. ')),
       link
     );
   }

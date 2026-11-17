@@ -65,7 +65,7 @@ window.LHUNDG_TRAINER.QuestionFeedback = class QuestionFeedback {
       image.decoding = 'async';
       const size = window.LHUNDG_IMAGE_SIZES[source];
       if (size) [image.width, image.height] = size;
-      figure.append(image, this.dom.node('figcaption', item.caption));
+      figure.append(image);
       group.append(figure);
     }
     return group;
@@ -84,6 +84,7 @@ window.LHUNDG_TRAINER.QuestionFeedback = class QuestionFeedback {
     /* Bestehender Rückmeldebereich für die geprüfte Auswahl. */
     const feedback = card.querySelector('.feedback');
 
+    this.updateAnswers(question, card, checked);
     card.classList.toggle('correct', checked && right);
     card.classList.toggle('wrong', checked && !right);
     card.querySelector('.status-pill').textContent = this.statusText(question, selected, checked, right);
@@ -104,6 +105,37 @@ window.LHUNDG_TRAINER.QuestionFeedback = class QuestionFeedback {
     /* Nur ausdrücklich geprüfte Antworten erhalten einen sichtbaren Lösungstext. */
 
     if (checked) feedback.textContent = this.feedbackText(question, selected, right);
+  }
+
+  /**
+   * Markiert ausgewählte richtige/falsche und fehlende richtige Antworten erst nach der Freigabe.
+   * @param {SachkundeQuestion} question Frage mit ihrem unveränderten Lösungsschlüssel.
+   * @param {HTMLElement} card Bestehende Fragenkarte.
+   * @param {boolean} checked Ob Lösungsfeedback für diese Frage sichtbar sein darf.
+   * @returns {void} Kein Rückgabewert.
+   */
+  updateAnswers(question, card, checked) {
+    for (const option of card.querySelectorAll('.answer-option')) {
+      const input = option.querySelector('input');
+      const correct = question.correct.includes(input.value);
+      const missing = checked && correct && !input.checked;
+      const incorrect = checked && !correct && input.checked;
+      const selectedCorrect = checked && correct && input.checked;
+      option.classList.toggle('answer-missing', missing);
+      option.classList.toggle('answer-incorrect', incorrect);
+      option.classList.toggle('answer-correct', selectedCorrect);
+      let state = option.querySelector('.answer-state');
+      if (!checked) {
+        state?.remove();
+        continue;
+      }
+      if (!state) {
+        state = this.dom.node('span', '', 'answer-state');
+        option.append(state);
+      }
+      state.textContent = missing ? '! Fehlte' : incorrect ? '× Falsch gewählt' : selectedCorrect ? '✓ Richtig gewählt' : '';
+      state.hidden = !state.textContent;
+    }
   }
 
   /** Formuliert den Kartenstatus; Bewertung hat Vorrang vor bloßer Vollständigkeit. */

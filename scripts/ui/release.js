@@ -2,23 +2,38 @@
 
 /**
  * @file Versionierte Neuigkeiten im gemeinsamen Dialog.
- * @description Reiht das aktuelle Release zuerst ein und ersetzt beim Schließen die zuletzt gesehene Version.
+ * @description Zeigt aktuelle Neuigkeiten mit Historie und speichert ausschließlich die zuletzt gesehene Version.
  * @author Benjamin Bennewitz [B²]
  */
 'use strict';
 
 (ui => {
   const storageKey = 'lhundg-release-seen';
-  const release = Object.freeze({
-    version: '2026.11.17',
-    title: 'Dein neuer Lernplatz ist da.',
-    message: 'Der Sachkundetrainer hat ein neues Gesicht bekommen. Das ist neu:',
+  const releases = Object.freeze([{
+    version: '2026.11.17.2',
+    date: '17. November 2026',
+    title: 'Ein Lernplatz für jede Person.',
+    message: 'Gemeinsam üben, den eigenen Stand behalten und den passenden Nachweis finden. Das ist neu:',
     features: [
-      ['Mehr Platz für deine Fragen.', 'Der eigenständige Lernbereich bündelt Fragen, Antworten und Werkzeuge an einem Ort.'],
-      ['Dein Fortschritt im Blick.', 'Lernüberblick und Kennzahlen zeigen deinen Stand im jeweiligen Katalog – direkt aus deinem Browser.'],
-      ['So liest und lernst du leichter.', 'Größere Texte, mehr Kontrast, alternative Statusfarben und Vorlesen mit einer lokalen deutschen Systemstimme, wenn verfügbar.']
+      ['Eigene lokale Lernprofile.', 'Profile anlegen, benennen und nach zwei Bestätigungen löschen. Dein erstes Profil übernimmt den bisherigen Lernstand.'],
+      ['Fortschritte miteinander vergleichen.', 'Die Startseite zeigt Kennzahlen je Profil samt Katalog und Anzahl geprüfter Fragen.'],
+      ['Den richtigen Nachweis finden.', '§§ 3, 10 und 11 klarer unterscheiden und den Weg zur Haltungserlaubnis einschließlich Führungszeugnis und Mietwohnung nachvollziehen.']
     ]
-  });
+  }, {
+    version: '2026.11.17',
+    date: '17. November 2026',
+    title: 'Das große Design-Refactoring.',
+    message: 'Eine gemeinsame Gestaltung für die gesamte Lernhilfe – mit mehr Persönlichkeit und einem eigenen Platz zum Lernen.',
+    features: [
+      ['Eine eigene visuelle Identität.', 'Aufeinander abgestimmte Naturfarben, klare Typografie und ein einheitliches Erscheinungsbild für helle und dunkle Darstellung.'],
+      ['Ein eigenständiger Lernbereich.', 'Fragen und Antworten erhalten mehr Raum. Suche, Filter, Fragenübersicht, Sofortfeedback sowie Zwischen- und Gesamtauswertung sind im Lernbereich gebündelt.'],
+      ['Fortschritt im Blick.', 'Katalogbezogene Kennzahlen zeigen beantwortete Fragen, geprüfte richtige Antworten, Fehler und Merker.'],
+      ['Wissen im Magazinformat.', 'Die Infoseiten verbinden zusammenhängende Texte, wechselnde Spalten und persönliche Hundebilder.'],
+      ['Lesen und Lernen erleichtern.', 'Textvergrößerung, zusätzliche Kontraste, alternative Statusfarben und Vorlesen mit einer lokalen deutschen Systemstimme, sofern verfügbar.']
+    ]
+  }]);
+  /* Der erste Eintrag ist immer aktuell; frühere Einträge bleiben darunter unverändert lesbar. */
+  const release = releases[0];
 
   /**
    * Liest nur die zuletzt geschlossene Release-Version; gesperrter Speicher blockiert keinen Dialog.
@@ -34,7 +49,7 @@
 
   /**
    * Baut die Neuigkeiten als sichere Textknoten ohne HTML-Interpolation.
-   * @returns {HTMLElement} Kapitel des aktuellen Releases.
+   * @returns {HTMLElement} Aktuelle Neuigkeiten mit anschließender Historie.
    */
   function buildContent() {
     const content = ui.node('div', '', 'release-content');
@@ -47,7 +62,35 @@
       section.append(number, copy);
       content.append(section);
     });
+    if (releases.length > 1) content.append(buildHistory());
     return content;
+  }
+
+  /** @returns {HTMLElement} Frühere Updates in umgekehrt chronologischer Reihenfolge. */
+  function buildHistory() {
+    const history = ui.node('div', '', 'release-history');
+    const title = ui.node('h3', 'Frühere Updates');
+    title.id = 'releaseHistoryTitle';
+    history.setAttribute('role', 'region');
+    history.setAttribute('aria-labelledby', title.id);
+    history.append(title, ui.node('p', 'Was sich zuvor verändert hat – zum Nachlesen.'));
+    for (const entry of releases.slice(1)) {
+      const article = ui.node('article', '', 'release-history-entry');
+      article.setAttribute('aria-labelledby', `release-${entry.version}`);
+      const heading = ui.node('h4', entry.title);
+      heading.id = `release-${entry.version}`;
+      article.append(ui.node('p', `${entry.date} · Version ${entry.version}`, 'release-history-meta'),
+        heading, ui.node('p', entry.message));
+      const features = ui.node('ul');
+      for (const [label, text] of entry.features) {
+        const item = ui.node('li');
+        item.append(ui.node('strong', label), ui.node('p', text));
+        features.append(item);
+      }
+      article.append(features);
+      history.append(article);
+    }
+    return history;
   }
 
   /**
@@ -73,6 +116,7 @@
           message: release.message,
           content: buildContent(),
           returnFocus: trigger,
+          closeButton: true,
           actions: [{ label: 'Alles klar. Los geht’s!', value: 'close', primary: true }],
           note: 'Weiterhin kostenlos, ohne Anmeldung und ohne Werbung.'
         });

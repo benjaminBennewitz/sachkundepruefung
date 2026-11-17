@@ -64,6 +64,8 @@
   --ok-bg: #e4f0da;
   --bad: #a02e32;
   --bad-bg: #f9e4e0;
+  --missing: #804500;
+  --missing-bg: #fff0cb;
   --focus: #a24d17;
   --control-line: #7c8d74;
   --nav-bg: #e2ecd8;
@@ -100,6 +102,8 @@
   --ok-bg: #2a4030;
   --bad: #ffb7b2;
   --bad-bg: #4b3030;
+  --missing: #ffdb9e;
+  --missing-bg: #48351d;
   --focus: #d7e8c3;
   --control-line: #899e88;
   --nav-bg: #2b4130;
@@ -137,6 +141,8 @@
     --ok-bg: #2a4030;
     --bad: #ffb7b2;
     --bad-bg: #4b3030;
+    --missing: #ffdb9e;
+    --missing-bg: #48351d;
     --focus: #d7e8c3;
     --control-line: #899e88;
     --nav-bg: #2b4130;

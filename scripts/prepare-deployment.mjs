@@ -104,12 +104,15 @@ run([
   '--test',
   'scripts/quality/core.test.cjs',
   'scripts/quality/session.test.cjs',
+  'scripts/quality/learners.test.cjs',
+  'scripts/quality/learner-deletion.test.cjs',
   'scripts/quality/filters.test.cjs',
   'scripts/quality/explanations.test.cjs',
   'scripts/quality/navigation.test.cjs',
   'scripts/quality/workspace.test.cjs',
   'scripts/quality/insights.test.cjs',
   'scripts/quality/release.test.cjs',
+  'scripts/quality/page-tools.test.cjs',
   'scripts/quality/checks.test.mjs'
 ]);
 

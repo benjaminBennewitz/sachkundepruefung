@@ -1,0 +1,109 @@
+/*###############################
+###
+###     page-tools.css
+###     Hunde-Sachkundetrainer NRW
+###     BASED ON: HTML5, CSS3, JavaScript
+###     AUTHOR: Benjamin Bennewitz
+###
+###
+###       ██████╗  ▀█
+###       ██╔══██╗ █▄
+###       ██████╦╝
+###       ██╔══██╗
+###       ██████╦╝
+###       ╚═════╝
+###
+#################################*/
+
+/* ===========================================================================
+   INHALTSVERZEICHNIS
+   01   Ortsübersicht und Bildausschnitt
+   02   Zum Seitenanfang
+   ========================================================================== */
+
+/* ===========================================================================
+   01   Ortsübersicht und Bildausschnitt
+   ========================================================================== */
+
+@media screen {
+  .city-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .city-profile {
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+  }
+
+  .city-profile > summary {
+    padding: 20px;
+    min-height: 72px;
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .city-profile > summary:hover {
+    background: var(--control-hover);
+  }
+
+  .city-profile > .city-content {
+    padding: 0 20px 20px;
+  }
+
+  .ui-modal:has(.city-content) {
+    width: min(860px, calc(100% - 32px));
+  }
+
+  .city-content :is(p, li) {
+    line-height: 1.75;
+  }
+
+  .city-content p + p, .city-content ul {
+    margin-top: 16px;
+  }
+
+  .masthead-image--ears img {
+    object-position: center top;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .city-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media screen and (max-width: 600px) {
+  .city-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ===========================================================================
+   02   Zum Seitenanfang
+   ========================================================================== */
+
+@media screen {
+  .scroll-top {
+    position: fixed;
+    inset-inline-end: 20px;
+    bottom: 20px;
+    z-index: 20;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--control-line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--accent);
+    font-size: 1.4rem;
+  }
+
+  .scroll-top:hover {
+    background: var(--control-hover);
+  }
+}
+
+@media print {
+  .scroll-top { display: none; }
+}

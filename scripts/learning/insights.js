@@ -53,9 +53,10 @@
       'Richtig und falsch zählen erst nach dem Prüfen.' :
       `${accuracy} % von ${summary.checked} geprüften Fragen richtig.`;
     const serialized = JSON.stringify(summary);
+    const key = session.storageKey('lhundg-overview-v1');
     try {
-      if (localStorage.getItem('lhundg-overview-v1') !== serialized) {
-        localStorage.setItem('lhundg-overview-v1', serialized);
+      if (localStorage.getItem(key) !== serialized) {
+        localStorage.setItem(key, serialized);
       }
     } catch {
       /* Die laufenden Kennzahlen funktionieren auch bei gesperrtem Browserspeicher. */

@@ -21,13 +21,14 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
-  <link rel="stylesheet" href="styles/tokens.css?v=57">
+  <link rel="stylesheet" href="styles/tokens.css?v=62">
   <link rel="stylesheet" href="styles/interface.css?v=49">
   <link rel="stylesheet" href="styles/navigation.css?v=52">
-  <link rel="stylesheet" href="styles/character.css?v=58">
-  <link rel="stylesheet" href="styles/editorial-identity.css?v=57">
+  <link rel="stylesheet" href="styles/character.css?v=62">
+  <link rel="stylesheet" href="styles/editorial-identity.css?v=62">
   <link rel="stylesheet" href="styles/accessibility.css?v=58">
-  <link rel="stylesheet" href="styles/magazine.css?v=60">
+  <link rel="stylesheet" href="styles/page-tools.css?v=62">
+  <link rel="stylesheet" href="styles/magazine.css?v=65">
 
 </head>
 
@@ -134,9 +135,24 @@
 <div class="chapter-body">
     <p>Antworten, gemerkte Fragen, geprüfte Bewertungen, Lernposition, Ansicht, Sofort-Feedback und das gewählte
       Hell-/Dunkel-Schema werden ausschließlich im Browser gespeichert (localStorage). Die Lernhilfe übermittelt diese
-      Angaben nicht an den Betreiber. Sie bleiben bis zum Zurücksetzen eines Lernbereichs beziehungsweise Löschen der
+      Angaben nicht an den Betreiber. Sie bleiben bis zum Zurücksetzen eines Lernbereichs, Löschen des zugehörigen Profils beziehungsweise Löschen der
       Websitedaten gespeichert. Ein Export erzeugt eine Datei auf deinem Gerät; ein Import verarbeitet die von dir
       gewählte Datei lokal und führt die Lernstände nach deiner Bestätigung zusammen.</p>
+    <!-- BLOCK START: Lokale Personenprofile -->
+    <p>Freiwillig angelegte Personenprofile speichern Anzeigename oder Spitzname und das gewählte Lernziel unter
+      <code>lhundg-learners-v1</code>. Die letzte Profilwahl wird lokal gespeichert; die aktive Person wird zusätzlich
+      im Sitzungsspeicher des jeweiligen Tabs festgehalten. Antworten, Merker, Bewertungen, Lernposition, Sofort-Feedback,
+      Grundlagenhinweis und Lernüberblick sind je Person getrennt. Das erste selbst benannte Profil kann die bisherigen
+      Lernschlüssel weiterverwenden, weitere Personen erhalten eigene Schlüssel mit dem Präfix <code>lhundg-person:</code>.</p>
+    <p>Auf der Startseite sind die Profile und ihre Kennzahlen für alle Personen mit Zugriff auf diesen Browser sichtbar.
+      Die Profile haben keinen Passwortschutz. Es findet keine Übertragung an den Betreiber oder Synchronisation
+      zwischen Geräten statt. Eine Lernstandsicherung enthält die Kataloglernstände sowie Anzeigename und Lernziel
+      des aktiven Profils; ein Import ergänzt nach Bestätigung nur das aktuell gewählte Profil. Die lokalen Angaben
+      bleiben bis zum Löschen des Profils oder der Websitedaten gespeichert. Eine Profillöschung verlangt zwei
+      ausdrückliche Bestätigungen und entfernt die zugehörigen Lernstände. Andere Profile und gemeinsame Einstellungen
+      bleiben erhalten. Weitere geöffnete Tabs entfernen beim Empfang der Änderung ihre zugehörigen Teststände. Farbmodus, Barrierefreiheit und gesehene Update-Version
+      bleiben gemeinsam für diesen Browser eingestellt.</p>
+    <!-- BLOCK END: Lokale Personenprofile -->
     <!-- BLOCK START: Darstellungspräferenzen und lokale Sprachausgabe -->
     <p>Textgröße, Kontrast und alternative Statusfarben werden auf deinen Wunsch
       unter <code>lhundg-accessibility-v1</code> lokal gespeichert. Die Einstellungen kannst du im
@@ -144,14 +160,14 @@
     <p>Das Vorlesen verwendet nur eine vom Browser als lokal ausgewiesene deutsche Systemstimme.
       Die Lernhilfe bindet dafür keinen externen Sprachdienst ein und übermittelt die Lesetexte nicht an den Betreiber.
       Ist keine passende lokale Stimme verfügbar, bleibt die Vorlesefunktion deaktiviert.</p>
-    <p>Für den Lernüberblick auf der Startseite speichert der Browser unter <code>lhundg-overview-v1</code>
+    <p>Für den Lernüberblick auf der Startseite speichert der Browser unter dem je Person zugeordneten Schlüssel <code>lhundg-overview-v1</code>
       eine kleine Zusammenfassung des zuletzt verwendeten Lernkatalogs: Katalogkennung sowie die Anzahl der
       beantworteten, geprüften, richtigen, falschen und gemerkten Fragen. Sie enthält keine einzelnen Antworten,
       keine Zeitstempel und keine über Kataloge zusammengerechneten Statistiken. Beim Lernen wird sie aktualisiert;
       beim Löschen der Websitedaten wird sie entfernt.</p>
     <!-- BLOCK END: Darstellungspräferenzen und lokale Sprachausgabe -->
     <!-- BLOCK START: Speicherung des Grundlagenhinweises -->
-    <p>Wenn du die Begrüßung „Grundlagen“ schließt, speichert der Browser diese Entscheidung lokal unter
+    <p>Wenn du die Begrüßung „Grundlagen“ schließt, speichert der Browser diese Entscheidung je Personenprofil lokal unter
       <code>lhundg-foundations-dismissed-v1</code>. So erscheint die Begrüßung nicht bei jedem Besuch erneut. Es wird
       kein
       Lesefortschritt erfasst. Die Entscheidung bleibt bis zum Löschen der
@@ -245,17 +261,18 @@
         ↑</a></nav>
   </footer>
   <script src="scripts/site-config.js?v=38" defer></script>
-  <script src="scripts/ui/shared.js?v=56" defer></script>
+  <script src="scripts/ui/shared.js?v=62" defer></script>
   <script src="scripts/ui/modal.js?v=58" defer></script>
-  <script src="scripts/ui/story.js?v=1" defer></script>
+  <script src="scripts/ui/story.js?v=62" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
   <script src="scripts/ui/navigation.js?v=51" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
   <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
-  <script src="scripts/ui/release.js?v=60" defer></script>
-  <script src="scripts/ui/common.js?v=57" defer></script>
+  <script src="scripts/ui/release.js?v=65" defer></script>
+  <script src="scripts/ui/page-tools.js?v=62" defer></script>
+  <script src="scripts/ui/common.js?v=63" defer></script>
   <script src="scripts/ui/controls.js?v=38" defer></script>
 </body>
 

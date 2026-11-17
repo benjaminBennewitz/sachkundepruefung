@@ -24,6 +24,7 @@ function setup(query = '') {
   const classes = new Set();
   const card = {
     querySelector: name => fields[name],
+    querySelectorAll: () => [],
     classList: { toggle: (name, active) => active ? classes.add(name) : classes.delete(name) }
   };
   return { ...env, current, fields, classes, card, feedback: new env.trainer.QuestionFeedback(current) };
@@ -197,4 +198,84 @@ test('Schließen funktioniert bei gesperrtem Speicher; Lesefehler öffnen die ei
   await settle();
   assert.equal(destination, 'grundlagen.html');
   assert.equal(env.current.storageFailed, true);
+});
+
+/** Erzeugt auswählbare Antwortfelder für die tatsächliche Feedbacksteuerung. */
+function answerFields(env, selected = ['A', 'B', 'C']) {
+  const options = ['A', 'B', 'C', 'D', 'E'].map(value => {
+    const classes = new Set();
+    const input = { value, checked: selected.includes(value) };
+    return { input, classes, children: [],
+      classList: { toggle: (name, active) => active ? classes.add(name) : classes.delete(name) },
+      querySelector(name) { return name === 'input' ? input : this.children[0]; },
+      append(node) { node.parent = this; this.children.push(node); } };
+  });
+  env.card.querySelectorAll = () => options;
+  env.feedback.dom = { node: () => ({ textContent: '', remove() { this.parent.children.length = 0; } }) };
+  const question = { id: 99999, uid: 'test-feedback', type: 'multiple', correct: ['A', 'B', 'C', 'D'],
+    answers: { A: 'Alpha', B: 'Beta', C: 'Gamma', D: 'Delta', E: 'Epsilon' } };
+  env.current.state.answers.set(question.id, new Set(selected));
+  return { options, question };
+}
+
+test('ABC bei Lösung ABCD bleibt insgesamt falsch und kennzeichnet D als fehlende richtige Antwort', () => {
+  const env = setup();
+  const { options, question } = answerFields(env);
+  env.current.state.checked.set(question.id, env.current.signature(question));
+  env.feedback.update(question, env.card);
+  assert.equal(env.classes.has('wrong'), true);
+  assert.equal(options[3].classes.has('answer-missing'), true);
+  assert.equal(options[3].children[0].textContent, '! Fehlte');
+  assert.equal(options[0].classes.has('answer-correct'), true);
+  assert.equal(options[4].classes.has('answer-missing'), false);
+});
+
+test('Falsch gewählte und fehlende richtige Antworten erhalten unterschiedliche Zustände', () => {
+  const env = setup();
+  const { options, question } = answerFields(env, ['A', 'B', 'C', 'E']);
+  env.current.state.checked.set(question.id, env.current.signature(question));
+  env.feedback.update(question, env.card);
+  assert.equal(options[3].classes.has('answer-missing'), true);
+  assert.equal(options[4].classes.has('answer-incorrect'), true);
+  assert.equal(options[4].children[0].textContent, '× Falsch gewählt');
+});
+
+test('Antwortänderung entfernt die bisherigen Lösungsmarkierungen und ihre Beschriftungen', () => {
+  const env = setup();
+  const { options, question } = answerFields(env);
+  env.current.state.checked.set(question.id, env.current.signature(question));
+  env.feedback.update(question, env.card);
+  env.current.state.checked.delete(question.id);
+  env.feedback.update(question, env.card);
+  assert(options.every(option => option.classes.size === 0 && option.children.length === 0));
+});
+
+test('Laufende Prüfung verrät auch durch Antwortfarben keine fehlende Lösung', () => {
+  const env = setup('mode=exam34');
+  const { options, question } = answerFields(env);
+  env.current.state.checked.set(question.id, env.current.signature(question));
+  env.feedback.update(question, env.card);
+  assert(options.every(option => option.classes.size === 0 && option.children.length === 0));
+  env.current.state.finished = true;
+  env.feedback.update(question, env.card);
+  assert.equal(options[3].classes.has('answer-missing'), true);
+});
+
+/** Einheitliche Einordnung aller Profile, ohne originale Fragen oder Wertungen zu verändern. */
+test('Jedes Prüfungsprofil zeigt dieselbe unverbindliche Simulationseinordnung im Lernbereich', () => {
+  const env = environment(['data', 'essen', 'core', 'profiles', 'controller']);
+  env.scope.document = { createTextNode: text => ({ textContent: text }) };
+  for (const mode of ['exam34', 'exam11', 'mgexam', 'essenexam']) {
+    const notice = { replaceChildren(...nodes) { this.nodes = nodes; } };
+    const controller = Object.create(env.trainer.Controller.prototype);
+    controller.session = { isExam: true, config: env.trainer.profiles[mode] };
+    controller.dom = { get: () => notice, node: (tag, text) => ({ textContent: text }) };
+    controller.showExampleNotice();
+    assert.equal(notice.hidden, false);
+    assert.match(notice.nodes.map(node => node.textContent).join(''), /Unverbindliche, geschätzte Prüfungssimulation/);
+    assert.match(notice.nodes[2].href, /^gut-zu-wissen.html#/);
+    controller.session.isExam = false;
+    controller.showExampleNotice();
+    assert.equal(notice.hidden, true);
+  }
 });

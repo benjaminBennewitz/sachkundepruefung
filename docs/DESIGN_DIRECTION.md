@@ -37,15 +37,15 @@ Spaltenbreite bestimmt die Lesebreite. Tabellen bleiben horizontal erreichbar;
 unter 800 px werden Kapitel einspaltig. Im Grundlagen-Dialog bleibt der Text
 linear; zusätzliche redaktionelle Fotos werden dort ausgeblendet.
 
-Die bestehenden Sachinformationen, Bewertungsschlüssel und Quellen wurden nicht
-geändert. Ergänzt wurden kurze redaktionelle Auftakte, Bildunterschriften und die
-technische Information zum Speichern der gesehenen Release-Version.
+Die Grundlagen wurden als zusammenhängende Sachtexte neu formuliert. Katalogfragen,
+Lösungsschlüssel und Bewertungsregeln bleiben unverändert. Bildunterschriften wurden
+entfernt; Alternativtexte und der eigenständige Zugang zur Geschichte bleiben erhalten.
 
 ## Originalfotos
 
 Alle 15 hochgeladenen Fotos wurden wiederhergestellt. Neun ausgewählte Motive
 werden als lokale WebP-Derivate eingesetzt. Die Dateien wurden verkleinert und
-anhand ihrer EXIF-Orientierung ausgerichtet; es gibt keine generative Bearbeitung.
+anhand ihrer EXIF-Orientierung ausgerichtet; der Hintergrund des Strandmotivs wurde zur Entfernung der Personen retuschiert.
 EXIF-Daten werden nicht in die ausgelieferten Derivate übernommen.
 
 | WebP-Datei unter `assets/public/` | Original |
@@ -66,7 +66,7 @@ Entstehungsgeschichte bleibt erhalten.
 
 ## Prüfung und Übernahme
 
-91 Tests sowie Daten-, lokale Verweis- und SEO-Prüfung bestehen mit der aktuellen
+99 Tests sowie Daten-, lokale Verweis- und SEO-Prüfung bestehen mit der aktuellen
 Projekt-ZIP. Die vorhandenen Informationsabsätze, Listen und Überschriften sowie
 alle bisherigen IDs wurden mit dem Ausgangsstand abgeglichen. Die geprüften
 normalen Text-/Flächenpaare erreichen mindestens 5,44:1.
@@ -88,8 +88,7 @@ nur für assistive Technologien erhalten. Der Grundlagenzugang liegt in der
 Seitenleiste. Dialoge für Lernwerkzeuge besitzen oben einen Schließen-Button.
 
 Die Grundlagenbilder behalten breite, gleichwertige Bild-/Textspalten. Die
-Bildhöhe folgt auf Desktop dem zugehörigen Textblock einschließlich der
-Bildunterschrift. Mobil erhält der Bildrahmen 220–320 px Höhe. Die schmalen
+Bildhöhe folgt auf Desktop dem zugehörigen Textblock. Mobil erhält der Bildrahmen 220–320 px Höhe. Die schmalen
 Bildspalten und zusätzlich aufgeteilten Textabsätze der vorherigen Fassung
 entfallen; schmale Ansichten bleiben einspaltig. Der Seitenauftakt besitzt
 wieder seine breite Bildspalte und einen kompakteren Textbereich. Der letzte Bildabschnitt
@@ -129,9 +128,8 @@ Die bereits gesehene Version verhindert ausschließlich das automatische Öffnen
 ### Letzte Bild- und Bedienkorrekturen
 
 Die drei Fotos im Grundlagen-Haupttext besitzen einen eigenen Rahmen. Das
-zweispaltige Kapitel streckt die Bildspalte auf die Höhe der Textspalte; im
-Bildbereich verteilen sich Foto und Bildunterschrift auf flexible und natürliche
-Höhe. Die absolut positionierten Fotos vergrößern die Kapitel nicht selbst.
+zweispaltige Kapitel streckt die Bildspalte auf die Höhe der Textspalte; das
+Foto füllt den gesamten zugehörigen Rahmen ohne Bildunterschrift. Die absolut positionierten Fotos vergrößern die Kapitel nicht selbst.
 Der Sonnen-Ausschnitt im Titel und der Pfoten-Ausschnitt sitzen tiefer im Rahmen.
 „Haltung & Recht“ zeigt im Kopf das Originalfoto mit beiden Hunden.
 
@@ -140,3 +138,22 @@ Zwischenergebnis und Katalog-Auswertung neben der Fragennavigation. Der
 Auswertungsdialog und sein Auslöser entfallen. Die vorhandenen Aktionen wurden
 verschoben, ihre IDs, Ereignisbindungen und Bewertungsregeln bleiben erhalten.
 Prüfungssimulationen behalten ihre bisherigen Sperren bis zur Auswertung.
+
+## Redaktioneller Stand und Bedienkorrekturen
+
+Die Grundlagen erzählen die Themen Einzug, Lernen, Begegnungen, Sicherheit und
+Versorgung in zusammenhängenden Absätzen. Die fachlichen Grundlagen für
+belohnungsbasiertes Lernen und bedarfsgerechte Haltung wurden am 17. November
+2026 mit AVSAB und § 2 TierSchHuV abgeglichen; siehe `EDITORIAL_NOTES.md`.
+
+Der Basispool ist neutral benannt. Die sechs Kataloge und getrennten Lernstände
+bleiben erhalten. Alle vier Testreihen sind als unverbindliche, geschätzte
+Prüfungssimulationen eingeordnet, auch im sichtbaren Hinweis vor ihren Fragen.
+Die MG-Sondereinordnung auf der Quellenseite ist durch einen allgemeinen
+Weiterverweis zu den Simulationsannahmen ersetzt.
+
+FAQ-Gruppen schließen jeweils den anderen Eintrag. Ortsangaben stehen in einem
+breiten Kartenraster und öffnen ihre unveränderten Inhalte im gemeinsamen
+Dialog. Ohne JavaScript bleiben native Aufklappbereiche nutzbar. Ein dezenter
+Button führt nach längerem Scrollen zum Seitenanfang; Reduced Motion gilt auch
+dabei. Die aktive Navigation behält auf Hover und Tastaturfokus passende Farben.

@@ -76,11 +76,13 @@
 
   /* Das Release wird vor Geschichte, Grundlagen und allen weiteren Dialogen eingereiht. */
   void ui.bindRelease(modal);
+  window.LHUNDG_LEARNERS_READY = ui.bindLearners?.(modal) || Promise.resolve();
   ui.bindAccessibility(modal);
   bindAbout();
   /* Persönliche Entstehungsgeschichte im gemeinsamen Dialog anzeigen. */
   ui.bindStory(modal);
   ui.bindDetails();  // Animiert native Aufklappbereiche auf sämtlichen Root-Seiten.
+  ui.bindPageTools(modal);
   ui.bindTheme();    // Synchronisiert Farbwahl, Tooltip und zugängliche Schalterbeschriftung.
   support.bind();    // Aktiviert vorhandene Footer-Links und manuelle Unterstützungsdialoge.
 })(window.LHUNDG_UI_PARTS);

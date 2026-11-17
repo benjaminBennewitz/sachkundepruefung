@@ -21,13 +21,14 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
-  <link rel="stylesheet" href="styles/tokens.css?v=57">
+  <link rel="stylesheet" href="styles/tokens.css?v=62">
   <link rel="stylesheet" href="styles/interface.css?v=49">
   <link rel="stylesheet" href="styles/navigation.css?v=52">
-  <link rel="stylesheet" href="styles/character.css?v=58">
-  <link rel="stylesheet" href="styles/editorial-identity.css?v=57">
+  <link rel="stylesheet" href="styles/character.css?v=62">
+  <link rel="stylesheet" href="styles/editorial-identity.css?v=62">
   <link rel="stylesheet" href="styles/accessibility.css?v=58">
-  <link rel="stylesheet" href="styles/magazine.css?v=60">
+  <link rel="stylesheet" href="styles/page-tools.css?v=62">
+  <link rel="stylesheet" href="styles/magazine.css?v=65">
 
 </head>
 
@@ -94,7 +95,7 @@
       <h1>Gut zu wissen</h1>
         <p class="masthead-deck">Dein Weg durch den Trainer. Und gut vorbereitet nach draußen.</p>
       </div>
-      <figure class="masthead-image"><img src="assets/public/huendin-strand.webp" width="1000" height="1333" alt="Blick über die Ohren der Hündin auf einen Strand." loading="eager" decoding="async"></figure>
+      <figure class="masthead-image masthead-image--ears"><img src="assets/public/huendin-strand.webp?v=62" width="1000" height="1333" alt="Blick über die Ohren der Hündin auf einen Strand." loading="eager" decoding="async"></figure>
     </header>
     <!-- BLOCK END: Seitenauftakt -->
     <!-- BLOCK START: Orientierung -->
@@ -174,6 +175,20 @@
       </p>
       <p><a class="primary button" href="lernen.html?mode=essenexam#trainer">Geschätzten Essen-Beispieltest starten →</a></p>
     </div></section>
+      <section id="simulation" class="editorial-chapter editorial-chapter--full editorial-chapter--split">
+        <h2>Prüfungssimulationen und ihre Grenzen</h2>
+        <div class="chapter-body"><p>Alle Testreihen dieses Trainers sind unverbindliche, geschätzte
+          Prüfungssimulationen. Sie sollen dir helfen, Katalogwissen unter einer angenommenen Prüfungssituation
+          abzurufen. Ihre Grundlage bilden veröffentlichte Kataloge und Prüfungsinformationen sowie persönliche
+          Korrespondenzen mit den jeweiligen Ämtern und Prüfstellen.</p>
+          <p>Eine mitgeteilte Fragenzahl macht unsere zufällige Auswahl noch nicht zu einem amtlichen Prüfungsbogen.
+          Wo Auswahl, Themenverteilung, Gespräch oder Punktevergabe nicht vollständig bekannt sind, bleibt die
+          Umsetzung eine eigene Annäherung. Bekannte Angaben werden als solche benannt; unsere Annahmen sind keine
+          behördlichen Vorgaben. Für deinen tatsächlichen Termin ist die Auskunft der zuständigen Prüfstelle maßgeblich.</p>
+          <p>Die vier Profile unterscheiden sich in Fragenbasis, Umfang und Übungswertung. Beim Essen-Beispiel
+          ergänzen 16 gekennzeichnete eigene Rechtsfragen die Katalogfragen. Die Originalfragen und ihre
+          Lösungsschlüssel bleiben von diesen Übungsannahmen getrennt.</p></div>
+      </section>
       <div class="editorial-chapter editorial-chapter--full editorial-chapter--table">
         <h2 id="testreihen">Welche Testreihe passt zu mir?</h2>
     <div class="table-scroll">
@@ -193,7 +208,7 @@
               amtliche Auswahl.</td>
           </tr>
           <tr>
-            <td>§ 3 · MG-Simulation</td>
+            <td>§ 3 · Mönchengladbach</td>
             <td>119 Fragen aus dem bisherigen 398er-Basispool</td>
             <td>Mindestens 90 richtig, kein Zeitlimit; privat mitgeteilte Eckdaten, keine veröffentlichte
               Originalprüfung.</td>
@@ -214,6 +229,11 @@
         </tbody>
       </table>
     </div>
+    <p><strong>Gemeinsames Wissen, unterschiedliche Nachweise:</strong> § 3 ist kein §-11-Test mit einer festen
+      Zahl zusätzlicher Fragen. Allgemeines Hundewissen hilft für beide Lernziele; ob dein Nachweis anerkannt wird,
+      hängt auch von Hundekategorie und Prüfstelle ab. Die <a href="hundewissen.html#sachkunde">Unterschiede der
+      Sachkundenachweise</a> und den <a href="hundewissen.html#vorbereitung">Weg zur Haltungserlaubnis</a> findest du auf
+      „Haltung &amp; Recht“.</p>
     <p>Für die tierärztliche Sachkunde nach § 11 nennt die Tierärztekammer Nordrhein 30 Fragen und ein anschließendes
       Informationsgespräch; eine festgesetzte Fehlerquote gibt sie nicht an. Die Unterschiede betreffen insbesondere den
       zulässigen Nachweisweg, die lokale Prüfung und zusätzliche Rechtsfragen – nicht ein völlig anderes Grundwissen
@@ -234,8 +254,18 @@
 </div>
       <div class="editorial-chapter">
         <h2>Lernstand mitnehmen oder zurücksetzen</h2>
+    <p>Auf der Startseite oder im Lernbereich kannst du lokale Personenprofile anlegen, benennen, wechseln und nach zwei Bestätigungen löschen.
+      Jede Person hat eigene Antworten, Merker, Bewertungen und Kennzahlen je Katalog. Das Lernziel § 3, § 10 oder § 11
+      ist eine Orientierung; es sperrt keine Kataloge und ist kein amtlicher Nachweis. Das erste selbst benannte Profil übernimmt deinen bisherigen Lernstand. Ein automatisch angelegtes
+      Standardprofil gibt es nicht. Falls neben vorhandenen Profilen noch ein früherer unbenannter Stand vorliegt,
+      kannst du ihn beim Anlegen eines weiteren Profils ausdrücklich übernehmen. Es gibt kein Konto, keinen Passwortschutz und keine automatische Synchronisation
+      zwischen Geräten. Die Profilübersicht ist für alle sichtbar, die denselben Browser verwenden.</p>
+    <p>Ab zwei selbst benannten Profilen zeigt die Startseite zusätzlich deren Kennzahlen zum Vergleich. Sie beziehen sich jeweils auf den
+      zuletzt verwendeten Katalog. Vergleiche nur gleiche Kataloge und beachte die Anzahl geprüfter Fragen; ungeprüfte
+      Antworten sind noch keine richtigen Lösungen. Die Anzeige ist keine Prüfungsvorhersage.</p>
     <p>Oben in der Navigation findest du „Lernstand sichern“, „Lernstand laden“ und „Lernbereich zurücksetzen“. Eine
-      Sicherung ist eine lokale JSON-Datei ohne Konto oder Cloud-Synchronisation. Beim Import werden die Lernstände nach
+      Sicherung enthält die Kataloglernstände des aktiven Personenprofils und seinen Anzeigenamen als lokale JSON-Datei.
+      Sie enthält keine laufenden Tests. Beim Laden wird ausschließlich das aktive Profil ergänzt; eine Datei legt kein neues Profil an. Beim Import werden die Lernstände nach
       Bestätigung zusammengeführt; importierte Antworten ersetzen vorhandene Antworten derselben Frage, Bewertungen
       werden zurückgesetzt. Zurücksetzen löscht nur den aktuell gewählten Lernbereich.</p>
 </div>
@@ -639,17 +669,18 @@
         ↑</a></nav>
   </footer>
   <script src="scripts/site-config.js?v=38" defer></script>
-  <script src="scripts/ui/shared.js?v=56" defer></script>
+  <script src="scripts/ui/shared.js?v=62" defer></script>
   <script src="scripts/ui/modal.js?v=58" defer></script>
-  <script src="scripts/ui/story.js?v=1" defer></script>
+  <script src="scripts/ui/story.js?v=62" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
   <script src="scripts/ui/navigation.js?v=51" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
   <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
-  <script src="scripts/ui/release.js?v=60" defer></script>
-  <script src="scripts/ui/common.js?v=57" defer></script>
+  <script src="scripts/ui/release.js?v=65" defer></script>
+  <script src="scripts/ui/page-tools.js?v=62" defer></script>
+  <script src="scripts/ui/common.js?v=63" defer></script>
   <script src="scripts/ui/controls.js?v=38" defer></script>
 </body>
 

@@ -195,9 +195,10 @@
   .site-header .header-nav a:hover,
   .site-header .header-nav a:focus-visible {
     background: var(--nav-panel);
+    color: var(--text);
   }
 
-  .site-header .header-nav [aria-current=page] {
+  :is(.site-header, .mobile-navigation-overlay) .header-nav a[aria-current=page] {
     background: var(--accent);
     color: var(--on-accent);
   }
@@ -249,11 +250,9 @@
     outline-color: var(--focus);
   }
 
-  .mobile-navigation-overlay .header-nav [aria-current=page] {
-    background: var(--highlight);
-    color: var(--highlight-ink);
-    border-radius: var(--radius-sm);
-    text-decoration: none;
+  :is(.site-header, .mobile-navigation-overlay) .header-nav a[aria-current=page]:is(:hover, :focus-visible) {
+    background: var(--accent-hover);
+    color: var(--on-accent);
   }
 }
 

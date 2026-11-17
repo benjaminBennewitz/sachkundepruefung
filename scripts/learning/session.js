@@ -8,6 +8,9 @@
 window.LHUNDG_TRAINER.Session = class Session {
   /** @param {URLSearchParams} params Aktuelle URL-Parameter. */
   constructor(params) {
+    this.learnerId = window.LHUNDG_LEARNERS?.current().id || 'standard';
+    this.namedLearner = window.LHUNDG_LEARNERS?.has?.(this.learnerId) || false;
+    this.learnerGeneration = window.LHUNDG_LEARNERS?.current().generation || 'legacy';
     this.params = params;                                                                       // Parameter der beim Start geöffneten Adresse.
     this.profiles = window.LHUNDG_TRAINER.profiles;                                             // Vorhandene Katalog- und Prüfungskonfigurationen.
     this.mode = Object.hasOwn(this.profiles, params.get('mode')) ? params.get('mode') : 'all';  // Bekannter URL-Modus oder der Gesamtpool als Rückfallwert.
@@ -183,7 +186,7 @@ window.LHUNDG_TRAINER.Session = class Session {
   read(kind, key, fallback = null) {
     // Ein gesperrter Speicher oder ungültiges JSON darf den Trainerstart nicht abbrechen.
     try {
-      const raw = window[kind].getItem(key);  // Ungeparster Speicherinhalt; ein fehlender Schlüssel liefert null.
+      const raw = window[kind].getItem(this.storageKey(key));  // Ungeparster Speicherinhalt; ein fehlender Schlüssel liefert null.
 
       // Ein fehlender Schlüssel verwendet den Ersatzwert; vorhandener Inhalt wird als JSON gelesen.
       return raw === null ? fallback : JSON.parse(raw);
@@ -201,14 +204,21 @@ window.LHUNDG_TRAINER.Session = class Session {
    * @param {*} value JSON-kompatibler Wert.
    */
   write(kind, key, value) {
+    /* Ein in einem anderen Tab gelöschtes Profil darf nicht durch spätere Speicheraktionen wieder entstehen. */
+    if (this.namedLearner && !window.LHUNDG_LEARNERS.has(this.learnerId, this.learnerGeneration)) return;
     // Speichersperren und volle Kontingente dürfen den aktuellen Lernzustand nicht zerstören.
     try {
-      window[kind].setItem(key, JSON.stringify(value));
+      window[kind].setItem(this.storageKey(key), JSON.stringify(value));
     } catch {
       // Behält die aktuellen Antworten im Arbeitsspeicher und warnt höchstens einmal.
       this.storageFailed = true;
       this.showStorageWarning();  // Warnt einmalig, während die aktuellen Antworten weiter im Arbeitsspeicher bleiben.
     }
+  }
+
+  /** @param {string} base Lernschlüssel. @returns {string} Schlüssel der beim Start gewählten Person. */
+  storageKey(base) {
+    return window.LHUNDG_LEARNERS?.key(base, this.learnerId) || base;
   }
 
   /** Meldet Speicherprobleme einmalig; der aktuelle Zustand bleibt im Arbeitsspeicher. */

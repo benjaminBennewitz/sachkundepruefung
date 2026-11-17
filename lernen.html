@@ -23,18 +23,20 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
-  <link rel="stylesheet" href="styles/tokens.css?v=57">
+  <link rel="stylesheet" href="styles/tokens.css?v=62">
   <link rel="stylesheet" href="styles/interface.css?v=49">
   <link rel="stylesheet" href="styles/navigation.css?v=52">
-  <link rel="stylesheet" href="styles/character.css?v=58">
-  <link rel="stylesheet" href="styles/editorial-identity.css?v=57">
+  <link rel="stylesheet" href="styles/character.css?v=62">
+  <link rel="stylesheet" href="styles/editorial-identity.css?v=62">
   <link rel="stylesheet" href="styles/accessibility.css?v=58">
-  <link rel="stylesheet" href="styles/magazine.css?v=60">
+  <link rel="stylesheet" href="styles/page-tools.css?v=62">
+  <link rel="stylesheet" href="styles/learner-profiles.css?v=64">
+  <link rel="stylesheet" href="styles/magazine.css?v=65">
   <link rel="stylesheet" href="styles/learning-overview.css?v=57">
-  <link rel="stylesheet" href="styles/learning-identity.css?v=57">
+  <link rel="stylesheet" href="styles/learning-identity.css?v=62">
   <link rel="stylesheet" href="styles/workspace.css?v=61">
 
-  <link rel="stylesheet" href="styles/foundations.css?v=61">
+  <link rel="stylesheet" href="styles/foundations.css?v=62">
 
 
 
@@ -108,9 +110,14 @@
       <aside class="sidebar" aria-label="Lernbereiche und Fragenübersicht">
           <div class="side-panel">
             <p class="panel-kicker">Lernen &amp; Wiederholen</p>
+            <!-- BLOCK START: Aktives Personenprofil -->
+            <button class="secondary learner-switch" type="button" data-open-learners aria-haspopup="dialog">
+              <span data-learner-name>Dein Lernstand</span><span>Profil wechseln</span>
+            </button>
+            <!-- BLOCK END: Aktives Personenprofil -->
             <label for="modeSelect">Fragenkatalog</label><select id="modeSelect">
               <option value="all">Alle Quellen · 400 Fragen</option>
-              <option value="mg">§-3-Basispool · 398 Fragen</option>
+              <option value="mg">Basispool · 398 Fragen</option>
               <option value="rhein97">Rhein-Erft · 97 Fragen</option>
               <option value="koeln">Köln · 115 Fragen</option>
               <option value="legacy203">Rhein-Erft · 203 Fragen</option>
@@ -216,7 +223,7 @@
             <div class="exam-panel">
               <p class="test-title">Testreihe</p><label for="testSelect">Prüfungsprofil</label><select id="testSelect">
                 <option value="exam34">§ 3 / § 10 · Rhein-Erft · 34 Fragen</option>
-                <option value="mgexam">§ 3 · MG-Simulation · 119 Fragen</option>
+                <option value="mgexam">§ 3 · Mönchengladbach · 119 Fragen</option>
                 <option value="exam11">§ 11 · Kammer-Übung · 30 Fragen</option>
                 <option value="essenexam">§ 3 · Essen · geschätztes Beispiel · 50 Fragen</option>
               </select>
@@ -234,37 +241,40 @@
     <p class="wrap context-note">Der interaktive Trainer benötigt JavaScript. Die <a
         href="quellen.html">Originalquellen</a> kannst du auch ohne JavaScript öffnen.</p>
   </noscript>
+  <script src="scripts/ui/learner-state.js?v=64" defer></script>
   <script src="scripts/site-config.js?v=38" defer></script>
-  <script src="scripts/ui/shared.js?v=56" defer></script>
+  <script src="scripts/ui/shared.js?v=62" defer></script>
   <script src="scripts/ui/modal.js?v=58" defer></script>
-  <script src="scripts/ui/story.js?v=1" defer></script>
+  <script src="scripts/ui/story.js?v=62" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
   <script src="scripts/ui/navigation.js?v=51" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
   <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
-  <script src="scripts/ui/release.js?v=60" defer></script>
-  <script src="scripts/ui/common.js?v=57" defer></script>
+  <script src="scripts/ui/release.js?v=65" defer></script>
+  <script src="scripts/ui/page-tools.js?v=62" defer></script>
+  <script src="scripts/ui/learner-panel.js?v=64" defer></script>
+  <script src="scripts/ui/common.js?v=63" defer></script>
   <script src="scripts/learning/data.js?v=33" defer></script>
   <script src="scripts/learning/essen.js?v=33" defer></script>
   <script src="scripts/learning/sources.js?v=33" defer></script>
   <script src="scripts/learning/core.js?v=33" defer></script>
-  <script src="scripts/learning/profiles.js?v=33" defer></script>
+  <script src="scripts/learning/profiles.js?v=62" defer></script>
   <script src="scripts/learning/dom.js?v=33" defer></script>
-  <script src="scripts/learning/session.js?v=49" defer></script>
+  <script src="scripts/learning/session.js?v=64" defer></script>
   <script src="scripts/learning/explanations.js?v=50" defer></script>
-  <script src="scripts/learning/question-feedback.js?v=50" defer></script>
+  <script src="scripts/learning/question-feedback.js?v=62" defer></script>
   <script src="scripts/learning/question-view.js?v=48" defer></script>
   <script src="scripts/learning/filter-view.js?v=40" defer></script>
-  <script src="scripts/learning/insights.js?v=56" defer></script>
+  <script src="scripts/learning/insights.js?v=63" defer></script>
   <script src="scripts/learning/learning-view.js?v=56" defer></script>
   <script src="scripts/learning/results.js?v=49" defer></script>
-  <script src="scripts/learning/progress.js?v=33" defer></script>
+  <script src="scripts/learning/progress.js?v=63" defer></script>
   <script src="scripts/learning/keyboard.js?v=40" defer></script>
-  <script src="scripts/learning/controller.js?v=55" defer></script>
+  <script src="scripts/learning/controller.js?v=62" defer></script>
   <script src="scripts/learning/foundations.js?v=43" defer></script>
-  <script src="scripts/learning/app.js?v=55" defer></script>
+  <script src="scripts/learning/app.js?v=64" defer></script>
   <script src="scripts/learning/workspace-tools.js?v=61" defer></script>
   <script src="scripts/ui/select-view.js?v=55" defer></script>
   <script src="scripts/ui/select-keyboard.js?v=38" defer></script>

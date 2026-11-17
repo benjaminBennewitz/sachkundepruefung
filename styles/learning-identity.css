@@ -214,3 +214,37 @@
     outline-offset: 2px;
   }
 }
+
+@media screen {
+  .question-card .answer-option.answer-correct {
+    background: var(--ok-bg);
+    color: var(--ok);
+    border-color: var(--ok);
+  }
+
+  .question-card .answer-option.answer-incorrect {
+    background: var(--bad-bg);
+    color: var(--bad);
+    border-color: var(--bad);
+  }
+
+  .question-card .answer-option.answer-missing {
+    background: var(--missing-bg);
+    color: var(--missing);
+    border-color: var(--missing);
+    border-style: dashed;
+  }
+
+  .answer-state {
+    grid-column: 2 / -1;
+    width: fit-content;
+    font-size: .75rem;
+    font-weight: 750;
+  }
+}
+
+@media screen {
+  .answer-option:is(.answer-missing, .answer-incorrect, .answer-correct) .answer-letter {
+    color: inherit;
+  }
+}

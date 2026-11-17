@@ -101,11 +101,6 @@
   height: auto;
 }
 
-.explanation-comparison figcaption {
-  margin-top: 10px;
-  font-size: .85rem;
-}
-
 /* ===========================================================================
    03   Grundlagen im gemeinsamen Modal
    ========================================================================== */
@@ -166,7 +161,7 @@
 
   .magazine--foundations .editorial-photo {
     display: grid;
-    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-rows: minmax(0, 1fr);
     min-height: 0;
   }
 

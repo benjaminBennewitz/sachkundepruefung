@@ -1,0 +1,88 @@
+/*###############################
+###
+###     learner-profiles.css
+###     Hunde-Sachkundetrainer NRW
+###     BASED ON: HTML5, CSS3, JavaScript
+###     AUTHOR: Benjamin Bennewitz
+###
+###
+###       ██████╗  ▀█
+###       ██╔══██╗ █▄
+###       ██████╦╝
+###       ██╔══██╗
+###       ██████╦╝
+###       ╚═════╝
+###
+#################################*/
+
+/* ===========================================================================
+   INHALTSVERZEICHNIS
+   01   Personenwahl und Dialog
+   02   Vergleich auf der Startseite
+   03   Kleine Viewports und Druck
+   ========================================================================== */
+
+/* ===========================================================================
+   01   Personenwahl und Dialog
+   ========================================================================== */
+
+.learner-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.learner-bar strong { font-size: 1.3rem; }
+.learner-bar .microcopy { display: block; margin-top: 4px; }
+.learner-switch { display: flex; justify-content: space-between; gap: 8px; width: 100%; margin-bottom: 12px; }
+.learner-switch span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.learner-switch span:last-child { flex-shrink: 0; font-size: .7rem; }
+.learner-panel, .learner-options, .learner-form { display: grid; gap: 12px; min-width: 0; }
+.learner-option { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 8px; }
+.learner-option button { min-height: 44px; overflow-wrap: anywhere; }
+.learner-option button:first-child { text-align: start; }
+.learner-option .microcopy { display: block; font-weight: 400; color: inherit; }
+.learner-option [aria-pressed="true"] { border: 2px solid var(--accent); background: var(--accent-bg); }
+.learner-form { border-top: 1px solid var(--line); padding-top: 20px; margin-top: 8px; }
+.learner-form label { font-weight: 700; }
+.learner-form :is(input, select) { width: 100%; min-width: 0; min-height: 44px; color: var(--text); background: var(--surface); border: 1px solid var(--control-line); border-radius: var(--radius-sm); padding: 10px 12px; font: inherit; }
+.learner-form option { color: var(--text); background: var(--surface); }
+.learner-inherit { display: flex; align-items: center; gap: 10px; font-size: .85rem; }
+.learner-form input[type="checkbox"] { flex: 0 0 20px; width: 20px; min-height: 20px; height: 20px; padding: 0; accent-color: var(--accent); }
+.learner-error { color: var(--bad); font-size: .85rem; }
+.learner-error:empty { display: none; }
+
+/* ===========================================================================
+   02   Vergleich auf der Startseite
+   ========================================================================== */
+
+.profile-comparison { margin-top: 32px; }
+.profile-comparison .overview-heading { margin-bottom: 20px; }
+.profile-comparison .overview-heading p { max-width: 54ch; }
+.profile-comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.profile-card { display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); overflow-wrap: anywhere; }
+.profile-card[data-active="true"] { border-color: var(--accent); }
+.profile-card h3 { font-size: 1.4rem; }
+.profile-card > button { margin-top: auto; }
+.profile-kpis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 8px 0; }
+.profile-kpis > div { display: flex; flex-direction: column; gap: 4px; }
+.profile-kpis dt { font-size: .75rem; color: var(--muted); }
+.profile-kpis dd { order: -1; margin: 0; font-size: 1.45rem; font-weight: 800; }
+
+/* ===========================================================================
+   03   Kleine Viewports und Druck
+   ========================================================================== */
+
+@media screen and (max-width: 480px) {
+  .learner-option { grid-template-columns: minmax(0, 1fr); }
+  .learner-bar > button { width: 100%; }
+}
+
+@media print {
+  .learner-bar, .learner-switch, .profile-comparison { display: none; }
+}
