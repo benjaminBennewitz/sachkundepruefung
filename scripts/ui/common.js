@@ -74,6 +74,8 @@
   window.LHUNDG_UI = Object.freeze({ modal: modal.open.bind(modal), toast: toasts.show.bind(toasts), confirm });
   window.openSupportDialog = support.open.bind(support);
 
+  /* Das Release wird vor Geschichte, Grundlagen und allen weiteren Dialogen eingereiht. */
+  void ui.bindRelease(modal);
   ui.bindAccessibility(modal);
   bindAbout();
   /* Persönliche Entstehungsgeschichte im gemeinsamen Dialog anzeigen. */

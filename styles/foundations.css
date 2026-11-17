@@ -127,3 +127,74 @@
 .ui-modal .foundations-content p {
   margin-top: 12px;
 }
+
+@media screen {
+  .ui-modal .editorial-intro { display: block; margin: 0; }
+
+  .ui-modal .magazine-body {
+    display: block;
+  }
+
+  .ui-modal .editorial-spread {
+    display: block;
+    padding: 0;
+  }
+
+  .ui-modal .editorial-photo {
+    display: none;
+  }
+
+  .ui-modal .editorial-chapter {
+    padding: 0;
+    border: 0;
+  }
+}
+
+/* ===========================================================================
+   04   Kompakte redaktionelle Bilder
+   ========================================================================== */
+
+@media screen {
+  .magazine--foundations .masthead-image img {
+    object-position: center 18%;
+  }
+
+  .magazine--foundations .editorial-spread {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+
+  .magazine--foundations .editorial-photo {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    min-height: 0;
+  }
+
+  .magazine--foundations .editorial-photo-frame {
+    position: relative;
+    min-height: 0;
+  }
+
+  .magazine--foundations .editorial-photo-frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+
+  .magazine--foundations .editorial-photo--paws img {
+    object-position: center 35%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .magazine--foundations .editorial-spread {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .magazine--foundations .editorial-photo-frame {
+    min-height: clamp(220px, 40vw, 320px);
+  }
+}

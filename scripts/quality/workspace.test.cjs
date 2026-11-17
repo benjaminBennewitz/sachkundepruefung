@@ -167,3 +167,39 @@ test('Select-Menüs verbleiben im geöffneten Dialog und übernehmen ihre Kontex
   assert.equal(menu.parentElement, scope.document.body);
   assert.equal(menu.dataset.palette, 'default');
 });
+
+/** Prüft den gespeicherten Farbmodus unabhängig von einer sichtbaren Fragenbewertung. */
+test('Blau/Orange wird als aktive Statuspalette angewendet und beim nächsten Laden erhalten', () => {
+  const first = preferences();
+  first.access.set({ colorVision: 'blue-amber' });
+  assert.equal(first.document.documentElement.dataset.colorVision, 'blue-amber');
+  const next = preferences({ saved: first.values.get('lhundg-accessibility-v1') });
+  assert.equal(next.document.documentElement.dataset.colorVision, 'blue-amber');
+  next.access.set({ colorVision: 'default' });
+  assert.equal(next.document.documentElement.dataset.colorVision, 'default');
+  assert.equal(next.values.get('learning-progress'), 'unverändert');
+});
+
+/** Prüft den neuen Schließen-Zugang mit der tatsächlichen gemeinsamen Modalimplementierung. */
+test('Optionaler Dialog-Schließen-Button ist beschriftet und schließt dieselbe native Instanz', () => {
+  const ui = {
+    node(tag, text = '', className = '') {
+      return { tag, text, className, children: [], attributes: {}, handlers: {},
+        append(...items) { this.children.push(...items); },
+        setAttribute(name, value) { this.attributes[name] = value; },
+        addEventListener(name, handler) { this.handlers[name] = handler; } };
+    }
+  };
+  load('modal', { window: { LHUNDG_UI_PARTS: ui } });
+  const modal = Object.create(ui.Modal.prototype);
+  let closed;
+  modal.dialog = { close(value) { closed = value; } };
+  const card = modal.buildCard({ title: 'Fragenübersicht', message: 'Frage wählen.', closeButton: true, actions: [] });
+  const close = card.children[0].children.find(child => child.tag === 'button');
+  assert.equal(close.attributes['aria-label'], 'Dialog schließen');
+  assert.equal(close.type, 'button');
+  close.handlers.click();
+  assert.equal(closed, 'close');
+  const regular = modal.buildCard({ title: 'Hinweis', message: 'Weiterlernen.', actions: [] });
+  assert.equal(regular.children[0].tag, 'h2');
+});

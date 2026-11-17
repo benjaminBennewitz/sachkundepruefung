@@ -132,13 +132,13 @@
   .site-header.wrap {
     width: 100%;
     padding: 16px max(var(--page-gutter), calc((100% - 1440px) / 2));
-    background: var(--brand-forest);
+    background: var(--nav-bg);
     border: 0;
-    color: var(--brand-cream);
+    color: var(--text);
   }
 
   .site-header .brand {
-    color: var(--brand-cream);
+    color: var(--text);
     font-size: 1.05rem;
     letter-spacing: -.035em;
   }
@@ -148,27 +148,27 @@
     height: 44px;
     border: 0;
     border-radius: var(--radius-sm);
-    background: var(--highlight);
+    background: var(--warm);
     color: var(--highlight-ink);
   }
 
   .site-header .brand-sub {
     margin-top: 6px;
-    color: var(--brand-soft);
+    color: var(--nav-muted);
     font-size: .6rem;
     letter-spacing: .14em;
   }
 
   .site-header .header-project {
-    border-inline-start-color: #78917b;
+    border-inline-start-color: var(--nav-line);
   }
 
   .site-header .header-project p {
-    color: var(--brand-soft);
+    color: var(--nav-muted);
   }
 
   .site-header .header-project a {
-    color: var(--highlight);
+    color: var(--accent);
   }
 
   .site-header .header-nav {
@@ -185,7 +185,7 @@
     min-height: 42px;
     margin: 0;
     padding: 8px 12px;
-    color: var(--brand-cream);
+    color: var(--text);
     border-radius: var(--radius-sm);
     font-size: .8rem;
     font-weight: 600;
@@ -194,34 +194,34 @@
 
   .site-header .header-nav a:hover,
   .site-header .header-nav a:focus-visible {
-    background: var(--brand-forest-hover);
+    background: var(--nav-panel);
   }
 
   .site-header .header-nav [aria-current=page] {
-    background: var(--highlight);
-    color: var(--highlight-ink);
+    background: var(--accent);
+    color: var(--on-accent);
   }
 
   .site-header .icon-button {
-    border: 1px solid #78917b;
+    border: 1px solid var(--nav-line);
     border-radius: var(--radius-sm);
     background: transparent;
-    color: var(--brand-cream);
+    color: var(--text);
   }
 
   .site-header .icon-button:hover {
-    background: var(--brand-forest-hover);
-    border-color: var(--brand-cream);
+    background: var(--nav-panel);
+    border-color: var(--text);
   }
 
   .site-header .icon-button[data-open-support] {
     background: var(--highlight);
-    border-color: var(--highlight);
+    border-color: var(--accent);
     color: var(--highlight-ink);
   }
 
   .site-header :is(a, button):focus-visible {
-    outline-color: var(--highlight);
+    outline-color: var(--accent);
   }
 
   .mobile-navigation-overlay[open] {
@@ -229,14 +229,14 @@
   }
 
   .mobile-navigation-topbar {
-    background: var(--brand-forest);
-    color: var(--brand-cream);
+    background: var(--nav-bg);
+    color: var(--text);
     border: 0;
   }
 
   .mobile-navigation-close {
     background: var(--highlight);
-    border-color: var(--highlight);
+    border-color: var(--accent);
     color: var(--highlight-ink);
   }
 
@@ -246,7 +246,7 @@
   }
 
   .hero--companion a:focus-visible, .support-section a:focus-visible {
-    outline-color: var(--brand-forest);
+    outline-color: var(--focus);
   }
 
   .mobile-navigation-overlay .header-nav [aria-current=page] {
@@ -270,12 +270,12 @@
     padding: 48px max(var(--page-gutter), calc((100% - 1440px) / 2));
     gap: 24px 64px;
     border: 0;
-    background: var(--brand-forest);
-    color: var(--brand-cream);
+    background: var(--nav-bg);
+    color: var(--text);
   }
 
   .site-footer .footer-brand {
-    color: var(--brand-cream);
+    color: var(--text);
     font: 800 clamp(1.8rem, 3vw, 2.6rem)/1 var(--display-font);
     letter-spacing: -.045em;
   }
@@ -283,7 +283,7 @@
   .footer-brand span {
     display: block;
     margin-top: 12px;
-    color: var(--highlight);
+    color: var(--accent);
     font: 500 .8rem/1.5 var(--body-font);
     letter-spacing: .01em;
   }
@@ -291,16 +291,16 @@
   .site-footer .footer-scope {
     grid-column: 2;
     max-width: 60ch;
-    color: var(--brand-soft);
+    color: var(--nav-muted);
     font-size: .8rem;
   }
 
   .site-footer :is(a, .footer-credit) {
-    color: var(--brand-cream);
+    color: var(--text);
   }
 
   .site-footer a:hover {
-    color: var(--highlight);
+    color: var(--accent);
   }
 
   .site-footer nav {
@@ -314,7 +314,7 @@
   }
 
   .site-footer a:focus-visible, .companion a:focus-visible {
-    outline-color: var(--highlight);
+    outline-color: var(--accent);
   }
 
   .ui-modal, .ui-toast {
@@ -332,6 +332,32 @@
   .ui-modal h2 {
     font: 750 clamp(1.5rem, 3vw, 2rem)/1.1 var(--display-font);
     letter-spacing: -.04em;
+  }
+
+  .ui-modal-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    align-items: start;
+    gap: 16px;
+  }
+
+  .ui-modal-heading h2 {
+    margin: 0;
+  }
+
+  .ui-modal-close {
+    width: 44px;
+    height: 44px;
+    color: var(--text);
+    font-size: 1.5rem;
+  }
+
+  .ui-modal-close:hover {
+    background: var(--control-hover);
+  }
+
+  .ui-modal .dialog-actions:empty {
+    display: none;
   }
 
   .ui-modal:has(.story-content) .ui-modal-inner {

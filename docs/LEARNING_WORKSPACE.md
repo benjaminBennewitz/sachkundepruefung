@@ -1,6 +1,8 @@
 # Lernarbeitsplatz und Barrierefreiheit
 
-Stand: 16. November 2026. Auf der freigegebenen Apricot-Gestaltung aufgebaut.
+Stand: 17. November 2026. Die Naturfarben und Magazinlayouts sind in
+`docs/DESIGN_DIRECTION.md` dokumentiert; der versionierte Release-Einstieg in
+`docs/RELEASE_NOTES.md`. Der Fragenbereich und seine Datenhaltung bleiben erhalten.
 
 ## Seiten und Wege
 
@@ -23,9 +25,11 @@ Die Seite nutzt `100dvh`; das Padding liegt innerhalb dieser Höhe. Es gibt
 keinen zweiten Abzug einer geschätzten Kopfzeile oder einer großen Überschrift.
 
 Die Katalogspalte enthält Auswahl, Fortschritt, Weiterlernen, Merkliste und die
-Buttons für Fragenübersicht und Testreihen. Die Werkzeugleiste enthält Katalog-
-bezeichnung, Ansicht und den Zugang zu Filter/Auswertung. Filter, Testprofile
-und Fragenübersicht verwenden das bestehende gemeinsame native Dialogsystem.
+Buttons für Fragenübersicht und Testreihen. Suche, Thema, Lernstatus und Ansicht
+stehen direkt über den Fragen. Sofort-Feedback, Zwischenergebnis und Auswertung
+stehen dauerhaft unter der Frage neben der Seitennavigation. Nur Testprofile
+und Fragenübersicht verwenden das gemeinsame native Dialogsystem. Die
+Werkzeugdialoge besitzen einen Schließen-Button neben der Überschrift.
 Die originalen Controls werden verschoben und zurückgeführt, nicht kopiert.
 
 Sidebar und Werkzeugleiste haben keinen eigenen Y-Scroll. Für überlange Fragen,
@@ -42,8 +46,9 @@ A11y-Menü hat Vorrang vor einer festen Fensterhöhe.
 
 Die zuvor falsche Kombination aus Auswahl-Hintergrund und Auswahl-Textfarbe
 wurde zentral in `styles/character.css` korrigiert. Der Auswahlhaken übernimmt
-die aktuelle Textfarbe. Geöffnete Menüs erhalten die Farbrolle ihres Auslösers:
-Waldgrün/Apricot in der Katalogspalte, das aktive Seitenschema in Dialogen.
+die aktuelle Textfarbe. Menüs und Katalogspalte verwenden dasselbe aktive
+Light-/Dark-Schema wie die restliche Oberfläche. Eine zusätzliche fest eingebaute
+Dunkelpalette wird nicht mehr verwendet.
 
 Ausgelagerte Select-Menüs werden beim Öffnen in den aktuellen nativen Dialog
 gehängt. Dadurch liegen sie im richtigen Top Layer und werden nicht durch
@@ -66,7 +71,7 @@ Dialog, ohne Angular oder zusätzliche Abhängigkeiten.
 | --- | --- |
 | Textgröße | 100 %, 125 % oder 150 %; bei Vergrößerung freier Seitenfluss |
 | Kontrast | Zusätzliche Kontrastrollen für helles und dunkles Schema |
-| Statusfarben | Standard oder Blau/Orange; keine medizinische Farbsehkorrektur behauptet |
+| Statusfarben | Standard oder Blau/Orange für Richtig/Falsch, mit direkter Vorschau; keine medizinische Farbsehkorrektur behauptet |
 | Vorlesen | Sichtbare Frage samt Antworten oder redaktionelle Hauptinhalte |
 | Zurücksetzen | Nur A11y-Präferenzen zurücksetzen, Lernstände bleiben erhalten |
 
@@ -88,19 +93,18 @@ Grundlagen; externe Verbindungen werden dadurch nicht freigegeben.
 
 ## Prüfung
 
-- 81 Tests ausgeführt: 75 bestanden. Die 17 Tests zu Lernwerkzeugen und
-  Kennzahlen bestehen vollständig.
-  Die sechs bestehenden Fehler betreffen weiterhin fehlende Alt-Assets in der
-  bereitgestellten Projekt-ZIP. Keine Aufgabenbilder wurden erfunden oder ersetzt.
+- 91 Tests bestanden, einschließlich der bisherigen 17 Prüfungen zu Lernwerkzeugen
+  und Kennzahlen sowie sechs Prüfungen zum Release-Einstieg. Zusätzliche Prüfungen betreffen
+  den Schließen-Button und das Anwenden der alternativen Statuspalette. Die aktuelle
+  Projekt-ZIP enthält die zuvor fehlenden Original-Assets.
 - Neue Tests prüfen Speichergrenzen und Rücksetzen, bereinigte Altdaten, erhaltene
   Lernparameter, lokale Stimmen, Ausschluss verborgener Lösungen, Stoppen alter
   Sprachaufträge und den Dialog-/Farbkontext der Select-Menüs.
-- SEO-Prüfung für acht Seiten erfolgreich. Statische HTML-/CSS-Verweise werden
-  geprüft, bis die bestehende Pfadprüfung das fehlende dynamische PayPal-Icon
-  meldet. Vollständige Daten-/Release-Prüfung ohne Originalbilder nicht möglich.
+- Datenprüfung, lokale Verweisprüfung und SEO-Prüfung für acht Seiten erfolgreich.
+  Eine fachliche Neubewertung der Originalinhalte war nicht Teil der Gestaltung.
 - Die Deployment-Archivprüfung akzeptiert die neue explizite Dateiliste und
   verwirft eine unbekannte PHP-Datei. Das ist eine Struktur-Fixture, kein Deployment.
-- Neue/angepasste Funktionsdateien bleiben unter 400 Zeilen. Texte im Patch haben
+- Neue/angepasste Funktionsdateien umfassen höchstens 400 Zeilen. Texte im Patch haben
   CRLF. Lern- und Bewertungskerne sowie Fragenbestände bleiben unverändert.
 - Visuelle Browser-, Responsive- und Tastaturprüfung hier weiterhin nicht verfügbar.
   Die Bildschirmdarstellung und tatsächlich installierte lokale Stimmen bitte vor
@@ -113,18 +117,16 @@ Testneustart mit Bestätigung sowie Wechsel zwischen beiden Farbpaletten.
 
 ## Installation
 
-Der Patch setzt den zuletzt gelieferten `Sachkundetrainer_Designidentitaet_Apricot_Patch.zip`
-voraus und enthält nur seitdem geänderte oder neue Dateien. Die DCR-Referenz
-wird nicht verändert. Die vorhandenen Bild-Assets weiterverwenden. Vor dem
-nächsten Deployment das aktualisierte Serverskript gemäß `deployment/README.md`
-erneut installieren. Das lokale Archiv-CMD nimmt jetzt auch `lernen.html` auf.
+Der aktuelle Patch setzt die ZIP `dogtest--171126--0916.zip` voraus und enthält
+nur seitdem geänderte oder neue Dateien. Vor dem nächsten Deployment das
+aktualisierte Serverskript gemäß `deployment/README.md` erneut installieren.
 Es wurde nichts committed oder veröffentlicht.
 
-## Ergänzung V56: Lernüberblick und Inhalte aus der Stitch-Referenz
+## Lernüberblick und Inhalte aus der Stitch-Referenz
 
 Die Referenz liefert die Idee für persönliche Kennzahlen, direkte Katalogkarten,
 separate Übungsprofile und einen Bildabschnitt. Farben, Typografie und Formensprache
-bleiben die vorhandene Apricot-Identität. Zahlen und unzutreffende Prüfungsaussagen
+verwenden inzwischen die Naturfarben. Zahlen und unzutreffende Prüfungsaussagen
 der Referenz wurden nicht übernommen.
 
 Die Begrüßungsseite zeigt sechs echte Kataloge und vier vorhandene Testprofile mit
@@ -147,15 +149,10 @@ pauschal erzwungene zusätzliche Navigationszeile bei Textvergrößerung entfäl
 die Navigation kann bei tatsächlichem Platzmangel umbrechen. Vergrößerte Inhalte
 bleiben weiterhin im freien Dokumentfluss erreichbar.
 
-Zusätzlicher Bildplatzhalter: `assets/public/miteinander-platzhalter.webp`,
-1200 × 800 Pixel. Mit dem Bildgenerator erstelltes natürliches Motiv: gestromte
-Hündin mit weißer Brust und begleitender Hand auf einem ruhigen Weg, warmes Licht,
-Waldgrün und erdige Apricot-Töne, ohne Schrift und Logos. Sichtbar als KI-Platzhalter
-gekennzeichnet, später durch ein eigenes Foto zu ersetzen. Das ursprüngliche
-persönliche Geschichtenbild wurde nicht verändert.
-
-Dieses Folgepatch setzt `Sachkundetrainer_Lernarbeitsplatz_A11y_Patch.zip` voraus.
-Es enthält nur die seitdem geänderten oder neuen Dateien. Neue Module, Styles und
-das zusätzliche WebP sind in der strikten Deployment-Dateiliste berücksichtigt.
+Die beiden früheren KI-Platzhalter sind auf der Startseite durch Originalfotos
+ersetzt. Die eingesetzten Motive und deren Ableitungen sind in
+`docs/DESIGN_DIRECTION.md` aufgeführt. Das persönliche Geschichtenbild bleibt
+unverändert. Alle neuen öffentlichen Dateien sind in der strikten
+Deployment-Dateiliste berücksichtigt.
 Die visuelle Browserprüfung sowie ein praktischer Vergleich der Schriftgrößen
 auf den Zielgeräten bleiben offen; Struktur- und Funktionstests ersetzen sie nicht.

@@ -21,12 +21,13 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
-  <link rel="stylesheet" href="styles/tokens.css?v=54">
+  <link rel="stylesheet" href="styles/tokens.css?v=57">
   <link rel="stylesheet" href="styles/interface.css?v=49">
   <link rel="stylesheet" href="styles/navigation.css?v=52">
-  <link rel="stylesheet" href="styles/character.css?v=56">
-  <link rel="stylesheet" href="styles/editorial-identity.css?v=54">
-  <link rel="stylesheet" href="styles/accessibility.css?v=56">
+  <link rel="stylesheet" href="styles/character.css?v=58">
+  <link rel="stylesheet" href="styles/editorial-identity.css?v=57">
+  <link rel="stylesheet" href="styles/accessibility.css?v=58">
+  <link rel="stylesheet" href="styles/magazine.css?v=60">
 
 </head>
 
@@ -42,10 +43,13 @@
       </div>
     </div>
     <!-- BLOCK END: Marke und Projekthinweise -->
-    <nav class="header-nav" aria-label="Hauptnavigation"><a href="lernen.html#trainer">Lernen</a><a
-        href="grundlagen.html">Grundlagen</a><a href="gut-zu-wissen.html">Gut
-        zu wissen</a><a href="hundewissen.html" aria-current="page">Haltung &amp; Recht</a><a
-        href="quellen.html">Quellen</a>
+    <nav class="header-nav" aria-label="Hauptnavigation">
+      <a href="./">Startseite</a>
+      <a href="lernen.html#trainer">Lernen</a>
+      <a href="grundlagen.html">Grundlagen</a>
+      <a href="gut-zu-wissen.html">Gut zu wissen</a>
+      <a href="hundewissen.html" aria-current="page">Haltung &amp; Recht</a>
+      <a href="quellen.html">Quellen</a>
     </nav>
     <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><a class="icon-button"
         aria-label="Lernstand laden – im Trainer" href="lernen.html?action=import#trainer"><svg class="" width="20" height="20"
@@ -82,13 +86,19 @@
           <circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7M8 8l1 6m7-6-1 6"/>
         </svg><span class="tool-tip" aria-hidden="true">Barrierefreiheit</span></button></div>
   </header>
-  <main id="inhalt" class="prose wrap" tabindex="-1">
+  <main id="inhalt" class="prose wrap magazine" tabindex="-1">
     <!-- BLOCK START: Seitenauftakt -->
-    <header class="page-masthead">
+    <header class="page-masthead page-masthead--magazine">
+      <div class="masthead-copy">
       <p class="eyebrow">03 / Haltung &amp; Recht</p>
       <h1>Listenhunde &amp; Haltungsauflagen in NRW</h1>
+        <p class="masthead-deck">Wissen einordnen. Verantwortung übernehmen.</p>
+      </div>
+      <figure class="masthead-image"><img src="assets/public/zwei-hunde.webp" width="1200" height="900" alt="Zwei Hunde, gestromt und schwarzweiß, liegen auf einer sonnigen Terrasse." loading="eager" decoding="async"></figure>
     </header>
     <!-- BLOCK END: Seitenauftakt -->
+    <!-- BLOCK START: Orientierung -->
+    <div class="editorial-intro">
     <aside class="legal-disclaimer" aria-label="Wichtiger Hinweis zur Lernhilfe"><strong>REINE LERNHILFE. KEINE
         RECHTSBERATUNG. KEINE PRÜFUNGSGARANTIE.</strong>
       <p>Dieses unabhängige Angebot ersetzt weder behördliche Auskünfte noch eine Sachkunde- oder Verhaltensprüfung. Für
@@ -108,7 +118,12 @@
       <a href="#staedte">Städte und Kreise</a>
       <a href="#verhalten">Verhaltensprüfung</a>
     </nav>
-    <h2 id="einstufung">Was bedeutet „Listenhund“?</h2>
+</div>
+    <!-- BLOCK END: Orientierung -->
+    <!-- BLOCK START: Magazinkapitel -->
+    <div class="magazine-body">
+      <div class="editorial-chapter editorial-chapter--full editorial-chapter--table">
+        <h2 id="einstufung">Was bedeutet „Listenhund“?</h2>
     <p>„Listenhund“ ist eine gebräuchliche Sammelbezeichnung. Das NRW-Gesetz unterscheidet gefährliche Hunde (§ 3),
       Hunde bestimmter Rassen (§ 10) und große Hunde (§ 11). Eine gesetzliche Rassezuordnung ist keine individuelle
       Verhaltensdiagnose. Auch die Einordnung von Kreuzungen und eine etwaige Gefährlichkeitsfeststellung gehören in die
@@ -153,7 +168,9 @@
         target="_blank" rel="noopener noreferrer external">LHundG NRW: §§ 3, 4, 6, 10 und 11 ↗</a> · <a
         href="https://www.mlv.nrw.de/themen/verbraucherschutz/tierschutz-und-tierhaltung/hobby-tierhaltung/hunde/"
         target="_blank" rel="noopener noreferrer external">Landwirtschaftsministerium NRW: Hunde ↗</a></p>
-    <h2 id="sachkunde">Sachkundenachweis: Wissen des Menschen</h2>
+</div>
+      <div class="editorial-chapter">
+        <h2 id="sachkunde">Sachkundenachweis: Wissen des Menschen</h2>
     <p>Die Themen überschneiden sich stark: Hundeverhalten, Haltung und Pflege, Gefahrensituationen, Lernen und
       Ausbildung sowie rechtliche Regeln. Bei § 3 ist der Nachweisweg strenger als bei großen Hunden nach § 11. Eine
       Bescheinigung für große Hunde ist deshalb nicht automatisch ein passender Nachweis für einen gefährlichen Hund.
@@ -172,7 +189,9 @@
         rel="noopener noreferrer external">Stadt Köln: Prüfungsablauf ↗</a> · <a
         href="https://www.tieraerztekammer-nordrhein.de/tierhalter/sachkundebescheinigung-lhundg/" target="_blank"
         rel="noopener noreferrer external">Tierärztekammer: § 11 ↗</a></p>
-    <h2 id="verhalten">Wesenstest / Verhaltensprüfung: Hund und führende Person</h2>
+</div>
+      <div class="editorial-chapter">
+        <h2 id="verhalten">Wesenstest / Verhaltensprüfung: Hund und führende Person</h2>
     <p>Die Verhaltensprüfung beurteilt unter anderem Gehorsam und Reaktionen in Alltagssituationen – etwa gegenüber
       Menschen, anderen Hunden, Bewegung oder ungewohnten Reizen. Sie ersetzt nicht den Sachkundenachweis des Menschen.
       Ein bestandenes Ergebnis kann bei Hunden nach § 3 Abs. 2 oder § 10 Grundlage eines Antrags auf Befreiung von
@@ -192,7 +211,11 @@
         target="_blank" rel="noopener noreferrer external">Verwaltungsvorschriften: Nr. 5.3 ↗</a> · <a
         href="https://www.stadt-koeln.de/service/produkte/00610/index.html" target="_blank"
         rel="noopener noreferrer external">Stadt Köln: Verhaltensprüfung/Wesenstest ↗</a></p>
-    <section aria-labelledby="lernabdeckung">
+</div>
+      <!-- BLOCK START: Persönlicher Bildmoment -->
+      <figure class="editorial-interlude"><img src="assets/public/huendin-ruhe.webp" width="1200" height="675" alt="Meine Hündin liegt zu Hause entspannt auf dem Boden." loading="lazy" decoding="async"><figcaption>Wissen mitnehmen. Auch in die gemeinsame Zeit draußen.</figcaption></figure>
+      <!-- BLOCK END: Persönlicher Bildmoment -->
+      <section aria-labelledby="lernabdeckung" class="editorial-chapter editorial-chapter--full editorial-chapter--table">
       <h2 id="lernabdeckung">Wie weit bereiten die Fragenkataloge vor?</h2>
       <p>Der Themenabgleich vom <time datetime="2026-11-11">11. November 2026</time> zeigt eine breite Grundlage
         für Verhalten, Erziehung und Gesundheit. Einzelne Rechtsfragen ersetzen jedoch keinen vollständigen Leseplan.
@@ -248,7 +271,7 @@
       </div>
       <p><a href="lernen.html#trainer">Zum Fragenkatalog</a> · <a href="quellen.html">Herkunft und Grenzen der Kataloge</a></p>
     </section>
-    <section aria-labelledby="recht">
+      <section aria-labelledby="recht" class="editorial-chapter">
       <h2 id="recht">Dein Leseplan: gemeinsame Rechtsgrundlagen</h2>
       <p>Die bundesweiten Tierschutzregeln und das LHundG NRW gelten unabhängig von der Stadt.
         Die folgenden Schwerpunkte orientieren sich auch an den Vorbereitungshinweisen der Stadt Essen.</p>
@@ -320,7 +343,7 @@
       <p>Die Lernwertung folgt weiterhin dem Lösungsschlüssel der jeweiligen Vorlage. Die Hinweise ändern keine
         Originalfrage. Bei Rechtsfragen solltest du zusätzlich die aktuelle Vorschrift lesen.</p>
     </section>
-    <section aria-labelledby="staedte">
+      <section aria-labelledby="staedte" class="editorial-chapter">
       <h2 id="staedte">Vorbereitung nach Stadt und Kreis</h2>
       <p>Hier stehen ergänzende örtliche Angaben, keine unterschiedlichen Fassungen des NRW-Gesetzes.
         Quellen und offene Punkte bleiben getrennt. Weitere Orte ergänzen wir, sobald belastbare Informationen
@@ -404,7 +427,8 @@
       <p class="microcopy">Die persönlichen E-Mail-Auskünfte sind nicht öffentlich abrufbar. Namen und vollständige
         Nachrichten werden hier nicht veröffentlicht; eine behördliche Anerkennung des Trainers folgt daraus nicht.</p>
     </section>
-    <h2 id="vorbereitung">Vor Anschaffung oder Prüfung klären</h2>
+      <div class="editorial-chapter">
+        <h2 id="vorbereitung">Vor Anschaffung oder Prüfung klären</h2>
     <ol>
       <li><strong>Ordnungsamt:</strong> Einstufung, Erlaubnis bzw. Anzeige und notwendige Unterlagen erfragen – bei
         erlaubnispflichtiger Haltung möglichst vor der Anschaffung.</li>
@@ -420,13 +444,18 @@
         target="_blank" rel="noopener noreferrer external">Gesetzliche Voraussetzungen ↗</a> · <a
         href="https://www.mlv.nrw.de/themen/verbraucherschutz/tierschutz-und-tierhaltung/hobby-tierhaltung/hunde/"
         target="_blank" rel="noopener noreferrer external">Land NRW: Haltung und Pflichten ↗</a></p>
-    <h2>Quellenstand und Grenzen</h2>
+</div>
+      <div class="editorial-chapter">
+        <h2>Quellenstand und Grenzen</h2>
     <p>TierSchG, TierSchHuV, LHundG NRW und die ergänzenden öffentlichen Ortsquellen wurden am 11. November 2026
       geprüft; die übrige Grundübersicht stammt vom 6. November 2026. Die verlinkte DVO gilt in der Fassung vom 9.
       Dezember 2025, die
       Verwaltungsvorschriften in der Fassung vom 7. Oktober 2026. Prüfungsfragen können ältere Quellenstände abbilden;
       ihre Lösung ist nicht automatisch eine aktuelle Rechtsauskunft. Für individuelle Entscheidungen wende dich an
       deine zuständige Behörde oder eine qualifizierte Rechtsberatung.</p>
+</div>
+    </div>
+    <!-- BLOCK END: Magazinkapitel -->
   </main>
   <footer class="site-footer wrap">
     <!-- BLOCK START: Gemeinsame Fußzeilenmarke -->
@@ -439,7 +468,7 @@
 
     <p class="footer-credit">© 2026 Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/"
         aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p>
-    <nav aria-label="Rechtliches und Informationen"><a href="./#geschichte" data-open-story
+    <nav aria-label="Rechtliches und Informationen"><a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a><a href="./#geschichte" data-open-story
         aria-haspopup="dialog">Die Geschichte hinter dem Trainer</a><a href="quellen.html">Originalquellen</a><a
         href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a
         href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="lernen.html#trainer">Zum Lernen
@@ -447,15 +476,16 @@
   </footer>
   <script src="scripts/site-config.js?v=38" defer></script>
   <script src="scripts/ui/shared.js?v=56" defer></script>
-  <script src="scripts/ui/modal.js?v=43" defer></script>
+  <script src="scripts/ui/modal.js?v=58" defer></script>
   <script src="scripts/ui/story.js?v=1" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
   <script src="scripts/ui/navigation.js?v=51" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
-  <script src="scripts/ui/accessibility-panel.js?v=56" defer></script>
-  <script src="scripts/ui/common.js?v=55" defer></script>
+  <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
+  <script src="scripts/ui/release.js?v=60" defer></script>
+  <script src="scripts/ui/common.js?v=57" defer></script>
   <script src="scripts/ui/controls.js?v=38" defer></script>
 </body>
 

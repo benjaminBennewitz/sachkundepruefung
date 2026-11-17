@@ -21,12 +21,13 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
-  <link rel="stylesheet" href="styles/tokens.css?v=54">
+  <link rel="stylesheet" href="styles/tokens.css?v=57">
   <link rel="stylesheet" href="styles/interface.css?v=49">
   <link rel="stylesheet" href="styles/navigation.css?v=52">
-  <link rel="stylesheet" href="styles/character.css?v=56">
-  <link rel="stylesheet" href="styles/editorial-identity.css?v=54">
-  <link rel="stylesheet" href="styles/accessibility.css?v=56">
+  <link rel="stylesheet" href="styles/character.css?v=58">
+  <link rel="stylesheet" href="styles/editorial-identity.css?v=57">
+  <link rel="stylesheet" href="styles/accessibility.css?v=58">
+  <link rel="stylesheet" href="styles/magazine.css?v=60">
 
 </head>
 
@@ -42,9 +43,14 @@
       </div>
     </div>
     <!-- BLOCK END: Marke und Projekthinweise -->
-    <nav class="header-nav" aria-label="Hauptnavigation"><a href="lernen.html#trainer">Lernen</a><a
-        href="grundlagen.html">Grundlagen</a><a href="gut-zu-wissen.html" aria-current="page">Gut zu wissen</a><a
-        href="hundewissen.html">Haltung &amp; Recht</a><a href="quellen.html">Quellen</a></nav>
+    <nav class="header-nav" aria-label="Hauptnavigation">
+      <a href="./">Startseite</a>
+      <a href="lernen.html#trainer">Lernen</a>
+      <a href="grundlagen.html">Grundlagen</a>
+      <a href="gut-zu-wissen.html" aria-current="page">Gut zu wissen</a>
+      <a href="hundewissen.html">Haltung &amp; Recht</a>
+      <a href="quellen.html">Quellen</a>
+    </nav>
     <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><a class="icon-button"
         aria-label="Lernstand laden – im Trainer" href="lernen.html?action=import#trainer"><svg class="" width="20" height="20"
           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
@@ -80,13 +86,19 @@
           <circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7M8 8l1 6m7-6-1 6"/>
         </svg><span class="tool-tip" aria-hidden="true">Barrierefreiheit</span></button></div>
   </header>
-  <main id="inhalt" class="prose wrap" tabindex="-1">
+  <main id="inhalt" class="prose wrap magazine" tabindex="-1">
     <!-- BLOCK START: Seitenauftakt -->
-    <header class="page-masthead">
+    <header class="page-masthead page-masthead--magazine">
+      <div class="masthead-copy">
       <p class="eyebrow">02 / Orientierung</p>
       <h1>Gut zu wissen</h1>
+        <p class="masthead-deck">Dein Weg durch den Trainer. Und gut vorbereitet nach draußen.</p>
+      </div>
+      <figure class="masthead-image"><img src="assets/public/huendin-strand.webp" width="1000" height="1333" alt="Blick über die Ohren der Hündin auf einen Strand." loading="eager" decoding="async"></figure>
     </header>
     <!-- BLOCK END: Seitenauftakt -->
+    <!-- BLOCK START: Orientierung -->
+    <div class="editorial-intro">
     <aside class="legal-disclaimer" aria-label="Wichtiger Hinweis zur Lernhilfe"><strong>REINE LERNHILFE. KEINE
         RECHTSBERATUNG. KEINE PRÜFUNGSGARANTIE.</strong>
       <p>Dieses unabhängige Angebot ersetzt weder behördliche Auskünfte noch eine Sachkunde- oder Verhaltensprüfung. Für
@@ -109,7 +121,12 @@
       möglichst einer amtlichen Quelle. Dann kann ich prüfen, ob ich eine passende Testreihe ergänzen kann. <a
         href="mailto:kontakt@design-code-repeat.de?subject=Sachkundenachweis%20f%C3%BCr%20Hunde%20%28Bundesland%29">Testreihe
         per E-Mail vorschlagen</a>.</p>
-    <h2>Themen verstehen und Wissen anwenden</h2>
+</div>
+    <!-- BLOCK END: Orientierung -->
+    <!-- BLOCK START: Magazinkapitel -->
+    <div class="magazine-body">
+      <div class="editorial-chapter">
+        <h2>Themen verstehen und Wissen anwenden</h2>
     <p>Übe, warum eine Antwort zutrifft und wie du das Wissen in Alltagssituationen anwendest. Eine andere
       Formulierung in der Prüfung darf dich nicht aus dem Konzept bringen. Das Bochumer Veterinäramt empfiehlt
       den öffentlichen Kölner Katalog zur thematischen Vorbereitung und rät davon ab, Fragen und Antworten nur
@@ -120,7 +137,9 @@
       Die <a href="hundewissen.html#lernabdeckung">Themenbewertung der Kataloge</a> zeigt zusätzlichen Lernbedarf;
       <a href="hundewissen.html#staedte">Ortsinformationen</a> helfen bei der Vorbereitung für deine Prüfstelle.
     </p>
-    <h2 id="lerntrainer">Direktes Feedback zu jeder Frage</h2>
+</div>
+      <div class="editorial-chapter">
+        <h2 id="lerntrainer">Direktes Feedback zu jeder Frage</h2>
     <p><strong>„Sofort-Feedback: An“</strong> zeigt im Lernmodus bei jeder Frage einen eigenen Button „Antwort prüfen“.
       Wähle zunächst alle passenden Antworten aus und drücke dann auf den Button. Erst jetzt erscheinen die Wertung und
       die richtige Lösung der Quelle. Eine geänderte Antwort setzt die Bewertung zurück; du kannst erneut prüfen. Bei
@@ -128,8 +147,10 @@
     <p>Der Schalter lässt sich jederzeit ausschalten. In Testreihen bleibt Einzelfeedback bis zur Abschlussauswertung
       gesperrt, damit die Lösungen den Test nicht vorwegnehmen.</p>
 
-    <section aria-labelledby="essen-beispiel">
+</div>
+      <section aria-labelledby="essen-beispiel" class="editorial-chapter editorial-chapter--full editorial-chapter--split">
       <h2 id="essen-beispiel">Essen: unverbindlicher Beispieltest</h2>
+<div class="chapter-body">
       <p><strong>Geschätztes Beispiel, keine Essener Originalprüfung.</strong> Die Stadt hat keinen Fragenkatalog
         bereitgestellt. Wir haben 34 passende Fragen aus dem vorhandenen Rhein-Erft-203-Katalog ausgewählt
         und 16 eigene Rechtsfragen anhand von TierSchG, TierSchHuV und LHundG NRW formuliert.
@@ -152,8 +173,9 @@
         <a href="quellen.html#essen-beispiel">Herkunft, Rechtsstand und Grenzen</a>.
       </p>
       <p><a class="primary button" href="lernen.html?mode=essenexam#trainer">Geschätzten Essen-Beispieltest starten →</a></p>
-    </section>
-    <h2 id="testreihen">Welche Testreihe passt zu mir?</h2>
+    </div></section>
+      <div class="editorial-chapter editorial-chapter--full editorial-chapter--table">
+        <h2 id="testreihen">Welche Testreihe passt zu mir?</h2>
     <div class="table-scroll">
       <table>
         <thead>
@@ -202,17 +224,24 @@
         href="https://www.stadt-koeln.de/service/produkt/sachkundenachweis-fuer-hundehalterinnen" target="_blank"
         rel="noopener noreferrer external">Stadt Köln: Sachkundenachweis ↗</a> · <a
         href="quellen.html#rhein203">Rhein-Erft: Originalquelle und Herkunft</a></p>
-    <h2>Wann zählt eine Frage als richtig?</h2>
+</div>
+      <div class="editorial-chapter">
+        <h2>Wann zählt eine Frage als richtig?</h2>
     <p>Alle laut zugehörigem Lösungsschlüssel richtigen Antworten müssen gewählt sein, zusätzliche falsche Antworten
       dürfen nicht gewählt sein. Jede Zuordnung muss stimmen. Die Zwischenwertung bezieht sich nur auf vollständig
       beantwortete Fragen. Die Gesamtauswertung zählt offene und unvollständige Antworten als falsch. Der Status
       „Beantwortet“ ist noch keine richtige Lösung.</p>
-    <h2>Lernstand mitnehmen oder zurücksetzen</h2>
+</div>
+      <div class="editorial-chapter">
+        <h2>Lernstand mitnehmen oder zurücksetzen</h2>
     <p>Oben in der Navigation findest du „Lernstand sichern“, „Lernstand laden“ und „Lernbereich zurücksetzen“. Eine
       Sicherung ist eine lokale JSON-Datei ohne Konto oder Cloud-Synchronisation. Beim Import werden die Lernstände nach
       Bestätigung zusammengeführt; importierte Antworten ersetzen vorhandene Antworten derselben Frage, Bewertungen
       werden zurückgesetzt. Zurücksetzen löscht nur den aktuell gewählten Lernbereich.</p>
-    <h2 id="tastatur">Ansichten und Tastatur</h2>
+</div>
+      <div class="editorial-chapter editorial-chapter--full editorial-chapter--split">
+        <h2 id="tastatur">Ansichten und Tastatur</h2>
+<div class="chapter-body">
     <p><strong>Fokus:</strong> eine Frage auf einmal. <strong>Liste:</strong> acht Fragen pro Seite. Die
       Stern-Schaltfläche merkt eine Frage; Suche, Themenfilter und „Fehler wiederholen“ helfen beim gezielten Lernen.
     </p>
@@ -237,7 +266,10 @@
     </dl>
     <p>In Such- und Auswahlfeldern gelten weiterhin deren übliche Tasten. Modale lassen sich mit <kbd>Esc</kbd>
       abbrechen.</p>
-    <h2>Quellen statt Prüfungsgarantie</h2>
+</div>
+</div>
+      <div class="editorial-chapter">
+        <h2>Quellen statt Prüfungsgarantie</h2>
     <p>Viele der verwendeten Fragenkataloge wurden mir von den zuständigen Ämtern persönlich zugesandt oder sind
       öffentlich abrufbar. Persönlich zugesandte Unterlagen haben nicht immer eine öffentliche Originaladresse; das wird
       bei den Quellen kenntlich gemacht.</p>
@@ -247,12 +279,15 @@
       fachlichen Empfehlungen abweichen. Die Wertung folgt dem bezeichneten Lösungsschlüssel; aktuelle rechtliche
       Orientierung findest du auf <a href="hundewissen.html">Haltung &amp; Recht</a>.</p>
 
-    <section class="travel-section" aria-labelledby="reisen">
+</div>
+      <div class="editorial-chapter editorial-chapter--full">
+        <section class="travel-section" aria-labelledby="reisen">
       <p class="eyebrow">MIT HUND UNTERWEGS</p>
       <h2 id="reisen">Andere Orte. Andere Regeln.</h2>
       <p>Kurzübersicht für private Besuche und Urlaubsreisen <strong>ab NRW</strong>, besonders mit Listenhunden. Ein
         Umzug, eine Übernahme oder ein Tiertransport kann andere Voraussetzungen haben. Innerhalb Deutschlands geht es
         um Aufenthalts- und Führungsregeln, nicht um eine Einreise aus dem Ausland.</p>
+
       <aside class="travel-note" aria-label="Vor der Reise beachten">
         <strong>Die NRW-Befreiung reist nicht automatisch mit.</strong>
         <ul class="travel-checklist">
@@ -582,6 +617,9 @@
         Auskunft der zuständigen Behörde sind maßgeblich. Vor jeder Reise den aktuellen Stand prüfen.</p>
     </section>
     <p><a class="primary button" href="lernen.html#trainer">Zum Lerntrainer →</a></p>
+</div>
+    </div>
+    <!-- BLOCK END: Magazinkapitel -->
   </main>
   <footer class="site-footer wrap">
     <!-- BLOCK START: Gemeinsame Fußzeilenmarke -->
@@ -594,7 +632,7 @@
 
     <p class="footer-credit">© 2026 Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/"
         aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p>
-    <nav aria-label="Rechtliches und Informationen"><a href="./#geschichte" data-open-story
+    <nav aria-label="Rechtliches und Informationen"><a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a><a href="./#geschichte" data-open-story
         aria-haspopup="dialog">Die Geschichte hinter dem Trainer</a><a href="quellen.html">Originalquellen</a><a
         href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a
         href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="lernen.html#trainer">Zum Lernen
@@ -602,15 +640,16 @@
   </footer>
   <script src="scripts/site-config.js?v=38" defer></script>
   <script src="scripts/ui/shared.js?v=56" defer></script>
-  <script src="scripts/ui/modal.js?v=43" defer></script>
+  <script src="scripts/ui/modal.js?v=58" defer></script>
   <script src="scripts/ui/story.js?v=1" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
   <script src="scripts/ui/navigation.js?v=51" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
-  <script src="scripts/ui/accessibility-panel.js?v=56" defer></script>
-  <script src="scripts/ui/common.js?v=55" defer></script>
+  <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
+  <script src="scripts/ui/release.js?v=60" defer></script>
+  <script src="scripts/ui/common.js?v=57" defer></script>
   <script src="scripts/ui/controls.js?v=38" defer></script>
 </body>
 

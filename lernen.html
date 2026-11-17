@@ -23,17 +23,18 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
-  <link rel="stylesheet" href="styles/tokens.css?v=54">
+  <link rel="stylesheet" href="styles/tokens.css?v=57">
   <link rel="stylesheet" href="styles/interface.css?v=49">
   <link rel="stylesheet" href="styles/navigation.css?v=52">
-  <link rel="stylesheet" href="styles/character.css?v=56">
-  <link rel="stylesheet" href="styles/editorial-identity.css?v=54">
-  <link rel="stylesheet" href="styles/accessibility.css?v=56">
-  <link rel="stylesheet" href="styles/learning-overview.css?v=56">
-  <link rel="stylesheet" href="styles/learning-identity.css?v=55">
-  <link rel="stylesheet" href="styles/workspace.css?v=56">
+  <link rel="stylesheet" href="styles/character.css?v=58">
+  <link rel="stylesheet" href="styles/editorial-identity.css?v=57">
+  <link rel="stylesheet" href="styles/accessibility.css?v=58">
+  <link rel="stylesheet" href="styles/magazine.css?v=60">
+  <link rel="stylesheet" href="styles/learning-overview.css?v=57">
+  <link rel="stylesheet" href="styles/learning-identity.css?v=57">
+  <link rel="stylesheet" href="styles/workspace.css?v=61">
 
-  <link rel="stylesheet" href="styles/foundations.css?v=46">
+  <link rel="stylesheet" href="styles/foundations.css?v=61">
 
 
 
@@ -56,8 +57,14 @@
       </div>
     </div>
     <!-- BLOCK END: Marke und Projekthinweise -->
-    <nav class="header-nav" aria-label="Hauptnavigation"><a href="./">Startseite</a>
-      <a href="grundlagen.html">Grundlagen</a><a href="quellen.html">Quellen</a></nav>
+    <nav class="header-nav" aria-label="Hauptnavigation">
+      <a href="./">Startseite</a>
+      <a href="lernen.html#trainer" aria-current="page">Lernen</a>
+      <a href="grundlagen.html">Grundlagen</a>
+      <a href="gut-zu-wissen.html">Gut zu wissen</a>
+      <a href="hundewissen.html">Haltung &amp; Recht</a>
+      <a href="quellen.html">Quellen</a>
+    </nav>
     <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><button class="icon-button"
         type="button" aria-label="Lernstand laden" id="importTrigger"><svg class="" width="20" height="20"
           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
@@ -134,22 +141,31 @@
             <button class="secondary" type="button" data-learning-tool="tests">Testreihe starten</button>
           </div>
           <p class="storage-note" id="storageNote">Dein Lernstand bleibt in diesem Browser.
+            <a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a> ·
+            <a id="foundationsLink" href="grundlagen.html">Grundlagen</a> ·
             <a href="datenschutz.html#browserspeicher">Datenschutz</a> · <a href="impressum.html">Impressum</a></p>
         </aside>
       <div class="workspace">
           <div class="workspace-toolbar">
-            <div class="study-toolbar">
-              <div class="catalog-heading">
-                <h2 id="modeTitle">Alle Quellen</h2><a id="foundationsLink" href="grundlagen.html">Grundlagen</a><button
-                  id="clearFilters" class="text-button" type="button" hidden>Filter
-                  löschen</button>
-              </div><label class="view-control" for="viewSelect">Ansicht<select id="viewSelect">
+            <h2 id="modeTitle" class="visually-hidden">Alle Quellen</h2>
+            <!-- BLOCK START: Direkte Suche und Lernfilter -->
+            <div class="filters"><label class="search-label" for="search">Fragen durchsuchen<input id="search"
+                  type="search" placeholder="z. B. Maulkorb, Verhalten …" maxlength="150"
+                  autocomplete="off"></label><label for="statusFilter">Lernstatus<select id="statusFilter">
+                  <option value="all">Alle Fragen</option>
+                  <option value="open">Noch offen</option>
+                  <option value="answered">Beantwortet</option>
+                  <option value="wrong">Fehler wiederholen</option>
+                  <option value="bookmarked">Merkliste</option>
+                </select></label><label for="categoryFilter">Thema<select id="categoryFilter">
+                  <option value="all">Alle Themen</option>
+                </select></label><label class="view-control" for="viewSelect">Ansicht<select id="viewSelect">
                   <option value="focus">Fokus</option>
                   <option value="list">Liste · 8 pro Seite</option>
                   <option value="tv">TV / Fernbedienung</option>
-                </select></label>
-            </div>
-            <button class="secondary workspace-filter-button" type="button" data-learning-tool="settings">Filter &amp; Auswertung</button>
+                </select></label></div>
+            <button id="clearFilters" class="text-button" type="button" hidden>Filter löschen</button>
+            <!-- BLOCK END: Direkte Suche und Lernfilter -->
             <p id="exampleNotice" class="source-note" hidden></p><div id="filterResults" class="filter-results" hidden>
               <p id="matchCount" role="status" aria-live="polite" hidden></p>
               <p class="microcopy">Blättere unten mit Zurück und Weiter durch die passenden Fragen oder öffne die
@@ -161,34 +177,23 @@
             <div id="result" class="result-panel" tabindex="-1" hidden></div>
             <div id="questions" class="questions"></div>
           </div>
-          <div class="pagination" aria-label="Fragenseiten"><button id="previous" class="secondary" type="button">←
+          <!-- BLOCK START: Direkte Lernaktionen und Fragennavigation -->
+          <div class="workspace-footer">
+            <div class="learning-actions" role="group" aria-label="Feedback und Auswertung"><button id="instantFeedback"
+                class="feedback-toggle" type="button" aria-pressed="true">Sofort-Feedback: An</button><button
+                id="intermediate" class="secondary" type="button">Zwischenergebnis</button><button id="evaluate"
+                class="secondary" type="button">Katalog auswerten</button></div>
+            <div class="pagination" aria-label="Fragenseiten"><button id="previous" class="secondary" type="button">←
               Zurück</button><span id="position" role="status"></span><button id="next" class="primary"
               type="button">Weiter →</button></div>
+          </div>
+          <!-- BLOCK END: Direkte Lernaktionen und Fragennavigation -->
+
         </div>
     </div>
     <!-- BLOCK END: Bildschirmfüllender Lernarbeitsplatz -->
     <!-- BLOCK START: Inhalte der Lernwerkzeuge -->
     <div id="learningToolDepot" hidden>
-      <div id="learning-settings" class="learning-tool-content">
-
-            
-            <div class="filters"><label class="search-label" for="search">Fragen durchsuchen<input id="search"
-                  type="search" placeholder="z. B. Maulkorb, Verhalten …" maxlength="150"
-                  autocomplete="off"></label><label for="statusFilter">Lernstatus<select id="statusFilter">
-                  <option value="all">Alle Fragen</option>
-                  <option value="open">Noch offen</option>
-                  <option value="answered">Beantwortet</option>
-                  <option value="wrong">Fehler wiederholen</option>
-                  <option value="bookmarked">Merkliste</option>
-                </select></label><label for="categoryFilter">Thema<select id="categoryFilter">
-                  <option value="all">Alle Themen</option>
-                </select></label></div>
-
-            <div class="learning-actions" role="group" aria-label="Feedback und Auswertung"><button id="instantFeedback"
-                class="feedback-toggle" type="button" aria-pressed="true">Sofort-Feedback: An</button><button
-                id="intermediate" class="secondary" type="button">Zwischenergebnis</button><button id="evaluate"
-                class="secondary" type="button">Katalog auswerten</button></div>
-          </div>
       <div id="learning-overview" class="learning-tool-content"><details class="nav-details">
               <summary>Fragenübersicht <span aria-hidden="true">＋</span></summary>
               <!-- BLOCK START: Kompakte Zustandslegende -->
@@ -231,15 +236,16 @@
   </noscript>
   <script src="scripts/site-config.js?v=38" defer></script>
   <script src="scripts/ui/shared.js?v=56" defer></script>
-  <script src="scripts/ui/modal.js?v=43" defer></script>
+  <script src="scripts/ui/modal.js?v=58" defer></script>
   <script src="scripts/ui/story.js?v=1" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
   <script src="scripts/ui/navigation.js?v=51" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
-  <script src="scripts/ui/accessibility-panel.js?v=56" defer></script>
-  <script src="scripts/ui/common.js?v=55" defer></script>
+  <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
+  <script src="scripts/ui/release.js?v=60" defer></script>
+  <script src="scripts/ui/common.js?v=57" defer></script>
   <script src="scripts/learning/data.js?v=33" defer></script>
   <script src="scripts/learning/essen.js?v=33" defer></script>
   <script src="scripts/learning/sources.js?v=33" defer></script>
@@ -259,7 +265,7 @@
   <script src="scripts/learning/controller.js?v=55" defer></script>
   <script src="scripts/learning/foundations.js?v=43" defer></script>
   <script src="scripts/learning/app.js?v=55" defer></script>
-  <script src="scripts/learning/workspace-tools.js?v=55" defer></script>
+  <script src="scripts/learning/workspace-tools.js?v=61" defer></script>
   <script src="scripts/ui/select-view.js?v=55" defer></script>
   <script src="scripts/ui/select-keyboard.js?v=38" defer></script>
   <script src="scripts/ui/select.js?v=38" defer></script>

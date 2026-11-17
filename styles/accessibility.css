@@ -131,6 +131,11 @@
   --control-line: var(--high-line);
   --accent: var(--high-accent);
   --on-accent: var(--high-on-accent);
+  --nav-bg: var(--high-bg);
+  --nav-panel: var(--high-bg);
+  --nav-muted: var(--high-muted);
+  --nav-line: var(--high-line);
+  --accent-bg: var(--high-bg);
 }
 
 :root[data-color-vision=blue-amber] {
@@ -140,12 +145,6 @@
   --bad-bg: var(--vision-bad-bg);
 }
 
-:root[data-color-vision=blue-amber] :is(.sidebar, .select-menu[data-palette=forest]) {
-  --ok: #b5d2ff;
-  --ok-bg: #213c57;
-  --bad: #ffd39d;
-  --bad-bg: #493420;
-}
 
 /* ===========================================================================
    03   Erreichbare Inhalte bei vergrößerten Texten
@@ -230,5 +229,32 @@
 @media screen and (max-width: 480px) {
   .accessibility-preferences {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media screen {
+  .accessibility-status-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-block: 12px;
+  }
+
+  .accessibility-status-preview span {
+    padding: 6px 10px;
+    border: 1px solid currentColor;
+    border-radius: var(--radius-sm);
+    font-size: .8rem;
+    font-weight: 700;
+  }
+
+  .status-preview-correct {
+    background: var(--ok-bg);
+    color: var(--ok);
+  }
+
+  .status-preview-wrong {
+    background: var(--bad-bg);
+    color: var(--bad);
   }
 }

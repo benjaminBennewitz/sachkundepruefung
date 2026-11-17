@@ -21,12 +21,13 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
-  <link rel="stylesheet" href="styles/tokens.css?v=54">
+  <link rel="stylesheet" href="styles/tokens.css?v=57">
   <link rel="stylesheet" href="styles/interface.css?v=49">
   <link rel="stylesheet" href="styles/navigation.css?v=52">
-  <link rel="stylesheet" href="styles/character.css?v=56">
-  <link rel="stylesheet" href="styles/editorial-identity.css?v=54">
-  <link rel="stylesheet" href="styles/accessibility.css?v=56">
+  <link rel="stylesheet" href="styles/character.css?v=58">
+  <link rel="stylesheet" href="styles/editorial-identity.css?v=57">
+  <link rel="stylesheet" href="styles/accessibility.css?v=58">
+  <link rel="stylesheet" href="styles/magazine.css?v=60">
 
 </head>
 
@@ -42,9 +43,14 @@
       </div>
     </div>
     <!-- BLOCK END: Marke und Projekthinweise -->
-    <nav class="header-nav" aria-label="Hauptnavigation"><a href="lernen.html#trainer">Lernen</a><a
-        href="grundlagen.html">Grundlagen</a><a href="gut-zu-wissen.html">Gut
-        zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a href="quellen.html">Quellen</a></nav>
+    <nav class="header-nav" aria-label="Hauptnavigation">
+      <a href="./">Startseite</a>
+      <a href="lernen.html#trainer">Lernen</a>
+      <a href="grundlagen.html">Grundlagen</a>
+      <a href="gut-zu-wissen.html">Gut zu wissen</a>
+      <a href="hundewissen.html">Haltung &amp; Recht</a>
+      <a href="quellen.html">Quellen</a>
+    </nav>
     <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><a class="icon-button"
         aria-label="Lernstand laden – im Trainer" href="lernen.html?action=import#trainer"><svg class="" width="20" height="20"
           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
@@ -80,17 +86,26 @@
           <circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7M8 8l1 6m7-6-1 6"/>
         </svg><span class="tool-tip" aria-hidden="true">Barrierefreiheit</span></button></div>
   </header>
-  <main id="inhalt" class="prose wrap" tabindex="-1">
+  <main id="inhalt" class="prose wrap magazine" tabindex="-1">
     <!-- BLOCK START: Seitenauftakt -->
-    <header class="page-masthead">
+    <header class="page-masthead page-masthead--magazine">
+      <div class="masthead-copy">
       <p class="eyebrow">06 / Transparenz</p>
       <h1>Datenschutz</h1>
+        <p class="masthead-deck">Dein Lernen bleibt bei dir. Hier steht, was technisch passiert.</p>
+      </div>
+      <figure class="masthead-image"><img src="assets/public/huendin-nase.webp" width="1100" height="825" alt="Nahaufnahme der Nase der Hündin." loading="eager" decoding="async"></figure>
     </header>
     <!-- BLOCK END: Seitenauftakt -->
-    <h2>Verantwortlicher</h2>
+    <!-- BLOCK START: Magazinkapitel -->
+    <div class="magazine-body">
+      <div class="editorial-chapter">
+        <h2>Verantwortlicher</h2>
     <p>Benjamin Bennewitz<br>c/o<br>Linzer Straße 45<br>53604 Bad Honnef<br>Deutschland<br>E-Mail: <a
         href="mailto:kontakt@design-code-repeat.de">kontakt@design-code-repeat.de</a><br>Telefon: +49 162 9038166</p>
-    <h2>Grundsatz und Rechtsgrundlagen</h2>
+</div>
+      <div class="editorial-chapter">
+        <h2>Grundsatz und Rechtsgrundlagen</h2>
     <p>Es werden keine Analyse-, Marketing- oder Trackingprofile erstellt. Personenbezogene Daten werden nur
       verarbeitet, soweit dies für den technischen Betrieb der Website, die Sicherheit oder die Bearbeitung einer von
       dir ausgelösten Kontaktaufnahme erforderlich ist.</p>
@@ -99,17 +114,24 @@
       Soweit eine Verarbeitung für den sicheren und stabilen technischen Betrieb erforderlich ist, erfolgt sie gemäß
       Art. 6 Abs. 1 lit. f DSGVO auf Grundlage des berechtigten Interesses an einer sicheren, funktionsfähigen Website
       und Infrastruktur.</p>
-    <h2>Hosting und Serverbetrieb</h2>
+</div>
+      <div class="editorial-chapter">
+        <h2>Hosting und Serverbetrieb</h2>
     <p>Die Website wird auf angemieteter Serverinfrastruktur der netcup GmbH, Emmy-Noether-Straße 10, 76131 Karlsruhe,
       Deutschland, betrieben. Dabei können technisch erforderliche Verbindungsdaten verarbeitet werden. Der Server und
       die Maildienste werden innerhalb dieser Infrastruktur eigenständig administriert. Der Hostinganbieter ist
       technischer Empfänger; soweit erforderlich besteht eine Vereinbarung zur Auftragsverarbeitung nach Art. 28 DSGVO.
     </p>
-    <h2>Server-Logs</h2>
+</div>
+      <div class="editorial-chapter">
+        <h2>Server-Logs</h2>
     <p>Beim Aufruf der Website können technisch erforderliche Server-Logdaten verarbeitet werden, zum Beispiel
       IP-Adresse, Zeitpunkt des Abrufs, angefragte URL, User-Agent und technische Statusinformationen. Diese Daten
       dienen ausschließlich dem sicheren und stabilen Betrieb, der Missbrauchsabwehr sowie der Fehleranalyse. </p>
-    <h2 id="browserspeicher">Lokaler Lernfortschritt und Darstellung</h2>
+</div>
+      <div class="editorial-chapter editorial-chapter--full editorial-chapter--split">
+        <h2 id="browserspeicher">Lokaler Lernfortschritt und Darstellung</h2>
+<div class="chapter-body">
     <p>Antworten, gemerkte Fragen, geprüfte Bewertungen, Lernposition, Ansicht, Sofort-Feedback und das gewählte
       Hell-/Dunkel-Schema werden ausschließlich im Browser gespeichert (localStorage). Die Lernhilfe übermittelt diese
       Angaben nicht an den Betreiber. Sie bleiben bis zum Zurücksetzen eines Lernbereichs beziehungsweise Löschen der
@@ -136,6 +158,13 @@
       Websitedaten gespeichert; das Zurücksetzen eines Lernbereichs löscht sie nicht.
     </p>
     <!-- BLOCK END: Speicherung des Grundlagenhinweises -->
+    <!-- BLOCK START: Gesehene Release-Version -->
+    <p>Nach dem Schließen der Neuigkeiten speichert der Browser unter <code>lhundg-release-seen</code>
+      ausschließlich die Kennung des zuletzt gesehenen Releases. Bei einer neuen Version erscheint der Hinweis erneut;
+      beim Schließen ersetzt die neue Kennung den bisherigen Wert desselben Schlüssels. Es werden keine Zeitstempel
+      oder früheren Release-Versionen gespeichert und keine Angaben an den Betreiber übermittelt. Das Löschen der
+      Websitedaten entfernt auch diese Kennung.</p>
+    <!-- BLOCK END: Gesehene Release-Version -->
     <p>Testantworten und Prüfungszustand liegen getrennt im Sitzungsspeicher (sessionStorage) und werden nach Ende der
       Browsersitzung entfernt. In Test-URLs stehen nur Fragenummern, keine Antworten. Ein Hinweis auf freiwillige
       Unterstützung wird nach der ersten vollständigen Auswertung einer Browsersitzung angezeigt. Eine lokale
@@ -147,11 +176,16 @@
       Soweit personenbezogene Daten betroffen sind, erfolgt die Verarbeitung für den sicheren und nutzerfreundlichen
       Betrieb nach Art. 6 Abs. 1 lit. f DSGVO. Du kannst die lokalen Daten über deine Browserfunktionen löschen. Bei
       blockiertem oder vollem Speicher ist Lernen ohne dauerhafte Sicherung möglich.</p>
-    <h2>Direkte Kontaktaufnahme per E-Mail</h2>
+</div>
+</div>
+      <div class="editorial-chapter">
+        <h2>Direkte Kontaktaufnahme per E-Mail</h2>
     <p>Wenn du direkt per E-Mail Kontakt aufnimmst, werden Absenderadresse, Nachrichteninhalt und die dabei technisch
       anfallenden Mail-Metadaten verarbeitet, soweit dies zur Bearbeitung und Beantwortung deiner Anfrage erforderlich
       ist. Sensible Unterlagen sollten im Erstkontakt nicht unverschlüsselt versendet werden.</p>
-    <h2>Externe Links und freiwillige Unterstützung</h2>
+</div>
+      <div class="editorial-chapter">
+        <h2>Externe Links und freiwillige Unterstützung</h2>
     <p>Behörden, Tierärztekammern und PayPal werden ausschließlich verlinkt. Es werden keine Inhalte, Schriftarten,
       Zahlungs-SDKs oder Tracking-Pixel dieser Anbieter automatisch geladen. Erst das Öffnen eines externen Links
       verbindet deinen Browser mit dem jeweiligen Anbieter.</p>
@@ -163,12 +197,17 @@
       gesetzliche Aufbewahrungspflichten Art. 6 Abs. 1 lit. c DSGVO. Diese Angaben werden nur für Abwicklung,
       erforderliche Nachweise und gesetzliche Aufbewahrung verarbeitet. Eine Zahlung ist freiwillig und schaltet keine
       zusätzlichen Lernfunktionen frei.</p>
-    <h2>Speicherdauer</h2>
+</div>
+      <div class="editorial-chapter">
+        <h2>Speicherdauer</h2>
     <p>Personenbezogene Daten aus Kontaktanfragen werden nur so lange gespeichert, wie dies für die Bearbeitung,
       anschließende Kommunikation und gegebenenfalls bestehende gesetzliche Aufbewahrungspflichten erforderlich ist.
       Technische Logdaten werden nur im Rahmen der für Betrieb, Sicherheit und Fehleranalyse erforderlichen Fristen
       vorgehalten.</p>
-    <h2>Deine Rechte</h2>
+</div>
+      <div class="editorial-chapter editorial-chapter--full editorial-chapter--split">
+        <h2>Deine Rechte</h2>
+<div class="chapter-body">
     <p>Du hast im Rahmen der gesetzlichen Voraussetzungen insbesondere Rechte auf Auskunft, Berichtigung, Löschung,
       Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Erteilte Einwilligungen können mit Wirkung
       für die Zukunft widerrufen werden.</p>
@@ -183,6 +222,10 @@
         href="https://design-code-repeat.de/datenschutz" target="_blank" rel="noopener noreferrer external">Design.
         Code. Repeat. ↗</a>, ergänzt um die Funktionen dieser Lernhilfe. Abschnitte zu dortigen Kontaktformularen,
       Infrastructure API und CSRF-Cookies treffen auf diese Anwendung nicht zu.</p>
+</div>
+</div>
+    </div>
+    <!-- BLOCK END: Magazinkapitel -->
   </main>
   <footer class="site-footer wrap">
     <!-- BLOCK START: Gemeinsame Fußzeilenmarke -->
@@ -195,7 +238,7 @@
 
     <p class="footer-credit">© 2026 Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/"
         aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p>
-    <nav aria-label="Rechtliches und Informationen"><a href="./#geschichte" data-open-story
+    <nav aria-label="Rechtliches und Informationen"><a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a><a href="./#geschichte" data-open-story
         aria-haspopup="dialog">Die Geschichte hinter dem Trainer</a><a href="quellen.html">Originalquellen</a><a
         href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a
         href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="lernen.html#trainer">Zum Lernen
@@ -203,15 +246,16 @@
   </footer>
   <script src="scripts/site-config.js?v=38" defer></script>
   <script src="scripts/ui/shared.js?v=56" defer></script>
-  <script src="scripts/ui/modal.js?v=43" defer></script>
+  <script src="scripts/ui/modal.js?v=58" defer></script>
   <script src="scripts/ui/story.js?v=1" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
   <script src="scripts/ui/navigation.js?v=51" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
-  <script src="scripts/ui/accessibility-panel.js?v=56" defer></script>
-  <script src="scripts/ui/common.js?v=55" defer></script>
+  <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
+  <script src="scripts/ui/release.js?v=60" defer></script>
+  <script src="scripts/ui/common.js?v=57" defer></script>
   <script src="scripts/ui/controls.js?v=38" defer></script>
 </body>
 

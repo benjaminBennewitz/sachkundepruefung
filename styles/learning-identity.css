@@ -28,35 +28,13 @@
 
 @media screen {
   .sidebar, .select-menu[data-palette=forest] {
-    --text: #fff8e9;
-    --muted: #d4dfca;
-    --accent: #f1b88e;
-    --accent-hover: #facaa6;
-    --accent-bg: #38543d;
-    --on-accent: #203a30;
-    --surface: #284d3b;
-    --subtle: #335a44;
-    --line: #6d8973;
-    --control-line: #99af96;
-    --control-hover: #335a44;
-    --nav-bg: #1d4233;
-    --nav-panel: #284d3b;
-    --nav-control: #284d3b;
-    --nav-line: #6d8973;
-    --nav-muted: #d4dfca;
-    --filter-bg: #284d3b;
-    --ok: #b9dfb1;
-    --ok-bg: #294631;
-    --bad: #ffb7b2;
-    --bad-bg: #513334;
-    --focus: #facaa6;
     color: var(--text);
   }
 
   .sidebar {
     border: 0;
     border-radius: var(--radius-md);
-    background: var(--brand-forest);
+    background: var(--nav-bg);
   }
 
   .sidebar .panel-kicker {

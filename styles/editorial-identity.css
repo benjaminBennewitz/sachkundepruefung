@@ -35,8 +35,8 @@
     margin-block: 28px 0;
     padding: 0;
     border-radius: var(--radius-lg);
-    background: var(--highlight);
-    color: var(--highlight-ink);
+    background: var(--accent-bg);
+    color: var(--text);
   }
 
   .hero--companion .hero-copy {
@@ -46,12 +46,12 @@
   }
 
   .hero--companion .eyebrow, .hero--companion .hero-warning {
-    color: var(--highlight-ink);
+    color: var(--text);
   }
 
   .hero--companion h1 {
     max-width: none;
-    color: var(--highlight-ink);
+    color: var(--text);
     font-size: clamp(2.7rem, 4.5vw, 4.5rem);
     line-height: .98;
     letter-spacing: -.065em;
@@ -78,20 +78,20 @@
   }
 
   .hero--companion .hero-links a {
-    color: var(--highlight-ink);
+    color: var(--text);
     font-weight: 700;
     font-size: .83rem;
   }
 
   .hero--companion .hero-links .primary {
     padding: 13px 22px;
-    background: var(--brand-forest);
-    border-color: var(--brand-forest);
-    color: var(--brand-cream);
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
   }
 
   .hero--companion .hero-links .primary:hover {
-    background: var(--brand-forest-hover);
+    background: var(--accent-hover);
   }
 
   .hero--companion .hero-warning {
@@ -111,8 +111,8 @@
     grid-template-rows: minmax(240px, 1fr) auto;
     min-width: 0;
     margin: 0;
-    background: var(--brand-forest);
-    color: var(--brand-cream);
+    background: var(--nav-bg);
+    color: var(--text);
     border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   }
 
@@ -142,14 +142,14 @@
   }
 
   .companion figcaption a {
-    color: var(--highlight);
+    color: var(--accent);
     font-size: .8rem;
     font-weight: 700;
   }
 
   .companion figcaption small {
     grid-column: 1 / -1;
-    color: var(--brand-soft);
+    color: var(--nav-muted);
     font-size: .75rem;
   }
 
@@ -160,7 +160,7 @@
 
 @media screen {
   .prose {
-    max-width: 1120px;
+    max-width: 1440px;
     padding-block: 28px 16px;
   }
 
@@ -168,8 +168,8 @@
     margin-bottom: 32px;
     padding: clamp(24px, 4vw, 48px);
     border-radius: var(--radius-lg);
-    background: var(--highlight);
-    color: var(--highlight-ink);
+    background: var(--accent-bg);
+    color: var(--text);
   }
 
   .prose .page-masthead :is(h1, .eyebrow) {
@@ -186,7 +186,7 @@
   }
 
   .prose :is(p, ul, ol, dl) {
-    max-width: 78ch;
+    max-width: none;
   }
 
   .prose p, .prose li {
@@ -256,9 +256,9 @@
 
   .prose th {
     padding: 16px;
-    background: var(--brand-forest);
-    color: var(--brand-cream);
-    border-color: #78917b;
+    background: var(--accent);
+    color: var(--on-accent);
+    border-color: var(--accent);
   }
 
   .prose td {
@@ -333,8 +333,8 @@
     gap: 36px;
     border: 0;
     border-radius: var(--radius-lg);
-    background: var(--highlight);
-    color: var(--highlight-ink);
+    background: var(--accent-bg);
+    color: var(--text);
   }
 
   .support-section :is(.eyebrow, p:not(.eyebrow)) {
@@ -347,13 +347,13 @@
   }
 
   .support-section .primary:hover {
-    background: var(--brand-forest-hover);
+    background: var(--accent-hover);
   }
 
   .support-section .primary {
-    background: var(--brand-forest);
-    color: var(--brand-cream);
-    border-color: var(--brand-forest);
+    background: var(--accent);
+    color: var(--on-accent);
+    border-color: var(--accent);
   }
 }
 /* ===========================================================================

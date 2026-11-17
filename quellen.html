@@ -21,12 +21,13 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
-  <link rel="stylesheet" href="styles/tokens.css?v=54">
+  <link rel="stylesheet" href="styles/tokens.css?v=57">
   <link rel="stylesheet" href="styles/interface.css?v=49">
   <link rel="stylesheet" href="styles/navigation.css?v=52">
-  <link rel="stylesheet" href="styles/character.css?v=56">
-  <link rel="stylesheet" href="styles/editorial-identity.css?v=54">
-  <link rel="stylesheet" href="styles/accessibility.css?v=56">
+  <link rel="stylesheet" href="styles/character.css?v=58">
+  <link rel="stylesheet" href="styles/editorial-identity.css?v=57">
+  <link rel="stylesheet" href="styles/accessibility.css?v=58">
+  <link rel="stylesheet" href="styles/magazine.css?v=60">
 
 </head>
 
@@ -42,10 +43,13 @@
       </div>
     </div>
     <!-- BLOCK END: Marke und Projekthinweise -->
-    <nav class="header-nav" aria-label="Hauptnavigation"><a href="lernen.html#trainer">Lernen</a><a
-        href="grundlagen.html">Grundlagen</a><a href="gut-zu-wissen.html">Gut
-        zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a href="quellen.html"
-        aria-current="page">Quellen</a>
+    <nav class="header-nav" aria-label="Hauptnavigation">
+      <a href="./">Startseite</a>
+      <a href="lernen.html#trainer">Lernen</a>
+      <a href="grundlagen.html">Grundlagen</a>
+      <a href="gut-zu-wissen.html">Gut zu wissen</a>
+      <a href="hundewissen.html">Haltung &amp; Recht</a>
+      <a href="quellen.html" aria-current="page">Quellen</a>
     </nav>
     <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><a class="icon-button"
         aria-label="Lernstand laden – im Trainer" href="lernen.html?action=import#trainer"><svg class="" width="20" height="20"
@@ -82,13 +86,19 @@
           <circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7M8 8l1 6m7-6-1 6"/>
         </svg><span class="tool-tip" aria-hidden="true">Barrierefreiheit</span></button></div>
   </header>
-  <main id="inhalt" class="prose wrap" tabindex="-1">
+  <main id="inhalt" class="prose wrap magazine" tabindex="-1">
     <!-- BLOCK START: Seitenauftakt -->
-    <header class="page-masthead">
+    <header class="page-masthead page-masthead--magazine">
+      <div class="masthead-copy">
       <p class="eyebrow">04 / Nachlesen</p>
       <h1>Quellen &amp; Originalunterlagen</h1>
+        <p class="masthead-deck">Woher die Fragen kommen. Was die Quellen leisten.</p>
+      </div>
+      <figure class="masthead-image"><img src="assets/public/huendin-auge.webp" width="1100" height="825" alt="Nahaufnahme des Auges der Hündin." loading="eager" decoding="async"></figure>
     </header>
     <!-- BLOCK END: Seitenauftakt -->
+    <!-- BLOCK START: Orientierung -->
+    <div class="editorial-intro">
     <aside class="legal-disclaimer" aria-label="Wichtiger Hinweis zur Lernhilfe"><strong>REINE LERNHILFE. KEINE
         RECHTSBERATUNG. KEINE PRÜFUNGSGARANTIE.</strong>
       <p>Dieses unabhängige Angebot ersetzt weder behördliche Auskünfte noch eine Sachkunde- oder Verhaltensprüfung. Für
@@ -103,6 +113,10 @@
     <p class="context-note"><strong>§ 3 ist nicht § 11.</strong> Die Tierärztekammern veröffentlichen ihren Katalog für
       die Sachkunde großer Hunde nach § 11. Er ergänzt hier das Wissen, ersetzt aber nicht die amtstierärztliche Prüfung
       für gefährliche Hunde nach § 3. Zuständigkeit und Prüfungsvorgaben bitte bei deinem Veterinäramt klären.</p>
+</div>
+    <!-- BLOCK END: Orientierung -->
+    <!-- BLOCK START: Magazinkapitel -->
+    <div class="magazine-body">
     <div class="source-cards">
       <article class="source-card" id="rhein203">
         <h2>Rhein-Erft-Kreis · 203</h2>
@@ -165,19 +179,27 @@
           rel="external noopener noreferrer">Westfalen-Lippe · Informationen ↗</a>
       </article>
     </div>
-    <h2>Wie werden die Fragen zusammengestellt?</h2>
+      <!-- BLOCK START: Persönlicher Bildmoment -->
+      <figure class="editorial-interlude"><img src="assets/public/huendin-draussen.webp" width="960" height="638" alt="Meine Hündin auf einem felsigen Weg im Grünen." loading="lazy" decoding="async"><figcaption>Die Fragen sind der Anfang. Die Zusammenhänge zählen.</figcaption></figure>
+      <!-- BLOCK END: Persönlicher Bildmoment -->
+      <div class="editorial-chapter">
+        <h2>Wie werden die Fragen zusammengestellt?</h2>
     <p>Der Gesamtpool bündelt Fragen aus mehreren Katalogen. Identische Fragen werden darin nur einmal berücksichtigt;
       abweichende Formulierungen bleiben erhalten. Die einzelnen Lernbereiche folgen jeweils ihrer eigenen Vorlage.</p>
     <p>Übertragungsfehler wurden anhand der offiziellen Lösungen berichtigt. Inhaltlich ältere Aussagen der Originale
       werden nicht stillschweigend modernisiert; ergänzende Hinweise helfen bei der Einordnung.</p>
-    <h2 id="simulation">Wie ist die MG-Simulation einzuordnen?</h2>
+</div>
+      <div class="editorial-chapter">
+        <h2 id="simulation">Wie ist die MG-Simulation einzuordnen?</h2>
     <p>Die Simulation verwendet 119 zufällige, unterschiedliche Fragen aus dem bisherigen 398er-Basispool. Kein
       Zeitlimit, mindestens 90 vollständig richtige Antworten. Diese Eckdaten beruhen auf einer privaten Mitteilung der
       zuständigen Stelle an den Projektinitiator und sind öffentlich nicht unabhängig nachgewiesen. Sie gelten nicht
       automatisch für andere Kommunen. Die tatsächlichen 119 MG-Fragen liegen nicht vor. Deshalb heißt der Modus
       ausdrücklich Simulation.</p>
-    <section aria-labelledby="rechtsquellen">
+</div>
+      <section aria-labelledby="rechtsquellen" class="editorial-chapter editorial-chapter--full editorial-chapter--split">
       <h2 id="rechtsquellen">Rechtstexte und ergänzende Vorbereitung</h2>
+<div class="chapter-body">
       <p>Ergänzender Abgleich am <time datetime="2026-11-11">11. November 2026</time>. Die Rechtstexte helfen
         bei Lücken und verkürzten Formulierungen älterer Fragebögen. Die folgenden Links führen zu den Originalquellen.
       </p>
@@ -221,8 +243,9 @@
         <a href="hundewissen.html#recht">Leseplan und rechtliche Präzisierungen</a> ·
         <a href="hundewissen.html#staedte">Vorbereitung nach Stadt und Kreis</a>
       </p>
-    </section>
-    <h2>Originale und Nutzungsrechte</h2>
+    </div></section>
+      <div class="editorial-chapter">
+        <h2>Originale und Nutzungsrechte</h2>
     <p>Die Rechte an den Fragen und Abbildungen verbleiben bei den jeweiligen Rechteinhabern. Die Bereitstellung eines
       PDFs zum Download bedeutet nicht automatisch eine freie Lizenz zur Wiederveröffentlichung in einem Online-Trainer.
       Die Freigabe zur öffentlichen Übernahme der hier verwendeten Texte und Abbildungen ist vor dem öffentlichen Start
@@ -230,6 +253,9 @@
       nicht
       angeboten.</p>
     <p><a class="primary button" href="lernen.html#trainer">Zurück zum Lernen →</a></p>
+</div>
+    </div>
+    <!-- BLOCK END: Magazinkapitel -->
   </main>
   <footer class="site-footer wrap">
     <!-- BLOCK START: Gemeinsame Fußzeilenmarke -->
@@ -242,7 +268,7 @@
 
     <p class="footer-credit">© 2026 Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/"
         aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p>
-    <nav aria-label="Rechtliches und Informationen"><a href="./#geschichte" data-open-story
+    <nav aria-label="Rechtliches und Informationen"><a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a><a href="./#geschichte" data-open-story
         aria-haspopup="dialog">Die Geschichte hinter dem Trainer</a><a href="quellen.html">Originalquellen</a><a
         href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a
         href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="lernen.html#trainer">Zum Lernen
@@ -250,15 +276,16 @@
   </footer>
   <script src="scripts/site-config.js?v=38" defer></script>
   <script src="scripts/ui/shared.js?v=56" defer></script>
-  <script src="scripts/ui/modal.js?v=43" defer></script>
+  <script src="scripts/ui/modal.js?v=58" defer></script>
   <script src="scripts/ui/story.js?v=1" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
   <script src="scripts/ui/navigation.js?v=51" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
-  <script src="scripts/ui/accessibility-panel.js?v=56" defer></script>
-  <script src="scripts/ui/common.js?v=55" defer></script>
+  <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
+  <script src="scripts/ui/release.js?v=60" defer></script>
+  <script src="scripts/ui/common.js?v=57" defer></script>
   <script src="scripts/ui/controls.js?v=38" defer></script>
 </body>
 

@@ -28,6 +28,7 @@
    * @property {HTMLElement} [content] Optionaler Inhalt aus einer lokalen, vertrauenswürdigen Projektseite.
    * @property {ModalAction[]} actions Verfügbare Dialogaktionen.
    * @property {HTMLElement} [returnFocus] Fokusziel nach dem Schließen.
+   * @property {boolean} [closeButton] Zeigt einen beschrifteten Schließen-Button neben dem Titel.
    */
 
   ui.Modal = class Modal {
@@ -112,7 +113,19 @@
       // Der Kontext über der Überschrift ist optional.
       if (options.eyebrow) card.append(ui.node('p', options.eyebrow, 'eyebrow'));
 
-      card.append(this.title(options.title), this.message(options.message));
+      if (options.closeButton) {
+        const heading = ui.node('div', '', 'ui-modal-heading');
+        const close = ui.node('button', '×', 'icon-button ui-modal-close');
+        close.type = 'button';
+        close.setAttribute('aria-label', 'Dialog schließen');
+        close.title = 'Schließen';
+        close.addEventListener('click', () => this.dialog.close('close'));
+        heading.append(this.title(options.title), close);
+        card.append(heading);
+      } else {
+        card.append(this.title(options.title));
+      }
+      card.append(this.message(options.message));
       /* Eingehängte Projektinhalte behalten native Links und Überschriften ohne HTML-Interpolation. */
       if (options.content) card.append(options.content);
       card.append(this.actions(options.actions));

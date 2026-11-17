@@ -109,6 +109,7 @@ run([
   'scripts/quality/navigation.test.cjs',
   'scripts/quality/workspace.test.cjs',
   'scripts/quality/insights.test.cjs',
+  'scripts/quality/release.test.cjs',
   'scripts/quality/checks.test.mjs'
 ]);
 

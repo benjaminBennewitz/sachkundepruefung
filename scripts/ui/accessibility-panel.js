@@ -59,10 +59,18 @@
     function build() {
       const panel = ui.node('div', '', 'accessibility-content');
       const preferences = ui.node('div', '', 'accessibility-preferences');
+      const statusColors = group('Statusfarben', 'colorVision', [
+        ['default', 'Standard'], ['blue-amber', 'Blau / Orange']
+      ]);
+      const preview = ui.node('div', '', 'accessibility-status-preview');
+      preview.append(ui.node('span', '✓ Richtig', 'status-preview-correct'),
+        ui.node('span', '× Falsch', 'status-preview-wrong'));
+      statusColors.append(preview, ui.node('p',
+        'Ändert die Richtig-/Falsch-Markierungen im Trainer, nicht die übrigen Seitenfarben.', 'microcopy'));
       preferences.append(
         group('Textgröße', 'textSize', [['normal', '100 %'], ['large', '125 %'], ['larger', '150 %']]),
         group('Kontrast', 'contrast', [['normal', 'Normal'], ['high', 'Hoch']]),
-        group('Statusfarben', 'colorVision', [['default', 'Standard'], ['blue-amber', 'Blau / Orange']]));
+        statusColors);
       panel.append(preferences);
       const reading = ui.node('fieldset', '', 'accessibility-group');
       reading.append(ui.node('legend', 'Vorlesen'));

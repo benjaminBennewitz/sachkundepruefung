@@ -120,7 +120,7 @@
 
   .learning-page .workspace-toolbar {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr);
     align-items: center;
     gap: 8px 16px;
     padding: 10px 12px;
@@ -129,19 +129,29 @@
     background: var(--surface);
   }
 
-  .workspace-toolbar .study-toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 8px 16px;
+  .workspace-toolbar .filters {
+    grid-template-columns: minmax(180px, 1.4fr) repeat(2, minmax(110px, 1fr)) minmax(110px, .8fr);
+    gap: 12px;
     min-width: 0;
+    padding: 0;
+    border: 0;
   }
 
-  .workspace-toolbar .view-control {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .workspace-toolbar .filters .search-label {
+    grid-column: auto;
+  }
+
+  .workspace-toolbar .filters label {
+    display: grid;
+    min-width: 0;
+    gap: 6px;
     font-size: .75rem;
+  }
+
+  .workspace-toolbar #clearFilters {
+    grid-column: 1 / -1;
+    justify-self: start;
+    min-height: 32px;
   }
 
   .workspace-toolbar :is(.source-note, .filter-results) {
@@ -194,8 +204,32 @@
     max-height: 160px;
   }
 
-  .learning-page .pagination {
+  .workspace-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 16px;
     padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+  }
+
+  .workspace-footer .learning-actions {
+    padding: 0;
+    gap: 8px;
+  }
+
+  .workspace-footer .learning-actions button {
+    min-height: 44px;
+    font-size: .78rem;
+  }
+
+  .learning-page .workspace-footer .pagination {
+    flex: 1 1 260px;
+    max-width: 440px;
+    padding: 0;
   }
 }
 
@@ -243,17 +277,23 @@
     max-height: none;
   }
 
-  .learning-tool-content .learning-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
 }
 
 /* ===========================================================================
    04   Kleine Ansichten, Textvergrößerung und Druck
    ========================================================================== */
+
+@media screen and (max-width: 1200px) {
+  .workspace-toolbar .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .workspace-toolbar .filters {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 
 @media screen and (max-width: 999px), screen and (max-height: 719px) {
   .learning-page .learning-layout {
@@ -277,7 +317,7 @@
 }
 
 @media print {
-  .workspace-toolbar, .workspace-shortcuts, #learningToolDepot {
+  .workspace-toolbar, .workspace-shortcuts, .workspace-footer .learning-actions, #learningToolDepot {
     display: none;
   }
 }

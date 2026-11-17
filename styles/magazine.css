@@ -1,0 +1,391 @@
+/*###############################
+###
+###     magazine.css
+###     Hunde-Sachkundetrainer NRW
+###     BASED ON: HTML5, CSS3, JavaScript
+###     AUTHOR: Benjamin Bennewitz
+###
+###
+###       ██████╗  ▀█
+###       ██╔══██╗ █▄
+###       ██████╦╝
+###       ██╔══██╗
+###       ██████╦╝
+###       ╚═════╝
+###
+#################################*/
+
+/* ===========================================================================
+   INHALTSVERZEICHNIS
+   01   Seitenauftakt und Orientierung
+   02   Kapitel, Bildstrecken und Quellen
+   03   Release-Informationen
+   04   Kleine Viewports, Dialog und Druck
+   ========================================================================== */
+
+/* ===========================================================================
+   01   Seitenauftakt und Orientierung
+   ========================================================================== */
+
+@media screen {
+  .page-masthead--magazine {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    align-items: stretch;
+    height: clamp(300px, 22vw, 340px);
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .masthead-copy {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    padding: clamp(24px, 2.5vw, 36px);
+    align-self: center;
+  }
+
+  .prose .page-masthead--magazine h1 {
+    font-size: clamp(2rem, 3.6vw, 3.2rem);
+    margin-top: 12px;
+    max-width: none;
+  }
+
+  .prose .masthead-deck {
+    max-width: 38ch;
+    margin: 16px 0 0;
+    color: inherit;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .masthead-image {
+    position: relative;
+    min-height: 0;
+    margin: 0;
+  }
+
+  .masthead-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  .editorial-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 12px 48px;
+    margin-block: 36px 48px;
+    align-items: start;
+  }
+
+  .editorial-intro > :is(p, nav) {
+    grid-column: 1;
+    margin: 0;
+  }
+
+  .editorial-intro > .legal-disclaimer {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    margin: 0;
+    padding: 22px;
+    background: var(--subtle);
+    border: 0;
+    border-radius: var(--radius-sm);
+  }
+
+  .editorial-intro > .legal-disclaimer strong {
+    font-size: .75rem;
+    letter-spacing: .025em;
+  }
+
+  .editorial-intro > .legal-disclaimer p {
+    margin: 14px 0 0;
+    line-height: 1.65;
+  }
+
+  .editorial-intro > p:first-of-type {
+    font-size: 1.08rem;
+    line-height: 1.7;
+  }
+
+  .editorial-intro:not(:has(.legal-disclaimer)) > p {
+    grid-column: auto;
+  }
+
+  .magazine .knowledge-nav {
+    gap: 8px;
+    margin-block: 0 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .magazine .knowledge-nav a {
+    min-width: 0;
+    padding: 12px;
+    box-shadow: none;
+    font-size: .82rem;
+  }
+}
+
+/* ===========================================================================
+   02   Kapitel, Bildstrecken und Quellen
+   ========================================================================== */
+
+@media screen {
+  .magazine-body {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: start;
+    gap: 44px 40px;
+  }
+
+  .editorial-chapter {
+    grid-column: span 6;
+    min-width: 0;
+    padding-top: 24px;
+    border-top: 2px solid var(--line);
+  }
+
+  .magazine :is(.editorial-chapter, .editorial-spread) h2 {
+    margin: 0 0 22px;
+    font-size: clamp(1.5rem, 2.3vw, 2.15rem);
+    line-height: 1.15;
+  }
+
+  .editorial-chapter--full, .editorial-spread, .editorial-endnote {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+
+  .editorial-chapter--split, .editorial-spread {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr);
+    gap: 40px;
+  }
+
+  .chapter-body, .chapter-copy {
+    min-width: 0;
+  }
+
+  .editorial-spread {
+    align-items: center;
+    padding-block: 16px;
+  }
+
+  .editorial-spread:nth-child(even) .editorial-photo {
+    order: -1;
+  }
+
+  .editorial-interlude {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 24px;
+    background: var(--subtle);
+  }
+
+  .editorial-interlude img {
+    display: block;
+    width: 100%;
+    max-height: 360px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+  }
+
+  .editorial-interlude figcaption {
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: .9rem;
+  }
+
+  .editorial-photo {
+    margin: 0;
+    min-width: 0;
+  }
+
+  .editorial-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+  }
+
+  .editorial-photo img[src*="strand"] {
+    object-position: center 35%;
+  }
+
+  .editorial-photo figcaption {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: .8rem;
+    line-height: 1.5;
+  }
+
+  .editorial-endnote {
+    padding: 28px;
+    background: var(--subtle);
+    border-inline-start: 4px solid var(--warm);
+    border-radius: var(--radius-sm);
+  }
+
+  .magazine .source-cards {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 32px;
+    margin: 0;
+  }
+
+  .magazine .source-card {
+    grid-column: span 2;
+    min-width: 0;
+    padding: 24px 0 0;
+    border: 0;
+    border-top: 5px solid var(--highlight);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .magazine .source-card:nth-last-child(-n+2) {
+    grid-column: span 3;
+  }
+
+  .magazine .source-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .magazine .source-card p {
+    font-size: .9rem;
+    line-height: 1.75;
+  }
+
+  .editorial-chapter--table > p {
+    max-width: 64rem;
+  }
+
+  .travel-lead {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 32px;
+  }
+
+  .magazine .travel-section {
+    margin: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .magazine .travel-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .magazine .travel-card summary {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+}
+
+/* ===========================================================================
+   03   Release-Informationen
+   ========================================================================== */
+
+@media screen {
+  .release-content {
+    display: grid;
+    gap: 16px;
+    margin-block: 24px;
+  }
+
+  .release-content > section {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  .release-number {
+    color: var(--accent);
+    font-size: .8rem;
+    font-weight: 750;
+  }
+
+  .release-content h3 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+  }
+
+  .release-content p {
+    margin: 0;
+    font-size: .9rem;
+    line-height: 1.6;
+  }
+}
+
+/* ===========================================================================
+   04   Kleine Viewports, Dialog und Druck
+   ========================================================================== */
+
+@media screen and (max-width: 1100px) {
+  .magazine .source-cards, .magazine .travel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .magazine .source-card, .magazine .source-card:nth-last-child(-n+2) {
+    grid-column: auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .page-masthead--magazine {
+    height: auto;
+  }
+
+  .page-masthead--magazine, .editorial-intro, .magazine-body,
+  .editorial-chapter--split, .editorial-spread, .travel-lead {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .masthead-image {
+    min-height: 0;
+    height: clamp(160px, 35vw, 200px);
+    max-height: none;
+  }
+
+  .editorial-intro > .legal-disclaimer, .editorial-intro > :is(p, nav),
+  .editorial-chapter, .editorial-chapter--full, .editorial-spread, .editorial-endnote {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .editorial-spread:nth-child(even) .editorial-photo {
+    order: 0;
+  }
+
+  .magazine .source-cards, .magazine .travel-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .magazine .travel-card summary {
+    padding-inline: 16px;
+  }
+}
+
+@media screen {
+  :root:is([data-text-size=large], [data-text-size=larger]) .page-masthead--magazine {
+    height: auto;
+    min-height: 300px;
+  }
+}
+
+@media print {
+  .masthead-image, .editorial-photo, .editorial-interlude {
+    display: none;
+  }
+}

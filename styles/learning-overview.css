@@ -171,8 +171,8 @@
     gap: 20px;
     margin-top: 24px;
     padding: 28px;
-    background: var(--brand-forest);
-    color: var(--brand-cream);
+    background: var(--nav-bg);
+    color: var(--text);
     border-radius: var(--radius-md);
   }
 
@@ -182,12 +182,12 @@
   }
 
   .test-launcher p {
-    color: var(--brand-soft);
+    color: var(--nav-muted);
     font-size: .85rem;
   }
 
   .test-launcher > a {
-    color: var(--highlight);
+    color: var(--accent);
     width: fit-content;
     font-size: .83rem;
   }
@@ -202,26 +202,26 @@
     display: grid;
     gap: 8px;
     padding: 16px;
-    border: 1px solid #78917b;
+    border: 1px solid var(--nav-line);
     border-radius: var(--radius-sm);
-    color: var(--brand-cream);
+    color: var(--text);
     text-decoration: none;
     font-size: .8rem;
   }
 
   .test-shortcuts a:hover {
-    background: var(--brand-forest-hover);
-    color: var(--brand-cream);
+    background: var(--nav-panel);
+    color: var(--text);
   }
 
   .test-shortcuts strong {
-    color: var(--highlight);
+    color: var(--accent);
     font-size: 1.9rem;
     line-height: 1;
   }
 
   .test-launcher a:focus-visible {
-    outline-color: var(--highlight);
+    outline-color: var(--accent);
   }
 }
 

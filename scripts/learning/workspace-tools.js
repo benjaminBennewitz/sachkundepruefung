@@ -11,7 +11,6 @@
   const depot = document.getElementById('learningToolDepot');
   const modal = document.querySelector('.ui-modal');
   const definitions = {
-    settings: ['Filter und Auswertung', 'Suche, Lernstatus und Auswertungsaktionen für deinen aktiven Katalog.'],
     overview: ['Fragenübersicht', 'Wähle eine Frage. Status und Merker gehören zum aktiven Katalog.'],
     tests: ['Testreihe starten', 'Prüfe Profil, Herkunft und Bedingungen vor dem Start.']
   };
@@ -38,7 +37,7 @@
       content.addEventListener('click', continueAction, true);
       try {
         await window.LHUNDG_UI.modal({ title, message, content, returnFocus: trigger,
-          actions: [{ label: 'Fertig', value: 'close', primary: true }] });
+          closeButton: true, actions: [] });
       } finally {
         window.LHUNDG_UI_PARTS.activeSelect?.close();
         content.removeEventListener('click', continueAction, true);

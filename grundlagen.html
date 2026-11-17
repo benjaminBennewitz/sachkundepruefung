@@ -21,14 +21,15 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
-  <link rel="stylesheet" href="styles/tokens.css?v=54">
+  <link rel="stylesheet" href="styles/tokens.css?v=57">
   <link rel="stylesheet" href="styles/interface.css?v=49">
   <link rel="stylesheet" href="styles/navigation.css?v=52">
-  <link rel="stylesheet" href="styles/character.css?v=56">
-  <link rel="stylesheet" href="styles/editorial-identity.css?v=54">
-  <link rel="stylesheet" href="styles/accessibility.css?v=56">
+  <link rel="stylesheet" href="styles/character.css?v=58">
+  <link rel="stylesheet" href="styles/editorial-identity.css?v=57">
+  <link rel="stylesheet" href="styles/accessibility.css?v=58">
+  <link rel="stylesheet" href="styles/magazine.css?v=60">
 
-  <link rel="stylesheet" href="styles/foundations.css?v=46">
+  <link rel="stylesheet" href="styles/foundations.css?v=61">
 </head>
 
 <body><a class="skip-link" href="#inhalt">Zum Inhalt</a>
@@ -43,9 +44,13 @@
       </div>
     </div>
     <!-- BLOCK END: Marke und Projekthinweise -->
-    <nav class="header-nav" aria-label="Hauptnavigation"><a href="lernen.html#trainer">Lernen</a><a href="grundlagen.html"
-        aria-current="page">Grundlagen</a><a href="gut-zu-wissen.html">Gut
-        zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a href="quellen.html">Quellen</a>
+    <nav class="header-nav" aria-label="Hauptnavigation">
+      <a href="./">Startseite</a>
+      <a href="lernen.html#trainer">Lernen</a>
+      <a href="grundlagen.html" aria-current="page">Grundlagen</a>
+      <a href="gut-zu-wissen.html">Gut zu wissen</a>
+      <a href="hundewissen.html">Haltung &amp; Recht</a>
+      <a href="quellen.html">Quellen</a>
     </nav>
     <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><a class="icon-button"
         aria-label="Lernstand laden – im Trainer" href="lernen.html?action=import#trainer"><svg class="" width="20" height="20"
@@ -82,16 +87,20 @@
           <circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7M8 8l1 6m7-6-1 6"/>
         </svg><span class="tool-tip" aria-hidden="true">Barrierefreiheit</span></button></div>
   </header>
-  <main id="inhalt" class="prose wrap" tabindex="-1">
+  <main id="inhalt" class="prose wrap magazine magazine--foundations" tabindex="-1">
     <!-- BLOCK START: Seitenauftakt -->
-    <header class="page-masthead">
+    <header class="page-masthead page-masthead--magazine">
+      <div class="masthead-copy">
       <p class="eyebrow">01 / Grundlagen</p>
       <h1 id="foundationsTitle">Grundlagen</h1>
+        <p class="masthead-deck">Ein guter Anfang. Für euch beide.</p>
+      </div>
+      <figure class="masthead-image"><img src="assets/public/huendin-sonne.webp" width="1100" height="1467" alt="Gestromte Hündin lässt sich in der Sonne kraulen." loading="eager" decoding="async"></figure>
     </header>
     <!-- BLOCK END: Seitenauftakt -->
     <!-- BLOCK START: Grundlagen für den Fragenkatalog -->
     <section id="grundlagen" class="foundations-content" aria-labelledby="foundationsTitle">
-
+      <div class="editorial-intro">
       <p>Diese Einführung verbindet wichtige Themen aus dem Fragenkatalog. Sie ist ergänzendes Lernmaterial des
         Trainers.
         Für die Bewertung einer Originalfrage gilt der Lösungsschlüssel ihrer jeweiligen Quelle. Lies Frage und
@@ -100,7 +109,10 @@
         Auffälligkeiten erscheint nach dem Prüfen „Quelle beachten“. Die Katalogbewertung bestätigt nicht automatisch
         eine aktuelle fachliche Empfehlung oder Rechtsregel. Ergänzende Einordnungen und Empfehlungen sind ausdrücklich
         vom Original getrennt und verlinken, soweit vorhanden, die fachliche oder rechtliche Grundlage.</p>
-      <h2>Ein Hund zieht ein</h2>
+</div>
+      <div class="magazine-body">
+        <article class="editorial-chapter">
+        <h2 id="einzug">Ein Hund zieht ein</h2>
       <p>Vor der Anschaffung geht es nicht nur um das Aussehen: Zeit, Kosten, Wohnsituation und die Bedürfnisse des
         Hundes
         müssen zusammenpassen. Rassen können unterschiedliche Veranlagungen haben, etwa bei Aktivität und Jagdverhalten.
@@ -112,7 +124,9 @@
         sind vielfältige, positive Erfahrungen besonders wichtig. Lernen endet danach nicht. Auch ein Welpe braucht
         verständliche Regeln und geeignete Kontakte; einen automatischen Schutz vor Angriffen anderer Hunde gibt es
         nicht.</p>
-      <h2>Verhalten verstehen und Lernen ermöglichen</h2>
+</article>
+        <article class="editorial-chapter">
+        <h2 id="lernen-verstehen">Verhalten verstehen und Lernen ermöglichen</h2>
       <p>Ein Hund lernt leichter, wenn erwünschtes Verhalten belohnt wird und die Anforderungen zu seinem
         Entwicklungsstand
         passen. Das Stoppen eines unerwünschten Verhaltens erklärt ihm allein noch nicht, was er stattdessen tun soll.
@@ -121,7 +135,8 @@
       <p>Gewöhnung bedeutet nicht, einen Hund wiederholt starker Angst auszusetzen. Behutsames Heranführen erfolgt in
         bewältigbaren Schritten. Bei Angstproblemen zählt das Wohlbefinden des Hundes, nicht nur die Störung im Alltag
         seines Menschen. Bei belastenden oder aggressiven Verhaltensproblemen ist tierärztlicher Rat sinnvoll.</p>
-      <h2>Begegnungen aufmerksam begleiten</h2>
+</article>
+        <article class="editorial-spread"><div class="chapter-copy">      <h2 id="begegnungen">Begegnungen aufmerksam begleiten</h2>
       <p>Ohren, Rute, Gesicht, Muskelspannung und Körperhaltung ergeben gemeinsam ein Bild. Einzelne Signale reichen
         nicht aus, um einen Hund sicher einzuschätzen. Angespanntes Fixieren ist im Katalog ein Drohsignal; nicht jeder
         Blickkontakt ist damit gemeint. Auch eine hohe Rute beweist weder Freundlichkeit noch sichere innere Haltung.
@@ -130,7 +145,8 @@
         nicht zuverlässig. Besonders kleine Kinder dürfen nicht mit dem Hund allein bleiben. Umarmen, Küssen oder
         Bedrängen kann einen Hund überfordern. Ruhe, Abstand und das Beachten seiner Signale helfen, Konflikte zu
         vermeiden.</p>
-      <h2>Sicher unterwegs</h2>
+</div><figure class="editorial-photo"><div class="editorial-photo-frame"><img src="assets/public/huendin-auge.webp" width="1100" height="825" alt="Nahaufnahme des Auges der Hündin." loading="lazy" decoding="async"></div><figcaption>Aufmerksam sein. Den ganzen Hund im Blick behalten.</figcaption></figure></article>
+        <article class="editorial-spread"><div class="chapter-copy">      <h2 id="unterwegs">Sicher unterwegs</h2>
       <p>Freilauf setzt voraus, dass er am jeweiligen Ort und für den jeweiligen Hund zulässig ist. In NRW gibt es keine
         allgemeine Leinenpflicht für alle Hunde an jedem Ort. Auf Waldwegen kann Freilauf erlaubt sein; außerhalb von
         Wegen besteht grundsätzlich Leinenpflicht. Für Hunde nach § 3 und § 10 gelten weitergehende Pflichten. Örtliche
@@ -139,7 +155,8 @@
         Alltagsersatz. Im Auto muss der Hund gesichert werden, damit er sich und andere nicht gefährdet. Ein ruhiger
         Hund
         ist bei einer Vollbremsung oder einem Unfall nicht automatisch ein sicher transportierter Hund.</p>
-      <h2>Gesundheit und Verantwortung</h2>
+</div><figure class="editorial-photo"><div class="editorial-photo-frame"><img src="assets/public/huendin-strand.webp" width="1000" height="1333" alt="Hündin von hinten am Strand mit Blick auf das Wasser." loading="lazy" decoding="async"></div><figcaption>Gemeinsam unterwegs.</figcaption></figure></article>
+        <article class="editorial-spread"><div class="chapter-copy">      <h2 id="gesundheit">Gesundheit und Verantwortung</h2>
       <p>Artgerechte Haltung umfasst passende Bewegung, Ruhe, Sozialkontakte und gesundheitliche Versorgung. Weder die
         Wohnungsgröße allein noch eine einzelne Zeitangabe entscheidet darüber, ob alle Bedürfnisse erfüllt sind.
         Vorsorge und Impfungen werden mit der Tierarztpraxis besprochen; für Reisen können zusätzliche Vorgaben gelten.
@@ -147,7 +164,8 @@
       <p>Eine Kastration ist keine allgemeine Lösung für Aggressionsprobleme. Sie braucht eine individuelle Beurteilung
         und eine gesetzliche Grundlage. Auch das Kürzen von Ohren oder Rute ist grundsätzlich verboten; eng begrenzte
         Ausnahmen sind keine allgemeine Erlaubnis. Die jeweiligen Fragen erklären diese Unterschiede genauer.</p>
-      <p class="source-note">Beim Antworten: Prüfe besonders Verneinungen und absolute Aussagen. Ein Satz kann teilweise
+</div><figure class="editorial-photo editorial-photo--paws"><div class="editorial-photo-frame"><img src="assets/public/huendin-pfote.webp" width="1000" height="1333" alt="Pfote der schlafenden Hündin auf dem Sofa." loading="lazy" decoding="async"></div><figcaption>Auch Ruhe gehört dazu.</figcaption></figure></article>
+        <aside class="editorial-endnote">      <p class="source-note">Beim Antworten: Prüfe besonders Verneinungen und absolute Aussagen. Ein Satz kann teilweise
         plausibel klingen und durch eine zusätzliche Bedingung trotzdem falsch sein. Mehrfachauswahl bedeutet, dass alle
         laut Quelle richtigen Antworten und keine zusätzlichen Antworten ausgewählt werden müssen.</p>
       <p class="microcopy">Redaktioneller Stand: 13. November 2026. Grundlage: die im Trainer ausgewiesenen
@@ -160,6 +178,8 @@
         bei Bedarf weitere Fachquellen.
       </p>
       <p><a class="primary foundations-return" href="lernen.html#trainer">Zu den Fragen →</a></p>
+</aside>
+      </div>
     </section>
     <!-- BLOCK END: Grundlagen für den Fragenkatalog -->
   </main>
@@ -174,7 +194,7 @@
 
     <p class="footer-credit">© 2026 Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/"
         aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p>
-    <nav aria-label="Rechtliches und Informationen"><a href="./#geschichte" data-open-story
+    <nav aria-label="Rechtliches und Informationen"><a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a><a href="./#geschichte" data-open-story
         aria-haspopup="dialog">Die Geschichte hinter dem Trainer</a><a href="quellen.html">Originalquellen</a><a
         href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a
         href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="lernen.html#trainer">Zum Lernen
@@ -182,15 +202,16 @@
   </footer>
   <script src="scripts/site-config.js?v=38" defer></script>
   <script src="scripts/ui/shared.js?v=56" defer></script>
-  <script src="scripts/ui/modal.js?v=43" defer></script>
+  <script src="scripts/ui/modal.js?v=58" defer></script>
   <script src="scripts/ui/story.js?v=1" defer></script>
   <script src="scripts/ui/toast-item.js?v=38" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
   <script src="scripts/ui/navigation.js?v=51" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
-  <script src="scripts/ui/accessibility-panel.js?v=56" defer></script>
-  <script src="scripts/ui/common.js?v=55" defer></script>
+  <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
+  <script src="scripts/ui/release.js?v=60" defer></script>
+  <script src="scripts/ui/common.js?v=57" defer></script>
   <script src="scripts/ui/controls.js?v=38" defer></script>
 </body>
 
