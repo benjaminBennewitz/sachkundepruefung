@@ -64,7 +64,7 @@
     if (opened) {
       overlay.append(panel);
       if (!overlay.open) overlay.showModal();
-      overlay.scrollTop = 0;
+      panel.scrollTop = 0;
       close.focus({ preventScroll: true });
     } else {
       if (overlay.open) overlay.close();

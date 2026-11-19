@@ -18,7 +18,6 @@
 
     article.className = 'story-content';
     article.innerHTML = `
-      <button class="story-close" type="button" aria-label="Geschichte schließen">×</button>
       <figure class="story-photo">
         <img src="assets/public/du-und-ich.webp" width="1440" height="956"
           alt="Benjamin und seine Hündin auf einem Felsen vor einem Wasserfall." decoding="async">
@@ -56,12 +55,12 @@
   function showStory(modal, trigger) {
     const content = storyContent();
 
-    content.querySelector('.story-close').addEventListener('click', () => modal.dialog.close('close'));
     void modal.open({
       title: 'Die Geschichte hinter dem Sachkundetrainer',
       message: 'Manchmal entstehen die schönsten Dinge aus Momenten, mit denen man nie gerechnet hätte.',
       content,
       returnFocus: trigger || undefined,
+      closeButton: true,
       actions: [{ label: 'Schließen', value: 'close', primary: true }]
     });
   }

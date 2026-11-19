@@ -4160,15 +4160,31 @@ html,
    12   Persönliche Entstehungsgeschichte
    ========================================================================== */
 
-/* Mehr Platz für den redaktionellen Lesetext, ohne andere Modale zu verändern. */
+/* Der Dialogkopf bleibt erreichbar, während der redaktionelle Lesetext darunter scrollt. */
 .ui-modal:has(.story-content) {
   width: min(840px, calc(100% - 32px));
   max-height: calc(100dvh - 32px);
 }
 
 .ui-modal:has(.story-content) .ui-modal-inner {
+  --story-gutter: clamp(20px, 4vw, 36px);
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
-  padding: clamp(20px, 4vw, 36px);
+  padding: 0 0 var(--story-gutter);
+}
+
+.ui-modal:has(.story-content) .ui-modal-heading {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  align-items: center;
+  padding: max(12px, env(safe-area-inset-top)) var(--story-gutter) 12px;
+  background: var(--surface);
+  overflow-wrap: anywhere;
+}
+
+.ui-modal:has(.story-content) .ui-modal-inner > :not(.ui-modal-heading) {
+  margin-inline: var(--story-gutter);
 }
 
 .ui-modal:has(.story-content) #uiModalMessage {
@@ -4180,37 +4196,6 @@ html,
   display: grid;
   gap: 22px;
   min-width: 0;
-}
-
-.story-close {
-  position: sticky;
-  top: 10px;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  justify-self: end;
-  width: 44px;
-  height: 44px;
-  margin: -9px 2px -66px 0;
-  padding: 0;
-  border: 1px solid var(--control-line);
-  border-radius: 50%;
-  background: var(--surface);
-  color: var(--text);
-  font-size: 1.8rem;
-  line-height: 1;
-  box-shadow: 0 3px 14px #0002;
-}
-
-.story-close:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-bg);
-}
-
-.story-close:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
 }
 
 .story-photo {
@@ -4275,7 +4260,7 @@ html,
 @media (max-width: 600px) {
   .ui-modal:has(.story-content) {
     inset: 0;
-    width: 100vw;
+    width: 100%;
     max-width: none;
     height: 100dvh;
     max-height: 100dvh;

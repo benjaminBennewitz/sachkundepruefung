@@ -378,6 +378,11 @@
     gap: 24px;
     margin-top: 40px;
     padding-block: 36px;
+    overflow-wrap: anywhere;
+  }
+
+  .site-footer .footer-credit {
+    flex-wrap: wrap;
   }
 
   .site-footer .footer-scope {

@@ -349,7 +349,7 @@
 
 @media screen and (max-width: 999px), screen and (max-height: 719px) {
   .learning-page .workspace-footer { justify-content: center; }
-  .workspace-footer .learning-actions { display: flex; flex: 1 0 100%; justify-content: center; }
+  .workspace-footer .learning-actions { display: flex; flex: 1 0 100%; flex-wrap: wrap; justify-content: center; }
   .workspace-footer .learning-actions button { flex: 0 1 auto; }
   .workspace-footer .learning-actions .feedback-toggle { display: flex; align-items: center; justify-content: center; gap: 6px; width: auto; }
   .learning-page .workspace-footer .pagination { flex-basis: 100%; }

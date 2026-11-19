@@ -73,6 +73,13 @@
     padding-block: 12px;
   }
 
+  .site-header .brand {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 14px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
   .has-mobile-navigation .header-brand-group {
     grid-column: 1;
     grid-row: 1;
@@ -108,7 +115,8 @@
   }
 
   .mobile-navigation-overlay[open] {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: fixed;
     inset: 0;
     width: 100%;
@@ -122,8 +130,7 @@
     background: var(--bg);
     color: var(--text);
     font: inherit;
-    overflow-y: auto;
-    overscroll-behavior: contain;
+    overflow: hidden;
   }
 
   .mobile-navigation-overlay::backdrop {
@@ -135,9 +142,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    position: sticky;
-    top: 0;
-    z-index: 1;
+    flex: none;
     padding: max(16px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) 16px max(20px, env(safe-area-inset-left));
     border-bottom: 1px solid var(--line);
     background: var(--bg);
@@ -171,7 +176,13 @@
 
   .mobile-navigation-overlay .header-navigation-panel:not([hidden]) {
     display: grid;
+    align-content: start;
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    overflow-wrap: anywhere;
     padding: 12px max(20px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
   }
 
