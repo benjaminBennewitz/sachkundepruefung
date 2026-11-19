@@ -226,3 +226,45 @@ verlangt diese Beschriftungen künftig ausdrücklich, statt nur Bilder und
 Lösungspaare zu prüfen. Daraus folgt keine vollständige neue inhaltliche Prüfung
 aller Originalkataloge. Der zugesandte Bogen wird nicht als öffentlicher
 PDF-Download eingebunden.
+
+
+## Kölner Bild- und Situationsfragen – 19. November 2026
+
+Abgleich mit der bereitgestellten Datei „Übungsfragen Sachkunde §6 LHundG NRW
+Stadt Köln.pdf“: Fragen A7–A10 auf PDF-Seite 3, A26 auf Seite 6 und der
+Lösungsschlüssel auf Seite 21. Die Bilder A7/A8 und die Schlüsselseite wurden
+zusätzlich visuell geprüft. Keine Änderung der Antworten oder Lösungsschlüssel.
+
+- Gesamtfrage 302 (A2): Übersicht in beiden Größenstufen um 30 % vergrößert
+  (260 auf 338 px bzw. 160 auf 208 px Höhe bei ausreichender Breite).
+  Seitenverhältnis bleibt 505:318; schmale Viewports begrenzen die Breite.
+- 306/307 (A7/A8): Schlüssel A+B bzw. A+C bestätigt. Gegenseitiger Bildvergleich.
+  Die Erklärung nennt die Ohrenstellung, behauptet aber keine sichere Diagnose
+  und rechtfertigt den Ausschluss von Drohen bei Angst nicht als Verhaltensregel.
+- 308 (A9): „mehr fachem“ steht tatsächlich in der Vorlage. Im Trainer rein
+  orthografisch zu „mehrfachem“ berichtigt. D bleibt alleinige Kataloglösung;
+  ihre fehlenden Sicherheitsbedingungen werden ausdrücklich offengelegt.
+- 309 (A10): Schlüssel D bestätigt. Eigengefährdung beim körperlichen Eingreifen
+  erläutert; weder gleiche Größe noch Maulkorb als Sicherheitsgarantie behandelt.
+  Keine Trenntechnik empfohlen, kein allgemeiner Aufruf zur Untätigkeit.
+- 319 (A26): Schlüssel C bestätigt. Anleinen als Wortlautunterschied zu B benannt;
+  keine Verpflichtung der anderen Person zum Absetzen ihres Hundes behauptet.
+  Kooperationsbereitschaft und Sicherheit am Boden bleiben ausdrücklich offen.
+
+Ergänzende Fachquellen (abgerufen am 19. November 2026):
+
+- Dogs Trust, „Body language“: ganze Körpersprache und Kontext berücksichtigen;
+  entblößte Zähne können Warnsignale sein, Angst kann mit Aggression einhergehen.
+  https://www.dogstrust.org.uk/dog-advice/understanding-your-dog/body-language
+- Dogs Trust, „Recall training“: gesichert üben; Zurückkommen nicht bestrafen.
+  Nur Trainingshinweise übernommen, keine britischen Rechtsangaben.
+  https://www.dogstrust.org.uk/dog-advice/training/basics/recall-training
+- RSPCA, „First aid for your dog“, Abschnitt „Dog fights“: Bissrisiko für
+  Eingreifende und mögliche zusätzliche Verletzungen durch Auseinanderziehen.
+  https://www.rspca.org.uk/adviceandwelfare/pets/dogs/health/firstaid
+
+Alle fünf neuen Erklärungen tragen einen gesonderten Quellenhinweis. Sie bleiben
+bis zur Antwortprüfung verborgen; im laufenden Test bis zur Auswertung.
+
+Die vorhandene Vergleichskomponente gibt die bereits hinterlegte Beschriftung
+jetzt auch sichtbar als figcaption aus; zuvor stand sie nur im Alternativtext.

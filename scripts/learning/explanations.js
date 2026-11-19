@@ -419,5 +419,69 @@ window.LHUNDG_EXPLANATIONS = {
   },
   "r97-57": {
     "text": "Die Frage hebt den besonders wichtigen Geruchssinn hervor und verlangt deshalb D. Sie behauptet nicht, dass Hunde ihre Umgebung ausschließlich mit der Nase wahrnehmen. Gehör und Augen bleiben ebenfalls bedeutsam."
+  },
+  "koeln-a7": {
+    "text": "Für diese Vorlage sind A und B richtig. Auffällig sind die nach hinten gerichteten Ohren und die entblößten Zähne; der Schlüssel verbindet das Bild mit Aggression und Angst. Bei Frage 307 stehen die Ohren dagegen aufrecht, und der Schlüssel verlangt A und C. Daraus folgt nicht, dass ein ängstlicher Hund nicht drohen kann: Angst und Drohverhalten können gemeinsam auftreten. Warum C hier ausgeschlossen wird, erläutert die Vorlage nicht. Die Zeichnung allein rechtfertigt diesen Ausschluss nicht eindeutig.",
+    "caution": "Mehrdeutige Bewertung: Der Schlüssel grenzt Angst und Drohen hier stärker voneinander ab, als es als allgemeine Verhaltensregel zulässig wäre.",
+    "references": [
+      {
+        "label": "Dogs Trust: Körpersprache im Zusammenhang lesen (englisch)",
+        "url": "https://www.dogstrust.org.uk/dog-advice/understanding-your-dog/body-language"
+      }
+    ],
+    "comparisons": [
+      {
+        "uid": "koeln-a7",
+        "caption": "Frage 306 · Kölner Vorlage: A + B. Ohren nach hinten; als aggressiv und ängstlich gewertet."
+      },
+      {
+        "uid": "koeln-a8",
+        "caption": "Frage 307 · Kölner Vorlage: A + C. Aufrechte Ohren; als aggressiv und drohend gewertet."
+      }
+    ]
+  },
+  "koeln-a8": {
+    "text": "Der Schlüssel verlangt A und C: aggressiv und drohend. Im Vergleich zu Frage 306 sind die Ohren aufgerichtet; beide Zeichnungen zeigen entblößte Zähne. Diese Merkmale erklären die bildliche Gegenüberstellung, beweisen aber nicht, dass Angst ausgeschlossen ist. Bei einem echten Hund müssen Körperhaltung und Situation hinzukommen. Die unterschiedliche Bewertung beider Bilder ist eine Vorgabe dieser Katalogfassung.",
+    "caution": "Grenze der Bildfrage: Die Ohrenstellung allein erlaubt keine sichere Aussage darüber, ob ein Hund Angst hat.",
+    "references": [
+      {
+        "label": "Dogs Trust: Körpersprache im Zusammenhang lesen (englisch)",
+        "url": "https://www.dogstrust.org.uk/dog-advice/understanding-your-dog/body-language"
+      }
+    ],
+    "comparisons": [
+      {
+        "uid": "koeln-a7",
+        "caption": "Frage 306 · Kölner Vorlage: A + B. Ohren nach hinten; als aggressiv und ängstlich gewertet."
+      },
+      {
+        "uid": "koeln-a8",
+        "caption": "Frage 307 · Kölner Vorlage: A + C. Aufrechte Ohren; als aggressiv und drohend gewertet."
+      }
+    ]
+  },
+  "koeln-a9": {
+    "text": "Der Schlüssel verlangt D. Die Vorlage erläutert allerdings nicht, unter welchen Bedingungen das Umdrehen und Weggehen geeignet sein soll. Es garantiert keinen Rückruf und ist keine Aufforderung, einen unkontrollierten Hund zurückzulassen oder in Richtung einer Gefahr zu führen. Ob Einfangen nötig ist, hängt von der konkreten Gefahrensituation ab; A ist deshalb nicht in jeder denkbaren Lage falsch. Für das Training gilt: Rückruf gesichert üben und den Hund nicht für das Zurückkommen bestrafen.",
+    "caution": "Situation unvollständig: Ort, Gefahren und Verhalten des Hundes fehlen. D ist keine allgemeingültige Handlungsanweisung.",
+    "references": [
+      {
+        "label": "Dogs Trust: Rückruf sicher trainieren (englisch)",
+        "url": "https://www.dogstrust.org.uk/dog-advice/training/basics/recall-training"
+      }
+    ]
+  },
+  "koeln-a10": {
+    "text": "Nur D wird gezählt. A führt die Hände unmittelbar an die kämpfenden Hunde; beim Trennen können Menschen gebissen und Verletzungen der Hunde durch Ziehen verschlimmert werden. B und C bieten ebenfalls keine verlässliche sichere Lösung. Die Formulierung „dem Schicksal seinen Lauf“ ist dennoch keine allgemeine Empfehlung, jede Hilfe zu unterlassen. Gleiche Größe garantiert keinen harmlosen Ausgang. Auch ein Maulkorb am eigenen Hund schützt ihn nicht vor Bissen des anderen Hundes und macht das Eingreifen nicht sicher. Eine sichere Trennmaßnahme lässt sich aus den fehlenden Situationsangaben nicht ableiten.",
+    "caution": "Pauschale Katalogantwort: D berücksichtigt die Eigengefährdung, ersetzt aber keine Beurteilung der konkreten Notlage.",
+    "references": [
+      {
+        "label": "RSPCA: Verletzungsrisiken beim Trennen kämpfender Hunde (englisch)",
+        "url": "https://www.rspca.org.uk/adviceandwelfare/pets/dogs/health/firstaid"
+      }
+    ]
+  },
+  "koeln-a26": {
+    "text": "Der Schlüssel verlangt C. C nennt ausdrücklich das Anleinen; B nennt Rückruf und Abstand, aber keine Leine. Das ist ein Unterschied im Wortlaut, kein Beleg dafür, dass ein großer Bogen grundsätzlich falsch wäre. Den weiteren Teil von C sollte man nicht als Garantie verstehen: Die andere Person kann gute Gründe haben, ihren Hund zu tragen, und muss einem Hinweis nicht folgen. Aus der Frage lässt sich nicht beurteilen, ob Absetzen sicher wäre. Den eigenen Hund sichern und Abstand halten setzt keine Zustimmung oder Diskussion mit der anderen Person voraus.",
+    "caution": "Verkürzte Begegnungssituation: C garantiert weder die Kooperation der anderen Person noch einen sicheren Kontakt am Boden."
   }
 };

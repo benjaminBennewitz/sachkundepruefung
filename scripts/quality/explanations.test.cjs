@@ -77,10 +77,10 @@ test('Alle Erklärungen sind an vorhandene Original-UIDs gebunden und ändern ke
   const env = setup();
   const before = JSON.stringify(env.scope.LHUNDG_QUESTIONS);
   const entries = Object.entries(env.scope.LHUNDG_EXPLANATIONS);
-  assert.equal(entries.length, 66);
+  assert.equal(entries.length, 71);
   for (const [uid, entry] of entries) {
     const question = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === uid);
-    assert.ok(['legacy203', 'rhein97'].includes(question?.sourceKey));
+    assert.ok(['legacy203', 'rhein97', 'koeln'].includes(question?.sourceKey));
     assert.ok(entry.text.length > 0);
     if (entry.sourceUrl) assert.equal(new URL(entry.sourceUrl).protocol, 'https:');
     for (const reference of entry.references || []) {
@@ -91,6 +91,25 @@ test('Alle Erklärungen sind an vorhandene Original-UIDs gebunden und ändern ke
   }
   assert.equal(env.feedback.createExplanation({ uid: 'unbekannt' }), null);
   assert.equal(JSON.stringify(env.scope.LHUNDG_QUESTIONS), before);
+});
+
+test('Der Kölner Bildvergleich zeigt beide Originale mit sichtbarer Quellenbewertung', () => {
+  const env = setup();
+  env.feedback.dom = {
+    node: (tag, text, className) => ({ tag, text, className, children: [], append(...nodes) { this.children.push(...nodes); } })
+  };
+  for (const uid of ['koeln-a7', 'koeln-a8']) {
+    const question = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === uid);
+    const details = env.feedback.createExplanation(question);
+    assert.equal(details.hidden, true);
+    const comparison = details.children[1].children.find(node => node.className === 'explanation-comparison');
+    assert.equal(comparison.children.length, 2);
+    for (const figure of comparison.children) {
+      assert.ok(figure.children[0].src.startsWith('assets/sources/koeln/'));
+      assert.equal(figure.children[1].tag, 'figcaption');
+      assert.ok(figure.children[1].text.includes('Kölner Vorlage:'));
+    }
+  }
 });
 
 test('Problematische Schlüssel werden als Katalogtreffer eingeordnet und verraten im Test keine Lösung', () => {

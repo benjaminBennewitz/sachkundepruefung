@@ -27,6 +27,15 @@
    01   Lernseite und verfügbare Bildschirmhöhe
    ========================================================================== */
 
+/* Die sechs Teilbilder von Köln A2 bleiben im Originalverhältnis 505:318.
+   Gegenüber der bisherigen Höhe von 260 px wächst die Übersicht um 30 %;
+   schmale Ansichten begrenzen sie weiterhin auf die verfügbare Breite. */
+#q-2002 .question-images img {
+  width: calc(338px * 505 / 318);
+  max-width: 100%;
+  max-height: none;
+}
+
 @media screen and (min-width: 1000px) and (min-height: 720px) {
   .learning-page {
     display: grid;
@@ -259,6 +268,11 @@
 
   .learning-page .question-images img {
     max-height: 160px;
+  }
+
+  /* Die kompakte Desktopansicht wächst entsprechend von 160 auf 208 px. */
+  #q-2002 .question-images img {
+    width: calc(208px * 505 / 318);
   }
 
   .workspace-footer {

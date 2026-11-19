@@ -65,7 +65,7 @@ window.LHUNDG_TRAINER.QuestionFeedback = class QuestionFeedback {
       image.decoding = 'async';
       const size = window.LHUNDG_IMAGE_SIZES[source];
       if (size) [image.width, image.height] = size;
-      figure.append(image);
+      figure.append(image, this.dom.node('figcaption', item.caption));
       group.append(figure);
     }
     return group;

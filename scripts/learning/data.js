@@ -8444,7 +8444,7 @@ window.LHUNDG_QUESTIONS = [{
   "correct": [
     "D"
   ],
-  "prompt": "Ihr Hund läuft frei, nach mehr fachem Rufen kommt er nicht. Wie verhalten Sie sich?",
+  "prompt": "Ihr Hund läuft frei, nach mehrfachem Rufen kommt er nicht. Wie verhalten Sie sich?",
   "answers": {
     "A": "Sie laufen ihm nach und fangen ihn ein.",
     "B": "Sie bleiben stehen und rufen bis er kommt.",
