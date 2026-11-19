@@ -7,15 +7,15 @@
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#1d4233">
   <meta name="robots" content="index,follow">
-  <title>Fragen üben | Hunde-Sachkundetrainer NRW</title>
+  <title>Sachkundetest Hund NRW – kostenloser Übungstest</title>
   <meta name="description"
-    content="Lernbereich für die Hunde-Sachkunde in NRW: Fragen beantworten, Fehler wiederholen und Testreihen üben. Mit getrennten Lernständen und Sofort-Feedback.">
+    content="Übe den Sachkundetest für Hunde in NRW kostenlos online. Beantworte Übungsfragen, erhalte Sofort-Feedback, wiederhole Fehler oder starte eine Testreihe.">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
-  <meta property="og:title" content="Fragen üben | Hunde-Sachkundetrainer NRW">
+  <meta property="og:title" content="Sachkundetest Hund NRW – kostenloser Übungstest">
   <meta property="og:description"
-    content="Lernbereich für die Hunde-Sachkunde in NRW: Fragen beantworten, Fehler wiederholen und Testreihen üben. Mit getrennten Lernständen und Sofort-Feedback.">
+    content="Übe den Sachkundetest für Hunde in NRW kostenlos online. Beantworte Übungsfragen, erhalte Sofort-Feedback, wiederhole Fehler oder starte eine Testreihe.">
 
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
@@ -52,8 +52,9 @@
   <header class="site-header wrap" data-layout-src="templates/site-header.html" id="geschichte">
     <a href="./">Startseite</a>
     <div class="header-tools" role="group" aria-label="Lernstandswerkzeuge">
-      <button class="icon-button" type="button" aria-label="Lernstand laden" id="importTrigger"><svg class="" width="20"
-          height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+      <button class="icon-button"
+        type="button" aria-label="Lernstand laden" id="importTrigger"><svg class="" width="20" height="20"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
           stroke-linejoin="round" aria-hidden="true">
           <path d="M12 16V4m-4 4 4-4 4 4M5 16v5h14v-5" />
         </svg><span class="tool-tip" aria-hidden="true">Lernstand laden</span></button><input id="importProgress"
@@ -71,15 +72,14 @@
     </div>
   </header>
   <main id="trainer" class="trainer wrap" tabindex="-1" aria-labelledby="trainerPageTitle">
-    <h1 id="trainerPageTitle" class="visually-hidden">Sachkundetrainer NRW – Fragen üben</h1>
+    <h1 id="trainerPageTitle" class="visually-hidden">Sachkundetest für Hunde in NRW kostenlos üben</h1>
     <!-- BLOCK START: Bildschirmfüllender Lernarbeitsplatz -->
     <div class="learning-layout">
       <aside class="sidebar" aria-label="Lernbereiche und Fragenübersicht">
-        <!-- BLOCK START: Mobiles Aktionsmenü -->
-        <button class="workspace-panel-toggle" type="button" data-mobile-toggle aria-controls="learningActions"
-          aria-expanded="false" hidden><span>Lernbereich &amp; Aktionen</span><span data-learner-name>Dein
-            Lernstand</span></button>
-        <div id="learningActions" class="workspace-panel-content">
+          <!-- BLOCK START: Mobiles Aktionsmenü -->
+          <button class="workspace-panel-toggle" type="button" data-mobile-toggle aria-controls="learningActions"
+            aria-expanded="false" hidden><span>Lernbereich &amp; Aktionen</span><span data-learner-name>Dein Lernstand</span></button>
+          <div id="learningActions" class="workspace-panel-content">
           <div class="side-panel">
             <p class="panel-kicker">Lernen &amp; Wiederholen</p>
             <!-- BLOCK START: Aktives Personenprofil -->
@@ -100,18 +100,9 @@
             <!-- BLOCK START: Kennzahlen des aktiven Lernkatalogs -->
             <section id="learningInsights" class="learning-insights" aria-label="Kennzahlen dieses Katalogs">
               <dl class="learning-kpis">
-                <div>
-                  <dt>Richtig</dt>
-                  <dd data-insight="correct">0</dd>
-                </div>
-                <div>
-                  <dt>Fehler</dt>
-                  <dd data-insight="wrong">0</dd>
-                </div>
-                <div>
-                  <dt>Merker</dt>
-                  <dd data-insight="bookmarked">0</dd>
-                </div>
+                <div><dt>Richtig</dt><dd data-insight="correct">0</dd></div>
+                <div><dt>Fehler</dt><dd data-insight="wrong">0</dd></div>
+                <div><dt>Merker</dt><dd data-insight="bookmarked">0</dd></div>
               </dl>
               <p class="microcopy" data-insight="note">Richtig und falsch zählen erst nach dem Prüfen.</p>
             </section>
@@ -131,18 +122,16 @@
           <p class="storage-note" id="storageNote">Dein Lernstand bleibt in diesem Browser.
             <a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a> ·
             <a id="foundationsLink" href="grundlagen.html">Grundlagen</a> ·
-            <a href="datenschutz.html#browserspeicher">Datenschutz</a> · <a href="impressum.html">Impressum</a>
-          </p>
-        </div>
-        <!-- BLOCK END: Mobiles Aktionsmenü -->
-      </aside>
+            <a href="datenschutz.html#browserspeicher">Datenschutz</a> · <a href="impressum.html">Impressum</a></p>
+          </div>
+          <!-- BLOCK END: Mobiles Aktionsmenü -->
+        </aside>
       <div class="workspace">
-        <div class="workspace-toolbar">
-          <!-- BLOCK START: Mobile Filtersteuerung -->
-          <button class="workspace-panel-toggle" type="button" data-mobile-toggle aria-controls="learningFilters"
-            aria-expanded="false" hidden><span>Suche &amp; Filter</span><span id="filterToggleSummary">Alle
-              Fragen</span></button>
-          <div id="learningFilters" class="workspace-panel-content">
+          <div class="workspace-toolbar">
+            <!-- BLOCK START: Mobile Filtersteuerung -->
+            <button class="workspace-panel-toggle" type="button" data-mobile-toggle aria-controls="learningFilters"
+              aria-expanded="false" hidden><span>Suche &amp; Filter</span><span id="filterToggleSummary">Alle Fragen</span></button>
+            <div id="learningFilters" class="workspace-panel-content">
             <h2 id="modeTitle" class="visually-hidden">Alle Quellen</h2>
             <!-- BLOCK START: Direkte Suche und Lernfilter -->
             <div class="filters"><label class="search-label" for="search">Fragen durchsuchen<input id="search"
@@ -162,77 +151,72 @@
                 </select></label></div>
             <button id="clearFilters" class="text-button" type="button" hidden>Filter löschen</button>
             <!-- BLOCK END: Direkte Suche und Lernfilter -->
-            <p id="exampleNotice" class="source-note" hidden></p>
-            <div id="filterResults" class="filter-results" hidden>
+            <p id="exampleNotice" class="source-note" hidden></p><div id="filterResults" class="filter-results" hidden>
               <p id="matchCount" role="status" aria-live="polite" hidden></p>
               <p class="microcopy">Blättere unten mit Zurück und Weiter durch die passenden Fragen oder öffne die
                 Listenansicht.</p>
               <button id="showMatchList" class="secondary" type="button">Treffer als Liste anzeigen</button>
             </div>
+            </div>
+            <!-- BLOCK END: Mobile Filtersteuerung -->
           </div>
-          <!-- BLOCK END: Mobile Filtersteuerung -->
-        </div>
-        <div class="question-stage" id="questionStage" role="region" aria-label="Fragen und Rückmeldung" tabindex="0">
-          <div id="result" class="result-panel" tabindex="-1" hidden></div>
-          <div id="questions" class="questions"></div>
-        </div>
-        <!-- BLOCK START: Direkte Lernaktionen und Fragennavigation -->
-        <div class="workspace-footer">
-          <div class="learning-actions" role="group" aria-label="Feedback und Auswertung"><button id="instantFeedback"
-              class="feedback-toggle" type="button" aria-pressed="true">Sofort-Feedback: An</button><button
-              id="intermediate" class="secondary" type="button">Zwischenergebnis</button><button id="evaluate"
-              class="secondary" type="button">Katalog auswerten</button></div>
-          <div class="pagination" aria-label="Fragenseiten"><button id="previous" class="secondary" type="button">←
+          <div class="question-stage" id="questionStage" role="region" aria-label="Fragen und Rückmeldung" tabindex="0">
+            <div id="result" class="result-panel" tabindex="-1" hidden></div>
+            <div id="questions" class="questions"></div>
+          </div>
+          <!-- BLOCK START: Direkte Lernaktionen und Fragennavigation -->
+          <div class="workspace-footer">
+            <div class="learning-actions" role="group" aria-label="Feedback und Auswertung"><button id="instantFeedback"
+                class="feedback-toggle" type="button" aria-pressed="true">Sofort-Feedback: An</button><button
+                id="intermediate" class="secondary" type="button">Zwischenergebnis</button><button id="evaluate"
+                class="secondary" type="button">Katalog auswerten</button></div>
+            <div class="pagination" aria-label="Fragenseiten"><button id="previous" class="secondary" type="button">←
               Zurück</button><span id="position" role="status"></span><button id="next" class="primary"
               type="button">Weiter →</button></div>
-          <!-- BLOCK START: Rückweg ohne schwebende Überlagerung -->
-          <div id="learningScrollTop" class="learning-scroll-top"></div>
-          <!-- BLOCK END: Rückweg ohne schwebende Überlagerung -->
-        </div>
-        <!-- BLOCK END: Direkte Lernaktionen und Fragennavigation -->
+            <!-- BLOCK START: Rückweg ohne schwebende Überlagerung -->
+            <div id="learningScrollTop" class="learning-scroll-top"></div>
+            <!-- BLOCK END: Rückweg ohne schwebende Überlagerung -->
+          </div>
+          <!-- BLOCK END: Direkte Lernaktionen und Fragennavigation -->
 
-      </div>
+        </div>
     </div>
     <!-- BLOCK END: Bildschirmfüllender Lernarbeitsplatz -->
     <!-- BLOCK START: Inhalte der Lernwerkzeuge -->
     <div id="learningToolDepot" hidden>
-      <div id="learning-overview" class="learning-tool-content">
-        <details class="nav-details">
-          <summary>Fragenübersicht <span aria-hidden="true">＋</span></summary>
-          <!-- BLOCK START: Kompakte Zustandslegende -->
-          <div class="nav-legend" role="group" aria-label="Legende zur Fragenübersicht">
-            <span class="nav-legend-item"><span class="legend-marker" aria-hidden="true"><span
-                  class="legend-dot"></span></span>Offen</span>
-            <span class="nav-legend-item"><span class="legend-marker legend-marker--answered" aria-hidden="true"><span
-                  class="legend-dot legend-dot--filled"></span></span>Beantwortet</span>
-            <span class="nav-legend-item"><span class="legend-marker legend-marker--correct" aria-hidden="true"><span
-                  class="legend-dot"></span>✓</span>Richtig</span>
-            <span class="nav-legend-item"><span class="legend-marker legend-marker--wrong" aria-hidden="true"><span
-                  class="legend-dot legend-dot--filled"></span>×</span>Falsch</span>
-            <span class="nav-legend-item"><span class="legend-star" aria-hidden="true">★</span>Gemerkt</span>
-          </div>
-          <!-- BLOCK END: Kompakte Zustandslegende -->
-          <div id="questionNav" class="question-nav" aria-label="Zu einer Frage wechseln"></div>
-        </details>
-      </div>
-      <div id="learning-tests" class="learning-tool-content">
-        <details class="test-options" open>
-          <summary>Testreihen · 34 / 119 / 30 / 50 Fragen <span aria-hidden="true">＋</span></summary>
-          <div class="exam-panel">
-            <p class="test-title">Testreihe</p><label for="testSelect">Prüfungsprofil</label><select id="testSelect">
-              <option value="exam34">§ 3 / § 10 · Rhein-Erft · 34 Fragen</option>
-              <option value="mgexam">§ 3 · Mönchengladbach · 119 Fragen</option>
-              <option value="exam11">§ 11 · Kammer-Übung · 30 Fragen</option>
-              <option value="essenexam">§ 3 · Essen · geschätztes Beispiel · 50 Fragen</option>
-            </select>
-            <details class="test-profile-info">
-              <summary>Details zum Prüfungsprofil</summary>
-              <p id="testDescription"></p>
-            </details><button id="startExam" class="primary" type="button">Test starten ↗</button><a
-              href="gut-zu-wissen.html#testreihen" class="microcopy">Welche Testreihe passt zu mir?</a>
-          </div>
-        </details>
-      </div>
+      <div id="learning-overview" class="learning-tool-content"><details class="nav-details">
+              <summary>Fragenübersicht <span aria-hidden="true">＋</span></summary>
+              <!-- BLOCK START: Kompakte Zustandslegende -->
+              <div class="nav-legend" role="group" aria-label="Legende zur Fragenübersicht">
+                <span class="nav-legend-item"><span class="legend-marker" aria-hidden="true"><span
+                      class="legend-dot"></span></span>Offen</span>
+                <span class="nav-legend-item"><span class="legend-marker legend-marker--answered"
+                    aria-hidden="true"><span class="legend-dot legend-dot--filled"></span></span>Beantwortet</span>
+                <span class="nav-legend-item"><span class="legend-marker legend-marker--correct"
+                    aria-hidden="true"><span class="legend-dot"></span>✓</span>Richtig</span>
+                <span class="nav-legend-item"><span class="legend-marker legend-marker--wrong" aria-hidden="true"><span
+                      class="legend-dot legend-dot--filled"></span>×</span>Falsch</span>
+                <span class="nav-legend-item"><span class="legend-star" aria-hidden="true">★</span>Gemerkt</span>
+              </div>
+              <!-- BLOCK END: Kompakte Zustandslegende -->
+              <div id="questionNav" class="question-nav" aria-label="Zu einer Frage wechseln"></div>
+            </details></div>
+      <div id="learning-tests" class="learning-tool-content"><details class="test-options" open>
+            <summary>Testreihen · 34 / 119 / 30 / 50 Fragen <span aria-hidden="true">＋</span></summary>
+            <div class="exam-panel">
+              <p class="test-title">Testreihe</p><label for="testSelect">Prüfungsprofil</label><select id="testSelect">
+                <option value="exam34">§ 3 / § 10 · Rhein-Erft · 34 Fragen</option>
+                <option value="mgexam">§ 3 · Mönchengladbach · 119 Fragen</option>
+                <option value="exam11">§ 11 · Kammer-Übung · 30 Fragen</option>
+                <option value="essenexam">§ 3 · Essen · geschätztes Beispiel · 50 Fragen</option>
+              </select>
+              <details class="test-profile-info">
+                <summary>Details zum Prüfungsprofil</summary>
+                <p id="testDescription"></p>
+              </details><button id="startExam" class="primary" type="button">Test starten ↗</button><a
+                href="gut-zu-wissen.html#testreihen" class="microcopy">Welche Testreihe passt zu mir?</a>
+            </div>
+          </details></div>
     </div>
     <!-- BLOCK END: Inhalte der Lernwerkzeuge -->
   </main>
