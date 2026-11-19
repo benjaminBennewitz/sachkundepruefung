@@ -11,34 +11,43 @@ window.LHUNDG_EXPLANATIONS = {
     "text": "B beschreibt unterschiedliche Veranlagungen. C beschränkt die Unterschiede dagegen ausschließlich auf das Aussehen und widerspricht damit B. Rassetypische Veranlagungen sind Tendenzen, keine feste Vorhersage für jeden Hund."
   },
   "legacy-4": {
-    "text": "Der Katalog verwendet hier die entwicklungsbezogene Einteilung: Die Welpenphase reicht ungefähr bis zum Ende der frühen Sozialisationsphase, etwa bis zur 12.–16. Woche. Säugezeit und Geschlechtsreife sind andere Entwicklungsabschnitte. Die Altersangabe ist keine für jeden Zusammenhang verbindliche Definition."
+    "text": "B nennt die in dieser Frage verwendete Einteilung: von der Geburt bis ungefähr zur 12.–16. Lebenswoche. D beschränkt sich dagegen auf die Säugezeit, C auf die Geschlechtsreife und A auf das gesamte erste Jahr. Die Altersgrenze aus B ist eine Katalogdefinition, keine in jedem Zusammenhang verbindliche Bedeutung des Wortes „Welpe“."
   },
   "legacy-7": {
-    "text": "Alle vier Antworten gehören zum Lösungsschlüssel. C beschreibt eine mögliche Ausnahme für einen kurzen, kontrollierten Einsatz, etwa bei einer tierärztlichen Behandlung. Eine enge Maulschlaufe ist kein Alltagsmaulkorb: Sie verhindert ausreichendes Hecheln. Eine kurze Tragedauer allein macht sie nicht für jeden Hund und jede Situation geeignet.",
+    "text": "Der Schlüssel zählt A, B, C und D. C sagt nur, dass eine Maulschlaufe für einen kurzfristigen Gebrauch von wenigen Minuten akzeptabel sein KANN. Gemeint ist die tatsächliche Tragezeit, nicht die Dauer eines Tierarztbesuchs: Warten, Untersuchung und Behandlung dürfen nicht pauschal darunter zusammengefasst werden. Ein mögliches Beispiel ist eine einzelne, wenige Minuten dauernde tierärztliche Maßnahme unter unmittelbarer fachlicher Aufsicht. Auch dabei sind wenige Minuten keine garantierte sichere Tragedauer für jeden Hund. Eine enge Schlaufe verhindert Hecheln und ist kein Maulkorb für Wartezeiten, Spaziergänge oder Transporte.",
     "note": "Hinweis zur Originalquelle: Die Erklärung ordnet den Wortlaut ein. Für die Bewertung bleibt der angezeigte Lösungsschlüssel maßgeblich.",
     "sourceUrl": "https://www.bundestieraerztekammer.de/presse/archiv/16/2016/gefahr-durch-falschen-maulkorb/1245",
-    "caution": "Eingeschränkte Aussage: Ein kurzer Einsatz macht eine enge Maulschlaufe nicht für jeden Hund geeignet."
+    "caution": "C ist eine eng begrenzte Kann-Aussage. „Wenige Minuten“ ist keine sichere Zeitfreigabe; auch der Ort Tierarztpraxis macht einen längeren Einsatz nicht geeignet."
   },
   "legacy-8": {
-    "text": "C verneint jeden Einfluss des Anschreiens. B beschreibt dagegen eine mögliche unerwünschte Wirkung: Der Stress steigt und die Hunde können weiterkämpfen. Beeinflussung bedeutet also nicht, dass das Anschreien den Kampf beendet."
+    "text": "B beschreibt eine mögliche unerwünschte Wirkung: Anschreien kann die Erregung und den Stress verstärken, sodass die Hunde weiterkämpfen. C behauptet dagegen, das Schreien beeinflusse sie nicht. A und D versprechen ein sofortiges beziehungsweise verlässliches Beenden des Kampfes. Aus B folgt keine Anleitung, kämpfende Hunde selbst zu trennen."
   },
   "legacy-11": {
     "text": "Es gibt keinen allgemeinen Schutz, der verhindert, dass erwachsene Hunde Welpen angreifen. Beschwichtigendes Verhalten kann Konflikte entschärfen, garantiert aber ebenfalls keine Sicherheit. Die Antwort D ist daher kein Freibrief für unbeaufsichtigte Kontakte."
   },
   "legacy-16": {
-    "text": "Die Zeichnung kombiniert Drohen mit einer defensiven Haltung: Die Ohren liegen zurück, der Körper ist abgesenkt und die Beine sind gebeugt; gleichzeitig zeigt der Hund die Zähne. Diese Kombination erklärt die Quellenlösung B. Beurteile immer den ganzen Körper, nicht nur die Rute oder die Ohren.",
+    "text": "Die Zeichnung zeigt zurückgelegte Ohren, gebeugte Beine und ein geöffnetes, drohendes Maul. Der Katalog deutet diese Kombination als Drohen aus Unsicherheit und verlangt B. „Unsicherheit“ ist die Einordnung der Quelle, kein allein aus einem Ohr oder einer Rutenhaltung sicher ablesbarer Zustand. Bei echten Hunden müssen die gesamte Körpersprache und die Situation zusammen betrachtet werden.",
     "sourceUrl": "https://www.dogstrust.org.uk/dog-advice/understanding-your-dog/body-language"
   },
   "legacy-30": {
-    "text": "A beschreibt die allgemeine Waldregel: Auf Wegen ist Freilauf möglich, sofern keine weitergehende Pflicht gilt; außerhalb von Wegen müssen Hunde grundsätzlich angeleint sein. Für Hunde nach § 3 und § 10 gelten ohne entsprechende Befreiung strengere Vorgaben, auch auf Waldwegen. Schutzgebietsregeln und örtliche Anleinpflichten sind zusätzlich zu beachten. C und D erklären den Schutz von Wild, Wald und anderen Menschen.",
-    "sourceUrl": "https://recht.nrw.de/lrmb/verwaltungsvorschrift/07102026-verwaltungsvorschriften-zum-landeshundegesetz-vv-lhundg-nrw/"
+    "text": "Für diese NRW-Frage ist zu unterscheiden: Nach der allgemeinen Waldregel dürfen Hunde außerhalb von Wegen nur angeleint mitgeführt werden. Auf Wegen kann Freilauf zulässig sein, wenn keine zusätzliche Anleinpflicht gilt. Für Hunde nach §§ 3 und 10 LHundG NRW gelten ohne entsprechende Befreiung strengere Regeln. Schutzgebiets- und örtliche Vorschriften kommen hinzu. C ergänzt als Sicherheitsbedingung den zuverlässigen Rückruf; A allein ist deshalb keine pauschale Freilauferlaubnis.",
+    "references": [
+      {
+        "label": "Landesforstgesetz NRW: § 2 Absatz 3",
+        "url": "https://recht.nrw.de/lrgv/gesetz/30102026-landesforstgesetz-lfog/"
+      },
+      {
+        "label": "LHundG NRW: §§ 5 und 10",
+        "url": "https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/"
+      }
+    ]
   },
   "legacy-33": {
-    "text": "C ist eine Vorsichtsregel: Auch ein vertrauter Hund kann in einer kritischen Situation verletzen. Weder Bekanntheit noch geringe Körpergröße garantieren Sicherheit. Besonders kleine Kinder brauchen eine aufmerksame Aufsicht, die rechtzeitig eingreifen kann.",
+    "text": "C fordert Aufsicht bei Kontakten zwischen Kindern und Hunden. Auch ein vertrauter oder kleiner Hund kann ein Kind verletzen. Zusammenleben, Bekanntheit und Körpergröße machen A, B oder D deshalb nicht richtig. Der Hinweis ist nicht auf Kleinkinder beschränkt; wie die Aufsicht gestaltet wird, muss zur konkreten Situation passen.",
     "sourceUrl": "https://www.kindergesundheit-info.de/themen/sicher-aufwachsen/alltagstipps/sicher-im-alltag/tierunfaellen-vorbeugen/"
   },
   "legacy-40": {
-    "text": "A ist als allgemeine Impfpflicht für jeden Hund in Deutschland falsch. B benennt die Übertragbarkeit auf Menschen. D meint Reisevorschriften und unterschiedliche behördliche Maßnahmen bei Ansteckungsverdacht. Deutschlands Status als frei von klassischer terrestrischer Tollwut bedeutet nicht, dass überhaupt keine Tollwut vorkommen kann; deshalb ist C falsch.",
+    "text": "B nennt die Übertragbarkeit der Tollwut auf Menschen. D betrifft unter anderem Reisevorgaben und die rechtliche Behandlung nach möglichem Kontakt mit einem tollwutkranken Tier; das bedeutet keine pauschale Besserstellung in jedem Rechtsfall. A ist als allgemeine Impfpflicht für jeden Hund in Deutschland zu weit gefasst. C verbindet die Aussage „überhaupt nicht mehr“ mit der Behauptung, die Impfung sei überflüssig; der Katalog verwirft diese Schlussfolgerung.",
     "sourceUrl": "https://www.gesetze-im-internet.de/tollwv_1991/__9.html"
   },
   "legacy-42": {
@@ -46,7 +55,7 @@ window.LHUNDG_EXPLANATIONS = {
     "sourceUrl": "https://www.gesetze-im-internet.de/tierschhuv/__2.html"
   },
   "legacy-48": {
-    "text": "A und B beschreiben die Nähe des Kindergesichts zum Hund und mögliche Abwehrreaktionen. C verneint Bisse als Ursache nahezu vollständig und ist deshalb nicht richtig. Der Schlüssel zählt auch D zur Lösung; der Wortlaut erläutert jedoch nicht eindeutig, welche Handlung und welcher Verletzungsmechanismus gemeint sind.",
+    "text": "A beschreibt die Nähe zwischen Kindergesicht und Hundeschnauze; B nennt mögliche Abwehrreaktionen auf Umarmen oder Küssen. Der Schlüssel verwirft C mit seiner weitreichenden Behauptung „fast nie durch Bisse“. Diese Erklärung liefert dafür keine Häufigkeitsstatistik. D wird ebenfalls als richtig gezählt, lässt aber offen, welche Handlung mit „Lefzenlecken“ gemeint ist und wie die Verletzung entsteht. Ein bestimmter Verletzungsablauf lässt sich daraus nicht sicher ergänzen.",
     "note": "Hinweis zur Originalquelle: Die Erklärung ordnet den Wortlaut ein. Für die Bewertung bleibt der angezeigte Lösungsschlüssel maßgeblich.",
     "sourceUrl": "https://www.kindergesundheit-info.de/themen/sicher-aufwachsen/sicherheit-im-alltag/tiere/",
     "caution": "Unklarer Wortlaut: Der Verletzungsmechanismus in D wird nicht eindeutig beschrieben."
@@ -55,10 +64,10 @@ window.LHUNDG_EXPLANATIONS = {
     "text": "Entscheidend ist die Kombination aus Fixieren und angespannter Körperhaltung. Im Katalog wird sie als offensives Drohen eingeordnet. Gemeint ist nicht jeder Blickkontakt und nicht bloß aufmerksames Anschauen."
   },
   "legacy-53": {
-    "text": "C beschreibt unter den angebotenen Antworten ruhiges, schützendes Handeln. Der Unterschied zu A liegt insbesondere im ruhigen Vorgehen statt einer ruckartigen Bewegung. Die Frage beschreibt eine Annäherung; die Antwort ist keine Garantie und kein universeller Ablauf für jede Angriffssituation."
+    "text": "Die Frage beschreibt einen fremden Hund, der auf dich und dein Kind zugestürmt kommt. Der Schlüssel verlangt C und grenzt dessen ruhige Bewegungen vom schnellen Hochreißen in A und vom Anschreien in D ab. Das Wort „gegebenenfalls“ gehört zu C: Es ist keine pauschale Aufforderung, ein Kind bei jeder Hundebegegnung hochzunehmen. Die Antwort garantiert keinen sicheren Ablauf bei jedem Angriff."
   },
   "legacy-54": {
-    "text": "Eine Ahnentafel ist ein Abstammungsnachweis. Ihr Fehlen allein spricht nicht gegen einen Welpen; auch Mischlinge haben regelmäßig keine Rasseahnentafel. A und C betreffen dagegen Auffälligkeiten beim Verhalten beziehungsweise die fehlende Möglichkeit, Mutter und Welpen gemeinsam zu sehen.",
+    "text": "Eine Ahnentafel dokumentiert die Abstammung. Ihr Fehlen allein ist kein ausreichender Grund, einen Welpen abzulehnen. Auch eine vorhandene Ahnentafel garantiert für sich allein keine gute Aufzucht. Der Schlüssel wertet das Verhalten in A und die fehlende Möglichkeit, Mutter und Welpen gemeinsam zu sehen, als Warnzeichen. Warnzeichen sind Gründe für eine nähere Prüfung, keine sichere Diagnose des Hundes oder Beweise für unseriöses Handeln.",
     "sourceUrl": "https://www.vdh.de/fileadmin/media/ueber/downloads/satzung/2025/VDH-Zucht-Ordnung__VDH-ZO__mit_allen_Durchfuehrungsbestimmungen.pdf"
   },
   "legacy-56": {
@@ -78,9 +87,9 @@ window.LHUNDG_EXPLANATIONS = {
     "caution": "Grenzen der Abbildung: Die sichere Unterscheidung ist in der Zeichnung nur begrenzt möglich."
   },
   "legacy-59": {
-    "text": "Mit Blockieren ist hier vor allem bedrohliches körpersprachliches Bedrängen gemeint. Das ist von ruhiger räumlicher Absicherung zu unterscheiden. D verbindet das Unterbrechen eines Verhaltens mit einem sicheren Lerneffekt: Eine Unterbrechung allein erklärt dem Hund aber noch nicht, welches Verhalten erwünscht ist.",
+    "text": "A beschreibt, was hier unter Blockieren verstanden wird: ein mehr oder weniger drohendes Davorstellen. B knüpft die mögliche Belastung daran, dass der Hund es als bedrohlich empfindet. Der Schlüssel zählt A und B, aber nicht D. D verwendet allerdings „kann“, nicht „immer“: Seine Ablehnung lässt sich deshalb nicht mit einer dort angeblich versprochenen Lerngarantie begründen. Das Unterbrechen eines Verhaltens und das Erlernen eines erwünschten Verhaltens sind zu unterscheiden.",
     "sourceUrl": "https://avsab.org/resources/position-statements/",
-    "caution": "Katalogwiderspruch: Der zugesandte 97er-Bogen, Originalfragen 33 und 58, verwendet andere Erziehungsvorstellungen. Die unterschiedlichen Schlüssel sind keine einheitliche Handlungsempfehlung."
+    "caution": "Wortlaut offen: D wird nicht als richtig gezählt, ist aber keine absolute Aussage. Die Erklärung ergänzt keine sichere Absicht des Herausgebers."
   },
   "legacy-69": {
     "text": "Kupieren bedeutet das operative Kürzen von Ohren oder Rute, etwa aus ästhetischen Gründen. Der Eingriff kann Schmerzen verursachen und die Kommunikation des Hundes beeinträchtigen; auch Welpen empfinden Schmerzen. C nennt das Grundverbot, D eine eng begrenzte Ausnahme für die Rute jagdlich zu führender Hunde. Die jagdliche Verwendung allein genügt dafür nicht; medizinisch notwendige Eingriffe sind gesondert zu beurteilen.",
@@ -89,10 +98,10 @@ window.LHUNDG_EXPLANATIONS = {
   "legacy-72": {
     "text": "Dass ein Hund ein Ziel erreichen möchte und deshalb zieht, beweist keine Dominanz gegenüber seinem Menschen. B, C und D nennen konkrete mögliche Gründe: fehlendes Lernen, Schwierigkeiten mit Tempo oder Ablenkung sowie Angst und Stress. Ziehen allein erlaubt keine Aussage über eine Rangordnung.",
     "sourceUrl": "https://avsab.org/resources/position-statements/",
-    "caution": "Katalogwiderspruch: Der zugesandte 97er-Bogen, Originalfragen 33 und 58, verwendet andere Erziehungsvorstellungen. Die unterschiedlichen Schlüssel sind keine einheitliche Handlungsempfehlung."
+    "caution": "Quellenvergleich: Der zugesandte 97er-Bogen, Originalfrage 33, setzt bereits einen „zur Dominanz neigenden“ Hund voraus. Hier werden dagegen mögliche Ursachen des Leinenziehens gefragt. Die Situationen dürfen nicht gleichgesetzt werden."
   },
   "legacy-74": {
-    "text": "D enthält zwei zu enge Voraussetzungen: Es gibt keine allgemeine gesetzliche Mindestgrenze von einem Jahr, und medizinische Gründe sind nicht der einzige Ausnahmetatbestand. A nennt weitere Gründe. C betont die sorgfältige Abwägung; diese ersetzt nicht die erforderliche gesetzliche Grundlage im Einzelfall.",
+    "text": "Der Schlüssel nennt A und C. § 6 TierSchG enthält gesetzliche Ausnahmen, etwa eine tierärztliche Indikation oder die Verhinderung unkontrollierter Fortpflanzung. Die in C genannte Abwägung allein schafft keine zusätzliche Erlaubnis. „Zur weiteren Haltung“ in A ist ebenfalls keine pauschale Erlaubnis aus Bequemlichkeit. D ist zu eng: Es gibt keine allgemeine gesetzliche Einjahresgrenze, und medizinische Gründe sind nicht die einzige gesetzliche Ausnahme.",
     "sourceUrl": "https://www.gesetze-im-internet.de/tierschg/__6.html"
   },
   "legacy-79": {
@@ -102,13 +111,13 @@ window.LHUNDG_EXPLANATIONS = {
     "caution": "Rechtliche Verkürzung: Fehlende Sicherung allein begründet nicht automatisch eine Teilschuld an jedem Unfall."
   },
   "legacy-81": {
-    "text": "Gefragt wird nach einer immer eintretenden Verminderung: Eine solche Garantie gibt es nicht. C und D sollen auf einen möglichen hormonellen Zusammenhang hinweisen. Nicht jedes aggressive Verhalten ist hormonell verursacht. Das lässt sich nicht aus einem einzelnen Hormonwert ablesen, sondern erfordert eine tierärztliche Beurteilung.",
+    "text": "Gefragt ist, ob die Aggression nach einer Kastration IMMER abnimmt. Der Schlüssel nennt C und D. Er bestätigt damit keine sichere Wirkung bei jedem Rüden. Besonders D darf nicht als Umkehrschluss gelesen werden: Ein hormoneller Zusammenhang allein garantiert keine Besserung. Auch die Aussagen in C über das Verhalten anderer Rüden sind keine allgemeine Zusage. B („grundsätzlich nein“) bleibt sprachlich knapp; daraus lässt sich nicht eindeutig ablesen, ob jede mögliche Wirkung oder nur eine Garantie verneint wird.",
     "note": "Hinweis zur Originalquelle: Die Erklärung ordnet den Wortlaut ein. Für die Bewertung bleibt der angezeigte Lösungsschlüssel maßgeblich.",
     "sourceUrl": "https://onlinelibrary.wiley.com/doi/full/10.1111/jsap.13724",
-    "caution": "Einschränkung beachten: Ein hormoneller Zusammenhang ist keine Garantie für eine Verhaltensänderung."
+    "caution": "Mehrdeutiger Wortlaut: B ist nicht eindeutig ausformuliert. C und D zählen im Schlüssel, sind aber keine verlässliche Vorhersage für den einzelnen Hund."
   },
   "legacy-92": {
-    "text": "A beschreibt wiederholte Konfrontation mit starker Angst, nicht eine behutsame Annäherung in bewältigbaren Schritten. Bei D zählt nur, ob der Mensch gestört wird; entscheidend ist auch das Leiden des Hundes. Das bedeutet nicht, dass jeder seltene Auslöser trainiert werden muss: Vermeidung und Behandlung werden nach der tatsächlichen Belastung beurteilt.",
+    "text": "Der Schlüssel nennt B und C. A beschreibt das wiederholte Aufsuchen einer Situation mit sehr großer Angst, nicht ein behutsames Training in bewältigbaren Schritten. B verbindet Vermeidung ausdrücklich mit fachlicher Hilfe. Vermeidung ist daher nicht gleichbedeutend mit „nichts unternehmen“. D berücksichtigt nur die Störung des Menschen; maßgeblich ist auch die Belastung des Hundes.",
     "sourceUrl": "https://www.merckvetmanual.com/dog-owners/behavior-of-dogs/behavior-modification-in-dogs"
   },
   "legacy-6": {
@@ -120,7 +129,7 @@ window.LHUNDG_EXPLANATIONS = {
     "sourceUrl": "https://www.dogstrust.org.uk/dog-advice/understanding-your-dog/body-language"
   },
   "legacy-46": {
-    "text": "Der Vorderkörper ist stark abgesenkt, die Vorderbeine sind angewinkelt und die Ohren liegen zurück. Der Katalog verbindet diese Haltung mit Unterwürfigkeit und dem Ansatz einer beschwichtigenden Spielaufforderung. Gemeint ist die Kombination der Signale, nicht bloß Erschöpfung oder jede beliebige Spielverbeugung.",
+    "text": "Die Zeichnung zeigt eine tiefe Körperhaltung, gebeugte Beine und zurückgelegte Ohren. Der Katalog ordnet sie D zu: unterwürfig mit dem Ansatz einer beschwichtigenden Spielaufforderung. Der zweite Teil ist eine Deutung der Vorlage, kein aus der starren Zeichnung sicher nachweisbarer Spielwunsch. Die Abbildung ist auch keine Anleitung, einen Hund in ähnlicher Haltung zum Spiel zu bedrängen.",
     "sourceUrl": "https://www.dogstrust.org.uk/dog-advice/understanding-your-dog/body-language"
   },
   "legacy-65": {
@@ -128,11 +137,11 @@ window.LHUNDG_EXPLANATIONS = {
     "sourceUrl": "https://www.dogstrust.org.uk/dog-advice/understanding-your-dog/body-language"
   },
   "legacy-75": {
-    "text": "Die Rückenlage mit angelegten Ohren und angewinkelten Beinen wird im Katalog als ängstlich und unterwürfig eingeordnet. Ein gezeigter Bauch ist nicht automatisch eine Aufforderung zum Streicheln. Die übrige Körperhaltung und die Situation müssen mitbetrachtet werden.",
+    "text": "Die Rückenlage mit angewinkelten Beinen wird im Katalog als ängstlich und unterwürfig eingeordnet (A). Ein gezeigter Bauch ist nicht automatisch eine Aufforderung zum Streicheln und macht B deshalb nicht zur Quellenlösung. Bei einem echten Hund sind die übrige Körpersprache und der Verlauf der Situation mitentscheidend.",
     "sourceUrl": "https://www.dogstrust.org.uk/dog-advice/understanding-your-dog/body-language"
   },
   "r97-24": {
-    "text": "Die Frage bezieht sich ausdrücklich auf erwachsene, gesunde Hunde. Die beabsichtigte Aussage ist offenbar: Ein geeignetes Alleinfuttermittel kann den Nährstoffbedarf ohne pauschale Ergänzungen decken. „Fertigfutter“ allein bedeutet aber nicht „Alleinfuttermittel“ und garantiert weder Qualität noch individuelle Verträglichkeit.",
+    "text": "Der Schlüssel nennt A. Fachlich ist dafür eine Einschränkung nötig: Ein für den Hund geeignetes, bedarfsdeckendes Alleinfuttermittel kann ohne pauschale Ergänzungen ausreichen. In der Frage steht jedoch nur „Fertigfuttermittel“. Dieser Begriff allein garantiert keine Bedarfsdeckung. B und C behaupten umgekehrt eine allgemeine Ergänzungspflicht beziehungsweise ein allgemeines Verbot ausschließlicher Fütterung. Daraus folgt weder „jedes Fertigfutter ist geeignet“ noch „jedes Fertigfutter muss ergänzt werden“.",
     "caution": "Unpräziser Begriff: Fertigfutter ist nicht automatisch bedarfsdeckend.",
     "references": [
       {
@@ -143,7 +152,7 @@ window.LHUNDG_EXPLANATIONS = {
   },
   "r97-29": {
     "text": "Der Schlüssel nennt A und C. „Autoritär“ wird in der Frage jedoch nicht definiert und darf nicht stillschweigend mit freundlicher, klarer Führung gleichgesetzt werden. Konsequente Regeln lassen sich ohne Einschüchterung vermitteln. Die tierärztliche Fachgesellschaft AVSAB empfiehlt belohnungsbasiertes Training.",
-    "caution": "Katalogwiderspruch: Rhein-Erft · 203, Originalfrage 174, betont die Grenzen schmerzhafter Erziehungsmittel. „Autoritär“ ist keine Freigabe dafür.",
+    "caution": "Begriff offen: „Autoritär“ ist nicht definiert. Daraus folgt weder eine Gleichsetzung mit schmerzhafter Erziehung noch eine Erlaubnis dazu. Rhein-Erft · 203, Originalfrage 174, behandelt deren rechtliche Grenzen.",
     "note": "Die Bewertung bildet den hinterlegten Schlüssel dieser Quellenfassung ab. Daraus folgt keine allgemeine Handlungsempfehlung oder Bestätigung ihrer aktuellen Prüfungsverwendung.",
     "references": [
       {
@@ -163,8 +172,8 @@ window.LHUNDG_EXPLANATIONS = {
     ]
   },
   "r97-33": {
-    "text": "Der Schlüssel nennt A und D. Daraus folgt nicht, dass ein knurrender oder ruhebedürftiger Hund bedrängt werden soll. E setzt die Ursache des Knurrens bereits voraus, obwohl die Situation offenbleibt. Ruhebedürfnisse ernst nehmen und die Ursache klären. Auch Sofasitzen oder die Reihenfolge an Türen belegen für sich keine Rangordnung.",
-    "caution": "Fachlicher Vorbehalt: Die Frage erklärt Verhalten pauschal mit Dominanz. Das steht in Spannung zu Rhein-Erft · 203, Originalfragen 72 und 193.",
+    "text": "Der Schlüssel nennt A und D. Die Situation ist aber zu offen, um E allein deshalb fachlich zu widerlegen: Knurren bedeutet nicht automatisch, dass ein Hund nur Ruhe möchte; zugleich kann ein Ruhebedürfnis bestehen. Die Nichtzählung von E ist keine Aufforderung, einen knurrenden Hund zu bedrängen oder zu bestrafen. Auch die Nichtzählung von F begründet kein allgemeines Sofaverbot. Türreihenfolge und Sofasitzen belegen für sich keine Rangordnung.",
+    "caution": "Fachlicher Vorbehalt: Die Ausgangsannahme „zur Dominanz neigend“ erklärt die konkrete Situation nicht. Unterschiedliche Fragestellungen dürfen nicht nachträglich zu einer einheitlichen Rangordnungsregel verbunden werden.",
     "note": "Die Bewertung bildet den hinterlegten Schlüssel dieser Quellenfassung ab. Daraus folgt keine allgemeine Handlungsempfehlung oder Bestätigung ihrer aktuellen Prüfungsverwendung.",
     "references": [
       {
@@ -174,7 +183,7 @@ window.LHUNDG_EXPLANATIONS = {
     ]
   },
   "r97-37": {
-    "text": "Der hinterlegte Schlüssel nennt A und B. Bei der beschriebenen privaten Abgabe reicht eine nur beantragte Erlaubnis jedoch nicht: Nach § 5 Absatz 6 LHundG NRW muss die übernehmende Person im Besitz der erforderlichen Erlaubnis sein. Eine besondere Ausnahme betrifft die Vermittlung durch ein Tierheim mit befristetem, zuvor angezeigtem Pflegevertrag. Sie ist keine allgemeine Ausnahme für Freunde oder Bekannte.",
+    "text": "Der Schlüssel nennt A und B. In A steht jedoch nur, dass Freunde oder Bekannte die Erlaubnis „beantragt“ haben. Für die beschriebene private Abgabe verlangt § 5 Absatz 6 LHundG NRW grundsätzlich, dass die übernehmende Person bereits im Besitz der erforderlichen Erlaubnis ist. Antrag und erteilte Erlaubnis sind nicht gleichzusetzen. B nennt die Abgabe an ein Tierheim. Eine besondere Vermittlungsregel für Tierheime macht A in seiner vorliegenden Form nicht allgemein zulässig.",
     "caution": "Rechtlicher Widerspruch: A sagt „beantragt“, das Gesetz verlangt grundsätzlich eine vorhandene Erlaubnis.",
     "note": "Die Bewertung bildet den hinterlegten Schlüssel dieser Quellenfassung ab. Daraus folgt keine allgemeine Handlungsempfehlung oder Bestätigung ihrer aktuellen Prüfungsverwendung.",
     "references": [
@@ -185,7 +194,7 @@ window.LHUNDG_EXPLANATIONS = {
     ]
   },
   "r97-40": {
-    "text": "A, D und E stehen hier für typischerweise große Hunde. Nach § 11 LHundG NRW genügt ausgewachsen eine Widerristhöhe ab 40 cm ODER ein Gewicht ab 20 kg; diese Hunde müssen mit Mikrochip gekennzeichnet sein. Für den American Staffordshire-Terrier gelten die besonderen Vorschriften unabhängig davon. Ein West Highland White Terrier fällt normalerweise unter keine dieser Gruppen. Bei der Größenregel zählt der konkrete Hund.",
+    "text": "A, D und E stehen in der Frage für typischerweise große Hunde. § 11 LHundG NRW knüpft die Kennzeichnungspflicht an ausgewachsen mindestens 40 cm Widerristhöhe ODER mindestens 20 kg Gewicht. C, der American Staffordshire-Terrier, unterliegt der Chipkennzeichnung schon nach den besonderen Vorschriften für diese gesetzliche Gruppe. B bezeichnet eine normalerweise kleinere Rasse; daraus folgt keine ausnahmslose Befreiung jedes einzelnen Hundes dieser Rasse. Der Schlüssel verlangt A, C, D und E.",
     "references": [
       {
         "label": "LHundG NRW: §§ 3, 4 und 11",
@@ -204,17 +213,18 @@ window.LHUNDG_EXPLANATIONS = {
     ]
   },
   "r97-46": {
-    "text": "Gefragt ist, worauf sehr harter Kot hindeuten KANN. Eine zu hohe Knochenaufnahme kann zu schwer absetzbarem Kot oder Verstopfung beitragen; darauf zielt B. Sehr harter Kot beweist diese Ursache nicht. Trockenfutter allein ist ebenfalls kein ausreichender Nachweis für die Ursache.",
+    "text": "Der Schlüssel verlangt B: Eine zu hohe Knochenration kann zu sehr hartem Kot beitragen. Die Frage fragt nach einem möglichen Hinweis, nicht nach einem sicheren Ursachennachweis. Daher reicht „Trockenfutter ist kein Beweis“ allein nicht als Begründung, A auszuschließen. Aus dem Schlüssel folgt insbesondere nicht, dass Kotbeschaffenheit niemals mit Fütterung oder Flüssigkeitsaufnahme zusammenhängen kann. Die konkrete Ursache lässt sich aus dem beschriebenen Merkmal allein nicht feststellen.",
     "references": [
       {
         "label": "Merck Veterinary Manual: Ursachen von Verstopfung (englisch)",
         "url": "https://www.merckvetmanual.com/digestive-system/diseases-of-the-large-intestine-in-small-animals/constipation-obstipation-and-megacolon-in-small-animals"
       }
-    ]
+    ],
+    "caution": "Auf „kann“ achten: Der Schlüssel nennt B; er belegt nicht, dass jede andere mögliche Ursache ausgeschlossen ist."
   },
   "r97-55": {
-    "text": "Der Schlüssel verlangt C. Die Antwortmöglichkeiten vermischen jedoch familiäre Zugehörigkeit, menschliche Verantwortung und eine angeblich feste Rangordnung. Ein Hund kann zur Familie gehören, während Menschen Verantwortung und verständliche Regeln übernehmen. Eine pauschale „unterste Rangstellung“ ist dafür keine notwendige fachliche Begründung.",
-    "caution": "Fachlicher Vorbehalt: Die Rangordnungsvorstellung steht in Spannung zu den differenzierteren Erziehungsfragen des 203er-Katalogs.",
+    "text": "Der Schlüssel nennt C. Familiäre Zugehörigkeit ist aber nicht dasselbe wie die „Gleichberechtigung“ in A: Ein Hund kann zur Familie gehören, während Menschen Verantwortung und Entscheidungen übernehmen. Daraus folgt keine fachlich notwendige „unterste Rangstellung“. Die starre Rangordnungsvorstellung im Schlüssel darf deshalb nicht als Begründung für Einschüchterung oder körperliche Unterordnung verwendet werden.",
+    "caution": "Begriffe trennen: Zur Familie gehören, gleichberechtigt entscheiden und eine Rangstellung einnehmen sind unterschiedliche Aussagen.",
     "note": "Die Bewertung bildet den hinterlegten Schlüssel dieser Quellenfassung ab. Daraus folgt keine allgemeine Handlungsempfehlung oder Bestätigung ihrer aktuellen Prüfungsverwendung.",
     "references": [
       {
@@ -224,8 +234,8 @@ window.LHUNDG_EXPLANATIONS = {
     ]
   },
   "r97-58": {
-    "text": "Der Schlüssel nennt B, C und D. Leinenruck und Schnauzengriff dürfen daraus nicht als allgemein empfohlene Erziehung abgeleitet werden. Die AVSAB rät von aversiven Methoden einschließlich Leinenkorrekturen ab. § 2 Absatz 5 TierSchHuV verbietet schmerzhafte Mittel beim Training. Auch „über die Stimme“ ist keine Freigabe zum Einschüchtern oder Anschreien.",
-    "caution": "Katalogwiderspruch: Rhein-Erft · 203, Originalfragen 15 und 174, lehnen belastende Hilfsmittel ab beziehungsweise benennen das Verbot schmerzhafter Mittel. Diese Fassung verlangt trotzdem Leinenruck und Schnauzengriff.",
+    "text": "Der Schlüssel zählt B, C und D als richtig. Das ist keine Aufforderung, Leinenruck oder Schnauzengriff anzuwenden. Die AVSAB empfiehlt belohnungsbasiertes Training und lehnt aversive Methoden einschließlich Leinenkorrekturen ab. Unabhängig davon verbietet § 2 Absatz 5 TierSchHuV schmerzhafte Mittel beim Training. Der Wortlaut der Frage erlaubt keine pauschale rechtliche Bewertung jeder einzelnen Ausführung. Auch „über die Stimme“ rechtfertigt kein Einschüchtern oder Anschreien.",
+    "caution": "Abweichende Trainingsaussagen: Dieser Schlüssel zählt Leinenruck und Schnauzengriff als richtig. Rhein-Erft · 203, Originalfragen 15 und 174, behandeln belastende Hilfsmittel beziehungsweise rechtliche Grenzen. Keine der Quellenbewertungen ersetzt eine zulässige, geeignete Trainingsmethode.",
     "note": "Die Bewertung bildet den hinterlegten Schlüssel dieser Quellenfassung ab. Daraus folgt keine allgemeine Handlungsempfehlung oder Bestätigung ihrer aktuellen Prüfungsverwendung.",
     "references": [
       {
@@ -239,8 +249,8 @@ window.LHUNDG_EXPLANATIONS = {
     ]
   },
   "legacy-15": {
-    "text": "A nennt eine geeignete Grundausrüstung. Die anderen Antworten sollen Verhalten über unangenehme Reize oder Zugwirkung beeinflussen. Die AVSAB empfiehlt belohnungsbasiertes Training. Ein Kopfhalfter ist dabei kein Freibrief für ruckartige Einwirkungen.",
-    "caution": "Katalogwiderspruch: Der zugesandte 97er-Bogen, Originalfrage 58, verlangt unter anderem Leinenruck. Die Schlüssel gehören zu unterschiedlichen Fassungen und bilden keine einheitliche fachliche Empfehlung.",
+    "text": "Die Quelle nennt A als richtig. „Gegebenenfalls“ bedeutet beim Kopfhalfter nicht, dass jeder Hund eines braucht. Passform und sachgerechte Anwendung bleiben erforderlich. Die übrigen Antworten nennen unangenehme Reize oder Zugwirkung als Erziehungshilfe. Die AVSAB empfiehlt belohnungsbasiertes Training; aus der Auswahl von A folgt keine Freigabe ruckartiger Einwirkungen.",
+    "caution": "Quellenvergleich: Der zugesandte 97er-Bogen, Originalfrage 58, zählt Leinenruck als richtig. Das ist eine andere Erziehungsaussage, keine zusätzliche Gebrauchsanweisung für die hier genannten Hilfsmittel.",
     "references": [
       {
         "label": "AVSAB: Empfehlungen zu Trainingsmethoden (englisch)",
@@ -252,10 +262,10 @@ window.LHUNDG_EXPLANATIONS = {
     "text": "Imponieren wird hier durch eine aufgerichtete, steife Haltung und eine hoch getragene Rute beschrieben. Auch ein schnelles, enges Wedeln kann dazugehören. Wedeln allein bedeutet deshalb nicht Freundlichkeit. A beschreibt einen Blick am Gegenüber vorbei, nicht direktes Fixieren. Die Kombination der Signale und der Kontext sind entscheidend."
   },
   "legacy-41": {
-    "text": "Die Quelle ordnet das Auflegen des Kopfes als Imponiergeste ein. Für die Prüfungsfrage ist diese Zuordnung gefragt. Bei einem echten Hund lässt sich aus dem einzelnen Bewegungsbild ohne Situation und übrige Körpersprache keine sichere Absicht ableiten."
+    "text": "Diese Quellenfassung ordnet das Auflegen des Kopfes als Imponiergeste ein und zählt D als richtig. Bei einem echten Hund lässt sich aus der einzelnen Bewegung ohne Situation und übrige Körpersprache keine sichere Absicht ableiten. Die Katalogzuordnung ist deshalb keine allgemeine Deutungsregel für jede Begegnung."
   },
   "legacy-57": {
-    "text": "B und D beschreiben Transparenz und eine Aufzucht mit vielfältigen Alltagserfahrungen. Sauberkeit allein macht A nicht richtig: Dort werden zugleich Abschirmung von Besuchern und das Angebot mehrerer Rassen beschrieben. Auch ein ständig verfügbarer Welpenwurf ist kein Qualitätsnachweis."
+    "text": "B und D beschreiben Auskunftsbereitschaft und eine Aufzucht mit vielfältigen Alltagserfahrungen. A wird als Gesamtaussage nicht als richtig gezählt; Sauberkeit allein genügt nicht zur Beurteilung einer Zucht. Umgekehrt beweisen weder mehrere gehaltene Rassen noch Ruhezeiten ohne Besucher für sich unseriöses Handeln. C beschreibt ständige Welpenverfügbarkeit, keinen verlässlichen Qualitätsnachweis."
   },
   "legacy-86": {
     "text": "Gefragt ist, welche Gesten zur Beschwichtigung eingesetzt werden KÖNNEN. A, B und C sind deshalb im Schlüssel enthalten. Eine solche Geste beweist für sich noch keine Beschwichtigungsabsicht; ein starrer Blick nach vorn ist hier die abzugrenzende Antwort."
@@ -276,12 +286,12 @@ window.LHUNDG_EXPLANATIONS = {
     "text": "A und B nennen belastende beziehungsweise fehlende Erfahrungen. C lenkt den Blick zusätzlich auf körperliche Ursachen und ist ebenfalls im Schlüssel enthalten. D beschreibt dagegen einen bedürfnisgerechten Umgang und ist hier keine Ursache. Die Frage ersetzt keine Untersuchung eines konkreten Angstproblems."
   },
   "legacy-135": {
-    "text": "A und B sollen unterschiedliche Ausprägungen beschreiben; C nennt mögliche Symptome. Deshalb zählt der Schlüssel alle drei Antworten. Die pauschalen Wörter „oft“ und „gar nicht“ in B sind jedoch keine verlässliche Häufigkeits- oder Verlaufsangabe für jede Hündin. Ausgeprägte oder anhaltende Beschwerden gehören tierärztlich abgeklärt.",
-    "caution": "Auf die unterschiedlichen Ausprägungen achten: A und B beziehen sich nicht auf denselben Verlauf.",
+    "text": "Der Schlüssel nennt A, B und C. A beschreibt einen unauffälligen Verlauf, B belastende Beschwerden und C mögliche Symptome. Es handelt sich nicht um Aussagen, die bei derselben Hündin gleichzeitig zutreffen müssen. Die Wörter „oft“ und „gar nicht“ in B werden hier nicht als allgemeine Häufigkeits- oder Dauerangabe bestätigt. Ausgeprägte oder anhaltende Beschwerden sollten tierärztlich abgeklärt werden.",
+    "caution": "Unterschiedliche Ausprägungen: Aus dem Schlüssel folgt weder, dass jede Scheinträchtigkeit harmlos ist, noch dass sie regelmäßig schwer oder dauerhaft verläuft.",
     "references": [
       {
-        "label": "Cornell: Zyklusphasen und hormonelle Veränderungen (englisch)",
-        "url": "https://www.vet.cornell.edu/dog-estrous-cycles"
+        "label": "Merck Veterinary Manual: Scheinträchtigkeit und unterschiedliche Ausprägungen (englisch)",
+        "url": "https://www.merckvetmanual.com/reproductive-system/reproductive-diseases-of-the-female-small-animal/pseudopregnancy-in-small-animals"
       }
     ]
   },
@@ -309,7 +319,7 @@ window.LHUNDG_EXPLANATIONS = {
   },
   "legacy-174": {
     "text": "B und C benennen verbindliche Grenzen. § 2 Absatz 5 TierSchHuV verbietet schmerzhafte Mittel bei Ausbildung, Erziehung und Training. Erfolg oder persönliche Überzeugung heben diese Regel nicht auf; deshalb sind A und D falsch.",
-    "caution": "Katalogwiderspruch: Der zugesandte 97er-Bogen, Originalfrage 58, verlangt trotzdem Leinenruck und Schnauzengriff. Dieser Schlüssel ist keine allgemeine Empfehlung für die Praxis.",
+    "caution": "Quellenvergleich: Im zugesandten 97er-Bogen, Originalfrage 58, zählen Leinenruck und Schnauzengriff als richtig. Der dortige Lösungsschlüssel hebt das Verbot schmerzhafter Mittel nicht auf und ist keine Anwendungsempfehlung.",
     "references": [
       {
         "label": "TierSchHuV: § 2 Absatz 5",
@@ -322,11 +332,11 @@ window.LHUNDG_EXPLANATIONS = {
     "caution": "Pauschalisierung beachten: Aus der Herkunft allein folgt keine Diagnose. Die Häufigkeitsaussage „oft“ wird hier nicht als allgemeiner statistischer Befund bestätigt."
   },
   "legacy-188": {
-    "text": "C nennt regelmäßige Konfrontation, ohne Belastungsgrenze oder behutsame Schritte zu beschreiben. Das ist von einer kontrollierten Gewöhnung zu unterscheiden. B berücksichtigt nur die Störung des Menschen und übersieht die Belastung des Hundes. A und D zielen auf geeignete Voraussetzungen und fachliche Unterstützung.",
+    "text": "Der Schlüssel nennt A und D. A betrifft günstige Lernbedingungen, D fachliche Hilfe bei belastender Angst. C sagt nicht, wie stark die Konfrontation ist oder wie sie gesteigert wird. Daraus darf weder eine Aufforderung zur Überforderung noch ein Verbot jeder schrittweisen Annäherung abgeleitet werden. Entscheidend ist die Belastung des Hundes. B berücksichtigt dagegen nur, ob der Mensch sich gestört fühlt.",
     "sourceUrl": "https://www.merckvetmanual.com/dog-owners/behavior-of-dogs/behavior-modification-in-dogs"
   },
   "legacy-193": {
-    "text": "B, C und D beschreiben ruhige Begrüßungen und das Fördern eines erwünschten Alternativverhaltens. Bei D ist das Timing entscheidend: die bekannte Übung vor dem Anspringen anbieten. A deutet die Freude pauschal als Chefanspruch und begründet damit Strafe.",
+    "text": "B, C und D betreffen die konkrete Begrüßungssituation. C bezieht sich auf Aufmerksamkeit zur Begrüßung, nicht darauf, notwendige Versorgung oder Schutz zurückzuhalten. D nennt eine bekannte, belohnte Alternative vor dem Anspringen; der Zeitpunkt gehört zur Antwort. A deutet das Anspringen aus Freude pauschal als Chefanspruch und begründet damit Strafe.",
     "sourceUrl": "https://avsab.org/resources/position-statements/"
   },
   "legacy-198": {
@@ -362,8 +372,8 @@ window.LHUNDG_EXPLANATIONS = {
     ]
   },
   "r97-7": {
-    "text": "B nennt die eingeschränkte Ausweichmöglichkeit. C ist ebenfalls im Schlüssel enthalten, erklärt Leinenaggression aber pauschal über ein „Rudel im Rücken“. Eine solche Ursache lässt sich aus der Situation nicht sicher bestimmen. A ist ebenfalls eine unbelegte Zuschreibung. Entscheidend ist die individuelle Ursache.",
-    "caution": "Fachlicher Vorbehalt: Die Rudelerklärung ist keine allgemeingültige Diagnose. Vergleiche die differenziertere Fragestellung in Rhein-Erft · 203, Originalfrage 72.",
+    "text": "Der Schlüssel nennt B und C. B beschreibt eine mögliche eingeschränkte Ausweichmöglichkeit an der Leine. C erklärt das Verhalten über ein „Rudel im Rücken“; diese Begründung ist keine allgemeingültige Erklärung für Leinenaggression. Die Frage beschreibt keinen einzelnen Hund, dessen Ursache damit feststehen würde. Auch die Nichtzählung von A schließt nicht sämtliche anderen möglichen Ursachen aus.",
+    "caution": "Ursachen nicht verallgemeinern: Der Schlüssel nennt zwei Antworten, erklärt aber nicht jedes aggressive Verhalten an der Leine.",
     "references": [
       {
         "label": "AVSAB: Grenzen vereinfachter Dominanzdeutungen (englisch)",
@@ -379,7 +389,13 @@ window.LHUNDG_EXPLANATIONS = {
     "text": "Alle fünf Rechtsgebiete können für Hundehalter wichtig sein. Die Frage beschränkt sich nicht auf das Landeshundegesetz: Sie nennt auch Strafrecht, zivilrechtliche Haftung, Lärm und Tierschutz. Gefragt ist die Bedeutung der Bereiche, nicht ob jeder Vorfall alle zugleich betrifft."
   },
   "r97-17": {
-    "text": "A und C benennen Übertragungswege, auf die die Frage abzielt. Das erklärt den Schlüssel, legt aber keinen individuellen Entwurmungsplan fest. Eine Aussage über mögliche Ansteckung ist nicht mit einem Nachweis gleichzusetzen, dass jeder Welpe tatsächlich infiziert ist."
+    "text": "A und C nennen mögliche Übertragungswege. Eine Ansteckung kann über bestimmte Wurmstadien in der Muttermilch oder über die Aufnahme infektiöser Wurmstadien erfolgen. Nicht jeder Kotkontakt führt automatisch zu einer Infektion; Übertragungsweg und Entwicklungsstadium hängen vom Parasiten ab. Die Frage legt weder einen Befallsnachweis für jeden Welpen noch einen individuellen Behandlungsplan fest.",
+    "references": [
+      {
+        "label": "ESCCAP: Würmer bei Hunden und Übertragungswege",
+        "url": "https://www.esccap.de/parasiten/wuermer/wuermer-bei-hunden/"
+      }
+    ]
   },
   "r97-27": {
     "text": "Der Schlüssel verlangt B: 9.–14. Tag. Diese Angabe darf nicht als verlässlicher Kalender für jede Hündin verstanden werden: Dauer und zeitliche Lage der Zyklusphasen variieren. Aus der Katalogantwort lassen sich daher keine sicheren Tage zur Vermeidung einer Trächtigkeit ableiten.",

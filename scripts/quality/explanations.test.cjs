@@ -119,7 +119,7 @@ test('Quellenhinweise bleiben getrennt von Originalantworten und verlinken benan
   assert.equal(details.hidden, true);
   assert.match(details.children[0].text, /Quelle beachten/);
   const content = details.children[1];
-  assert.match(content.children[1].text, /Katalogwiderspruch/);
+  assert.equal(content.children[1].text, env.scope.LHUNDG_EXPLANATIONS[question.uid].caution);
   const links = content.children.flatMap(node => node.children).filter(node => node.tag === 'a');
   assert.equal(links.length, 2);
   assert.ok(links.every(link => link.rel.includes('noopener') && link.target === '_blank'));
