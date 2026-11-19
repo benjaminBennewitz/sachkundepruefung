@@ -19,11 +19,12 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="icon" href="favicon.png" type="image/png" sizes="96x96">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preload" href="templates/site-header.html" as="fetch" crossorigin>
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
   <link rel="stylesheet" href="styles/tokens.css?v=62">
   <link rel="stylesheet" href="styles/interface.css?v=50">
-  <link rel="stylesheet" href="styles/navigation.css?v=71">
+  <link rel="stylesheet" href="styles/navigation.css?v=72">
   <link rel="stylesheet" href="styles/character.css?v=63">
   <link rel="stylesheet" href="styles/editorial-identity.css?v=62">
   <link rel="stylesheet" href="styles/accessibility.css?v=58">
@@ -34,76 +35,28 @@
 </head>
 
 <body><a class="skip-link" href="#inhalt">Zum Inhalt</a>
-  <header class="site-header wrap">
-    <!-- BLOCK START: Marke und Projekthinweise -->
-    <div class="header-brand-group"><a class="brand" href="./" aria-label="Sachkunde NRW – Startseite"><span
-          class="brand-mark" aria-hidden="true">§</span><span>SACHKUNDE<span class="brand-sub">NRW / DIE
-            LERNHILFE</span></span></a>
-      <div class="header-project">
-        <p>Wissen für Mensch &amp; Hund.</p>
-        <a href="impressum.html#haftung" data-open-about aria-haspopup="dialog">Über diese Lernhilfe</a>
-      </div>
-    </div>
-    <!-- BLOCK END: Marke und Projekthinweise -->
-    <nav class="header-nav" aria-label="Hauptnavigation">
-      <a href="./">Startseite</a>
-      <a href="lernen.html#trainer">Lernen</a>
-      <a href="grundlagen.html" aria-current="page">Grundlagen</a>
-      <a href="gut-zu-wissen.html">Gut zu wissen</a>
-      <a href="hundewissen.html">Haltung &amp; Recht</a>
-      <a href="quellen.html">Quellen</a>
-    </nav>
-    <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><a class="icon-button"
-        aria-label="Lernstand laden – im Trainer" href="lernen.html?action=import#trainer"><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 16V4m-4 4 4-4 4 4M5 16v5h14v-5" />
-        </svg><span class="tool-tip" aria-hidden="true">Laden im Trainer</span></a><a class="icon-button"
-        aria-label="Lernstand sichern – im Trainer" href="lernen.html?action=export#trainer"><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" />
-        </svg><span class="tool-tip" aria-hidden="true">Sichern im Trainer</span></a><a class="icon-button"
-        aria-label="Lernbereich zurücksetzen – im Trainer" href="lernen.html?action=reset#trainer"><svg class="" width="20"
-          height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 11a8 8 0 1 1 2 7M4 4v7h7" />
-        </svg><span class="tool-tip" aria-hidden="true">Zurücksetzen im Trainer</span></a><button class="icon-button"
-        type="button" aria-label="Über PayPal unterstützen" data-open-support><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path
-            d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
-        </svg><span class="tool-tip" aria-hidden="true">Über PayPal unterstützen</span></button><button
-        class="icon-button" type="button" aria-label="Farbschema wechseln" id="themeToggle"><svg class="theme-sun"
-          width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 1v2m0 18v2M1 12h2m18 0h2M4 4l1.5 1.5m13 13L20 20M4 20l1.5-1.5m13-13L20 4" />
-        </svg><svg class="theme-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z" />
-        </svg><span class="tool-tip" aria-hidden="true">Farbschema wechseln</span></button><button class="icon-button" type="button" data-open-accessibility aria-label="Barrierefreiheit einstellen" aria-haspopup="dialog">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-          <circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7M8 8l1 6m7-6-1 6"/>
-        </svg><span class="tool-tip" aria-hidden="true">Barrierefreiheit</span></button></div>
+  <header class="site-header wrap" data-layout-src="templates/site-header.html">
+    <a href="./">Startseite</a>
   </header>
   <main id="inhalt" class="prose wrap magazine magazine--foundations" tabindex="-1">
     <!-- BLOCK START: Seitenauftakt -->
     <header class="page-masthead page-masthead--magazine">
       <div class="masthead-copy">
-      <p class="eyebrow">01 / Grundlagen</p>
-      <h1 id="foundationsTitle">Grundlagen</h1>
+        <p class="eyebrow">01 / Grundlagen</p>
+        <h1 id="foundationsTitle">Grundlagen</h1>
         <p class="masthead-deck">Ein guter Anfang. Für euch beide.</p>
       </div>
-      <figure class="masthead-image"><img src="assets/public/huendin-sonne.webp" width="1100" height="1467" alt="Gestromte Hündin lässt sich in der Sonne kraulen." loading="eager" fetchpriority="high" decoding="async"></figure>
+      <figure class="masthead-image"><img src="assets/public/huendin-sonne.webp" width="1100" height="1467"
+          alt="Gestromte Hündin lässt sich in der Sonne kraulen." loading="eager" fetchpriority="high" decoding="async">
+      </figure>
     </header>
     <!-- BLOCK END: Seitenauftakt -->
     <!-- BLOCK START: Grundlagen für den Fragenkatalog -->
     <section id="grundlagen" class="foundations-content" aria-labelledby="foundationsTitle">
       <div class="editorial-intro">
         <p>Sachkunde bedeutet mehr, als die richtigen Antworten wiederzuerkennen. Sie hilft dir zu verstehen,
-          was ein Hund im Alltag braucht, wie er lernt und welche Verantwortung du für ihn und seine Umgebung übernimmst.
+          was ein Hund im Alltag braucht, wie er lernt und welche Verantwortung du für ihn und seine Umgebung
+          übernimmst.
           Diese Einführung verbindet die Themen des Trainers zu einem Überblick über das gemeinsame Leben mit Hund.</p>
         <p>Die folgenden Texte sind redaktionelles Lernmaterial. Bei einer Originalfrage bleibt der Lösungsschlüssel
           ihrer Quelle für die Katalogwertung maßgeblich. Ältere oder widersprüchliche Aussagen werden dadurch nicht
@@ -112,62 +65,127 @@
       </div>
       <div class="magazine-body">
         <article class="editorial-chapter">
-        <h2 id="einzug">Ein Hund zieht ein</h2>
-      <p>Ein Hund verändert den Alltag lange bevor die erste gemeinsame Runde selbstverständlich geworden ist. Deshalb beginnt gute Vorbereitung mit einem ehrlichen Blick auf das eigene Leben: Wer übernimmt die täglichen Spaziergänge, wie lässt sich Betreuung organisieren und welcher finanzielle Spielraum bleibt für Versorgung und Tierarztbesuche? Entscheidend ist, dass die Bedürfnisse des Hundes und die Möglichkeiten seiner Menschen zusammenpassen. Größe und Aussehen erzählen darüber nur wenig. Auch innerhalb einer Rasse unterscheiden sich Hunde in ihrem Temperament, ihren Erfahrungen und dem, was ihnen Sicherheit gibt.</p>
-      <p>Mit dem Einzug beginnt dann das gegenseitige Kennenlernen. Ein neuer Ort, unbekannte Geräusche und andere Abläufe müssen erst vertraut werden. Ein nachvollziehbarer Tagesrhythmus, ein geschützter Rückzugsort und behutsame gemeinsame Erfahrungen geben diesem Anfang Struktur. Bei jungen Hunden prägen frühe Erfahrungen die Entwicklung besonders stark; verständliche Regeln und passende Kontakte gehören von Anfang an dazu. Lernen bleibt aber ein Leben lang möglich. Auch ein erwachsener Hund kann sich mit Zeit und geduldiger Begleitung in einen neuen Alltag einfinden.</p>
-</article>
+          <h2 id="einzug">Ein Hund zieht ein</h2>
+          <p>Ein Hund verändert den Alltag lange bevor die erste gemeinsame Runde selbstverständlich geworden ist.
+            Deshalb beginnt gute Vorbereitung mit einem ehrlichen Blick auf das eigene Leben: Wer übernimmt die
+            täglichen Spaziergänge, wie lässt sich Betreuung organisieren und welcher finanzielle Spielraum bleibt für
+            Versorgung und Tierarztbesuche? Entscheidend ist, dass die Bedürfnisse des Hundes und die Möglichkeiten
+            seiner Menschen zusammenpassen. Größe und Aussehen erzählen darüber nur wenig. Auch innerhalb einer Rasse
+            unterscheiden sich Hunde in ihrem Temperament, ihren Erfahrungen und dem, was ihnen Sicherheit gibt.</p>
+          <p>Mit dem Einzug beginnt dann das gegenseitige Kennenlernen. Ein neuer Ort, unbekannte Geräusche und andere
+            Abläufe müssen erst vertraut werden. Ein nachvollziehbarer Tagesrhythmus, ein geschützter Rückzugsort und
+            behutsame gemeinsame Erfahrungen geben diesem Anfang Struktur. Bei jungen Hunden prägen frühe Erfahrungen
+            die Entwicklung besonders stark; verständliche Regeln und passende Kontakte gehören von Anfang an dazu.
+            Lernen bleibt aber ein Leben lang möglich. Auch ein erwachsener Hund kann sich mit Zeit und geduldiger
+            Begleitung in einen neuen Alltag einfinden.</p>
+        </article>
         <article class="editorial-chapter">
-        <h2 id="lernen-verstehen">Verhalten verstehen und Lernen ermöglichen</h2>
-      <p>Im Zusammenleben lernt ein Hund fortwährend, welches Verhalten sich für ihn lohnt. Wird erwünschtes Verhalten zuverlässig belohnt, kann er leichter erkennen, was sein Mensch von ihm erwartet. Ein Verbot allein erklärt dagegen noch keine Alternative. Zieht der Hund beispielsweise an der Leine, ist es hilfreicher, ruhiges Gehen in passenden Situationen aufzubauen, als ihm eine vermeintliche Absicht zu unterstellen. Aufregung, Ablenkung, Unsicherheit oder fehlende Übung können hinter demselben sichtbaren Verhalten stehen. Gute Erziehung beginnt deshalb damit, die jeweilige Situation zu verstehen und die Anforderungen daran anzupassen.</p>
-      <p>Das gilt besonders dann, wenn ein Hund Angst hat. Gewöhnung entsteht nicht dadurch, dass er eine überfordernde Situation einfach aushalten muss. Bewältigbare Schritte lassen Raum für positive Erfahrungen; Abstand und Pausen können dazugehören. Bedrohung und Schreckreize können Unsicherheit verstärken und machen die Ursache eines Problems nicht verständlicher. Wenn Angst oder aggressives Verhalten das Zusammenleben belasten, gehört die fachliche Begleitung durch eine Tierarztpraxis und qualifizierte Verhaltensberatung zur verantwortlichen Vorbereitung.</p>
-</article>
-        <article class="editorial-spread"><div class="chapter-copy">      <h2 id="begegnungen">Begegnungen aufmerksam begleiten</h2>
-      <p>Ob ein Hund entspannt, unsicher oder angespannt ist, lässt sich nicht an einem einzelnen Körperteil ablesen. Ohren, Rute, Gesicht, Muskelspannung und Bewegung gehören zusammen. Ebenso wichtig ist der Zusammenhang: Wem begegnet der Hund, wie viel Abstand hat er und kann er sich der Situation entziehen? Eine hoch getragene Rute ist für sich genommen keine Einladung zum Kontakt. Auch Blickkontakt muss im Gesamtbild beurteilt werden. Aufmerksames Beobachten hilft, Veränderungen früh wahrzunehmen und eine Begegnung rechtzeitig ruhiger zu gestalten.</p>
-      <p>Im Kontakt mit Kindern liegt diese Verantwortung bei den Erwachsenen. Ein vertrauter Hund ist nicht automatisch mit jeder Berührung einverstanden, und auch ein kleiner Hund kann verletzen. Umarmen, Küssen oder Festhalten kann ihn bedrängen, obwohl die Geste freundlich gemeint ist. Gut begleitete Begegnungen lassen beiden Seiten Raum und ermöglichen dem Hund, Abstand zu nehmen. Besonders kleine Kinder dürfen deshalb nicht mit einem Hund allein bleiben. Sicherheit entsteht durch Aufsicht und Rücksicht, nicht durch die Annahme, dass bisher immer alles gut gegangen ist.</p>
-</div><figure class="editorial-photo"><div class="editorial-photo-frame"><img src="assets/public/huendin-auge.webp" width="1100" height="825" alt="Nahaufnahme des Auges der Hündin." loading="lazy" decoding="async"></div></figure></article>
-        <article class="editorial-spread"><div class="chapter-copy">      <h2 id="unterwegs">Sicher unterwegs</h2>
-      <p>Ein gemeinsamer Ausflug beginnt mit der Frage, was am jeweiligen Ort möglich und erlaubt ist. Freilauf, Leinenführung und ein gegebenenfalls vorgeschriebener Maulkorb hängen nicht nur vom Verhalten des Hundes ab. Auch seine rechtliche Einordnung, örtliche Vorschriften und die Grenzen einer behördlichen Befreiung spielen eine Rolle. Was auf einer vertrauten Strecke zulässig ist, muss deshalb nicht an einem anderen Ziel gelten. Die <a href="hundewissen.html#recht">Übersicht zu Haltung und Recht</a> und die <a href="gut-zu-wissen.html#reisen">Reisehinweise</a> helfen bei der Vorbereitung; verbindliche Fragen klärst du mit der zuständigen Stelle.</p>
-      <p>Zur Sicherheit gehört ebenso die praktische Ausrüstung. Ein geeigneter Maulkorb muss sicher sitzen und ausreichendes Hecheln ermöglichen; eine enge Maulschlaufe ist kein Ersatz für den Alltag. Für die Fahrt zum Ausflugsziel braucht der Hund eine passende Sicherung im Fahrzeug. Dass er normalerweise ruhig liegen bleibt, schützt ihn bei einer Vollbremsung nicht vor den Folgen. Rechtliche Vorbereitung und durchdachte Ausstattung ergänzen sich so zu einem Alltag, in dem du dich auf deinen Hund konzentrieren kannst.</p>
-</div><figure class="editorial-photo"><div class="editorial-photo-frame"><img src="assets/public/huendin-strand.webp?v=62" width="1000" height="1333" alt="Hündin von hinten am Strand mit Blick auf das Wasser." loading="lazy" decoding="async"></div></figure></article>
-        <article class="editorial-spread"><div class="chapter-copy">      <h2 id="gesundheit">Gesundheit und Verantwortung</h2>
-      <p>Wohlbefinden entsteht aus vielen aufeinander abgestimmten Bedürfnissen. Ein Hund braucht Bewegung und Beschäftigung, zugleich aber auch Ruhe, verlässliche Betreuung und gesundheitliche Versorgung. Welche Form und welcher Umfang passen, hängt unter anderem von Alter, Gesundheitszustand und den Möglichkeiten des einzelnen Hundes ab. Die Wohnungsgröße oder eine pauschale Zeitangabe allein sagen deshalb wenig darüber aus, wie gut seine Haltung gelingt. Auch Sozialkontakte müssen zum Hund passen; nicht jede Begegnung mit Artgenossen ist für jedes Tier eine gute Erfahrung.</p>
-      <p>Zur gemeinsamen Verantwortung gehört, Veränderungen wahrzunehmen und bei gesundheitlichen Fragen die Tierarztpraxis einzubeziehen. Vorsorge und Impfungen werden dort ebenso individuell besprochen wie besondere Anforderungen vor einer Reise. Medizinische Eingriffe sind keine allgemeine Antwort auf Schwierigkeiten im Zusammenleben. Wer Versorgung, Erholung und Lernen als zusammenhängende Aufgaben versteht, schafft eine tragfähigere Grundlage als mit einzelnen Regeln für jede denkbare Situation. Genau dabei soll das Wissen aus dem Fragenkatalog helfen: Entscheidungen im Alltag besser einordnen zu können.</p>
-</div><figure class="editorial-photo editorial-photo--paws"><div class="editorial-photo-frame"><img src="assets/public/huendin-pfote.webp" width="1000" height="1333" alt="Pfote der schlafenden Hündin auf dem Sofa." loading="lazy" decoding="async"></div></figure></article>
-        <aside class="editorial-endnote">      <p class="source-note">Beim Antworten: Prüfe besonders Verneinungen und absolute Aussagen. Ein Satz kann teilweise
-        plausibel klingen und durch eine zusätzliche Bedingung trotzdem falsch sein. Mehrfachauswahl bedeutet, dass alle
-        laut Quelle richtigen Antworten und keine zusätzlichen Antworten ausgewählt werden müssen.</p>
-      <p class="microcopy">Redaktioneller Stand: 17. November 2026. Grundlage: die im Trainer ausgewiesenen
-        <a href="quellen.html">Originalkataloge</a>, insbesondere Rhein-Erft 203, ergänzt durch
-        <a href="https://avsab.org/resources/position-statements/" target="_blank"
-          rel="noopener noreferrer">tierärztliche Verhaltensempfehlungen</a>,
-        <a href="https://www.gesetze-im-internet.de/tierschhuv/__2.html">§ 2 TierSchHuV</a>,
-        <a href="https://www.gesetze-im-internet.de/tierschg/__6.html">§ 6 TierSchG</a> und die
-        <a href="hundewissen.html#recht">Rechtstexte und den Leseplan</a>. Die ergänzenden Frageerklärungen verlinken
-        bei Bedarf weitere Fachquellen.
-      </p>
-      <p><a class="primary foundations-return" href="lernen.html#trainer">Zu den Fragen →</a></p>
-</aside>
+          <h2 id="lernen-verstehen">Verhalten verstehen und Lernen ermöglichen</h2>
+          <p>Im Zusammenleben lernt ein Hund fortwährend, welches Verhalten sich für ihn lohnt. Wird erwünschtes
+            Verhalten zuverlässig belohnt, kann er leichter erkennen, was sein Mensch von ihm erwartet. Ein Verbot
+            allein erklärt dagegen noch keine Alternative. Zieht der Hund beispielsweise an der Leine, ist es
+            hilfreicher, ruhiges Gehen in passenden Situationen aufzubauen, als ihm eine vermeintliche Absicht zu
+            unterstellen. Aufregung, Ablenkung, Unsicherheit oder fehlende Übung können hinter demselben sichtbaren
+            Verhalten stehen. Gute Erziehung beginnt deshalb damit, die jeweilige Situation zu verstehen und die
+            Anforderungen daran anzupassen.</p>
+          <p>Das gilt besonders dann, wenn ein Hund Angst hat. Gewöhnung entsteht nicht dadurch, dass er eine
+            überfordernde Situation einfach aushalten muss. Bewältigbare Schritte lassen Raum für positive Erfahrungen;
+            Abstand und Pausen können dazugehören. Bedrohung und Schreckreize können Unsicherheit verstärken und machen
+            die Ursache eines Problems nicht verständlicher. Wenn Angst oder aggressives Verhalten das Zusammenleben
+            belasten, gehört die fachliche Begleitung durch eine Tierarztpraxis und qualifizierte Verhaltensberatung zur
+            verantwortlichen Vorbereitung.</p>
+        </article>
+        <article class="editorial-spread">
+          <div class="chapter-copy">
+            <h2 id="begegnungen">Begegnungen aufmerksam begleiten</h2>
+            <p>Ob ein Hund entspannt, unsicher oder angespannt ist, lässt sich nicht an einem einzelnen Körperteil
+              ablesen. Ohren, Rute, Gesicht, Muskelspannung und Bewegung gehören zusammen. Ebenso wichtig ist der
+              Zusammenhang: Wem begegnet der Hund, wie viel Abstand hat er und kann er sich der Situation entziehen?
+              Eine hoch getragene Rute ist für sich genommen keine Einladung zum Kontakt. Auch Blickkontakt muss im
+              Gesamtbild beurteilt werden. Aufmerksames Beobachten hilft, Veränderungen früh wahrzunehmen und eine
+              Begegnung rechtzeitig ruhiger zu gestalten.</p>
+            <p>Im Kontakt mit Kindern liegt diese Verantwortung bei den Erwachsenen. Ein vertrauter Hund ist nicht
+              automatisch mit jeder Berührung einverstanden, und auch ein kleiner Hund kann verletzen. Umarmen, Küssen
+              oder Festhalten kann ihn bedrängen, obwohl die Geste freundlich gemeint ist. Gut begleitete Begegnungen
+              lassen beiden Seiten Raum und ermöglichen dem Hund, Abstand zu nehmen. Besonders kleine Kinder dürfen
+              deshalb nicht mit einem Hund allein bleiben. Sicherheit entsteht durch Aufsicht und Rücksicht, nicht durch
+              die Annahme, dass bisher immer alles gut gegangen ist.</p>
+          </div>
+          <figure class="editorial-photo">
+            <div class="editorial-photo-frame"><img src="assets/public/huendin-auge.webp" width="1100" height="825"
+                alt="Nahaufnahme des Auges der Hündin." loading="lazy" decoding="async"></div>
+          </figure>
+        </article>
+        <article class="editorial-spread">
+          <div class="chapter-copy">
+            <h2 id="unterwegs">Sicher unterwegs</h2>
+            <p>Ein gemeinsamer Ausflug beginnt mit der Frage, was am jeweiligen Ort möglich und erlaubt ist. Freilauf,
+              Leinenführung und ein gegebenenfalls vorgeschriebener Maulkorb hängen nicht nur vom Verhalten des Hundes
+              ab. Auch seine rechtliche Einordnung, örtliche Vorschriften und die Grenzen einer behördlichen Befreiung
+              spielen eine Rolle. Was auf einer vertrauten Strecke zulässig ist, muss deshalb nicht an einem anderen
+              Ziel gelten. Die <a href="hundewissen.html#recht">Übersicht zu Haltung und Recht</a> und die <a
+                href="gut-zu-wissen.html#reisen">Reisehinweise</a> helfen bei der Vorbereitung; verbindliche Fragen
+              klärst du mit der zuständigen Stelle.</p>
+            <p>Zur Sicherheit gehört ebenso die praktische Ausrüstung. Ein geeigneter Maulkorb muss sicher sitzen und
+              ausreichendes Hecheln ermöglichen; eine enge Maulschlaufe ist kein Ersatz für den Alltag. Für die Fahrt
+              zum Ausflugsziel braucht der Hund eine passende Sicherung im Fahrzeug. Dass er normalerweise ruhig liegen
+              bleibt, schützt ihn bei einer Vollbremsung nicht vor den Folgen. Rechtliche Vorbereitung und durchdachte
+              Ausstattung ergänzen sich so zu einem Alltag, in dem du dich auf deinen Hund konzentrieren kannst.</p>
+          </div>
+          <figure class="editorial-photo">
+            <div class="editorial-photo-frame"><img src="assets/public/huendin-strand.webp?v=62" width="1000"
+                height="1333" alt="Hündin von hinten am Strand mit Blick auf das Wasser." loading="lazy"
+                decoding="async"></div>
+          </figure>
+        </article>
+        <article class="editorial-spread">
+          <div class="chapter-copy">
+            <h2 id="gesundheit">Gesundheit und Verantwortung</h2>
+            <p>Wohlbefinden entsteht aus vielen aufeinander abgestimmten Bedürfnissen. Ein Hund braucht Bewegung und
+              Beschäftigung, zugleich aber auch Ruhe, verlässliche Betreuung und gesundheitliche Versorgung. Welche Form
+              und welcher Umfang passen, hängt unter anderem von Alter, Gesundheitszustand und den Möglichkeiten des
+              einzelnen Hundes ab. Die Wohnungsgröße oder eine pauschale Zeitangabe allein sagen deshalb wenig darüber
+              aus, wie gut seine Haltung gelingt. Auch Sozialkontakte müssen zum Hund passen; nicht jede Begegnung mit
+              Artgenossen ist für jedes Tier eine gute Erfahrung.</p>
+            <p>Zur gemeinsamen Verantwortung gehört, Veränderungen wahrzunehmen und bei gesundheitlichen Fragen die
+              Tierarztpraxis einzubeziehen. Vorsorge und Impfungen werden dort ebenso individuell besprochen wie
+              besondere Anforderungen vor einer Reise. Medizinische Eingriffe sind keine allgemeine Antwort auf
+              Schwierigkeiten im Zusammenleben. Wer Versorgung, Erholung und Lernen als zusammenhängende Aufgaben
+              versteht, schafft eine tragfähigere Grundlage als mit einzelnen Regeln für jede denkbare Situation. Genau
+              dabei soll das Wissen aus dem Fragenkatalog helfen: Entscheidungen im Alltag besser einordnen zu können.
+            </p>
+          </div>
+          <figure class="editorial-photo editorial-photo--paws">
+            <div class="editorial-photo-frame"><img src="assets/public/huendin-pfote.webp" width="1000" height="1333"
+                alt="Pfote der schlafenden Hündin auf dem Sofa." loading="lazy" decoding="async"></div>
+          </figure>
+        </article>
+        <aside class="editorial-endnote">
+          <p class="source-note">Beim Antworten: Prüfe besonders Verneinungen und absolute Aussagen. Ein Satz kann
+            teilweise
+            plausibel klingen und durch eine zusätzliche Bedingung trotzdem falsch sein. Mehrfachauswahl bedeutet, dass
+            alle
+            laut Quelle richtigen Antworten und keine zusätzlichen Antworten ausgewählt werden müssen.</p>
+          <p class="microcopy">Redaktioneller Stand: 17. November 2026. Grundlage: die im Trainer ausgewiesenen
+            <a href="quellen.html">Originalkataloge</a>, insbesondere Rhein-Erft 203, ergänzt durch
+            <a href="https://avsab.org/resources/position-statements/" target="_blank"
+              rel="noopener noreferrer">tierärztliche Verhaltensempfehlungen</a>,
+            <a href="https://www.gesetze-im-internet.de/tierschhuv/__2.html">§ 2 TierSchHuV</a>,
+            <a href="https://www.gesetze-im-internet.de/tierschg/__6.html">§ 6 TierSchG</a> und die
+            <a href="hundewissen.html#recht">Rechtstexte und den Leseplan</a>. Die ergänzenden Frageerklärungen
+            verlinken
+            bei Bedarf weitere Fachquellen.
+          </p>
+          <p><a class="primary foundations-return" href="lernen.html#trainer">Zu den Fragen →</a></p>
+        </aside>
       </div>
     </section>
     <!-- BLOCK END: Grundlagen für den Fragenkatalog -->
   </main>
-  <footer class="site-footer wrap">
-    <!-- BLOCK START: Gemeinsame Fußzeilenmarke -->
-    <a class="footer-brand" href="./">SACHKUNDE<span>Für Mensch &amp; Hund. / NRW</span></a>
-    <!-- BLOCK END: Gemeinsame Fußzeilenmarke -->
-    <p class="footer-scope">Aktuell gibt es die Lernhilfe nur für NRW. Weitere Bundesländer können auf Anfrage ergänzt
-      werden. <a
-        href="mailto:kontakt@design-code-repeat.de?subject=Sachkundenachweis%20f%C3%BCr%20Hunde%20%28Bundesland%29">Erweiterung
-        per E-Mail anfragen</a> – bitte das Bundesland im Betreff angeben.</p>
-
-    <p class="footer-credit">© 2026 Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/"
-        aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p>
-    <nav aria-label="Rechtliches und Informationen"><a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a><a href="./#geschichte" data-open-story
-        aria-haspopup="dialog">Die Geschichte hinter dem Trainer</a><a href="quellen.html">Originalquellen</a><a
-        href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a
-        href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="lernen.html#trainer">Zum Lernen
-        ↑</a></nav>
+  <footer class="site-footer wrap" data-layout-src="templates/site-footer.html">
+    <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   </footer>
+  <script src="scripts/ui/include.js?v=1" defer></script>
   <script src="scripts/site-config.js?v=38" defer></script>
   <script src="scripts/ui/shared.js?v=67" defer></script>
   <script src="scripts/ui/modal.js?v=67" defer></script>
@@ -175,12 +193,12 @@
   <script src="scripts/ui/toast-item.js?v=67" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
-  <script src="scripts/ui/navigation.js?v=68" defer></script>
+  <script src="scripts/ui/navigation.js?v=69" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
   <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
   <script src="scripts/ui/release.js?v=65" defer></script>
   <script src="scripts/ui/page-tools.js?v=67" defer></script>
-  <script src="scripts/ui/common.js?v=63" defer></script>
+  <script src="scripts/ui/common.js?v=64" defer></script>
   <script src="scripts/ui/controls.js?v=67" defer></script>
 </body>
 

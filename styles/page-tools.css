@@ -40,18 +40,18 @@
     background: var(--surface);
   }
 
-  .city-profile > summary {
+  .city-profile>summary {
     padding: 20px;
     min-height: 72px;
     color: var(--text);
     font-weight: 700;
   }
 
-  .city-profile > summary:hover {
+  .city-profile>summary:hover {
     background: var(--control-hover);
   }
 
-  .city-profile > .city-content {
+  .city-profile>.city-content {
     padding: 0 20px 20px;
   }
 
@@ -63,7 +63,8 @@
     line-height: 1.75;
   }
 
-  .city-content p + p, .city-content ul {
+  .city-content p+p,
+  .city-content ul {
     margin-top: 16px;
   }
 
@@ -73,11 +74,15 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .city-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .city-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media screen and (max-width: 600px) {
-  .city-grid { grid-template-columns: minmax(0, 1fr); }
+  .city-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 /* ===========================================================================
@@ -106,7 +111,9 @@
 }
 
 @media print {
-  .scroll-top { display: none; }
+  .scroll-top {
+    display: none;
+  }
 }
 
 
@@ -114,8 +121,16 @@
    03   Lokale Schließen-Symbole
    ========================================================================== */
 
-.ui-close-icon { display: block; position: relative; flex: 0 0 18px; width: 18px; height: 18px; }
-.ui-close-icon::before, .ui-close-icon::after {
+.ui-close-icon {
+  display: block;
+  position: relative;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.ui-close-icon::before,
+.ui-close-icon::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -126,12 +141,22 @@
   background: currentColor;
   transform: translate(-50%, -50%) rotate(45deg);
 }
-.ui-close-icon::after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+.ui-close-icon::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
 :is(.ui-modal-close, .toast-close, .search-clear, .mobile-navigation-close) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
 }
-:is(.ui-modal-close, .toast-close, .search-clear) { padding: 0; }
-.mobile-navigation-close { gap: 8px; }
+
+:is(.ui-modal-close, .toast-close, .search-clear) {
+  padding: 0;
+}
+
+.mobile-navigation-close {
+  gap: 8px;
+}

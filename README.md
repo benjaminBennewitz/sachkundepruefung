@@ -8,14 +8,10 @@ Entwicklung und Design: Benjamin Bennewitz **[B²]**.
 
 ## Verbindliche Inhaltsquelle
 
-Die sechs HTML-Dateien im Projekt-Root sind die **Single Source of Truth**:
-`index.html`, `gut-zu-wissen.html`, `hundewissen.html`, `quellen.html`, `impressum.html`
-und `datenschutz.html`.
-
-Inhalte, Header, Footer, Hinweise und Seitenmetadaten werden direkt dort gepflegt.
-Es gibt keine zweite Fassung dieser Seiten in Generator-JavaScript oder zusätzlichen
-HTML-Vorlagen und keinen Seitengenerator. Der Browser verwendet genau diese vorhandenen Dateien. Fragenkataloge und interaktiver
-Lernzustand bleiben unabhängig davon in den bestehenden Lernskripten.
+Die acht HTML-Dateien im Projekt-Root enthalten Seiteninhalte und Metadaten.
+`scripts/ui/include.js` lädt Header und Footer aus `templates/` über den Browser.
+Die Bedienelemente zur Lernstandsicherung und die Fragen-Fußleiste stehen direkt in
+`lernen.html`, da sie zum Lernarbeitsplatz gehören.
 
 Das Deployment prüft und archiviert den gepflegten Stand. Es erzeugt keine Seiten,
 minifiziert nichts und ändert weder HTML-Formatierung noch Einrückung oder Zeilenenden.
@@ -26,7 +22,8 @@ der HTML-Inhalt selbst bleibt dabei unangetastet.
 
 | Pfad | Aufgabe |
 | --- | --- |
-| `*.html` | Einzige Inhaltsquelle der öffentlichen Seiten |
+| `*.html` | Seiteninhalte und Metadaten |
+| `templates/` | HTML-Fragmente für den gemeinsamen Kopf- und Fußbereich |
 | `styles/tokens.css` | Farben für Light, Dark und Systemmodus |
 | `styles/interface.css` | Oberfläche, Zustände und responsive Layouts |
 | `scripts/learning/` | Trainer, Profile, Zustand, Ansichten, Auswertung und Fragenbestand |
@@ -77,8 +74,9 @@ Regressionstests der Qualitätswerkzeuge ein. Dateiaufgaben, Prüfumfang und Gre
 ## Inhalte und gemeinsame Bereiche pflegen
 
 - Texte unmittelbar in der jeweiligen Root-HTML-Datei ändern.
-- Gemeinsame Navigation, Footer und Hinweise bei einer Änderung in allen betroffenen
-  Root-Seiten abgleichen. Keine zusätzliche Inhaltskopie in einem Skript anlegen.
+- Gemeinsame Navigation und Footer direkt in `templates/site-header.html` und
+  `templates/site-footer.html` pflegen. Relative Verweise darin beziehen sich auf die
+  einbindende Root-Seite. Für die lokale Vorschau genügt VS Code Live Server.
 - Betreiberangaben unmittelbar in Impressum und Datenschutz pflegen. Die vorhandene
   Konfiguration für Laufzeit und Release-Prüfung erzeugt daraus keine Texte.
 - Titel, Beschreibung, Canonical und OpenGraph direkt in den Seitenköpfen pflegen;

@@ -21,11 +21,12 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="icon" href="favicon.png" type="image/png" sizes="96x96">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preload" href="templates/site-header.html" as="fetch" crossorigin>
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
   <link rel="stylesheet" href="styles/tokens.css?v=62">
   <link rel="stylesheet" href="styles/interface.css?v=50">
-  <link rel="stylesheet" href="styles/navigation.css?v=71">
+  <link rel="stylesheet" href="styles/navigation.css?v=72">
   <link rel="stylesheet" href="styles/character.css?v=63">
   <link rel="stylesheet" href="styles/editorial-identity.css?v=62">
   <link rel="stylesheet" href="styles/accessibility.css?v=58">
@@ -48,59 +49,8 @@
 
 <body>
   <a class="skip-link" href="lernen.html#trainer">Zum Lerntrainer</a>
-  <header class="site-header wrap" id="geschichte">
-    <!-- BLOCK START: Marke und Projekthinweise -->
-    <div class="header-brand-group"><a class="brand" href="./" aria-label="Sachkunde NRW – Startseite"><span
-          class="brand-mark" aria-hidden="true">§</span><span>SACHKUNDE<span class="brand-sub">NRW / DIE
-            LERNHILFE</span></span></a>
-      <div class="header-project">
-        <p>Wissen für Mensch &amp; Hund.</p>
-        <a href="impressum.html#haftung" data-open-about aria-haspopup="dialog">Über diese Lernhilfe</a>
-      </div>
-    </div>
-    <!-- BLOCK END: Marke und Projekthinweise -->
-    <nav class="header-nav" aria-label="Hauptnavigation">
-      <a href="./" aria-current="page">Startseite</a>
-      <a href="lernen.html#trainer">Lernen</a>
-      <a href="grundlagen.html">Grundlagen</a>
-      <a href="gut-zu-wissen.html">Gut zu wissen</a>
-      <a href="hundewissen.html">Haltung &amp; Recht</a>
-      <a href="quellen.html">Quellen</a>
-    </nav>
-    <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><a class="icon-button"
-        aria-label="Lernstand laden – im Trainer" href="lernen.html?action=import#trainer"><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 16V4m-4 4 4-4 4 4M5 16v5h14v-5" />
-        </svg><span class="tool-tip" aria-hidden="true">Laden im Trainer</span></a><a class="icon-button"
-        aria-label="Lernstand sichern – im Trainer" href="lernen.html?action=export#trainer"><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" />
-        </svg><span class="tool-tip" aria-hidden="true">Sichern im Trainer</span></a><a class="icon-button"
-        aria-label="Lernbereich zurücksetzen – im Trainer" href="lernen.html?action=reset#trainer"><svg class="" width="20"
-          height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 11a8 8 0 1 1 2 7M4 4v7h7" />
-        </svg><span class="tool-tip" aria-hidden="true">Zurücksetzen im Trainer</span></a><button class="icon-button"
-        type="button" aria-label="Über PayPal unterstützen" data-open-support><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path
-            d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
-        </svg><span class="tool-tip" aria-hidden="true">Über PayPal unterstützen</span></button><button
-        class="icon-button" type="button" aria-label="Farbschema wechseln" id="themeToggle"><svg class="theme-sun"
-          width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 1v2m0 18v2M1 12h2m18 0h2M4 4l1.5 1.5m13 13L20 20M4 20l1.5-1.5m13-13L20 4" />
-        </svg><svg class="theme-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z" />
-        </svg><span class="tool-tip" aria-hidden="true">Farbschema wechseln</span></button><button class="icon-button" type="button" data-open-accessibility aria-label="Barrierefreiheit einstellen" aria-haspopup="dialog">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-          <circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7M8 8l1 6m7-6-1 6"/>
-        </svg><span class="tool-tip" aria-hidden="true">Barrierefreiheit</span></button></div>
+  <header class="site-header wrap" data-layout-src="templates/site-header.html" id="geschichte">
+    <a href="lernen.html#trainer">Zum Lerntrainer</a>
   </header>
   <main>
     <!-- BLOCK START: Einstieg für Mensch und Hund -->
@@ -121,8 +71,7 @@
       <figure class="companion">
         <div class="companion-image">
           <img src="assets/public/huendin-sonne.webp" width="1100" height="1467"
-            alt="Meine gestromte Hündin genießt Streicheleinheiten in der Sonne."
-            fetchpriority="high" decoding="async">
+            alt="Meine gestromte Hündin genießt Streicheleinheiten in der Sonne." fetchpriority="high" decoding="async">
         </div>
 
       </figure>
@@ -133,75 +82,114 @@
     <section id="trainer" class="learning-overview wrap" aria-labelledby="trainerTitle">
       <!-- BLOCK START: Lokale Personenprofile -->
       <div class="learner-bar">
-        <div><p class="eyebrow">Dein lokales Profil</p><strong data-learner-name>Dein Lernstand</strong>
-          <span class="microcopy" data-learner-goal>Noch offen</span></div>
-        <button class="secondary" type="button" data-open-learners aria-haspopup="dialog">Profil anlegen / wechseln</button>
+        <div>
+          <p class="eyebrow">Dein lokales Profil</p><strong data-learner-name>Dein Lernstand</strong>
+          <span class="microcopy" data-learner-goal>Noch offen</span>
+        </div>
+        <button class="secondary" type="button" data-open-learners aria-haspopup="dialog">Profil anlegen /
+          wechseln</button>
       </div>
       <!-- BLOCK END: Lokale Personenprofile -->
       <div id="learningOverview">
-        <div class="overview-heading"><div><p class="eyebrow">01 / Dein Lernplatz</p>
-          <h2 id="trainerTitle" data-overview-title>Dein Lernüberblick</h2></div>
-          <a class="primary button" href="lernen.html" data-overview-continue>Weiterlernen ↗</a></div>
+        <div class="overview-heading">
+          <div>
+            <p class="eyebrow">01 / Dein Lernplatz</p>
+            <h2 id="trainerTitle" data-overview-title>Dein Lernüberblick</h2>
+          </div>
+          <a class="primary button" href="lernen.html" data-overview-continue>Weiterlernen ↗</a>
+        </div>
         <dl class="overview-kpis">
-          <div><dt>Beantwortet</dt><dd data-overview="answered">—</dd></div>
-          <div><dt>Richtig geprüft</dt><dd data-overview="correct">—</dd></div>
-          <div><dt>Zum Wiederholen</dt><dd data-overview="wrong">—</dd></div>
-          <div><dt>Gemerkt</dt><dd data-overview="bookmarked">—</dd></div>
+          <div>
+            <dt>Beantwortet</dt>
+            <dd data-overview="answered">—</dd>
+          </div>
+          <div>
+            <dt>Richtig geprüft</dt>
+            <dd data-overview="correct">—</dd>
+          </div>
+          <div>
+            <dt>Zum Wiederholen</dt>
+            <dd data-overview="wrong">—</dd>
+          </div>
+          <div>
+            <dt>Gemerkt</dt>
+            <dd data-overview="bookmarked">—</dd>
+          </div>
         </dl>
         <p class="overview-note" data-overview-note>Dein Überblick wird beim nächsten Lernen aktualisiert.</p>
-        <p class="microcopy">Ein Katalog, ein Lernstand. Kein Zusammenzählen überlappender Fragen, keine Prüfungsvorhersage.</p>
+        <p class="microcopy">Ein Katalog, ein Lernstand. Kein Zusammenzählen überlappender Fragen, keine
+          Prüfungsvorhersage.</p>
       </div>
     </section>
     <!-- BLOCK END: Persönlicher Lernüberblick -->
     <!-- BLOCK START: Vergleich der lokalen Personenprofile -->
     <section class="profile-comparison wrap" aria-labelledby="comparisonTitle" hidden>
-      <div class="overview-heading"><h2 id="comparisonTitle">Gemeinsam lernen.</h2>
-        <p class="microcopy">Vergleicht denselben Katalog und die Zahl geprüfter Fragen. Unterschiedliche Kataloge sind nicht direkt vergleichbar.</p></div>
+      <div class="overview-heading">
+        <h2 id="comparisonTitle">Gemeinsam lernen.</h2>
+        <p class="microcopy">Vergleicht denselben Katalog und die Zahl geprüfter Fragen. Unterschiedliche Kataloge sind
+          nicht direkt vergleichbar.</p>
+      </div>
       <div class="profile-comparison-grid" data-profile-comparison></div>
     </section>
     <!-- BLOCK END: Vergleich der lokalen Personenprofile -->
     <!-- BLOCK START: Direkte Katalog- und Testauswahl -->
     <section id="kataloge" class="catalogue-section wrap" aria-labelledby="cataloguesTitle">
-      <div class="catalogue-heading"><div><p class="eyebrow">02 / Wähle deinen Einstieg</p>
-        <h2 id="cataloguesTitle">Dein Katalog.<br>Dein Tempo.</h2></div>
+      <div class="catalogue-heading">
+        <div>
+          <p class="eyebrow">02 / Wähle deinen Einstieg</p>
+          <h2 id="cataloguesTitle">Dein Katalog.<br>Dein Tempo.</h2>
+        </div>
         <p>Viele Fragen vermitteln gemeinsames Grundwissen für §§ 3, 10 und 11. Welcher Nachweis und welcher Katalog
-          zu dir passen, klärst du mit deiner Prüfstelle. <a href="hundewissen.html#sachkunde">Unterschiede verstehen</a> ·
-          <a href="hundewissen.html#vorbereitung">Weg zur Haltungserlaubnis</a></p></div>
+          zu dir passen, klärst du mit deiner Prüfstelle. <a href="hundewissen.html#sachkunde">Unterschiede
+            verstehen</a> ·
+          <a href="hundewissen.html#vorbereitung">Weg zur Haltungserlaubnis</a>
+        </p>
+      </div>
       <div class="catalogue-grid">
         <article class="catalogue-card" data-catalogue-mode="all" data-question-count="400">
           <p class="catalogue-count"><strong>400</strong> Fragen</p>
-          <h3>Alle Quellen</h3><p>Der Gesamtpool mit Quellenvarianten und eigenem Lernstand.</p>
+          <h3>Alle Quellen</h3>
+          <p>Der Gesamtpool mit Quellenvarianten und eigenem Lernstand.</p>
           <a href="lernen.html?mode=all" data-catalogue-start>Katalog öffnen <span aria-hidden="true">↗</span></a>
         </article>
         <article class="catalogue-card" data-catalogue-mode="mg" data-question-count="398">
           <p class="catalogue-count"><strong>398</strong> Fragen</p>
-          <h3>Basispool</h3><p>Grundwissen für die Sachkunde nach §§ 3, 10 und 11 aus den ursprünglichen Katalogen; viele Inhalte überschneiden sich mit dem Kammerkatalog.</p>
+          <h3>Basispool</h3>
+          <p>Grundwissen für die Sachkunde nach §§ 3, 10 und 11 aus den ursprünglichen Katalogen; viele Inhalte
+            überschneiden sich mit dem Kammerkatalog.</p>
           <a href="lernen.html?mode=mg" data-catalogue-start>Katalog öffnen <span aria-hidden="true">↗</span></a>
         </article>
         <article class="catalogue-card" data-catalogue-mode="koeln" data-question-count="115">
           <p class="catalogue-count"><strong>115</strong> Fragen</p>
-          <h3>Köln · A / B / C</h3><p>Bereitgestellter Übungsbogen mit seinen Originalnummern.</p>
+          <h3>Köln · A / B / C</h3>
+          <p>Bereitgestellter Übungsbogen mit seinen Originalnummern.</p>
           <a href="lernen.html?mode=koeln" data-catalogue-start>Katalog öffnen <span aria-hidden="true">↗</span></a>
         </article>
         <article class="catalogue-card" data-catalogue-mode="rhein97" data-question-count="97">
           <p class="catalogue-count"><strong>97</strong> Fragen</p>
-          <h3>Rhein-Erft · 97</h3><p>Zugesandte Fassung mit eigenem Lösungsschlüssel.</p>
+          <h3>Rhein-Erft · 97</h3>
+          <p>Zugesandte Fassung mit eigenem Lösungsschlüssel.</p>
           <a href="lernen.html?mode=rhein97" data-catalogue-start>Katalog öffnen <span aria-hidden="true">↗</span></a>
         </article>
         <article class="catalogue-card" data-catalogue-mode="legacy203" data-question-count="203">
           <p class="catalogue-count"><strong>203</strong> Fragen</p>
-          <h3>Rhein-Erft · 203</h3><p>Veröffentlichter Katalog, getrennt von der 97er-Fassung.</p>
+          <h3>Rhein-Erft · 203</h3>
+          <p>Veröffentlichter Katalog, getrennt von der 97er-Fassung.</p>
           <a href="lernen.html?mode=legacy203" data-catalogue-start>Katalog öffnen <span aria-hidden="true">↗</span></a>
         </article>
         <article class="catalogue-card" data-catalogue-mode="kammer197" data-question-count="197">
           <p class="catalogue-count"><strong>197</strong> Fragen</p>
-          <h3>Tierärztekammern</h3><p>§-11-Lernkatalog für große Hunde; ergänzendes Wissen für § 3.</p>
+          <h3>Tierärztekammern</h3>
+          <p>§-11-Lernkatalog für große Hunde; ergänzendes Wissen für § 3.</p>
           <a href="lernen.html?mode=kammer197" data-catalogue-start>Katalog öffnen <span aria-hidden="true">↗</span></a>
         </article>
       </div>
       <div class="test-launcher" aria-labelledby="quickTestsTitle">
-        <div><h3 id="quickTestsTitle">Lieber einen Probelauf?</h3>
-          <p>Alle Testreihen sind unverbindliche, geschätzte Prüfungssimulationen. Sie nutzen dokumentierte Quellen und persönliche Behördenauskünfte als Grundlage.</p></div>
+        <div>
+          <h3 id="quickTestsTitle">Lieber einen Probelauf?</h3>
+          <p>Alle Testreihen sind unverbindliche, geschätzte Prüfungssimulationen. Sie nutzen dokumentierte Quellen und
+            persönliche Behördenauskünfte als Grundlage.</p>
+        </div>
         <div class="test-shortcuts">
           <a href="lernen.html?mode=exam34"><strong>34</strong><span>Rhein-Erft-Übung</span></a>
           <a href="lernen.html?mode=mgexam"><strong>119</strong><span>Mönchengladbach</span></a>
@@ -214,16 +202,20 @@
     <!-- BLOCK END: Direkte Katalog- und Testauswahl -->
     <!-- BLOCK START: Bildabschnitt und Lernwege -->
     <section class="learning-story wrap" aria-labelledby="learningStoryTitle">
-      <div><p class="eyebrow">03 / Wissen im Alltag</p>
+      <div>
+        <p class="eyebrow">03 / Wissen im Alltag</p>
         <h2 id="learningStoryTitle">Es geht um mehr<br>als die Prüfung.</h2>
         <p>Verhalten verstehen, Begegnungen aufmerksam begleiten und Verantwortung übernehmen.
           Unsere Grundlagen verbinden die Themen der Fragenkataloge mit dem Leben mit Hund.</p>
-        <ul><li>Fehler gezielt wiederholen.</li><li>Bei ausgewählten Fragen die Antwort verstehen.</li>
-          <li>Quellen und kommunale Unterschiede einordnen.</li></ul>
-        <a href="grundlagen.html">In die Grundlagen einlesen →</a></div>
+        <ul>
+          <li>Fehler gezielt wiederholen.</li>
+          <li>Bei ausgewählten Fragen die Antwort verstehen.</li>
+          <li>Quellen und kommunale Unterschiede einordnen.</li>
+        </ul>
+        <a href="grundlagen.html">In die Grundlagen einlesen →</a>
+      </div>
       <figure><img src="assets/public/huendin-miteinander.webp" width="1200" height="900"
-          alt="Meine Hündin bei mir auf dem Schoß am Strand."
-          loading="lazy" decoding="async"></figure>
+          alt="Meine Hündin bei mir auf dem Schoß am Strand." loading="lazy" decoding="async"></figure>
     </section>
     <!-- BLOCK END: Bildabschnitt und Lernwege -->
     <section class="info-section wrap" aria-labelledby="trainerFaqTitle">
@@ -248,7 +240,8 @@
         </details>
         <details name="trainer-faq">
           <summary>Gibt es Übungen für die Sachkunde bei Listenhunden?</summary>
-          <p>Der Basispool verbindet Verhalten, Erziehung, Gesundheit und rechtliche Grundlagen. Viele dieser Themen sind für die Sachkunde nach §§ 3, 10 und 11 relevant.
+          <p>Der Basispool verbindet Verhalten, Erziehung, Gesundheit und rechtliche Grundlagen. Viele dieser Themen
+            sind für die Sachkunde nach §§ 3, 10 und 11 relevant.
             Die Einstufung eines Hundes und die Anforderungen an seine Haltung sind davon getrennte Fragen.
             <a href="hundewissen.html#einstufung">Was „Listenhund“ in NRW bedeutet</a>.
           </p>
@@ -260,11 +253,13 @@
             sowie persönliche Antworten der jeweiligen Ämter und Prüfstellen. Daraus leiten wir eine mögliche
             Übungssituation ab; Auswahl, Ablauf und Wertung bilden keine amtliche Prüfung verbindlich nach.
             Beim Essen-Beispiel kommen ausdrücklich gekennzeichnete eigene Rechtsfragen hinzu.
-            <a href="gut-zu-wissen.html#testreihen">Testprofile und Annahmen ansehen</a>.</p>
+            <a href="gut-zu-wissen.html#testreihen">Testprofile und Annahmen ansehen</a>.
+          </p>
         </details>
         <details name="trainer-faq">
           <summary>Wo finde ich Haltungsauflagen, Leinenpflicht und Maulkorbregeln?</summary>
-          <p>Auf <a href="hundewissen.html">„Haltung &amp; Recht“</a> findest du eine erste Einordnung zu Hundehaltung und Sachkunde in NRW
+          <p>Auf <a href="hundewissen.html">„Haltung &amp; Recht“</a> findest du eine erste Einordnung zu Hundehaltung
+            und Sachkunde in NRW
             mit Behördenquellen und Rechtstexten. Verbindliche Auskunft zu deinem Hund gibt die zuständige Behörde.
             <a href="hundewissen.html#vorbereitung">Haltungsauflagen und zuständige Stellen</a>.
           </p>
@@ -291,22 +286,8 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer wrap">
-    <!-- BLOCK START: Gemeinsame Fußzeilenmarke -->
-    <a class="footer-brand" href="./">SACHKUNDE<span>Für Mensch &amp; Hund. / NRW</span></a>
-    <!-- BLOCK END: Gemeinsame Fußzeilenmarke -->
-    <p class="footer-scope">Aktuell gibt es die Lernhilfe nur für NRW. Weitere Bundesländer können auf Anfrage ergänzt
-      werden. <a
-        href="mailto:kontakt@design-code-repeat.de?subject=Sachkundenachweis%20f%C3%BCr%20Hunde%20%28Bundesland%29">Erweiterung
-        per E-Mail anfragen</a> – bitte das Bundesland im Betreff angeben.</p>
-
-    <p class="footer-credit">© 2026 Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/"
-        aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p>
-    <nav aria-label="Rechtliches und Informationen"><a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a><a href="./#geschichte" data-open-story
-        aria-haspopup="dialog">Die Geschichte hinter dem Trainer</a><a href="quellen.html">Originalquellen</a><a
-        href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a
-        href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="lernen.html#trainer">Zum Lernen ↑</a>
-    </nav>
+  <footer class="site-footer wrap" data-layout-src="templates/site-footer.html">
+    <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   </footer>
   <noscript>
     <p class="wrap context-note">Der interaktive Trainer benötigt JavaScript. Die <a
@@ -315,6 +296,7 @@
   <script src="scripts/ui/learner-state.js?v=64" defer></script>
   <script src="scripts/ui/learning-overview.js?v=64" defer></script>
   <script src="scripts/ui/learning-entry.js?v=55" defer></script>
+  <script src="scripts/ui/include.js?v=1" defer></script>
   <script src="scripts/site-config.js?v=38" defer></script>
   <script src="scripts/ui/shared.js?v=67" defer></script>
   <script src="scripts/ui/modal.js?v=67" defer></script>
@@ -322,13 +304,13 @@
   <script src="scripts/ui/toast-item.js?v=67" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
-  <script src="scripts/ui/navigation.js?v=68" defer></script>
+  <script src="scripts/ui/navigation.js?v=69" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
   <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
   <script src="scripts/ui/release.js?v=65" defer></script>
   <script src="scripts/ui/page-tools.js?v=67" defer></script>
   <script src="scripts/ui/learner-panel.js?v=64" defer></script>
-  <script src="scripts/ui/common.js?v=63" defer></script>
+  <script src="scripts/ui/common.js?v=64" defer></script>
   <script src="scripts/ui/select-view.js?v=55" defer></script>
   <script src="scripts/ui/select-keyboard.js?v=38" defer></script>
   <script src="scripts/ui/select.js?v=38" defer></script>

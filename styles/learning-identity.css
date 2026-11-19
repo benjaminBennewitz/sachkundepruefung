@@ -27,7 +27,9 @@
    ========================================================================== */
 
 @media screen {
-  .sidebar, .select-menu[data-palette=forest] {
+
+  .sidebar,
+  .select-menu[data-palette=forest] {
     color: var(--text);
   }
 
@@ -91,7 +93,9 @@
     letter-spacing: -.025em;
   }
 
-  .question-card, .question-card.correct, .question-card.wrong {
+  .question-card,
+  .question-card.correct,
+  .question-card.wrong {
     border: 1px solid var(--line);
     border-radius: var(--radius-md);
     background: var(--question-bg);
@@ -121,7 +125,9 @@
     letter-spacing: -.025em;
   }
 
-  .status-pill, .bookmark, .answer-option {
+  .status-pill,
+  .bookmark,
+  .answer-option {
     border-radius: var(--radius-sm);
   }
 
@@ -184,32 +190,38 @@
    ========================================================================== */
 
 @media screen {
-  .nav-q, .sidebar .nav-q {
+
+  .nav-q,
+  .sidebar .nav-q {
     border: 1px solid var(--control-line);
     border-radius: 4px;
     background: var(--surface);
     color: var(--text);
   }
 
-  .nav-q.answered, .sidebar .nav-q.answered {
+  .nav-q.answered,
+  .sidebar .nav-q.answered {
     border-color: var(--accent);
     background: var(--accent);
     color: var(--on-accent);
   }
 
-  .nav-q.correct, .sidebar .nav-q.correct {
+  .nav-q.correct,
+  .sidebar .nav-q.correct {
     border-color: var(--ok);
     background: var(--ok-bg);
     color: var(--ok);
   }
 
-  .nav-q.wrong, .sidebar .nav-q.wrong {
+  .nav-q.wrong,
+  .sidebar .nav-q.wrong {
     border-color: var(--bad);
     background: var(--bad-bg);
     color: var(--bad);
   }
 
-  .nav-q[aria-current], .sidebar .nav-q[aria-current] {
+  .nav-q[aria-current],
+  .sidebar .nav-q[aria-current] {
     outline: 3px solid var(--focus);
     outline-offset: 2px;
   }

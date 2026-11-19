@@ -7,7 +7,11 @@
  */
 'use strict';
 
-(() => {
+/**
+ * Initialisiert den Menüdialog, sobald der gemeinsame Kopfbereich verfügbar ist.
+ * @returns {void} Kein Rückgabewert.
+ */
+function bindHeaderNavigation() {
   const header = document.querySelector('.site-header');
   const navigation = header?.querySelector('.header-nav');
   const tools = header?.querySelector('.header-tools');
@@ -106,4 +110,7 @@
   });
   viewport.addEventListener('change', syncViewport);
   syncViewport();
-})();
+}
+
+if (window.LHUNDG_LAYOUT_READY) void window.LHUNDG_LAYOUT_READY.then(bindHeaderNavigation);
+else bindHeaderNavigation();

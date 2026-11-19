@@ -19,11 +19,12 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="icon" href="favicon.png" type="image/png" sizes="96x96">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preload" href="templates/site-header.html" as="fetch" crossorigin>
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
   <link rel="stylesheet" href="styles/tokens.css?v=62">
   <link rel="stylesheet" href="styles/interface.css?v=50">
-  <link rel="stylesheet" href="styles/navigation.css?v=71">
+  <link rel="stylesheet" href="styles/navigation.css?v=72">
   <link rel="stylesheet" href="styles/character.css?v=63">
   <link rel="stylesheet" href="styles/editorial-identity.css?v=62">
   <link rel="stylesheet" href="styles/accessibility.css?v=58">
@@ -33,419 +34,399 @@
 </head>
 
 <body><a class="skip-link" href="#inhalt">Zum Inhalt</a>
-  <header class="site-header wrap">
-    <!-- BLOCK START: Marke und Projekthinweise -->
-    <div class="header-brand-group"><a class="brand" href="./" aria-label="Sachkunde NRW – Startseite"><span
-          class="brand-mark" aria-hidden="true">§</span><span>SACHKUNDE<span class="brand-sub">NRW / DIE
-            LERNHILFE</span></span></a>
-      <div class="header-project">
-        <p>Wissen für Mensch &amp; Hund.</p>
-        <a href="impressum.html#haftung" data-open-about aria-haspopup="dialog">Über diese Lernhilfe</a>
-      </div>
-    </div>
-    <!-- BLOCK END: Marke und Projekthinweise -->
-    <nav class="header-nav" aria-label="Hauptnavigation">
-      <a href="./">Startseite</a>
-      <a href="lernen.html#trainer">Lernen</a>
-      <a href="grundlagen.html">Grundlagen</a>
-      <a href="gut-zu-wissen.html">Gut zu wissen</a>
-      <a href="hundewissen.html" aria-current="page">Haltung &amp; Recht</a>
-      <a href="quellen.html">Quellen</a>
-    </nav>
-    <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><a class="icon-button"
-        aria-label="Lernstand laden – im Trainer" href="lernen.html?action=import#trainer"><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 16V4m-4 4 4-4 4 4M5 16v5h14v-5" />
-        </svg><span class="tool-tip" aria-hidden="true">Laden im Trainer</span></a><a class="icon-button"
-        aria-label="Lernstand sichern – im Trainer" href="lernen.html?action=export#trainer"><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" />
-        </svg><span class="tool-tip" aria-hidden="true">Sichern im Trainer</span></a><a class="icon-button"
-        aria-label="Lernbereich zurücksetzen – im Trainer" href="lernen.html?action=reset#trainer"><svg class="" width="20"
-          height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 11a8 8 0 1 1 2 7M4 4v7h7" />
-        </svg><span class="tool-tip" aria-hidden="true">Zurücksetzen im Trainer</span></a><button class="icon-button"
-        type="button" aria-label="Über PayPal unterstützen" data-open-support><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path
-            d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
-        </svg><span class="tool-tip" aria-hidden="true">Über PayPal unterstützen</span></button><button
-        class="icon-button" type="button" aria-label="Farbschema wechseln" id="themeToggle"><svg class="theme-sun"
-          width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 1v2m0 18v2M1 12h2m18 0h2M4 4l1.5 1.5m13 13L20 20M4 20l1.5-1.5m13-13L20 4" />
-        </svg><svg class="theme-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z" />
-        </svg><span class="tool-tip" aria-hidden="true">Farbschema wechseln</span></button><button class="icon-button" type="button" data-open-accessibility aria-label="Barrierefreiheit einstellen" aria-haspopup="dialog">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-          <circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7M8 8l1 6m7-6-1 6"/>
-        </svg><span class="tool-tip" aria-hidden="true">Barrierefreiheit</span></button></div>
+  <header class="site-header wrap" data-layout-src="templates/site-header.html">
+    <a href="./">Startseite</a>
   </header>
   <main id="inhalt" class="prose wrap magazine" tabindex="-1">
     <!-- BLOCK START: Seitenauftakt -->
     <header class="page-masthead page-masthead--magazine">
       <div class="masthead-copy">
-      <p class="eyebrow">03 / Haltung &amp; Recht</p>
-      <h1>Listenhunde &amp; Haltungsauflagen in NRW</h1>
+        <p class="eyebrow">03 / Haltung &amp; Recht</p>
+        <h1>Listenhunde &amp; Haltungsauflagen in NRW</h1>
         <p class="masthead-deck">Wissen einordnen. Verantwortung übernehmen.</p>
       </div>
-      <figure class="masthead-image"><img src="assets/public/zwei-hunde.webp" width="1200" height="900" alt="Zwei Hunde, gestromt und schwarzweiß, liegen auf einer sonnigen Terrasse." loading="eager" fetchpriority="high" decoding="async"></figure>
+      <figure class="masthead-image"><img src="assets/public/zwei-hunde.webp" width="1200" height="900"
+          alt="Zwei Hunde, gestromt und schwarzweiß, liegen auf einer sonnigen Terrasse." loading="eager"
+          fetchpriority="high" decoding="async"></figure>
     </header>
     <!-- BLOCK END: Seitenauftakt -->
     <!-- BLOCK START: Orientierung -->
     <div class="editorial-intro">
-    <aside class="legal-disclaimer" aria-label="Wichtiger Hinweis zur Lernhilfe"><strong>REINE LERNHILFE. KEINE
-        RECHTSBERATUNG. KEINE PRÜFUNGSGARANTIE.</strong>
-      <p>Dieses unabhängige Angebot ersetzt weder behördliche Auskünfte noch eine Sachkunde- oder Verhaltensprüfung. Für
-        Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird keine Gewähr übernommen. Maßgeblich sind geltendes
-        Recht und die Auskunft deiner zuständigen Behörde. Ein gutes Übungsergebnis garantiert kein Bestehen. <a
-          href="impressum.html#haftung">Hinweise zur Haftung</a></p>
-    </aside>
-    <p>„Listenhund“, Sachkunde und Wesenstest werden oft in einem Atemzug genannt. Sie beschreiben aber unterschiedliche
-      Dinge: die rechtliche Einordnung des Hundes, Kenntnisse des Menschen und die Beurteilung des Hund-Halter-Gespanns.
-      Diese Übersicht ist allgemeine Orientierung für Nordrhein-Westfalen. Der Leseplan und die Ortsinformationen wurden
-      am 11. November 2026 ergänzt.</p>
-    <nav class="knowledge-nav" aria-label="Themen zu Haltung und Recht">
-      <a href="grundlagen.html">Grundlagen</a>
-      <a href="#einstufung">Hundekategorien</a>
-      <a href="#lernabdeckung">Was deckt der Trainer ab?</a>
-      <a href="#recht">Rechtstexte und Leseplan</a>
-      <a href="#staedte">Städte und Kreise</a>
-      <a href="#verhalten">Verhaltensprüfung</a>
-      <a href="#vorbereitung">Weg zur Haltungserlaubnis</a>
-    </nav>
-</div>
+      <aside class="legal-disclaimer" aria-label="Wichtiger Hinweis zur Lernhilfe"><strong>REINE LERNHILFE. KEINE
+          RECHTSBERATUNG. KEINE PRÜFUNGSGARANTIE.</strong>
+        <p>Dieses unabhängige Angebot ersetzt weder behördliche Auskünfte noch eine Sachkunde- oder Verhaltensprüfung.
+          Für
+          Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird keine Gewähr übernommen. Maßgeblich sind
+          geltendes
+          Recht und die Auskunft deiner zuständigen Behörde. Ein gutes Übungsergebnis garantiert kein Bestehen. <a
+            href="impressum.html#haftung">Hinweise zur Haftung</a></p>
+      </aside>
+      <p>„Listenhund“, Sachkunde und Wesenstest werden oft in einem Atemzug genannt. Sie beschreiben aber
+        unterschiedliche
+        Dinge: die rechtliche Einordnung des Hundes, Kenntnisse des Menschen und die Beurteilung des
+        Hund-Halter-Gespanns.
+        Diese Übersicht ist allgemeine Orientierung für Nordrhein-Westfalen. Der Leseplan und die Ortsinformationen
+        wurden
+        am 11. November 2026 ergänzt.</p>
+      <nav class="knowledge-nav" aria-label="Themen zu Haltung und Recht">
+        <a href="grundlagen.html">Grundlagen</a>
+        <a href="#einstufung">Hundekategorien</a>
+        <a href="#lernabdeckung">Was deckt der Trainer ab?</a>
+        <a href="#recht">Rechtstexte und Leseplan</a>
+        <a href="#staedte">Städte und Kreise</a>
+        <a href="#verhalten">Verhaltensprüfung</a>
+        <a href="#vorbereitung">Weg zur Haltungserlaubnis</a>
+      </nav>
+    </div>
     <!-- BLOCK END: Orientierung -->
     <!-- BLOCK START: Magazinkapitel -->
     <div class="magazine-body">
       <div class="editorial-chapter editorial-chapter--full editorial-chapter--table">
         <h2 id="einstufung">Was bedeutet „Listenhund“?</h2>
-    <p>„Listenhund“ ist eine gebräuchliche Sammelbezeichnung. Das NRW-Gesetz unterscheidet gefährliche Hunde (§ 3),
-      Hunde bestimmter Rassen (§ 10) und große Hunde (§ 11). Eine gesetzliche Rassezuordnung ist keine individuelle
-      Verhaltensdiagnose. Auch die Einordnung von Kreuzungen und eine etwaige Gefährlichkeitsfeststellung gehören in die
-      Hände der zuständigen Behörde.</p>
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th>Gruppe</th>
-            <th>Einordnung</th>
-            <th>Wichtige Unterscheidung</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>§ 3</td>
-            <td>Pitbull Terrier, American Staffordshire Terrier, Staffordshire Bullterrier und Bullterrier sowie
-              gesetzlich erfasste Kreuzungen. Zusätzlich im Einzelfall festgestellte gefährliche Hunde unabhängig von
-              der Rasse.</td>
-            <td>Für die Haltung ist grundsätzlich eine Erlaubnis erforderlich; Sachkunde über die amtliche Tierärztin
-              oder den amtlichen Tierarzt.</td>
-          </tr>
-          <tr>
-            <td>§ 10</td>
-            <td>Alano, American Bulldog, Bullmastiff, Mastiff, Mastín Español, Mastino Napoletano, Fila Brasileiro, Dogo
-              Argentino, Rottweiler und Tosa Inu sowie gesetzlich erfasste Kreuzungen.</td>
-            <td>Besondere Erlaubnis- und Haltungsvoraussetzungen; anerkannte Sachverständige bzw. Stellen können
-              ebenfalls zuständig sein.</td>
-          </tr>
-          <tr>
-            <td>§ 11</td>
-            <td>Ausgewachsen mindestens 40 cm Widerristhöhe <strong>oder</strong> mindestens 20 kg; soweit keine
-              strengere Einordnung greift.</td>
-            <td>Anzeige und Nachweise gegenüber der Behörde; Sachkunde auch durch von der Tierärztekammer benannte
-              Tierärzte möglich.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="source-links"><a
-        href="https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/"
-        target="_blank" rel="noopener noreferrer external">LHundG NRW: §§ 3, 4, 6, 10 und 11 ↗</a> · <a
-        href="https://www.mlv.nrw.de/themen/verbraucherschutz/tierschutz-und-tierhaltung/hobby-tierhaltung/hunde/"
-        target="_blank" rel="noopener noreferrer external">Landwirtschaftsministerium NRW: Hunde ↗</a></p>
-</div>
+        <p>„Listenhund“ ist eine gebräuchliche Sammelbezeichnung. Das NRW-Gesetz unterscheidet gefährliche Hunde (§ 3),
+          Hunde bestimmter Rassen (§ 10) und große Hunde (§ 11). Eine gesetzliche Rassezuordnung ist keine individuelle
+          Verhaltensdiagnose. Auch die Einordnung von Kreuzungen und eine etwaige Gefährlichkeitsfeststellung gehören in
+          die
+          Hände der zuständigen Behörde.</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Gruppe</th>
+                <th>Einordnung</th>
+                <th>Wichtige Unterscheidung</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>§ 3</td>
+                <td>Pitbull Terrier, American Staffordshire Terrier, Staffordshire Bullterrier und Bullterrier sowie
+                  gesetzlich erfasste Kreuzungen. Zusätzlich im Einzelfall festgestellte gefährliche Hunde unabhängig
+                  von
+                  der Rasse.</td>
+                <td>Für die Haltung ist grundsätzlich eine Erlaubnis erforderlich; Sachkunde über die amtliche
+                  Tierärztin
+                  oder den amtlichen Tierarzt.</td>
+              </tr>
+              <tr>
+                <td>§ 10</td>
+                <td>Alano, American Bulldog, Bullmastiff, Mastiff, Mastín Español, Mastino Napoletano, Fila Brasileiro,
+                  Dogo
+                  Argentino, Rottweiler und Tosa Inu sowie gesetzlich erfasste Kreuzungen.</td>
+                <td>Besondere Erlaubnis- und Haltungsvoraussetzungen; anerkannte Sachverständige bzw. Stellen können
+                  ebenfalls zuständig sein.</td>
+              </tr>
+              <tr>
+                <td>§ 11</td>
+                <td>Ausgewachsen mindestens 40 cm Widerristhöhe <strong>oder</strong> mindestens 20 kg; soweit keine
+                  strengere Einordnung greift.</td>
+                <td>Anzeige und Nachweise gegenüber der Behörde; Sachkunde auch durch von der Tierärztekammer benannte
+                  Tierärzte möglich.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="source-links"><a
+            href="https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/"
+            target="_blank" rel="noopener noreferrer external">LHundG NRW: §§ 3, 4, 6, 10 und 11 ↗</a> · <a
+            href="https://www.mlv.nrw.de/themen/verbraucherschutz/tierschutz-und-tierhaltung/hobby-tierhaltung/hunde/"
+            target="_blank" rel="noopener noreferrer external">Landwirtschaftsministerium NRW: Hunde ↗</a></p>
+      </div>
       <div class="editorial-chapter">
         <h2 id="sachkunde">Sachkundenachweis: Wissen des Menschen</h2>
-    <p>Wer sich auf § 3 oder § 11 vorbereitet, lernt in weiten Teilen dasselbe Grundwissen: Verhalten, Gesundheit,
-      Haltung und Erziehung. Ein allgemeiner Katalog kann deshalb für beide Lernziele hilfreich sein. Daraus folgt aber
-      nicht, dass die Prüfungen oder Bescheinigungen austauschbar sind. Entscheidend sind die Hundekategorie, die
-      zugelassene Prüfstelle und die örtlichen Prüfungsbedingungen.</p>
-    <p>Für gefährliche Hunde nach § 3 wird die Sachkunde grundsätzlich durch die amtliche Tierärztin oder den amtlichen
-      Tierarzt nachgewiesen. Bei § 10 sind zusätzlich anerkannte Sachverständige und Stellen zugelassen; für große Hunde
-      nach § 11 kommen auch von der Tierärztekammer benannte Tierärzte infrage. Eine §-11-Bescheinigung reicht für § 3
-      nicht aus. Ein Nachweis für eine Kategorie mit höherem Gefahrenpotenzial kann dagegen für eine niedrigere Kategorie
-      anerkannt werden. Lass einen vorhandenen Nachweis vorab von der zuständigen Behörde prüfen.</p>
-    <p>Für § 3 kann die Kenntnisprüfung nach der Landesverordnung als Fachgespräch oder vergleichbares schriftliches
-      Verfahren stattfinden. Es gibt keine einzige NRW-weit identische Online-Prüfung. Beispiel Köln: Die Stadt nennt 34
-      Fragen und mindestens 24 vollständig richtige Antworten. Für § 11 beschreibt die Tierärztekammer Nordrhein 30
-      Fragen mit Informationsgespräch, ohne feste veröffentlichte Fehlerquote. In dieser Lernhilfe sind die <a
-        href="gut-zu-wissen.html#testreihen">Testreihen entsprechend getrennt</a>.</p>
-    <p class="source-links"><a
-        href="https://recht.nrw.de/lrgv/rechtsverordnung/09122025-ordnungsbehoerdliche-verordnung-zur-durchfuehrung-des/"
-        target="_blank" rel="noopener noreferrer external">DVO LHundG NRW: § 1 ↗</a> · <a
-        href="https://recht.nrw.de/lrmb/verwaltungsvorschrift/07102026-verwaltungsvorschriften-zum-landeshundegesetz-vv-lhundg-nrw/"
-        target="_blank" rel="noopener noreferrer external">Verwaltungsvorschriften: Nr. 6.2 ↗</a> · <a
-        href="https://www.stadt-koeln.de/service/produkt/sachkundenachweis-fuer-hundehalterinnen" target="_blank"
-        rel="noopener noreferrer external">Stadt Köln: Prüfungsablauf ↗</a> · <a
-        href="https://www.tieraerztekammer-nordrhein.de/tierhalter/sachkundebescheinigung-lhundg/" target="_blank"
-        rel="noopener noreferrer external">Tierärztekammer: § 11 ↗</a></p>
-</div>
+        <p>Wer sich auf § 3 oder § 11 vorbereitet, lernt in weiten Teilen dasselbe Grundwissen: Verhalten, Gesundheit,
+          Haltung und Erziehung. Ein allgemeiner Katalog kann deshalb für beide Lernziele hilfreich sein. Daraus folgt
+          aber
+          nicht, dass die Prüfungen oder Bescheinigungen austauschbar sind. Entscheidend sind die Hundekategorie, die
+          zugelassene Prüfstelle und die örtlichen Prüfungsbedingungen.</p>
+        <p>Für gefährliche Hunde nach § 3 wird die Sachkunde grundsätzlich durch die amtliche Tierärztin oder den
+          amtlichen
+          Tierarzt nachgewiesen. Bei § 10 sind zusätzlich anerkannte Sachverständige und Stellen zugelassen; für große
+          Hunde
+          nach § 11 kommen auch von der Tierärztekammer benannte Tierärzte infrage. Eine §-11-Bescheinigung reicht für §
+          3
+          nicht aus. Ein Nachweis für eine Kategorie mit höherem Gefahrenpotenzial kann dagegen für eine niedrigere
+          Kategorie
+          anerkannt werden. Lass einen vorhandenen Nachweis vorab von der zuständigen Behörde prüfen.</p>
+        <p>Für § 3 kann die Kenntnisprüfung nach der Landesverordnung als Fachgespräch oder vergleichbares schriftliches
+          Verfahren stattfinden. Es gibt keine einzige NRW-weit identische Online-Prüfung. Beispiel Köln: Die Stadt
+          nennt 34
+          Fragen und mindestens 24 vollständig richtige Antworten. Für § 11 beschreibt die Tierärztekammer Nordrhein 30
+          Fragen mit Informationsgespräch, ohne feste veröffentlichte Fehlerquote. In dieser Lernhilfe sind die <a
+            href="gut-zu-wissen.html#testreihen">Testreihen entsprechend getrennt</a>.</p>
+        <p class="source-links"><a
+            href="https://recht.nrw.de/lrgv/rechtsverordnung/09122025-ordnungsbehoerdliche-verordnung-zur-durchfuehrung-des/"
+            target="_blank" rel="noopener noreferrer external">DVO LHundG NRW: § 1 ↗</a> · <a
+            href="https://recht.nrw.de/lrmb/verwaltungsvorschrift/07102026-verwaltungsvorschriften-zum-landeshundegesetz-vv-lhundg-nrw/"
+            target="_blank" rel="noopener noreferrer external">Verwaltungsvorschriften: Nr. 6.2 ↗</a> · <a
+            href="https://www.stadt-koeln.de/service/produkt/sachkundenachweis-fuer-hundehalterinnen" target="_blank"
+            rel="noopener noreferrer external">Stadt Köln: Prüfungsablauf ↗</a> · <a
+            href="https://www.tieraerztekammer-nordrhein.de/tierhalter/sachkundebescheinigung-lhundg/" target="_blank"
+            rel="noopener noreferrer external">Tierärztekammer: § 11 ↗</a></p>
+      </div>
       <div class="editorial-chapter">
         <h2 id="verhalten">Wesenstest / Verhaltensprüfung: Hund und führende Person</h2>
-    <p>Die Verhaltensprüfung beurteilt unter anderem Gehorsam und Reaktionen in Alltagssituationen – etwa gegenüber
-      Menschen, anderen Hunden, Bewegung oder ungewohnten Reizen. Sie ersetzt nicht den Sachkundenachweis des Menschen.
-      Ein bestandenes Ergebnis kann bei Hunden nach § 3 Abs. 2 oder § 10 Grundlage eines Antrags auf Befreiung von
-      bestimmten Leinen- und/oder Maulkorbpflichten sein. Für im Einzelfall gefährliche Hunde nach § 3 Abs. 3 ist diese
-      reguläre Befreiungsmöglichkeit nach § 5 Abs. 3 nicht vorgesehen.</p>
-    <p><strong>Bestanden heißt nicht automatisch befreit.</strong> Erst die zuständige Behörde entscheidet über den
-      Antrag und dessen Umfang. Andere gesetzliche oder örtliche Leinenpflichten können trotzdem weiter gelten. Weitere
-      Aufsichtspersonen müssen gegebenenfalls mit dem Hund in die Prüfung einbezogen werden.</p>
-    <p>Für Mindestalter, Zulassung, Termine und benötigte Unterlagen ist die aktuelle Auskunft der zuständigen Stelle
-      entscheidend. Die geltende Landesverordnung nennt für die Verhaltensprüfung ein Mindestalter von 24 Monaten.
-      Einzelne kommunale Internetseiten enthalten noch andere Altersangaben; bei solchen Abweichungen sind die aktuelle
-      Rechtslage und die Behörde maßgeblich.</p>
-    <p class="source-links"><a
-        href="https://recht.nrw.de/lrgv/rechtsverordnung/09122025-ordnungsbehoerdliche-verordnung-zur-durchfuehrung-des/"
-        target="_blank" rel="noopener noreferrer external">Aktuelle DVO: § 3 Verhaltensprüfung ↗</a> · <a
-        href="https://recht.nrw.de/lrmb/verwaltungsvorschrift/07102026-verwaltungsvorschriften-zum-landeshundegesetz-vv-lhundg-nrw/"
-        target="_blank" rel="noopener noreferrer external">Verwaltungsvorschriften: Nr. 5.3 ↗</a> · <a
-        href="https://www.stadt-koeln.de/service/produkte/00610/index.html" target="_blank"
-        rel="noopener noreferrer external">Stadt Köln: Verhaltensprüfung/Wesenstest ↗</a></p>
-</div>
+        <p>Die Verhaltensprüfung beurteilt unter anderem Gehorsam und Reaktionen in Alltagssituationen – etwa gegenüber
+          Menschen, anderen Hunden, Bewegung oder ungewohnten Reizen. Sie ersetzt nicht den Sachkundenachweis des
+          Menschen.
+          Ein bestandenes Ergebnis kann bei Hunden nach § 3 Abs. 2 oder § 10 Grundlage eines Antrags auf Befreiung von
+          bestimmten Leinen- und/oder Maulkorbpflichten sein. Für im Einzelfall gefährliche Hunde nach § 3 Abs. 3 ist
+          diese
+          reguläre Befreiungsmöglichkeit nach § 5 Abs. 3 nicht vorgesehen.</p>
+        <p><strong>Bestanden heißt nicht automatisch befreit.</strong> Erst die zuständige Behörde entscheidet über den
+          Antrag und dessen Umfang. Andere gesetzliche oder örtliche Leinenpflichten können trotzdem weiter gelten.
+          Weitere
+          Aufsichtspersonen müssen gegebenenfalls mit dem Hund in die Prüfung einbezogen werden.</p>
+        <p>Für Mindestalter, Zulassung, Termine und benötigte Unterlagen ist die aktuelle Auskunft der zuständigen
+          Stelle
+          entscheidend. Die geltende Landesverordnung nennt für die Verhaltensprüfung ein Mindestalter von 24 Monaten.
+          Einzelne kommunale Internetseiten enthalten noch andere Altersangaben; bei solchen Abweichungen sind die
+          aktuelle
+          Rechtslage und die Behörde maßgeblich.</p>
+        <p class="source-links"><a
+            href="https://recht.nrw.de/lrgv/rechtsverordnung/09122025-ordnungsbehoerdliche-verordnung-zur-durchfuehrung-des/"
+            target="_blank" rel="noopener noreferrer external">Aktuelle DVO: § 3 Verhaltensprüfung ↗</a> · <a
+            href="https://recht.nrw.de/lrmb/verwaltungsvorschrift/07102026-verwaltungsvorschriften-zum-landeshundegesetz-vv-lhundg-nrw/"
+            target="_blank" rel="noopener noreferrer external">Verwaltungsvorschriften: Nr. 5.3 ↗</a> · <a
+            href="https://www.stadt-koeln.de/service/produkte/00610/index.html" target="_blank"
+            rel="noopener noreferrer external">Stadt Köln: Verhaltensprüfung/Wesenstest ↗</a></p>
+      </div>
       <!-- BLOCK START: Persönlicher Bildmoment -->
-      <figure class="editorial-interlude"><img src="assets/public/huendin-ruhe.webp" width="1200" height="675" alt="Meine Hündin liegt zu Hause entspannt auf dem Boden." loading="lazy" decoding="async"></figure>
+      <figure class="editorial-interlude"><img src="assets/public/huendin-ruhe.webp" width="1200" height="675"
+          alt="Meine Hündin liegt zu Hause entspannt auf dem Boden." loading="lazy" decoding="async"></figure>
       <!-- BLOCK END: Persönlicher Bildmoment -->
-      <section aria-labelledby="lernabdeckung" class="editorial-chapter editorial-chapter--full editorial-chapter--table">
-      <h2 id="lernabdeckung">Wie weit bereiten die Fragenkataloge vor?</h2>
-      <p>Der Themenabgleich vom <time datetime="2026-11-11">11. November 2026</time> zeigt eine breite Grundlage
-        für Verhalten, Erziehung und Gesundheit. Einzelne Rechtsfragen ersetzen jedoch keinen vollständigen Leseplan.
-        Die folgende Einschätzung ist eine redaktionelle Themenbewertung, keine amtliche Freigabe oder vollständige
-        fachliche Prüfung aller Lösungen. Übertragbarkeit auf deine Prüfung bitte mit der Prüfstelle klären.</p>
-      <div class="table-scroll">
-        <table>
-          <caption>Vorhandene Übungsthemen und ergänzender Lernbedarf</caption>
-          <thead>
-            <tr>
-              <th scope="col">Thema</th>
-              <th scope="col">Im Trainer vorhanden</th>
-              <th scope="col">Zusätzlich lernen</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Verhalten und Gefahrensituationen</td>
-              <td>Viele Fragen und Körperhaltungsbilder, etwa Rhein-Erft 203: 1, 6 und 85.</td>
-              <td>Das Wissen auf neue Alltagssituationen übertragen und Antworten begründen.</td>
-            </tr>
-            <tr>
-              <td>Erziehung und Gesundheit</td>
-              <td>Breite Themenauswahl, etwa Rhein-Erft 203: 5, 9, 140 und 158.</td>
-              <td>Zusammenhänge verstehen; die Auswahlantworten sind keine tierärztliche Einzelfallberatung.</td>
-            </tr>
-            <tr>
-              <td>Tierschutz-Grundlagen</td>
-              <td>Bedürfnisse, Haltung und Trainingsmittel, etwa Rhein-Erft 203: 32, 64, 174 und 194.</td>
-              <td>TierSchG §§ 1–3 und die konkreten Haltungspflichten der TierSchHuV lesen.</td>
-            </tr>
-            <tr>
-              <td>Haltungsdetails</td>
-              <td>Zwingerhaltung, Welpenaufzucht und Reinigung werden angesprochen.</td>
-              <td>Fristen, Maße und Ausnahmen nachlesen. Keine ausdrückliche Frage zur Vier-Stunden-Betreuung von Welpen
-                bis 20 Wochen gefunden.</td>
-            </tr>
-            <tr>
-              <td>LHundG NRW</td>
-              <td>Zusatzfragen zu gefährlichen Hunden, etwa Rhein-Erft 203: 198–203; außerdem Rechtsfragen in Köln und
-                Rhein-Erft 97.</td>
-              <td>Kategorien, Nachweiswege, Erlaubnis, Führungs- und Mitteilungspflichten systematisch lernen. Der
-                197er-Kammerkatalog allein deckt diese Zusatzfragen nicht ab.</td>
-            </tr>
-            <tr>
-              <td>Örtliche Prüfung und Behördenverfahren</td>
-              <td>Quellenbezogene Übungsprofile; keine Essener oder Bochumer Originalprüfung.</td>
-              <td>Aktuelle Bedingungen und benötigte Unterlagen direkt bei der zuständigen Stelle bestätigen lassen.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p><a href="lernen.html#trainer">Zum Fragenkatalog</a> · <a href="quellen.html">Herkunft und Grenzen der Kataloge</a></p>
-    </section>
+      <section aria-labelledby="lernabdeckung"
+        class="editorial-chapter editorial-chapter--full editorial-chapter--table">
+        <h2 id="lernabdeckung">Wie weit bereiten die Fragenkataloge vor?</h2>
+        <p>Der Themenabgleich vom <time datetime="2026-11-11">11. November 2026</time> zeigt eine breite Grundlage
+          für Verhalten, Erziehung und Gesundheit. Einzelne Rechtsfragen ersetzen jedoch keinen vollständigen Leseplan.
+          Die folgende Einschätzung ist eine redaktionelle Themenbewertung, keine amtliche Freigabe oder vollständige
+          fachliche Prüfung aller Lösungen. Übertragbarkeit auf deine Prüfung bitte mit der Prüfstelle klären.</p>
+        <div class="table-scroll">
+          <table>
+            <caption>Vorhandene Übungsthemen und ergänzender Lernbedarf</caption>
+            <thead>
+              <tr>
+                <th scope="col">Thema</th>
+                <th scope="col">Im Trainer vorhanden</th>
+                <th scope="col">Zusätzlich lernen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Verhalten und Gefahrensituationen</td>
+                <td>Viele Fragen und Körperhaltungsbilder, etwa Rhein-Erft 203: 1, 6 und 85.</td>
+                <td>Das Wissen auf neue Alltagssituationen übertragen und Antworten begründen.</td>
+              </tr>
+              <tr>
+                <td>Erziehung und Gesundheit</td>
+                <td>Breite Themenauswahl, etwa Rhein-Erft 203: 5, 9, 140 und 158.</td>
+                <td>Zusammenhänge verstehen; die Auswahlantworten sind keine tierärztliche Einzelfallberatung.</td>
+              </tr>
+              <tr>
+                <td>Tierschutz-Grundlagen</td>
+                <td>Bedürfnisse, Haltung und Trainingsmittel, etwa Rhein-Erft 203: 32, 64, 174 und 194.</td>
+                <td>TierSchG §§ 1–3 und die konkreten Haltungspflichten der TierSchHuV lesen.</td>
+              </tr>
+              <tr>
+                <td>Haltungsdetails</td>
+                <td>Zwingerhaltung, Welpenaufzucht und Reinigung werden angesprochen.</td>
+                <td>Fristen, Maße und Ausnahmen nachlesen. Keine ausdrückliche Frage zur Vier-Stunden-Betreuung von
+                  Welpen
+                  bis 20 Wochen gefunden.</td>
+              </tr>
+              <tr>
+                <td>LHundG NRW</td>
+                <td>Zusatzfragen zu gefährlichen Hunden, etwa Rhein-Erft 203: 198–203; außerdem Rechtsfragen in Köln und
+                  Rhein-Erft 97.</td>
+                <td>Kategorien, Nachweiswege, Erlaubnis, Führungs- und Mitteilungspflichten systematisch lernen. Der
+                  197er-Kammerkatalog allein deckt diese Zusatzfragen nicht ab.</td>
+              </tr>
+              <tr>
+                <td>Örtliche Prüfung und Behördenverfahren</td>
+                <td>Quellenbezogene Übungsprofile; keine Essener oder Bochumer Originalprüfung.</td>
+                <td>Aktuelle Bedingungen und benötigte Unterlagen direkt bei der zuständigen Stelle bestätigen lassen.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p><a href="lernen.html#trainer">Zum Fragenkatalog</a> · <a href="quellen.html">Herkunft und Grenzen der
+            Kataloge</a></p>
+      </section>
       <section aria-labelledby="recht" class="editorial-chapter">
-      <h2 id="recht">Dein Leseplan: gemeinsame Rechtsgrundlagen</h2>
-      <p>Die bundesweiten Tierschutzregeln und das LHundG NRW gelten unabhängig von der Stadt.
-        Die folgenden Schwerpunkte orientieren sich auch an den Vorbereitungshinweisen der Stadt Essen.</p>
-      <ol>
-        <li><strong>Tierschutzgesetz, besonders §§ 1–3:</strong> Schutz des Tieres, angemessene Versorgung,
-          verhaltensgerechte Unterbringung und verbotene Handlungen bei Haltung und Ausbildung.
-          <a href="https://www.gesetze-im-internet.de/tierschg/BJNR012770972.html" target="_blank"
-            rel="noopener noreferrer external">TierSchG vollständig lesen ↗</a>
-        </li>
-        <li><strong>Tierschutz-Hundeverordnung, besonders §§ 2–8:</strong> Auslauf und Sozialkontakte,
-          Welpen, Zucht, Außen- und Raumhaltung, Zwinger, Anbindung, Fütterung und Pflege.
-          <a href="https://www.gesetze-im-internet.de/tierschhuv/BJNR083800001.html" target="_blank"
-            rel="noopener noreferrer external">TierSchHuV vollständig lesen ↗</a>
-        </li>
-        <li><strong>LHundG NRW, besonders §§ 2–11:</strong> Allgemeine Pflichten, Hundekategorien,
-          Erlaubnis, Sachkunde, Zuverlässigkeit, Versicherung, Kennzeichnung und Meldungen.
-          §§ 13–15 helfen bei Zuständigkeit, Anerkennung und örtlichen Zusatzregeln.
-          <a href="https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/"
-            target="_blank" rel="noopener noreferrer external">LHundG NRW vollständig lesen ↗</a>
-        </li>
-        <li><strong>Örtliche Umsetzung:</strong> Welche Stelle prüft oder bearbeitet deine Anmeldung?
-          Welche Unterlagen sind nötig? Das Essener Serviceportal erläutert Anzeige und Erlaubnis;
-          es ist kein Fragenkatalog und legt keine Bestehensgrenze fest.
-          <a href="https://service.essen.de/detail/-/vr-bis-detail/dienstleistung/41286/show" target="_blank"
-            rel="noopener noreferrer external">Stadt Essen: Meldung und Haltungserlaubnis ↗</a>
-        </li>
-      </ol>
-      <p class="source-links"><a href="https://www.essen.de/leben/umwelt/veterinaerwesen/hundehaltung.de.html"
-          target="_blank" rel="noopener noreferrer external">Stadt Essen: Themen und Vorbereitung auf die
-          Sachkundeprüfung ↗</a></p>
-      <h3 id="rechtsdetails">Diese Details solltest du zusätzlich nachlesen</h3>
-      <ul>
-        <li><strong>Welpen und Kontakt:</strong> Bis zu einem Alter von 20 Wochen sind mindestens vier Stunden
-          Umgang mit einer Betreuungsperson je Tag vorgesehen. Für die Trennung vom Muttertier gelten Altersgrenze
-          und tierärztliche Ausnahme. <a href="https://www.gesetze-im-internet.de/tierschhuv/__2.html" target="_blank"
-            rel="noopener noreferrer external">§ 2 TierSchHuV ↗</a></li>
-        <li><strong>Trainingsmittel:</strong> Stachelhalsbänder und andere schmerzhafte Mittel bei Ausbildung,
-          Erziehung oder Training sind verboten. Die Formulierung „bedenklich“ in einer Frage darf dieses Verbot
-          nicht abschwächen; Rhein-Erft 203: 174 nennt es ausdrücklich.
-          <a href="https://www.gesetze-im-internet.de/tierschhuv/__2.html" target="_blank"
-            rel="noopener noreferrer external">§ 2 Abs. 5 TierSchHuV ↗</a>
-        </li>
-        <li><strong>Zwingerfläche:</strong> Maßgeblich ist die Widerristhöhe, nicht allein die Rasse.
-          Rhein-Erft 97: 43 und Köln: B11 nennen pauschal 8 m² für einen Rottweiler. Das ist ohne Größe und
-          Haltungsumstände keine allgemeine Rechtsregel. Mindestflächen, Seitenlängen, Mehrhundehaltung und Ausnahme
-          im Original prüfen. <a href="https://www.gesetze-im-internet.de/tierschhuv/__6.html" target="_blank"
-            rel="noopener noreferrer external">§ 6 TierSchHuV ↗</a></li>
-        <li><strong>Anbindung und Pflege:</strong> Das Anbindeverbot hat eine eng begrenzte Ausnahme während
-          bestimmter Tätigkeiten unter Begleitung. Die Unterbringung ist mindestens zweimal täglich zu kontrollieren;
-          die tägliche Kotentfernung ist eine weitere Pflicht. Eine Reinigungsfrage deckt diese Kontrolle nicht ab.
-          <a href="https://www.gesetze-im-internet.de/tierschhuv/__7.html" target="_blank"
-            rel="noopener noreferrer external">§ 7 ↗</a> ·
-          <a href="https://www.gesetze-im-internet.de/tierschhuv/__8.html" target="_blank"
-            rel="noopener noreferrer external">§ 8 TierSchHuV ↗</a>
-        </li>
-        <li><strong>Grenzwerte und Einordnung:</strong> Große Hunde erreichen ausgewachsen mindestens 40 cm
-          Widerristhöhe oder mindestens 20 kg. „Über 20 kg“ in Rhein-Erft 203: 35 ist ungenau. Bei Vorfällen ersetzt
-          eine verkürzte Antwort wie in Frage 198 nicht die Voraussetzungen und behördliche Feststellung nach § 3 Abs.
-          3.
-          <a href="https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/"
-            target="_blank" rel="noopener noreferrer external">LHundG NRW: §§ 3 und 11 ↗</a>
-        </li>
-      </ul>
-      <p><strong>Zwei verschiedene § 11:</strong> § 11 LHundG NRW betrifft große Hunde. § 11 TierSchG regelt
-        andere Erlaubnisse, unter anderem bestimmte gewerbsmäßige Tätigkeiten mit Tieren.
-        <a href="https://www.gesetze-im-internet.de/tierschg/__11.html" target="_blank"
-          rel="noopener noreferrer external">§ 11 TierSchG ↗</a>
-      </p>
-      <p>Die Lernwertung folgt weiterhin dem Lösungsschlüssel der jeweiligen Vorlage. Die Hinweise ändern keine
-        Originalfrage. Bei Rechtsfragen solltest du zusätzlich die aktuelle Vorschrift lesen.</p>
-    </section>
-      <section aria-labelledby="staedte" class="editorial-chapter editorial-chapter--full">
-      <h2 id="staedte">Vorbereitung nach Stadt und Kreis</h2>
-      <p>Hier stehen ergänzende örtliche Angaben, keine unterschiedlichen Fassungen des NRW-Gesetzes.
-        Quellen und offene Punkte bleiben getrennt. Weitere Orte ergänzen wir, sobald belastbare Informationen
-        vorliegen.</p>
-      <div class="city-grid">
-        <details id="ort-essen" class="city-profile" data-city-dialog>
-          <summary>Essen · Ablauf, Themen und Bestehensgrenze</summary>
-          <div class="city-content">
-          <p>Nach persönlichen E-Mail-Auskünften vom 11. November 2026 prüft das Veterinäramt ausschließlich
-            die Sachkunde für gefährliche Hunde nach § 3. Für die schriftliche Prüfung wurden folgende
-            Rahmenbedingungen mitgeteilt:</p>
-          <ul>
-            <li><strong>Umfang und Zeit:</strong> ca. 50 Fragen, grundsätzlich kein Zeitlimit.</li>
-            <li><strong>Drei Prüfungsteile:</strong> „Biologie und Gesundheit“, „Verhalten und Erziehung“ und „Recht“.
-              Die Fragen verteilen sich ungefähr gleichmäßig; eine feste Anzahl je Teil wurde nicht genannt.</li>
-            <li><strong>Bestehen:</strong> 75 % der Punkte insgesamt und auch in jedem einzelnen Prüfungsteil.
-              Ein gutes Gesamtergebnis gleicht einen nicht bestandenen Teil nicht aus.</li>
-            <li><strong>Teilpunkte:</strong> Bei unvollständiger richtiger Auswahl können Teilpunkte möglich sein.
-              Daraus folgt kein Anspruch auf Teilpunkte bei zusätzlich falsch gewählten Antworten.
-              Das genaue Schema ist nicht zur Veröffentlichung vorgesehen.</li>
-            <li><strong>Nachgespräch:</strong> insbesondere bei knapp verfehlter Bestehensgrenze. Eine rein mündliche
-              Prüfung kann bei Legasthenie unter Umständen als besonderer Einzelfall angeboten werden;
-              dies bitte vorab mit der Prüfstelle klären.</li>
-          </ul>
-          <p>Die öffentliche Seite empfiehlt neben Haltung &amp; Recht die Originalrechtstexte; Internetfragebögen
-            allein
-            reichen zur Vorbereitung nicht aus. Ein Essener Originalfragenkatalog liegt uns nicht vor.
-            Die genaue Essener Punktewertung und die mündliche Beurteilung werden hier nicht nachgebildet.
-            Unser <a href="lernen.html?mode=essenexam#trainer">unverbindlicher Beispieltest mit 50 Fragen</a>
-            nutzt eine eigene Auswahl und eine eigene Wertung; <a href="gut-zu-wissen.html#essen-beispiel">Annahmen und
-              Grenzen</a>.
-            <a href="quellen.html#essen">Quelle und Grenzen der Essener Angaben</a>.
-          </p>
-          <p><a href="https://www.essen.de/leben/umwelt/veterinaerwesen/hundehaltung.de.html" target="_blank"
-              rel="noopener noreferrer external">Essen: Prüfungsvorbereitung ↗</a> ·
+        <h2 id="recht">Dein Leseplan: gemeinsame Rechtsgrundlagen</h2>
+        <p>Die bundesweiten Tierschutzregeln und das LHundG NRW gelten unabhängig von der Stadt.
+          Die folgenden Schwerpunkte orientieren sich auch an den Vorbereitungshinweisen der Stadt Essen.</p>
+        <ol>
+          <li><strong>Tierschutzgesetz, besonders §§ 1–3:</strong> Schutz des Tieres, angemessene Versorgung,
+            verhaltensgerechte Unterbringung und verbotene Handlungen bei Haltung und Ausbildung.
+            <a href="https://www.gesetze-im-internet.de/tierschg/BJNR012770972.html" target="_blank"
+              rel="noopener noreferrer external">TierSchG vollständig lesen ↗</a>
+          </li>
+          <li><strong>Tierschutz-Hundeverordnung, besonders §§ 2–8:</strong> Auslauf und Sozialkontakte,
+            Welpen, Zucht, Außen- und Raumhaltung, Zwinger, Anbindung, Fütterung und Pflege.
+            <a href="https://www.gesetze-im-internet.de/tierschhuv/BJNR083800001.html" target="_blank"
+              rel="noopener noreferrer external">TierSchHuV vollständig lesen ↗</a>
+          </li>
+          <li><strong>LHundG NRW, besonders §§ 2–11:</strong> Allgemeine Pflichten, Hundekategorien,
+            Erlaubnis, Sachkunde, Zuverlässigkeit, Versicherung, Kennzeichnung und Meldungen.
+            §§ 13–15 helfen bei Zuständigkeit, Anerkennung und örtlichen Zusatzregeln.
+            <a href="https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/"
+              target="_blank" rel="noopener noreferrer external">LHundG NRW vollständig lesen ↗</a>
+          </li>
+          <li><strong>Örtliche Umsetzung:</strong> Welche Stelle prüft oder bearbeitet deine Anmeldung?
+            Welche Unterlagen sind nötig? Das Essener Serviceportal erläutert Anzeige und Erlaubnis;
+            es ist kein Fragenkatalog und legt keine Bestehensgrenze fest.
             <a href="https://service.essen.de/detail/-/vr-bis-detail/dienstleistung/41286/show" target="_blank"
-              rel="noopener noreferrer external">Essen: Anmeldung und Erlaubnis ↗</a>
-          </p>
+              rel="noopener noreferrer external">Stadt Essen: Meldung und Haltungserlaubnis ↗</a>
+          </li>
+        </ol>
+        <p class="source-links"><a href="https://www.essen.de/leben/umwelt/veterinaerwesen/hundehaltung.de.html"
+            target="_blank" rel="noopener noreferrer external">Stadt Essen: Themen und Vorbereitung auf die
+            Sachkundeprüfung ↗</a></p>
+        <h3 id="rechtsdetails">Diese Details solltest du zusätzlich nachlesen</h3>
+        <ul>
+          <li><strong>Welpen und Kontakt:</strong> Bis zu einem Alter von 20 Wochen sind mindestens vier Stunden
+            Umgang mit einer Betreuungsperson je Tag vorgesehen. Für die Trennung vom Muttertier gelten Altersgrenze
+            und tierärztliche Ausnahme. <a href="https://www.gesetze-im-internet.de/tierschhuv/__2.html" target="_blank"
+              rel="noopener noreferrer external">§ 2 TierSchHuV ↗</a></li>
+          <li><strong>Trainingsmittel:</strong> Stachelhalsbänder und andere schmerzhafte Mittel bei Ausbildung,
+            Erziehung oder Training sind verboten. Die Formulierung „bedenklich“ in einer Frage darf dieses Verbot
+            nicht abschwächen; Rhein-Erft 203: 174 nennt es ausdrücklich.
+            <a href="https://www.gesetze-im-internet.de/tierschhuv/__2.html" target="_blank"
+              rel="noopener noreferrer external">§ 2 Abs. 5 TierSchHuV ↗</a>
+          </li>
+          <li><strong>Zwingerfläche:</strong> Maßgeblich ist die Widerristhöhe, nicht allein die Rasse.
+            Rhein-Erft 97: 43 und Köln: B11 nennen pauschal 8 m² für einen Rottweiler. Das ist ohne Größe und
+            Haltungsumstände keine allgemeine Rechtsregel. Mindestflächen, Seitenlängen, Mehrhundehaltung und Ausnahme
+            im Original prüfen. <a href="https://www.gesetze-im-internet.de/tierschhuv/__6.html" target="_blank"
+              rel="noopener noreferrer external">§ 6 TierSchHuV ↗</a></li>
+          <li><strong>Anbindung und Pflege:</strong> Das Anbindeverbot hat eine eng begrenzte Ausnahme während
+            bestimmter Tätigkeiten unter Begleitung. Die Unterbringung ist mindestens zweimal täglich zu kontrollieren;
+            die tägliche Kotentfernung ist eine weitere Pflicht. Eine Reinigungsfrage deckt diese Kontrolle nicht ab.
+            <a href="https://www.gesetze-im-internet.de/tierschhuv/__7.html" target="_blank"
+              rel="noopener noreferrer external">§ 7 ↗</a> ·
+            <a href="https://www.gesetze-im-internet.de/tierschhuv/__8.html" target="_blank"
+              rel="noopener noreferrer external">§ 8 TierSchHuV ↗</a>
+          </li>
+          <li><strong>Grenzwerte und Einordnung:</strong> Große Hunde erreichen ausgewachsen mindestens 40 cm
+            Widerristhöhe oder mindestens 20 kg. „Über 20 kg“ in Rhein-Erft 203: 35 ist ungenau. Bei Vorfällen ersetzt
+            eine verkürzte Antwort wie in Frage 198 nicht die Voraussetzungen und behördliche Feststellung nach § 3 Abs.
+            3.
+            <a href="https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/"
+              target="_blank" rel="noopener noreferrer external">LHundG NRW: §§ 3 und 11 ↗</a>
+          </li>
+        </ul>
+        <p><strong>Zwei verschiedene § 11:</strong> § 11 LHundG NRW betrifft große Hunde. § 11 TierSchG regelt
+          andere Erlaubnisse, unter anderem bestimmte gewerbsmäßige Tätigkeiten mit Tieren.
+          <a href="https://www.gesetze-im-internet.de/tierschg/__11.html" target="_blank"
+            rel="noopener noreferrer external">§ 11 TierSchG ↗</a>
+        </p>
+        <p>Die Lernwertung folgt weiterhin dem Lösungsschlüssel der jeweiligen Vorlage. Die Hinweise ändern keine
+          Originalfrage. Bei Rechtsfragen solltest du zusätzlich die aktuelle Vorschrift lesen.</p>
+      </section>
+      <section aria-labelledby="staedte" class="editorial-chapter editorial-chapter--full">
+        <h2 id="staedte">Vorbereitung nach Stadt und Kreis</h2>
+        <p>Hier stehen ergänzende örtliche Angaben, keine unterschiedlichen Fassungen des NRW-Gesetzes.
+          Quellen und offene Punkte bleiben getrennt. Weitere Orte ergänzen wir, sobald belastbare Informationen
+          vorliegen.</p>
+        <div class="city-grid">
+          <details id="ort-essen" class="city-profile" data-city-dialog>
+            <summary>Essen · Ablauf, Themen und Bestehensgrenze</summary>
+            <div class="city-content">
+              <p>Nach persönlichen E-Mail-Auskünften vom 11. November 2026 prüft das Veterinäramt ausschließlich
+                die Sachkunde für gefährliche Hunde nach § 3. Für die schriftliche Prüfung wurden folgende
+                Rahmenbedingungen mitgeteilt:</p>
+              <ul>
+                <li><strong>Umfang und Zeit:</strong> ca. 50 Fragen, grundsätzlich kein Zeitlimit.</li>
+                <li><strong>Drei Prüfungsteile:</strong> „Biologie und Gesundheit“, „Verhalten und Erziehung“ und
+                  „Recht“.
+                  Die Fragen verteilen sich ungefähr gleichmäßig; eine feste Anzahl je Teil wurde nicht genannt.</li>
+                <li><strong>Bestehen:</strong> 75 % der Punkte insgesamt und auch in jedem einzelnen Prüfungsteil.
+                  Ein gutes Gesamtergebnis gleicht einen nicht bestandenen Teil nicht aus.</li>
+                <li><strong>Teilpunkte:</strong> Bei unvollständiger richtiger Auswahl können Teilpunkte möglich sein.
+                  Daraus folgt kein Anspruch auf Teilpunkte bei zusätzlich falsch gewählten Antworten.
+                  Das genaue Schema ist nicht zur Veröffentlichung vorgesehen.</li>
+                <li><strong>Nachgespräch:</strong> insbesondere bei knapp verfehlter Bestehensgrenze. Eine rein
+                  mündliche
+                  Prüfung kann bei Legasthenie unter Umständen als besonderer Einzelfall angeboten werden;
+                  dies bitte vorab mit der Prüfstelle klären.</li>
+              </ul>
+              <p>Die öffentliche Seite empfiehlt neben Haltung &amp; Recht die Originalrechtstexte; Internetfragebögen
+                allein
+                reichen zur Vorbereitung nicht aus. Ein Essener Originalfragenkatalog liegt uns nicht vor.
+                Die genaue Essener Punktewertung und die mündliche Beurteilung werden hier nicht nachgebildet.
+                Unser <a href="lernen.html?mode=essenexam#trainer">unverbindlicher Beispieltest mit 50 Fragen</a>
+                nutzt eine eigene Auswahl und eine eigene Wertung; <a href="gut-zu-wissen.html#essen-beispiel">Annahmen
+                  und
+                  Grenzen</a>.
+                <a href="quellen.html#essen">Quelle und Grenzen der Essener Angaben</a>.
+              </p>
+              <p><a href="https://www.essen.de/leben/umwelt/veterinaerwesen/hundehaltung.de.html" target="_blank"
+                  rel="noopener noreferrer external">Essen: Prüfungsvorbereitung ↗</a> ·
+                <a href="https://service.essen.de/detail/-/vr-bis-detail/dienstleistung/41286/show" target="_blank"
+                  rel="noopener noreferrer external">Essen: Anmeldung und Erlaubnis ↗</a>
+              </p>
+            </div>
+          </details>
+          <details id="ort-bochum" class="city-profile" data-city-dialog>
+            <summary>Bochum · Kölner Themen als Vorbereitung</summary>
+            <div class="city-content">
+              <p>Nach persönlicher E-Mail-Auskunft vom 10. November 2026 empfiehlt Bochum den öffentlich zugänglichen
+                Kölner Katalog zur Themenorientierung. Antworten sollen verstanden werden. Die Stadt verwendet eigene,
+                nicht bereitgestellte Fragen. Es gibt hier keine Bochum-Simulation.
+                <a href="quellen.html#bochum">Herkunft und Grenzen dieser Empfehlung</a>.
+              </p>
+            </div>
+          </details>
+          <details id="ort-koeln" class="city-profile" data-city-dialog>
+            <summary>Köln · veröffentlichter Katalog</summary>
+            <div class="city-content">
+              <p>Die Stadt nennt öffentlich 34 Fragen, davon mindestens 24 vollständig richtig. Unser Kölner Lernbereich
+                stammt aus einer abweichenden zugesandten Fassung. Die 34er-Testreihe verwendet den Rhein-Erft-203-Pool
+                und bildet keine identische Kölner Prüfung ab.
+                <a href="quellen.html#koeln">Katalogfassungen vergleichen</a>.
+              </p>
+              <p><a href="https://www.stadt-koeln.de/service/produkt/sachkundenachweis-fuer-hundehalterinnen"
+                  target="_blank" rel="noopener noreferrer external">Köln: aktueller Prüfungsablauf ↗</a></p>
+            </div>
+          </details>
+          <details id="ort-rhein-erft" class="city-profile" data-city-dialog>
+            <summary>Rhein-Erft-Kreis · Grundlage der 34er-Übung</summary>
+            <div class="city-content">
+              <p>Unsere 34er-Übung nutzt den 203er-Katalog und dessen veröffentlichte Eckdaten. Die öffentliche
+                Serviceseite verlinkt den Vorbereitungskatalog; Teilnahme und Termin bitte aktuell beim Kreis klären.
+                Der zugesandte 97er-Bogen bleibt eine getrennte Quelle.
+                <a href="quellen.html#rhein203">Herkunft und Zuordnung der Vorlagen</a>.
+              </p>
+              <p><a href="https://portal.rhein-erft-kreis.de/detail/-/vr-bis-detail/dienstleistung/42735/show"
+                  target="_blank" rel="noopener noreferrer external">Rhein-Erft-Kreis: Sachkundenachweis ↗</a></p>
+            </div>
+          </details>
+          <details id="ort-mg" class="city-profile" data-city-dialog>
+            <summary>Mönchengladbach · Prüfungsumfang</summary>
+            <div class="city-content">
+              <p>Die vorhandene Simulation mit 119 Fragen beruht auf vom Betreiber per E-Mail bestätigten Eckdaten.
+                Die am 11. November 2026 abgerufene öffentliche Stadtseite nennt dagegen aktuell 99 Fragen.
+                Die Simulation ist ein Übungsprofil mit gesondertem Quellenstand. Welcher Umfang für deinen Termin gilt,
+                muss die Prüfstelle klären. Die Simulation enthält keine MG-Originalfragen.</p>
+              <p><a
+                  href="https://www.moenchengladbach.de/rathaus/buergerinfo-a-z/recht-soziales-jugend-gesundheit-verbraucherschutz-dezernat-v/fachbereich-verbraucherschutz-und-tiergesundheit-39/tiergesundheit/sachkundepruefungen-lhundg-nrw"
+                  target="_blank" rel="noopener noreferrer external">Mönchengladbach: öffentliche Prüfungsinformationen
+                  ↗</a> ·
+                <a href="gut-zu-wissen.html#simulation">Einordnung der Simulation</a>
+              </p>
+            </div>
+          </details>
         </div>
-        </details>
-        <details id="ort-bochum" class="city-profile" data-city-dialog>
-          <summary>Bochum · Kölner Themen als Vorbereitung</summary>
-          <div class="city-content">
-          <p>Nach persönlicher E-Mail-Auskunft vom 10. November 2026 empfiehlt Bochum den öffentlich zugänglichen
-            Kölner Katalog zur Themenorientierung. Antworten sollen verstanden werden. Die Stadt verwendet eigene,
-            nicht bereitgestellte Fragen. Es gibt hier keine Bochum-Simulation.
-            <a href="quellen.html#bochum">Herkunft und Grenzen dieser Empfehlung</a>.
-          </p>
-        </div>
-        </details>
-        <details id="ort-koeln" class="city-profile" data-city-dialog>
-          <summary>Köln · veröffentlichter Katalog</summary>
-          <div class="city-content">
-          <p>Die Stadt nennt öffentlich 34 Fragen, davon mindestens 24 vollständig richtig. Unser Kölner Lernbereich
-            stammt aus einer abweichenden zugesandten Fassung. Die 34er-Testreihe verwendet den Rhein-Erft-203-Pool
-            und bildet keine identische Kölner Prüfung ab.
-            <a href="quellen.html#koeln">Katalogfassungen vergleichen</a>.
-          </p>
-          <p><a href="https://www.stadt-koeln.de/service/produkt/sachkundenachweis-fuer-hundehalterinnen"
-              target="_blank" rel="noopener noreferrer external">Köln: aktueller Prüfungsablauf ↗</a></p>
-        </div>
-        </details>
-        <details id="ort-rhein-erft" class="city-profile" data-city-dialog>
-          <summary>Rhein-Erft-Kreis · Grundlage der 34er-Übung</summary>
-          <div class="city-content">
-          <p>Unsere 34er-Übung nutzt den 203er-Katalog und dessen veröffentlichte Eckdaten. Die öffentliche
-            Serviceseite verlinkt den Vorbereitungskatalog; Teilnahme und Termin bitte aktuell beim Kreis klären.
-            Der zugesandte 97er-Bogen bleibt eine getrennte Quelle.
-            <a href="quellen.html#rhein203">Herkunft und Zuordnung der Vorlagen</a>.
-          </p>
-          <p><a href="https://portal.rhein-erft-kreis.de/detail/-/vr-bis-detail/dienstleistung/42735/show"
-              target="_blank" rel="noopener noreferrer external">Rhein-Erft-Kreis: Sachkundenachweis ↗</a></p>
-        </div>
-        </details>
-        <details id="ort-mg" class="city-profile" data-city-dialog>
-          <summary>Mönchengladbach · Prüfungsumfang</summary>
-          <div class="city-content">
-          <p>Die vorhandene Simulation mit 119 Fragen beruht auf vom Betreiber per E-Mail bestätigten Eckdaten.
-            Die am 11. November 2026 abgerufene öffentliche Stadtseite nennt dagegen aktuell 99 Fragen.
-            Die Simulation ist ein Übungsprofil mit gesondertem Quellenstand. Welcher Umfang für deinen Termin gilt,
-            muss die Prüfstelle klären. Die Simulation enthält keine MG-Originalfragen.</p>
-          <p><a
-              href="https://www.moenchengladbach.de/rathaus/buergerinfo-a-z/recht-soziales-jugend-gesundheit-verbraucherschutz-dezernat-v/fachbereich-verbraucherschutz-und-tiergesundheit-39/tiergesundheit/sachkundepruefungen-lhundg-nrw"
-              target="_blank" rel="noopener noreferrer external">Mönchengladbach: öffentliche Prüfungsinformationen
-              ↗</a> ·
-            <a href="gut-zu-wissen.html#simulation">Einordnung der Simulation</a>
-          </p>
-        </div>
-        </details>
-      </div>
-      <p class="microcopy">Die persönlichen E-Mail-Auskünfte sind nicht öffentlich abrufbar. Namen und vollständige
-        Nachrichten werden hier nicht veröffentlicht; eine behördliche Anerkennung des Trainers folgt daraus nicht.</p>
-    </section>
+        <p class="microcopy">Die persönlichen E-Mail-Auskünfte sind nicht öffentlich abrufbar. Namen und vollständige
+          Nachrichten werden hier nicht veröffentlicht; eine behördliche Anerkennung des Trainers folgt daraus nicht.
+        </p>
+      </section>
       <!-- BLOCK START: Weg zur Haltungserlaubnis -->
-      <section class="editorial-chapter editorial-chapter--full editorial-chapter--split" aria-labelledby="vorbereitung">
+      <section class="editorial-chapter editorial-chapter--full editorial-chapter--split"
+        aria-labelledby="vorbereitung">
         <div>
           <p class="eyebrow">Vor der Übernahme klären</p>
           <h2 id="vorbereitung">Vom Wunschhund zur Haltungserlaubnis</h2>
@@ -472,18 +453,23 @@
           <h3>Sachkunde und Führungszeugnis vorbereiten</h3>
           <p>Kläre mit dem Veterinäramt oder der zugelassenen Prüfstelle, welcher Sachkundenachweis für deinen Fall
             anerkannt wird. Für die Zuverlässigkeitsprüfung bei § 3 und § 10 beantragst du bei der Meldebehörde ein
-            Führungszeugnis zur Vorlage bei der zuständigen Ordnungsbehörde. Erfrage vorher Empfänger und Verwendungszweck;
+            Führungszeugnis zur Vorlage bei der zuständigen Ordnungsbehörde. Erfrage vorher Empfänger und
+            Verwendungszweck;
             eine private Ausfertigung ist dafür nicht der passende Ersatz.</p>
           <h3>Versicherung, Chip und Unterbringung belegen</h3>
           <p>Zum Antrag gehören Angaben zum Hund, der Nachweis seiner Kennzeichnung mit einem Mikrochip und eine
             Haftpflichtversicherung, die gerade diesen Hund und seine Rasse einschließt. Die gesetzliche Mindestdeckung
-            beträgt 500.000 Euro für Personen- und 250.000 Euro für sonstige Schäden. Die Unterbringung muss ausbruchsicher
+            beträgt 500.000 Euro für Personen- und 250.000 Euro für sonstige Schäden. Die Unterbringung muss
+            ausbruchsicher
             und verhaltensgerecht sein; die Behörde kann hierzu Unterlagen und eine Besichtigung verlangen.</p>
           <h3>Erst mit Erlaubnis übernehmen</h3>
-          <p>Stimme die Übergabe mit Tierheim oder bisheriger Halterin beziehungsweise bisherigem Halter so ab, dass alle
+          <p>Stimme die Übergabe mit Tierheim oder bisheriger Halterin beziehungsweise bisherigem Halter so ab, dass
+            alle
             Voraussetzungen erfüllt sind. Lies den Bescheid einschließlich seiner Auflagen. Die Sachkunde ersetzt weder
-            die Haltungserlaubnis noch eine gesonderte Entscheidung über Leinen- oder Maulkorbbefreiungen. Weitere Personen,
-            die einen §-3- oder §-10-Hund führen sollen, müssen ebenfalls die gesetzlichen Anforderungen an Aufsichtspersonen
+            die Haltungserlaubnis noch eine gesonderte Entscheidung über Leinen- oder Maulkorbbefreiungen. Weitere
+            Personen,
+            die einen §-3- oder §-10-Hund führen sollen, müssen ebenfalls die gesetzlichen Anforderungen an
+            Aufsichtspersonen
             erfüllen.</p>
         </div>
       </section>
@@ -494,14 +480,17 @@
         <p>Die mietrechtliche Zustimmung und die behördliche Haltungserlaubnis sind zwei getrennte Fragen. Kläre bei
           einer Mietwohnung vor der Übernahme, ob die konkrete Hundehaltung erlaubt ist, und hole die erforderliche
           Zustimmung möglichst schriftlich ein. Beschreibe den vorgesehenen Hund einschließlich Rasse oder Mischung
-          und seiner gesetzlichen Einordnung. Eine frühere Zusage zu einem anderen Hund muss diese Haltung nicht abdecken.</p>
+          und seiner gesetzlichen Einordnung. Eine frühere Zusage zu einem anderen Hund muss diese Haltung nicht
+          abdecken.</p>
         <p>Weder erlaubt eine Vermieterzustimmung automatisch die Haltung nach dem Landeshundegesetz, noch ersetzt der
-          behördliche Bescheid die mietrechtliche Klärung. Ob deine Behörde oder das vermittelnde Tierheim zusätzlich eine
+          behördliche Bescheid die mietrechtliche Klärung. Ob deine Behörde oder das vermittelnde Tierheim zusätzlich
+          eine
           schriftliche Bestätigung verlangt, solltest du dort erfragen. Bei Streit über den Mietvertrag hilft eine
           qualifizierte Mietrechtsberatung.</p>
         <p class="source-links"><a
             href="https://www.dortmund.de/dortmund/projekte/rathaus/verwaltung/amt-fuer-wohnen/downloads/mietrecht/mietrecht.pdf"
-            target="_blank" rel="noopener noreferrer external">Amt für Wohnen Dortmund: Leitfaden Wohnraummietrecht ↗</a></p>
+            target="_blank" rel="noopener noreferrer external">Amt für Wohnen Dortmund: Leitfaden Wohnraummietrecht
+            ↗</a></p>
       </section>
       <!-- BLOCK END: Mietwohnung und Zustimmung -->
       <section class="editorial-chapter" aria-labelledby="lernweg">
@@ -509,41 +498,32 @@
         <p>Beginne mit dem Katalog, den deine Prüfstelle empfiehlt. Für § 3 und § 10 findest du hier die vorhandenen
           <a href="lernen.html?mode=legacy203">Rhein-Erft-</a> und <a href="lernen.html?mode=koeln">Kölner Kataloge</a>;
           für § 11 steht der <a href="lernen.html?mode=kammer197">Kammerkatalog</a> bereit. Ihre Inhalte überschneiden
-          sich. Die Herkunft eines Katalogs macht nicht jede einzelne Frage ausschließlich zu einer §-3- oder §-11-Frage.</p>
+          sich. Die Herkunft eines Katalogs macht nicht jede einzelne Frage ausschließlich zu einer §-3- oder
+          §-11-Frage.
+        </p>
         <p>Eine feststehende Ergänzung nach dem Muster „§ 11 plus zehn Fragen ergibt § 3“ gibt es hier deshalb nicht.
           Die <a href="gut-zu-wissen.html#testreihen">Testreihen</a> sind unverbindliche, geschätzte Übungssituationen.
           Sie ersetzen weder die örtliche Prüfung noch die Auskunft darüber, welche Bescheinigung du benötigst.</p>
       </section>
       <div class="editorial-chapter">
         <h2>Quellenstand und Grenzen</h2>
-    <p>Die Ergänzungen zu Nachweiswegen, Haltungserlaubnis und Mietwohnung wurden am 17. November 2026 anhand der
-      verlinkten amtlichen Quellen geprüft. TierSchG, TierSchHuV, LHundG NRW und die ergänzenden öffentlichen Ortsquellen wurden am 11. November 2026
-      geprüft; die übrige Grundübersicht stammt vom 6. November 2026. Die verlinkte DVO gilt in der Fassung vom 9.
-      Dezember 2025, die
-      Verwaltungsvorschriften in der Fassung vom 7. Oktober 2026. Prüfungsfragen können ältere Quellenstände abbilden;
-      ihre Lösung ist nicht automatisch eine aktuelle Rechtsauskunft. Für individuelle Entscheidungen wende dich an
-      deine zuständige Behörde oder eine qualifizierte Rechtsberatung.</p>
-</div>
+        <p>Die Ergänzungen zu Nachweiswegen, Haltungserlaubnis und Mietwohnung wurden am 17. November 2026 anhand der
+          verlinkten amtlichen Quellen geprüft. TierSchG, TierSchHuV, LHundG NRW und die ergänzenden öffentlichen
+          Ortsquellen wurden am 11. November 2026
+          geprüft; die übrige Grundübersicht stammt vom 6. November 2026. Die verlinkte DVO gilt in der Fassung vom 9.
+          Dezember 2025, die
+          Verwaltungsvorschriften in der Fassung vom 7. Oktober 2026. Prüfungsfragen können ältere Quellenstände
+          abbilden;
+          ihre Lösung ist nicht automatisch eine aktuelle Rechtsauskunft. Für individuelle Entscheidungen wende dich an
+          deine zuständige Behörde oder eine qualifizierte Rechtsberatung.</p>
+      </div>
     </div>
     <!-- BLOCK END: Magazinkapitel -->
   </main>
-  <footer class="site-footer wrap">
-    <!-- BLOCK START: Gemeinsame Fußzeilenmarke -->
-    <a class="footer-brand" href="./">SACHKUNDE<span>Für Mensch &amp; Hund. / NRW</span></a>
-    <!-- BLOCK END: Gemeinsame Fußzeilenmarke -->
-    <p class="footer-scope">Aktuell gibt es die Lernhilfe nur für NRW. Weitere Bundesländer können auf Anfrage ergänzt
-      werden. <a
-        href="mailto:kontakt@design-code-repeat.de?subject=Sachkundenachweis%20f%C3%BCr%20Hunde%20%28Bundesland%29">Erweiterung
-        per E-Mail anfragen</a> – bitte das Bundesland im Betreff angeben.</p>
-
-    <p class="footer-credit">© 2026 Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/"
-        aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p>
-    <nav aria-label="Rechtliches und Informationen"><a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a><a href="./#geschichte" data-open-story
-        aria-haspopup="dialog">Die Geschichte hinter dem Trainer</a><a href="quellen.html">Originalquellen</a><a
-        href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a
-        href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="lernen.html#trainer">Zum Lernen
-        ↑</a></nav>
+  <footer class="site-footer wrap" data-layout-src="templates/site-footer.html">
+    <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   </footer>
+  <script src="scripts/ui/include.js?v=1" defer></script>
   <script src="scripts/site-config.js?v=38" defer></script>
   <script src="scripts/ui/shared.js?v=67" defer></script>
   <script src="scripts/ui/modal.js?v=67" defer></script>
@@ -551,12 +531,12 @@
   <script src="scripts/ui/toast-item.js?v=67" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
-  <script src="scripts/ui/navigation.js?v=68" defer></script>
+  <script src="scripts/ui/navigation.js?v=69" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
   <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
   <script src="scripts/ui/release.js?v=65" defer></script>
   <script src="scripts/ui/page-tools.js?v=67" defer></script>
-  <script src="scripts/ui/common.js?v=63" defer></script>
+  <script src="scripts/ui/common.js?v=64" defer></script>
   <script src="scripts/ui/controls.js?v=67" defer></script>
 </body>
 

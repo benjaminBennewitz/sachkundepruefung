@@ -45,7 +45,8 @@
     align-self: center;
   }
 
-  .hero--companion .eyebrow, .hero--companion .hero-warning {
+  .hero--companion .eyebrow,
+  .hero--companion .hero-warning {
     color: var(--text);
   }
 
@@ -133,6 +134,7 @@
   }
 
 }
+
 /* ===========================================================================
    02   Seitenauftakte, Wissen und Quellen
    ========================================================================== */
@@ -168,7 +170,8 @@
     max-width: none;
   }
 
-  .prose p, .prose li {
+  .prose p,
+  .prose li {
     color: var(--text);
     font-size: .96rem;
     line-height: 1.8;
@@ -179,7 +182,10 @@
     font-size: clamp(1.5rem, 2.6vw, 2rem);
   }
 
-  .legal-disclaimer, .context-note, .travel-note, .release-note {
+  .legal-disclaimer,
+  .context-note,
+  .travel-note,
+  .release-note {
     padding: 18px 22px;
     border: 1px solid var(--line);
     border-inline-start: 5px solid var(--rust);
@@ -251,15 +257,17 @@
     border-radius: var(--radius-md);
   }
 
-  .travel-card, .keyboard-guide > div {
+  .travel-card,
+  .keyboard-guide>div {
     border-radius: var(--radius-md);
     background: var(--surface);
   }
 
-  .travel-card[open] > summary {
+  .travel-card[open]>summary {
     background: var(--accent-bg);
   }
 }
+
 /* ===========================================================================
    03   FAQ und Unterstützung
    ========================================================================== */
@@ -335,12 +343,16 @@
     border-color: var(--accent);
   }
 }
+
 /* ===========================================================================
    04   Responsive Anordnung
    ========================================================================== */
 
 @media screen and (max-width: 800px) {
-  .hero--companion, .info-section, .support-section {
+
+  .hero--companion,
+  .info-section,
+  .support-section {
     grid-template-columns: minmax(0, 1fr);
   }
 
@@ -357,6 +369,7 @@
   .companion-image {
     border-radius: 0;
   }
+
   .info-section {
     gap: 28px;
     padding-block: 48px;

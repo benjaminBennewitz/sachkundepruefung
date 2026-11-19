@@ -9,6 +9,9 @@ DirectoryIndex index.html
   <FilesMatch "\.html$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
+  <FilesMatch "^(site-header|site-footer)\.html$">
+    Header always set X-Robots-Tag "noindex, follow"
+  </FilesMatch>
   <FilesMatch "\.(js|css)$">
     Header set Cache-Control "public, max-age=86400"
     Header set Cache-Control "public, max-age=2592000" "expr=%{QUERY_STRING} =~ /(^|&)v=[0-9]+(&|$)/"

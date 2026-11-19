@@ -7,11 +7,12 @@ Diese Datei beschreibt Architektur, Schnittstellen und Pflege. Einstieg und loka
 
 ## Inhaltsquellen und Aufbau
 
-Die sechs Root-HTML-Dateien sind die einzige Inhaltsquelle für die öffentlichen Seiten.
-Texte, Navigation, Footer, Hinweise und Metadaten werden unmittelbar dort gepflegt.
-Es gibt keinen Seitengenerator und keine parallelen HTML-Templates. Auch eine Änderung
-der Betreiberkonfiguration erzeugt keine neuen Rechtstexte. Gemeinsame Bereiche bei
-Änderungen in allen betroffenen Root-Seiten abgleichen.
+Seiteninhalte und Metadaten werden in den acht Root-HTML-Dateien gepflegt. Gemeinsame
+Navigation und Footer werden am jeweiligen Landmark über `data-layout-src` eingebunden.
+Der Browser lädt den Header früh vor und verarbeitet die Fragmente in `ui/include.js`.
+Navigation und gemeinsame UI-Bindungen warten auf `LHUNDG_LAYOUT_READY`. Der Lerntrainer
+startet wie bisher nach der Profilwahl. Die Pfadprüfung wertet die Links der Fragmente
+relativ zur jeweiligen Seite aus.
 
 Fragen und Lösungsschlüssel stehen in den Lernskripten. Dynamisch erzeugte Fragenkarten,
 Modale und Controls sind Anwendungselemente; sie ersetzen keine Root-Inhaltsseiten.
@@ -54,6 +55,7 @@ Filtersteuerung mit demselben Session-Zustand.
 
 | Datei unter `scripts/ui/` | Verantwortung |
 | --- | --- |
+| `include.js` | Lädt gemeinsame HTML-Fragmente und kennzeichnet den aktiven Menülink |
 | `theme.js` | Frühe gespeicherte Farbwahl ohne Modulabhängigkeiten |
 | `shared.js` | Sichere Text-/DOM-Helfer, PayPal-Icon, Farbwahlschalter und native Details-Animation |
 | `modal.js` | Nativer Dialog, Aktionen, Warteschlange und Fokus-Rückgabe |

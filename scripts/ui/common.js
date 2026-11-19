@@ -74,15 +74,25 @@
   window.LHUNDG_UI = Object.freeze({ modal: modal.open.bind(modal), toast: toasts.show.bind(toasts), confirm });
   window.openSupportDialog = support.open.bind(support);
 
-  /* Das Release wird vor Geschichte, Grundlagen und allen weiteren Dialogen eingereiht. */
-  void ui.bindRelease(modal);
-  window.LHUNDG_LEARNERS_READY = ui.bindLearners?.(modal) || Promise.resolve();
-  ui.bindAccessibility(modal);
-  bindAbout();
-  /* Persönliche Entstehungsgeschichte im gemeinsamen Dialog anzeigen. */
-  ui.bindStory(modal);
-  ui.bindDetails();  // Animiert native Aufklappbereiche auf sämtlichen Root-Seiten.
-  ui.bindPageTools(modal);
-  ui.bindTheme();    // Synchronisiert Farbwahl, Tooltip und zugängliche Schalterbeschriftung.
-  support.bind();    // Aktiviert vorhandene Footer-Links und manuelle Unterstützungsdialoge.
+  /**
+   * Bindet die gemeinsame Oberfläche einschließlich der eingefügten Kopf- und Fußbereiche.
+   * @returns {Promise<void> | undefined} Abschluss der optionalen Profilwahl.
+   */
+  function bindLayoutControls() {
+    /* Das Release wird vor Geschichte, Grundlagen und allen weiteren Dialogen eingereiht. */
+    void ui.bindRelease(modal);
+    const learnersReady = ui.bindLearners?.(modal);
+    ui.bindAccessibility(modal);
+    bindAbout();
+    ui.bindStory(modal);
+    ui.bindDetails();
+    ui.bindPageTools(modal);
+    ui.bindTheme();
+    support.bind();
+    return learnersReady;
+  }
+
+  window.LHUNDG_LEARNERS_READY = window.LHUNDG_LAYOUT_READY
+    ? window.LHUNDG_LAYOUT_READY.then(bindLayoutControls)
+    : bindLayoutControls() || Promise.resolve();
 })(window.LHUNDG_UI_PARTS);

@@ -17,12 +17,12 @@
 
 /* ===========================================================================
    INHALTSVERZEICHNIS
-   01   Gemeinsame Navigation
+   01   Gemeinsame Navigation und Platzreserve
    02   Bildschirmfüllendes mobiles Menü
    ========================================================================== */
 
 /* ===========================================================================
-   01   Gemeinsame Navigation
+   01   Gemeinsame Navigation und Platzreserve
    ========================================================================== */
 
 .header-navigation-panel {
@@ -38,6 +38,18 @@
   display: none;
 }
 
+@media screen {
+  .site-header[data-layout-src] {
+    min-block-size: 76px;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1280px) {
+  body:not(.learning-page) .site-header[data-layout-src] {
+    min-block-size: 130px;
+  }
+}
+
 /* ===========================================================================
    02   Bildschirmfüllendes mobiles Menü
    ========================================================================== */
@@ -50,14 +62,14 @@
     padding-block: 12px;
   }
 
-  .site-header.wrap > .header-brand-group {
+  .site-header.wrap>.header-brand-group {
     grid-column: 1;
     grid-row: 1;
   }
 
-  .site-header.wrap > .header-nav,
-  .site-header.wrap > .header-tools,
-  .site-header.wrap > .header-brand-group > .header-project {
+  .site-header.wrap>.header-nav,
+  .site-header.wrap>.header-tools,
+  .site-header.wrap>.header-brand-group>.header-project {
     display: none;
   }
 }
@@ -65,6 +77,21 @@
 @media (max-width: 800px) {
   html:has(.has-mobile-navigation) {
     scroll-padding-top: 88px;
+  }
+
+  .site-header[data-layout-src] {
+    min-block-size: 68px;
+  }
+
+  .site-header[data-layout-failed] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .site-header[data-layout-failed]>.header-tools {
+    display: flex;
+    flex-wrap: wrap;
+    grid-column: 1;
+    grid-row: auto;
   }
 
   .site-header.has-mobile-navigation {
@@ -85,7 +112,7 @@
     grid-row: 1;
   }
 
-  .has-mobile-navigation > [data-open-support] {
+  .has-mobile-navigation>[data-open-support] {
     grid-column: 2;
     grid-row: 1;
     width: 44px;
@@ -226,7 +253,7 @@
     border-block: 1px solid var(--line);
   }
 
-  .header-navigation-panel .header-tools > .icon-button {
+  .header-navigation-panel .header-tools>.icon-button {
     display: flex;
     justify-content: start;
     gap: 8px;

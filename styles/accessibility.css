@@ -181,7 +181,9 @@
 }
 
 @media print {
-  [data-open-accessibility], .accessibility-content {
+
+  [data-open-accessibility],
+  .accessibility-content {
     display: none;
   }
 }
@@ -193,7 +195,7 @@
     gap: 16px;
   }
 
-  .accessibility-preferences > :first-child {
+  .accessibility-preferences> :first-child {
     grid-column: 1 / -1;
   }
 

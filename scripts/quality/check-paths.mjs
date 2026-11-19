@@ -95,7 +95,7 @@ function checkAnchor(url, target, value) {
   if (!url.hash || extname(target).toLowerCase() !== '.html') return;
 
   const id = decodeURIComponent(url.hash.slice(1));     // Gesuchte Element-ID ohne führendes Hash-Zeichen.
-  const tags = elements(readFileSync(target, 'utf8'));  // Aktive Elemente des tatsächlichen Zieldokuments.
+  const tags = pageTags(target);  // Aktive Elemente des tatsächlichen Zieldokuments.
 
   assert(
     tags.some(tag => tag.attributes.id === id),
@@ -136,6 +136,22 @@ function checkIds(tags, name) {
 }
 
 /**
+ * Liest Seitenelemente einschließlich der über data-layout-src eingebundenen Fragmente.
+ * @param {string} file Absoluter Pfad der einbindenden HTML-Seite.
+ * @returns {object[]} Markup für die Pfadprüfung mit relativen Verweisen zur einbindenden Seite.
+ */
+function pageTags(file) {
+  return elements(readFileSync(file, 'utf8')).flatMap(tag => {
+    const source = tag.attributes['data-layout-src'];
+    if (!source) return [tag];
+    const url = localUrl(source, file);
+    assert(url, `Layoutvorlage muss eine lokale Datei sein: ${source}`);
+    const includes = elements(readFileSync(targetPath(url, source), 'utf8'));
+    return [tag, ...includes.slice(1)];
+  });
+}
+
+/**
  * Prüft echte Element-IDs und lokale Dateiverweise einer Root-Seite.
  *
  * @param {string} name Dateiname einer HTML-Seite im Projekt-Root.
@@ -143,7 +159,7 @@ function checkIds(tags, name) {
  */
 function checkPage(name) {
   const file = resolve(root, name);                   // Tatsächliche Quelldatei für das Einlesen und die Verweisauflösung.
-  const tags = elements(readFileSync(file, 'utf8'));  // Aktive Elemente ohne Kommentare oder zusätzliche Rohtext-Tags.
+  const tags = pageTags(file);  // Aktive Elemente ohne Kommentare oder zusätzliche Rohtext-Tags.
 
   checkIds(tags, name);  // Prüft die Eindeutigkeit innerhalb dieses Dokuments.
 

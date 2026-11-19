@@ -4025,6 +4025,7 @@ html.modal-open {
     transition: none;
   }
 }
+
 /* ==========================================================================
    11   Auffindbare Sammlungen und gemeinsame Bewegungsregeln
    12   Persönliche Entstehungsgeschichte
@@ -4137,6 +4138,7 @@ html,
 
 /* Die Systempräferenz unterbindet sowohl native Höhenanimation als auch ergänzende CSS-Bewegung. */
 @media (prefers-reduced-motion: reduce) {
+
   .select-menu,
   .nav-details>summary>span,
   .test-options>summary>span,
@@ -4147,6 +4149,7 @@ html,
 
 /* Reduzierte Bewegung hat Vorrang vor sämtlichen nativen Scrollanimationen. */
 @media (prefers-reduced-motion: reduce) {
+
   html,
   .question-stage,
   .question-nav,
@@ -4183,7 +4186,7 @@ html,
   overflow-wrap: anywhere;
 }
 
-.ui-modal:has(.story-content) .ui-modal-inner > :not(.ui-modal-heading) {
+.ui-modal:has(.story-content) .ui-modal-inner> :not(.ui-modal-heading) {
   margin-inline: var(--story-gutter);
 }
 

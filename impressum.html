@@ -17,11 +17,12 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="icon" href="favicon.png" type="image/png" sizes="96x96">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preload" href="templates/site-header.html" as="fetch" crossorigin>
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
   <link rel="stylesheet" href="styles/tokens.css?v=62">
   <link rel="stylesheet" href="styles/interface.css?v=50">
-  <link rel="stylesheet" href="styles/navigation.css?v=71">
+  <link rel="stylesheet" href="styles/navigation.css?v=72">
   <link rel="stylesheet" href="styles/character.css?v=63">
   <link rel="stylesheet" href="styles/editorial-identity.css?v=62">
   <link rel="stylesheet" href="styles/accessibility.css?v=58">
@@ -31,129 +32,70 @@
 </head>
 
 <body><a class="skip-link" href="#inhalt">Zum Inhalt</a>
-  <header class="site-header wrap">
-    <!-- BLOCK START: Marke und Projekthinweise -->
-    <div class="header-brand-group"><a class="brand" href="./" aria-label="Sachkunde NRW – Startseite"><span
-          class="brand-mark" aria-hidden="true">§</span><span>SACHKUNDE<span class="brand-sub">NRW / DIE
-            LERNHILFE</span></span></a>
-      <div class="header-project">
-        <p>Wissen für Mensch &amp; Hund.</p>
-        <a href="impressum.html#haftung" data-open-about aria-haspopup="dialog">Über diese Lernhilfe</a>
-      </div>
-    </div>
-    <!-- BLOCK END: Marke und Projekthinweise -->
-    <nav class="header-nav" aria-label="Hauptnavigation">
-      <a href="./">Startseite</a>
-      <a href="lernen.html#trainer">Lernen</a>
-      <a href="grundlagen.html">Grundlagen</a>
-      <a href="gut-zu-wissen.html">Gut zu wissen</a>
-      <a href="hundewissen.html">Haltung &amp; Recht</a>
-      <a href="quellen.html">Quellen</a>
-    </nav>
-    <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><a class="icon-button"
-        aria-label="Lernstand laden – im Trainer" href="lernen.html?action=import#trainer"><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 16V4m-4 4 4-4 4 4M5 16v5h14v-5" />
-        </svg><span class="tool-tip" aria-hidden="true">Laden im Trainer</span></a><a class="icon-button"
-        aria-label="Lernstand sichern – im Trainer" href="lernen.html?action=export#trainer"><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" />
-        </svg><span class="tool-tip" aria-hidden="true">Sichern im Trainer</span></a><a class="icon-button"
-        aria-label="Lernbereich zurücksetzen – im Trainer" href="lernen.html?action=reset#trainer"><svg class="" width="20"
-          height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 11a8 8 0 1 1 2 7M4 4v7h7" />
-        </svg><span class="tool-tip" aria-hidden="true">Zurücksetzen im Trainer</span></a><button class="icon-button"
-        type="button" aria-label="Über PayPal unterstützen" data-open-support><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path
-            d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
-        </svg><span class="tool-tip" aria-hidden="true">Über PayPal unterstützen</span></button><button
-        class="icon-button" type="button" aria-label="Farbschema wechseln" id="themeToggle"><svg class="theme-sun"
-          width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 1v2m0 18v2M1 12h2m18 0h2M4 4l1.5 1.5m13 13L20 20M4 20l1.5-1.5m13-13L20 4" />
-        </svg><svg class="theme-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z" />
-        </svg><span class="tool-tip" aria-hidden="true">Farbschema wechseln</span></button><button class="icon-button" type="button" data-open-accessibility aria-label="Barrierefreiheit einstellen" aria-haspopup="dialog">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-          <circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7M8 8l1 6m7-6-1 6"/>
-        </svg><span class="tool-tip" aria-hidden="true">Barrierefreiheit</span></button></div>
+  <header class="site-header wrap" data-layout-src="templates/site-header.html">
+    <a href="./">Startseite</a>
   </header>
   <main id="inhalt" class="prose wrap magazine" tabindex="-1">
     <!-- BLOCK START: Seitenauftakt -->
     <header class="page-masthead page-masthead--magazine">
       <div class="masthead-copy">
-      <p class="eyebrow">05 / Projektinformationen</p>
-      <h1>Impressum</h1>
+        <p class="eyebrow">05 / Projektinformationen</p>
+        <h1>Impressum</h1>
         <p class="masthead-deck">Ein persönliches Projekt. Offen und unabhängig.</p>
       </div>
-      <figure class="masthead-image"><img src="assets/public/huendin-miteinander.webp" width="1200" height="900" alt="Hündin sitzt am Strand auf dem Schoß ihres Menschen." loading="eager" fetchpriority="high" decoding="async"></figure>
+      <figure class="masthead-image"><img src="assets/public/huendin-miteinander.webp" width="1200" height="900"
+          alt="Hündin sitzt am Strand auf dem Schoß ihres Menschen." loading="eager" fetchpriority="high"
+          decoding="async"></figure>
     </header>
     <!-- BLOCK END: Seitenauftakt -->
     <!-- BLOCK START: Magazinkapitel -->
     <div class="magazine-body">
       <div class="editorial-chapter">
         <h2>Anbieter und Kontakt</h2>
-    <p>Benjamin Bennewitz<br>c/o<br>Linzer Straße 45<br>53604 Bad Honnef<br>Deutschland</p>
-    <p>E-Mail: <a href="mailto:kontakt@design-code-repeat.de">kontakt@design-code-repeat.de</a><br>Telefon: +49 162
-      9038166</p>
-</div>
+        <p>Benjamin Bennewitz<br>c/o<br>Linzer Straße 45<br>53604 Bad Honnef<br>Deutschland</p>
+        <p>E-Mail: <a href="mailto:kontakt@design-code-repeat.de">kontakt@design-code-repeat.de</a><br>Telefon: +49 162
+          9038166</p>
+      </div>
       <div class="editorial-chapter">
         <h2>Über dieses Projekt</h2>
-    <p>Die NRW Sachkundeprüfung Lernhilfe ist ein unabhängiges, kostenlos zugängliches Lernangebot. Sie wird nicht von
-      einer Behörde oder Tierärztekammer betrieben. Der Trainer erteilt keinen Sachkundenachweis und ersetzt keine
-      Prüfung oder behördliche Auskunft.</p>
-    <p>Fragen und Lösungen basieren auf den unter <a href="quellen.html">Quellen</a> beschriebenen Unterlagen.
-      Eigene unverbindliche Beispielfragen sind gesondert gekennzeichnet.
-      Verbindlich sind die Vorgaben der zuständigen Stelle. Hinweise auf Übertragungsfehler nehmen wir über die
-      angegebene Kontaktadresse entgegen.</p>
-</div>
+        <p>Die NRW Sachkundeprüfung Lernhilfe ist ein unabhängiges, kostenlos zugängliches Lernangebot. Sie wird nicht
+          von
+          einer Behörde oder Tierärztekammer betrieben. Der Trainer erteilt keinen Sachkundenachweis und ersetzt keine
+          Prüfung oder behördliche Auskunft.</p>
+        <p>Fragen und Lösungen basieren auf den unter <a href="quellen.html">Quellen</a> beschriebenen Unterlagen.
+          Eigene unverbindliche Beispielfragen sind gesondert gekennzeichnet.
+          Verbindlich sind die Vorgaben der zuständigen Stelle. Hinweise auf Übertragungsfehler nehmen wir über die
+          angegebene Kontaktadresse entgegen.</p>
+      </div>
       <div class="editorial-chapter">
         <h2>Freiwillige Unterstützung</h2>
-    <p>Die Nutzung bleibt kostenlos. Eine freiwillige Unterstützung über einen externen PayPal-Link ist keine
-      Voraussetzung für die Nutzung und begründet keinen Anspruch auf zusätzliche Leistungen. Es wird keine
-      Spendenbescheinigung ausgestellt.</p>
-</div>
+        <p>Die Nutzung bleibt kostenlos. Eine freiwillige Unterstützung über einen externen PayPal-Link ist keine
+          Voraussetzung für die Nutzung und begründet keinen Anspruch auf zusätzliche Leistungen. Es wird keine
+          Spendenbescheinigung ausgestellt.</p>
+      </div>
       <div class="editorial-chapter">
         <h2 id="haftung">Hinweise zu Inhalten und Haftung</h2>
-    <p><strong>Keine Rechtsberatung, keine behördliche Auskunft und keine Garantie für das Bestehen einer
-        Prüfung.</strong> Die Texte und Fragen dienen ausschließlich dem Lernen und der allgemeinen Orientierung. Für
-      Richtigkeit, Vollständigkeit und Aktualität wird keine Gewähr übernommen. Insbesondere können ältere
-      Originalfragen vom aktuellen Recht oder heutigen fachlichen Empfehlungen abweichen.</p>
-    <p>Soweit gesetzlich zulässig, ist eine Haftung für Schäden durch die Nutzung der unentgeltlichen Lerninhalte
-      ausgeschlossen. Unberührt bleiben gesetzlich zwingende Ansprüche, insbesondere wegen Vorsatzes, grober
-      Fahrlässigkeit sowie wegen Verletzung von Leben, Körper oder Gesundheit. Dieser Hinweis hebt gesetzliche
-      Verantwortlichkeiten nicht auf.</p>
-    <p>Eine pauschale Distanzierung von verlinkten Inhalten ersetzt keine gesetzliche Pflicht. Bei konkreten Hinweisen
-      auf Rechtsverletzungen oder Übertragungsfehler werden die betroffenen Inhalte geprüft und erforderlichenfalls
-      berichtigt oder entfernt.</p>
-</div>
+        <p><strong>Keine Rechtsberatung, keine behördliche Auskunft und keine Garantie für das Bestehen einer
+            Prüfung.</strong> Die Texte und Fragen dienen ausschließlich dem Lernen und der allgemeinen Orientierung.
+          Für
+          Richtigkeit, Vollständigkeit und Aktualität wird keine Gewähr übernommen. Insbesondere können ältere
+          Originalfragen vom aktuellen Recht oder heutigen fachlichen Empfehlungen abweichen.</p>
+        <p>Soweit gesetzlich zulässig, ist eine Haftung für Schäden durch die Nutzung der unentgeltlichen Lerninhalte
+          ausgeschlossen. Unberührt bleiben gesetzlich zwingende Ansprüche, insbesondere wegen Vorsatzes, grober
+          Fahrlässigkeit sowie wegen Verletzung von Leben, Körper oder Gesundheit. Dieser Hinweis hebt gesetzliche
+          Verantwortlichkeiten nicht auf.</p>
+        <p>Eine pauschale Distanzierung von verlinkten Inhalten ersetzt keine gesetzliche Pflicht. Bei konkreten
+          Hinweisen
+          auf Rechtsverletzungen oder Übertragungsfehler werden die betroffenen Inhalte geprüft und erforderlichenfalls
+          berichtigt oder entfernt.</p>
+      </div>
     </div>
     <!-- BLOCK END: Magazinkapitel -->
   </main>
-  <footer class="site-footer wrap">
-    <!-- BLOCK START: Gemeinsame Fußzeilenmarke -->
-    <a class="footer-brand" href="./">SACHKUNDE<span>Für Mensch &amp; Hund. / NRW</span></a>
-    <!-- BLOCK END: Gemeinsame Fußzeilenmarke -->
-    <p class="footer-scope">Aktuell gibt es die Lernhilfe nur für NRW. Weitere Bundesländer können auf Anfrage ergänzt
-      werden. <a
-        href="mailto:kontakt@design-code-repeat.de?subject=Sachkundenachweis%20f%C3%BCr%20Hunde%20%28Bundesland%29">Erweiterung
-        per E-Mail anfragen</a> – bitte das Bundesland im Betreff angeben.</p>
-
-    <p class="footer-credit">© 2026 Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/"
-        aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p>
-    <nav aria-label="Rechtliches und Informationen"><a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a><a href="./#geschichte" data-open-story
-        aria-haspopup="dialog">Die Geschichte hinter dem Trainer</a><a href="quellen.html">Originalquellen</a><a
-        href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a
-        href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="lernen.html#trainer">Zum Lernen
-        ↑</a></nav>
+  <footer class="site-footer wrap" data-layout-src="templates/site-footer.html">
+    <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   </footer>
+  <script src="scripts/ui/include.js?v=1" defer></script>
   <script src="scripts/site-config.js?v=38" defer></script>
   <script src="scripts/ui/shared.js?v=67" defer></script>
   <script src="scripts/ui/modal.js?v=67" defer></script>
@@ -161,12 +103,12 @@
   <script src="scripts/ui/toast-item.js?v=67" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
-  <script src="scripts/ui/navigation.js?v=68" defer></script>
+  <script src="scripts/ui/navigation.js?v=69" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
   <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
   <script src="scripts/ui/release.js?v=65" defer></script>
   <script src="scripts/ui/page-tools.js?v=67" defer></script>
-  <script src="scripts/ui/common.js?v=63" defer></script>
+  <script src="scripts/ui/common.js?v=64" defer></script>
   <script src="scripts/ui/controls.js?v=67" defer></script>
 </body>
 

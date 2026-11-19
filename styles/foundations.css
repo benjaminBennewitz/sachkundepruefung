@@ -54,18 +54,18 @@
   color: var(--text);
 }
 
-.question-explanation > summary {
+.question-explanation>summary {
   padding: 12px 4px;
   min-height: 44px;
   color: var(--accent);
   font-weight: 700;
 }
 
-.question-explanation > summary:hover {
+.question-explanation>summary:hover {
   color: var(--accent-hover);
 }
 
-.question-explanation > summary:focus-visible {
+.question-explanation>summary:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
 }
@@ -124,7 +124,10 @@
 }
 
 @media screen {
-  .ui-modal .editorial-intro { display: block; margin: 0; }
+  .ui-modal .editorial-intro {
+    display: block;
+    margin: 0;
+  }
 
   .ui-modal .magazine-body {
     display: block;

@@ -25,7 +25,7 @@ export function fixture(context) {
   context.after(() => rmSync(root, { recursive: true, force: true }));
 
   // Öffentliche Root-Dateien und CSP bilden dieselben Eingaben wie im echten Vorbereitungsprozess.
-  for (const name of [...files, '.htaccess', 'scripts', 'styles', 'assets']) {
+  for (const name of [...files, '.htaccess', 'scripts', 'styles', 'templates', 'assets']) {
     cpSync(resolve(projectRoot, name), resolve(root, name), { recursive: true });
   }
 

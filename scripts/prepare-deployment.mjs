@@ -109,6 +109,7 @@ run([
   'scripts/quality/filters.test.cjs',
   'scripts/quality/explanations.test.cjs',
   'scripts/quality/navigation.test.cjs',
+  'scripts/quality/include.test.cjs',
   'scripts/quality/workspace.test.cjs',
   'scripts/quality/workspace-tools.test.cjs',
   'scripts/quality/insights.test.cjs',

@@ -19,11 +19,12 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="icon" href="favicon.png" type="image/png" sizes="96x96">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preload" href="templates/site-header.html" as="fetch" crossorigin>
   <script src="scripts/ui/accessibility-state.js?v=56"></script>
   <script src="scripts/ui/theme.js?v=38"></script>
   <link rel="stylesheet" href="styles/tokens.css?v=62">
   <link rel="stylesheet" href="styles/interface.css?v=50">
-  <link rel="stylesheet" href="styles/navigation.css?v=71">
+  <link rel="stylesheet" href="styles/navigation.css?v=72">
   <link rel="stylesheet" href="styles/character.css?v=63">
   <link rel="stylesheet" href="styles/editorial-identity.css?v=62">
   <link rel="stylesheet" href="styles/accessibility.css?v=58">
@@ -33,244 +34,209 @@
 </head>
 
 <body><a class="skip-link" href="#inhalt">Zum Inhalt</a>
-  <header class="site-header wrap">
-    <!-- BLOCK START: Marke und Projekthinweise -->
-    <div class="header-brand-group"><a class="brand" href="./" aria-label="Sachkunde NRW – Startseite"><span
-          class="brand-mark" aria-hidden="true">§</span><span>SACHKUNDE<span class="brand-sub">NRW / DIE
-            LERNHILFE</span></span></a>
-      <div class="header-project">
-        <p>Wissen für Mensch &amp; Hund.</p>
-        <a href="impressum.html#haftung" data-open-about aria-haspopup="dialog">Über diese Lernhilfe</a>
-      </div>
-    </div>
-    <!-- BLOCK END: Marke und Projekthinweise -->
-    <nav class="header-nav" aria-label="Hauptnavigation">
-      <a href="./">Startseite</a>
-      <a href="lernen.html#trainer">Lernen</a>
-      <a href="grundlagen.html">Grundlagen</a>
-      <a href="gut-zu-wissen.html">Gut zu wissen</a>
-      <a href="hundewissen.html">Haltung &amp; Recht</a>
-      <a href="quellen.html" aria-current="page">Quellen</a>
-    </nav>
-    <div class="header-tools" role="group" aria-label="Darstellung und Lernwerkzeuge"><a class="icon-button"
-        aria-label="Lernstand laden – im Trainer" href="lernen.html?action=import#trainer"><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 16V4m-4 4 4-4 4 4M5 16v5h14v-5" />
-        </svg><span class="tool-tip" aria-hidden="true">Laden im Trainer</span></a><a class="icon-button"
-        aria-label="Lernstand sichern – im Trainer" href="lernen.html?action=export#trainer"><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" />
-        </svg><span class="tool-tip" aria-hidden="true">Sichern im Trainer</span></a><a class="icon-button"
-        aria-label="Lernbereich zurücksetzen – im Trainer" href="lernen.html?action=reset#trainer"><svg class="" width="20"
-          height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 11a8 8 0 1 1 2 7M4 4v7h7" />
-        </svg><span class="tool-tip" aria-hidden="true">Zurücksetzen im Trainer</span></a><button class="icon-button"
-        type="button" aria-label="Über PayPal unterstützen" data-open-support><svg class="" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path
-            d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
-        </svg><span class="tool-tip" aria-hidden="true">Über PayPal unterstützen</span></button><button
-        class="icon-button" type="button" aria-label="Farbschema wechseln" id="themeToggle"><svg class="theme-sun"
-          width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 1v2m0 18v2M1 12h2m18 0h2M4 4l1.5 1.5m13 13L20 20M4 20l1.5-1.5m13-13L20 4" />
-        </svg><svg class="theme-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z" />
-        </svg><span class="tool-tip" aria-hidden="true">Farbschema wechseln</span></button><button class="icon-button" type="button" data-open-accessibility aria-label="Barrierefreiheit einstellen" aria-haspopup="dialog">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-          <circle cx="12" cy="4" r="2"/><path d="M4 8h16m-8 0v6m0 0-4 7m4-7 4 7M8 8l1 6m7-6-1 6"/>
-        </svg><span class="tool-tip" aria-hidden="true">Barrierefreiheit</span></button></div>
+  <header class="site-header wrap" data-layout-src="templates/site-header.html">
+    <a href="./">Startseite</a>
   </header>
   <main id="inhalt" class="prose wrap magazine" tabindex="-1">
     <!-- BLOCK START: Seitenauftakt -->
     <header class="page-masthead page-masthead--magazine">
       <div class="masthead-copy">
-      <p class="eyebrow">04 / Nachlesen</p>
-      <h1>Quellen &amp; Originalunterlagen</h1>
+        <p class="eyebrow">04 / Nachlesen</p>
+        <h1>Quellen &amp; Originalunterlagen</h1>
         <p class="masthead-deck">Woher die Fragen kommen. Was die Quellen leisten.</p>
       </div>
-      <figure class="masthead-image"><img src="assets/public/huendin-auge.webp" width="1100" height="825" alt="Nahaufnahme des Auges der Hündin." loading="eager" fetchpriority="high" decoding="async"></figure>
+      <figure class="masthead-image"><img src="assets/public/huendin-auge.webp" width="1100" height="825"
+          alt="Nahaufnahme des Auges der Hündin." loading="eager" fetchpriority="high" decoding="async"></figure>
     </header>
     <!-- BLOCK END: Seitenauftakt -->
     <!-- BLOCK START: Orientierung -->
     <div class="editorial-intro">
-    <aside class="legal-disclaimer" aria-label="Wichtiger Hinweis zur Lernhilfe"><strong>REINE LERNHILFE. KEINE
-        RECHTSBERATUNG. KEINE PRÜFUNGSGARANTIE.</strong>
-      <p>Dieses unabhängige Angebot ersetzt weder behördliche Auskünfte noch eine Sachkunde- oder Verhaltensprüfung. Für
-        Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird keine Gewähr übernommen. Maßgeblich sind geltendes
-        Recht und die Auskunft deiner zuständigen Behörde. Ein gutes Übungsergebnis garantiert kein Bestehen. <a
-          href="impressum.html#haftung">Hinweise zur Haftung</a></p>
-    </aside>
-    <p>Hier findest du die Herkunft der Fragen, die veröffentlichten Originalunterlagen und die Grenzen dieser
-      Lernhilfe. Der Fragenabgleich stammt vom 6. November 2026; die unten ergänzten PDF-Verweise für Köln und
-      Rhein-Erft wurden am 11. November 2026 geprüft. Öffentliche Fassungen können sich später ändern. Die Links führen
-      zu den Originalseiten und PDF-Dateien der Herausgeber. Eigene PDF-Kopien werden hier nicht angeboten.</p>
-    <p class="context-note"><strong>§ 3 ist nicht § 11.</strong> Die Tierärztekammern veröffentlichen ihren Katalog für
-      die Sachkunde großer Hunde nach § 11. Er ergänzt hier das Wissen, ersetzt aber nicht die amtstierärztliche Prüfung
-      für gefährliche Hunde nach § 3. Zuständigkeit und Prüfungsvorgaben bitte bei deinem Veterinäramt klären.</p>
-</div>
+      <aside class="legal-disclaimer" aria-label="Wichtiger Hinweis zur Lernhilfe"><strong>REINE LERNHILFE. KEINE
+          RECHTSBERATUNG. KEINE PRÜFUNGSGARANTIE.</strong>
+        <p>Dieses unabhängige Angebot ersetzt weder behördliche Auskünfte noch eine Sachkunde- oder Verhaltensprüfung.
+          Für
+          Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird keine Gewähr übernommen. Maßgeblich sind
+          geltendes
+          Recht und die Auskunft deiner zuständigen Behörde. Ein gutes Übungsergebnis garantiert kein Bestehen. <a
+            href="impressum.html#haftung">Hinweise zur Haftung</a></p>
+      </aside>
+      <p>Hier findest du die Herkunft der Fragen, die veröffentlichten Originalunterlagen und die Grenzen dieser
+        Lernhilfe. Der Fragenabgleich stammt vom 6. November 2026; die unten ergänzten PDF-Verweise für Köln und
+        Rhein-Erft wurden am 11. November 2026 geprüft. Öffentliche Fassungen können sich später ändern. Die Links
+        führen
+        zu den Originalseiten und PDF-Dateien der Herausgeber. Eigene PDF-Kopien werden hier nicht angeboten.</p>
+      <p class="context-note"><strong>§ 3 ist nicht § 11.</strong> Die Tierärztekammern veröffentlichen ihren Katalog
+        für
+        die Sachkunde großer Hunde nach § 11. Er ergänzt hier das Wissen, ersetzt aber nicht die amtstierärztliche
+        Prüfung
+        für gefährliche Hunde nach § 3. Zuständigkeit und Prüfungsvorgaben bitte bei deinem Veterinäramt klären.</p>
+    </div>
     <!-- BLOCK END: Orientierung -->
     <!-- BLOCK START: Magazinkapitel -->
     <div class="magazine-body">
-    <div class="source-cards">
-      <article class="source-card" id="rhein203">
-        <h2>Rhein-Erft-Kreis · 203</h2>
-        <p>Fragen zur Vorbereitung für § 3 / § 10. Grundlage des bisherigen 203er-Lernbereichs. Das offizielle PDF
-          enthält auch die Lösungen. Seine einleitenden Angaben zu 34 Fragen / mindestens 24 richtigen Antworten gelten
-          für den dort beschriebenen Prüfungskontext.</p>
-        <p>Das zuständige Veterinäramt des Rhein-Erft-Kreises sitzt in Bergheim. Die Ortsangabe bezeichnet die
-          Kreisbehörde, keinen zusätzlichen Fragenkatalog.</p><a
-          href="https://portal.rhein-erft-kreis.de/detail/-/vr-bis-detail/dienstleistung/42735/show" target="_blank"
-          rel="external noopener noreferrer">Offizielle Informationsseite ↗</a><a
-          href="https://portal.rhein-erft-kreis.de/detail/-/vr-bis-detail/dokument/40985/download?_19_WAR_vrportlet_priv_r_p_action=vr-bis-detail-dienstleistung-show"
-          target="_blank" rel="external noopener noreferrer">Originalfragen mit Lösungen · 203 Fragen (PDF) ↗</a>
-      </article>
-      <article class="source-card" id="rhein97">
-        <h2>Rhein-Erft · 97</h2>
-        <p>Dieser Übungsbogen wurde dem Betreiber als PDF zur Verfügung gestellt. Er enthält 97 Fragen, darunter
-          vier Zuordnungsaufgaben, und einen eigenen Lösungsteil. Ein öffentlicher Original-Downloadlink für genau diese
-          Fassung ist bisher nicht dokumentiert.</p>
-        <p>Die im Trainer hinterlegten Schlüssel bleiben dieser Fassung zugeordnet. Einzelne Antworten zu Erziehung,
-          Gesundheit und Recht sind unpräzise oder stehen im Widerspruch zu anderen Katalogen beziehungsweise aktuellen
-          Fach- und Rechtsquellen. Bekannte Auffälligkeiten kennzeichnet der Trainer nach dem Prüfen mit „Quelle beachten“.
-          Die aktuelle Verwendung dieses Bogens als behördliche Prüfungsgrundlage ist damit nicht bestätigt.</p>
-        <p>Der <a href="#rhein203">öffentliche 203er-Katalog des Rhein-Erft-Kreises</a> ist eine andere Fassung.
-          Er wird dem zugesandten 97er-Bogen deshalb nicht als identische Quelle zugeordnet.</p>
-      </article>
-      <article class="source-card" id="koeln">
-        <h2>Köln · A / B / C</h2>
-        <p>Der Lernbereich enthält 115 aktive Fragen aus dem zugesandten Übungsbogen; A11 ist darin als „entfällt“
-          markiert. Seine Lösungsschlüssel bleiben an diese Fassung gebunden.</p>
-        <p><strong>Andere Referenzfassung:</strong> Das öffentlich erreichbare Kölner PDF (Mai 2019) ist nicht
-          identisch, etwa bei A1. Es wird zur Einordnung verlinkt; seine Fragenummern und Lösungen dürfen nicht auf den
-          importierten Katalog übertragen werden. Ein öffentlicher Direktlink zur exakt zugesandten Fassung ist noch
-          nicht belegt.</p><a href="https://www.stadt-koeln.de/service/produkt/sachkundenachweis-fuer-hundehalterinnen"
-          target="_blank" rel="external noopener noreferrer">Stadt Köln · Sachkundenachweis ↗</a>
-        <a href="https://www.stadt-koeln.de/mediaasset/content/pdf57/sachkundenachweis_pruefungsfragenkatalog_gefaehrliche_hunde052019_.pdf"
-          target="_blank" rel="external noopener noreferrer">Öffentlicher Referenzkatalog · Mai 2019 (PDF) ↗</a>
-      </article>
-      <article class="source-card" id="bochum">
-        <h2>Bochum · Vorbereitung</h2>
-        <p>Das Ordnungs- und Veterinäramt der Stadt Bochum
-          empfiehlt den öffentlich zugänglichen Kölner Fragenkatalog zur Orientierung an den relevanten Themen.
-          Fragen und Antworten sollen verstanden und nicht nur wörtlich auswendig gelernt werden. Bochum verwendet
-          einen eigenen Fragenkatalog, der nicht zur Weiterverwendung bereitgestellt wurde. Die Empfehlung bestätigt
-          weder die hier importierte Kölner Fassung noch identische Prüfungsfragen, Fragenzahlen oder
-          Bestehensbedingungen.</p>
-        <p class="microcopy">Quelle: persönliche E-Mail-Auskunft der Stadt Bochum an den Betreiber vom
-          <time datetime="2026-11-10">10. November 2026</time>; nicht öffentlich abrufbar. Die Auskunft ist keine
-          Freigabe
-          des Bochumer Fragenkatalogs und keine behördliche Anerkennung dieses Trainers.
-        </p>
-      </article>
-      <article class="source-card" id="kammern">
-        <h2>Tierärztekammern · 197</h2>
-        <p>Nordrhein und Westfalen-Lippe veröffentlichen denselben 197er-Katalog ab 1. Januar 2025. Die beiden
-          hochgeladenen Lösungsdateien sind bytegleich; die Fragenfassungen stimmen im ausgelesenen Frage- und
-          Antworttext überein.</p><a
-          href="https://www.tieraerztekammer-nordrhein.de/tierhalter/sachkundebescheinigung-lhundg/" target="_blank"
-          rel="external noopener noreferrer">Nordrhein · Informationen zu § 11 ↗</a><a
-          href="https://www.tieraerztekammer-wl.de/fuer-tierhalter/sachkundenachweis" target="_blank"
-          rel="external noopener noreferrer">Westfalen-Lippe · Informationen ↗</a>
-      </article>
-    </div>
+      <div class="source-cards">
+        <article class="source-card" id="rhein203">
+          <h2>Rhein-Erft-Kreis · 203</h2>
+          <p>Fragen zur Vorbereitung für § 3 / § 10. Grundlage des bisherigen 203er-Lernbereichs. Das offizielle PDF
+            enthält auch die Lösungen. Seine einleitenden Angaben zu 34 Fragen / mindestens 24 richtigen Antworten
+            gelten
+            für den dort beschriebenen Prüfungskontext.</p>
+          <p>Das zuständige Veterinäramt des Rhein-Erft-Kreises sitzt in Bergheim. Die Ortsangabe bezeichnet die
+            Kreisbehörde, keinen zusätzlichen Fragenkatalog.</p><a
+            href="https://portal.rhein-erft-kreis.de/detail/-/vr-bis-detail/dienstleistung/42735/show" target="_blank"
+            rel="external noopener noreferrer">Offizielle Informationsseite ↗</a><a
+            href="https://portal.rhein-erft-kreis.de/detail/-/vr-bis-detail/dokument/40985/download?_19_WAR_vrportlet_priv_r_p_action=vr-bis-detail-dienstleistung-show"
+            target="_blank" rel="external noopener noreferrer">Originalfragen mit Lösungen · 203 Fragen (PDF) ↗</a>
+        </article>
+        <article class="source-card" id="rhein97">
+          <h2>Rhein-Erft · 97</h2>
+          <p>Dieser Übungsbogen wurde dem Betreiber als PDF zur Verfügung gestellt. Er enthält 97 Fragen, darunter
+            vier Zuordnungsaufgaben, und einen eigenen Lösungsteil. Ein öffentlicher Original-Downloadlink für genau
+            diese
+            Fassung ist bisher nicht dokumentiert.</p>
+          <p>Die im Trainer hinterlegten Schlüssel bleiben dieser Fassung zugeordnet. Einzelne Antworten zu Erziehung,
+            Gesundheit und Recht sind unpräzise oder stehen im Widerspruch zu anderen Katalogen beziehungsweise
+            aktuellen
+            Fach- und Rechtsquellen. Bekannte Auffälligkeiten kennzeichnet der Trainer nach dem Prüfen mit „Quelle
+            beachten“.
+            Die aktuelle Verwendung dieses Bogens als behördliche Prüfungsgrundlage ist damit nicht bestätigt.</p>
+          <p>Der <a href="#rhein203">öffentliche 203er-Katalog des Rhein-Erft-Kreises</a> ist eine andere Fassung.
+            Er wird dem zugesandten 97er-Bogen deshalb nicht als identische Quelle zugeordnet.</p>
+        </article>
+        <article class="source-card" id="koeln">
+          <h2>Köln · A / B / C</h2>
+          <p>Der Lernbereich enthält 115 aktive Fragen aus dem zugesandten Übungsbogen; A11 ist darin als „entfällt“
+            markiert. Seine Lösungsschlüssel bleiben an diese Fassung gebunden.</p>
+          <p><strong>Andere Referenzfassung:</strong> Das öffentlich erreichbare Kölner PDF (Mai 2019) ist nicht
+            identisch, etwa bei A1. Es wird zur Einordnung verlinkt; seine Fragenummern und Lösungen dürfen nicht auf
+            den
+            importierten Katalog übertragen werden. Ein öffentlicher Direktlink zur exakt zugesandten Fassung ist noch
+            nicht belegt.</p><a
+            href="https://www.stadt-koeln.de/service/produkt/sachkundenachweis-fuer-hundehalterinnen" target="_blank"
+            rel="external noopener noreferrer">Stadt Köln · Sachkundenachweis ↗</a>
+          <a href="https://www.stadt-koeln.de/mediaasset/content/pdf57/sachkundenachweis_pruefungsfragenkatalog_gefaehrliche_hunde052019_.pdf"
+            target="_blank" rel="external noopener noreferrer">Öffentlicher Referenzkatalog · Mai 2019 (PDF) ↗</a>
+        </article>
+        <article class="source-card" id="bochum">
+          <h2>Bochum · Vorbereitung</h2>
+          <p>Das Ordnungs- und Veterinäramt der Stadt Bochum
+            empfiehlt den öffentlich zugänglichen Kölner Fragenkatalog zur Orientierung an den relevanten Themen.
+            Fragen und Antworten sollen verstanden und nicht nur wörtlich auswendig gelernt werden. Bochum verwendet
+            einen eigenen Fragenkatalog, der nicht zur Weiterverwendung bereitgestellt wurde. Die Empfehlung bestätigt
+            weder die hier importierte Kölner Fassung noch identische Prüfungsfragen, Fragenzahlen oder
+            Bestehensbedingungen.</p>
+          <p class="microcopy">Quelle: persönliche E-Mail-Auskunft der Stadt Bochum an den Betreiber vom
+            <time datetime="2026-11-10">10. November 2026</time>; nicht öffentlich abrufbar. Die Auskunft ist keine
+            Freigabe
+            des Bochumer Fragenkatalogs und keine behördliche Anerkennung dieses Trainers.
+          </p>
+        </article>
+        <article class="source-card" id="kammern">
+          <h2>Tierärztekammern · 197</h2>
+          <p>Nordrhein und Westfalen-Lippe veröffentlichen denselben 197er-Katalog ab 1. Januar 2025. Die beiden
+            hochgeladenen Lösungsdateien sind bytegleich; die Fragenfassungen stimmen im ausgelesenen Frage- und
+            Antworttext überein.</p><a
+            href="https://www.tieraerztekammer-nordrhein.de/tierhalter/sachkundebescheinigung-lhundg/" target="_blank"
+            rel="external noopener noreferrer">Nordrhein · Informationen zu § 11 ↗</a><a
+            href="https://www.tieraerztekammer-wl.de/fuer-tierhalter/sachkundenachweis" target="_blank"
+            rel="external noopener noreferrer">Westfalen-Lippe · Informationen ↗</a>
+        </article>
+      </div>
       <!-- BLOCK START: Persönlicher Bildmoment -->
-      <figure class="editorial-interlude"><img src="assets/public/huendin-draussen.webp" width="960" height="638" alt="Meine Hündin auf einem felsigen Weg im Grünen." loading="lazy" decoding="async"></figure>
+      <figure class="editorial-interlude"><img src="assets/public/huendin-draussen.webp" width="960" height="638"
+          alt="Meine Hündin auf einem felsigen Weg im Grünen." loading="lazy" decoding="async"></figure>
       <!-- BLOCK END: Persönlicher Bildmoment -->
       <div class="editorial-chapter">
         <h2>Wie werden die Fragen zusammengestellt?</h2>
-    <p>Der Gesamtpool bündelt Fragen aus mehreren Katalogen. Identische Fragen werden darin nur einmal berücksichtigt;
-      abweichende Formulierungen bleiben erhalten. Die einzelnen Lernbereiche folgen jeweils ihrer eigenen Vorlage.</p>
-    <p>Übertragungsfehler wurden anhand der offiziellen Lösungen berichtigt. Inhaltlich ältere Aussagen der Originale
-      werden nicht stillschweigend modernisiert; ergänzende Hinweise helfen bei der Einordnung.</p>
-</div>
-      <aside class="editorial-chapter" id="simulation"><h2>Vom Katalog zur Übung</h2>
+        <p>Der Gesamtpool bündelt Fragen aus mehreren Katalogen. Identische Fragen werden darin nur einmal
+          berücksichtigt;
+          abweichende Formulierungen bleiben erhalten. Die einzelnen Lernbereiche folgen jeweils ihrer eigenen Vorlage.
+        </p>
+        <p>Übertragungsfehler wurden anhand der offiziellen Lösungen berichtigt. Inhaltlich ältere Aussagen der
+          Originale
+          werden nicht stillschweigend modernisiert; ergänzende Hinweise helfen bei der Einordnung.</p>
+      </div>
+      <aside class="editorial-chapter" id="simulation">
+        <h2>Vom Katalog zur Übung</h2>
         <p>Die Quellen beschreiben die Herkunft der Fragen. Wie wir daraus unverbindliche Prüfungssimulationen
           zusammenstellen und welche Annahmen dabei gelten, erklären wir unter
-          <a href="gut-zu-wissen.html#simulation">Prüfungssimulationen und ihre Grenzen</a>.</p></aside>
-      <section aria-labelledby="rechtsquellen" class="editorial-chapter editorial-chapter--full editorial-chapter--split">
-      <h2 id="rechtsquellen">Rechtstexte und ergänzende Vorbereitung</h2>
-<div class="chapter-body">
-      <p>Ergänzender Abgleich am <time datetime="2026-11-11">11. November 2026</time>. Die Rechtstexte helfen
-        bei Lücken und verkürzten Formulierungen älterer Fragebögen. Die folgenden Links führen zu den Originalquellen.
-      </p>
-      <ul>
-        <li><a href="https://www.gesetze-im-internet.de/tierschg/BJNR012770972.html" target="_blank"
-            rel="noopener noreferrer external">Tierschutzgesetz, besonders §§ 1–3 ↗</a> – Grundpflichten und Verbote.
-        </li>
-        <li><a href="https://www.gesetze-im-internet.de/tierschhuv/BJNR083800001.html" target="_blank"
-            rel="noopener noreferrer external">Tierschutz-Hundeverordnung ↗</a> – konkrete Anforderungen an Haltung und
-          Versorgung.</li>
-        <li><a
-            href="https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/"
-            target="_blank" rel="noopener noreferrer external">LHundG NRW ↗</a> – Hundekategorien, Nachweise und
-          Pflichten.</li>
-        <li><a href="https://service.essen.de/detail/-/vr-bis-detail/dienstleistung/41286/show" target="_blank"
-            rel="noopener noreferrer external">Stadt Essen: Meldung und Haltungserlaubnis ↗</a> – örtliches Verfahren,
-          kein Prüfungskatalog.</li>
-        <li><a href="https://www.essen.de/leben/umwelt/veterinaerwesen/hundehaltung.de.html" target="_blank"
-            rel="noopener noreferrer external">Stadt Essen: Vorbereitung auf die Sachkundeprüfung ↗</a> – Themen und
-          Originalrechtstexte zusätzlich zu Fragenkatalogen.</li>
-      </ul>
-      <p id="essen"><strong>Ergänzende Essener Prüfungsangaben:</strong> Persönliche E-Mail-Auskünfte der Stadt
-        Essen vom 11. November 2026 bestätigen die Prüfungszuständigkeit für §-3-Hunde sowie ca. 50 schriftliche
-        Fragen, grundsätzlich ohne Zeitlimit. Die drei ungefähr gleichmäßig berücksichtigten Teile „Biologie und
-        Gesundheit“, „Verhalten und Erziehung“ und „Recht“ müssen jeweils mit 75 % der Punkte bestanden werden;
-        die Grenze gilt auch insgesamt. Teilpunkte sind möglich. Das genaue Bewertungsschema ist nicht zur
-        Veröffentlichung vorgesehen; ein Originalfragenkatalog wurde nicht bereitgestellt. Die Auskünfte sind
-        nicht öffentlich abrufbar und stellen keine behördliche Anerkennung des Trainers dar.
-        <a href="hundewissen.html#ort-essen">Ablauf, Nachgespräch und Hinweise für Essen</a>.
-      </p>
-      <p id="essen-beispiel"><strong>Eigene Essen-Beispielsimulation:</strong> 50 Fragen mit selbst gewählter
-        Verteilung 17 / 17 / 16; keine Essener Originalfragen. 34 Fragen stammen unverändert aus dem
-        <a href="#rhein203">Rhein-Erft-203-Katalog</a>. Die 16 gekennzeichneten Rechtsfragen und ihre Erläuterungen
-        wurden für diesen Trainer verfasst und am 11. November 2026 mit den oben verlinkten Originalrechtstexten
-        abgeglichen. Jede eigene Frage nennt ihre Vorschrift und einen Direktlink zum Herausgeber.
-        Die angenommene Themenauswahl ist nicht behördlich bestätigt. Keine Rechtsberatung oder Prüfungsgarantie.
-        Die Übung vergibt keine Teilpunkte; das nicht veröffentlichte Essener Bewertungsschema wird nicht rekonstruiert.
-        <a href="gut-zu-wissen.html#essen-beispiel">Übungswertung und Grenzen</a>.
-      </p>
-      <p><a href="hundewissen.html#lernabdeckung">Welche Themen deckt der Trainer ab?</a> ·
-        <a href="hundewissen.html#recht">Leseplan und rechtliche Präzisierungen</a> ·
-        <a href="hundewissen.html#staedte">Vorbereitung nach Stadt und Kreis</a>
-      </p>
-    </div></section>
+          <a href="gut-zu-wissen.html#simulation">Prüfungssimulationen und ihre Grenzen</a>.
+        </p>
+      </aside>
+      <section aria-labelledby="rechtsquellen"
+        class="editorial-chapter editorial-chapter--full editorial-chapter--split">
+        <h2 id="rechtsquellen">Rechtstexte und ergänzende Vorbereitung</h2>
+        <div class="chapter-body">
+          <p>Ergänzender Abgleich am <time datetime="2026-11-11">11. November 2026</time>. Die Rechtstexte helfen
+            bei Lücken und verkürzten Formulierungen älterer Fragebögen. Die folgenden Links führen zu den
+            Originalquellen.
+          </p>
+          <ul>
+            <li><a href="https://www.gesetze-im-internet.de/tierschg/BJNR012770972.html" target="_blank"
+                rel="noopener noreferrer external">Tierschutzgesetz, besonders §§ 1–3 ↗</a> – Grundpflichten und
+              Verbote.
+            </li>
+            <li><a href="https://www.gesetze-im-internet.de/tierschhuv/BJNR083800001.html" target="_blank"
+                rel="noopener noreferrer external">Tierschutz-Hundeverordnung ↗</a> – konkrete Anforderungen an Haltung
+              und
+              Versorgung.</li>
+            <li><a
+                href="https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/"
+                target="_blank" rel="noopener noreferrer external">LHundG NRW ↗</a> – Hundekategorien, Nachweise und
+              Pflichten.</li>
+            <li><a href="https://service.essen.de/detail/-/vr-bis-detail/dienstleistung/41286/show" target="_blank"
+                rel="noopener noreferrer external">Stadt Essen: Meldung und Haltungserlaubnis ↗</a> – örtliches
+              Verfahren,
+              kein Prüfungskatalog.</li>
+            <li><a href="https://www.essen.de/leben/umwelt/veterinaerwesen/hundehaltung.de.html" target="_blank"
+                rel="noopener noreferrer external">Stadt Essen: Vorbereitung auf die Sachkundeprüfung ↗</a> – Themen und
+              Originalrechtstexte zusätzlich zu Fragenkatalogen.</li>
+          </ul>
+          <p id="essen"><strong>Ergänzende Essener Prüfungsangaben:</strong> Persönliche E-Mail-Auskünfte der Stadt
+            Essen vom 11. November 2026 bestätigen die Prüfungszuständigkeit für §-3-Hunde sowie ca. 50 schriftliche
+            Fragen, grundsätzlich ohne Zeitlimit. Die drei ungefähr gleichmäßig berücksichtigten Teile „Biologie und
+            Gesundheit“, „Verhalten und Erziehung“ und „Recht“ müssen jeweils mit 75 % der Punkte bestanden werden;
+            die Grenze gilt auch insgesamt. Teilpunkte sind möglich. Das genaue Bewertungsschema ist nicht zur
+            Veröffentlichung vorgesehen; ein Originalfragenkatalog wurde nicht bereitgestellt. Die Auskünfte sind
+            nicht öffentlich abrufbar und stellen keine behördliche Anerkennung des Trainers dar.
+            <a href="hundewissen.html#ort-essen">Ablauf, Nachgespräch und Hinweise für Essen</a>.
+          </p>
+          <p id="essen-beispiel"><strong>Eigene Essen-Beispielsimulation:</strong> 50 Fragen mit selbst gewählter
+            Verteilung 17 / 17 / 16; keine Essener Originalfragen. 34 Fragen stammen unverändert aus dem
+            <a href="#rhein203">Rhein-Erft-203-Katalog</a>. Die 16 gekennzeichneten Rechtsfragen und ihre Erläuterungen
+            wurden für diesen Trainer verfasst und am 11. November 2026 mit den oben verlinkten Originalrechtstexten
+            abgeglichen. Jede eigene Frage nennt ihre Vorschrift und einen Direktlink zum Herausgeber.
+            Die angenommene Themenauswahl ist nicht behördlich bestätigt. Keine Rechtsberatung oder Prüfungsgarantie.
+            Die Übung vergibt keine Teilpunkte; das nicht veröffentlichte Essener Bewertungsschema wird nicht
+            rekonstruiert.
+            <a href="gut-zu-wissen.html#essen-beispiel">Übungswertung und Grenzen</a>.
+          </p>
+          <p><a href="hundewissen.html#lernabdeckung">Welche Themen deckt der Trainer ab?</a> ·
+            <a href="hundewissen.html#recht">Leseplan und rechtliche Präzisierungen</a> ·
+            <a href="hundewissen.html#staedte">Vorbereitung nach Stadt und Kreis</a>
+          </p>
+        </div>
+      </section>
       <div class="editorial-chapter">
         <h2>Originale und Nutzungsrechte</h2>
-    <p>Die Rechte an den Fragen und Abbildungen verbleiben bei den jeweiligen Rechteinhabern. Die Bereitstellung eines
-      PDFs zum Download bedeutet nicht automatisch eine freie Lizenz zur Wiederveröffentlichung in einem Online-Trainer.
-      Die Freigabe zur öffentlichen Übernahme der hier verwendeten Texte und Abbildungen ist vor dem öffentlichen Start
-      zu klären. Verlinkte Originalseiten und PDF-Dateien liegen bei den Herausgebern; eigene PDF-Kopien werden hier
-      nicht
-      angeboten.</p>
-    <p><a class="primary button" href="lernen.html#trainer">Zurück zum Lernen →</a></p>
-</div>
+        <p>Die Rechte an den Fragen und Abbildungen verbleiben bei den jeweiligen Rechteinhabern. Die Bereitstellung
+          eines
+          PDFs zum Download bedeutet nicht automatisch eine freie Lizenz zur Wiederveröffentlichung in einem
+          Online-Trainer.
+          Die Freigabe zur öffentlichen Übernahme der hier verwendeten Texte und Abbildungen ist vor dem öffentlichen
+          Start
+          zu klären. Verlinkte Originalseiten und PDF-Dateien liegen bei den Herausgebern; eigene PDF-Kopien werden hier
+          nicht
+          angeboten.</p>
+        <p><a class="primary button" href="lernen.html#trainer">Zurück zum Lernen →</a></p>
+      </div>
     </div>
     <!-- BLOCK END: Magazinkapitel -->
   </main>
-  <footer class="site-footer wrap">
-    <!-- BLOCK START: Gemeinsame Fußzeilenmarke -->
-    <a class="footer-brand" href="./">SACHKUNDE<span>Für Mensch &amp; Hund. / NRW</span></a>
-    <!-- BLOCK END: Gemeinsame Fußzeilenmarke -->
-    <p class="footer-scope">Aktuell gibt es die Lernhilfe nur für NRW. Weitere Bundesländer können auf Anfrage ergänzt
-      werden. <a
-        href="mailto:kontakt@design-code-repeat.de?subject=Sachkundenachweis%20f%C3%BCr%20Hunde%20%28Bundesland%29">Erweiterung
-        per E-Mail anfragen</a> – bitte das Bundesland im Betreff angeben.</p>
-
-    <p class="footer-credit">© 2026 Benjamin Bennewitz <a class="developer-tag" href="https://design-code-repeat.de/"
-        aria-label="Entwicklung und Design: Benjamin Bennewitz">[B²]</a></p>
-    <nav aria-label="Rechtliches und Informationen"><a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a><a href="./#geschichte" data-open-story
-        aria-haspopup="dialog">Die Geschichte hinter dem Trainer</a><a href="quellen.html">Originalquellen</a><a
-        href="gut-zu-wissen.html">Gut zu wissen</a><a href="hundewissen.html">Haltung &amp; Recht</a><a
-        href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="lernen.html#trainer">Zum Lernen
-        ↑</a></nav>
+  <footer class="site-footer wrap" data-layout-src="templates/site-footer.html">
+    <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   </footer>
+  <script src="scripts/ui/include.js?v=1" defer></script>
   <script src="scripts/site-config.js?v=38" defer></script>
   <script src="scripts/ui/shared.js?v=67" defer></script>
   <script src="scripts/ui/modal.js?v=67" defer></script>
@@ -278,12 +244,12 @@
   <script src="scripts/ui/toast-item.js?v=67" defer></script>
   <script src="scripts/ui/toasts.js?v=38" defer></script>
   <script src="scripts/ui/support.js?v=38" defer></script>
-  <script src="scripts/ui/navigation.js?v=68" defer></script>
+  <script src="scripts/ui/navigation.js?v=69" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
   <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
   <script src="scripts/ui/release.js?v=65" defer></script>
   <script src="scripts/ui/page-tools.js?v=67" defer></script>
-  <script src="scripts/ui/common.js?v=63" defer></script>
+  <script src="scripts/ui/common.js?v=64" defer></script>
   <script src="scripts/ui/controls.js?v=67" defer></script>
 </body>
 
