@@ -13,12 +13,12 @@ window.LHUNDG_TRAINER.Session = class Session {
     this.learnerGeneration = window.LHUNDG_LEARNERS?.current().generation || 'legacy';
     this.params = params;                                                                       // Parameter der beim Start geöffneten Adresse.
     this.profiles = window.LHUNDG_TRAINER.profiles;                                             // Vorhandene Katalog- und Prüfungskonfigurationen.
-    this.mode = Object.hasOwn(this.profiles, params.get('mode')) ? params.get('mode') : 'all';  // Bekannter URL-Modus oder der Gesamtpool als Rückfallwert.
+    this.storageFailed = false;
+    this.storageWarningShown = false;
+    this.mode = this.restoreMode();
     this.config = this.profiles[this.mode];                                                     // Konfiguration des für diese Sitzung ausgewählten Profils.
     this.isExam = Number.isInteger(this.config.examCount);                                      // Ein festgelegter Testumfang kennzeichnet einen Prüfungsmodus.
 
-    this.storageFailed = false;                                   // Merkt Speicherprobleme, ohne den laufenden Trainer zu blockieren.
-    this.storageWarningShown = false;                             // Verhindert wiederholte Warnungen für denselben Speicherfehler.
     this.questions = this.selectQuestions();                      // Konkreter Katalog oder konkrete Testfolge dieser Sitzung.
     this.kind = this.isExam ? 'sessionStorage' : 'localStorage';  // Tests bleiben in sessionStorage; Kataloge verwenden localStorage.
     this.answerKey = this.getAnswerKey();                         // Bestehender Schlüssel für Antworten dieses Katalogs oder Tests.
@@ -26,6 +26,26 @@ window.LHUNDG_TRAINER.Session = class Session {
 
     this.state = this.restoreState();  // Zentraler wiederhergestellter Zustand für Antworten, Merker und Anzeige.
     this.restoreChecked();             // Übernimmt nur Bewertungen, die noch zur aktuellen Antwortsignatur passen.
+  }
+
+  /**
+   * Stellt nur bei fehlender ausdrücklicher Wahl den letzten Lernkatalog dieser Person wieder her.
+   * @returns {string} Bekannter Modus; Prüfungen werden niemals aus der Übersicht wiederaufgenommen.
+   */
+  restoreMode() {
+    const requested = this.params.get('mode');
+    if (this.params.has('mode')) return Object.hasOwn(this.profiles, requested) ? requested : 'all';
+    const summary = this.read('localStorage', 'lhundg-overview-v1');
+    const profile = this.profiles[summary?.mode];
+    if (!summary || summary.version !== 1 || !Object.hasOwn(this.profiles, summary.mode) ||
+      Number.isInteger(profile.examCount) || summary.total !== window.LHUNDG_DATA[profile.pool].length) return 'all';
+
+    /* Die URL behält die wiederhergestellte Wahl auch nach Werkzeugaktionen und beim Neuladen. */
+    this.params.set('mode', summary.mode);
+    const url = new URL(location.href);
+    url.searchParams.set('mode', summary.mode);
+    history.replaceState(null, '', url);
+    return summary.mode;
   }
 
   /** @returns {SachkundeQuestion[]} Gewählter Katalog oder wiederherstellbarer Test. */

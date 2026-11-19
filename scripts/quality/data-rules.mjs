@@ -39,6 +39,10 @@ function checkMapping(question) {
 
   assert.equal(new Set(mappingKeys).size, mappingKeys.length, `Doppelte Zuordnung ${uid}`);
   assert.equal(mappingKeys.length, correct.length, `Unvollständige Zuordnung ${uid}`);
+  for (const key of mappingKeys) {
+    assert.equal(typeof question.mappingLabels?.[key], 'string', `Fehlender Zuordnungsbegriff ${uid}:${key}`);
+    assert(question.mappingLabels[key].trim(), `Leerer Zuordnungsbegriff ${uid}:${key}`);
+  }
 
   // Jede Zeile muss genau eine gültige Lösung besitzen.
   for (const key of mappingKeys) assert.equal(correct.filter(token => token.startsWith(`${key}:`)).length, 1, uid);

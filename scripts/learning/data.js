@@ -7886,6 +7886,11 @@ window.LHUNDG_QUESTIONS = [{
     "C"
   ],
   "prompt": "Ordnen Sie die nachstehenden Begriffe den abgebildeten Körperhaltungen zu.",
+  "mappingLabels": {
+    "1": "Spielaufforderung",
+    "2": "Aufmerksamkeit",
+    "3": "Drohung"
+  },
   "answers": {},
   "requiresVisual": true,
   "sourceKey": "rhein97",
@@ -7994,6 +7999,11 @@ window.LHUNDG_QUESTIONS = [{
     "C"
   ],
   "prompt": "Ordnen Sie die nachstehenden Begriffe den abgebildeten Körperhaltungen zu.",
+  "mappingLabels": {
+    "1": "Angst, Demut",
+    "2": "Ruhe, Entspannung",
+    "3": "Unterwürfigkeit"
+  },
   "answers": {},
   "requiresVisual": true,
   "sourceKey": "rhein97",

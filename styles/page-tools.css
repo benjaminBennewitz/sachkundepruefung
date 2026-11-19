@@ -20,6 +20,7 @@
    01   Ortsübersicht und Bildausschnitt
    02   Zum Seitenanfang
    03   Lokale Schließen-Symbole
+   04   Verlinkte Quellenkarte
    ========================================================================== */
 
 /* ===========================================================================
@@ -119,6 +120,7 @@
 
 /* ===========================================================================
    03   Lokale Schließen-Symbole
+   04   Verlinkte Quellenkarte
    ========================================================================== */
 
 .ui-close-icon {
@@ -159,4 +161,15 @@
 
 .mobile-navigation-close {
   gap: 8px;
+}
+
+/* ===========================================================================
+   04   Verlinkte Quellenkarte
+   ========================================================================== */
+
+.source-card.source-target {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+  box-shadow: 0 0 0 5px var(--accent-bg);
+  scroll-margin-block-start: 24px;
 }

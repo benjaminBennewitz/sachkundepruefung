@@ -396,3 +396,34 @@ Installation und regulärer Ablauf bleiben ausschließlich in der Deployment-Anl
 - Prüfgrenze: Die lokale Vorschau war aus dem Cloud-Browser nicht erreichbar
   (ERR_CONNECTION_REFUSED). Chromium konnte zuvor wegen gesperrter Prozess-Sockets
   nicht lokal starten. Eine visuelle Prüfung wird daher nicht als bestanden behauptet.
+
+
+## Katalogwiederaufnahme und Quellenziele – 19.11.2026
+
+- Bei einem Lernaufruf ohne `mode` nutzt `Session.restoreMode()` die vorhandene,
+  personenbezogene `lhundg-overview-v1`-Zusammenfassung. Nur bekannte Lernkataloge
+  mit Version 1 und passender Poolgröße werden übernommen. Position, Antworten,
+  Merker und Bewertungen werden weiterhin aus den bisherigen Katalogschlüsseln
+  geladen. Es entstehen keine zusätzlichen Speicherbereiche.
+- Eine ausdrückliche URL-Wahl hat Vorrang, auch `mode=all`. Der Katalogwechsel
+  schreibt deshalb den Modus immer ausdrücklich. Ungültige Modi oder unpassende
+  Zusammenfassungen fallen auf den Gesamtpool zurück. Wiederhergestellte Modi
+  werden in die bestehende URL übernommen; andere Werkzeugparameter bleiben erhalten.
+- Prüfungssimulationen werden nicht aus der Katalogübersicht gestartet und
+  überschreiben diese Übersicht weiterhin nicht. Die Fortsetzung einer bestehenden
+  Zwischenauswertung verwendet unverändert dieselbe Sitzung und `view.resume()`.
+- `bindSourceTarget()` in `page-tools.js` markiert nur vorhandene Quellenkarten,
+  die zum Fragment der Seite passen. Nach dem Einfügen des gemeinsamen Headers
+  wird zum Ziel gescrollt. Ein Rahmen mit vorhandenen Farb-Tokens verändert keine
+  Layoutmaße und funktioniert in beiden Farbschemata.
+- Die Hervorhebung bleibt beim automatischen Ankerscrollen bestehen. Zeiger-/
+  Klickaktion, Mausrad, Touchscrollen oder eine Scrolltaste entfernen sie sofort.
+  Nach dem Abklingen des automatischen Scrollens beendet auch ein nachfolgendes
+  Scrollereignis die Markierung. Fragmentwechsel räumen alte Listener und Timer
+  auf. Unbekannte oder fehlerhaft kodierte Fragmente bleiben ohne Markierung.
+- Regressionen: Wiederaufnahme von Katalog/Position/Antworten, ausdrücklicher
+  Gesamtpool, getrennte Personen, Prüfungstrennung, unpassende Übersichten,
+  fehlende Zuordnungsbegriffe sowie Quellenrahmen bei Ankerscrollen und Bedienung.
+- Lokale visuelle Browserprüfung war nicht verfügbar: Chromium konnte in der
+  Ausführungsumgebung nicht starten. Die betreffenden Original-PDF-Seiten wurden
+  dagegen gerendert und visuell mit den übernommenen Beschriftungen abgeglichen.

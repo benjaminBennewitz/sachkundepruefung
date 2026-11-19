@@ -276,3 +276,20 @@ test('Release-Prüfung lehnt eine fremde Domain trotz PayPal im Namen ab', conte
   expectStatus(result, 1);
   assert.match(result.stderr, /Gültige HTTPS-PayPal-Adresse/);
 });
+
+test('Zuordnungsfragen benötigen jeden zuzuordnenden Begriff, nicht nur ein Bild und einen Schlüssel', () => {
+  const env = fixtures.environment();
+  const source = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === 'r97-88');
+  assert.deepEqual(JSON.parse(JSON.stringify(source.mappingLabels)), {
+    1: 'Spielaufforderung', 2: 'Aufmerksamkeit', 3: 'Drohung'
+  });
+  const question = { ...source, mappingLabels: { ...source.mappingLabels } };
+  delete question.mappingLabels['2'];
+  assert.throws(() => checkQuestions([question], {}, projectRoot), /Fehlender Zuordnungsbegriff r97-88:2/);
+  const second = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === 'r97-92');
+  assert.deepEqual(JSON.parse(JSON.stringify(second.mappingLabels)), {
+    1: 'Angst, Demut', 2: 'Ruhe, Entspannung', 3: 'Unterwürfigkeit'
+  });
+  assert.deepEqual(Array.from(source.correct), ['1:C', '2:A', '3:B']);
+  assert.deepEqual(Array.from(second.correct), ['1:C', '2:B', '3:A']);
+});

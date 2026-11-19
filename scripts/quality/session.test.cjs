@@ -223,3 +223,75 @@ test('Katalogauswertung zählt offene Fragen, zeigt Lösungen aber nur für voll
   assert.deepEqual([...restored.state.checked.keys()], [answered.id]);
   assert.equal(restored.signature(partial), current.signature(partial));
 });
+
+/** @param {object} env Testumgebung. @param {object} current Sitzung. @returns {void} Speichert die echte Katalogübersicht. */
+function rememberCatalogue(env, current) {
+  const fields = {};
+  env.scope.document = { getElementById: () => ({ hidden: false,
+    querySelector: selector => fields[selector] ||= {} }) };
+  env.trainer.Insights.refresh(current);
+}
+
+test('Ohne Modus stellt Weiterlernen den letzten Katalog samt Position, Antworten und URL wieder her', () => {
+  const env = environment(['data', 'essen', 'core', 'profiles', 'session', 'insights']);
+  const previous = session(env, 'mode=rhein97');
+  previous.state.index = 12;
+  const question = previous.questions[0];
+  previous.state.answers.set(question.id, new Set(question.correct));
+  previous.persist();
+  rememberCatalogue(env, previous);
+  let restoredUrl;
+  env.scope.history.replaceState = (state, title, url) => { restoredUrl = url; };
+  const resumed = session(env);
+  assert.equal(resumed.mode, 'rhein97');
+  assert.equal(resumed.questions.length, 97);
+  assert.equal(resumed.state.index, 12);
+  assert.deepEqual([...resumed.state.answers.get(question.id)], [...question.correct]);
+  assert.equal(restoredUrl.searchParams.get('mode'), 'rhein97');
+  assert.equal(resumed.params.get('mode'), 'rhein97');
+});
+
+test('Eine ausdrückliche Katalogwahl einschließlich Alle Quellen hat Vorrang', () => {
+  const env = environment(['data', 'essen', 'core', 'profiles', 'session', 'insights', 'controller']);
+  rememberCatalogue(env, session(env, 'mode=rhein97'));
+  assert.equal(session(env, 'mode=all').mode, 'all');
+  assert.equal(session(env, 'mode=koeln').mode, 'koeln');
+  assert.equal(session(env, 'mode=unbekannt').mode, 'all');
+  let target;
+  env.scope.location.assign = url => { target = url; };
+  env.trainer.Controller.prototype.changeMode.call({ session: { state: { view: 'focus' } } }, 'all');
+  assert.equal(target.searchParams.get('mode'), 'all');
+});
+
+test('Wiederaufnahme bleibt pro Person getrennt und übernimmt keine fremde Katalogwahl', () => {
+  const env = environment(['data', 'essen', 'core', 'profiles', 'session', 'insights']);
+  let active = 'person-a';
+  env.scope.LHUNDG_LEARNERS = {
+    current: () => ({ id: active, generation: 'v1' }), has: () => true,
+    key: (base, id = active) => `lhundg-person:${id}:${base}`
+  };
+  rememberCatalogue(env, session(env, 'mode=rhein97'));
+  active = 'person-b';
+  assert.equal(session(env).mode, 'all');
+  rememberCatalogue(env, session(env, 'mode=koeln'));
+  active = 'person-a';
+  assert.equal(session(env).mode, 'rhein97');
+  active = 'person-b';
+  assert.equal(session(env).mode, 'koeln');
+});
+
+test('Simulationen überschreiben keinen Lernkatalog und werden nicht aus Übersichten gestartet', () => {
+  const env = environment(['data', 'essen', 'core', 'profiles', 'session', 'insights']);
+  rememberCatalogue(env, session(env, 'mode=rhein97'));
+  const before = env.scope.localStorage.getItem('lhundg-overview-v1');
+  const exam = session(env, 'mode=exam34');
+  rememberCatalogue(env, exam);
+  exam.persist();
+  assert.equal(env.scope.localStorage.getItem('lhundg-overview-v1'), before);
+  assert.equal(session(env).mode, 'rhein97');
+  for (const value of [{ version: 1, mode: 'exam34', total: 203 },
+    { version: 1, mode: 'rhein97', total: 400 }, { version: 1, mode: 'constructor', total: 97 }]) {
+    save(env.scope.localStorage, 'lhundg-overview-v1', value);
+    assert.equal(session(env).mode, 'all');
+  }
+});

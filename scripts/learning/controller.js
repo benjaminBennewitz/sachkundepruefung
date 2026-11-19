@@ -173,8 +173,8 @@ window.LHUNDG_TRAINER.Controller = class Controller {
 
     url.search = '';
     url.hash = 'trainer';
-    // Der Gesamtpool ist der Standard und benötigt keinen zusätzlichen Modusparameter.
-    if (mode !== 'all') url.searchParams.set('mode', mode);
+    /* Auch der Gesamtpool ist eine ausdrückliche Wahl und überstimmt den zuletzt gelernten Katalog. */
+    url.searchParams.set('mode', mode);
     // Eine bereits aktive TV-Ansicht bleibt beim Katalogwechsel erhalten.
     if (this.session.state.view === 'tv') url.searchParams.set('tv', '1');
     location.assign(url);  // Öffnet den neuen Modus mit dessen eigenem Lern- oder Prüfungszustand.

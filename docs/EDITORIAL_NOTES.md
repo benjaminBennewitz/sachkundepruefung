@@ -202,3 +202,27 @@ Die übrigen Fragen ohne Erklärung wurden durch diesen Auftrag nicht vollständ
 Originalfragen, Antworttexte, Schlüssel, Reihenfolge, Bewertung und Speicherzustände
 bleiben unverändert. Die Versionskennung des Erklärungsskripts auf `lernen.html`
 wurde erhöht, damit Browser die überarbeiteten Texte laden.
+
+
+## Fehlende Zuordnungsbegriffe – 19. November 2026
+
+Der bereitgestellte 97er-Originalbogen „Übungsfragen Sachkunde §6 LHundG NRW
+Rhein-Erft-Kreis.pdf“ wurde gezielt auf PDF-Seiten 13, 14 und 17 visuell geprüft.
+Die vorhandenen Bildausschnitte enthalten die Bilder und ihre Buchstaben, nicht
+aber die daneben beziehungsweise darüber gedruckten Begriffe. Im Datenimport
+fehlten diese Beschriftungen bei zwei Aufgaben:
+
+| Stabile Original-UID | Originalfrage | Positionen im Original | Bestehender Schlüssel |
+| --- | --- | --- | --- |
+| r97-88 | 88 | 1 Spielaufforderung; 2 Aufmerksamkeit; 3 Drohung | 1:C, 2:A, 3:B |
+| r97-92 | 92 | 1 Angst, Demut; 2 Ruhe, Entspannung; 3 Unterwürfigkeit | 1:C, 2:B, 3:A |
+
+Im aktuellen Gesamtpool sind dies die Anzeigeplätze 291 und 295. Maßgeblich
+bleiben Quelle und Originalnummer, nicht diese abgeleiteten Anzeigeplätze.
+`mappingLabels` wurde aus der Originalvorlage ergänzt. Bilder, Fragetexte,
+Antworttokens und Lösungen bleiben unverändert. Sämtliche Zuordnungsaufgaben
+wurden anschließend auf vorhandene Zeilenbeschriftungen geprüft. Die Datenprüfung
+verlangt diese Beschriftungen künftig ausdrücklich, statt nur Bilder und
+Lösungspaare zu prüfen. Daraus folgt keine vollständige neue inhaltliche Prüfung
+aller Originalkataloge. Der zugesandte Bogen wird nicht als öffentlicher
+PDF-Download eingebunden.

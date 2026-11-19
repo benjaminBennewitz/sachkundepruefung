@@ -110,3 +110,67 @@ test('Im Lernbereich liegt der Rückweg im vorgesehenen Footer-Platz statt über
   p.listeners.scroll();
   assert.equal(p.controls[0].hidden, false);
 });
+
+/** @param {string} hash Fragment. @returns {object} Quellenkarten mit beobachtbaren Ereignissen und Scrollabschluss. */
+function sourcePage(hash = '#rhein97') {
+  const handlers = new Map();
+  const timers = new Map();
+  let nextTimer = 0;
+  const cards = ['rhein97', 'koeln'].map(id => {
+    const classes = new Set();
+    return { id, classes, calls: [], classList: {
+      add: name => classes.add(name), remove: name => classes.delete(name)
+    }, scrollIntoView(options) { this.calls.push(options); } };
+  });
+  const window = { location: { hash }, scrollY: 0, LHUNDG_UI_PARTS: {
+    node: () => ({ setAttribute() {}, addEventListener() {} })
+  }, addEventListener(name, handler) {
+    if (!handlers.has(name)) handlers.set(name, new Set());
+    handlers.get(name).add(handler);
+  }, removeEventListener(name, handler) { handlers.get(name)?.delete(handler); },
+  setTimeout(handler) { timers.set(++nextTimer, handler); return nextTimer; },
+  clearTimeout(id) { timers.delete(id); } };
+  const document = {
+    querySelectorAll: selector => selector === '.source-card[id]' ? cards : [],
+    getElementById: () => null, body: { append() {} }
+  };
+  load('page-tools', { window, document, matchMedia: () => ({ matches: false }) });
+  window.LHUNDG_UI_PARTS.bindPageTools({});
+  return { window, cards,
+    emit(name, event = {}) { for (const handler of [...handlers.get(name) || []]) handler(event); },
+    settle() { const queued = [...timers.values()]; timers.clear(); queued.forEach(handler => handler()); }
+  };
+}
+
+test('Ein Herkunftsfragment rahmt nur die passende Quelle ein und überlebt automatisches Ankerscrollen', () => {
+  const p = sourcePage();
+  assert.equal(p.cards[0].classes.has('source-target'), true);
+  assert.equal(p.cards[1].classes.has('source-target'), false);
+  assert.equal(p.cards[0].calls[0].behavior, 'smooth');
+  p.emit('scroll');
+  assert.equal(p.cards[0].classes.has('source-target'), true);
+  p.settle();
+  p.emit('scroll');
+  assert.equal(p.cards[0].classes.has('source-target'), false);
+});
+
+test('Klick, Scrollabsicht und Scrolltasten entfernen den Quellenrahmen ohne Wartezeit', () => {
+  for (const event of ['pointerdown', 'click', 'wheel', 'touchmove', 'keydown']) {
+    const p = sourcePage();
+    p.emit(event, { key: 'PageDown' });
+    assert.equal(p.cards[0].classes.has('source-target'), false, event);
+  }
+});
+
+test('Hashwechsel räumt den alten Rahmen auf; unbekannte und fehlerhafte Ziele bleiben ohne Markierung', () => {
+  const p = sourcePage();
+  p.window.location.hash = '#koeln';
+  p.emit('hashchange');
+  assert.equal(p.cards[0].classes.has('source-target'), false);
+  assert.equal(p.cards[1].classes.has('source-target'), true);
+  for (const hash of ['#unbekannt', '#%ZZ', '']) {
+    p.window.location.hash = hash;
+    p.emit('hashchange');
+    assert.ok(p.cards.every(card => !card.classes.has('source-target')));
+  }
+});
