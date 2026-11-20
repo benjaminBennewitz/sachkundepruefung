@@ -483,5 +483,41 @@ window.LHUNDG_EXPLANATIONS = {
   "koeln-a26": {
     "text": "Der Schlüssel verlangt C. C nennt ausdrücklich das Anleinen; B nennt Rückruf und Abstand, aber keine Leine. Das ist ein Unterschied im Wortlaut, kein Beleg dafür, dass ein großer Bogen grundsätzlich falsch wäre. Den weiteren Teil von C sollte man nicht als Garantie verstehen: Die andere Person kann gute Gründe haben, ihren Hund zu tragen, und muss einem Hinweis nicht folgen. Aus der Frage lässt sich nicht beurteilen, ob Absetzen sicher wäre. Den eigenen Hund sichern und Abstand halten setzt keine Zustimmung oder Diskussion mit der anderen Person voraus.",
     "caution": "Verkürzte Begegnungssituation: C garantiert weder die Kooperation der anderen Person noch einen sicheren Kontakt am Boden."
+  },
+  "koeln-b48": {
+    "text": "Der Schlüssel verlangt B: frühzeitig tierärztliche Hilfe suchen, statt bis zur Geburt abzuwarten. Gemeint sind hier gefährliche Hunde nach § 3 LHundG NRW. Nach § 9 Satz 2 müssen ihre Halter Verpaarungen verhindern; für allein nach § 10 eingestufte Hunde gilt dieses Verbot nicht. § 9 schreibt nach einem bereits erfolgten Deckakt jedoch weder eine bestimmte Behandlung noch eine Frist bis zum nächsten Tag vor. Ob und wie eine Trächtigkeit verhindert oder beendet werden kann und darf, muss im Einzelfall tierärztlich und rechtlich geklärt werden. C ist falsch: Aus dem versehentlichen Deckakt folgt keine Pflicht, die Hündin einzuschläfern.",
+    "caution": "Katalog und Rechtslage unterscheiden: B bleibt die Testlösung. „Spätestens am nächsten Tag“ ist keine gesetzliche Frist aus § 9 und keine Garantie, dass eine bestimmte Behandlung erforderlich oder geeignet ist.",
+    "references": [
+      {
+        "label": "LHundG NRW: § 3 und § 9 – Verpaarungsverbot",
+        "url": "https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/"
+      },
+      {
+        "label": "VV LHundG NRW: Nummern 9.1–9.3 – Reichweite des Verbots",
+        "url": "https://recht.nrw.de/lrmb/verwaltungsvorschrift/07102026-verwaltungsvorschriften-zum-landeshundegesetz-vv-lhundg-nrw/"
+      },
+      {
+        "label": "TierSchG: § 17 Nummer 1 – Tötung ohne vernünftigen Grund",
+        "url": "https://www.gesetze-im-internet.de/tierschg/__17.html"
+      }
+    ]
+  },
+  "koeln-c8": {
+    "text": "B und C gehören zu den in § 3 Absatz 2 LHundG NRW aufgeführten Rassen. Für ihre Haltung ist neben den übrigen Voraussetzungen ein besonderes privates oder ein öffentliches Interesse nach § 4 Absatz 2 erforderlich. Der Rottweiler (A) steht dagegen in § 10: Auch seine Haltung ist erlaubnispflichtig, aber § 4 Absatz 2 ist ausdrücklich ausgenommen. Entscheidend ist hier also das zusätzliche Haltungsinteresse, nicht bloß die Erlaubnispflicht oder die umgangssprachliche Bezeichnung „Listenhund“.",
+    "references": [
+      {
+        "label": "LHundG NRW: § 3 Absatz 2, § 4 Absätze 1–2 und § 10 Absatz 1",
+        "url": "https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/"
+      }
+    ]
+  },
+  "koeln-c10": {
+    "text": "Der Schlüssel zählt A, C, D und E. A, D und E werden hier als große Hunde eingeordnet: Nach § 11 sind mindestens 40 cm Widerristhöhe oder mindestens 20 kg im ausgewachsenen Zustand maßgeblich; eines der beiden Merkmale genügt. C betrifft die in § 3 Absatz 2 gelisteten Staffordshire-Rassen, für die die Chippflicht unabhängig von diesen Größenmerkmalen gilt. Der Westhighland-Terrier (B) fällt normalerweise unter keine dieser Gruppen. Das ist aber keine ausnahmslose Befreiung für diese Rasse, etwa bei einer behördlichen Gefährlichkeitsfeststellung im Einzelfall. Bei § 11 entscheidet der konkrete Hund, nicht allein sein Rassename.",
+    "references": [
+      {
+        "label": "LHundG NRW: §§ 3–4, § 10 Absatz 1 und § 11 Absätze 1–2 – Mikrochip",
+        "url": "https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/"
+      }
+    ]
   }
 };

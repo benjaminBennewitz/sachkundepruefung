@@ -268,3 +268,41 @@ bis zur Antwortprüfung verborgen; im laufenden Test bis zur Auswertung.
 
 Die vorhandene Vergleichskomponente gibt die bereits hinterlegte Beschriftung
 jetzt auch sichtbar als figcaption aus; zuvor stand sie nur im Alternativtext.
+
+
+## Ergänzende Rechtserklärungen 388, 396 und 398 – 20. November 2026
+
+Wortlaut und Schlüssel der bereitgestellten Kölner Vorlage geprüft:
+B48 auf PDF-Seite 18, C8 und C10 auf Seite 20, Schlüssel auf Seite 23.
+Bestätigte Lösungen: B48 = B, C8 = B+C, C10 = A+C+D+E.
+Originalfragen, Antworttexte und Lösungsschlüssel bleiben unverändert.
+
+- 388 / B48: § 9 Satz 2 LHundG NRW und VV Nummern 9.1–9.3 grenzen
+  das Verpaarungsverbot auf gefährliche Hunde nach § 3 ein. Kein solches
+  Verbot für §-10-Hunde. Die Behandlungsvorgabe „spätestens am nächsten Tag“
+  ist keine Frist aus § 9. Weder Behandlungsart noch pauschale Pflicht zum
+  Trächtigkeitsabbruch werden aus der Norm abgeleitet. Keine medizinische
+  Behandlungsempfehlung oder Erfolgsgarantie ergänzt. Die Einschläferung folgt
+  nicht aus dem Deckakt; ergänzend § 17 Nummer 1 TierSchG verlinkt.
+- 396 / C8: Bullterrier und American Staffordshire Terrier unter § 3 Absatz 2;
+  besonderes Haltungsinteresse nach § 4 Absatz 2. Rottweiler unter § 10:
+  ebenfalls Erlaubnis, aber ausdrücklich ohne § 4 Absatz 2. „Listenhund“ wird
+  nicht als einheitliche rechtliche Kategorie mit identischen Voraussetzungen behandelt.
+- 398 / C10: Chippflicht nach § 4 Absatz 1 Nummer 6 und Absatz 7 für
+  §-3-Hunde, entsprechend § 10 Absatz 1; für große Hunde nach § 11 Absatz 2.
+  Größenmerkmale: ausgewachsen mindestens 40 cm Widerristhöhe ODER 20 kg.
+  Rassebeispiele ersetzen keine Einzelfallprüfung. B wird nicht als pauschal
+  von jeder Chippflicht befreit dargestellt. Unpräzise Rassenbezeichnungen der
+  Vorlage bleiben in den Originalantworten erhalten.
+
+Amtliche Quellen, abgerufen am 20. November 2026:
+
+- LHundG NRW, geltende Fassung ab 27. September 2016:
+  https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/
+- VV LHundG NRW, Fassung ab 7. Oktober 2026, insbesondere Nummern 9 und 10:
+  https://recht.nrw.de/lrmb/verwaltungsvorschrift/07102026-verwaltungsvorschriften-zum-landeshundegesetz-vv-lhundg-nrw/
+- § 17 TierSchG:
+  https://www.gesetze-im-internet.de/tierschg/__17.html
+
+Die Erklärung zu 388 trägt den sichtbaren Hinweis „Quelle beachten“.
+Vorhandene Freigabe nach Antwortprüfung beziehungsweise Testabschluss bleibt erhalten.

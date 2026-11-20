@@ -135,6 +135,14 @@ window.LHUNDG_TRAINER.QuestionFeedback = class QuestionFeedback {
       }
       state.textContent = missing ? '! Fehlte' : incorrect ? '× Falsch gewählt' : selectedCorrect ? '✓ Richtig gewählt' : '';
       state.hidden = !state.textContent;
+      /* Zuordnungsfelder zeigen den Status kompakt; die volle Bedeutung bleibt zugänglich. */
+      if (question.type === 'mapping') {
+        const description = state.textContent;
+        state.textContent = description.charAt(0);
+        state.setAttribute('role', 'img');
+        state.setAttribute('aria-label', description);
+        state.title = description;
+      }
     }
   }
 

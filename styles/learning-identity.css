@@ -253,6 +253,26 @@
     font-size: .75rem;
     font-weight: 750;
   }
+
+  /* Kurze Zuordnungsziele und ihr Bewertungssymbol teilen sich eine Zeile. */
+  .answer-option.mapping-option {
+    grid-template-columns: 22px minmax(0, 1fr) auto;
+    align-items: center;
+    min-height: 48px;
+    column-gap: 6px;
+  }
+
+  .mapping-option .answer-state {
+    grid-column: 3;
+    grid-row: 1;
+    font-size: .85rem;
+    line-height: 1;
+  }
+
+  /* Auch auf schmalen Displays bleibt Platz für Radiofeld, Zahl und Status. */
+  .mapping-choices {
+    grid-template-columns: repeat(auto-fit, minmax(76px, 1fr));
+  }
 }
 
 @media screen {

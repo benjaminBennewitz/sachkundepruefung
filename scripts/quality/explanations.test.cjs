@@ -77,7 +77,7 @@ test('Alle Erklärungen sind an vorhandene Original-UIDs gebunden und ändern ke
   const env = setup();
   const before = JSON.stringify(env.scope.LHUNDG_QUESTIONS);
   const entries = Object.entries(env.scope.LHUNDG_EXPLANATIONS);
-  assert.equal(entries.length, 71);
+  assert.equal(entries.length, 74);
   for (const [uid, entry] of entries) {
     const question = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === uid);
     assert.ok(['legacy203', 'rhein97', 'koeln'].includes(question?.sourceKey));
@@ -230,7 +230,7 @@ function answerFields(env, selected = ['A', 'B', 'C']) {
       append(node) { node.parent = this; this.children.push(node); } };
   });
   env.card.querySelectorAll = () => options;
-  env.feedback.dom = { node: () => ({ textContent: '', remove() { this.parent.children.length = 0; } }) };
+  env.feedback.dom = { node: () => ({ textContent: '', attributes: {}, setAttribute(name, value) { this.attributes[name] = value; }, remove() { this.parent.children.length = 0; } }) };
   const question = { id: 99999, uid: 'test-feedback', type: 'multiple', correct: ['A', 'B', 'C', 'D'],
     answers: { A: 'Alpha', B: 'Beta', C: 'Gamma', D: 'Delta', E: 'Epsilon' } };
   env.current.state.answers.set(question.id, new Set(selected));
@@ -297,4 +297,23 @@ test('Jedes Prüfungsprofil zeigt dieselbe unverbindliche Simulationseinordnung 
     controller.showExampleNotice();
     assert.equal(notice.hidden, true);
   }
+});
+
+
+test('Zuordnungen behalten kompakte Symbole mit vollständig zugänglicher Bewertung', () => {
+  const env = setup();
+  const { options, question } = answerFields(env, ['A', 'E']);
+  question.type = 'mapping';
+  env.feedback.updateAnswers(question, env.card, true);
+  for (const [index, symbol, description] of [
+    [0, '✓', '✓ Richtig gewählt'], [1, '!', '! Fehlte'], [4, '×', '× Falsch gewählt']
+  ]) {
+    const state = options[index].children[0];
+    assert.equal(state.textContent, symbol);
+    assert.equal(state.attributes.role, 'img');
+    assert.equal(state.attributes['aria-label'], description);
+    assert.equal(state.title, description);
+  }
+  env.feedback.updateAnswers(question, env.card, false);
+  assert(options.every(option => option.children.length === 0));
 });
