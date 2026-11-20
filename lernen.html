@@ -32,10 +32,10 @@
   <link rel="stylesheet" href="styles/accessibility.css?v=58">
   <link rel="stylesheet" href="styles/page-tools.css?v=70">
   <link rel="stylesheet" href="styles/learner-profiles.css?v=64">
-  <link rel="stylesheet" href="styles/magazine.css?v=65">
+  <link rel="stylesheet" href="styles/magazine.css?v=79">
   <link rel="stylesheet" href="styles/learning-overview.css?v=57">
   <link rel="stylesheet" href="styles/learning-identity.css?v=73">
-  <link rel="stylesheet" href="styles/workspace.css?v=72">
+  <link rel="stylesheet" href="styles/workspace.css?v=78">
 
   <link rel="stylesheet" href="styles/foundations.css?v=62">
 
@@ -87,41 +87,50 @@
               <span data-learner-name>Dein Lernstand</span><span>Profil wechseln</span>
             </button>
             <!-- BLOCK END: Aktives Personenprofil -->
-            <label for="modeSelect">Fragenkatalog</label><select id="modeSelect">
-              <option value="all">Alle Quellen · 400 Fragen</option>
-              <option value="mg">Basispool · 398 Fragen</option>
-              <option value="rhein97">Rhein-Erft · 97 Fragen</option>
-              <option value="koeln">Köln · 115 Fragen</option>
-              <option value="legacy203">Rhein-Erft · 203 Fragen</option>
-              <option value="kammer197">Tierärztekammern · 197 Fragen (§ 11)</option>
-            </select>
-            <div class="progress-meta"><strong id="progressText">0 beantwortet</strong><span id="progressPercent">0
-                %</span></div><progress id="progressBar" value="0" max="100">0 %</progress>
-            <!-- BLOCK START: Kennzahlen des aktiven Lernkatalogs -->
-            <section id="learningInsights" class="learning-insights" aria-label="Kennzahlen dieses Katalogs">
-              <dl class="learning-kpis">
-                <div><dt>Richtig</dt><dd data-insight="correct">0</dd></div>
-                <div><dt>Fehler</dt><dd data-insight="wrong">0</dd></div>
-                <div><dt>Merker</dt><dd data-insight="bookmarked">0</dd></div>
-              </dl>
-              <p class="microcopy" data-insight="note">Richtig und falsch zählen erst nach dem Prüfen.</p>
-            </section>
-            <!-- BLOCK END: Kennzahlen des aktiven Lernkatalogs -->
-            <button id="resume" class="secondary" type="button">Weiterlernen →</button>
-            <!-- BLOCK START: Direkter Zugang zur Merkliste -->
-            <button id="showBookmarks" class="secondary bookmark-access" type="button" aria-pressed="false">★ Merkliste
-              (0)</button>
-            <!-- BLOCK END: Direkter Zugang zur Merkliste -->
-            <!-- BLOCK START: Dynamische Fehlersammlung -->
-            <button id="showErrors" class="secondary bookmark-access" type="button" aria-pressed="false">Meine Fehler (0)</button>
-            <!-- BLOCK END: Dynamische Fehlersammlung -->
-
+            <!-- BLOCK START: Katalogauswahl und Lernstand -->
+            <div class="sidebar-catalog">
+              <label for="modeSelect">Fragenkatalog</label><select id="modeSelect">
+                <option value="all">Alle Quellen · 400 Fragen</option>
+                <option value="mg">Basispool · 398 Fragen</option>
+                <option value="rhein97">Rhein-Erft · 97 Fragen</option>
+                <option value="koeln">Köln · 115 Fragen</option>
+                <option value="legacy203">Rhein-Erft · 203 Fragen</option>
+                <option value="kammer197">Tierärztekammern · 197 Fragen (§ 11)</option>
+              </select>
+              <div class="sidebar-progress" role="group" aria-label="Lernstand dieses Katalogs">
+                <div class="progress-meta"><strong id="progressText">0 beantwortet</strong><span id="progressPercent">0
+                    %</span></div><progress id="progressBar" value="0" max="100">0 %</progress>
+                <!-- BLOCK START: Kennzahlen des aktiven Lernkatalogs -->
+                <section id="learningInsights" class="learning-insights" aria-label="Kennzahlen dieses Katalogs">
+                  <dl class="learning-kpis">
+                    <div><dt>Richtig</dt><dd data-insight="correct">0</dd></div>
+                    <div><dt>Fehler</dt><dd data-insight="wrong">0</dd></div>
+                    <div><dt>Merker</dt><dd data-insight="bookmarked">0</dd></div>
+                  </dl>
+                  <p class="microcopy" data-insight="note">Richtig und falsch zählen erst nach dem Prüfen.</p>
+                </section>
+                <!-- BLOCK END: Kennzahlen des aktiven Lernkatalogs -->
+              </div>
+            </div>
+            <!-- BLOCK END: Katalogauswahl und Lernstand -->
+            <!-- BLOCK START: Gewichtete Lernaktionen -->
+            <div class="sidebar-learning-actions" role="group" aria-label="Lernaktionen">
+              <button id="resume" class="secondary" type="button">Weiterlernen →</button>
+              <button id="showErrors" class="secondary bookmark-access" type="button" aria-pressed="false">Meine Fehler (0)</button>
+              <button id="showBookmarks" class="secondary bookmark-access" type="button" aria-pressed="false">★ Merkliste (0)</button>
+            </div>
+            <!-- BLOCK END: Gewichtete Lernaktionen -->
           </div>
 
-          <div class="workspace-shortcuts">
+          <!-- BLOCK START: Übersicht und eigenständiger Teststart -->
+          <div class="workspace-shortcuts" role="group" aria-label="Informationen">
             <button class="secondary" type="button" data-learning-tool="overview">Fragenübersicht</button>
+          </div>
+          <div class="sidebar-test-actions" role="group" aria-label="Testvorbereitung">
+            <p class="panel-kicker">Prüfung üben</p>
             <button class="secondary" type="button" data-learning-tool="tests">Testreihe starten</button>
           </div>
+          <!-- BLOCK END: Übersicht und eigenständiger Teststart -->
           <p class="storage-note" id="storageNote">Dein Lernstand bleibt in diesem Browser.
             <a href="./" data-open-release aria-haspopup="dialog">Was ist neu?</a> ·
             <a id="foundationsLink" href="grundlagen.html">Grundlagen</a> ·
@@ -143,7 +152,7 @@
                   <option value="all">Alle Fragen</option>
                   <option value="open">Noch offen</option>
                   <option value="answered">Beantwortet</option>
-                  <option value="wrong">Fehler wiederholen</option>
+                  <option value="wrong">Falsch geprüft</option>
                   <option value="bookmarked">Merkliste</option>
                 </select></label><label for="categoryFilter">Thema<select id="categoryFilter">
                   <option value="all">Alle Themen</option>
@@ -166,11 +175,21 @@
           <div class="question-stage" id="questionStage" role="region" aria-label="Fragen und Rückmeldung" tabindex="0">
             <div id="result" class="result-panel" tabindex="-1" hidden></div>
             <!-- BLOCK START: Fehler ansehen oder frisch üben -->
-            <section id="errorCollection" class="side-panel" aria-labelledby="errorCollectionTitle" hidden>
-              <h3 id="errorCollectionTitle">Meine Fehler</h3>
-              <p id="errorCollectionNote" role="status" aria-live="polite"></p>
-              <div class="learning-actions">
-                <button id="startErrorReview" class="primary" type="button">Jetzt üben</button>
+            <section id="errorCollection" class="error-collection" aria-labelledby="errorCollectionTitle" hidden>
+              <div class="error-collection-heading">
+                <h3 id="errorCollectionTitle" tabindex="-1">Meine Fehler</h3>
+                <p id="errorCollectionNote" role="status" aria-live="polite"></p>
+              </div>
+              <div id="errorCollectionChoices" class="error-choices" hidden>
+                <button id="viewErrorAnswers" class="secondary error-choice" type="button">
+                  <strong>Fehler ansehen</strong><span>Deine bisherigen Antworten, Lösungen und Erklärungen nachvollziehen.</span>
+                </button>
+                <button id="startErrorReview" class="primary error-choice" type="button">
+                  <strong>Fehler üben</strong><span>Ohne Vorauswahl neu beantworten. Du entscheidest, wann geprüft wird.</span>
+                </button>
+              </div>
+              <div id="errorCollectionActions" class="learning-actions" hidden>
+                <button id="chooseErrorAction" class="secondary" type="button">Auswahl ändern</button>
                 <button id="finishErrorReview" class="secondary" type="button" hidden>Runde beenden</button>
               </div>
             </section>
@@ -249,7 +268,7 @@
   <script src="scripts/ui/navigation.js?v=69" defer></script>
   <script src="scripts/ui/accessibility-speech.js?v=55" defer></script>
   <script src="scripts/ui/accessibility-panel.js?v=58" defer></script>
-  <script src="scripts/ui/release.js?v=65" defer></script>
+  <script src="scripts/ui/release.js?v=79" defer></script>
   <script src="scripts/ui/page-tools.js?v=70" defer></script>
   <script src="scripts/ui/learner-panel.js?v=64" defer></script>
   <script src="scripts/ui/common.js?v=64" defer></script>
@@ -263,14 +282,14 @@
   <script src="scripts/learning/explanations.js?v=75" defer></script>
   <script src="scripts/learning/question-feedback.js?v=73" defer></script>
   <script src="scripts/learning/question-view.js?v=48" defer></script>
-  <script src="scripts/learning/filter-view.js?v=75" defer></script>
+  <script src="scripts/learning/filter-view.js?v=76" defer></script>
   <script src="scripts/learning/insights.js?v=63" defer></script>
-  <script src="scripts/learning/review.js?v=75" defer></script>
-  <script src="scripts/learning/learning-view.js?v=75" defer></script>
+  <script src="scripts/learning/review.js?v=76" defer></script>
+  <script src="scripts/learning/learning-view.js?v=76" defer></script>
   <script src="scripts/learning/results.js?v=75" defer></script>
   <script src="scripts/learning/progress.js?v=75" defer></script>
   <script src="scripts/learning/keyboard.js?v=40" defer></script>
-  <script src="scripts/learning/controller.js?v=75" defer></script>
+  <script src="scripts/learning/controller.js?v=76" defer></script>
   <script src="scripts/learning/foundations.js?v=43" defer></script>
   <script src="scripts/learning/app.js?v=64" defer></script>
   <script src="scripts/learning/workspace-tools.js?v=67" defer></script>

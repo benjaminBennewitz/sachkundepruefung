@@ -51,7 +51,7 @@ test('Release wird sofort eingereiht und erst nach dem Schließen als gesehen ge
   const f = fixture();
   const pending = f.ui.bindRelease(f.modal);
   assert.equal(f.opened.length, 1);
-  assert.equal(f.opened[0].content.children.filter(node => node.tag === 'section').length, 3);
+  assert.equal(f.opened[0].content.children[0].children[1].children.filter(node => node.tag === 'section').length, 3);
   assert.equal(f.writes.length, 0);
   f.close('close');
   await pending;
@@ -148,21 +148,19 @@ function nodes(root) {
   return [root, ...root.children.flatMap(nodes)];
 }
 
-test('Aktuelle Neuigkeiten stehen vor der lesbaren Design-Historie mit Versionskennung', async () => {
+test('Nur das neueste Update startet geöffnet; ältere Einträge behalten ihren vollständigen Inhalt', async () => {
   const f = fixture();
   const pending = f.ui.bindRelease(f.modal);
-  const content = f.opened[0].content;
-  const history = content.children.at(-1);
-  assert.equal(history.className, 'release-history');
-  assert.equal(history.children[0].text, 'Frühere Updates');
-  const entries = history.children.filter(node => node.tag === 'article');
-  assert.equal(entries.length, 1);
-  const text = nodes(entries[0]).map(node => node.text).join(' ');
-  assert.match(text, /2026\.11\.17/);
-  assert.match(text, /Design-Refactoring/);
-  assert.match(text, /Naturfarben/);
-  assert.match(text, /Magazinformat/);
-  assert.match(text, /eigenständiger Lernbereich/);
+  const entries = f.opened[0].content.children;
+  assert.equal(entries.length, 3);
+  assert(entries.every(entry => entry.tag === 'details' && entry.children[0].tag === 'summary'));
+  assert.equal(entries[0].open, true);
+  assert(entries.slice(1).every(entry => entry.open === false));
+  assert.match(nodes(entries[0]).map(node => node.text).join(' '), /Meine Fehler/);
+  const historyText = nodes(entries.at(-1)).map(node => node.text).join(' ');
+  for (const text of ['2026.11.17', 'Design-Refactoring', 'Naturfarben', 'Magazinformat', 'eigenständiger Lernbereich']) {
+    assert(historyText.includes(text));
+  }
   assert.equal(f.opened[0].closeButton, true);
   assert.equal(f.writes.length, 0);
   f.close('close');
@@ -178,6 +176,8 @@ test('Auch der manuelle Einstieg zeigt die Historie und speichert keine einzelne
   const current = f.values.get(key);
   const manual = f.trigger.handlers.click({ preventDefault() {} });
   assert(nodes(f.opened[1].content).some(node => node.text === 'Das große Design-Refactoring.'));
+  assert.equal(f.opened[1].content.children[0].open, true);
+  assert(f.opened[1].content.children.slice(1).every(entry => entry.open === false));
   assert.equal(f.values.get(key), current);
   f.close('cancel');
   await manual;

@@ -21,6 +21,8 @@
    02   Katalog und kompakte Werkzeugleiste
    03   Ausgelagerte Lernwerkzeuge
    04   Kleine Ansichten, Textvergrößerung und Druck
+   05   Fehlersammlung und Modusauswahl
+   06   Visuelle Rangordnung von Informationen und Aktionen
    ========================================================================== */
 
 /* ===========================================================================
@@ -81,7 +83,8 @@
 
   .learning-page .learning-layout>.sidebar {
     position: static;
-    overflow: visible;
+    overflow-y: auto;
+    scrollbar-width: thin;
     max-height: none;
     min-height: 0;
     align-content: start;
@@ -379,6 +382,7 @@
 
 /* ===========================================================================
    04   Kleine Ansichten, Textvergrößerung und Druck
+   05   Fehlersammlung und Modusauswahl
    ========================================================================== */
 
 @media screen and (max-width: 1200px) {
@@ -490,5 +494,328 @@ screen and (max-height: 719px) {
   .workspace-footer .learning-actions,
   #learningToolDepot {
     display: none;
+  }
+}
+
+/* ===========================================================================
+   05   Fehlersammlung und Modusauswahl
+   ========================================================================== */
+
+.error-collection {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px 20px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.error-collection h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.error-collection p {
+  margin: 0;
+  font-size: .82rem;
+  color: var(--muted);
+}
+
+.question-stage--choice {
+  display: grid;
+  align-content: center;
+}
+
+.error-collection--choice {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 48px);
+  border: 0;
+  background: transparent;
+  gap: 24px;
+}
+
+.error-collection--choice h3 {
+  margin-bottom: 8px;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.error-collection--choice p {
+  font-size: .95rem;
+}
+
+.error-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.error-choices .error-choice {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: minmax(0, 1fr);
+  justify-content: stretch;
+  align-items: start;
+  align-content: start;
+  gap: 12px;
+  min-height: 164px;
+  padding: 24px;
+  text-align: left;
+  white-space: normal;
+}
+
+.error-choice strong {
+  font-size: 1.2rem;
+}
+
+.error-choice span {
+  font-size: .9rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .error-collection,
+  .error-choices {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .error-choices .error-choice {
+    min-height: 128px;
+    padding: 20px;
+  }
+}
+
+
+/* ===========================================================================
+   06   Visuelle Rangordnung von Informationen und Aktionen
+   ========================================================================== */
+
+@media screen {
+  .learning-page .learning-kpis>div {
+    gap: 6px;
+    padding: 6px 4px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .learning-page .learning-kpis dd {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .learning-page .sidebar .learner-switch {
+    min-height: 44px;
+    margin-bottom: 4px;
+    padding: 10px 12px;
+    border-color: var(--control-line);
+    border-radius: var(--radius-sm);
+    background: var(--nav-panel);
+    text-align: start;
+  }
+
+  .learning-page .learner-switch span:last-child {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .learning-page .sidebar #resume,
+  .learning-page .question-check {
+    min-height: 44px;
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  .learning-page .sidebar #resume:hover:not(:disabled),
+  .learning-page .question-check:hover:not(:disabled) {
+    border-color: var(--accent-hover);
+    background: var(--accent-hover);
+  }
+
+  .learning-page .question-check:disabled {
+    border-color: var(--line);
+    background: var(--subtle);
+    color: var(--muted);
+    opacity: 1;
+  }
+
+  .learning-page .sidebar-catalog,
+  .learning-page .sidebar-progress,
+  .learning-page .sidebar-learning-actions,
+  .learning-page .sidebar-test-actions {
+    display: grid;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .learning-page .sidebar-progress {
+    margin-block: 4px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+  }
+
+  .learning-page .sidebar-progress .progress-meta {
+    margin: 0;
+  }
+
+  .learning-page .sidebar-learning-actions {
+    padding-top: 4px;
+  }
+
+  .learning-page .sidebar .bookmark-access {
+    min-height: 44px;
+    justify-content: center;
+    padding: 8px 12px;
+    border-color: var(--control-line);
+    background: var(--nav-panel);
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .learning-page .sidebar #showErrors,
+  .learning-page .sidebar #showErrors[aria-pressed=true] {
+    border-color: var(--accent);
+    background: var(--highlight);
+    color: var(--highlight-ink);
+  }
+
+  .learning-page .sidebar #showErrors:hover {
+    background: var(--highlight-hover);
+  }
+
+  .learning-page .sidebar #showBookmarks:hover {
+    background: var(--control-hover);
+    border-color: var(--accent);
+  }
+
+  .learning-page .sidebar .bookmark-access[aria-pressed=true] {
+    border-color: var(--accent);
+    box-shadow: inset 3px 0 0 var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .learning-page .workspace-shortcuts {
+    padding-top: 14px;
+    border-top: 1px solid var(--control-line);
+  }
+
+  .learning-page .workspace-shortcuts .secondary {
+    min-height: 44px;
+    border-color: var(--control-line);
+    background: var(--surface);
+    font-weight: 650;
+  }
+
+  .learning-page .workspace-shortcuts .secondary:hover,
+  .learning-page .sidebar .learner-switch:hover {
+    background: var(--control-hover);
+    border-color: var(--accent);
+  }
+
+  .learning-page .sidebar-test-actions {
+    padding-top: 14px;
+    border-top: 1px solid var(--control-line);
+  }
+
+  .learning-page .sidebar-test-actions .secondary {
+    min-height: 44px;
+    border-color: var(--rust);
+    background: var(--warm);
+    color: var(--highlight-ink);
+    font-weight: 800;
+  }
+
+  .learning-page .sidebar-test-actions .secondary:hover {
+    background: var(--warm);
+    color: var(--highlight-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .learning-page .workspace-toolbar {
+    background: var(--filter-bg);
+  }
+
+  .learning-page .workspace-toolbar :is(input[type=search], .select-trigger) {
+    background: var(--surface);
+  }
+
+  .learning-page .workspace-toolbar .select-trigger:hover:not(:disabled) {
+    background: var(--control-hover);
+  }
+
+  .learning-page .workspace-toolbar .select-trigger[aria-expanded=true] {
+    background: var(--accent-bg);
+    color: var(--text);
+    border-color: var(--accent);
+  }
+
+  .learning-page .question-card .status-pill {
+    padding: 2px 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    font-size: .75rem;
+  }
+
+  .learning-page .workspace-footer .pagination {
+    border: 0;
+    background: transparent;
+  }
+
+  .learning-page .workspace-footer .pagination button {
+    min-height: 44px;
+    border: 1px solid var(--warm);
+    background: var(--warm);
+    color: var(--highlight-ink);
+  }
+
+  .learning-page .workspace-footer .pagination button:hover:not(:disabled) {
+    border-color: var(--rust);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .learning-page .workspace-footer .pagination button:disabled {
+    border-color: var(--line);
+    background: var(--subtle);
+    color: var(--muted);
+    opacity: 1;
+  }
+
+  .learning-page .workspace-footer .learning-actions .secondary {
+    border-color: transparent;
+    background: transparent;
+    font-weight: 500;
+  }
+
+  .learning-page .workspace-footer .learning-actions .secondary:hover:not(:disabled) {
+    border-color: var(--line);
+    background: var(--subtle);
+  }
+}
+
+/* Die vollflächigen mobilen Menütasten behalten ihre sichtbaren Flächen. */
+@media screen and (min-width: 801px) {
+  .learning-page .header-tools .icon-button:not([data-open-support]) {
+    border-color: transparent;
+    background: transparent;
+    color: var(--muted);
+  }
+
+  .learning-page .header-tools .icon-button:not([data-open-support]):hover {
+    border-color: var(--control-line);
+    background: var(--nav-panel);
+    color: var(--text);
   }
 }

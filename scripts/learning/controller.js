@@ -162,7 +162,7 @@ window.LHUNDG_TRAINER.Controller = class Controller {
   bindTools() {
     this.dom.get('intermediate').addEventListener('click', () => this.results.evaluate(true));              // Wertet nur bereits vollständig beantwortete Fragen als Zwischenstand aus.
     this.dom.get('evaluate').addEventListener('click', () =>
-      this.view.review.active ? this.view.review.finish() : this.results.evaluate(false));                 // Fordert die Gesamtauswertung einschließlich offener Fragen an.
+      this.view.review.active ? this.view.review.primaryAction() : this.results.evaluate(false));                 // Wertet die Wiederholungsrunde oder den Katalog aus.
     this.dom.get('reset').addEventListener('click', () => this.reset());                                    // Fragt vor dem Löschen des aktuellen Lernstands ausdrücklich nach.
     this.dom.get('exportProgress').addEventListener('click', () => this.progress.export());                 // Stellt eine lokale Sicherung aller Kataloglernstände bereit.
     this.dom.get('importProgress').addEventListener('change', event => this.progress.import(event));        // Prüft die ausgewählte Sicherungsdatei vor Bestätigung und Zusammenführung.

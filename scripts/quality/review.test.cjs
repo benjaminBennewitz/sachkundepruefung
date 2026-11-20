@@ -51,6 +51,8 @@ class Node {
   querySelector(selector) { return this.querySelectorAll(selector)[0]; }
   /** @param {string} selector Klasse. @returns {Node|undefined} Passender Vorfahr. */
   closest(selector) { return this.matches(selector) ? this : this.parent?.closest(selector); }
+  /** Merkt den gezielt gesetzten Fokus. */
+  focus() { this.focused = true; }
   /** Entfernt dieses Element aus seinem Elternknoten. */
   remove() { this.parent.children = this.parent.children.filter(node => node !== this); }
 }
@@ -58,15 +60,17 @@ class Node {
 /** @param {string} [mode] Katalog oder Prüfung. @returns {object} Echte Module und isolierte Oberfläche. */
 function setup(mode = '') {
   const env = fixtures.environment(['data', 'essen', 'sources', 'core', 'profiles', 'dom', 'session',
-    'explanations', 'question-feedback', 'question-view', 'filter-view', 'review', 'controller']);
+    'explanations', 'question-feedback', 'question-view', 'filter-view', 'review', 'controller', 'learning-view']);
   const controls = new Map();
   env.scope.clearTimeout = clearTimeout;
-  env.scope.document = { createElement: tag => new Node(tag), createElementNS: (_, tag) => new Node(tag),
+  env.scope.document = { createElement: tag => new Node(tag), createElementNS: (_, tag) => new Node(tag), createDocumentFragment: () => new Node('fragment'),
     getElementById: id => { if (!controls.has(id)) controls.set(id, new Node('div')); return controls.get(id); } };
   const session = fixtures.session(env, mode);
-  const view = { session, state: session.state, navButtons: new Map(), pageSize: () => 1,
+  const view = { session, state: session.state, dom: env.trainer.dom, navButtons: new Map(), pageSize: () => 1,
     render() { this.review.update(); }, updateOverview() {},
     applyFilters(options) { this.filters.apply(options); } };
+  view.updateFeedbackToggle = () => env.trainer.LearningView.prototype.updateFeedbackToggle.call(view);
+  view.cards = new env.trainer.QuestionView(session, () => {});
   view.filters = new env.trainer.FilterView(session, view);
   view.review = new env.trainer.Review(session, view);
   return { ...env, session, view, review: view.review, get: env.trainer.dom.get };
@@ -217,13 +221,18 @@ test('Eine neue Runde nimmt nur die jetzt verbleibenden Fehler auf; Filterwechse
 });
 
 
-test('Die feste Fußaktion beendet die Wiederholung und startet keine Katalogauswertung', () => {
+test('Die Fußaktion wertet verdeckte Versuche aus und beendet erst danach die Wiederholung', () => {
   const env = setup();
-  checkedAnswer(env, 1, ['A']);
+  const question = checkedAnswer(env, 1, ['A']);
   env.session.state.instant = false;
   env.review.start();
-  assert.equal(env.get('evaluate').textContent, 'Runde beenden');
-  assert.equal(env.get('instantFeedback').attributes['aria-pressed'], 'true');
+  draft(env, question, ['B']);
+  env.review.update();
+  assert.equal(env.get('evaluate').textContent, 'Runde auswerten');
+  assert.equal(env.get('instantFeedback').attributes['aria-pressed'], 'false');
+  assert.equal(env.get('instantFeedback').disabled, false);
+  assert.equal(env.review.cards.render(question).querySelector('.question-check').hidden, true);
+  assert.deepEqual(Array.from(env.session.state.answers.get(question.id)), ['A']);
   const controller = Object.create(env.trainer.Controller.prototype);
   controller.dom = env.trainer.dom;
   controller.view = env.view;
@@ -231,7 +240,64 @@ test('Die feste Fußaktion beendet die Wiederholung und startet keine Katalogaus
   controller.progress = {};
   controller.bindTools();
   env.get('evaluate').events.click();
+  assert.equal(env.review.active, true);
+  assert.deepEqual(Array.from(env.session.state.answers.get(question.id)), ['B']);
+  const graded = env.review.cards.render(question);
+  assert.equal(graded.querySelector('.feedback').hidden, false);
+  assert.equal(graded.querySelector('.question-explanation').hidden, false);
+  assert.equal(env.get('evaluate').textContent, 'Runde abschließen');
+  env.get('evaluate').events.click();
   assert.equal(env.review.active, false);
   assert.equal(env.get('evaluate').textContent, 'Katalog auswerten');
   assert.equal(env.session.state.instant, false);
+});
+
+test('Meine Fehler öffnet zuerst zwei Optionen ohne Fragenkarten und mit gezieltem Fokus', () => {
+  const env = setup();
+  const question = checkedAnswer(env, 1, ['A']);
+  env.review.bind();
+  env.get('showErrors').events.click();
+  assert.equal(env.review.choosing, true);
+  assert.equal(env.get('errorCollectionChoices').hidden, false);
+  assert.equal(env.get('questions').hidden, true);
+  assert.equal(env.get('errorCollectionTitle').focused, true);
+  const content = env.trainer.LearningView.prototype.createQuestionPage.call(env.view);
+  assert.equal(content.children.length, 0);
+  env.get('viewErrorAnswers').events.click();
+  assert.equal(env.review.choosing, false);
+  assert.equal(env.get('questions').hidden, false);
+  assert.equal(env.get('errorCollectionChoices').hidden, true);
+  const viewed = env.view.cards.render(question);
+  assert.equal(viewed.querySelector('.feedback').hidden, false);
+  assert.equal(viewed.querySelector('.question-explanation').hidden, false);
+});
+
+test('Der gewohnte Feedbackschalter bleibt auch während der Runde wirksam', () => {
+  const env = setup();
+  const question = checkedAnswer(env, 1, ['A']);
+  env.review.start();
+  env.trainer.LearningView.prototype.toggleFeedback.call(env.view);
+  assert.equal(env.session.state.instant, false);
+  assert.equal(env.review.practice.state.instant, false);
+  assert.equal(env.review.cards.render(question).querySelector('.question-check').hidden, true);
+  env.trainer.LearningView.prototype.toggleFeedback.call(env.view);
+  assert.equal(env.session.state.instant, true);
+  assert.equal(env.review.practice.state.instant, true);
+  assert.equal(env.review.cards.render(question).querySelector('.question-check').hidden, false);
+});
+
+test('Auswahl ändern verwirft Entwürfe; eine leere Sammlung bietet keine wirkungslose Übung an', () => {
+  const env = setup();
+  const question = checkedAnswer(env, 1, ['A']);
+  env.review.start();
+  draft(env, question, ['B']);
+  env.review.open();
+  assert.equal(env.review.active, false);
+  assert.equal(env.review.choosing, true);
+  assert.deepEqual(Array.from(env.session.state.answers.get(question.id)), ['A']);
+  env.session.state.answers.set(question.id, new Set(['B']));
+  env.session.state.checked.set(question.id, env.session.signature(question));
+  env.review.update();
+  assert.equal(env.get('startErrorReview').disabled, true);
+  assert.equal(env.get('viewErrorAnswers').disabled, true);
 });

@@ -13,6 +13,7 @@ window.LHUNDG_TRAINER.Review = class Review {
     this.dom = window.LHUNDG_TRAINER.dom;
     this.core = window.LHUNDG_CORE;
     this.active = false;
+    this.choosing = false;
     this.questions = [];
     this.practice = null;
     this.cards = null;
@@ -33,9 +34,24 @@ window.LHUNDG_TRAINER.Review = class Review {
 
   /** Verbindet die dauerhafte Sammlung sowie Start und Abschluss der flüchtigen Runde. */
   bind() {
-    this.dom.get('showErrors').addEventListener('click', () => this.show());
+    this.dom.get('showErrors').addEventListener('click', () => this.open());
+    this.dom.get('viewErrorAnswers').addEventListener('click', () => this.show());
+    this.dom.get('chooseErrorAction').addEventListener('click', () => this.open());
     this.dom.get('startErrorReview').addEventListener('click', () => this.start());
     this.dom.get('finishErrorReview').addEventListener('click', () => this.finish());
+  }
+
+  /** Öffnet zunächst die bewusste Auswahl, ohne bereits eine Fehlerfrage oder Lösung einzublenden. */
+  open() {
+    if (this.session.isExam) return;
+    this.view.filters.clear();
+    this.choosing = true;
+    this.session.state.status = 'wrong';
+    this.dom.get('statusFilter').value = 'wrong';
+    this.dom.get('result').hidden = true;
+    this.view.applyFilters();
+    this.dom.get('questionStage').scrollTop = 0;
+    this.dom.get('errorCollectionTitle').focus({ preventScroll: true });
   }
 
   /** Öffnet die bisherigen Fehler mit Auswahl, Bewertung und Erklärungen. */
@@ -56,7 +72,7 @@ window.LHUNDG_TRAINER.Review = class Review {
     this.questions = questions;
     this.active = true;
     /* Die vorhandene Kartenkomponente erhält nur einen flüchtigen Antwortstand. */
-    const state = { ...this.session.state, answers: new Map(), checked: new Map(), instant: true, status: 'all' };
+    const state = { ...this.session.state, answers: new Map(), checked: new Map(), instant: this.session.state.instant, status: 'all' };
     this.practice = Object.assign(Object.create(this.session), { state, isExam: false, persist: () => this.commit() });
     this.cards = new window.LHUNDG_TRAINER.QuestionView(this.practice, () => {
       this.view.updateOverview();
@@ -107,9 +123,42 @@ window.LHUNDG_TRAINER.Review = class Review {
   /** Verwirft nur ungeprüfte Entwürfe; bereits geprüfte Ergebnisse sind bereits im Originalstand enthalten. */
   stop() {
     this.active = false;
+    this.choosing = false;
     this.questions = [];
     this.practice = null;
     this.cards = null;
+  }
+
+  /** @returns {SachkundeQuestion[]} Vollständige Entwürfe, die noch keine passende neue Bewertung besitzen. */
+  pending() {
+    if (!this.active) return [];
+    return this.questions.filter(question =>
+      this.core.complete(question, this.practice.state.answers.get(question.id)) &&
+      this.practice.state.checked.get(question.id) !== this.practice.signature(question));
+  }
+
+  /** @returns {boolean} Ob die feste Fußaktion die noch verdeckten Versuche auswerten soll. */
+  requiresEvaluation() {
+    return this.active && !this.session.state.instant && (!this.score().checked || this.pending().length > 0);
+  }
+
+  /** Führt die im Footer beschriftete Aktion aus, ohne den ganzen Katalog auszuwerten. */
+  primaryAction() {
+    if (this.requiresEvaluation()) this.evaluate();
+    else this.finish();
+  }
+
+  /** Prüft bei ausgeschaltetem Sofort-Feedback nur vollständige Versuche und zeigt danach deren Lösungen. */
+  evaluate() {
+    if (!this.active) return;
+    const pending = this.pending();
+    if (!pending.length) return;
+    for (const question of pending) this.practice.state.checked.set(question.id, this.practice.signature(question));
+    this.commit();
+    this.view.render();
+    const score = this.score();
+    window.LHUNDG_UI.toast(`${score.correct} von ${score.checked} erneut geprüften Fragen richtig. ` +
+      'Offene oder unvollständige Versuche verändern deinen bisherigen Lernstand nicht.', { type: 'info' });
   }
 
   /** Beendet die Runde bewusst und zeigt die jetzt verbleibende dynamische Fehlersammlung. */
@@ -134,27 +183,36 @@ window.LHUNDG_TRAINER.Review = class Review {
     button.setAttribute('aria-pressed', String(visible));
     button.setAttribute('aria-label', `Meine Fehler in ${this.session.config.title}: ${count} geprüfte falsche Fragen`);
     this.dom.get('errorCollection').hidden = !visible;
-    this.dom.get('startErrorReview').hidden = this.active;
+    this.dom.get('errorCollection').classList.toggle('error-collection--choice', this.choosing);
+    this.dom.get('questionStage').classList.toggle('question-stage--choice', this.choosing);
+    this.dom.get('errorCollectionChoices').hidden = !this.choosing;
+    this.dom.get('errorCollectionActions').hidden = this.choosing;
     this.dom.get('startErrorReview').disabled = !count;
+    this.dom.get('viewErrorAnswers').disabled = !count;
+    this.dom.get('questions').hidden = this.choosing;
     this.dom.get('finishErrorReview').hidden = !this.active;
+    for (const id of ['previous', 'next', 'position', 'evaluate']) this.dom.get(id).hidden = this.choosing;
+    this.dom.get('intermediate').hidden = this.choosing || this.session.isExam;
     const score = this.score();
-    this.dom.get('errorCollectionTitle').textContent = this.active ? 'Deine Wiederholungsrunde' : 'Meine Fehler';
-    this.dom.get('errorCollectionNote').textContent = this.active ?
-      `${score.checked} von ${this.questions.length} erneut geprüft · ${score.correct} jetzt richtig. ` +
-        'Die Fragenfolge bleibt bis zum Abschluss erhalten. Ungeprüfte Versuche ändern deinen Lernstand nicht.' :
-      `${count} geprüfte falsche Fragen aus „${this.session.config.title}“. ` +
-        'Hier siehst du deine bisherigen Antworten. „Jetzt üben“ startet ohne Vorauswahl und sichtbare Lösungen.';
+    if (this.active) this.practice.state.instant = state.instant;
+    this.dom.get('errorCollectionTitle').textContent = this.choosing ? 'Meine Fehler' :
+      this.active ? 'Fehler üben' : 'Fehler ansehen';
+    this.dom.get('errorCollectionNote').textContent = this.choosing ?
+      `${count} geprüfte falsche Fragen aus „${this.session.config.title}“. Was möchtest du tun?` :
+      this.active ? `${score.checked} von ${this.questions.length} erneut geprüft · ${score.correct} jetzt richtig` :
+        `${state.search || state.category !== 'all' ? `${state.items.length} von ${count}` : count} bisherige Fehler · Auswahl und Lösungen sichtbar`;
+    if (this.choosing && !count) this.dom.get('errorCollectionNote').textContent =
+      'Noch keine geprüften falschen Antworten in diesem Katalog. Offene Fragen gehören nicht zu „Meine Fehler“.';
     this.dom.get('finishErrorReview').textContent = score.checked === this.questions.length ?
       'Runde abschließen' : 'Runde beenden';
     for (const id of ['search', 'statusFilter', 'categoryFilter', 'intermediate']) {
       this.dom.get(id).disabled = this.active;
     }
-    this.dom.get('evaluate').textContent = this.active ? this.dom.get('finishErrorReview').textContent :
-      this.session.isExam ? 'Simulation auswerten' : 'Katalog auswerten';
-    this.dom.get('instantFeedback').disabled = this.active || this.session.isExam;
-    if (this.active) {
-      this.dom.get('instantFeedback').textContent = 'Sofort-Feedback: in der Wiederholung an';
-      this.dom.get('instantFeedback').setAttribute('aria-pressed', 'true');
-    } else this.view.updateFeedbackToggle?.();
+    this.dom.get('evaluate').textContent = this.requiresEvaluation() ? 'Runde auswerten' :
+      this.active ? this.dom.get('finishErrorReview').textContent :
+        this.session.isExam ? 'Simulation auswerten' : 'Katalog auswerten';
+    this.dom.get('evaluate').disabled = this.requiresEvaluation() && !this.pending().length;
+    this.dom.get('instantFeedback').disabled = this.session.isExam;
+    this.view.updateFeedbackToggle?.();
   }
 };

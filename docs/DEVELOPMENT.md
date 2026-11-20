@@ -450,9 +450,18 @@ Prüfungssimulationen bieten Fehleransicht, aber keine überschreibende Wiederho
 
 Die neue Datei `review.js` muss in der Server-Positivliste freigegeben sein.
 
-Die feste Auswertungsaktion im Footer wird während der Runde zur Abschlussaktion;
-es wird dabei keine Katalogauswertung ausgelöst. Sofort-Feedback ist für die
-Wiederholung aktiv, ohne die gespeicherte Feedbackpräferenz zu überschreiben.
+Der Einstieg „Meine Fehler“ zeigt zuerst zwei Wahlmöglichkeiten, ohne Fragen
+oder Lösungen zu rendern: „Fehler ansehen“ und „Fehler üben“. Nach der Wahl bleibt
+eine kompakte Modusleiste mit „Auswahl ändern“; die doppelte Trefferzusammenfassung
+entfällt. Ein leeres Fehlerarchiv bietet keine startbare Übung an.
+
+Sofort-Feedback bleibt vor und während der Runde über den vorhandenen Schalter
+bedienbar und verwendet dieselbe gespeicherte Präferenz wie im übrigen Lernbereich.
+Bei „An“ gibt es Einzelprüfung. Bei „Aus“ prüft „Runde auswerten“ im Footer nur
+vollständige neue Versuche. Offene oder unvollständige Entwürfe überschreiben den
+Originalstand nicht. Erst nach der ausdrücklichen Auswertung werden Lösungen
+und Erklärungen gezeigt. „Runde beenden“ verwirft weiterhin ungeprüfte Entwürfe;
+eine Katalogauswertung wird innerhalb der Runde nicht ausgelöst.
 
 Prüfgrenze des gelieferten Ausgangsstands: Die separaten zwei Tests in
 `quality/layout.test.mjs` erwarten noch SSI-Markup. Sie schlagen bereits in der

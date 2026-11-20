@@ -199,6 +199,10 @@ window.LHUNDG_TRAINER.FilterView = class FilterView {
     this.dom.get('showMatchList').hidden = !this.state.items.length || this.state.view === 'list';
     this.updateCollectionHeading();  // Benennt die Merkliste als eigenen sichtbaren Bereich mit eindeutigem Rückweg.
     this.view.review?.update();
+    if (this.view.review && this.state.status === 'wrong' && !this.session.isExam) {
+      this.dom.get('filterResults').hidden = true;
+      this.dom.get('matchCount').hidden = true;
+    }
     this.updateBookmarks();  // Zustandsanzeige folgt auch einer Auswahl über den bestehenden Statusfilter.
   }
 
@@ -213,7 +217,7 @@ window.LHUNDG_TRAINER.FilterView = class FilterView {
 
     const errors = this.state.status === 'wrong';
     this.dom.get('modeTitle').textContent = bookmarked ? `Merkliste · ${title}` : errors ? `Meine Fehler · ${title}` : title;
-    this.dom.get('clearFilters').textContent = bookmarked ? 'Alle Fragen anzeigen' : 'Filter löschen';
+    this.dom.get('clearFilters').textContent = bookmarked || errors ? 'Alle Fragen anzeigen' : 'Filter löschen';
   }
 
   /**

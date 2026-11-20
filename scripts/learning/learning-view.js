@@ -179,6 +179,7 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
    * @returns {void} Kein Rückgabewert.
    */
   goTo(id, { keepFilters = false } = {}) {
+    if (this.review?.choosing) this.review.choosing = false;
     // Trefferverweise erhalten Suchbegriff und Merkliste; sonstige Direktsprünge öffnen den ganzen Katalog.
     if (!keepFilters) this.clearFilters();                                      // Setzt Filtermodell und sichtbare Controls auf alle Fragen zurück.
     const questions = keepFilters ? this.state.items : this.session.questions;  // Maßgebliche Reihenfolge dieses Direktsprungs.
@@ -225,6 +226,7 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
   /** Baut ausschließlich die sichtbaren Fragen oder den Leerzustand auf. */
   createQuestionPage() {
     const fragment = document.createDocumentFragment();                                            // Noch nicht eingefügter Inhalt der nächsten Fragenseite.
+    if (this.review?.choosing) return fragment;
     const visible = this.state.items.slice(this.state.index, this.state.index + this.pageSize());  // Begrenzt die DOM-Erzeugung auf eine Frage oder acht Listeneinträge.
 
     // Erzeugt nur die sichtbaren Karten und hält den restlichen Katalog außerhalb des DOM.

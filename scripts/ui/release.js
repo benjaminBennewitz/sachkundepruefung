@@ -10,6 +10,16 @@
 (ui => {
   const storageKey = 'lhundg-release-seen';
   const releases = Object.freeze([{
+    version: '2026.11.20',
+    date: '20. November 2026',
+    title: 'Fehler gezielt wiederholen.',
+    message: 'Deine Fehler bekommen einen eigenen Einstieg. Dazu wird die Bedienung im Lernbereich übersichtlicher.',
+    features: [
+      ['Meine Fehler: ansehen oder üben.', 'Die Sammlung zeigt die geprüften falschen Fragen deines ausgewählten Katalogs. Du entscheidest: bisherige Antworten samt Lösungen ansehen oder eine neue Übungsrunde starten.'],
+      ['Frisch beantworten, bewusst prüfen.', 'Beim Üben startest du ohne Vorauswahl und sichtbare Lösungen. Sofort-Feedback bleibt auswählbar. Nur erneut geprüfte Antworten aktualisieren deinen Lernstand; ungeprüfte Versuche verändern ihn nicht. Richtig gelöste Fragen fallen aus der Fehlersammlung, bleiben aber bis zum Ende der laufenden Runde erreichbar.'],
+      ['Klarere Orientierung beim Lernen.', 'Lernstand und Aktionen sind deutlicher getrennt. Weiterlernen, Meine Fehler und Merkliste bilden eine gemeinsame Buttongruppe. Fragenübersicht und Teststart haben eigene Bereiche; Zurück und Weiter sind einheitlich gestaltet.']
+    ]
+  }, {
     version: '2026.11.17.2',
     date: '17. November 2026',
     title: 'Ein Lernplatz für jede Person.',
@@ -48,49 +58,40 @@
   }
 
   /**
-   * Baut die Neuigkeiten als sichere Textknoten ohne HTML-Interpolation.
-   * @returns {HTMLElement} Aktuelle Neuigkeiten mit anschließender Historie.
+   * Baut einzeln bedienbare Update-Einträge; nur die neueste Version startet geöffnet.
+   * @returns {HTMLElement} Neuigkeiten in umgekehrt chronologischer Reihenfolge.
    */
   function buildContent() {
     const content = ui.node('div', '', 'release-content');
-    release.features.forEach(([title, text], index) => {
+    releases.forEach((entry, index) => content.append(buildEntry(entry, index === 0)));
+    return content;
+  }
+
+  /**
+   * Verwendet native Details für Tastaturbedienung und den zugänglichen Öffnungszustand.
+   * @param {object} entry Versionskennung, Datum, Titel und unveränderte Meldungstexte.
+   * @param {boolean} expanded Ob der Eintrag beim Öffnen des Dialogs ausgeklappt ist.
+   * @returns {HTMLDetailsElement} Eigenständig auf- und zuklappbarer Update-Eintrag.
+   */
+  function buildEntry(entry, expanded) {
+    const details = ui.node('details', '', 'release-entry');
+    const summary = ui.node('summary');
+    const body = ui.node('div', '', 'release-entry-content');
+    details.open = expanded;
+    summary.append(ui.node('span', `${entry.date} · Version ${entry.version}`, 'release-entry-meta'),
+      ui.node('strong', entry.title, 'release-entry-title'));
+    body.append(ui.node('p', entry.message));
+    entry.features.forEach(([title, text], index) => {
       const section = ui.node('section');
       const number = ui.node('span', String(index + 1).padStart(2, '0'), 'release-number');
       const copy = ui.node('div');
       number.setAttribute('aria-hidden', 'true');
       copy.append(ui.node('h3', title), ui.node('p', text));
       section.append(number, copy);
-      content.append(section);
+      body.append(section);
     });
-    if (releases.length > 1) content.append(buildHistory());
-    return content;
-  }
-
-  /** @returns {HTMLElement} Frühere Updates in umgekehrt chronologischer Reihenfolge. */
-  function buildHistory() {
-    const history = ui.node('div', '', 'release-history');
-    const title = ui.node('h3', 'Frühere Updates');
-    title.id = 'releaseHistoryTitle';
-    history.setAttribute('role', 'region');
-    history.setAttribute('aria-labelledby', title.id);
-    history.append(title, ui.node('p', 'Was sich zuvor verändert hat – zum Nachlesen.'));
-    for (const entry of releases.slice(1)) {
-      const article = ui.node('article', '', 'release-history-entry');
-      article.setAttribute('aria-labelledby', `release-${entry.version}`);
-      const heading = ui.node('h4', entry.title);
-      heading.id = `release-${entry.version}`;
-      article.append(ui.node('p', `${entry.date} · Version ${entry.version}`, 'release-history-meta'),
-        heading, ui.node('p', entry.message));
-      const features = ui.node('ul');
-      for (const [label, text] of entry.features) {
-        const item = ui.node('li');
-        item.append(ui.node('strong', label), ui.node('p', text));
-        features.append(item);
-      }
-      article.append(features);
-      history.append(article);
-    }
-    return history;
+    details.append(summary, body);
+    return details;
   }
 
   /**
@@ -112,8 +113,8 @@
       try {
         await modal.open({
           eyebrow: `Update / ${release.version}`,
-          title: release.title,
-          message: release.message,
+          title: 'Neuigkeiten im Sachkundetrainer',
+          message: 'Das hat sich verändert. Frühere Updates kannst du einzeln aufklappen.',
           content: buildContent(),
           returnFocus: trigger,
           closeButton: true,
