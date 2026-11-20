@@ -44,6 +44,7 @@ window.LHUNDG_TRAINER.FilterView = class FilterView {
    * @returns {void} Kein Rückgabewert.
    */
   setFilter(field, value) {
+    this.view.review?.stop();
     this.state[field] = value;
     this.apply();  // Die Trefferfolge wird immer aus dem aktuellen Gesamtzustand gebildet.
   }
@@ -109,6 +110,7 @@ window.LHUNDG_TRAINER.FilterView = class FilterView {
     if (status === 'answered') return this.core.complete(question, selected);
     // Ausschließlich gesetzte Sternmarkierungen gehören zur Merkliste.
     if (status === 'bookmarked') return this.state.bookmarks.has(question.id);
+    if (status === 'wrong' && this.view.review) return this.view.review.isError(question);
 
     return (
       status === 'wrong' &&
@@ -126,7 +128,8 @@ window.LHUNDG_TRAINER.FilterView = class FilterView {
    * @returns {void} Kein Rückgabewert.
    */
   apply({ reset = true, focus = false } = {}) {
-    this.state.items = this.session.questions.filter(question => this.matches(question));
+    this.state.items = this.view.review?.active ? this.view.review.questions :
+      this.session.questions.filter(question => this.matches(question));
 
     this.clampPosition(reset);  // Entfernte Merker dürfen keine nicht mehr vorhandene Listenseite zurücklassen.
     this.updateSummary();       // Erklärt Treffermenge, Suchumfang und verfügbare Listenansicht.
@@ -156,6 +159,7 @@ window.LHUNDG_TRAINER.FilterView = class FilterView {
    * @returns {void} Kein Rückgabewert.
    */
   clear() {
+    this.view.review?.stop();
     clearTimeout(this.searchTimer);
     this.state.search = '';
     this.state.status = 'all';
@@ -194,6 +198,7 @@ window.LHUNDG_TRAINER.FilterView = class FilterView {
     this.dom.get('matchCount').textContent = this.summaryText();
     this.dom.get('showMatchList').hidden = !this.state.items.length || this.state.view === 'list';
     this.updateCollectionHeading();  // Benennt die Merkliste als eigenen sichtbaren Bereich mit eindeutigem Rückweg.
+    this.view.review?.update();
     this.updateBookmarks();  // Zustandsanzeige folgt auch einer Auswahl über den bestehenden Statusfilter.
   }
 
@@ -206,7 +211,8 @@ window.LHUNDG_TRAINER.FilterView = class FilterView {
     const bookmarked = this.state.status === 'bookmarked';  // Gilt auch bei zusätzlicher Suche oder Themeneinschränkung.
     const title = this.session.config.title;  // Unveränderte Bezeichnung des aktiven Katalogs oder Testprofils.
 
-    this.dom.get('modeTitle').textContent = bookmarked ? `Merkliste · ${title}` : title;
+    const errors = this.state.status === 'wrong';
+    this.dom.get('modeTitle').textContent = bookmarked ? `Merkliste · ${title}` : errors ? `Meine Fehler · ${title}` : title;
     this.dom.get('clearFilters').textContent = bookmarked ? 'Alle Fragen anzeigen' : 'Filter löschen';
   }
 
@@ -248,7 +254,8 @@ window.LHUNDG_TRAINER.FilterView = class FilterView {
    */
   updatePagination() {
     const search = Boolean(this.state.search);                                                     // Suchtreffer benötigen andere Aktionsbeschriftungen als der vollständige Katalog.
-    const prefix = search ? 'Treffer ' : this.state.status === 'bookmarked' ? 'Merkliste: ' : '';  // Verhindert Verwechslung mit Original-Fragenummern.
+    const prefix = this.view.review?.active ? 'Übungsrunde: ' : search ? 'Treffer ' :
+      this.state.status === 'bookmarked' ? 'Merkliste: ' : this.state.status === 'wrong' ? 'Meine Fehler: ' : '';  // Verhindert Verwechslung mit Original-Fragenummern.
     const end = Math.min(this.state.index + this.view.pageSize(), this.state.items.length);        // Letzte dargestellte Trefferposition.
     const range = this.view.pageSize() > 1 ? `–${end}` : '';                                       // Listen zeigen ihre vollständige Seitenspanne.
 
@@ -268,6 +275,8 @@ window.LHUNDG_TRAINER.FilterView = class FilterView {
    */
   emptyMessage() {
     // Suchbegriffe können sowohl durch Text als auch durch weitere Filter keine Treffer haben.
+    if (this.state.status === 'wrong' && !this.state.search && this.state.category === 'all')
+      return 'Hier sind keine geprüften falschen Antworten mehr. Offene und ungeprüfte Fragen gehören nicht zu „Meine Fehler“.';
     if (this.state.search) return 'Keine passenden Suchtreffer. Ändere den Suchbegriff oder lösche weitere Filter.';
     // Merklisten unterscheiden fehlende Markierungen von nur ausgefilterten Fragen.
     if (this.state.status === 'bookmarked') return this.emptyBookmarks();

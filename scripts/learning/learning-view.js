@@ -13,6 +13,7 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
     this.dom = window.LHUNDG_TRAINER.dom;                                                              // Vorhandene sichere Helfer zum Erzeugen und Auffinden von DOM-Elementen.
     this.core = window.LHUNDG_CORE;                                                                    // DOM-unabhängige Regeln für Vollständigkeit, Validierung und Wertung.
     this.filters = new window.LHUNDG_TRAINER.FilterView(session, this);                                // Gemeinsame Such- und Merkliste ohne zweiten Lernzustand.
+    this.review = new window.LHUNDG_TRAINER.Review(session, this);
     this.navButtons = new Map();                                                                       // Bereits erzeugte Fragenbuttons nach stabiler Frage-ID.
     this.cards = new window.LHUNDG_TRAINER.QuestionView(session, refilter => this.refresh(refilter));  // Erzeugt Karten und meldet Änderungen zur Synchronisierung an die Lernansicht.
   }
@@ -89,6 +90,7 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
 
   /** Aktualisiert Fortschritt und erreichbare Zustände der Fragenübersicht. */
   updateOverview() {
+    this.review?.update();
     this.filters.updateBookmarks();  // Aktualisiert die direkt sichtbare Anzahl nach jedem Setzen oder Entfernen eines Sterns.
     this.updateProgress();           // Aktualisiert die Anzahl vollständig beantworteter Fragen unabhängig von ihrer Richtigkeit.
     // IDs der aktuell angezeigten Fragen für aria-current im Fragenraster.
@@ -125,9 +127,10 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
   /** Synchronisiert Farben, Markierung und zugängliche Beschriftung eines Fragenverweises. */
   updateNavigationButton(question, visible) {
     const button = this.navButtons.get(question.id);                                                    // Bereits vorhandener Rasterbutton dieser Frage.
-    const checked = this.state.checked.has(question.id);                                                // Kennzeichnet eine ausdrücklich ausgewertete Antwort.
-    const right = this.core.exact(this.state.answers.get(question.id) || new Set(), question.correct);  // Exakte Richtigkeit; wird erst zusammen mit checked sichtbar.
-    const answered = this.core.complete(question, this.state.answers.get(question.id));                 // Vollständigkeit unabhängig davon, ob die Antwort bereits geprüft wurde.
+    const state = this.review?.active ? this.review.practice.state : this.state;
+    const checked = state.checked.has(question.id);                                                // Kennzeichnet eine ausdrücklich ausgewertete Antwort.
+    const right = this.core.exact(state.answers.get(question.id) || new Set(), question.correct);  // Exakte Richtigkeit; wird erst zusammen mit checked sichtbar.
+    const answered = this.core.complete(question, state.answers.get(question.id));                 // Vollständigkeit unabhängig davon, ob die Antwort bereits geprüft wurde.
     const bookmarked = this.state.bookmarks.has(question.id);                                           // Aktuelle Merkliste des geöffneten Lernbereichs.
     const status = checked ? (right ? 'richtig' : 'falsch') : (answered ? 'beantwortet' : 'offen');     // Geprüfte Antworten zeigen richtig/falsch, sonst nur beantwortet/offen.
     // Screenreader-Beschriftung mit Status, Merker und Originalherkunft.
@@ -225,7 +228,7 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
     const visible = this.state.items.slice(this.state.index, this.state.index + this.pageSize());  // Begrenzt die DOM-Erzeugung auf eine Frage oder acht Listeneinträge.
 
     // Erzeugt nur die sichtbaren Karten und hält den restlichen Katalog außerhalb des DOM.
-    for (const question of visible) fragment.append(this.cards.render(question));
+    for (const question of visible) fragment.append((this.review?.active ? this.review.cards : this.cards).render(question));
 
     // Ohne Treffer wird ein verständlicher Leerzustand anstelle einer leeren Fragenfläche gezeigt.
     if (!visible.length) {
@@ -298,6 +301,7 @@ window.LHUNDG_TRAINER.LearningView = class LearningView {
 
   /** Springt zur nächsten offenen Frage, bei Bedarf vom Kataloganfang. */
   resume() {
+    if (this.review?.active) return this.review.resume();
     const questions = this.session.questions;                                                       // Ungefilterte Reihenfolge des aktiven Lernbereichs.
     const current = this.state.items[this.state.index];                                             // Aktuelle Frage als Ausgangspunkt der Suche.
     const isOpen = question => !this.core.complete(question, this.state.answers.get(question.id));  // Prüft Antwortvollständigkeit, unabhängig von Richtigkeit und Bewertung.

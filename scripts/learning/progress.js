@@ -95,6 +95,7 @@ window.LHUNDG_TRAINER.Progress = class Progress {
 
   /** Übernimmt bestätigte Änderungen und aktualisiert danach die Lernansicht. */
   applyUpdates(updates) {
+    this.view.review?.stop();
     // Führt alle zuvor validierten und gemeinsam bestätigten Katalogänderungen nacheinander zusammen.
     for (const update of updates) this.merge(update);
 

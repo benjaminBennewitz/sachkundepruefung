@@ -306,3 +306,74 @@ Amtliche Quellen, abgerufen am 20. November 2026:
 
 Die Erklärung zu 388 trägt den sichtbaren Hinweis „Quelle beachten“.
 Vorhandene Freigabe nach Antwortprüfung beziehungsweise Testabschluss bleibt erhalten.
+
+
+## Individuelles Wortlautaudit aller 400 Fragen – 20. November 2026
+
+Basis: dogtest--201126--1132.zip. Alle 400 Fragen des Gesamtpools wurden samt
+Antworten und hinterlegtem Schlüssel einzeln gelesen. Suchwörter dienten nur
+als Index; keine automatische Regel „absolutes Wort = falsche Antwort“ wurde
+zur Bewertung oder Textgenerierung verwendet. Auch richtige Einschränkungen,
+Kann-Aussagen, zusammengesetzte Aussagen und negative Fragestellungen wurden
+berücksichtigt. Die Prüfung ist kein vollständiges neues medizinisches oder
+rechtliches Gutachten über sämtliche Aussagen der Quellen.
+
+Ergebnis: 141 zusätzliche Erklärungen, eine bestehende Erklärung (Frage 2)
+präzisiert, 73 bestehende Erklärungen berücksichtigt und unverändert gelassen;
+185 Fragen benötigen für diesen Prüfumfang keinen zusätzlichen Text. Insgesamt
+sind jetzt 215 optionale Erklärungen vorhanden. Der maschinenlesbare Nachweis
+WORDING_AUDIT.json dokumentiert alle 400 UIDs, Reihenfolge, Entscheidung und
+Hinweise. Der SHA-256-Wert bindet ihn an den unveränderten Datenbestand.
+
+Beispiele bewusster Grenzen:
+
+- 2/280: „nur“ beschränkt Rasseunterschiede unzutreffend auf das Aussehen.
+- 35: „immer“ bei Halterzuordnung ist keine Garantie fehlender aktueller Daten;
+  „über“ 20 kg/40 cm ist nicht identisch mit der gesetzlichen Mindestgrenze.
+- 134/266: „nur lernen ohne Angst“ ist keine Aussage, dass Angst jegliches
+  Lernen ausschaltet. Der geeignete Trainingsrahmen ist zu unterscheiden.
+- 178: „nur“ Hecheln/Pfoten verkürzt die physiologischen Wege der Wärmeabgabe.
+- 209: „alle Hunde immer“ ist zu weit für eine allgemeine Anleinpflicht.
+- 244: „alles zusammen“ verpflichtet nicht zu Körperkontakt bei jedem Signal.
+- 278/392: wirksamer Impfschutz UND Begleitung durch eine Person, der der Hund
+  gehorcht; Ausnahme aus § 8 TollwV ist keine Befreiung von anderen Anleinpflichten.
+- 279/394: C verkürzt § 25 Absatz 4 Nummer 2 LJG-NRW; zusätzliche Bedingungen
+  und fehlende mildere Maßnahmen werden erklärt, keine pauschale Abschussbefugnis.
+- 328: „gar nicht“ bei Kastration und Aggression ist keine verlässliche Prognose.
+- 345: „immer gleiche Ausdrücke“ ist gerade eine richtige eingeschränkte Aussage.
+- 375: FSME-Ausschluss in Köln kollidiert mit Frage 176 und ESCCAP.
+- 389: „nur in Ihrer Gemeinde geltend“ ist sprachlich mehrdeutig; örtliche
+  Vorschriften sind nach § 15 Absatz 2 LHundG NRW nicht irrelevant.
+
+Verwendete Varianten wurden einzeln gelesen. Übernommene Erklärungen wurden
+insbesondere bei abweichenden Buchstaben (286, 290, 297) und Formulierungen
+(339, 360, 387) eigens angepasst. Keine Originalfrage oder Lösung verändert.
+Die vorhandene Sperre bis zur ausdrücklichen Prüfung/Testauswertung bleibt
+unverändert. Vor der Prüfung werden keine Signalwörter hervorgehoben.
+
+Zusätzlich abgeglichene Primärquellen (Abruf 20. November 2026):
+
+- LHundG NRW, insbesondere §§ 2, 4, 5, 11 und 15:
+  https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/
+- TierSchHuV §§ 2 und 8:
+  https://www.gesetze-im-internet.de/tierschhuv/BJNR083800001.html
+- TollwV § 8 Absatz 3:
+  https://www.gesetze-im-internet.de/tollwv_1991/__8.html
+- LJG-NRW § 25 Absatz 4 Nummer 2, Fassung ab 1. April 2025:
+  https://recht.nrw.de/lrgv/gesetz/01042025-landesjagdgesetz-nordrhein-westfalen/
+- AVSAB: Humane Dog Training / Stellungnahmen:
+  https://avsab.org/resources/position-statements/
+- Dogs Trust: ganze Körpersprache und Kontext:
+  https://www.dogstrust.org.uk/dog-advice/understanding-your-dog/body-language
+- BVA/BSAVA: Neutering policy, Auswirkungen auf Verhalten:
+  https://www.bva.co.uk/media/6882/final-bva-bsava-policy-position-on-neutering-dogs-and-cats.pdf
+- ESCCAP: Wurmbefall und Zecken:
+  https://www.esccap.de/parasiten/wuermer/wuermer-bei-hunden/
+  https://www.esccap.de/parasiten/zecken/zecken-beim-hund/
+- Joint Trauma System, K9 Heat Injury CPG, 29. März 2025:
+  https://jts.health.mil/assets/docs/cpgs/K9_Heat_Injury_MWD_CPG_c9_29_Mar_2025_v1.1.pdf
+- TASSO: Kennzeichnung und aktuelle Halterdaten:
+  https://www.tasso.net/Service/Fragen-und-Antworten
+
+Die Quelle zu Raufereien (98) wurde bereits für 309 abgeglichen:
+https://www.rspca.org.uk/adviceandwelfare/pets/dogs/health/firstaid

@@ -1,0 +1,5909 @@
+{
+  "date": "2026-11-20",
+  "scope": "400 Fragen des Gesamtpools; individuelle redaktionelle Prüfung von Formulierungen, keine vollständige erneute fachliche oder rechtliche Zertifizierung aller Originalaussagen.",
+  "dataSha256": "becae15ddb4fdab1dcf028bc51c840e512276b7e03265703fe65d5ad6bf6524a",
+  "gradingChanged": false,
+  "counts": {
+    "added": 141,
+    "expanded": 1,
+    "existing": 73,
+    "none": 185
+  },
+  "questions": [
+    {
+      "number": 1,
+      "uid": "legacy-1",
+      "sourceId": "1",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 2,
+      "uid": "legacy-2",
+      "sourceId": "2",
+      "reviewed": true,
+      "action": "expanded",
+      "signals": {
+        "A": [
+          "Alle"
+        ],
+        "C": [
+          "nur"
+        ],
+        "D": [
+          "nicht",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Entscheidend ist „nur“ in C: Unterschiede im Aussehen gibt es, aber C beschränkt sämtliche Unterschiede darauf. Unterschiedliche Veranlagungen werden dadurch ausgeschlossen. Genau diese nennt B. „Alle“ in A und die Größeneinteilung in D liefern ebenfalls keine zutreffende Beschreibung."
+    },
+    {
+      "number": 3,
+      "uid": "legacy-3",
+      "sourceId": "3",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "C verspricht Kindern und Welpen „uneingeschränkt Narrenfreiheit“. Das ist gerade kein sicherer Schutz vor Abwehrreaktionen. A und B nennen Warnsignale; D beschreibt eine mögliche Eskalation. Daraus folgt weder, dass jeder Hund beißt, noch eine Anleitung, Knurren zu bestrafen."
+    },
+    {
+      "number": 4,
+      "uid": "legacy-4",
+      "sourceId": "4",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 5,
+      "uid": "legacy-5",
+      "sourceId": "5",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "B": [
+          "nicht",
+          "kann"
+        ],
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 6,
+      "uid": "legacy-6",
+      "sourceId": "6",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 7,
+      "uid": "legacy-7",
+      "sourceId": "7",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "muss",
+          "nicht",
+          "muss"
+        ],
+        "B": [
+          "muss",
+          "kann"
+        ],
+        "C": [
+          "kann",
+          "nicht",
+          "kann"
+        ],
+        "D": [
+          "muss",
+          "muss",
+          "können",
+          "nicht",
+          "kann",
+          "müssen"
+        ]
+      },
+      "caution": "C ist eine eng begrenzte Kann-Aussage. „Wenige Minuten“ ist keine sichere Zeitfreigabe; auch der Ort Tierarztpraxis macht einen längeren Einsatz nicht geeignet.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 8,
+      "uid": "legacy-8",
+      "sourceId": "8",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "B": [
+          "können"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 9,
+      "uid": "legacy-9",
+      "sourceId": "9",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "kann",
+          "nicht"
+        ],
+        "C": [
+          "können"
+        ],
+        "D": [
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "In B steht „kann zu Schmerzen führen“, nicht „verursacht bei jedem Ruck sicher Schmerzen“. Die Aussage benennt ein Risiko. A und C stellen Leinenrucke dagegen als „notwendig“ dar; der Schlüssel verwirft diese behauptete Notwendigkeit. D benennt mögliche Folgen ständiger Rucke."
+    },
+    {
+      "number": 10,
+      "uid": "legacy-10",
+      "sourceId": "10",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "können",
+          "alle"
+        ]
+      },
+      "caution": "B ist eine vereinfachte Katalogaussage, keine Zusage völliger Belastungsfreiheit.",
+      "reason": "Der Schlüssel zählt B und D. A schließt einen Maulkorb „auf keinen Fall“ zu, C hält ängstliche Hunde pauschal für nicht aggressiv. B macht Gewöhnung zur Voraussetzung, formuliert „keine Belastung“ aber zu absolut: Training kann Belastung reduzieren, garantiert nicht für jeden Hund und jede Situation Stressfreiheit."
+    },
+    {
+      "number": 11,
+      "uid": "legacy-11",
+      "sourceId": "11",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "niemals"
+        ],
+        "B": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 12,
+      "uid": "legacy-12",
+      "sourceId": "12",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "völlig",
+          "können",
+          "nicht"
+        ],
+        "D": [
+          "ständig"
+        ]
+      },
+      "caution": null,
+      "reason": "B verbindet zwei Behauptungen: Zusammenleben mit Menschen und völlige Unfähigkeit, allein Nahrung zu beschaffen. Der erste Gedanke macht die gesamte Antwort nicht richtig. A und C nennen die vom Katalog gesuchten Grundveranlagungen; D erklärt das ständige Suchen nach toten Tieren zur allgemeinen Eigenschaft."
+    },
+    {
+      "number": 13,
+      "uid": "legacy-13",
+      "sourceId": "13",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "können",
+          "nie",
+          "kann"
+        ],
+        "B": [
+          "können",
+          "nicht",
+          "können"
+        ],
+        "C": [
+          "können",
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 14,
+      "uid": "legacy-14",
+      "sourceId": "14",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 15,
+      "uid": "legacy-15",
+      "sourceId": "15",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "nicht"
+        ]
+      },
+      "caution": "Quellenvergleich: Der zugesandte 97er-Bogen, Originalfrage 58, zählt Leinenruck als richtig. Das ist eine andere Erziehungsaussage, keine zusätzliche Gebrauchsanweisung für die hier genannten Hilfsmittel.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 16,
+      "uid": "legacy-16",
+      "sourceId": "16",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 17,
+      "uid": "legacy-17",
+      "sourceId": "17",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 18,
+      "uid": "legacy-18",
+      "sourceId": "18",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "muss"
+        ],
+        "C": [
+          "grundsätzlich"
+        ]
+      },
+      "caution": null,
+      "reason": "A behauptet, der Hund „muss“ früher geschlagen worden sein. Aus dem beschriebenen Schnappen lässt sich diese Vorgeschichte nicht sicher ableiten. B beschreibt dagegen eine mögliche Wahrnehmung der gerade geschilderten Gesten. Gesucht ist ein möglicher Grund, keine Diagnose eines grundsätzlich gestörten Hundes."
+    },
+    {
+      "number": 19,
+      "uid": "legacy-19",
+      "sourceId": "19",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "alle",
+          "muss"
+        ],
+        "B": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 20,
+      "uid": "legacy-20",
+      "sourceId": "20",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 21,
+      "uid": "legacy-21",
+      "sourceId": "21",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "B": [
+          "kann"
+        ],
+        "D": [
+          "muss"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 22,
+      "uid": "legacy-22",
+      "sourceId": "22",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "nicht"
+        ],
+        "C": [
+          "muss",
+          "müssen"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 23,
+      "uid": "legacy-23",
+      "sourceId": "23",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 24,
+      "uid": "legacy-24",
+      "sourceId": "24",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "C": [
+          "kann"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "C bestreitet mit „gar keine“ jede Reizverarbeitung. D behauptet eine vom Reizangebot unabhängige Entwicklung. Der Schlüssel zählt dagegen A und B. Entscheidend ist außerdem die Frage selbst: Die Erfahrungen sollen entspannt und positiv sein; mehr Reize um jeden Preis wird nicht verlangt."
+    },
+    {
+      "number": 25,
+      "uid": "legacy-25",
+      "sourceId": "25",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "kann",
+          "immer",
+          "nicht"
+        ],
+        "B": [
+          "können"
+        ],
+        "C": [
+          "niemals"
+        ],
+        "D": [
+          "können",
+          "niemals",
+          "können",
+          "muss"
+        ]
+      },
+      "caution": null,
+      "reason": "„Immer“ und „regeln die Hunde das unter sich“ machen A zu einer pauschalen Freigabe. B setzt eine Absprache voraus. C nennt Situationen, in denen wildes Spiel unterbleiben soll; D verlangt bei nicht ableinbaren Hunden ausdrücklich eine Abwägung. Die Antworten sind keine Ausnahme von geltenden Anleinpflichten."
+    },
+    {
+      "number": 26,
+      "uid": "legacy-26",
+      "sourceId": "26",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 27,
+      "uid": "legacy-27",
+      "sourceId": "27",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "B": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 28,
+      "uid": "legacy-28",
+      "sourceId": "28",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "können"
+        ],
+        "B": [
+          "können"
+        ],
+        "C": [
+          "immer"
+        ]
+      },
+      "caution": null,
+      "reason": "In C steckt das Versprechen, Kinder und Hunde verstünden sich „immer gut“. Die anderen Antworten benennen mögliche Schwierigkeiten. Dass beide gerne spielen können, reicht nicht als Garantie für einen sicheren Kontakt. D wird als Warnung vor nicht sicher vorhersagbarem Verhalten gewertet, nicht als Diagnose jedes Kindes oder Hundes."
+    },
+    {
+      "number": 29,
+      "uid": "legacy-29",
+      "sourceId": "29",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 30,
+      "uid": "legacy-30",
+      "sourceId": "30",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "nur",
+          "nicht",
+          "grundsätzlich"
+        ],
+        "B": [
+          "nur",
+          "kann"
+        ],
+        "C": [
+          "nur",
+          "kann",
+          "kann",
+          "kann"
+        ],
+        "D": [
+          "muss",
+          "jeder",
+          "nicht",
+          "nicht",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 31,
+      "uid": "legacy-31",
+      "sourceId": "31",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 32,
+      "uid": "legacy-32",
+      "sourceId": "32",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "muss",
+          "muss"
+        ],
+        "B": [
+          "muss",
+          "muss"
+        ],
+        "C": [
+          "muss",
+          "ständig"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 33,
+      "uid": "legacy-33",
+      "sourceId": "33",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "nie"
+        ],
+        "C": [
+          "immer",
+          "kann"
+        ],
+        "D": [
+          "Nur",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 34,
+      "uid": "legacy-34",
+      "sourceId": "34",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "kann",
+          "nicht"
+        ],
+        "C": [
+          "nicht",
+          "muss"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "B und C widersprechen sich nicht: B kritisiert die „ausschließliche“ Gartenaufzucht ohne ausreichende Alltagserfahrungen. C lässt den Garten zu, wenn solche Erfahrungen trotzdem ermöglicht werden. Entscheidend sind diese Bedingungen, nicht allein der Ort. D macht daraus ein pauschales Draußen-Verbot bis zur zwölften Woche."
+    },
+    {
+      "number": 35,
+      "uid": "legacy-35",
+      "sourceId": "35",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "kann",
+          "immer"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": "Quellenwortlaut beachten: Die Zuordnungszusage und das Wort „über“ sind verkürzt.",
+      "reason": "A, B und C sind die Kataloglösung. Das „immer sicher seinem Besitzer zugeordnet“ in A ist keine Garantie bei fehlenden oder veralteten Halterdaten. Der Chip speichert eine Kennnummer, keine automatisch aktuellen Besitzerdaten. Auch die Größengrenze in A ist ungenau: § 11 LHundG NRW nennt mindestens 20 kg ODER mindestens 40 cm, nicht erst Werte darüber. Für Hunde nach §§ 3 und 10 bestehen weitere Chippflichten."
+    },
+    {
+      "number": 36,
+      "uid": "legacy-36",
+      "sourceId": "36",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "kann",
+          "kann",
+          "nicht"
+        ],
+        "D": [
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "B verbindet eine mögliche Verhaltensunterbrechung mit „keine Risiken“. Ob eine Maßnahme kurzfristig unterbricht, sagt nichts darüber aus, ob sie ungefährlich ist. A, C und D nennen die im Katalog berücksichtigten Risiken und werden deshalb gezählt."
+    },
+    {
+      "number": 37,
+      "uid": "legacy-37",
+      "sourceId": "37",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "B": [
+          "können"
+        ],
+        "C": [
+          "mindestens"
+        ],
+        "D": [
+          "muss",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 38,
+      "uid": "legacy-38",
+      "sourceId": "38",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 39,
+      "uid": "legacy-39",
+      "sourceId": "39",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "grundsätzlich",
+          "nicht",
+          "frühestens"
+        ],
+        "B": [
+          "können",
+          "immer",
+          "nur"
+        ],
+        "C": [
+          "niemals"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 40,
+      "uid": "legacy-40",
+      "sourceId": "40",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "B": [
+          "können"
+        ],
+        "C": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 41,
+      "uid": "legacy-41",
+      "sourceId": "41",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 42,
+      "uid": "legacy-42",
+      "sourceId": "42",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "B": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 43,
+      "uid": "legacy-43",
+      "sourceId": "43",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "muss",
+          "können"
+        ],
+        "B": [
+          "muss",
+          "kann"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 44,
+      "uid": "legacy-44",
+      "sourceId": "44",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "muss",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 45,
+      "uid": "legacy-45",
+      "sourceId": "45",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht",
+          "jeder"
+        ]
+      },
+      "caution": null,
+      "reason": "B behauptet, „jeder Hund“ passe sich an die Wohnverhältnisse an. Das ersetzt die konkrete Prüfung aus A, C und D nicht. Die Frage verlangt Überlegungen vor der Anschaffung; sie behauptet nicht, dass bestimmte Wohnformen allein immer ungeeignet sind."
+    },
+    {
+      "number": 46,
+      "uid": "legacy-46",
+      "sourceId": "46",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 47,
+      "uid": "legacy-47",
+      "sourceId": "47",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "immer"
+        ],
+        "B": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Bei C ist „vorausgesetzt sie verstehen sich untereinander gut“ entscheidend. Der Schlüssel zählt A und C als mögliche Vorteile. Daraus folgt keine Garantie, dass ein zweiter Hund jedes Alleinbleibeproblem löst. „Den ganzen Tag“ in B und „doppelt so schnell“ in D sind nicht zugesicherte Folgen der Mehrhundehaltung."
+    },
+    {
+      "number": 48,
+      "uid": "legacy-48",
+      "sourceId": "48",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "C": [
+          "nie"
+        ],
+        "D": [
+          "können"
+        ]
+      },
+      "caution": "Unklarer Wortlaut: Der Verletzungsmechanismus in D wird nicht eindeutig beschrieben.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 49,
+      "uid": "legacy-49",
+      "sourceId": "49",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "können",
+          "muss",
+          "kann",
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "C macht einen Garten zur unbedingten Voraussetzung für Stubenreinheit. Diese Voraussetzung verlangt der Schlüssel nicht. A, B und D betreffen dagegen Vorbereitung und langfristige Versorgung. Bei A ist „einige Monate dauern kann“ eine Möglichkeit, keine für jeden Welpen festgelegte Trainingsdauer."
+    },
+    {
+      "number": 50,
+      "uid": "legacy-50",
+      "sourceId": "50",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "Nur"
+        ],
+        "D": [
+          "Nur"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 51,
+      "uid": "legacy-51",
+      "sourceId": "51",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 52,
+      "uid": "legacy-52",
+      "sourceId": "52",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "muss",
+          "nicht"
+        ],
+        "B": [
+          "muss"
+        ],
+        "C": [
+          "muss"
+        ],
+        "D": [
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "A enthält die Bedingung „wenn es zu Problemen kommt“. Es wird nicht behauptet, dass man mit zwei Hunden grundsätzlich getrennt spazieren gehen muss. D verspricht dagegen, die Hunde übernähmen „nur erwünschte“ Verhaltensweisen. Die Verdoppelungen in B und C sind vereinfachte Katalogangaben, keine exakte Zeit- oder Kostenberechnung."
+    },
+    {
+      "number": 53,
+      "uid": "legacy-53",
+      "sourceId": "53",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 54,
+      "uid": "legacy-54",
+      "sourceId": "54",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "nicht"
+        ],
+        "C": [
+          "nicht",
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 55,
+      "uid": "legacy-55",
+      "sourceId": "55",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "muss",
+          "immer"
+        ],
+        "C": [
+          "muss"
+        ],
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "B legt den Kofferraum als „immer“ notwendigen Transportort fest. C verlangt stattdessen Sicherung; D nennt eine sicher befestigte Transportbox als Beispiel. Das „z. B.“ ist entscheidend: Der Schlüssel erklärt diese Box nicht zur einzig zulässigen Sicherungsform."
+    },
+    {
+      "number": 56,
+      "uid": "legacy-56",
+      "sourceId": "56",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Grenzen der Abbildung: Die sichere Unterscheidung ist in der Zeichnung nur begrenzt möglich.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 57,
+      "uid": "legacy-57",
+      "sourceId": "57",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "nicht",
+          "nur",
+          "nicht"
+        ],
+        "C": [
+          "ständig"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 58,
+      "uid": "legacy-58",
+      "sourceId": "58",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": null,
+      "reason": "„Vorsichtig“ und „ganz kurz“ machen D nicht richtig: Der fremde Hund wird dabei ohne vorherige Klärung von hinten angefasst. A und B verzichten auf ungefragten Kontakt. Die Erlaubnis des Halters ist dabei kein Zwang für das Kind oder den Hund, einen Kontakt tatsächlich zuzulassen."
+    },
+    {
+      "number": 59,
+      "uid": "legacy-59",
+      "sourceId": "59",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "D": [
+          "kann",
+          "kann",
+          "nicht"
+        ]
+      },
+      "caution": "Wortlaut offen: D wird nicht als richtig gezählt, ist aber keine absolute Aussage. Die Erklärung ergänzt keine sichere Absicht des Herausgebers.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 60,
+      "uid": "legacy-60",
+      "sourceId": "60",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "D": [
+          "kann",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 61,
+      "uid": "legacy-61",
+      "sourceId": "61",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 62,
+      "uid": "legacy-62",
+      "sourceId": "62",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "muss",
+          "immer"
+        ],
+        "B": [
+          "muss"
+        ],
+        "C": [
+          "kann",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "„Immer auf seinem Platz“ und „hinter einem gehen“ in A und B sind keine im Katalog genannten Voraussetzungen einer vertrauensvollen Beziehung. C und D beziehen sich auf die Erfahrungen des Hundes mit seinem Menschen, nicht auf feste räumliche Positionen."
+    },
+    {
+      "number": 63,
+      "uid": "legacy-63",
+      "sourceId": "63",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 64,
+      "uid": "legacy-64",
+      "sourceId": "64",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "B": [
+          "kann"
+        ],
+        "C": [
+          "muss",
+          "mindestens"
+        ],
+        "D": [
+          "muss",
+          "mindestens"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 65,
+      "uid": "legacy-65",
+      "sourceId": "65",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 66,
+      "uid": "legacy-66",
+      "sourceId": "66",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "muss",
+          "immer"
+        ],
+        "D": [
+          "Jedes",
+          "muss"
+        ]
+      },
+      "caution": null,
+      "reason": "D verlangt, „jedes“ unerwünschte Verhalten zu bestrafen. B macht ständiges Hinterhergehen zur Bedingung. Beides wird verworfen. A und C nennen Training über positive Bestärkung sowie passende Beschäftigung; das Wort „konsequent“ allein macht eine Strafmaßnahme nicht richtig."
+    },
+    {
+      "number": 67,
+      "uid": "legacy-67",
+      "sourceId": "67",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 68,
+      "uid": "legacy-68",
+      "sourceId": "68",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht",
+          "Alle",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "B bestreitet die besondere Bedeutung der frühen Zeit, D behauptet eine „unwiederbringliche“ Besitzerbindung. A und C betreffen dagegen frühe Erfahrungen und Entwicklung. Daraus folgt nicht, dass späteres Lernen oder eine spätere Bindung unmöglich wären."
+    },
+    {
+      "number": 69,
+      "uid": "legacy-69",
+      "sourceId": "69",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "B": [
+          "Nur"
+        ],
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 70,
+      "uid": "legacy-70",
+      "sourceId": "70",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "immer",
+          "können"
+        ],
+        "B": [
+          "nicht",
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "Gefragt sind mögliche Hinweise auf Stress. A schließt negativen Stress beim Training mit „immer gerne“ grundsätzlich aus. B und C werden als Hinweise gewertet, nicht als allein ausreichende Diagnose jedes unruhigen oder langsam reagierenden Hundes."
+    },
+    {
+      "number": 71,
+      "uid": "legacy-71",
+      "sourceId": "71",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "muss",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 72,
+      "uid": "legacy-72",
+      "sourceId": "72",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "B": [
+          "nicht"
+        ],
+        "C": [
+          "können"
+        ]
+      },
+      "caution": "Quellenvergleich: Der zugesandte 97er-Bogen, Originalfrage 33, setzt bereits einen „zur Dominanz neigenden“ Hund voraus. Hier werden dagegen mögliche Ursachen des Leinenziehens gefragt. Die Situationen dürfen nicht gleichgesetzt werden.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 73,
+      "uid": "legacy-73",
+      "sourceId": "73",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "nicht",
+          "nur",
+          "kann"
+        ],
+        "B": [
+          "alle"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "mindestens",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 74,
+      "uid": "legacy-74",
+      "sourceId": "74",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "nur"
+        ],
+        "B": [
+          "grundsätzlich"
+        ],
+        "C": [
+          "nur"
+        ],
+        "D": [
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 75,
+      "uid": "legacy-75",
+      "sourceId": "75",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 76,
+      "uid": "legacy-76",
+      "sourceId": "76",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 77,
+      "uid": "legacy-77",
+      "sourceId": "77",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "B": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 78,
+      "uid": "legacy-78",
+      "sourceId": "78",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "C": [
+          "können",
+          "können"
+        ],
+        "D": [
+          "können"
+        ]
+      },
+      "caution": "A formuliert zu pauschal. C nennt ausdrücklich das Lernen von Wortbedeutungen; der Schlüssel bleibt A+C.",
+      "reason": "Der Schlüssel zählt A und C. C unterscheidet das Wiedererkennen gelernter Wörter von dem Verständnis ausführlicher menschlicher Erklärungen, wie B es voraussetzt. A ist nur in dieser Gegenüberstellung zu lesen: „kein Sprachverständnis“ darf nicht heißen, dass Hunde überhaupt keine Bedeutung menschlicher Signale lernen könnten."
+    },
+    {
+      "number": 79,
+      "uid": "legacy-79",
+      "sourceId": "79",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "B": [
+          "kann"
+        ],
+        "C": [
+          "kann"
+        ],
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": "Rechtliche Verkürzung: Fehlende Sicherung allein begründet nicht automatisch eine Teilschuld an jedem Unfall.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 80,
+      "uid": "legacy-80",
+      "sourceId": "80",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "alle"
+        ]
+      },
+      "caution": null,
+      "reason": "„Keine offenen Wunden“ in D ist kein ausreichendes Kriterium für Spiel. C beschreibt gerade bedrängendes Verhalten und deutliche Abwehrsignale. In B steht „in der Regel“: Ein Positionswechsel ist ein typischer Hinweis des Katalogs, keine ausnahmslose Einzelregel."
+    },
+    {
+      "number": 81,
+      "uid": "legacy-81",
+      "sourceId": "81",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "B": [
+          "Grundsätzlich"
+        ],
+        "C": [
+          "Nicht",
+          "immer",
+          "nicht",
+          "kann",
+          "nicht"
+        ],
+        "D": [
+          "Nur"
+        ]
+      },
+      "caution": "Mehrdeutiger Wortlaut: B ist nicht eindeutig ausformuliert. C und D zählen im Schlüssel, sind aber keine verlässliche Vorhersage für den einzelnen Hund.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 82,
+      "uid": "legacy-82",
+      "sourceId": "82",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "Nicht",
+          "nicht",
+          "grundsätzlich",
+          "nicht"
+        ],
+        "C": [
+          "immer"
+        ],
+        "D": [
+          "grundsätzlich"
+        ]
+      },
+      "caution": null,
+      "reason": "A beginnt mit „nicht unbedingt“: Anspringen beweist allein keine aggressive Absicht, bleibt aber ein Verhalten, das andere beeinträchtigen kann. C und D machen daraus „immer“ eine Spielaufforderung beziehungsweise grundsätzlich Zuneigung. Diese eindeutige Zuordnung gibt die Situation nicht her."
+    },
+    {
+      "number": 83,
+      "uid": "legacy-83",
+      "sourceId": "83",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "jeder",
+          "kann"
+        ],
+        "C": [
+          "nur"
+        ],
+        "D": [
+          "müssen"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 84,
+      "uid": "legacy-84",
+      "sourceId": "84",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "nicht",
+          "kann"
+        ],
+        "B": [
+          "kann"
+        ],
+        "C": [
+          "muss"
+        ],
+        "D": [
+          "muss",
+          "können",
+          "nicht",
+          "nicht",
+          "muss",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 85,
+      "uid": "legacy-85",
+      "sourceId": "85",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "nicht",
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 86,
+      "uid": "legacy-86",
+      "sourceId": "86",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 87,
+      "uid": "legacy-87",
+      "sourceId": "87",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "D": [
+          "nicht",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "A und C beziehen sich auf sanftes Lenken und das Kräfteverhältnis. B bestreitet jeden Vorteil; D setzt einen angeblich „notwendigen“ Leinenruck voraus. Daraus folgt umgekehrt nicht, dass ein Kopfhalfter ohne Gewöhnung und fachkundige, sanfte Führung risikolos wäre."
+    },
+    {
+      "number": 88,
+      "uid": "legacy-88",
+      "sourceId": "88",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 89,
+      "uid": "legacy-89",
+      "sourceId": "89",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 90,
+      "uid": "legacy-90",
+      "sourceId": "90",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "D": [
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "Gefragt wird nach Gefahren. B benennt allenfalls eine Verhaltensunterbrechung und beantwortet damit die Risikofrage nicht. A, C und D nennen die im Schlüssel berücksichtigten möglichen Folgen. Eine kurzfristige Wirkung ist nicht gleichbedeutend mit Unbedenklichkeit."
+    },
+    {
+      "number": 91,
+      "uid": "legacy-91",
+      "sourceId": "91",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "D": [
+          "immer"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 92,
+      "uid": "legacy-92",
+      "sourceId": "92",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "immer",
+          "kann"
+        ],
+        "C": [
+          "können",
+          "müssen"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 93,
+      "uid": "legacy-93",
+      "sourceId": "93",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 94,
+      "uid": "legacy-94",
+      "sourceId": "94",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "kann",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "„Auch wenn der Hund einen gesunden Eindruck macht“ ist die entscheidende Bedingung der Frage. A, B und D nennen Gründe für einen Termin ohne sichtbare Erkrankung. C lehnt solche Besuche pauschal ab. Die Antworten verlangen keine belastende Untersuchung bei jedem bloßen Kennenlerntermin."
+    },
+    {
+      "number": 95,
+      "uid": "legacy-95",
+      "sourceId": "95",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht"
+        ],
+        "C": [
+          "nur",
+          "nicht"
+        ],
+        "D": [
+          "grundsätzlich",
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "Bekanntheit mit Pferden in A und langsames Reiten in C garantieren keine gefahrlose Begegnung. B verlangt Anleinen und Abwarten; D nennt ausdrücklich auch mögliche Reaktionen des Pferdes. Es geht um die Kontrolle beiderseitiger Risiken, nicht nur um die Angst des eigenen Hundes."
+    },
+    {
+      "number": 96,
+      "uid": "legacy-96",
+      "sourceId": "96",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "C": [
+          "grundsätzlich"
+        ],
+        "D": [
+          "niemals"
+        ]
+      },
+      "caution": null,
+      "reason": "D verspricht, bei guter Bindung gebe es „niemals Verhaltensprobleme“. Eine solche Garantie wird verworfen. A und B beschreiben positive Hinweise auf die Beziehung. Auch C macht aus wechselnden Bezugspersonen eine allgemeine Zusage für die Bindung an „alle Menschen“."
+    },
+    {
+      "number": 97,
+      "uid": "legacy-97",
+      "sourceId": "97",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 98,
+      "uid": "legacy-98",
+      "sourceId": "98",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht",
+          "nicht"
+        ],
+        "C": [
+          "nur"
+        ]
+      },
+      "caution": "Pauschale Handlungsvorgabe: B bleibt Testlösung, ersetzt aber keine Einschätzung der konkreten Notlage.",
+      "reason": "B ist die Kataloglösung. „Möglichst gar nicht“ und die Bedingung zu den Kräfteverhältnissen sind aber keine sichere allgemeine Regel für jede Rauferei. Größe allein garantiert keinen harmlosen Verlauf. Die Antwort ist auch keine Empfehlung, einen nicht kontrollierbaren Konflikt unbeaufsichtigt zurückzulassen. C nennt ein gefährliches körperliches Eingreifen; A und D setzen auf Anschreien beziehungsweise nachträgliches Bestrafen. Aus dem kurzen Szenario lässt sich keine universell sichere Trennmaßnahme ableiten."
+    },
+    {
+      "number": 99,
+      "uid": "legacy-99",
+      "sourceId": "99",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 100,
+      "uid": "legacy-100",
+      "sourceId": "100",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "nur",
+          "nicht",
+          "ständig"
+        ],
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 101,
+      "uid": "legacy-101",
+      "sourceId": "101",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht"
+        ],
+        "C": [
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "C macht aus „5 Minuten pro Lebensmonat“ mit „nur“ eine feste Auslaufgrenze. Der Schlüssel verlangt stattdessen A und damit eine Beurteilung nach Größe, Alter und Gesundheitszustand. Daraus folgt weder unbegrenzte Belastbarkeit noch ein individuelles Bewegungspensum."
+    },
+    {
+      "number": 102,
+      "uid": "legacy-102",
+      "sourceId": "102",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "muss",
+          "nicht"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "muss",
+          "nur",
+          "kann",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "D beschränkt die Rücksichtnahme auf „nur große Hunde“ und erklärt kleine Hunde für ungefährlich. A behandelt eine Hundeauslauffläche als Vorrangrecht gegenüber Kindern; B ersetzt Rücksicht durch Versicherungsschutz. C sichert die konkrete Begegnung durch Anleinen ab."
+    },
+    {
+      "number": 103,
+      "uid": "legacy-103",
+      "sourceId": "103",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "D": [
+          "muss"
+        ]
+      },
+      "caution": null,
+      "reason": "D behauptet, Unterordnung allein mache gezieltes Üben überflüssig und ermögliche „überall problemlos“ Berührung. Der Schlüssel zählt A, B und C als Vorteile eines positiv aufgebauten Trainings. „Sich anfassen lassen“ ist dabei keine Aufforderung, erkennbare Abwehr zu übergehen."
+    },
+    {
+      "number": 104,
+      "uid": "legacy-104",
+      "sourceId": "104",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "Jeder",
+          "muss"
+        ],
+        "D": [
+          "muss",
+          "nicht",
+          "muss"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 105,
+      "uid": "legacy-105",
+      "sourceId": "105",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 106,
+      "uid": "legacy-106",
+      "sourceId": "106",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "B": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 107,
+      "uid": "legacy-107",
+      "sourceId": "107",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "muss"
+        ],
+        "B": [
+          "kann",
+          "immer",
+          "nicht",
+          "kann"
+        ],
+        "C": [
+          "muss",
+          "kann",
+          "kann",
+          "kann"
+        ],
+        "D": [
+          "nicht",
+          "muss",
+          "immer",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "B macht aus dem Maulkorb eine Garantie, dass Kinder nicht verletzt werden können. Das ist die entscheidende Übertreibung. Die übrigen Antworten betreffen Beobachtung, Abstand und Kontrolle. Der Maulkorb wird in C nur als zusätzliche Sicherungsmaßnahme beschrieben."
+    },
+    {
+      "number": 108,
+      "uid": "legacy-108",
+      "sourceId": "108",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 109,
+      "uid": "legacy-109",
+      "sourceId": "109",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "grundsätzlich"
+        ],
+        "B": [
+          "können",
+          "kann"
+        ],
+        "C": [
+          "können",
+          "können"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "A erklärt aggressivere Begegnungen pauschal damit, dass sich Hunde an der Leine „grundsätzlich stärker“ fühlten. C und D sprechen dagegen ausdrücklich von möglichen Reaktionen und unterschiedlichen Hunden. B beschreibt das zusätzliche Problem verhedderter Leinen. Ein Leinenkontakt muss also nicht zwangsläufig eskalieren."
+    },
+    {
+      "number": 110,
+      "uid": "legacy-110",
+      "sourceId": "110",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "nicht"
+        ],
+        "B": [
+          "immer"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "kann",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "B verspricht, der Hund erkenne Kinder der Familie „immer“ als zugehörig und sei ihnen wohlgesonnen. Der Schlüssel verwirft diese Garantie. A, C und D nennen Einflüsse von Erfahrung, Alter und Verhalten, ohne jedem Kind oder Hund denselben Ablauf zuzuschreiben."
+    },
+    {
+      "number": 111,
+      "uid": "legacy-111",
+      "sourceId": "111",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "nicht"
+        ],
+        "B": [
+          "nicht"
+        ],
+        "C": [
+          "nur"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 112,
+      "uid": "legacy-112",
+      "sourceId": "112",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "nur"
+        ],
+        "B": [
+          "muss",
+          "nur"
+        ],
+        "C": [
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "B und C beschränken Sozialisation mit „nur“ auf freien Kontakt beziehungsweise ein einziges Kind. D verlangt tatsächlich positive Erfahrungen mit unterschiedlichen Altersstufen. Bloßes Ertragen ohne offensichtliche Gegenwehr wird dabei nicht mit positivem Erleben gleichgesetzt."
+    },
+    {
+      "number": 113,
+      "uid": "legacy-113",
+      "sourceId": "113",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 114,
+      "uid": "legacy-114",
+      "sourceId": "114",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "muss"
+        ],
+        "B": [
+          "nur",
+          "nicht"
+        ],
+        "D": [
+          "kann",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "B und C erklären Ressourcenverteidigung allein durch eine angebliche Rangposition gegenüber Menschen. A und D nennen andere Zusammenhänge. Bei D steht „kann“: Eine frühere Bestrafung ist eine Möglichkeit, keine aus dem Verteidigen sicher ableitbare Vorgeschichte."
+    },
+    {
+      "number": 115,
+      "uid": "legacy-115",
+      "sourceId": "115",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 116,
+      "uid": "legacy-116",
+      "sourceId": "116",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "B": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 117,
+      "uid": "legacy-117",
+      "sourceId": "117",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 118,
+      "uid": "legacy-118",
+      "sourceId": "118",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 119,
+      "uid": "legacy-119",
+      "sourceId": "119",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "immer",
+          "nicht"
+        ],
+        "B": [
+          "nicht"
+        ],
+        "C": [
+          "kann",
+          "kann"
+        ],
+        "D": [
+          "kann",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "A stellt den eigenen Hund mit „immer“ und „meiner beißt nicht“ von Rücksichtnahme frei. B, C und D nennen dagegen Kontrolle und Abstand. C enthält mehrere Bedingungen: Absprache und erwartbar verträglicher Kontakt. Diese Antwort hebt bestehende Anleinpflichten nicht auf."
+    },
+    {
+      "number": 120,
+      "uid": "legacy-120",
+      "sourceId": "120",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "jeder",
+          "kann",
+          "können"
+        ],
+        "C": [
+          "nie"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 121,
+      "uid": "legacy-121",
+      "sourceId": "121",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 122,
+      "uid": "legacy-122",
+      "sourceId": "122",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "muss"
+        ],
+        "B": [
+          "nicht",
+          "kann"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "nicht",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Die Pflicht, den eigenen Rüden zu kontrollieren, verschwindet nicht durch Behauptungen über die Hündin oder ihren Halter. D erklärt das Spielen außerhalb der Stehtage ohne Aufpassen für unbedenklich. B verlangt dagegen Anleinen und eine konkrete Einschätzung vor erneutem Freilauf."
+    },
+    {
+      "number": 123,
+      "uid": "legacy-123",
+      "sourceId": "123",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "nicht"
+        ],
+        "B": [
+          "nicht"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "nicht",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 124,
+      "uid": "legacy-124",
+      "sourceId": "124",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "Frühestens"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 125,
+      "uid": "legacy-125",
+      "sourceId": "125",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "B": [
+          "immer"
+        ],
+        "C": [
+          "immer",
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 126,
+      "uid": "legacy-126",
+      "sourceId": "126",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "B": [
+          "nicht",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 127,
+      "uid": "legacy-127",
+      "sourceId": "127",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "kann",
+          "nur"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "immer"
+        ]
+      },
+      "caution": null,
+      "reason": "B behauptet für „alle Hunde“, sie fräßen bei freiem Angebot „nur so viel, wie sie brauchen“. D macht Hunger zur ständigen Erziehungsbedingung; C setzt Futterentzug als Strafe ein. Der Schlüssel zählt A mit dem Ziel einer passenden Körperkondition. Eine bestimmte Grammzahl ergibt sich daraus nicht."
+    },
+    {
+      "number": 128,
+      "uid": "legacy-128",
+      "sourceId": "128",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "muss"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 129,
+      "uid": "legacy-129",
+      "sourceId": "129",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "Nicht"
+        ],
+        "D": [
+          "Nur"
+        ]
+      },
+      "caution": null,
+      "reason": "D beschränkt den möglichen Vertrauensverlust auf „nur generell ängstliche Hunde“. A schließt ihn bei zuvor guter Beziehung aus. Der Schlüssel zählt B und C: Es geht um mögliche Wirkung und Nachvollziehbarkeit der Handlung, nicht um eine sichere Ausnahme aufgrund der bisherigen Beziehung."
+    },
+    {
+      "number": 130,
+      "uid": "legacy-130",
+      "sourceId": "130",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "muss",
+          "immer",
+          "alle"
+        ],
+        "C": [
+          "kann"
+        ],
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "A verlangt „unbedingt“ einen festen Rhythmus und verbietet jedes Futter zwischendurch. B verspricht Selbstregulation bei „allen Hunden“. C und D lassen andere Darreichungsformen zu. Dass Futter als Belohnung eingesetzt werden kann, ist keine Erlaubnis, den Nahrungsbedarf von Trainingsleistung abhängig zu machen."
+    },
+    {
+      "number": 131,
+      "uid": "legacy-131",
+      "sourceId": "131",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "Nur"
+        ]
+      },
+      "caution": null,
+      "reason": "B macht erlerntes Beobachten zur einzigen Voraussetzung: „Nur, wenn man es ihnen beigebracht hat“. Der Schlüssel zählt A und D und betont die Beachtung menschlicher Körpersprache. D bedeutet nicht, dass gelernte Hörsignale bedeutungslos wären."
+    },
+    {
+      "number": 132,
+      "uid": "legacy-132",
+      "sourceId": "132",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 133,
+      "uid": "legacy-133",
+      "sourceId": "133",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "B": [
+          "kann"
+        ],
+        "D": [
+          "muss"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 134,
+      "uid": "legacy-134",
+      "sourceId": "134",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "können",
+          "nur"
+        ],
+        "B": [
+          "muss"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": "Verkürzte Katalogaussage: Nicht jegliches Lernen, sondern ein geeigneter Trainingsrahmen ist das Thema.",
+      "reason": "Der Schlüssel zählt A und B. Bei A ist „nur … wenn sie entspannt sind und keine Angst haben“ zu absolut: Angst schaltet nicht jede Form von Lernen aus; auch belastende Verknüpfungen können entstehen. Die Antwort ist als Ziel eines möglichst angstarmen Trainings zu lesen. C verwirft Training vollständig, D ignoriert die besonderen Bedürfnisse des ängstlichen Hundes."
+    },
+    {
+      "number": 135,
+      "uid": "legacy-135",
+      "sourceId": "135",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "nicht"
+        ],
+        "B": [
+          "nicht"
+        ],
+        "D": [
+          "nur"
+        ]
+      },
+      "caution": "Unterschiedliche Ausprägungen: Aus dem Schlüssel folgt weder, dass jede Scheinträchtigkeit harmlos ist, noch dass sie regelmäßig schwer oder dauerhaft verläuft.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 136,
+      "uid": "legacy-136",
+      "sourceId": "136",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "nicht"
+        ],
+        "C": [
+          "nicht",
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 137,
+      "uid": "legacy-137",
+      "sourceId": "137",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "können",
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 138,
+      "uid": "legacy-138",
+      "sourceId": "138",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "muss"
+        ],
+        "B": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "B und D benennen mögliche unerwünschte Folgen. A garantiert dagegen schnelle und zuverlässige Ausführung; C verspricht sogar Freude nach rigorosem Vorgehen. Eine mögliche Wirkung einer Strafe ist keine Garantie für Verständnis, Vertrauen oder Nebenwirkungsfreiheit."
+    },
+    {
+      "number": 139,
+      "uid": "legacy-139",
+      "sourceId": "139",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "B": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 140,
+      "uid": "legacy-140",
+      "sourceId": "140",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "nicht"
+        ],
+        "C": [
+          "kann",
+          "nicht"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 141,
+      "uid": "legacy-141",
+      "sourceId": "141",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "immer",
+          "nur",
+          "kann"
+        ],
+        "C": [
+          "immer"
+        ]
+      },
+      "caution": null,
+      "reason": "B kombiniert häufige Gelegenheiten mit „immer nur kurz“. Das ist keine Aufforderung zu dauerndem Training ohne Pausen. C macht eine feste Uhrzeit zum wichtigsten Kriterium; D erklärt genau zwei Übungen für allgemein ausreichend. Solche starren Vorgaben werden nicht gezählt."
+    },
+    {
+      "number": 142,
+      "uid": "legacy-142",
+      "sourceId": "142",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "C": [
+          "muss"
+        ],
+        "D": [
+          "alle"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 143,
+      "uid": "legacy-143",
+      "sourceId": "143",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "können"
+        ],
+        "B": [
+          "können"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "A setzt ab einem Jahr eine absolute Lerngrenze. D zieht aus dem Welpenalter den gegenteiligen, ebenfalls falschen Schluss, vorher lohne Erziehung nicht. B und C verbinden lebenslang mögliche Lernprozesse mit einem sinnvollen frühen Beginn."
+    },
+    {
+      "number": 144,
+      "uid": "legacy-144",
+      "sourceId": "144",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "D": [
+          "immer",
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "D beschränkt Krankheiten auf „immer nur eine Spezies“. Genau dazu bilden die gezählten Antworten B und C Gegenbeispiele. Die Frage sucht Erkrankungen, gegen die es eine Impfung beim Hund gibt und die auch Menschen betreffen können; sie fragt nicht, ob jede Erkrankung übertragbar ist."
+    },
+    {
+      "number": 145,
+      "uid": "legacy-145",
+      "sourceId": "145",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "C": [
+          "nie"
+        ]
+      },
+      "caution": null,
+      "reason": "In A ist „in geeigneten Situationen“ wichtig; es ist kein Rat, Bedürfnisse oder Angst grundsätzlich zu ignorieren. C verspricht mit „nie“, der Hund verbinde einen Schreckreiz nicht mit seinem Besitzer. Diese Garantie trägt die Ablehnung der Antwort; B bleibt eine Katalogoption und kein allgemeiner Einsatzplan für Bitterstoffe."
+    },
+    {
+      "number": 146,
+      "uid": "legacy-146",
+      "sourceId": "146",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "hauptsächlich"
+        ],
+        "C": [
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 147,
+      "uid": "legacy-147",
+      "sourceId": "147",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 148,
+      "uid": "legacy-148",
+      "sourceId": "148",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "immer"
+        ],
+        "C": [
+          "können"
+        ],
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "A behauptet, kastrierte Hündinnen würden „immer“ dick. Das ist stärker als eine mögliche Nebenwirkung. Der Schlüssel zählt C und D. Aus den pauschalen Häufigkeitsangaben in D lässt sich keine individuelle Prognose oder Behandlungszusage ableiten."
+    },
+    {
+      "number": 149,
+      "uid": "legacy-149",
+      "sourceId": "149",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "nicht"
+        ],
+        "B": [
+          "können"
+        ],
+        "D": [
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 150,
+      "uid": "legacy-150",
+      "sourceId": "150",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "B": [
+          "kann"
+        ],
+        "C": [
+          "jeder",
+          "können"
+        ],
+        "D": [
+          "immer"
+        ]
+      },
+      "caution": null,
+      "reason": "A, B und C benennen Risiken; B ist ausdrücklich eine Kann-Aussage. D erklärt Strafe dagegen für etwas, das der Hund „immer versteht“, und schließt dadurch Probleme aus. Der Schlüssel verwirft diese Garantie, nicht die Möglichkeit einzelner Lernerfahrungen."
+    },
+    {
+      "number": 151,
+      "uid": "legacy-151",
+      "sourceId": "151",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "muss"
+        ],
+        "C": [
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 152,
+      "uid": "legacy-152",
+      "sourceId": "152",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "können",
+          "kann"
+        ],
+        "B": [
+          "Nur",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "B beschränkt Handlungsbedarf auf „nur, wenn“ Maulgeruch auftritt. C erklärt die Zähne bei regelmäßigem Kauen von selbst für gesund. A und D begründen dagegen Aufmerksamkeit für Zahnprobleme und regelmäßige Kontrolle. Ein einzelnes fehlendes Anzeichen ist keine Gesundheitsgarantie."
+    },
+    {
+      "number": 153,
+      "uid": "legacy-153",
+      "sourceId": "153",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "niemals"
+        ],
+        "D": [
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "A legt ein pauschales Verbot des Alleinlassens für das gesamte erste Halbjahr fest; D macht Training ganz entbehrlich. B und C beschreiben schrittweises Gewöhnen. Die Zeitangaben in B sind ein idealisierter Aufbau, kein für jeden Hund verbindlicher Kalender."
+    },
+    {
+      "number": 154,
+      "uid": "legacy-154",
+      "sourceId": "154",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "B": [
+          "kann"
+        ],
+        "D": [
+          "kann",
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 155,
+      "uid": "legacy-155",
+      "sourceId": "155",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 156,
+      "uid": "legacy-156",
+      "sourceId": "156",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "B": [
+          "können"
+        ],
+        "C": [
+          "können",
+          "nicht"
+        ],
+        "D": [
+          "muss"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 157,
+      "uid": "legacy-157",
+      "sourceId": "157",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "nur",
+          "nicht"
+        ],
+        "D": [
+          "nur",
+          "nicht",
+          "können",
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "„Es sieht so aus“ und eine moralische Bewertung sind in dieser Frage zu unterscheiden. C erklärt die vom Katalog angenommene Beschwichtigung. A und D machen daraus moralisches Wissen beziehungsweise eine feste Gedächtnisgrenze von einem halben Tag; diese Behauptungen werden nicht gezählt."
+    },
+    {
+      "number": 158,
+      "uid": "legacy-158",
+      "sourceId": "158",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "können"
+        ],
+        "B": [
+          "müssen"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 159,
+      "uid": "legacy-159",
+      "sourceId": "159",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "nicht"
+        ]
+      },
+      "caution": "Unsichere Ursachenzuschreibung: Die Szene erlaubt keine eindeutige Begründung für jede als richtig hinterlegte Antwort.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 160,
+      "uid": "legacy-160",
+      "sourceId": "160",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "nicht",
+          "nicht"
+        ],
+        "B": [
+          "kann",
+          "Nur",
+          "kann"
+        ],
+        "C": [
+          "nicht",
+          "nicht",
+          "können",
+          "müssen"
+        ],
+        "D": [
+          "kann",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "A garantiert, der Hund werde das Verhalten nach Schimpfen „nicht wieder zeigen“. C und D betonen dagegen emotionale Ursachen und vorausschauendes Handeln. B beschreibt das Vorenthalten eines gerade angestrebten Vorteils, keine pauschale Erlaubnis zum Entzug notwendiger Versorgung."
+    },
+    {
+      "number": 161,
+      "uid": "legacy-161",
+      "sourceId": "161",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 162,
+      "uid": "legacy-162",
+      "sourceId": "162",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "nicht",
+          "nicht"
+        ],
+        "B": [
+          "nicht",
+          "können"
+        ],
+        "C": [
+          "nicht",
+          "immer"
+        ]
+      },
+      "caution": null,
+      "reason": "In D steht „könnte“: Die Ortsverknüpfung kann auftreten, muss aber nicht. B verspricht durch Üben an einem Ort bald „überall“ sichere Ausführung. Der Schlüssel betont dagegen die Bedeutung verschiedener Übungssituationen; A ist dabei eine vereinfachte Katalogaussage, keine Vorhersage für jeden Hund."
+    },
+    {
+      "number": 163,
+      "uid": "legacy-163",
+      "sourceId": "163",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "B": [
+          "nie"
+        ],
+        "C": [
+          "nicht",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 164,
+      "uid": "legacy-164",
+      "sourceId": "164",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "muss",
+          "spätestens"
+        ],
+        "B": [
+          "muss"
+        ],
+        "C": [
+          "nicht",
+          "nur"
+        ],
+        "D": [
+          "immer"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 165,
+      "uid": "legacy-165",
+      "sourceId": "165",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "grundsätzlich",
+          "nur"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "nicht",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "B verspricht als zwangsläufige Folge, der Hund handle „grundsätzlich nur noch“, wenn Futter sichtbar ist. A beschreibt die Verstärkung des belohnten Verhaltens. Daraus folgt keine Garantie, dass jede beliebige Futtergabe unabhängig von Zeitpunkt und Situation das gewünschte Ergebnis erzielt."
+    },
+    {
+      "number": 166,
+      "uid": "legacy-166",
+      "sourceId": "166",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "D": [
+          "nicht",
+          "kann",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 167,
+      "uid": "legacy-167",
+      "sourceId": "167",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 168,
+      "uid": "legacy-168",
+      "sourceId": "168",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "B": [
+          "nicht"
+        ],
+        "D": [
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "B erklärt schmerzhafte oder würgende Hilfsmittel bei angeblich richtigem Einsatz für gefahrlos. Der Schlüssel verwirft diese Zusicherung. A, C und D benennen Risiken; nicht jeder Hund muss alle Folgen zeigen, damit die Risikobeschreibung zutrifft."
+    },
+    {
+      "number": 169,
+      "uid": "legacy-169",
+      "sourceId": "169",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "können"
+        ],
+        "B": [
+          "können"
+        ],
+        "C": [
+          "muss",
+          "nicht",
+          "müssen"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "C macht aus der möglichen Freude des Hundes die Forderung, andere Menschen müssten Anspringen akzeptieren. A und B zeigen, dass Folgen für andere auch ohne aggressive Absicht möglich sind. D betrifft eine gelernte Gewohnheit und begründet frühes Training."
+    },
+    {
+      "number": 170,
+      "uid": "legacy-170",
+      "sourceId": "170",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "muss"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "kann",
+          "nicht",
+          "kann",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "B erklärt Beißereien pauschal für hinzunehmen; C nennt Abgabe oder Einschläferung als zwangsläufige Lösung. D behauptet, über den Maulkorb hinaus lasse sich nichts beeinflussen. A nennt stattdessen fachliche Hilfe. Das ist keine Erfolgsgarantie für jede Behandlung."
+    },
+    {
+      "number": 171,
+      "uid": "legacy-171",
+      "sourceId": "171",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "D": [
+          "können",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 172,
+      "uid": "legacy-172",
+      "sourceId": "172",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "nicht"
+        ],
+        "B": [
+          "nie"
+        ]
+      },
+      "caution": null,
+      "reason": "A verspricht, ein zweiter Hund verhindere Trennungsangst. C erklärt ihre Entwicklung ohne Einschränkung für erblich bedingt. Der Schlüssel zählt B und D als mögliche Zusammenhänge. Die Ablehnung von C beweist nicht, dass individuelle Veranlagung bei Verhalten grundsätzlich keine Rolle spielen kann."
+    },
+    {
+      "number": 173,
+      "uid": "legacy-173",
+      "sourceId": "173",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "muss"
+        ],
+        "B": [
+          "kann",
+          "kann"
+        ],
+        "C": [
+          "nur",
+          "können",
+          "nicht"
+        ],
+        "D": [
+          "muss",
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "Bei B sind „in jedem Fall“ und „alles unternehmen“ entscheidend: Zeit und Geduld garantieren keine uneingeschränkte Anpassung. D beschränkt die Vorbereitung mit „nur“ auf Impfung und Entwurmung. A und C nennen weitere zu prüfende gesundheitliche und verhaltensbezogene Punkte; nicht jeder Auslandshund hat diese Probleme."
+    },
+    {
+      "number": 174,
+      "uid": "legacy-174",
+      "sourceId": "174",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "B": [
+          "nicht",
+          "nicht",
+          "nicht"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": "Quellenvergleich: Im zugesandten 97er-Bogen, Originalfrage 58, zählen Leinenruck und Schnauzengriff als richtig. Der dortige Lösungsschlüssel hebt das Verbot schmerzhafter Mittel nicht auf und ist keine Anwendungsempfehlung.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 175,
+      "uid": "legacy-175",
+      "sourceId": "175",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "C": [
+          "nur",
+          "kann"
+        ],
+        "D": [
+          "muss",
+          "mindestens"
+        ]
+      },
+      "caution": null,
+      "reason": "C behauptet, jede Hündin kümmere sich „in allen Belangen“ selbst um ihre Welpen, sodass ein Platz genüge. Der Schlüssel zählt dagegen Verantwortung für Haltungsbedingungen und Erfahrungen. Bei D gehört „sofern sie im Haus aufgezogen werden“ zur Aussage; die Antwort ist keine vollständige Zusammenfassung aller Rechtsvorgaben."
+    },
+    {
+      "number": 176,
+      "uid": "legacy-176",
+      "sourceId": "176",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 177,
+      "uid": "legacy-177",
+      "sourceId": "177",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht"
+        ],
+        "C": [
+          "Nur"
+        ]
+      },
+      "caution": null,
+      "reason": "C beschränkt Empfängnisbereitschaft auf „nur direkt zu Beginn“ der Läufigkeit. A und D werden gezählt. Bei D wird beschrieben, wann eine erfolgreiche Bedeckung möglich ist; es steht dort nicht, dass eine Trächtigkeit ausschließlich nach beobachtetem Hängen entstehen kann."
+    },
+    {
+      "number": 178,
+      "uid": "legacy-178",
+      "sourceId": "178",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "B": [
+          "kann",
+          "kann"
+        ],
+        "C": [
+          "kann"
+        ],
+        "D": [
+          "nur",
+          "kann"
+        ]
+      },
+      "caution": "Das „nur“ in der gezählten Antwort D ist physiologisch zu eng; die Warnung vor Überhitzung bleibt bestehen.",
+      "reason": "A, C und D werden gezählt. B verspricht, im Auto könne „nichts passieren“. Auch D verkürzt mit „nur“: Hecheln ist für Hunde besonders wichtig, aber Wärmeabgabe erfolgt zusätzlich durch andere physikalische Wege, etwa Kontakt zu kühleren Oberflächen. Diese Einschränkung ist keine Entwarnung für ein warmes Auto; eine kurze Wartezeit kann bereits gefährlich werden."
+    },
+    {
+      "number": 179,
+      "uid": "legacy-179",
+      "sourceId": "179",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "C": [
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "C beschränkt Tierarztbesuche auf „nur nötig, wenn es dem Hund schlecht geht“. A, B und D nennen dagegen Themen der Vorsorge. Das bedeutet keine pauschal gleiche Behandlungshäufigkeit für alle Hunde; gefragt sind sinnvolle Gesprächsthemen."
+    },
+    {
+      "number": 180,
+      "uid": "legacy-180",
+      "sourceId": "180",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nur"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "B beschränkt den Nutzen von Impfungen auf Auslandsreisen. A, C und D betreffen dagegen auch den Schutz im Inland. Die genannten Alters- und Auffrischungsangaben sind Katalogwissen, kein individueller Impfplan. Welche Impfungen wann erforderlich sind, muss tierärztlich geklärt werden."
+    },
+    {
+      "number": 181,
+      "uid": "legacy-181",
+      "sourceId": "181",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Pauschalisierung beachten: Aus der Herkunft allein folgt keine Diagnose. Die Häufigkeitsaussage „oft“ wird hier nicht als allgemeiner statistischer Befund bestätigt.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 182,
+      "uid": "legacy-182",
+      "sourceId": "182",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 183,
+      "uid": "legacy-183",
+      "sourceId": "183",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 184,
+      "uid": "legacy-184",
+      "sourceId": "184",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "immer"
+        ],
+        "B": [
+          "immer"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "A erklärt das Leben in Deutschland „immer“ für besser. B, C und D nennen dagegen Umstellungen, die für einzelne Hunde schwierig sein können. Die Antworten behaupten weder, dass jeder übernommene Hund leidet, noch dass eine Übernahme grundsätzlich ungeeignet ist."
+    },
+    {
+      "number": 185,
+      "uid": "legacy-185",
+      "sourceId": "185",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "nicht",
+          "kann",
+          "nicht"
+        ],
+        "B": [
+          "können"
+        ],
+        "C": [
+          "grundsätzlich",
+          "nur"
+        ],
+        "D": [
+          "können",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "A und B nennen mögliche erhebliche Schwierigkeiten. C verspricht dagegen, „grundsätzlich nur“ liebevolle Behandlung und gutes Training machten jeden Hund unkompliziert. D nennt eine mögliche Unvereinbarkeit von Veranlagung und Wohnumgebung. Es geht um Risiken, nicht um ein Urteil über jeden Tierschutzhund."
+    },
+    {
+      "number": 186,
+      "uid": "legacy-186",
+      "sourceId": "186",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "können"
+        ],
+        "C": [
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "C erklärt stark verzwergte Hunde für „nur klein“ und schließt damit besondere Gesundheitsprobleme aus. Die anderen Antworten werden als mögliche beziehungsweise rassetypische Risiken gezählt. Daraus folgt keine individuelle Diagnose allein aufgrund des Aussehens eines Hundes."
+    },
+    {
+      "number": 187,
+      "uid": "legacy-187",
+      "sourceId": "187",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "muss",
+          "immer",
+          "grundsätzlich"
+        ],
+        "B": [
+          "können"
+        ],
+        "C": [
+          "müssen"
+        ],
+        "D": [
+          "nicht",
+          "kann",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "A enthält gleich zwei Pauschalisierungen: Hunde regelten „alles immer unter sich“, Menschen sollten sich „grundsätzlich“ heraushalten. Der Schlüssel verwirft diese Freigabe und zählt B, C und D. Eine mögliche unbeabsichtigte Verletzung reicht bereits, um auf die Größenunterschiede zu achten."
+    },
+    {
+      "number": 188,
+      "uid": "legacy-188",
+      "sourceId": "188",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "kann"
+        ],
+        "B": [
+          "nicht",
+          "nicht"
+        ],
+        "C": [
+          "kann"
+        ],
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 189,
+      "uid": "legacy-189",
+      "sourceId": "189",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 190,
+      "uid": "legacy-190",
+      "sourceId": "190",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 191,
+      "uid": "legacy-191",
+      "sourceId": "191",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "können"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "nicht",
+          "müssen"
+        ]
+      },
+      "caution": null,
+      "reason": "A schließt Probleme mit „in keinem Fall“ aus. B und C knüpfen Infektionsrisiken dagegen an mitgebrachte Erreger beziehungsweise unzureichende Untersuchungen; D nennt mögliche Folgen einer unpassenden Vermittlung. Es wird nicht behauptet, dass jeder Importhund krank ist oder abgegeben wird."
+    },
+    {
+      "number": 192,
+      "uid": "legacy-192",
+      "sourceId": "192",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "nicht",
+          "kann"
+        ],
+        "C": [
+          "kann",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "In A soll ein sofortiger Zeitpunkt sämtliche Nebenwirkungen ausschließen. Der Schlüssel verwirft diese Garantie. B, C und D benennen Risiken, die nicht allein durch zeitliche Nähe verschwinden. „Sofort“ macht eine schreckende oder strafende Maßnahme also nicht automatisch unbedenklich."
+    },
+    {
+      "number": 193,
+      "uid": "legacy-193",
+      "sourceId": "193",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "A": [
+          "muss"
+        ],
+        "C": [
+          "nur",
+          "alle"
+        ],
+        "D": [
+          "muss"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 194,
+      "uid": "legacy-194",
+      "sourceId": "194",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "muss"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 195,
+      "uid": "legacy-195",
+      "sourceId": "195",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "immer"
+        ],
+        "C": [
+          "immer",
+          "muss"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 196,
+      "uid": "legacy-196",
+      "sourceId": "196",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "grundsätzlich",
+          "nur",
+          "jeder",
+          "kann"
+        ],
+        "B": [
+          "kann"
+        ],
+        "C": [
+          "immer",
+          "kann"
+        ],
+        "D": [
+          "kann",
+          "können"
+        ]
+      },
+      "caution": "Gewichtsverhältnis ist keine Sicherheitsgarantie und kein gesetzlicher Eignungsnachweis.",
+      "reason": "A erklärt sicheres Halten „in jeder Situation“ ausschließlich zur Erziehungsfrage. D nennt dagegen konkrete erschwerende Bedingungen. B und C werden ebenfalls gezählt; insbesondere die Drittelregel in B ist eine grobe Katalogfaustregel. Sie beweist nicht, dass eine bestimmte Person einen Hund dieses Gewichts sicher halten kann."
+    },
+    {
+      "number": 197,
+      "uid": "legacy-197",
+      "sourceId": "197",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "Alle",
+          "nur",
+          "kann"
+        ],
+        "B": [
+          "alle"
+        ],
+        "C": [
+          "können",
+          "nicht",
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "A behauptet, „alle Rassen“ seien überzüchtet und Gesundheit sei „nur“ mit Mischlingen möglich. D garantiert gesunde Nachkommen bei gesund erscheinenden Eltern. B und C beschreiben dagegen Veranlagungen und Risiken. Ein Risiko bedeutet nicht, dass jeder betroffene Hund erkrankt."
+    },
+    {
+      "number": 198,
+      "uid": "legacy-198",
+      "sourceId": "198",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Rechtliche Verkürzung: Die Antwortmöglichkeiten ersetzen nicht die Voraussetzungen des § 3 Absatz 3 LHundG NRW.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 199,
+      "uid": "legacy-199",
+      "sourceId": "199",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": null,
+      "reason": "Die Frage betrifft ausdrücklich gefährliche Hunde nach LHundG NRW. A ist die Kataloglösung. Eine gemeinsame Verhaltensprüfung schafft die in B behauptete Ausnahme für mehrere gleichzeitig geführte gefährliche Hunde nicht. Daraus folgt kein allgemeines Verbot, zwei beliebige Hunde auszuführen."
+    },
+    {
+      "number": 200,
+      "uid": "legacy-200",
+      "sourceId": "200",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 201,
+      "uid": "legacy-201",
+      "sourceId": "201",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "muss",
+          "können"
+        ],
+        "C": [
+          "müssen"
+        ],
+        "D": [
+          "müssen",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "A dehnt die Haltungserlaubnis auf „deutschlandweit“ aus; § 4 Absatz 5 LHundG NRW nennt dagegen das Landesgebiet. D bestreitet die Anleinpflicht im privaten Mehrfamilienhaus, obwohl § 5 Absatz 2 diese Bereiche ausdrücklich nennt. „Privat“ bedeutet hier nicht automatisch ohne gesetzliche Umgangspflichten."
+    },
+    {
+      "number": 202,
+      "uid": "legacy-202",
+      "sourceId": "202",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "B": [
+          "müssen",
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 203,
+      "uid": "legacy-203",
+      "sourceId": "203",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 204,
+      "uid": "r97-1",
+      "sourceId": "1",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 205,
+      "uid": "r97-2",
+      "sourceId": "2",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 206,
+      "uid": "r97-3",
+      "sourceId": "3",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "B": [
+          "nicht",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 207,
+      "uid": "r97-4",
+      "sourceId": "4",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 208,
+      "uid": "r97-5",
+      "sourceId": "5",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Begriffe prüfen: Der Schlüssel verbindet frühe Sozialisationszeit und spätere Entwicklung. Die zusätzliche Altersangabe C wird hier nicht als allgemein gesicherte Phasengrenze bestätigt.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 209,
+      "uid": "r97-6",
+      "sourceId": "6",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Pauschaler Katalogschlüssel: A+B+D bleibt die Testlösung, ist aber keine vollständige, ortsunabhängige Rechtsregel.",
+      "reason": "Der Schlüssel zählt A, B und D. Die Kombination „alle Hunde immer“ macht die Frage jedoch rechtlich zu weit. § 2 Absatz 2 LHundG NRW nennt bestimmte Orte und Situationen, kein ausnahmsloses Anleingebot in jedem bebauten Gebiet. Für große Hunde sowie Hunde nach §§ 3 und 10 gelten zusätzliche Regeln. Schutzgebietsregeln, örtliche Vorschriften und Beförderungsbedingungen sind gesondert zu beachten."
+    },
+    {
+      "number": 210,
+      "uid": "r97-7",
+      "sourceId": "7",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "B": [
+          "können",
+          "nicht"
+        ]
+      },
+      "caution": "Ursachen nicht verallgemeinern: Der Schlüssel nennt zwei Antworten, erklärt aber nicht jedes aggressive Verhalten an der Leine.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 211,
+      "uid": "r97-8",
+      "sourceId": "8",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 212,
+      "uid": "r97-9",
+      "sourceId": "9",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 213,
+      "uid": "r97-10",
+      "sourceId": "10",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 214,
+      "uid": "r97-11",
+      "sourceId": "11",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": null,
+      "reason": "B wird gezählt, weil positive frühe Erfahrungen vermittelt werden sollen. „Damit er später in allen Situationen gut zurechtkommt“ ist dabei eine Zielbeschreibung der Vorlage, keine Erfolgsgarantie. A empfiehlt pauschale Abschirmung, C überwiegende Zwingerhaltung; beide werden verworfen."
+    },
+    {
+      "number": 215,
+      "uid": "r97-12",
+      "sourceId": "12",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 216,
+      "uid": "r97-13",
+      "sourceId": "13",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 217,
+      "uid": "r97-14",
+      "sourceId": "14",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 218,
+      "uid": "r97-15",
+      "sourceId": "15",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht",
+          "nicht",
+          "müssen"
+        ]
+      },
+      "caution": null,
+      "reason": "„Sofort nach jedem gut ausgeführten Kommando“ unterscheidet D von den verzögerten Belohnungen in A und C. B setzt fehlende Bestrafung mit einer Rückmeldung über richtiges Verhalten gleich. Der Schlüssel verlangt dagegen die zeitnahe positive Rückmeldung."
+    },
+    {
+      "number": 219,
+      "uid": "r97-16",
+      "sourceId": "16",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 220,
+      "uid": "r97-17",
+      "sourceId": "17",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 221,
+      "uid": "r97-18",
+      "sourceId": "18",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 222,
+      "uid": "r97-19",
+      "sourceId": "19",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 223,
+      "uid": "r97-20",
+      "sourceId": "20",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 224,
+      "uid": "r97-21",
+      "sourceId": "21",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 225,
+      "uid": "r97-22",
+      "sourceId": "22",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Die Aussage verbindet „keine Rückzugsmöglichkeit“ mit „jederzeit engem Kontakt“. B verneint genau diese gesamte Behauptung. Soziale Nähe bedeutet nicht, dass ein Hund ständig Nähe haben möchte oder auf einen Rückzugsort verzichten kann."
+    },
+    {
+      "number": 226,
+      "uid": "r97-23",
+      "sourceId": "23",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "ausschließlich"
+        ],
+        "C": [
+          "können",
+          "völlig"
+        ],
+        "D": [
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "B erklärt Aggression zu „ausschließlich“ ererbten Eigenschaften. C verspricht „völlige“ Unterdrückung. D spricht dagegen von Kontrolle durch Ausbildung; das ist nicht dasselbe wie vollständiges Verschwinden. A wird als möglicher Erziehungseinfluss gezählt, nicht als alleinige Erklärung jedes aggressiven Verhaltens."
+    },
+    {
+      "number": 227,
+      "uid": "r97-24",
+      "sourceId": "24",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "B": [
+          "müssen"
+        ],
+        "C": [
+          "nicht",
+          "ausschließlich"
+        ]
+      },
+      "caution": "Unpräziser Begriff: Fertigfutter ist nicht automatisch bedarfsdeckend.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 228,
+      "uid": "r97-25",
+      "sourceId": "25",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 229,
+      "uid": "r97-26",
+      "sourceId": "26",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "muss",
+          "nicht",
+          "kann",
+          "nicht",
+          "kann"
+        ],
+        "C": [
+          "kann",
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "A unterstellt natürlichen Gehorsam aus Dankbarkeit. B fordert dagegen Beobachtung; C sagt ausdrücklich „kann“. Es wird nicht behauptet, dass jeder erwachsen vermittelte Tierheimhund problematisch ist oder nur von erfahrenen Personen gehalten werden darf."
+    },
+    {
+      "number": 230,
+      "uid": "r97-27",
+      "sourceId": "27",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Zeitangabe nicht pauschalisieren: Das fruchtbare Zeitfenster ist individuell unterschiedlich.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 231,
+      "uid": "r97-28",
+      "sourceId": "28",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 232,
+      "uid": "r97-29",
+      "sourceId": "29",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Begriff offen: „Autoritär“ ist nicht definiert. Daraus folgt weder eine Gleichsetzung mit schmerzhafter Erziehung noch eine Erlaubnis dazu. Rhein-Erft · 203, Originalfrage 174, behandelt deren rechtliche Grenzen.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 233,
+      "uid": "r97-30",
+      "sourceId": "30",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": null,
+      "reason": "In D ist „stets bereits angeboren“ die absolute Festlegung. A, B und C nennen dagegen Haltungs- und Ausbildungseinflüsse. Der Schlüssel lehnt damit die ausschließliche Erklärung aus D ab, nicht die Möglichkeit einer individuellen Veranlagung."
+    },
+    {
+      "number": 234,
+      "uid": "r97-31",
+      "sourceId": "31",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 235,
+      "uid": "r97-32",
+      "sourceId": "32",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Anwendungshinweis: „Herausdrehen“ nicht als allgemeine Anleitung für eine Pinzette übernehmen.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 236,
+      "uid": "r97-33",
+      "sourceId": "33",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "B": [
+          "immer"
+        ],
+        "D": [
+          "muss"
+        ]
+      },
+      "caution": "Fachlicher Vorbehalt: Die Ausgangsannahme „zur Dominanz neigend“ erklärt die konkrete Situation nicht. Unterschiedliche Fragestellungen dürfen nicht nachträglich zu einer einheitlichen Rangordnungsregel verbunden werden.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 237,
+      "uid": "r97-34",
+      "sourceId": "34",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Historische Erziehungsfrage: Gezählte Optionen nicht als allgemeine Empfehlung körperlicher oder einschüchternder Strafen übernehmen.",
+      "reason": "Der Schlüssel zählt A, B und D und verwirft Stockschläge sowie den Entzug des Spaziergangs. Die gezählten Optionen sind keine pauschale Anleitung, Angst durch Anschreien zu behandeln oder Gegenstände gewaltsam wegzunehmen. Gerade gegenüber den neueren Erziehungsfragen ist die ältere Bestrafungssprache kritisch einzuordnen; belohnungsbasierte Alternativen werden in der Fachquelle beschrieben."
+    },
+    {
+      "number": 238,
+      "uid": "r97-35",
+      "sourceId": "35",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "immer"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 239,
+      "uid": "r97-36",
+      "sourceId": "36",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 240,
+      "uid": "r97-37",
+      "sourceId": "37",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Rechtlicher Widerspruch: A sagt „beantragt“, das Gesetz verlangt grundsätzlich eine vorhandene Erlaubnis.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 241,
+      "uid": "r97-38",
+      "sourceId": "38",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "immer"
+        ]
+      },
+      "caution": null,
+      "reason": "„Immer richtig“ in A ist weiter als „situationsbedingt richtig“ in B. Der Schlüssel verlangt B. Die Aussage behandelt die praktische Entscheidung im jeweiligen Kontext und hebt keine gesetzliche Anleinpflicht auf, wenn eine solche für den Hund und den Ort besteht."
+    },
+    {
+      "number": 242,
+      "uid": "r97-39",
+      "sourceId": "39",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 243,
+      "uid": "r97-40",
+      "sourceId": "40",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 244,
+      "uid": "r97-41",
+      "sourceId": "41",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "nur"
+        ],
+        "B": [
+          "nur"
+        ],
+        "C": [
+          "nur"
+        ]
+      },
+      "caution": "„Alles zusammen“ ist keine allgemeine Pflicht, jeden Befehl mit Körperkontakt zu verbinden.",
+      "reason": "A, B und C beschränken das Lernen jeweils mit „nur“ auf einen einzelnen Wahrnehmungsweg; der Schlüssel verlangt D. Das ist die Einteilung dieser Vorlage. Daraus lässt sich nicht ableiten, dass jedes einzelne Signal zwingend über Gehör, Sichtzeichen und Körperkontakt zugleich aufgebaut werden müsste."
+    },
+    {
+      "number": 245,
+      "uid": "r97-42",
+      "sourceId": "42",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Auf die Altersangabe achten: „8. Lebenswoche“ ist nicht dasselbe wie „über acht Wochen alt“.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 246,
+      "uid": "r97-43",
+      "sourceId": "43",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Unvollständige Rechtsfrage: Die Rasse allein bestimmt die Mindestfläche nicht.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 247,
+      "uid": "r97-44",
+      "sourceId": "44",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 248,
+      "uid": "r97-45",
+      "sourceId": "45",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 249,
+      "uid": "r97-46",
+      "sourceId": "46",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Auf „kann“ achten: Der Schlüssel nennt B; er belegt nicht, dass jede andere mögliche Ursache ausgeschlossen ist.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 250,
+      "uid": "r97-47",
+      "sourceId": "47",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 251,
+      "uid": "r97-48",
+      "sourceId": "48",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 252,
+      "uid": "r97-49",
+      "sourceId": "49",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 253,
+      "uid": "r97-50",
+      "sourceId": "50",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "A beschränkt die Aufsicht auf „nur der Hund“. B verlangt, beide Seiten zu beobachten. Das ist der entscheidende Unterschied: Auch das Verhalten des Kindes gehört zur Begegnung. C verzichtet auf besondere Beobachtung und wird nicht gezählt."
+    },
+    {
+      "number": 254,
+      "uid": "r97-51",
+      "sourceId": "51",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 255,
+      "uid": "r97-52",
+      "sourceId": "52",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 256,
+      "uid": "r97-53",
+      "sourceId": "53",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 257,
+      "uid": "r97-54",
+      "sourceId": "54",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 258,
+      "uid": "r97-55",
+      "sourceId": "55",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Begriffe trennen: Zur Familie gehören, gleichberechtigt entscheiden und eine Rangstellung einnehmen sind unterschiedliche Aussagen.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 259,
+      "uid": "r97-56",
+      "sourceId": "56",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 260,
+      "uid": "r97-57",
+      "sourceId": "57",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 261,
+      "uid": "r97-58",
+      "sourceId": "58",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Abweichende Trainingsaussagen: Dieser Schlüssel zählt Leinenruck und Schnauzengriff als richtig. Rhein-Erft · 203, Originalfragen 15 und 174, behandeln belastende Hilfsmittel beziehungsweise rechtliche Grenzen. Keine der Quellenbewertungen ersetzt eine zulässige, geeignete Trainingsmethode.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 262,
+      "uid": "r97-59",
+      "sourceId": "59",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 263,
+      "uid": "r97-60",
+      "sourceId": "60",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "C": [
+          "immer"
+        ]
+      },
+      "caution": "Die Katalogantwort C ist ein vereinfachter Risikohinweis, keine ausnahmslose Aussage über alle Hundepaare.",
+      "reason": "A und B versprechen „gefahrlos“, sobald einer oder beide Hunde angeleint sind. Diese Garantie wird verworfen. Der Schlüssel verlangt C, dessen „immer gefährlicher“ aber ebenfalls pauschal ist: Aus der Anzahl allein ergibt sich keine für jeden Vergleich gültige Risikobewertung. Bei gefährlichen Hunden kommt das gesonderte Verbot gleichzeitigen Führens mehrerer Hunde hinzu."
+    },
+    {
+      "number": 264,
+      "uid": "r97-61",
+      "sourceId": "61",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 265,
+      "uid": "r97-62",
+      "sourceId": "62",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "Immer"
+        ],
+        "C": [
+          "alle",
+          "kann"
+        ],
+        "E": [
+          "muss",
+          "nicht"
+        ]
+      },
+      "caution": "Pauschale Zeitangabe: Der Schlüssel ersetzt keine individuelle Entwurmungsberatung.",
+      "reason": "B und C sind die Kataloglösung. „Alle drei Monate“ in C ist aber kein für jeden Hund passender Behandlungsplan. ESCCAP richtet die Maßnahmen nach dem individuellen Infektionsrisiko aus; Kotuntersuchungen und Entwurmungen sind mit der Tierarztpraxis abzustimmen. Die Frage rechtfertigt weder eine einmalige Behandlung nach dem Absetzen noch die Behauptung, der Darm reinige sich selbst."
+    },
+    {
+      "number": 266,
+      "uid": "r97-63",
+      "sourceId": "63",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "können",
+          "nur"
+        ],
+        "B": [
+          "muss"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": "Verkürzte Katalogaussage: Nicht jegliches Lernen, sondern ein geeigneter Trainingsrahmen ist das Thema.",
+      "reason": "Der Schlüssel zählt A und B. Bei A ist „nur … wenn sie entspannt sind und keine Angst haben“ zu absolut: Angst schaltet nicht jede Form von Lernen aus; auch belastende Verknüpfungen können entstehen. Die Antwort ist als Ziel eines möglichst angstarmen Trainings zu lesen. C verwirft Training vollständig, D ignoriert die besonderen Bedürfnisse des ängstlichen Hundes."
+    },
+    {
+      "number": 267,
+      "uid": "r97-64",
+      "sourceId": "64",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": null,
+      "reason": "„Sitz oder Platz“ in A verlangt nicht zwingend beide Signale. Der Schlüssel zählt außerdem Aus und Komm/Hier. Pfötchengeben und Türöffnen werden hier als zusätzliche Fertigkeiten behandelt; gefragt sind Grundkommandos, nicht alles, was ein Hund lernen kann."
+    },
+    {
+      "number": 268,
+      "uid": "r97-65",
+      "sourceId": "65",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 269,
+      "uid": "r97-66",
+      "sourceId": "66",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 270,
+      "uid": "r97-67",
+      "sourceId": "67",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "„Normal“ bedeutet in dieser Katalogfrage: Aggressive Verhaltensweisen gehören zum möglichen Verhaltensrepertoire von Hunden. Das ist keine Aussage, dass jeder Hund ständig aggressiv sein müsse oder dass gefährliche Vorfälle hinzunehmen seien. A ist kein Freibrief für fehlende Sicherung."
+    },
+    {
+      "number": 271,
+      "uid": "r97-68",
+      "sourceId": "68",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 272,
+      "uid": "r97-69",
+      "sourceId": "69",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 273,
+      "uid": "r97-70",
+      "sourceId": "70",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 274,
+      "uid": "r97-71",
+      "sourceId": "71",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 275,
+      "uid": "r97-72",
+      "sourceId": "72",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 276,
+      "uid": "r97-73",
+      "sourceId": "73",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 277,
+      "uid": "r97-74",
+      "sourceId": "74",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 278,
+      "uid": "r97-75",
+      "sourceId": "75",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "alle",
+          "müssen",
+          "grundsätzlich"
+        ]
+      },
+      "caution": "Die Ausnahme betrifft das tollwutrechtliche Freilaufverbot, keine allgemeine Freilauferlaubnis.",
+      "reason": "D verbindet zwei Voraussetzungen: nachweislich wirksamer Tollwutimpfschutz UND Begleitung durch eine Person, der der Hund zuverlässig gehorcht. B nennt nur die Impfung und ist deshalb unvollständig. § 8 Absatz 3 Tollwut-Verordnung enthält diese Ausnahme vom Freilaufverbot im gefährdeten Bezirk. D befreit nicht von zusätzlich geltenden Anleinpflichten nach Landesrecht oder örtlichen Vorschriften."
+    },
+    {
+      "number": 279,
+      "uid": "r97-76",
+      "sourceId": "76",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Keine pauschale Abschussbefugnis allein wegen Freilaufs oder Verlassens eines Weges.",
+      "reason": "C ist die Kataloglösung, aber „unkontrolliert Wild hetzen“ fasst die Rechtslage nur verkürzt zusammen. Nach § 25 Absatz 4 Nummer 2 LJG-NRW müssen weitere Voraussetzungen vorliegen: außerhalb der Einwirkung der führenden Person, Töten oder erkennbares Hetzen mit entsprechender Fähigkeit zum Beißen oder Reißen sowie fehlende erfolgversprechende mildere Maßnahmen. Hinzu kommen gesetzliche Ausnahmen für bestimmte erkennbare Funktionshunde. Das bloße Verlassen eines Waldwegs oder unangeleintes Nebenherlaufen genügt nicht."
+    },
+    {
+      "number": 280,
+      "uid": "r97-77",
+      "sourceId": "77",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "Alle"
+        ],
+        "C": [
+          "nur"
+        ],
+        "D": [
+          "nicht",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Entscheidend ist „nur“ in C: Unterschiede im Aussehen gibt es, aber C beschränkt sämtliche Unterschiede darauf. Unterschiedliche Veranlagungen werden dadurch ausgeschlossen. Genau diese nennt B. „Alle“ in A und die Größeneinteilung in D liefern ebenfalls keine zutreffende Beschreibung."
+    },
+    {
+      "number": 281,
+      "uid": "r97-78",
+      "sourceId": "78",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "muss"
+        ],
+        "B": [
+          "muss"
+        ],
+        "D": [
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "A behauptet ohne Bedingung, mehrere Hunde erforderten häufigere Spaziergänge. Anders als in der ausführlicheren Frage 52 fehlt hier die Einschränkung, dass gemeinsames Spazierengehen nicht möglich ist. B, C und D werden gezählt; D spricht ausdrücklich von möglichen Nachteilen."
+    },
+    {
+      "number": 282,
+      "uid": "r97-79",
+      "sourceId": "79",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Der Schlüssel zählt positive frühe Erfahrungen in A und D. B macht daraus eine pauschale Schonfrist von fünf Monaten; C erklärt Reize allgemein zur Ursache von Nervosität. Frühzeitige Erfahrungen bedeuten nicht, einen Welpen mit beliebigen Reizen zu überfordern."
+    },
+    {
+      "number": 283,
+      "uid": "r97-80",
+      "sourceId": "80",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "nicht"
+        ],
+        "C": [
+          "ständig"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 284,
+      "uid": "r97-81",
+      "sourceId": "81",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "nicht",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 285,
+      "uid": "r97-82",
+      "sourceId": "82",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 286,
+      "uid": "r97-83",
+      "sourceId": "83",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "nie"
+        ],
+        "B": [
+          "nur"
+        ],
+        "D": [
+          "kann",
+          "immer",
+          "immer"
+        ]
+      },
+      "caution": null,
+      "reason": "D fordert Aufsicht über Kontakte zwischen Kindern und Hunden. Das „nie beißen oder verletzen“ in A ist keine sichere Garantie für Familienmitglieder. B und C machen Vertrautheit beziehungsweise geringe Körpergröße zu ausreichenden Ausnahmen; auch diese werden verworfen. Dass kritische Situationen möglich bleiben, begründet im Katalog die Aufsicht."
+    },
+    {
+      "number": 287,
+      "uid": "r97-84",
+      "sourceId": "84",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 288,
+      "uid": "r97-85",
+      "sourceId": "85",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 289,
+      "uid": "r97-86",
+      "sourceId": "86",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "immer"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 290,
+      "uid": "r97-87",
+      "sourceId": "87",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "können"
+        ],
+        "C": [
+          "nicht"
+        ],
+        "D": [
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "A sagt, Hunde könnten ihr Leben lang lernen. B setzt dagegen ab einem Jahr eine absolute Grenze, D schließt Lernen beim Junghund aus. C befürwortet frühes Üben. Der Schlüssel zählt A und C; weder Welpen- noch Erwachsenenalter bedeutet grundsätzlich fehlende Lernfähigkeit."
+    },
+    {
+      "number": 291,
+      "uid": "r97-88",
+      "sourceId": "88",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 292,
+      "uid": "r97-89",
+      "sourceId": "89",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "kann"
+        ],
+        "C": [
+          "nicht",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "B verbindet Strafandrohung mit der Behauptung, bei einem älteren Hund könne man „nichts mehr machen“. A und C setzen auf Sichern und Training. A wird hier akzeptiert, während Frage 308 das Nachlaufen verwirft: Die Vorlagen geben unterschiedliche vereinfachte Situationen vor und ersetzen keine Einschätzung der konkreten Gefahr."
+    },
+    {
+      "number": 293,
+      "uid": "r97-90",
+      "sourceId": "90",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht"
+        ],
+        "C": [
+          "nur",
+          "nicht"
+        ],
+        "D": [
+          "grundsätzlich"
+        ]
+      },
+      "caution": null,
+      "reason": "Bekanntheit mit Pferden in A und langsames Reiten in C garantieren keine gefahrlose Begegnung. B verlangt Anleinen und Abwarten; D nennt ausdrücklich auch mögliche Reaktionen des Pferdes. Es geht um die Kontrolle beiderseitiger Risiken, nicht nur um die Angst des eigenen Hundes."
+    },
+    {
+      "number": 294,
+      "uid": "r97-91",
+      "sourceId": "91",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "C": [
+          "Jeder",
+          "muss"
+        ],
+        "D": [
+          "muss",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 295,
+      "uid": "r97-92",
+      "sourceId": "92",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 296,
+      "uid": "r97-93",
+      "sourceId": "93",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 297,
+      "uid": "r97-94",
+      "sourceId": "94",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "kann",
+          "nur"
+        ],
+        "B": [
+          "immer"
+        ],
+        "D": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "A behauptet, Hunde fräßen bei freier Futterverfügbarkeit „nur so viel, wie sie auch brauchen“. B macht ständigen Hunger zur Erziehungsbedingung; C erklärt einen Fastentag zur notwendigen Wohlergehensregel. Der Schlüssel zählt D mit dem Ziel einer passenden Körperkondition. Eine feste Grammzahl oder ein individueller Fütterungsplan ergibt sich daraus nicht."
+    },
+    {
+      "number": 298,
+      "uid": "r97-95",
+      "sourceId": "95",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht",
+          "ausschließlich"
+        ],
+        "C": [
+          "können"
+        ]
+      },
+      "caution": null,
+      "reason": "C sagt „können“ ergänzt werden, nicht „müssen“. B verbietet dagegen die ausschließliche Verwendung von Fertigfutter. Der Schlüssel zählt A und C. Wie in Frage 227 ist die bedarfsdeckende Aussage auf geeignetes Futter für erwachsene, gesunde Hunde zu beziehen; nicht jedes Produkt ist ein vollständiges Alleinfutter."
+    },
+    {
+      "number": 299,
+      "uid": "r97-96",
+      "sourceId": "96",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 300,
+      "uid": "r97-97",
+      "sourceId": "97",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 301,
+      "uid": "koeln-a1",
+      "sourceId": "A1",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 302,
+      "uid": "koeln-a2",
+      "sourceId": "A2",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 303,
+      "uid": "koeln-a3",
+      "sourceId": "A3",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 304,
+      "uid": "koeln-a4",
+      "sourceId": "A4",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 305,
+      "uid": "koeln-a6",
+      "sourceId": "A6",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": null,
+      "reason": "D enthält einen bedingten Ablauf: ausweichen versuchen, andernfalls zügig weitergehen. C nennt nur das Weitergehen. Die Größenbeschreibung allein beweist weder einen Angriff noch eine sichere Begegnung; D ist die vereinfachte Kataloglösung, keine Garantie für jeden konkreten Ablauf."
+    },
+    {
+      "number": 306,
+      "uid": "koeln-a7",
+      "sourceId": "A7",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Mehrdeutige Bewertung: Der Schlüssel grenzt Angst und Drohen hier stärker voneinander ab, als es als allgemeine Verhaltensregel zulässig wäre.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 307,
+      "uid": "koeln-a8",
+      "sourceId": "A8",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Grenze der Bildfrage: Die Ohrenstellung allein erlaubt keine sichere Aussage darüber, ob ein Hund Angst hat.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 308,
+      "uid": "koeln-a9",
+      "sourceId": "A9",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Situation unvollständig: Ort, Gefahren und Verhalten des Hundes fehlen. D ist keine allgemeingültige Handlungsanweisung.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 309,
+      "uid": "koeln-a10",
+      "sourceId": "A10",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": "Pauschale Katalogantwort: D berücksichtigt die Eigengefährdung, ersetzt aber keine Beurteilung der konkreten Notlage.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 310,
+      "uid": "koeln-a12",
+      "sourceId": "A12",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Unklarer Begriff: Für „stärker“ liefert die Vorlage keine eindeutige Definition.",
+      "reason": "A und D sind die Kataloglösung. „Kontrollierbarer“ beschreibt den möglichen Einfluss über die Leine. Was „stärker“ in A genau bedeuten soll, erläutert die Vorlage nicht. Das Wort darf weder als Zunahme körperlicher Kraft noch als sichere Erklärung jeder Leinenaggression ergänzt werden. Andere Fragen nennen eingeschränktes Ausweichen, Unsicherheit und Frustration."
+    },
+    {
+      "number": 311,
+      "uid": "koeln-a13",
+      "sourceId": "A13",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": null,
+      "reason": "Die Frage hebt den besonders wichtigen Geruchssinn hervor und verlangt deshalb D. Sie behauptet nicht, dass Hunde ihre Umgebung ausschließlich mit der Nase wahrnehmen. Gehör und Augen bleiben ebenfalls bedeutsam."
+    },
+    {
+      "number": 312,
+      "uid": "koeln-a14",
+      "sourceId": "A14",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 313,
+      "uid": "koeln-a16",
+      "sourceId": "A16",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 314,
+      "uid": "koeln-a17",
+      "sourceId": "A17",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 315,
+      "uid": "koeln-a20",
+      "sourceId": "A20",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": null,
+      "reason": "B nennt die vollständige Aufsicht über Hund und Kind. A nennt nur die Beobachtung des Hundes und bleibt damit hinter B zurück. Dass A nicht gezählt wird, bedeutet nicht, dass man den Hund nicht beobachten soll; beide Seiten sollen im Blick bleiben."
+    },
+    {
+      "number": 316,
+      "uid": "koeln-a22",
+      "sourceId": "A22",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "B": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 317,
+      "uid": "koeln-a23",
+      "sourceId": "A23",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": null,
+      "reason": "A erlaubt Spiel „jederzeit“. B und C werden als geeignete Voraussetzungen gezählt. Bekanntheit oder gute Sozialisation garantieren aber nicht, dass beide Hunde gerade spielen möchten oder jeder Kontakt sicher ist. Auch die Katalogantworten sind keine pauschale Spielerlaubnis."
+    },
+    {
+      "number": 318,
+      "uid": "koeln-a24",
+      "sourceId": "A24",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "B": [
+          "nicht",
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 319,
+      "uid": "koeln-a26",
+      "sourceId": "A26",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "C": [
+          "kann"
+        ]
+      },
+      "caution": "Verkürzte Begegnungssituation: C garantiert weder die Kooperation der anderen Person noch einen sicheren Kontakt am Boden.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 320,
+      "uid": "koeln-a27",
+      "sourceId": "A27",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 321,
+      "uid": "koeln-a28",
+      "sourceId": "A28",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Situationsangaben fehlen; C ist keine allgemeine Regel gegen jeden freiwilligen Kontakt.",
+      "reason": "Der Schlüssel verlangt C. A lässt das Streicheln „in jedem Fall“ zu, ohne Hund oder Situation zu berücksichtigen. C beschreibt die vorsichtige Katalogreaktion. Dass B nicht gezählt wird, bedeutet weder, dass notwendiges Abstandnehmen falsch sei, noch dass fremde Personen grundsätzlich niemals einen Hund streicheln dürften. Die Frage nennt keine Merkmale, die jede Begegnung gleich machen."
+    },
+    {
+      "number": 322,
+      "uid": "koeln-a30",
+      "sourceId": "A30",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 323,
+      "uid": "koeln-a31",
+      "sourceId": "A31",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 324,
+      "uid": "koeln-a32",
+      "sourceId": "A32",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 325,
+      "uid": "koeln-a33",
+      "sourceId": "A33",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "kann",
+          "nicht"
+        ],
+        "C": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "A erklärt Beißhemmung für unveränderlich und genetisch festgelegt. B beschreibt eine unmittelbare Unterbrechung des Spiels bei zu festem Beißen. C verlangt eine sprachliche Erklärung des Fehlers. Der Schlüssel zählt das konkrete, zeitnahe Vorgehen aus B."
+    },
+    {
+      "number": 326,
+      "uid": "koeln-a34",
+      "sourceId": "A34",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 327,
+      "uid": "koeln-a35",
+      "sourceId": "A35",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 328,
+      "uid": "koeln-a36",
+      "sourceId": "A36",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "C": [
+          "nicht"
+        ]
+      },
+      "caution": "Verkürzte Katalogantwort: „gar nicht“ ist keine allgemein belastbare Vorhersage.",
+      "reason": "Der Schlüssel verlangt C: „gar nicht“. Als allgemeine Aussage ist das zu weit. Die BVA beschreibt Auswirkungen der Kastration auf Verhalten bei Hündinnen als nicht vollständig geklärt und individuell zu beurteilen. Aus der Frage folgt weder eine sichere Veränderung noch eine garantierte Wirkungslosigkeit. Die Katalogantwort ist keine Entscheidungsgrundlage für einen Eingriff."
+    },
+    {
+      "number": 329,
+      "uid": "koeln-a37",
+      "sourceId": "A37",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Begriff offen: „Autoritär“ ist nicht definiert. Daraus folgt weder eine Gleichsetzung mit schmerzhafter Erziehung noch eine Erlaubnis dazu. Rhein-Erft · 203, Originalfrage 174, behandelt deren rechtliche Grenzen.",
+      "reason": "Der Schlüssel nennt A und C. „Autoritär“ wird in der Frage jedoch nicht definiert und darf nicht stillschweigend mit freundlicher, klarer Führung gleichgesetzt werden. Konsequente Regeln lassen sich ohne Einschüchterung vermitteln. Die tierärztliche Fachgesellschaft AVSAB empfiehlt belohnungsbasiertes Training."
+    },
+    {
+      "number": 330,
+      "uid": "koeln-a38",
+      "sourceId": "A38",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 331,
+      "uid": "koeln-a40",
+      "sourceId": "A40",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 332,
+      "uid": "koeln-a41",
+      "sourceId": "A41",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 333,
+      "uid": "koeln-a42",
+      "sourceId": "A42",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 334,
+      "uid": "koeln-a45",
+      "sourceId": "A45",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Unklarer Maßnahmenbegriff: Der Schlüssel benennt mit C keine eindeutig festgelegte Trainingsmethode.",
+      "reason": "C wird gezählt, bleibt mit „maßgeregelt“ aber unbestimmt. Die Ablehnung von B bedeutet, dass heftiges Beißen im Spiel nicht einfach wegen des jungen Alters weiter zugelassen werden soll. Daraus folgt keine Freigabe für Schlagen, Schütteln oder andere schmerzhafte Maßnahmen. Frage 325 nennt das Unterbrechen des Spiels als konkrete Reaktion."
+    },
+    {
+      "number": 335,
+      "uid": "koeln-a46",
+      "sourceId": "A46",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Historische Erziehungsfrage: Gezählte Optionen nicht als allgemeine Empfehlung körperlicher oder einschüchternder Strafen übernehmen.",
+      "reason": "Der Schlüssel zählt A, B und D und verwirft Stockschläge sowie den Entzug des Spaziergangs. Die gezählten Optionen sind keine pauschale Anleitung, Angst durch Anschreien zu behandeln oder Gegenstände gewaltsam wegzunehmen. Gerade gegenüber den neueren Erziehungsfragen ist die ältere Bestrafungssprache kritisch einzuordnen; belohnungsbasierte Alternativen werden in der Fachquelle beschrieben."
+    },
+    {
+      "number": 336,
+      "uid": "koeln-a47",
+      "sourceId": "A47",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 337,
+      "uid": "koeln-a48",
+      "sourceId": "A48",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 338,
+      "uid": "koeln-a49",
+      "sourceId": "A49",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "immer"
+        ]
+      },
+      "caution": "Fachlicher Vorbehalt: Die Ausgangsannahme „zur Dominanz neigend“ erklärt die konkrete Situation nicht. Unterschiedliche Fragestellungen dürfen nicht nachträglich zu einer einheitlichen Rangordnungsregel verbunden werden.",
+      "reason": "Der Schlüssel nennt A und D. Die Situation ist aber zu offen, um E allein deshalb fachlich zu widerlegen: Knurren bedeutet nicht automatisch, dass ein Hund nur Ruhe möchte; zugleich kann ein Ruhebedürfnis bestehen. Die Nichtzählung von E ist keine Aufforderung, einen knurrenden Hund zu bedrängen oder zu bestrafen. Auch die Nichtzählung von F begründet kein allgemeines Sofaverbot. Türreihenfolge und Sofasitzen belegen für sich keine Rangordnung."
+    },
+    {
+      "number": 339,
+      "uid": "koeln-a52",
+      "sourceId": "A52",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Historisches Modell: „Hierarchie“ rechtfertigt keine Einschüchterung oder körperliche Unterordnung.",
+      "reason": "Der Schlüssel verlangt C: „Hierarchie“. Die politischen Begriffe Demokratie und Anarchie sind dafür keine geeigneten Alternativen. Die Vorlage belegt damit aber weder eine feste gemeinsame Rangpyramide von Menschen und Hund noch die Notwendigkeit körperlicher Unterordnung. Verständliche Regeln und Verantwortung der Menschen sind von einer solchen Rangordnungsvorstellung zu unterscheiden."
+    },
+    {
+      "number": 340,
+      "uid": "koeln-a53",
+      "sourceId": "A53",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Der Schlüssel zählt A. Gemeint ist die Zugehörigkeit aggressiver Verhaltensweisen zum möglichen Verhaltensrepertoire, nicht ein unvermeidliches aggressives Auftreten jedes Hundes. „Normal“ macht eine gefährliche Situation weder ungefährlich noch rechtlich hinnehmbar."
+    },
+    {
+      "number": 341,
+      "uid": "koeln-a54",
+      "sourceId": "A54",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 342,
+      "uid": "koeln-a55",
+      "sourceId": "A55",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 343,
+      "uid": "koeln-a56",
+      "sourceId": "A56",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Unvollständige Situationsfrage: A ist keine allgemeine Aufforderung, jeden auf dem Rücken liegenden Hund am Bauch anzufassen.",
+      "reason": "A und B werden gezählt. Die Frage nennt aber weder Situation noch weitere Körpersignale. Auf-dem-Rücken-Liegen kann deshalb aus dem Wortlaut nicht eindeutig als Streichelwunsch erkannt werden. Insbesondere ist die Ablehnung eines Streichelwunsches in anderen Bildfragen kein Widerspruch, wenn dort Unterwürfigkeit dargestellt wird. Beobachte die konkrete Darstellung beziehungsweise Situation statt aus einer einzelnen Position eine sichere Absicht abzuleiten."
+    },
+    {
+      "number": 344,
+      "uid": "koeln-a57",
+      "sourceId": "A57",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 345,
+      "uid": "koeln-a58",
+      "sourceId": "A58",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "können"
+        ],
+        "C": [
+          "immer"
+        ]
+      },
+      "caution": null,
+      "reason": "C enthält mit „immer die gleichen Ausdrücke“ eine richtige Festlegung: Dasselbe Signal soll dieselbe Bedeutung behalten. Absolute Wörter sind also nicht automatisch falsch. B ist ebenfalls Kataloglösung; die Frage begründet damit aber kein allgemeines Verbot, mehrsilbige Signale zu verwenden."
+    },
+    {
+      "number": 346,
+      "uid": "koeln-b1",
+      "sourceId": "B1",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 347,
+      "uid": "koeln-b2",
+      "sourceId": "B2",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Begriffe prüfen: Der Schlüssel verbindet frühe Sozialisationszeit und spätere Entwicklung. Die zusätzliche Altersangabe C wird hier nicht als allgemein gesicherte Phasengrenze bestätigt.",
+      "reason": "Der Schlüssel nennt A und C. Fachliche Empfehlungen beschreiben die besonders sensible frühe Sozialisationszeit ungefähr ab der dritten bis zur vierzehnten Woche. Lernen und positive Erfahrungen bleiben danach wichtig. Daraus folgt jedoch keine einheitliche zweite Sozialisationsphase vom sechsten bis neunten Monat."
+    },
+    {
+      "number": 348,
+      "uid": "koeln-b3",
+      "sourceId": "B3",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Auf die Altersangabe achten: „8. Lebenswoche“ ist nicht dasselbe wie „über acht Wochen alt“.",
+      "reason": "Der Schlüssel nennt B: „8. Lebenswoche“. Das ist keine genaue Wiedergabe der gesetzlichen Regel. § 2 Absatz 4 TierSchHuV erlaubt die Trennung vom Muttertier grundsätzlich erst im Alter von über acht Wochen. Die laufende achte Lebenswoche ist damit nicht gemeint. Eine frühere Trennung setzt eine tierärztlich begründete Notwendigkeit zum Schutz des Muttertieres oder Welpen voraus."
+    },
+    {
+      "number": 349,
+      "uid": "koeln-b4",
+      "sourceId": "B4",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 350,
+      "uid": "koeln-b6",
+      "sourceId": "B6",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "nicht"
+        ]
+      },
+      "caution": null,
+      "reason": "Mit „stimmt nicht“ in B wird die komplette Behauptung verneint: Weder macht Familienkontakt einen Rückzugsort überflüssig, noch muss der Hund „jederzeit“ engen Kontakt wünschen. C macht das Bedürfnis allein von der Rasse abhängig und wird nicht gezählt."
+    },
+    {
+      "number": 351,
+      "uid": "koeln-b8",
+      "sourceId": "B8",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 352,
+      "uid": "koeln-b9",
+      "sourceId": "B9",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 353,
+      "uid": "koeln-b10",
+      "sourceId": "B10",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "mindestens",
+          "mindestens"
+        ],
+        "C": [
+          "nur"
+        ]
+      },
+      "caution": "Starre Katalogvorgabe: „mindestens“ ist hier keine gesetzliche Mindestdauer kraftzehrenden Trainings.",
+      "reason": "Der Schlüssel zählt A und grenzt sie von lediglich einmaligem Auslauf oder bloßem Hinauslassen zum Lösen ab. Die feste Vorgabe eines 20-minütigen „kraftzehrenden“ Trainings ist jedoch keine allgemeine gesetzliche Pflicht. § 2 TierSchHuV verlangt angemessenen Auslauf und die Berücksichtigung insbesondere von Rasse, Alter und Gesundheitszustand. A ist daher kein für jeden gesunden erwachsenen Hund verbindlicher Belastungsplan."
+    },
+    {
+      "number": 354,
+      "uid": "koeln-b11",
+      "sourceId": "B11",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Unvollständige Rechtsfrage: Die Rasse allein bestimmt die Mindestfläche nicht.",
+      "reason": "Der Schlüssel nennt 8 m². Nach § 6 TierSchHuV richtet sich die Mindestfläche grundsätzlich nach der tatsächlichen Widerristhöhe: bis 50 cm mindestens 6 m², über 50 bis 65 cm 8 m², über 65 cm 10 m². Zusätzliche Anforderungen und gesetzliche Sonderregeln gelten ebenfalls. Ohne Größe und Haltungsumstände ist „Rottweiler“ allein keine ausreichende Grundlage für genau 8 m²."
+    },
+    {
+      "number": 355,
+      "uid": "koeln-b12",
+      "sourceId": "B12",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "frühestens"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 356,
+      "uid": "koeln-b13",
+      "sourceId": "B13",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Zeitangabe nicht pauschalisieren: Das fruchtbare Zeitfenster ist individuell unterschiedlich.",
+      "reason": "Der Schlüssel verlangt B: 9.–14. Tag. Diese Angabe darf nicht als verlässlicher Kalender für jede Hündin verstanden werden: Dauer und zeitliche Lage der Zyklusphasen variieren. Aus der Katalogantwort lassen sich daher keine sicheren Tage zur Vermeidung einer Trächtigkeit ableiten."
+    },
+    {
+      "number": 357,
+      "uid": "koeln-b14",
+      "sourceId": "B14",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 358,
+      "uid": "koeln-b15",
+      "sourceId": "B15",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 359,
+      "uid": "koeln-b16",
+      "sourceId": "B16",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 360,
+      "uid": "koeln-b17",
+      "sourceId": "B17",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Ein einzelnes Kotmerkmal ist kein sicherer Ursachennachweis.",
+      "reason": "Der Schlüssel nennt B: eine zu hohe Knochenration. Sehr harter Kot allein beweist diese Ursache aber nicht. Der Ausschluss von A ist keine allgemeine Aussage, dass Fütterung oder Flüssigkeitsaufnahme die Kotbeschaffenheit niemals beeinflussen könnten. Die konkrete Ursache lässt sich aus dem einzelnen beschriebenen Merkmal nicht sicher bestimmen."
+    },
+    {
+      "number": 361,
+      "uid": "koeln-b19",
+      "sourceId": "B19",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 362,
+      "uid": "koeln-b20",
+      "sourceId": "B20",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 363,
+      "uid": "koeln-b21",
+      "sourceId": "B21",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 364,
+      "uid": "koeln-b22",
+      "sourceId": "B22",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 365,
+      "uid": "koeln-b24",
+      "sourceId": "B24",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 366,
+      "uid": "koeln-b25",
+      "sourceId": "B25",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 367,
+      "uid": "koeln-b26",
+      "sourceId": "B26",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "C": [
+          "nicht",
+          "kann"
+        ]
+      },
+      "caution": null,
+      "reason": "A und C beschreiben die verlangte Funktion: Der Hund soll weder darüber noch darunter entweichen können. B nennt bloß ein Material. „Ausbruchsicher“ verlangt in dieser Frage die Wirksamkeit für den konkreten Hund, nicht einen pauschalen Zauntyp."
+    },
+    {
+      "number": 368,
+      "uid": "koeln-b27",
+      "sourceId": "B27",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "mindestens"
+        ]
+      },
+      "caution": null,
+      "reason": "„Mindestens einmal täglich“ ist eine Untergrenze der Katalogantwort, nicht die Behauptung, häufigeres Reinigen sei falsch oder nie nötig. B und C setzen lediglich wöchentliche beziehungsweise monatliche Reinigung an und werden nicht gezählt."
+    },
+    {
+      "number": 369,
+      "uid": "koeln-b28",
+      "sourceId": "B28",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 370,
+      "uid": "koeln-b29",
+      "sourceId": "B29",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 371,
+      "uid": "koeln-b30",
+      "sourceId": "B30",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 372,
+      "uid": "koeln-b31",
+      "sourceId": "B31",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 373,
+      "uid": "koeln-b33",
+      "sourceId": "B33",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 374,
+      "uid": "koeln-b34",
+      "sourceId": "B34",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Anwendungshinweis: „Herausdrehen“ nicht als allgemeine Anleitung für eine Pinzette übernehmen.",
+      "reason": "A ist im hinterlegten Schlüssel vorgesehen; Öl und Quetschen sind keine geeigneten Alternativen. Die pauschale Anweisung zum Herausdrehen ist jedoch ungenau: Mit einer spitzen Pinzette wird die Zecke hautnah gefasst und vorsichtig herausgezogen. Bei speziellen Entfernungsinstrumenten ist deren jeweilige Anleitung zu beachten."
+    },
+    {
+      "number": 375,
+      "uid": "koeln-b35",
+      "sourceId": "B35",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Katalogkollision: FSME wird hier ausgeschlossen, in Frage 176 dagegen richtig gezählt.",
+      "reason": "Nur C wird gezählt. Der Ausschluss von FSME in B widerspricht jedoch Frage 176 und der Fachinformation von ESCCAP: Infizierte Zecken können auch FSME-Viren auf Hunde übertragen. Die Quelle nennt keinen Grund für diesen Ausschluss. Der Schlüssel wird für diese Katalogfassung beibehalten, ist aber keine vollständige Übersicht möglicher zeckenübertragener Erkrankungen."
+    },
+    {
+      "number": 376,
+      "uid": "koeln-b36",
+      "sourceId": "B36",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 377,
+      "uid": "koeln-b37",
+      "sourceId": "B37",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 378,
+      "uid": "koeln-b38",
+      "sourceId": "B38",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 379,
+      "uid": "koeln-b39",
+      "sourceId": "B39",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 380,
+      "uid": "koeln-b40",
+      "sourceId": "B40",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 381,
+      "uid": "koeln-b41",
+      "sourceId": "B41",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 382,
+      "uid": "koeln-b42",
+      "sourceId": "B42",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 383,
+      "uid": "koeln-b43",
+      "sourceId": "B43",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "immer",
+          "nur"
+        ],
+        "B": [
+          "meist"
+        ]
+      },
+      "caution": null,
+      "reason": "B sagt „meist zweimal“, nicht „ausnahmslos zweimal“. A behauptet dagegen „immer nur einmal“. Auch die Jahreszeiten in B sind keine für jede Hündin sichere Terminvorhersage; die Frage verlangt eine typische Katalogangabe und keinen individuellen Zykluskalender."
+    },
+    {
+      "number": 384,
+      "uid": "koeln-b44",
+      "sourceId": "B44",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 385,
+      "uid": "koeln-b45",
+      "sourceId": "B45",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "immer"
+        ],
+        "B": [
+          "nur"
+        ],
+        "C": [
+          "nie"
+        ],
+        "D": [
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "B und C müssen zusammen gelesen werden: „Nur für kurze Zeit“ in B erlaubt kein Zurücklassen bei gefährlicher Hitze. C nennt dafür ausdrücklich einen Ausschluss. A ist eine pauschale Erlaubnis; der Kofferraum in D macht das Warten nicht sicher."
+    },
+    {
+      "number": 386,
+      "uid": "koeln-b46",
+      "sourceId": "B46",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 387,
+      "uid": "koeln-b47",
+      "sourceId": "B47",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Rechtlicher Widerspruch: A sagt „beantragt“, das Gesetz verlangt grundsätzlich eine vorhandene Erlaubnis.",
+      "reason": "Der Schlüssel nennt A und B. A erwähnt jedoch nur eine „beantragte“ Erlaubnis. Für die private Abgabe verlangt § 5 Absatz 6 LHundG NRW grundsätzlich eine bereits vorhandene erforderliche Erlaubnis. Antrag und erteilte Erlaubnis sind nicht gleichzusetzen. Die Formulierung „berechtigte Person“ beseitigt diese Unklarheit nicht. B nennt die Abgabe an ein Tierheim."
+    },
+    {
+      "number": 388,
+      "uid": "koeln-b48",
+      "sourceId": "B48",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {
+        "B": [
+          "spätestens"
+        ],
+        "C": [
+          "muss"
+        ]
+      },
+      "caution": "Katalog und Rechtslage unterscheiden: B bleibt die Testlösung. „Spätestens am nächsten Tag“ ist keine gesetzliche Frist aus § 9 und keine Garantie, dass eine bestimmte Behandlung erforderlich oder geeignet ist.",
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 389,
+      "uid": "koeln-c1",
+      "sourceId": "C1",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "F": [
+          "Nur"
+        ]
+      },
+      "caution": "Mehrdeutiger Wortlaut von F: Örtliche Geltung ist kein Grund, kommunale Regeln zu ignorieren.",
+      "reason": "A bis E werden gezählt, F nicht. „Nur in Ihrer Gemeinde bzw. Stadt geltende kommunale Regelungen“ ist mehrdeutig: Es kann örtlich begrenzte Vorschriften meinen, die durchaus relevant sind. § 15 Absatz 2 LHundG NRW lässt ergänzende kommunale Regeln ausdrücklich zu. Der Schlüssel lässt sich deshalb nicht sicher dadurch begründen, kommunale Vorgaben seien unwichtig oder grundsätzlich falsch."
+    },
+    {
+      "number": 390,
+      "uid": "koeln-c2",
+      "sourceId": "C2",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 391,
+      "uid": "koeln-c3",
+      "sourceId": "C3",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 392,
+      "uid": "koeln-c4",
+      "sourceId": "C4",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "A": [
+          "Alle",
+          "müssen",
+          "grundsätzlich"
+        ]
+      },
+      "caution": "Die Ausnahme betrifft das tollwutrechtliche Freilaufverbot, keine allgemeine Freilauferlaubnis.",
+      "reason": "D verbindet zwei Voraussetzungen: nachweislich wirksamer Tollwutimpfschutz UND Begleitung durch eine Person, der der Hund zuverlässig gehorcht. B nennt nur die Impfung und ist deshalb unvollständig. § 8 Absatz 3 Tollwut-Verordnung enthält diese Ausnahme vom Freilaufverbot im gefährdeten Bezirk. D befreit nicht von zusätzlich geltenden Anleinpflichten nach Landesrecht oder örtlichen Vorschriften."
+    },
+    {
+      "number": 393,
+      "uid": "koeln-c5",
+      "sourceId": "C5",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": null,
+      "reason": "B bezieht sich auf die Angaben des verwendeten Impfstoffs. Drei Jahre sind deshalb keine pauschal richtige Antwort für jede Tollwutimpfung. Reisevorschriften und die Voraussetzungen einer gültigen Erstimpfung sind zusätzlich zu unterscheiden."
+    },
+    {
+      "number": 394,
+      "uid": "koeln-c6",
+      "sourceId": "C6",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": "Keine pauschale Abschussbefugnis allein wegen Freilaufs oder Verlassens eines Weges.",
+      "reason": "C ist die Kataloglösung, aber „unkontrolliert Wild hetzen“ fasst die Rechtslage nur verkürzt zusammen. Nach § 25 Absatz 4 Nummer 2 LJG-NRW müssen weitere Voraussetzungen vorliegen: außerhalb der Einwirkung der führenden Person, Töten oder erkennbares Hetzen mit entsprechender Fähigkeit zum Beißen oder Reißen sowie fehlende erfolgversprechende mildere Maßnahmen. Hinzu kommen gesetzliche Ausnahmen für bestimmte erkennbare Funktionshunde. Das bloße Verlassen eines Waldwegs oder unangeleintes Nebenherlaufen genügt nicht."
+    },
+    {
+      "number": 395,
+      "uid": "koeln-c7",
+      "sourceId": "C7",
+      "reviewed": true,
+      "action": "none",
+      "signals": {},
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    },
+    {
+      "number": 396,
+      "uid": "koeln-c8",
+      "sourceId": "C8",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 397,
+      "uid": "koeln-c9",
+      "sourceId": "C9",
+      "reviewed": true,
+      "action": "added",
+      "signals": {},
+      "caution": null,
+      "reason": "„Nie“ bezieht sich hier auf die Befreiung nach § 5 Absatz 3 LHundG NRW für die in C genannten, im Einzelfall gefährlichen Hunde nach § 3 Absatz 3. Für die Rassen in A und B eröffnet § 5 Absatz 3 dagegen eine Befreiungsmöglichkeit, nicht eine automatische Befreiung. Andere Anleinpflichten bleiben bestehen."
+    },
+    {
+      "number": 398,
+      "uid": "koeln-c10",
+      "sourceId": "C10",
+      "reviewed": true,
+      "action": "existing",
+      "signals": {},
+      "caution": null,
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+    },
+    {
+      "number": 399,
+      "uid": "kammer-173",
+      "sourceId": "173",
+      "reviewed": true,
+      "action": "added",
+      "signals": {
+        "B": [
+          "kann",
+          "kann"
+        ],
+        "C": [
+          "nur",
+          "können",
+          "nicht"
+        ],
+        "D": [
+          "muss",
+          "nur"
+        ]
+      },
+      "caution": null,
+      "reason": "B garantiert mit „in jedem Fall“ die Gewöhnung und verspricht anschließend „alles“ unternehmen zu können. D beschränkt die Vorbereitung mit „nur“ auf Impfung und Entwurmung. Der Schlüssel zählt A und C als weitere Prüfbereiche. Die genannten Risiken sind keine Diagnose jedes Auslandshundes."
+    },
+    {
+      "number": 400,
+      "uid": "kammer-158",
+      "sourceId": "158",
+      "reviewed": true,
+      "action": "none",
+      "signals": {
+        "A": [
+          "können"
+        ],
+        "B": [
+          "müssen"
+        ]
+      },
+      "caution": null,
+      "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
+    }
+  ]
+}

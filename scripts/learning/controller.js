@@ -152,6 +152,7 @@ window.LHUNDG_TRAINER.Controller = class Controller {
    * @returns {void} Kein Rückgabewert.
    */
   bindFilters() {
+    this.view.review.bind();
     this.view.filters.bind();  // Verwendet ausschließlich die Filtersteuerung der bestehenden Lernansicht.
   }
 
@@ -160,7 +161,8 @@ window.LHUNDG_TRAINER.Controller = class Controller {
   /** Bindet Auswertung, Rücksetzen und Dateisicherung an bestehende Bedienelemente an. */
   bindTools() {
     this.dom.get('intermediate').addEventListener('click', () => this.results.evaluate(true));              // Wertet nur bereits vollständig beantwortete Fragen als Zwischenstand aus.
-    this.dom.get('evaluate').addEventListener('click', () => this.results.evaluate(false));                 // Fordert die Gesamtauswertung einschließlich offener Fragen an.
+    this.dom.get('evaluate').addEventListener('click', () =>
+      this.view.review.active ? this.view.review.finish() : this.results.evaluate(false));                 // Fordert die Gesamtauswertung einschließlich offener Fragen an.
     this.dom.get('reset').addEventListener('click', () => this.reset());                                    // Fragt vor dem Löschen des aktuellen Lernstands ausdrücklich nach.
     this.dom.get('exportProgress').addEventListener('click', () => this.progress.export());                 // Stellt eine lokale Sicherung aller Kataloglernstände bereit.
     this.dom.get('importProgress').addEventListener('change', event => this.progress.import(event));        // Prüft die ausgewählte Sicherungsdatei vor Bestätigung und Zusammenführung.

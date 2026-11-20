@@ -77,10 +77,10 @@ test('Alle Erklärungen sind an vorhandene Original-UIDs gebunden und ändern ke
   const env = setup();
   const before = JSON.stringify(env.scope.LHUNDG_QUESTIONS);
   const entries = Object.entries(env.scope.LHUNDG_EXPLANATIONS);
-  assert.equal(entries.length, 74);
+  assert.equal(entries.length, 215);
   for (const [uid, entry] of entries) {
     const question = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === uid);
-    assert.ok(['legacy203', 'rhein97', 'koeln'].includes(question?.sourceKey));
+    assert.ok(['legacy203', 'rhein97', 'koeln', 'kammer197'].includes(question?.sourceKey));
     assert.ok(entry.text.length > 0);
     if (entry.sourceUrl) assert.equal(new URL(entry.sourceUrl).protocol, 'https:');
     for (const reference of entry.references || []) {

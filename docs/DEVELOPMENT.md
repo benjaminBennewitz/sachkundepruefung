@@ -427,3 +427,36 @@ Installation und regulärer Ablauf bleiben ausschließlich in der Deployment-Anl
 - Lokale visuelle Browserprüfung war nicht verfügbar: Chromium konnte in der
   Ausführungsumgebung nicht starten. Die betreffenden Original-PDF-Seiten wurden
   dagegen gerendert und visuell mit den übernommenen Beschriftungen abgeglichen.
+
+
+## Meine Fehler und frische Wiederholung
+
+`learning/review.js` leitet die Sammlung ausschließlich aus vollständigen,
+aktuell gültig falsch geprüften Antworten des aktiven Katalogs ab. Es gibt
+keinen separaten gespeicherten Fehlerkatalog und keine Vermischung von Personen
+oder Katalogständen. Offene, ungeprüfte und unvollständige Fragen zählen nicht.
+
+Die Wiederholungsrunde hält beim Start eine feste Liste vorhandener Frageobjekte.
+Die bestehende QuestionView erhält einen flüchtigen Sitzungsadapter mit leeren
+Antwort- und Bewertungsmengen. Nur vollständige, ausdrücklich geprüfte Antworten
+werden in den Originalstand übernommen. Spätere ungeprüfte Änderungen bleiben
+Entwürfe; die zuletzt gespeicherte Bewertung bleibt erhalten. Reload, Abbrechen,
+Profil-/Katalogwechsel und bestätigter Import verwerfen solche Entwürfe.
+
+Die Sammlung schrumpft nach einem richtigen neuen Prüfergebnis; die aktive
+Runde behält ihre Reihenfolge. Nach Abschluss zeigt sie richtige und noch nicht
+geprüfte Versuche. Merker bleiben an den Originalkatalog gebunden. Historische
+Prüfungssimulationen bieten Fehleransicht, aber keine überschreibende Wiederholung.
+
+Die neue Datei `review.js` muss in der Server-Positivliste freigegeben sein.
+
+Die feste Auswertungsaktion im Footer wird während der Runde zur Abschlussaktion;
+es wird dabei keine Katalogauswertung ausgelöst. Sofort-Feedback ist für die
+Wiederholung aktiv, ohne die gespeicherte Feedbackpräferenz zu überschreiben.
+
+Prüfgrenze des gelieferten Ausgangsstands: Die separaten zwei Tests in
+`quality/layout.test.mjs` erwarten noch SSI-Markup. Sie schlagen bereits in der
+unveränderten ZIP fehl, die JavaScript-Includes verwendet. Die regulären
+Include-Tests und die HTML-Erhaltungsprüfungen bestehen; diese veralteten Tests
+wurden im Patch nicht umgeschrieben. Ein echter Chromium-Start ist in dieser
+Umgebung wegen gesperrter Socket-Erzeugung nicht möglich.

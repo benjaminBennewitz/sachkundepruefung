@@ -107,6 +107,8 @@ run([
   'scripts/quality/learners.test.cjs',
   'scripts/quality/learner-deletion.test.cjs',
   'scripts/quality/filters.test.cjs',
+  'scripts/quality/review.test.cjs',
+  'scripts/quality/wording-audit.test.cjs',
   'scripts/quality/explanations.test.cjs',
   'scripts/quality/navigation.test.cjs',
   'scripts/quality/include.test.cjs',

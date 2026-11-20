@@ -246,7 +246,9 @@ window.LHUNDG_TRAINER.Results = class Results {
 
     // Fehlerwiederholung wird nur angeboten, wenn tatsächlich falsche oder offene Fragen vorhanden sind.
     if (hasErrors) {
-      actions.append(this.dom.button('Fehler wiederholen', 'secondary', () => this.repeatErrors()));
+      actions.append(this.dom.button('Fehler ansehen', 'secondary', () => this.view.review.show()));
+      if (!this.session.isExam)
+        actions.append(this.dom.button('Fehler wiederholen', 'secondary', () => this.repeatErrors()));
     }
 
     actions.append(closeButton);
@@ -269,9 +271,7 @@ window.LHUNDG_TRAINER.Results = class Results {
   /** Aktiviert die vorhandene Fehlerfilterung und fokussiert die erste Fehlerfrage. */
   repeatErrors() {
     this.dom.get('result').hidden = true;
-    this.state.status = 'wrong';
-    this.dom.get('statusFilter').value = 'wrong';
-    this.view.applyFilters({ focus: true });  // Zeigt die Fehlerliste und setzt den Fokus auf ihre erste passende Frage.
+    this.view.review.start();  // Zeigt die Fehlerliste und setzt den Fokus auf ihre erste passende Frage.
   }
 
   /** Macht das Ergebnis sichtbar und verschiebt den Fokus ohne unkontrollierten Scrollsprung. */

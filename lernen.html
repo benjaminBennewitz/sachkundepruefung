@@ -112,6 +112,9 @@
             <button id="showBookmarks" class="secondary bookmark-access" type="button" aria-pressed="false">★ Merkliste
               (0)</button>
             <!-- BLOCK END: Direkter Zugang zur Merkliste -->
+            <!-- BLOCK START: Dynamische Fehlersammlung -->
+            <button id="showErrors" class="secondary bookmark-access" type="button" aria-pressed="false">Meine Fehler (0)</button>
+            <!-- BLOCK END: Dynamische Fehlersammlung -->
 
           </div>
 
@@ -162,6 +165,16 @@
           </div>
           <div class="question-stage" id="questionStage" role="region" aria-label="Fragen und Rückmeldung" tabindex="0">
             <div id="result" class="result-panel" tabindex="-1" hidden></div>
+            <!-- BLOCK START: Fehler ansehen oder frisch üben -->
+            <section id="errorCollection" class="side-panel" aria-labelledby="errorCollectionTitle" hidden>
+              <h3 id="errorCollectionTitle">Meine Fehler</h3>
+              <p id="errorCollectionNote" role="status" aria-live="polite"></p>
+              <div class="learning-actions">
+                <button id="startErrorReview" class="primary" type="button">Jetzt üben</button>
+                <button id="finishErrorReview" class="secondary" type="button" hidden>Runde beenden</button>
+              </div>
+            </section>
+            <!-- BLOCK END: Fehler ansehen oder frisch üben -->
             <div id="questions" class="questions"></div>
           </div>
           <!-- BLOCK START: Direkte Lernaktionen und Fragennavigation -->
@@ -247,16 +260,17 @@
   <script src="scripts/learning/profiles.js?v=62" defer></script>
   <script src="scripts/learning/dom.js?v=33" defer></script>
   <script src="scripts/learning/session.js?v=70" defer></script>
-  <script src="scripts/learning/explanations.js?v=74" defer></script>
+  <script src="scripts/learning/explanations.js?v=75" defer></script>
   <script src="scripts/learning/question-feedback.js?v=73" defer></script>
   <script src="scripts/learning/question-view.js?v=48" defer></script>
-  <script src="scripts/learning/filter-view.js?v=67" defer></script>
+  <script src="scripts/learning/filter-view.js?v=75" defer></script>
   <script src="scripts/learning/insights.js?v=63" defer></script>
-  <script src="scripts/learning/learning-view.js?v=56" defer></script>
-  <script src="scripts/learning/results.js?v=49" defer></script>
-  <script src="scripts/learning/progress.js?v=63" defer></script>
+  <script src="scripts/learning/review.js?v=75" defer></script>
+  <script src="scripts/learning/learning-view.js?v=75" defer></script>
+  <script src="scripts/learning/results.js?v=75" defer></script>
+  <script src="scripts/learning/progress.js?v=75" defer></script>
   <script src="scripts/learning/keyboard.js?v=40" defer></script>
-  <script src="scripts/learning/controller.js?v=70" defer></script>
+  <script src="scripts/learning/controller.js?v=75" defer></script>
   <script src="scripts/learning/foundations.js?v=43" defer></script>
   <script src="scripts/learning/app.js?v=64" defer></script>
   <script src="scripts/learning/workspace-tools.js?v=67" defer></script>
