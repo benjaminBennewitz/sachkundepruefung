@@ -252,6 +252,17 @@ window.LHUNDG_TRAINER.FilterView = class FilterView {
   }
 
   /**
+   * Erkennt die letzte tatsächliche Testfrage auch in Listen- und gefilterten Ansichten.
+   * @returns {boolean} Ob der Weiter-Button einen noch laufenden Test auswerten soll.
+   */
+  canCompleteExam() {
+    const last = this.session.questions.at(-1);
+    return this.session.isExam && !this.state.finished && Boolean(last) && this.state.items
+      .slice(this.state.index, this.state.index + this.view.pageSize())
+      .some(question => question.id === last.id);
+  }
+
+  /**
    * Benennt Blätteraktionen und die Position ausdrücklich innerhalb der aktiven Trefferfolge.
    *
    * @returns {void} Kein Rückgabewert.
@@ -263,10 +274,11 @@ window.LHUNDG_TRAINER.FilterView = class FilterView {
     const end = Math.min(this.state.index + this.view.pageSize(), this.state.items.length);        // Letzte dargestellte Trefferposition.
     const range = this.view.pageSize() > 1 ? `–${end}` : '';                                       // Listen zeigen ihre vollständige Seitenspanne.
 
+    const completeExam = this.canCompleteExam();
     this.dom.get('previous').disabled = this.state.index <= 0;
-    this.dom.get('next').disabled = this.state.index + this.view.pageSize() >= this.state.items.length;
+    this.dom.get('next').disabled = !completeExam && this.state.index + this.view.pageSize() >= this.state.items.length;
     this.dom.get('previous').textContent = search ? '← Vorherige Treffer' : '← Zurück';
-    this.dom.get('next').textContent = search ? 'Nächste Treffer →' : 'Weiter →';
+    this.dom.get('next').textContent = completeExam ? 'Test auswerten' : search ? 'Nächste Treffer →' : 'Weiter →';
     this.dom.get('position').textContent = this.state.items.length
       ? `${prefix}${this.state.index + 1}${range} von ${this.state.items.length}`
       : 'Keine Treffer';

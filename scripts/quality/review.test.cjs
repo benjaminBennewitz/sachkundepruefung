@@ -319,3 +319,54 @@ test('Nur Zuordnungsfragen mit Bild erhalten die fixierbare Bildansicht', () => 
       question.type === 'mapping' && question.requiresVisual, uid);
   }
 });
+
+
+test('Alle Testprofile bieten auf der letzten Frage die aktive Auswertung statt Weiter', () => {
+  for (const mode of ['exam34', 'mgexam', 'exam11', 'essenexam']) {
+    const env = setup(`mode=${mode}`);
+    const { state, questions } = env.session;
+    state.items = questions;
+    for (const pageSize of [1, 8]) {
+      env.view.pageSize = () => pageSize;
+      state.index = Math.floor((questions.length - 1) / pageSize) * pageSize;
+      env.view.filters.updatePagination();
+      assert.equal(env.get('next').textContent, 'Test auswerten', mode);
+      assert.equal(env.get('next').disabled, false, mode);
+      state.index = 0;
+      env.view.filters.updatePagination();
+      assert.equal(env.get('next').textContent, 'Weiter →', mode);
+    }
+  }
+});
+
+test('Abgeschlossene Tests, Kataloge und bloße Filterenden bleiben normale Navigation', () => {
+  for (const mode of ['', 'mode=exam34']) {
+    const env = setup(mode);
+    const { state, questions } = env.session;
+    state.items = questions.slice(0, 2);
+    state.index = 1;
+    assert.equal(env.view.filters.canCompleteExam(), false);
+    state.items = questions;
+    state.index = questions.length - 1;
+    state.finished = true;
+    env.view.filters.updatePagination();
+    assert.equal(env.get('next').textContent, 'Weiter →');
+    assert.equal(env.get('next').disabled, true);
+  }
+});
+
+test('Weiter auf der letzten Testfrage ruft die bestehende Gesamtauswertung auf', () => {
+  const env = setup('mode=exam34');
+  const calls = [];
+  env.view.step = direction => calls.push(['step', direction]);
+  const controller = Object.create(env.trainer.Controller.prototype);
+  Object.assign(controller, { session: env.session, view: env.view, dom: env.trainer.dom,
+    results: { evaluate: intermediate => calls.push(['evaluate', intermediate]) } });
+  controller.bindNavigation();
+  env.session.state.items = env.session.questions;
+  env.session.state.index = 0;
+  env.get('next').events.click();
+  env.session.state.index = env.session.questions.length - 1;
+  env.get('next').events.click();
+  assert.deepEqual(calls, [['step', 1], ['evaluate', false]]);
+});

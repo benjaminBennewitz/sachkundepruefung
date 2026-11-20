@@ -140,7 +140,11 @@ window.LHUNDG_TRAINER.Controller = class Controller {
     this.dom.get('testSelect').addEventListener('change', () => this.updateTestProfile());                     // Zeigt vor dem Start die Bedingungen des ausgewählten Prüfungsprofils.
     this.dom.get('startExam').addEventListener('click', () => this.startExam());                               // Startet die ausgewählte Testreihe und schützt einen laufenden Stand vor unbeabsichtigtem Neustart.
     this.dom.get('previous').addEventListener('click', () => this.view.step(-1));                              // Blättert zur vorherigen sichtbaren Fragenseite.
-    this.dom.get('next').addEventListener('click', () => this.view.step(1));                                   // Blättert zur nächsten sichtbaren Fragenseite.
+    /* Der letzte Testschritt verwendet dieselbe Auswertung und Abschlusswarnung wie die vorhandene Aktion. */
+    this.dom.get('next').addEventListener('click', () => {
+      if (this.view.filters.canCompleteExam()) this.results.evaluate(false);
+      else this.view.step(1);
+    });
     this.dom.get('resume').addEventListener('click', () => this.view.resume());                                // Öffnet die nächste noch unvollständig beantwortete Frage.
     this.dom.get('viewSelect').addEventListener('change', event => this.view.changeView(event.target.value));  // Wechselt Fokus-, Listen- oder TV-Ansicht mit passender Position.
     this.dom.get('instantFeedback').addEventListener('click', () => this.view.toggleFeedback());               // Schaltet die manuelle Einzelprüfung im Lernmodus um.
