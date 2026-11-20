@@ -29,3 +29,27 @@ test('Der Auditnachweis umfasst jede der 400 Fragen genau einmal und gehört zu 
   }
   assert.equal(Object.values(audit.counts).reduce((sum, value) => sum + value, 0), 400);
 });
+
+
+test('Alle sichtbaren Quellen sind als deutschsprachige Ziele geprüft; reine Texthilfen brauchen keinen Link', () => {
+  const { scope } = environment(['data', 'explanations']);
+  const audit = JSON.parse(readFileSync(resolve(__dirname, '../../docs/WORDING_AUDIT.json'), 'utf8'));
+  const entries = scope.LHUNDG_EXPLANATIONS;
+  assert.equal(audit.sourceReview.language, 'de');
+  assert.equal(audit.sourceReview.reviewedEntries, Object.keys(entries).length);
+  const approved = new Set(audit.sourceReview.approvedUrls);
+  const used = new Set();
+  for (const [uid, entry] of Object.entries(entries)) {
+    const references = entry.references || (entry.sourceUrl ? [{ url: entry.sourceUrl }] : []);
+    for (const reference of references) {
+      assert(approved.has(reference.url), `Nicht sprachlich geprüfte Quelle: ${uid} ${reference.url}`);
+      assert.doesNotMatch(reference.label || '', /englisch|english/i);
+      used.add(reference.url);
+    }
+  }
+  assert.deepEqual([...used].sort(), [...approved].sort());
+  for (const uid of ['legacy-10', 'legacy-15']) {
+    assert.equal(entries[uid].sourceUrl, undefined);
+    assert.equal(entries[uid].references, undefined);
+  }
+});

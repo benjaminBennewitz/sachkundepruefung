@@ -4,10 +4,10 @@
   "dataSha256": "becae15ddb4fdab1dcf028bc51c840e512276b7e03265703fe65d5ad6bf6524a",
   "gradingChanged": false,
   "counts": {
-    "added": 141,
+    "added": 147,
     "expanded": 1,
     "existing": 73,
-    "none": 185
+    "none": 179
   },
   "questions": [
     {
@@ -38,7 +38,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "Entscheidend ist „nur“ in C: Unterschiede im Aussehen gibt es, aber C beschränkt sämtliche Unterschiede darauf. Unterschiedliche Veranlagungen werden dadurch ausgeschlossen. Genau diese nennt B. „Alle“ in A und die Größeneinteilung in D liefern ebenfalls keine zutreffende Beschreibung."
     },
     {
@@ -52,7 +51,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "C verspricht Kindern und Welpen „uneingeschränkt Narrenfreiheit“. Das ist gerade kein sicherer Schutz vor Abwehrreaktionen. A und B nennen Warnsignale; D beschreibt eine mögliche Eskalation. Daraus folgt weder, dass jeder Hund beißt, noch eine Anleitung, Knurren zu bestrafen."
     },
     {
@@ -62,7 +60,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -93,7 +90,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -126,8 +122,8 @@
           "müssen"
         ]
       },
-      "caution": "C ist eine eng begrenzte Kann-Aussage. „Wenige Minuten“ ist keine sichere Zeitfreigabe; auch der Ort Tierarztpraxis macht einen längeren Einsatz nicht geeignet.",
-      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich.",
+      "caution": "C zählt hier mit. Eine enge Maulschlaufe verhindert das Hecheln und ist kein Maulkorb für Wartezeiten, Spaziergänge oder Transporte. Auch wenige Minuten sind nicht für jeden Hund sicher."
     },
     {
       "number": 8,
@@ -146,7 +142,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -167,7 +162,6 @@
           "können"
         ]
       },
-      "caution": null,
       "reason": "In B steht „kann zu Schmerzen führen“, nicht „verursacht bei jedem Ruck sicher Schmerzen“. Die Aussage benennt ein Risiko. A und C stellen Leinenrucke dagegen als „notwendig“ dar; der Schlüssel verwirft diese behauptete Notwendigkeit. D benennt mögliche Folgen ständiger Rucke."
     },
     {
@@ -185,7 +179,6 @@
           "alle"
         ]
       },
-      "caution": "B ist eine vereinfachte Katalogaussage, keine Zusage völliger Belastungsfreiheit.",
       "reason": "Der Schlüssel zählt B und D. A schließt einen Maulkorb „auf keinen Fall“ zu, C hält ängstliche Hunde pauschal für nicht aggressiv. B macht Gewöhnung zur Voraussetzung, formuliert „keine Belastung“ aber zu absolut: Training kann Belastung reduzieren, garantiert nicht für jeden Hund und jede Situation Stressfreiheit."
     },
     {
@@ -202,7 +195,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -221,7 +213,6 @@
           "ständig"
         ]
       },
-      "caution": null,
       "reason": "B verbindet zwei Behauptungen: Zusammenleben mit Menschen und völlige Unfähigkeit, allein Nahrung zu beschaffen. Der erste Gedanke macht die gesamte Antwort nicht richtig. A und C nennen die vom Katalog gesuchten Grundveranlagungen; D erklärt das ständige Suchen nach toten Tieren zur allgemeinen Eigenschaft."
     },
     {
@@ -274,8 +265,8 @@
           "nicht"
         ]
       },
-      "caution": "Quellenvergleich: Der zugesandte 97er-Bogen, Originalfrage 58, zählt Leinenruck als richtig. Das ist eine andere Erziehungsaussage, keine zusätzliche Gebrauchsanweisung für die hier genannten Hilfsmittel.",
-      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich.",
+      "caution": "Vergleich: Im 97er-Bogen zählt Originalfrage 58 Leinenruck mit. Hier wird nach sinnvollen Hilfsmitteln gefragt; dort nach Tadel. Die Schlüssel nicht vermischen."
     },
     {
       "number": 16,
@@ -284,7 +275,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -311,7 +301,6 @@
           "grundsätzlich"
         ]
       },
-      "caution": null,
       "reason": "A behauptet, der Hund „muss“ früher geschlagen worden sein. Aus dem beschriebenen Schnappen lässt sich diese Vorgeschichte nicht sicher ableiten. B beschreibt dagegen eine mögliche Wahrnehmung der gerade geschilderten Gesten. Gesucht ist ein möglicher Grund, keine Diagnose eines grundsätzlich gestörten Hundes."
     },
     {
@@ -401,7 +390,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "C bestreitet mit „gar keine“ jede Reizverarbeitung. D behauptet eine vom Reizangebot unabhängige Entwicklung. Der Schlüssel zählt dagegen A und B. Entscheidend ist außerdem die Frage selbst: Die Erfahrungen sollen entspannt und positiv sein; mehr Reize um jeden Preis wird nicht verlangt."
     },
     {
@@ -429,7 +417,6 @@
           "muss"
         ]
       },
-      "caution": null,
       "reason": "„Immer“ und „regeln die Hunde das unter sich“ machen A zu einer pauschalen Freigabe. B setzt eine Absprache voraus. C nennt Situationen, in denen wildes Spiel unterbleiben soll; D verlangt bei nicht ableinbaren Hunden ausdrücklich eine Abwägung. Die Antworten sind keine Ausnahme von geltenden Anleinpflichten."
     },
     {
@@ -439,7 +426,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -473,7 +459,6 @@
           "immer"
         ]
       },
-      "caution": null,
       "reason": "In C steckt das Versprechen, Kinder und Hunde verstünden sich „immer gut“. Die anderen Antworten benennen mögliche Schwierigkeiten. Dass beide gerne spielen können, reicht nicht als Garantie für einen sicheren Kontakt. D wird als Warnung vor nicht sicher vorhersagbarem Verhalten gewertet, nicht als Diagnose jedes Kindes oder Hundes."
     },
     {
@@ -523,7 +508,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -533,7 +517,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -578,7 +561,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -600,7 +582,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "B und C widersprechen sich nicht: B kritisiert die „ausschließliche“ Gartenaufzucht ohne ausreichende Alltagserfahrungen. C lässt den Garten zu, wenn solche Erfahrungen trotzdem ermöglicht werden. Entscheidend sind diese Bedingungen, nicht allein der Ort. D macht daraus ein pauschales Draußen-Verbot bis zur zwölften Woche."
     },
     {
@@ -618,7 +599,6 @@
           "nicht"
         ]
       },
-      "caution": "Quellenwortlaut beachten: Die Zuordnungszusage und das Wort „über“ sind verkürzt.",
       "reason": "A, B und C sind die Kataloglösung. Das „immer sicher seinem Besitzer zugeordnet“ in A ist keine Garantie bei fehlenden oder veralteten Halterdaten. Der Chip speichert eine Kennnummer, keine automatisch aktuellen Besitzerdaten. Auch die Größengrenze in A ist ungenau: § 11 LHundG NRW nennt mindestens 20 kg ODER mindestens 40 cm, nicht erst Werte darüber. Für Hunde nach §§ 3 und 10 bestehen weitere Chippflichten."
     },
     {
@@ -637,7 +617,6 @@
           "können"
         ]
       },
-      "caution": null,
       "reason": "B verbindet eine mögliche Verhaltensunterbrechung mit „keine Risiken“. Ob eine Maßnahme kurzfristig unterbricht, sagt nichts darüber aus, ob sie ungefährlich ist. A, C und D nennen die im Katalog berücksichtigten Risiken und werden deshalb gezählt."
     },
     {
@@ -709,7 +688,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -719,7 +697,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -733,7 +710,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -788,7 +764,6 @@
           "jeder"
         ]
       },
-      "caution": null,
       "reason": "B behauptet, „jeder Hund“ passe sich an die Wohnverhältnisse an. Das ersetzt die konkrete Prüfung aus A, C und D nicht. Die Frage verlangt Überlegungen vor der Anschaffung; sie behauptet nicht, dass bestimmte Wohnformen allein immer ungeeignet sind."
     },
     {
@@ -798,7 +773,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -815,7 +789,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "Bei C ist „vorausgesetzt sie verstehen sich untereinander gut“ entscheidend. Der Schlüssel zählt A und C als mögliche Vorteile. Daraus folgt keine Garantie, dass ein zweiter Hund jedes Alleinbleibeproblem löst. „Den ganzen Tag“ in B und „doppelt so schnell“ in D sind nicht zugesicherte Folgen der Mehrhundehaltung."
     },
     {
@@ -832,8 +805,8 @@
           "können"
         ]
       },
-      "caution": "Unklarer Wortlaut: Der Verletzungsmechanismus in D wird nicht eindeutig beschrieben.",
-      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich.",
+      "caution": "D zählt mit, obwohl der genaue Ablauf der versehentlichen Verletzung im Wortlaut offenbleibt. Merke dir die Auswahl, ohne daraus eine bestimmte Verletzungsursache zu erfinden."
     },
     {
       "number": 49,
@@ -849,7 +822,6 @@
           "können"
         ]
       },
-      "caution": null,
       "reason": "C macht einen Garten zur unbedingten Voraussetzung für Stubenreinheit. Diese Voraussetzung verlangt der Schlüssel nicht. A, B und D betreffen dagegen Vorbereitung und langfristige Versorgung. Bei A ist „einige Monate dauern kann“ eine Möglichkeit, keine für jeden Welpen festgelegte Trainingsdauer."
     },
     {
@@ -876,7 +848,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -900,7 +871,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "A enthält die Bedingung „wenn es zu Problemen kommt“. Es wird nicht behauptet, dass man mit zwei Hunden grundsätzlich getrennt spazieren gehen muss. D verspricht dagegen, die Hunde übernähmen „nur erwünschte“ Verhaltensweisen. Die Verdoppelungen in B und C sind vereinfachte Katalogangaben, keine exakte Zeit- oder Kostenberechnung."
     },
     {
@@ -910,7 +880,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -928,7 +897,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -949,7 +917,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "B legt den Kofferraum als „immer“ notwendigen Transportort fest. C verlangt stattdessen Sicherung; D nennt eine sicher befestigte Transportbox als Beispiel. Das „z. B.“ ist entscheidend: Der Schlüssel erklärt diese Box nicht zur einzig zulässigen Sicherungsform."
     },
     {
@@ -959,7 +926,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Grenzen der Abbildung: Die sichere Unterscheidung ist in der Zeichnung nur begrenzt möglich.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -978,7 +944,6 @@
           "ständig"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -988,7 +953,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "„Vorsichtig“ und „ganz kurz“ machen D nicht richtig: Der fremde Hund wird dabei ohne vorherige Klärung von hinten angefasst. A und B verzichten auf ungefragten Kontakt. Die Erlaubnis des Halters ist dabei kein Zwang für das Kind oder den Hund, einen Kontakt tatsächlich zuzulassen."
     },
     {
@@ -1004,8 +968,8 @@
           "nicht"
         ]
       },
-      "caution": "Wortlaut offen: D wird nicht als richtig gezählt, ist aber keine absolute Aussage. Die Erklärung ergänzt keine sichere Absicht des Herausgebers.",
-      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich.",
+      "caution": "D wird nicht akzeptiert, obwohl dort nur „kann“ steht. Das lässt sich nicht als Fehler durch ein absolutes Wort erklären. Hier gilt A und B."
     },
     {
       "number": 60,
@@ -1055,7 +1019,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "„Immer auf seinem Platz“ und „hinter einem gehen“ in A und B sind keine im Katalog genannten Voraussetzungen einer vertrauensvollen Beziehung. C und D beziehen sich auf die Erfahrungen des Hundes mit seinem Menschen, nicht auf feste räumliche Positionen."
     },
     {
@@ -1097,7 +1060,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -1116,7 +1078,6 @@
           "muss"
         ]
       },
-      "caution": null,
       "reason": "D verlangt, „jedes“ unerwünschte Verhalten zu bestrafen. B macht ständiges Hinterhergehen zur Bedingung. Beides wird verworfen. A und C nennen Training über positive Bestärkung sowie passende Beschäftigung; das Wort „konsequent“ allein macht eine Strafmaßnahme nicht richtig."
     },
     {
@@ -1142,7 +1103,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "B bestreitet die besondere Bedeutung der frühen Zeit, D behauptet eine „unwiederbringliche“ Besitzerbindung. A und C betreffen dagegen frühe Erfahrungen und Entwicklung. Daraus folgt nicht, dass späteres Lernen oder eine spätere Bindung unmöglich wären."
     },
     {
@@ -1159,7 +1119,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -1178,7 +1137,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "Gefragt sind mögliche Hinweise auf Stress. A schließt negativen Stress beim Training mit „immer gerne“ grundsätzlich aus. B und C werden als Hinweise gewertet, nicht als allein ausreichende Diagnose jedes unruhigen oder langsam reagierenden Hundes."
     },
     {
@@ -1210,8 +1168,8 @@
           "können"
         ]
       },
-      "caution": "Quellenvergleich: Der zugesandte 97er-Bogen, Originalfrage 33, setzt bereits einen „zur Dominanz neigenden“ Hund voraus. Hier werden dagegen mögliche Ursachen des Leinenziehens gefragt. Die Situationen dürfen nicht gleichgesetzt werden.",
-      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich.",
+      "caution": "Vergleich: Die andere Frage zum „zur Dominanz neigenden Hund“ setzt ein Rangordnungsmodell voraus. Diese Frage sucht dagegen Ursachen des Ziehens. Hier gilt B, C und D."
     },
     {
       "number": 73,
@@ -1259,7 +1217,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -1269,7 +1226,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -1311,7 +1267,6 @@
           "können"
         ]
       },
-      "caution": "A formuliert zu pauschal. C nennt ausdrücklich das Lernen von Wortbedeutungen; der Schlüssel bleibt A+C.",
       "reason": "Der Schlüssel zählt A und C. C unterscheidet das Wiedererkennen gelernter Wörter von dem Verständnis ausführlicher menschlicher Erklärungen, wie B es voraussetzt. A ist nur in dieser Gegenüberstellung zu lesen: „kein Sprachverständnis“ darf nicht heißen, dass Hunde überhaupt keine Bedeutung menschlicher Signale lernen könnten."
     },
     {
@@ -1334,7 +1289,6 @@
           "kann"
         ]
       },
-      "caution": "Rechtliche Verkürzung: Fehlende Sicherung allein begründet nicht automatisch eine Teilschuld an jedem Unfall.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -1348,7 +1302,6 @@
           "alle"
         ]
       },
-      "caution": null,
       "reason": "„Keine offenen Wunden“ in D ist kein ausreichendes Kriterium für Spiel. C beschreibt gerade bedrängendes Verhalten und deutliche Abwehrsignale. In B steht „in der Regel“: Ein Positionswechsel ist ein typischer Hinweis des Katalogs, keine ausnahmslose Einzelregel."
     },
     {
@@ -1372,7 +1325,6 @@
           "Nur"
         ]
       },
-      "caution": "Mehrdeutiger Wortlaut: B ist nicht eindeutig ausformuliert. C und D zählen im Schlüssel, sind aber keine verlässliche Vorhersage für den einzelnen Hund.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -1395,7 +1347,6 @@
           "grundsätzlich"
         ]
       },
-      "caution": null,
       "reason": "A beginnt mit „nicht unbedingt“: Anspringen beweist allein keine aggressive Absicht, bleibt aber ein Verhalten, das andere beeinträchtigen kann. C und D machen daraus „immer“ eine Spielaufforderung beziehungsweise grundsätzlich Zuneigung. Diese eindeutige Zuordnung gibt die Situation nicht her."
     },
     {
@@ -1470,7 +1421,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -1488,7 +1438,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "A und C beziehen sich auf sanftes Lenken und das Kräfteverhältnis. B bestreitet jeden Vorteil; D setzt einen angeblich „notwendigen“ Leinenruck voraus. Daraus folgt umgekehrt nicht, dass ein Kopfhalfter ohne Gewöhnung und fachkundige, sanfte Führung risikolos wäre."
     },
     {
@@ -1525,7 +1474,6 @@
           "können"
         ]
       },
-      "caution": null,
       "reason": "Gefragt wird nach Gefahren. B benennt allenfalls eine Verhaltensunterbrechung und beantwortet damit die Risikofrage nicht. A, C und D nennen die im Schlüssel berücksichtigten möglichen Folgen. Eine kurzfristige Wirkung ist nicht gleichbedeutend mit Unbedenklichkeit."
     },
     {
@@ -1561,7 +1509,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -1596,7 +1543,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "„Auch wenn der Hund einen gesunden Eindruck macht“ ist die entscheidende Bedingung der Frage. A, B und D nennen Gründe für einen Termin ohne sichtbare Erkrankung. C lehnt solche Besuche pauschal ab. Die Antworten verlangen keine belastende Untersuchung bei jedem bloßen Kennenlerntermin."
     },
     {
@@ -1618,7 +1564,6 @@
           "können"
         ]
       },
-      "caution": null,
       "reason": "Bekanntheit mit Pferden in A und langsames Reiten in C garantieren keine gefahrlose Begegnung. B verlangt Anleinen und Abwarten; D nennt ausdrücklich auch mögliche Reaktionen des Pferdes. Es geht um die Kontrolle beiderseitiger Risiken, nicht nur um die Angst des eigenen Hundes."
     },
     {
@@ -1635,7 +1580,6 @@
           "niemals"
         ]
       },
-      "caution": null,
       "reason": "D verspricht, bei guter Bindung gebe es „niemals Verhaltensprobleme“. Eine solche Garantie wird verworfen. A und B beschreiben positive Hinweise auf die Beziehung. Auch C macht aus wechselnden Bezugspersonen eine allgemeine Zusage für die Bindung an „alle Menschen“."
     },
     {
@@ -1667,7 +1611,6 @@
           "nur"
         ]
       },
-      "caution": "Pauschale Handlungsvorgabe: B bleibt Testlösung, ersetzt aber keine Einschätzung der konkreten Notlage.",
       "reason": "B ist die Kataloglösung. „Möglichst gar nicht“ und die Bedingung zu den Kräfteverhältnissen sind aber keine sichere allgemeine Regel für jede Rauferei. Größe allein garantiert keinen harmlosen Verlauf. Die Antwort ist auch keine Empfehlung, einen nicht kontrollierbaren Konflikt unbeaufsichtigt zurückzulassen. C nennt ein gefährliches körperliches Eingreifen; A und D setzen auf Anschreien beziehungsweise nachträgliches Bestrafen. Aus dem kurzen Szenario lässt sich keine universell sichere Trennmaßnahme ableiten."
     },
     {
@@ -1713,7 +1656,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "C macht aus „5 Minuten pro Lebensmonat“ mit „nur“ eine feste Auslaufgrenze. Der Schlüssel verlangt stattdessen A und damit eine Beurteilung nach Größe, Alter und Gesundheitszustand. Daraus folgt weder unbegrenzte Belastbarkeit noch ein individuelles Bewegungspensum."
     },
     {
@@ -1737,7 +1679,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "D beschränkt die Rücksichtnahme auf „nur große Hunde“ und erklärt kleine Hunde für ungefährlich. A behandelt eine Hundeauslauffläche als Vorrangrecht gegenüber Kindern; B ersetzt Rücksicht durch Versicherungsschutz. C sichert die konkrete Begegnung durch Anleinen ab."
     },
     {
@@ -1751,7 +1692,6 @@
           "muss"
         ]
       },
-      "caution": null,
       "reason": "D behauptet, Unterordnung allein mache gezieltes Üben überflüssig und ermögliche „überall problemlos“ Berührung. Der Schlüssel zählt A, B und C als Vorteile eines positiv aufgebauten Trainings. „Sich anfassen lassen“ ist dabei keine Aufforderung, erkennbare Abwehr zu übergehen."
     },
     {
@@ -1834,7 +1774,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "B macht aus dem Maulkorb eine Garantie, dass Kinder nicht verletzt werden können. Das ist die entscheidende Übertreibung. Die übrigen Antworten betreffen Beobachtung, Abstand und Kontrolle. Der Maulkorb wird in C nur als zusätzliche Sicherungsmaßnahme beschrieben."
     },
     {
@@ -1844,7 +1783,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -1869,7 +1807,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "A erklärt aggressivere Begegnungen pauschal damit, dass sich Hunde an der Leine „grundsätzlich stärker“ fühlten. C und D sprechen dagegen ausdrücklich von möglichen Reaktionen und unterschiedlichen Hunden. B beschreibt das zusätzliche Problem verhedderter Leinen. Ein Leinenkontakt muss also nicht zwangsläufig eskalieren."
     },
     {
@@ -1893,7 +1830,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "B verspricht, der Hund erkenne Kinder der Familie „immer“ als zugehörig und sei ihnen wohlgesonnen. Der Schlüssel verwirft diese Garantie. A, C und D nennen Einflüsse von Erfahrung, Alter und Verhalten, ohne jedem Kind oder Hund denselben Ablauf zuzuschreiben."
     },
     {
@@ -1937,7 +1873,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "B und C beschränken Sozialisation mit „nur“ auf freien Kontakt beziehungsweise ein einziges Kind. D verlangt tatsächlich positive Erfahrungen mit unterschiedlichen Altersstufen. Bloßes Ertragen ohne offensichtliche Gegenwehr wird dabei nicht mit positivem Erleben gleichgesetzt."
     },
     {
@@ -1969,7 +1904,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "B und C erklären Ressourcenverteidigung allein durch eine angebliche Rangposition gegenüber Menschen. A und D nennen andere Zusammenhänge. Bei D steht „kann“: Eine frühere Bestrafung ist eine Möglichkeit, keine aus dem Verteidigen sicher ableitbare Vorgeschichte."
     },
     {
@@ -2039,7 +1973,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "A stellt den eigenen Hund mit „immer“ und „meiner beißt nicht“ von Rücksichtnahme frei. B, C und D nennen dagegen Kontrolle und Abstand. C enthält mehrere Bedingungen: Absprache und erwartbar verträglicher Kontakt. Diese Antwort hebt bestehende Anleinpflichten nicht auf."
     },
     {
@@ -2061,7 +1994,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -2096,7 +2028,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "Die Pflicht, den eigenen Rüden zu kontrollieren, verschwindet nicht durch Behauptungen über die Hündin oder ihren Halter. D erklärt das Spielen außerhalb der Stehtage ohne Aufpassen für unbedenklich. B verlangt dagegen Anleinen und eine konkrete Einschätzung vor erneutem Freilauf."
     },
     {
@@ -2191,7 +2122,6 @@
           "immer"
         ]
       },
-      "caution": null,
       "reason": "B behauptet für „alle Hunde“, sie fräßen bei freiem Angebot „nur so viel, wie sie brauchen“. D macht Hunger zur ständigen Erziehungsbedingung; C setzt Futterentzug als Strafe ein. Der Schlüssel zählt A mit dem Ziel einer passenden Körperkondition. Eine bestimmte Grammzahl ergibt sich daraus nicht."
     },
     {
@@ -2228,7 +2158,6 @@
           "Nur"
         ]
       },
-      "caution": null,
       "reason": "D beschränkt den möglichen Vertrauensverlust auf „nur generell ängstliche Hunde“. A schließt ihn bei zuvor guter Beziehung aus. Der Schlüssel zählt B und C: Es geht um mögliche Wirkung und Nachvollziehbarkeit der Handlung, nicht um eine sichere Ausnahme aufgrund der bisherigen Beziehung."
     },
     {
@@ -2250,7 +2179,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "A verlangt „unbedingt“ einen festen Rhythmus und verbietet jedes Futter zwischendurch. B verspricht Selbstregulation bei „allen Hunden“. C und D lassen andere Darreichungsformen zu. Dass Futter als Belohnung eingesetzt werden kann, ist keine Erlaubnis, den Nahrungsbedarf von Trainingsleistung abhängig zu machen."
     },
     {
@@ -2264,7 +2192,6 @@
           "Nur"
         ]
       },
-      "caution": null,
       "reason": "B macht erlerntes Beobachten zur einzigen Voraussetzung: „Nur, wenn man es ihnen beigebracht hat“. Der Schlüssel zählt A und D und betont die Beachtung menschlicher Körpersprache. D bedeutet nicht, dass gelernte Hörsignale bedeutungslos wären."
     },
     {
@@ -2274,7 +2201,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -2315,7 +2241,6 @@
           "kann"
         ]
       },
-      "caution": "Verkürzte Katalogaussage: Nicht jegliches Lernen, sondern ein geeigneter Trainingsrahmen ist das Thema.",
       "reason": "Der Schlüssel zählt A und B. Bei A ist „nur … wenn sie entspannt sind und keine Angst haben“ zu absolut: Angst schaltet nicht jede Form von Lernen aus; auch belastende Verknüpfungen können entstehen. Die Antwort ist als Ziel eines möglichst angstarmen Trainings zu lesen. C verwirft Training vollständig, D ignoriert die besonderen Bedürfnisse des ängstlichen Hundes."
     },
     {
@@ -2335,7 +2260,6 @@
           "nur"
         ]
       },
-      "caution": "Unterschiedliche Ausprägungen: Aus dem Schlüssel folgt weder, dass jede Scheinträchtigkeit harmlos ist, noch dass sie regelmäßig schwer oder dauerhaft verläuft.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -2368,7 +2292,6 @@
           "können"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -2385,7 +2308,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "B und D benennen mögliche unerwünschte Folgen. A garantiert dagegen schnelle und zuverlässige Ausführung; C verspricht sogar Freude nach rigorosem Vorgehen. Eine mögliche Wirkung einer Strafe ist keine Garantie für Verständnis, Vertrauen oder Nebenwirkungsfreiheit."
     },
     {
@@ -2423,7 +2345,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -2442,7 +2363,6 @@
           "immer"
         ]
       },
-      "caution": null,
       "reason": "B kombiniert häufige Gelegenheiten mit „immer nur kurz“. Das ist keine Aufforderung zu dauerndem Training ohne Pausen. C macht eine feste Uhrzeit zum wichtigsten Kriterium; D erklärt genau zwei Übungen für allgemein ausreichend. Solche starren Vorgaben werden nicht gezählt."
     },
     {
@@ -2485,7 +2405,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "A setzt ab einem Jahr eine absolute Lerngrenze. D zieht aus dem Welpenalter den gegenteiligen, ebenfalls falschen Schluss, vorher lohne Erziehung nicht. B und C verbinden lebenslang mögliche Lernprozesse mit einem sinnvollen frühen Beginn."
     },
     {
@@ -2500,7 +2419,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "D beschränkt Krankheiten auf „immer nur eine Spezies“. Genau dazu bilden die gezählten Antworten B und C Gegenbeispiele. Die Frage sucht Erkrankungen, gegen die es eine Impfung beim Hund gibt und die auch Menschen betreffen können; sie fragt nicht, ob jede Erkrankung übertragbar ist."
     },
     {
@@ -2514,7 +2432,6 @@
           "nie"
         ]
       },
-      "caution": null,
       "reason": "In A ist „in geeigneten Situationen“ wichtig; es ist kein Rat, Bedürfnisse oder Angst grundsätzlich zu ignorieren. C verspricht mit „nie“, der Hund verbinde einen Schreckreiz nicht mit seinem Besitzer. Diese Garantie trägt die Ablehnung der Antwort; B bleibt eine Katalogoption und kein allgemeiner Einsatzplan für Bitterstoffe."
     },
     {
@@ -2565,7 +2482,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "A behauptet, kastrierte Hündinnen würden „immer“ dick. Das ist stärker als eine mögliche Nebenwirkung. Der Schlüssel zählt C und D. Aus den pauschalen Häufigkeitsangaben in D lässt sich keine individuelle Prognose oder Behandlungszusage ableiten."
     },
     {
@@ -2609,7 +2525,6 @@
           "immer"
         ]
       },
-      "caution": null,
       "reason": "A, B und C benennen Risiken; B ist ausdrücklich eine Kann-Aussage. D erklärt Strafe dagegen für etwas, das der Hund „immer versteht“, und schließt dadurch Probleme aus. Der Schlüssel verwirft diese Garantie, nicht die Möglichkeit einzelner Lernerfahrungen."
     },
     {
@@ -2645,7 +2560,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "B beschränkt Handlungsbedarf auf „nur, wenn“ Maulgeruch auftritt. C erklärt die Zähne bei regelmäßigem Kauen von selbst für gesund. A und D begründen dagegen Aufmerksamkeit für Zahnprobleme und regelmäßige Kontrolle. Ein einzelnes fehlendes Anzeichen ist keine Gesundheitsgarantie."
     },
     {
@@ -2662,7 +2576,6 @@
           "können"
         ]
       },
-      "caution": null,
       "reason": "A legt ein pauschales Verbot des Alleinlassens für das gesamte erste Halbjahr fest; D macht Training ganz entbehrlich. B und C beschreiben schrittweises Gewöhnen. Die Zeitangaben in B sind ein idealisierter Aufbau, kein für jeden Hund verbindlicher Kalender."
     },
     {
@@ -2680,7 +2593,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -2732,7 +2644,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "„Es sieht so aus“ und eine moralische Bewertung sind in dieser Frage zu unterscheiden. C erklärt die vom Katalog angenommene Beschwichtigung. A und D machen daraus moralisches Wissen beziehungsweise eine feste Gedächtnisgrenze von einem halben Tag; diese Behauptungen werden nicht gezählt."
     },
     {
@@ -2763,7 +2674,6 @@
           "nicht"
         ]
       },
-      "caution": "Unsichere Ursachenzuschreibung: Die Szene erlaubt keine eindeutige Begründung für jede als richtig hinterlegte Antwort.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -2793,7 +2703,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "A garantiert, der Hund werde das Verhalten nach Schimpfen „nicht wieder zeigen“. C und D betonen dagegen emotionale Ursachen und vorausschauendes Handeln. B beschreibt das Vorenthalten eines gerade angestrebten Vorteils, keine pauschale Erlaubnis zum Entzug notwendiger Versorgung."
     },
     {
@@ -2803,7 +2712,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -2826,7 +2734,6 @@
           "immer"
         ]
       },
-      "caution": null,
       "reason": "In D steht „könnte“: Die Ortsverknüpfung kann auftreten, muss aber nicht. B verspricht durch Üben an einem Ort bald „überall“ sichere Ausführung. Der Schlüssel betont dagegen die Bedeutung verschiedener Übungssituationen; A ist dabei eine vereinfachte Katalogaussage, keine Vorhersage für jeden Hund."
     },
     {
@@ -2891,7 +2798,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "B verspricht als zwangsläufige Folge, der Hund handle „grundsätzlich nur noch“, wenn Futter sichtbar ist. A beschreibt die Verstärkung des belohnten Verhaltens. Daraus folgt keine Garantie, dass jede beliebige Futtergabe unabhängig von Zeitpunkt und Situation das gewünschte Ergebnis erzielt."
     },
     {
@@ -2940,7 +2846,6 @@
           "können"
         ]
       },
-      "caution": null,
       "reason": "B erklärt schmerzhafte oder würgende Hilfsmittel bei angeblich richtigem Einsatz für gefahrlos. Der Schlüssel verwirft diese Zusicherung. A, C und D benennen Risiken; nicht jeder Hund muss alle Folgen zeigen, damit die Risikobeschreibung zutrifft."
     },
     {
@@ -2965,7 +2870,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "C macht aus der möglichen Freude des Hundes die Forderung, andere Menschen müssten Anspringen akzeptieren. A und B zeigen, dass Folgen für andere auch ohne aggressive Absicht möglich sind. D betrifft eine gelernte Gewohnheit und begründet frühes Training."
     },
     {
@@ -2988,7 +2892,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "B erklärt Beißereien pauschal für hinzunehmen; C nennt Abgabe oder Einschläferung als zwangsläufige Lösung. D behauptet, über den Maulkorb hinaus lasse sich nichts beeinflussen. A nennt stattdessen fachliche Hilfe. Das ist keine Erfolgsgarantie für jede Behandlung."
     },
     {
@@ -3020,7 +2923,6 @@
           "nie"
         ]
       },
-      "caution": null,
       "reason": "A verspricht, ein zweiter Hund verhindere Trennungsangst. C erklärt ihre Entwicklung ohne Einschränkung für erblich bedingt. Der Schlüssel zählt B und D als mögliche Zusammenhänge. Die Ablehnung von C beweist nicht, dass individuelle Veranlagung bei Verhalten grundsätzlich keine Rolle spielen kann."
     },
     {
@@ -3047,7 +2949,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "Bei B sind „in jedem Fall“ und „alles unternehmen“ entscheidend: Zeit und Geduld garantieren keine uneingeschränkte Anpassung. D beschränkt die Vorbereitung mit „nur“ auf Impfung und Entwurmung. A und C nennen weitere zu prüfende gesundheitliche und verhaltensbezogene Punkte; nicht jeder Auslandshund hat diese Probleme."
     },
     {
@@ -3066,8 +2967,8 @@
           "nicht"
         ]
       },
-      "caution": "Quellenvergleich: Im zugesandten 97er-Bogen, Originalfrage 58, zählen Leinenruck und Schnauzengriff als richtig. Der dortige Lösungsschlüssel hebt das Verbot schmerzhafter Mittel nicht auf und ist keine Anwendungsempfehlung.",
-      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich.",
+      "caution": "Vergleich: Der 97er-Bogen zählt in Originalfrage 58 Leinenruck und Schnauzengriff mit. Das ist ein Katalogwiderspruch; es ändert die hier richtige Auswahl B und C nicht."
     },
     {
       "number": 175,
@@ -3085,7 +2986,6 @@
           "mindestens"
         ]
       },
-      "caution": null,
       "reason": "C behauptet, jede Hündin kümmere sich „in allen Belangen“ selbst um ihre Welpen, sodass ein Platz genüge. Der Schlüssel zählt dagegen Verantwortung für Haltungsbedingungen und Erfahrungen. Bei D gehört „sofern sie im Haus aufgezogen werden“ zur Aussage; die Antwort ist keine vollständige Zusammenfassung aller Rechtsvorgaben."
     },
     {
@@ -3112,7 +3012,6 @@
           "Nur"
         ]
       },
-      "caution": null,
       "reason": "C beschränkt Empfängnisbereitschaft auf „nur direkt zu Beginn“ der Läufigkeit. A und D werden gezählt. Bei D wird beschrieben, wann eine erfolgreiche Bedeckung möglich ist; es steht dort nicht, dass eine Trächtigkeit ausschließlich nach beobachtetem Hängen entstehen kann."
     },
     {
@@ -3137,7 +3036,6 @@
           "kann"
         ]
       },
-      "caution": "Das „nur“ in der gezählten Antwort D ist physiologisch zu eng; die Warnung vor Überhitzung bleibt bestehen.",
       "reason": "A, C und D werden gezählt. B verspricht, im Auto könne „nichts passieren“. Auch D verkürzt mit „nur“: Hecheln ist für Hunde besonders wichtig, aber Wärmeabgabe erfolgt zusätzlich durch andere physikalische Wege, etwa Kontakt zu kühleren Oberflächen. Diese Einschränkung ist keine Entwarnung für ein warmes Auto; eine kurze Wartezeit kann bereits gefährlich werden."
     },
     {
@@ -3151,7 +3049,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "C beschränkt Tierarztbesuche auf „nur nötig, wenn es dem Hund schlecht geht“. A, B und D nennen dagegen Themen der Vorsorge. Das bedeutet keine pauschal gleiche Behandlungshäufigkeit für alle Hunde; gefragt sind sinnvolle Gesprächsthemen."
     },
     {
@@ -3168,7 +3065,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "B beschränkt den Nutzen von Impfungen auf Auslandsreisen. A, C und D betreffen dagegen auch den Schutz im Inland. Die genannten Alters- und Auffrischungsangaben sind Katalogwissen, kein individueller Impfplan. Welche Impfungen wann erforderlich sind, muss tierärztlich geklärt werden."
     },
     {
@@ -3178,7 +3074,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Pauschalisierung beachten: Aus der Herkunft allein folgt keine Diagnose. Die Häufigkeitsaussage „oft“ wird hier nicht als allgemeiner statistischer Befund bestätigt.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3222,7 +3117,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "A erklärt das Leben in Deutschland „immer“ für besser. B, C und D nennen dagegen Umstellungen, die für einzelne Hunde schwierig sein können. Die Antworten behaupten weder, dass jeder übernommene Hund leidet, noch dass eine Übernahme grundsätzlich ungeeignet ist."
     },
     {
@@ -3249,7 +3143,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "A und B nennen mögliche erhebliche Schwierigkeiten. C verspricht dagegen, „grundsätzlich nur“ liebevolle Behandlung und gutes Training machten jeden Hund unkompliziert. D nennt eine mögliche Unvereinbarkeit von Veranlagung und Wohnumgebung. Es geht um Risiken, nicht um ein Urteil über jeden Tierschutzhund."
     },
     {
@@ -3266,7 +3159,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "C erklärt stark verzwergte Hunde für „nur klein“ und schließt damit besondere Gesundheitsprobleme aus. Die anderen Antworten werden als mögliche beziehungsweise rassetypische Risiken gezählt. Daraus folgt keine individuelle Diagnose allein aufgrund des Aussehens eines Hundes."
     },
     {
@@ -3293,7 +3185,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "A enthält gleich zwei Pauschalisierungen: Hunde regelten „alles immer unter sich“, Menschen sollten sich „grundsätzlich“ heraushalten. Der Schlüssel verwirft diese Freigabe und zählt B, C und D. Eine mögliche unbeabsichtigte Verletzung reicht bereits, um auf die Größenunterschiede zu achten."
     },
     {
@@ -3317,7 +3208,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3362,7 +3252,6 @@
           "müssen"
         ]
       },
-      "caution": null,
       "reason": "A schließt Probleme mit „in keinem Fall“ aus. B und C knüpfen Infektionsrisiken dagegen an mitgebrachte Erreger beziehungsweise unzureichende Untersuchungen; D nennt mögliche Folgen einer unpassenden Vermittlung. Es wird nicht behauptet, dass jeder Importhund krank ist oder abgegeben wird."
     },
     {
@@ -3381,7 +3270,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "In A soll ein sofortiger Zeitpunkt sämtliche Nebenwirkungen ausschließen. Der Schlüssel verwirft diese Garantie. B, C und D benennen Risiken, die nicht allein durch zeitliche Nähe verschwinden. „Sofort“ macht eine schreckende oder strafende Maßnahme also nicht automatisch unbedenklich."
     },
     {
@@ -3402,7 +3290,6 @@
           "muss"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3465,7 +3352,6 @@
           "können"
         ]
       },
-      "caution": "Gewichtsverhältnis ist keine Sicherheitsgarantie und kein gesetzlicher Eignungsnachweis.",
       "reason": "A erklärt sicheres Halten „in jeder Situation“ ausschließlich zur Erziehungsfrage. D nennt dagegen konkrete erschwerende Bedingungen. B und C werden ebenfalls gezählt; insbesondere die Drittelregel in B ist eine grobe Katalogfaustregel. Sie beweist nicht, dass eine bestimmte Person einen Hund dieses Gewichts sicher halten kann."
     },
     {
@@ -3489,7 +3375,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "A behauptet, „alle Rassen“ seien überzüchtet und Gesundheit sei „nur“ mit Mischlingen möglich. D garantiert gesunde Nachkommen bei gesund erscheinenden Eltern. B und C beschreiben dagegen Veranlagungen und Risiken. Ein Risiko bedeutet nicht, dass jeder betroffene Hund erkrankt."
     },
     {
@@ -3499,8 +3384,8 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Rechtliche Verkürzung: Die Antwortmöglichkeiten ersetzen nicht die Voraussetzungen des § 3 Absatz 3 LHundG NRW.",
-      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich.",
+      "caution": "Die Testantworten kürzen das Gesetz ab. Für eine tatsächliche Einstufung gelten die Voraussetzungen und Ausnahmen in § 3 Absatz 3 LHundG NRW."
     },
     {
       "number": 199,
@@ -3509,7 +3394,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "Die Frage betrifft ausdrücklich gefährliche Hunde nach LHundG NRW. A ist die Kataloglösung. Eine gemeinsame Verhaltensprüfung schafft die in B behauptete Ausnahme für mehrere gleichzeitig geführte gefährliche Hunde nicht. Daraus folgt kein allgemeines Verbot, zwei beliebige Hunde auszuführen."
     },
     {
@@ -3541,7 +3425,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "A dehnt die Haltungserlaubnis auf „deutschlandweit“ aus; § 4 Absatz 5 LHundG NRW nennt dagegen das Landesgebiet. D bestreitet die Anleinpflicht im privaten Mehrfamilienhaus, obwohl § 5 Absatz 2 diese Bereiche ausdrücklich nennt. „Privat“ bedeutet hier nicht automatisch ohne gesetzliche Umgangspflichten."
     },
     {
@@ -3556,7 +3439,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3586,7 +3468,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3621,7 +3502,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Begriffe prüfen: Der Schlüssel verbindet frühe Sozialisationszeit und spätere Entwicklung. Die zusätzliche Altersangabe C wird hier nicht als allgemein gesicherte Phasengrenze bestätigt.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3631,8 +3511,8 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Pauschaler Katalogschlüssel: A+B+D bleibt die Testlösung, ist aber keine vollständige, ortsunabhängige Rechtsregel.",
-      "reason": "Der Schlüssel zählt A, B und D. Die Kombination „alle Hunde immer“ macht die Frage jedoch rechtlich zu weit. § 2 Absatz 2 LHundG NRW nennt bestimmte Orte und Situationen, kein ausnahmsloses Anleingebot in jedem bebauten Gebiet. Für große Hunde sowie Hunde nach §§ 3 und 10 gelten zusätzliche Regeln. Schutzgebietsregeln, örtliche Vorschriften und Beförderungsbedingungen sind gesondert zu beachten."
+      "reason": "Der Schlüssel zählt A, B und D. Die Kombination „alle Hunde immer“ macht die Frage jedoch rechtlich zu weit. § 2 Absatz 2 LHundG NRW nennt bestimmte Orte und Situationen, kein ausnahmsloses Anleingebot in jedem bebauten Gebiet. Für große Hunde sowie Hunde nach §§ 3 und 10 gelten zusätzliche Regeln. Schutzgebietsregeln, örtliche Vorschriften und Beförderungsbedingungen sind gesondert zu beachten.",
+      "caution": "A, B und D gelten für diese Testfrage. Die sehr weite Formulierung in B beschreibt nicht vollständig, wo nach allen anwendbaren Vorschriften Leinenpflicht besteht."
     },
     {
       "number": 210,
@@ -3646,7 +3526,6 @@
           "nicht"
         ]
       },
-      "caution": "Ursachen nicht verallgemeinern: Der Schlüssel nennt zwei Antworten, erklärt aber nicht jedes aggressive Verhalten an der Leine.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3686,7 +3565,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "B wird gezählt, weil positive frühe Erfahrungen vermittelt werden sollen. „Damit er später in allen Situationen gut zurechtkommt“ ist dabei eine Zielbeschreibung der Vorlage, keine Erfolgsgarantie. A empfiehlt pauschale Abschirmung, C überwiegende Zwingerhaltung; beide werden verworfen."
     },
     {
@@ -3706,7 +3584,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3716,7 +3593,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3732,7 +3608,6 @@
           "müssen"
         ]
       },
-      "caution": null,
       "reason": "„Sofort nach jedem gut ausgeführten Kommando“ unterscheidet D von den verzögerten Belohnungen in A und C. B setzt fehlende Bestrafung mit einer Rückmeldung über richtiges Verhalten gleich. Der Schlüssel verlangt dagegen die zeitnahe positive Rückmeldung."
     },
     {
@@ -3752,7 +3627,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3806,7 +3680,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "Die Aussage verbindet „keine Rückzugsmöglichkeit“ mit „jederzeit engem Kontakt“. B verneint genau diese gesamte Behauptung. Soziale Nähe bedeutet nicht, dass ein Hund ständig Nähe haben möchte oder auf einen Rückzugsort verzichten kann."
     },
     {
@@ -3827,7 +3700,6 @@
           "können"
         ]
       },
-      "caution": null,
       "reason": "B erklärt Aggression zu „ausschließlich“ ererbten Eigenschaften. C verspricht „völlige“ Unterdrückung. D spricht dagegen von Kontrolle durch Ausbildung; das ist nicht dasselbe wie vollständiges Verschwinden. A wird als möglicher Erziehungseinfluss gezählt, nicht als alleinige Erklärung jedes aggressiven Verhaltens."
     },
     {
@@ -3845,7 +3717,6 @@
           "ausschließlich"
         ]
       },
-      "caution": "Unpräziser Begriff: Fertigfutter ist nicht automatisch bedarfsdeckend.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3877,7 +3748,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "A unterstellt natürlichen Gehorsam aus Dankbarkeit. B fordert dagegen Beobachtung; C sagt ausdrücklich „kann“. Es wird nicht behauptet, dass jeder erwachsen vermittelte Tierheimhund problematisch ist oder nur von erfahrenen Personen gehalten werden darf."
     },
     {
@@ -3887,7 +3757,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Zeitangabe nicht pauschalisieren: Das fruchtbare Zeitfenster ist individuell unterschiedlich.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3907,7 +3776,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Begriff offen: „Autoritär“ ist nicht definiert. Daraus folgt weder eine Gleichsetzung mit schmerzhafter Erziehung noch eine Erlaubnis dazu. Rhein-Erft · 203, Originalfrage 174, behandelt deren rechtliche Grenzen.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3917,7 +3785,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "In D ist „stets bereits angeboren“ die absolute Festlegung. A, B und C nennen dagegen Haltungs- und Ausbildungseinflüsse. Der Schlüssel lehnt damit die ausschließliche Erklärung aus D ab, nicht die Möglichkeit einer individuellen Veranlagung."
     },
     {
@@ -3937,7 +3804,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Anwendungshinweis: „Herausdrehen“ nicht als allgemeine Anleitung für eine Pinzette übernehmen.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3954,7 +3820,6 @@
           "muss"
         ]
       },
-      "caution": "Fachlicher Vorbehalt: Die Ausgangsannahme „zur Dominanz neigend“ erklärt die konkrete Situation nicht. Unterschiedliche Fragestellungen dürfen nicht nachträglich zu einer einheitlichen Rangordnungsregel verbunden werden.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -3964,7 +3829,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Historische Erziehungsfrage: Gezählte Optionen nicht als allgemeine Empfehlung körperlicher oder einschüchternder Strafen übernehmen.",
       "reason": "Der Schlüssel zählt A, B und D und verwirft Stockschläge sowie den Entzug des Spaziergangs. Die gezählten Optionen sind keine pauschale Anleitung, Angst durch Anschreien zu behandeln oder Gegenstände gewaltsam wegzunehmen. Gerade gegenüber den neueren Erziehungsfragen ist die ältere Bestrafungssprache kritisch einzuordnen; belohnungsbasierte Alternativen werden in der Fachquelle beschrieben."
     },
     {
@@ -3998,8 +3862,8 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Rechtlicher Widerspruch: A sagt „beantragt“, das Gesetz verlangt grundsätzlich eine vorhandene Erlaubnis.",
-      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich.",
+      "caution": "Für eine tatsächliche Abgabe muss die aufnehmende Person die nötige Erlaubnis haben. „Beantragt“ allein reicht nicht als Übergabevoraussetzung."
     },
     {
       "number": 241,
@@ -4012,7 +3876,6 @@
           "immer"
         ]
       },
-      "caution": null,
       "reason": "„Immer richtig“ in A ist weiter als „situationsbedingt richtig“ in B. Der Schlüssel verlangt B. Die Aussage behandelt die praktische Entscheidung im jeweiligen Kontext und hebt keine gesetzliche Anleinpflicht auf, wenn eine solche für den Hund und den Ort besteht."
     },
     {
@@ -4032,7 +3895,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -4052,7 +3914,6 @@
           "nur"
         ]
       },
-      "caution": "„Alles zusammen“ ist keine allgemeine Pflicht, jeden Befehl mit Körperkontakt zu verbinden.",
       "reason": "A, B und C beschränken das Lernen jeweils mit „nur“ auf einen einzelnen Wahrnehmungsweg; der Schlüssel verlangt D. Das ist die Einteilung dieser Vorlage. Daraus lässt sich nicht ableiten, dass jedes einzelne Signal zwingend über Gehör, Sichtzeichen und Körperkontakt zugleich aufgebaut werden müsste."
     },
     {
@@ -4062,7 +3923,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Auf die Altersangabe achten: „8. Lebenswoche“ ist nicht dasselbe wie „über acht Wochen alt“.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -4072,7 +3932,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Unvollständige Rechtsfrage: Die Rasse allein bestimmt die Mindestfläche nicht.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -4102,7 +3961,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Auf „kann“ achten: Der Schlüssel nennt B; er belegt nicht, dass jede andere mögliche Ursache ausgeschlossen ist.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -4146,7 +4004,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "A beschränkt die Aufsicht auf „nur der Hund“. B verlangt, beide Seiten zu beobachten. Das ist der entscheidende Unterschied: Auch das Verhalten des Kindes gehört zur Begegnung. C verzichtet auf besondere Beobachtung und wird nicht gezählt."
     },
     {
@@ -4196,7 +4053,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Begriffe trennen: Zur Familie gehören, gleichberechtigt entscheiden und eine Rangstellung einnehmen sind unterschiedliche Aussagen.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -4216,7 +4072,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -4226,8 +4081,8 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Abweichende Trainingsaussagen: Dieser Schlüssel zählt Leinenruck und Schnauzengriff als richtig. Rhein-Erft · 203, Originalfragen 15 und 174, behandeln belastende Hilfsmittel beziehungsweise rechtliche Grenzen. Keine der Quellenbewertungen ersetzt eine zulässige, geeignete Trainingsmethode.",
-      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich.",
+      "caution": "B, C und D sind die Testlösung dieses Bogens, keine Empfehlung, Leinenruck oder Schnauzengriff anzuwenden. Das Verbot schmerzhafter Trainingsmittel wird dadurch nicht aufgehoben."
     },
     {
       "number": 262,
@@ -4254,7 +4109,6 @@
           "immer"
         ]
       },
-      "caution": "Die Katalogantwort C ist ein vereinfachter Risikohinweis, keine ausnahmslose Aussage über alle Hundepaare.",
       "reason": "A und B versprechen „gefahrlos“, sobald einer oder beide Hunde angeleint sind. Diese Garantie wird verworfen. Der Schlüssel verlangt C, dessen „immer gefährlicher“ aber ebenfalls pauschal ist: Aus der Anzahl allein ergibt sich keine für jeden Vergleich gültige Risikobewertung. Bei gefährlichen Hunden kommt das gesonderte Verbot gleichzeitigen Führens mehrerer Hunde hinzu."
     },
     {
@@ -4290,7 +4144,6 @@
           "nicht"
         ]
       },
-      "caution": "Pauschale Zeitangabe: Der Schlüssel ersetzt keine individuelle Entwurmungsberatung.",
       "reason": "B und C sind die Kataloglösung. „Alle drei Monate“ in C ist aber kein für jeden Hund passender Behandlungsplan. ESCCAP richtet die Maßnahmen nach dem individuellen Infektionsrisiko aus; Kotuntersuchungen und Entwurmungen sind mit der Tierarztpraxis abzustimmen. Die Frage rechtfertigt weder eine einmalige Behandlung nach dem Absetzen noch die Behauptung, der Darm reinige sich selbst."
     },
     {
@@ -4314,7 +4167,6 @@
           "kann"
         ]
       },
-      "caution": "Verkürzte Katalogaussage: Nicht jegliches Lernen, sondern ein geeigneter Trainingsrahmen ist das Thema.",
       "reason": "Der Schlüssel zählt A und B. Bei A ist „nur … wenn sie entspannt sind und keine Angst haben“ zu absolut: Angst schaltet nicht jede Form von Lernen aus; auch belastende Verknüpfungen können entstehen. Die Antwort ist als Ziel eines möglichst angstarmen Trainings zu lesen. C verwirft Training vollständig, D ignoriert die besonderen Bedürfnisse des ängstlichen Hundes."
     },
     {
@@ -4324,7 +4176,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "„Sitz oder Platz“ in A verlangt nicht zwingend beide Signale. Der Schlüssel zählt außerdem Aus und Komm/Hier. Pfötchengeben und Türöffnen werden hier als zusätzliche Fertigkeiten behandelt; gefragt sind Grundkommandos, nicht alles, was ein Hund lernen kann."
     },
     {
@@ -4358,7 +4209,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "„Normal“ bedeutet in dieser Katalogfrage: Aggressive Verhaltensweisen gehören zum möglichen Verhaltensrepertoire von Hunden. Das ist keine Aussage, dass jeder Hund ständig aggressiv sein müsse oder dass gefährliche Vorfälle hinzunehmen seien. A ist kein Freibrief für fehlende Sicherung."
     },
     {
@@ -4444,7 +4294,6 @@
           "grundsätzlich"
         ]
       },
-      "caution": "Die Ausnahme betrifft das tollwutrechtliche Freilaufverbot, keine allgemeine Freilauferlaubnis.",
       "reason": "D verbindet zwei Voraussetzungen: nachweislich wirksamer Tollwutimpfschutz UND Begleitung durch eine Person, der der Hund zuverlässig gehorcht. B nennt nur die Impfung und ist deshalb unvollständig. § 8 Absatz 3 Tollwut-Verordnung enthält diese Ausnahme vom Freilaufverbot im gefährdeten Bezirk. D befreit nicht von zusätzlich geltenden Anleinpflichten nach Landesrecht oder örtlichen Vorschriften."
     },
     {
@@ -4454,7 +4303,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Keine pauschale Abschussbefugnis allein wegen Freilaufs oder Verlassens eines Weges.",
       "reason": "C ist die Kataloglösung, aber „unkontrolliert Wild hetzen“ fasst die Rechtslage nur verkürzt zusammen. Nach § 25 Absatz 4 Nummer 2 LJG-NRW müssen weitere Voraussetzungen vorliegen: außerhalb der Einwirkung der führenden Person, Töten oder erkennbares Hetzen mit entsprechender Fähigkeit zum Beißen oder Reißen sowie fehlende erfolgversprechende mildere Maßnahmen. Hinzu kommen gesetzliche Ausnahmen für bestimmte erkennbare Funktionshunde. Das bloße Verlassen eines Waldwegs oder unangeleintes Nebenherlaufen genügt nicht."
     },
     {
@@ -4475,7 +4323,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "Entscheidend ist „nur“ in C: Unterschiede im Aussehen gibt es, aber C beschränkt sämtliche Unterschiede darauf. Unterschiedliche Veranlagungen werden dadurch ausgeschlossen. Genau diese nennt B. „Alle“ in A und die Größeneinteilung in D liefern ebenfalls keine zutreffende Beschreibung."
     },
     {
@@ -4495,7 +4342,6 @@
           "können"
         ]
       },
-      "caution": null,
       "reason": "A behauptet ohne Bedingung, mehrere Hunde erforderten häufigere Spaziergänge. Anders als in der ausführlicheren Frage 52 fehlt hier die Einschränkung, dass gemeinsames Spazierengehen nicht möglich ist. B, C und D werden gezählt; D spricht ausdrücklich von möglichen Nachteilen."
     },
     {
@@ -4509,7 +4355,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "Der Schlüssel zählt positive frühe Erfahrungen in A und D. B macht daraus eine pauschale Schonfrist von fünf Monaten; C erklärt Reize allgemein zur Ursache von Nervosität. Frühzeitige Erfahrungen bedeuten nicht, einen Welpen mit beliebigen Reizen zu überfordern."
     },
     {
@@ -4573,7 +4418,6 @@
           "immer"
         ]
       },
-      "caution": null,
       "reason": "D fordert Aufsicht über Kontakte zwischen Kindern und Hunden. Das „nie beißen oder verletzen“ in A ist keine sichere Garantie für Familienmitglieder. B und C machen Vertrautheit beziehungsweise geringe Körpergröße zu ausreichenden Ausnahmen; auch diese werden verworfen. Dass kritische Situationen möglich bleiben, begründet im Katalog die Aufsicht."
     },
     {
@@ -4627,7 +4471,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "A sagt, Hunde könnten ihr Leben lang lernen. B setzt dagegen ab einem Jahr eine absolute Grenze, D schließt Lernen beim Junghund aus. C befürwortet frühes Üben. Der Schlüssel zählt A und C; weder Welpen- noch Erwachsenenalter bedeutet grundsätzlich fehlende Lernfähigkeit."
     },
     {
@@ -4635,9 +4478,8 @@
       "uid": "r97-88",
       "sourceId": "88",
       "reviewed": true,
-      "action": "none",
+      "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
     },
     {
@@ -4655,7 +4497,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "B verbindet Strafandrohung mit der Behauptung, bei einem älteren Hund könne man „nichts mehr machen“. A und C setzen auf Sichern und Training. A wird hier akzeptiert, während Frage 308 das Nachlaufen verwirft: Die Vorlagen geben unterschiedliche vereinfachte Situationen vor und ersetzen keine Einschätzung der konkreten Gefahr."
     },
     {
@@ -4676,7 +4517,6 @@
           "grundsätzlich"
         ]
       },
-      "caution": null,
       "reason": "Bekanntheit mit Pferden in A und langsames Reiten in C garantieren keine gefahrlose Begegnung. B verlangt Anleinen und Abwarten; D nennt ausdrücklich auch mögliche Reaktionen des Pferdes. Es geht um die Kontrolle beiderseitiger Risiken, nicht nur um die Angst des eigenen Hundes."
     },
     {
@@ -4703,9 +4543,8 @@
       "uid": "r97-92",
       "sourceId": "92",
       "reviewed": true,
-      "action": "none",
+      "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
     },
     {
@@ -4736,7 +4575,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "A behauptet, Hunde fräßen bei freier Futterverfügbarkeit „nur so viel, wie sie auch brauchen“. B macht ständigen Hunger zur Erziehungsbedingung; C erklärt einen Fastentag zur notwendigen Wohlergehensregel. Der Schlüssel zählt D mit dem Ziel einer passenden Körperkondition. Eine feste Grammzahl oder ein individueller Fütterungsplan ergibt sich daraus nicht."
     },
     {
@@ -4754,7 +4592,6 @@
           "können"
         ]
       },
-      "caution": null,
       "reason": "C sagt „können“ ergänzt werden, nicht „müssen“. B verbietet dagegen die ausschließliche Verwendung von Fertigfutter. Der Schlüssel zählt A und C. Wie in Frage 227 ist die bedarfsdeckende Aussage auf geeignetes Futter für erwachsene, gesunde Hunde zu beziehen; nicht jedes Produkt ist ein vollständiges Alleinfutter."
     },
     {
@@ -4772,9 +4609,8 @@
       "uid": "r97-97",
       "sourceId": "97",
       "reviewed": true,
-      "action": "none",
+      "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
     },
     {
@@ -4782,9 +4618,8 @@
       "uid": "koeln-a1",
       "sourceId": "A1",
       "reviewed": true,
-      "action": "none",
+      "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
     },
     {
@@ -4792,9 +4627,8 @@
       "uid": "koeln-a2",
       "sourceId": "A2",
       "reviewed": true,
-      "action": "none",
+      "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
     },
     {
@@ -4802,9 +4636,8 @@
       "uid": "koeln-a3",
       "sourceId": "A3",
       "reviewed": true,
-      "action": "none",
+      "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
     },
     {
@@ -4824,7 +4657,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "D enthält einen bedingten Ablauf: ausweichen versuchen, andernfalls zügig weitergehen. C nennt nur das Weitergehen. Die Größenbeschreibung allein beweist weder einen Angriff noch eine sichere Begegnung; D ist die vereinfachte Kataloglösung, keine Garantie für jeden konkreten Ablauf."
     },
     {
@@ -4834,8 +4666,8 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Mehrdeutige Bewertung: Der Schlüssel grenzt Angst und Drohen hier stärker voneinander ab, als es als allgemeine Verhaltensregel zulässig wäre.",
-      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich.",
+      "caution": "C ist hier nicht Teil der Lösung. Die Bildbewertung trennt Angst und Drohen unglücklich; für diese Zeichnung gilt dennoch A und B."
     },
     {
       "number": 307,
@@ -4844,7 +4676,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Grenze der Bildfrage: Die Ohrenstellung allein erlaubt keine sichere Aussage darüber, ob ein Hund Angst hat.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -4854,7 +4685,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Situation unvollständig: Ort, Gefahren und Verhalten des Hundes fehlen. D ist keine allgemeingültige Handlungsanweisung.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -4864,8 +4694,8 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": "Pauschale Katalogantwort: D berücksichtigt die Eigengefährdung, ersetzt aber keine Beurteilung der konkreten Notlage.",
-      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
+      "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich.",
+      "caution": "D ist die Testlösung, keine sichere Anleitung für jede Beißerei. Nicht zwischen kämpfende Hunde greifen; die kurze Aufgabe beschreibt nicht jede mögliche Notlage."
     },
     {
       "number": 310,
@@ -4874,7 +4704,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Unklarer Begriff: Für „stärker“ liefert die Vorlage keine eindeutige Definition.",
       "reason": "A und D sind die Kataloglösung. „Kontrollierbarer“ beschreibt den möglichen Einfluss über die Leine. Was „stärker“ in A genau bedeuten soll, erläutert die Vorlage nicht. Das Wort darf weder als Zunahme körperlicher Kraft noch als sichere Erklärung jeder Leinenaggression ergänzt werden. Andere Fragen nennen eingeschränktes Ausweichen, Unsicherheit und Frustration."
     },
     {
@@ -4884,7 +4713,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "Die Frage hebt den besonders wichtigen Geruchssinn hervor und verlangt deshalb D. Sie behauptet nicht, dass Hunde ihre Umgebung ausschließlich mit der Nase wahrnehmen. Gehör und Augen bleiben ebenfalls bedeutsam."
     },
     {
@@ -4924,7 +4752,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "B nennt die vollständige Aufsicht über Hund und Kind. A nennt nur die Beobachtung des Hundes und bleibt damit hinter B zurück. Dass A nicht gezählt wird, bedeutet nicht, dass man den Hund nicht beobachten soll; beide Seiten sollen im Blick bleiben."
     },
     {
@@ -4948,7 +4775,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "A erlaubt Spiel „jederzeit“. B und C werden als geeignete Voraussetzungen gezählt. Bekanntheit oder gute Sozialisation garantieren aber nicht, dass beide Hunde gerade spielen möchten oder jeder Kontakt sicher ist. Auch die Katalogantworten sind keine pauschale Spielerlaubnis."
     },
     {
@@ -4977,7 +4803,6 @@
           "kann"
         ]
       },
-      "caution": "Verkürzte Begegnungssituation: C garantiert weder die Kooperation der anderen Person noch einen sicheren Kontakt am Boden.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -4997,7 +4822,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Situationsangaben fehlen; C ist keine allgemeine Regel gegen jeden freiwilligen Kontakt.",
       "reason": "Der Schlüssel verlangt C. A lässt das Streicheln „in jedem Fall“ zu, ohne Hund oder Situation zu berücksichtigen. C beschreibt die vorsichtige Katalogreaktion. Dass B nicht gezählt wird, bedeutet weder, dass notwendiges Abstandnehmen falsch sei, noch dass fremde Personen grundsätzlich niemals einen Hund streicheln dürften. Die Frage nennt keine Merkmale, die jede Begegnung gleich machen."
     },
     {
@@ -5045,7 +4869,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "A erklärt Beißhemmung für unveränderlich und genetisch festgelegt. B beschreibt eine unmittelbare Unterbrechung des Spiels bei zu festem Beißen. C verlangt eine sprachliche Erklärung des Fehlers. Der Schlüssel zählt das konkrete, zeitnahe Vorgehen aus B."
     },
     {
@@ -5083,7 +4906,6 @@
           "nicht"
         ]
       },
-      "caution": "Verkürzte Katalogantwort: „gar nicht“ ist keine allgemein belastbare Vorhersage.",
       "reason": "Der Schlüssel verlangt C: „gar nicht“. Als allgemeine Aussage ist das zu weit. Die BVA beschreibt Auswirkungen der Kastration auf Verhalten bei Hündinnen als nicht vollständig geklärt und individuell zu beurteilen. Aus der Frage folgt weder eine sichere Veränderung noch eine garantierte Wirkungslosigkeit. Die Katalogantwort ist keine Entscheidungsgrundlage für einen Eingriff."
     },
     {
@@ -5093,7 +4915,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Begriff offen: „Autoritär“ ist nicht definiert. Daraus folgt weder eine Gleichsetzung mit schmerzhafter Erziehung noch eine Erlaubnis dazu. Rhein-Erft · 203, Originalfrage 174, behandelt deren rechtliche Grenzen.",
       "reason": "Der Schlüssel nennt A und C. „Autoritär“ wird in der Frage jedoch nicht definiert und darf nicht stillschweigend mit freundlicher, klarer Führung gleichgesetzt werden. Konsequente Regeln lassen sich ohne Einschüchterung vermitteln. Die tierärztliche Fachgesellschaft AVSAB empfiehlt belohnungsbasiertes Training."
     },
     {
@@ -5143,7 +4964,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Unklarer Maßnahmenbegriff: Der Schlüssel benennt mit C keine eindeutig festgelegte Trainingsmethode.",
       "reason": "C wird gezählt, bleibt mit „maßgeregelt“ aber unbestimmt. Die Ablehnung von B bedeutet, dass heftiges Beißen im Spiel nicht einfach wegen des jungen Alters weiter zugelassen werden soll. Daraus folgt keine Freigabe für Schlagen, Schütteln oder andere schmerzhafte Maßnahmen. Frage 325 nennt das Unterbrechen des Spiels als konkrete Reaktion."
     },
     {
@@ -5153,7 +4973,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Historische Erziehungsfrage: Gezählte Optionen nicht als allgemeine Empfehlung körperlicher oder einschüchternder Strafen übernehmen.",
       "reason": "Der Schlüssel zählt A, B und D und verwirft Stockschläge sowie den Entzug des Spaziergangs. Die gezählten Optionen sind keine pauschale Anleitung, Angst durch Anschreien zu behandeln oder Gegenstände gewaltsam wegzunehmen. Gerade gegenüber den neueren Erziehungsfragen ist die ältere Bestrafungssprache kritisch einzuordnen; belohnungsbasierte Alternativen werden in der Fachquelle beschrieben."
     },
     {
@@ -5187,7 +5006,6 @@
           "immer"
         ]
       },
-      "caution": "Fachlicher Vorbehalt: Die Ausgangsannahme „zur Dominanz neigend“ erklärt die konkrete Situation nicht. Unterschiedliche Fragestellungen dürfen nicht nachträglich zu einer einheitlichen Rangordnungsregel verbunden werden.",
       "reason": "Der Schlüssel nennt A und D. Die Situation ist aber zu offen, um E allein deshalb fachlich zu widerlegen: Knurren bedeutet nicht automatisch, dass ein Hund nur Ruhe möchte; zugleich kann ein Ruhebedürfnis bestehen. Die Nichtzählung von E ist keine Aufforderung, einen knurrenden Hund zu bedrängen oder zu bestrafen. Auch die Nichtzählung von F begründet kein allgemeines Sofaverbot. Türreihenfolge und Sofasitzen belegen für sich keine Rangordnung."
     },
     {
@@ -5197,7 +5015,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Historisches Modell: „Hierarchie“ rechtfertigt keine Einschüchterung oder körperliche Unterordnung.",
       "reason": "Der Schlüssel verlangt C: „Hierarchie“. Die politischen Begriffe Demokratie und Anarchie sind dafür keine geeigneten Alternativen. Die Vorlage belegt damit aber weder eine feste gemeinsame Rangpyramide von Menschen und Hund noch die Notwendigkeit körperlicher Unterordnung. Verständliche Regeln und Verantwortung der Menschen sind von einer solchen Rangordnungsvorstellung zu unterscheiden."
     },
     {
@@ -5211,7 +5028,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "Der Schlüssel zählt A. Gemeint ist die Zugehörigkeit aggressiver Verhaltensweisen zum möglichen Verhaltensrepertoire, nicht ein unvermeidliches aggressives Auftreten jedes Hundes. „Normal“ macht eine gefährliche Situation weder ungefährlich noch rechtlich hinnehmbar."
     },
     {
@@ -5241,7 +5057,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Unvollständige Situationsfrage: A ist keine allgemeine Aufforderung, jeden auf dem Rücken liegenden Hund am Bauch anzufassen.",
       "reason": "A und B werden gezählt. Die Frage nennt aber weder Situation noch weitere Körpersignale. Auf-dem-Rücken-Liegen kann deshalb aus dem Wortlaut nicht eindeutig als Streichelwunsch erkannt werden. Insbesondere ist die Ablehnung eines Streichelwunsches in anderen Bildfragen kein Widerspruch, wenn dort Unterwürfigkeit dargestellt wird. Beobachte die konkrete Darstellung beziehungsweise Situation statt aus einer einzelnen Position eine sichere Absicht abzuleiten."
     },
     {
@@ -5268,7 +5083,6 @@
           "immer"
         ]
       },
-      "caution": null,
       "reason": "C enthält mit „immer die gleichen Ausdrücke“ eine richtige Festlegung: Dasselbe Signal soll dieselbe Bedeutung behalten. Absolute Wörter sind also nicht automatisch falsch. B ist ebenfalls Kataloglösung; die Frage begründet damit aber kein allgemeines Verbot, mehrsilbige Signale zu verwenden."
     },
     {
@@ -5288,7 +5102,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Begriffe prüfen: Der Schlüssel verbindet frühe Sozialisationszeit und spätere Entwicklung. Die zusätzliche Altersangabe C wird hier nicht als allgemein gesicherte Phasengrenze bestätigt.",
       "reason": "Der Schlüssel nennt A und C. Fachliche Empfehlungen beschreiben die besonders sensible frühe Sozialisationszeit ungefähr ab der dritten bis zur vierzehnten Woche. Lernen und positive Erfahrungen bleiben danach wichtig. Daraus folgt jedoch keine einheitliche zweite Sozialisationsphase vom sechsten bis neunten Monat."
     },
     {
@@ -5298,7 +5111,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Auf die Altersangabe achten: „8. Lebenswoche“ ist nicht dasselbe wie „über acht Wochen alt“.",
       "reason": "Der Schlüssel nennt B: „8. Lebenswoche“. Das ist keine genaue Wiedergabe der gesetzlichen Regel. § 2 Absatz 4 TierSchHuV erlaubt die Trennung vom Muttertier grundsätzlich erst im Alter von über acht Wochen. Die laufende achte Lebenswoche ist damit nicht gemeint. Eine frühere Trennung setzt eine tierärztlich begründete Notwendigkeit zum Schutz des Muttertieres oder Welpen voraus."
     },
     {
@@ -5322,7 +5134,6 @@
           "nicht"
         ]
       },
-      "caution": null,
       "reason": "Mit „stimmt nicht“ in B wird die komplette Behauptung verneint: Weder macht Familienkontakt einen Rückzugsort überflüssig, noch muss der Hund „jederzeit“ engen Kontakt wünschen. C macht das Bedürfnis allein von der Rasse abhängig und wird nicht gezählt."
     },
     {
@@ -5360,7 +5171,6 @@
           "nur"
         ]
       },
-      "caution": "Starre Katalogvorgabe: „mindestens“ ist hier keine gesetzliche Mindestdauer kraftzehrenden Trainings.",
       "reason": "Der Schlüssel zählt A und grenzt sie von lediglich einmaligem Auslauf oder bloßem Hinauslassen zum Lösen ab. Die feste Vorgabe eines 20-minütigen „kraftzehrenden“ Trainings ist jedoch keine allgemeine gesetzliche Pflicht. § 2 TierSchHuV verlangt angemessenen Auslauf und die Berücksichtigung insbesondere von Rasse, Alter und Gesundheitszustand. A ist daher kein für jeden gesunden erwachsenen Hund verbindlicher Belastungsplan."
     },
     {
@@ -5370,7 +5180,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Unvollständige Rechtsfrage: Die Rasse allein bestimmt die Mindestfläche nicht.",
       "reason": "Der Schlüssel nennt 8 m². Nach § 6 TierSchHuV richtet sich die Mindestfläche grundsätzlich nach der tatsächlichen Widerristhöhe: bis 50 cm mindestens 6 m², über 50 bis 65 cm 8 m², über 65 cm 10 m². Zusätzliche Anforderungen und gesetzliche Sonderregeln gelten ebenfalls. Ohne Größe und Haltungsumstände ist „Rottweiler“ allein keine ausreichende Grundlage für genau 8 m²."
     },
     {
@@ -5394,7 +5203,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Zeitangabe nicht pauschalisieren: Das fruchtbare Zeitfenster ist individuell unterschiedlich.",
       "reason": "Der Schlüssel verlangt B: 9.–14. Tag. Diese Angabe darf nicht als verlässlicher Kalender für jede Hündin verstanden werden: Dauer und zeitliche Lage der Zyklusphasen variieren. Aus der Katalogantwort lassen sich daher keine sicheren Tage zur Vermeidung einer Trächtigkeit ableiten."
     },
     {
@@ -5434,7 +5242,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Ein einzelnes Kotmerkmal ist kein sicherer Ursachennachweis.",
       "reason": "Der Schlüssel nennt B: eine zu hohe Knochenration. Sehr harter Kot allein beweist diese Ursache aber nicht. Der Ausschluss von A ist keine allgemeine Aussage, dass Fütterung oder Flüssigkeitsaufnahme die Kotbeschaffenheit niemals beeinflussen könnten. Die konkrete Ursache lässt sich aus dem einzelnen beschriebenen Merkmal nicht sicher bestimmen."
     },
     {
@@ -5509,7 +5316,6 @@
           "kann"
         ]
       },
-      "caution": null,
       "reason": "A und C beschreiben die verlangte Funktion: Der Hund soll weder darüber noch darunter entweichen können. B nennt bloß ein Material. „Ausbruchsicher“ verlangt in dieser Frage die Wirksamkeit für den konkreten Hund, nicht einen pauschalen Zauntyp."
     },
     {
@@ -5523,7 +5329,6 @@
           "mindestens"
         ]
       },
-      "caution": null,
       "reason": "„Mindestens einmal täglich“ ist eine Untergrenze der Katalogantwort, nicht die Behauptung, häufigeres Reinigen sei falsch oder nie nötig. B und C setzen lediglich wöchentliche beziehungsweise monatliche Reinigung an und werden nicht gezählt."
     },
     {
@@ -5583,7 +5388,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Anwendungshinweis: „Herausdrehen“ nicht als allgemeine Anleitung für eine Pinzette übernehmen.",
       "reason": "A ist im hinterlegten Schlüssel vorgesehen; Öl und Quetschen sind keine geeigneten Alternativen. Die pauschale Anweisung zum Herausdrehen ist jedoch ungenau: Mit einer spitzen Pinzette wird die Zecke hautnah gefasst und vorsichtig herausgezogen. Bei speziellen Entfernungsinstrumenten ist deren jeweilige Anleitung zu beachten."
     },
     {
@@ -5593,8 +5397,8 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Katalogkollision: FSME wird hier ausgeschlossen, in Frage 176 dagegen richtig gezählt.",
-      "reason": "Nur C wird gezählt. Der Ausschluss von FSME in B widerspricht jedoch Frage 176 und der Fachinformation von ESCCAP: Infizierte Zecken können auch FSME-Viren auf Hunde übertragen. Die Quelle nennt keinen Grund für diesen Ausschluss. Der Schlüssel wird für diese Katalogfassung beibehalten, ist aber keine vollständige Übersicht möglicher zeckenübertragener Erkrankungen."
+      "reason": "Nur C wird gezählt. Der Ausschluss von FSME in B widerspricht jedoch Frage 176 und der Fachinformation von ESCCAP: Infizierte Zecken können auch FSME-Viren auf Hunde übertragen. Die Quelle nennt keinen Grund für diesen Ausschluss. Der Schlüssel wird für diese Katalogfassung beibehalten, ist aber keine vollständige Übersicht möglicher zeckenübertragener Erkrankungen.",
+      "caution": "Der Kölner Schlüssel verlangt nur C. Übertrage die Antwort aus einer anderen Frage, die FSME mitzählt, nicht auf diese Aufgabe."
     },
     {
       "number": 376,
@@ -5681,7 +5485,6 @@
           "meist"
         ]
       },
-      "caution": null,
       "reason": "B sagt „meist zweimal“, nicht „ausnahmslos zweimal“. A behauptet dagegen „immer nur einmal“. Auch die Jahreszeiten in B sind keine für jede Hündin sichere Terminvorhersage; die Frage verlangt eine typische Katalogangabe und keinen individuellen Zykluskalender."
     },
     {
@@ -5714,7 +5517,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "B und C müssen zusammen gelesen werden: „Nur für kurze Zeit“ in B erlaubt kein Zurücklassen bei gefährlicher Hitze. C nennt dafür ausdrücklich einen Ausschluss. A ist eine pauschale Erlaubnis; der Kofferraum in D macht das Warten nicht sicher."
     },
     {
@@ -5734,8 +5536,8 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Rechtlicher Widerspruch: A sagt „beantragt“, das Gesetz verlangt grundsätzlich eine vorhandene Erlaubnis.",
-      "reason": "Der Schlüssel nennt A und B. A erwähnt jedoch nur eine „beantragte“ Erlaubnis. Für die private Abgabe verlangt § 5 Absatz 6 LHundG NRW grundsätzlich eine bereits vorhandene erforderliche Erlaubnis. Antrag und erteilte Erlaubnis sind nicht gleichzusetzen. Die Formulierung „berechtigte Person“ beseitigt diese Unklarheit nicht. B nennt die Abgabe an ein Tierheim."
+      "reason": "Der Schlüssel nennt A und B. A erwähnt jedoch nur eine „beantragte“ Erlaubnis. Für die private Abgabe verlangt § 5 Absatz 6 LHundG NRW grundsätzlich eine bereits vorhandene erforderliche Erlaubnis. Antrag und erteilte Erlaubnis sind nicht gleichzusetzen. Die Formulierung „berechtigte Person“ beseitigt diese Unklarheit nicht. B nennt die Abgabe an ein Tierheim.",
+      "caution": "Ein Antrag allein ist noch keine Haltungserlaubnis. Bei einer tatsächlichen Übergabe muss die aufnehmende Person die gesetzlichen Voraussetzungen erfüllen."
     },
     {
       "number": 388,
@@ -5751,7 +5553,6 @@
           "muss"
         ]
       },
-      "caution": "Katalog und Rechtslage unterscheiden: B bleibt die Testlösung. „Spätestens am nächsten Tag“ ist keine gesetzliche Frist aus § 9 und keine Garantie, dass eine bestimmte Behandlung erforderlich oder geeignet ist.",
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -5765,7 +5566,6 @@
           "Nur"
         ]
       },
-      "caution": "Mehrdeutiger Wortlaut von F: Örtliche Geltung ist kein Grund, kommunale Regeln zu ignorieren.",
       "reason": "A bis E werden gezählt, F nicht. „Nur in Ihrer Gemeinde bzw. Stadt geltende kommunale Regelungen“ ist mehrdeutig: Es kann örtlich begrenzte Vorschriften meinen, die durchaus relevant sind. § 15 Absatz 2 LHundG NRW lässt ergänzende kommunale Regeln ausdrücklich zu. Der Schlüssel lässt sich deshalb nicht sicher dadurch begründen, kommunale Vorgaben seien unwichtig oder grundsätzlich falsch."
     },
     {
@@ -5801,7 +5601,6 @@
           "grundsätzlich"
         ]
       },
-      "caution": "Die Ausnahme betrifft das tollwutrechtliche Freilaufverbot, keine allgemeine Freilauferlaubnis.",
       "reason": "D verbindet zwei Voraussetzungen: nachweislich wirksamer Tollwutimpfschutz UND Begleitung durch eine Person, der der Hund zuverlässig gehorcht. B nennt nur die Impfung und ist deshalb unvollständig. § 8 Absatz 3 Tollwut-Verordnung enthält diese Ausnahme vom Freilaufverbot im gefährdeten Bezirk. D befreit nicht von zusätzlich geltenden Anleinpflichten nach Landesrecht oder örtlichen Vorschriften."
     },
     {
@@ -5811,7 +5610,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "B bezieht sich auf die Angaben des verwendeten Impfstoffs. Drei Jahre sind deshalb keine pauschal richtige Antwort für jede Tollwutimpfung. Reisevorschriften und die Voraussetzungen einer gültigen Erstimpfung sind zusätzlich zu unterscheiden."
     },
     {
@@ -5821,7 +5619,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": "Keine pauschale Abschussbefugnis allein wegen Freilaufs oder Verlassens eines Weges.",
       "reason": "C ist die Kataloglösung, aber „unkontrolliert Wild hetzen“ fasst die Rechtslage nur verkürzt zusammen. Nach § 25 Absatz 4 Nummer 2 LJG-NRW müssen weitere Voraussetzungen vorliegen: außerhalb der Einwirkung der führenden Person, Töten oder erkennbares Hetzen mit entsprechender Fähigkeit zum Beißen oder Reißen sowie fehlende erfolgversprechende mildere Maßnahmen. Hinzu kommen gesetzliche Ausnahmen für bestimmte erkennbare Funktionshunde. Das bloße Verlassen eines Waldwegs oder unangeleintes Nebenherlaufen genügt nicht."
     },
     {
@@ -5841,7 +5638,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -5851,7 +5647,6 @@
       "reviewed": true,
       "action": "added",
       "signals": {},
-      "caution": null,
       "reason": "„Nie“ bezieht sich hier auf die Befreiung nach § 5 Absatz 3 LHundG NRW für die in C genannten, im Einzelfall gefährlichen Hunde nach § 3 Absatz 3. Für die Rassen in A und B eröffnet § 5 Absatz 3 dagegen eine Befreiungsmöglichkeit, nicht eine automatische Befreiung. Andere Anleinpflichten bleiben bestehen."
     },
     {
@@ -5861,7 +5656,6 @@
       "reviewed": true,
       "action": "existing",
       "signals": {},
-      "caution": null,
       "reason": "Vorhandene Erklärung berücksichtigt; kein zusätzlicher Wortlauthinweis erforderlich."
     },
     {
@@ -5885,7 +5679,6 @@
           "nur"
         ]
       },
-      "caution": null,
       "reason": "B garantiert mit „in jedem Fall“ die Gewöhnung und verspricht anschließend „alles“ unternehmen zu können. D beschränkt die Vorbereitung mit „nur“ auf Impfung und Entwurmung. Der Schlüssel zählt A und C als weitere Prüfbereiche. Die genannten Risiken sind keine Diagnose jedes Auslandshundes."
     },
     {
@@ -5905,5 +5698,790 @@
       "caution": null,
       "reason": "Einzeln geprüft; kein zusätzlicher Wortlauthinweis mit ausreichendem Lernwert erforderlich."
     }
-  ]
+  ],
+  "explanationRevision": {
+    "date": "2026-11-20",
+    "reviewedEntries": 221,
+    "goal": "Prüfungsantwort zuerst; entscheidende Wörter und Antwortunterschiede in einfacher Sprache erklären. Schlüssel unverändert."
+  },
+  "sourceReview": {
+    "date": "2026-11-20",
+    "language": "de",
+    "reviewedEntries": 221,
+    "policy": "Sichtbare Quellen nur auf Deutsch. Keine Linkpflicht für reine Wortlauterklärungen oder eigene Beobachtungen der Originalzeichnung. Fachliche Zusatzinformationen und konkrete Rechtsbezüge erhalten gezielte Belege.",
+    "approvedUrls": [
+      "https://recht.nrw.de/lrgv/gesetz/01042025-landesjagdgesetz-nordrhein-westfalen/",
+      "https://recht.nrw.de/lrgv/gesetz/27092016-hundegesetz-fuer-das-land-nordrhein-westfalen-landeshundegesetz-lhundg-nrw/",
+      "https://recht.nrw.de/lrgv/gesetz/30102026-landesforstgesetz-lfog/",
+      "https://tierklinik-muenchen.de/koprostase-mit-perinealhernie/",
+      "https://welpen.vdh.de/hunderassen/rasselexikon/ergebnis/beagle",
+      "https://welpen.vdh.de/welpen/welpenratgeber/welpenerziehung/welpen-sozialisieren",
+      "https://www.anicura.de/fuer-tierbesitzer/hund/wissensbank/kastration-ruede/",
+      "https://www.bundestieraerztekammer.de/presse/archiv/16/2016/gefahr-durch-falschen-maulkorb/1245",
+      "https://www.derhund.de/aengstlichkeit-bei-hunden/",
+      "https://www.esccap.de/borreliose-beim-hund-was-sie-darueber-wissen-sollten/",
+      "https://www.esccap.de/empfehlung/vbds/",
+      "https://www.esccap.de/parasiten/einzeller/",
+      "https://www.esccap.de/parasiten/sand-und-stechmuecken/",
+      "https://www.esccap.de/parasiten/sand-und-stechmuecken/herzwuermer-beim-hund/",
+      "https://www.esccap.de/parasiten/wuermer/wuermer-bei-hunden/",
+      "https://www.esccap.de/parasiten/zecken/zecken-beim-hund/",
+      "https://www.fci.be/Nomenclature/Standards/297g01-de.pdf",
+      "https://www.fci.be/Nomenclature/Standards/331g02-de.pdf",
+      "https://www.gesetze-im-internet.de/bgb/__254.html",
+      "https://www.gesetze-im-internet.de/bgb/__833.html",
+      "https://www.gesetze-im-internet.de/owig_1968/__117.html",
+      "https://www.gesetze-im-internet.de/stgb/__229.html",
+      "https://www.gesetze-im-internet.de/tierschg/__2.html",
+      "https://www.gesetze-im-internet.de/tierschg/__6.html",
+      "https://www.gesetze-im-internet.de/tierschhuv/BJNR083800001.html",
+      "https://www.gesetze-im-internet.de/tierschhuv/__2.html",
+      "https://www.gesetze-im-internet.de/tierschhuv/__6.html",
+      "https://www.gesetze-im-internet.de/tollwv_1991/__8.html",
+      "https://www.gesetze-im-internet.de/tollwv_1991/__9.html",
+      "https://www.lgl.bayern.de/gesundheit/infektionsschutz/infektionskrankheiten_a_z/borreliose/zecken_entfernen.htm",
+      "https://www.lgl.bayern.de/tiergesundheit/futtermittel/ueberwachung/ue_2025_alleinfuttermittel.htm",
+      "https://www.tiho-hannover.de/kliniken-institute/institute/institut-fuer-tierernaehrung/dienstleistungen",
+      "https://www.tiho-hannover.de/universitaet/aktuelles-veroeffentlichungen/pressemitteilungen/detail/hitzefalle-auto-lebensgefahr-fuer-hunde-bereits-nach-minuten-1",
+      "https://www.vetmed.fu-berlin.de/einrichtungen/kliniken/we20/tierhalter/leistungen/kleintierereproduktion/hunde/deckterminbestimmung/index.html",
+      "https://www.vier-pfoten.de/unseregeschichten/ratgeber-hund/die-sprache-des-hundes"
+    ],
+    "decisions": [
+      {
+        "number": 6,
+        "uid": "legacy-6",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 7,
+        "uid": "legacy-7",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 10,
+        "uid": "legacy-10",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 15,
+        "uid": "legacy-15",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 16,
+        "uid": "legacy-16",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 25,
+        "uid": "legacy-25",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 26,
+        "uid": "legacy-26",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 30,
+        "uid": "legacy-30",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 2,
+        "after": 2
+      },
+      {
+        "number": 33,
+        "uid": "legacy-33",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 35,
+        "uid": "legacy-35",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 2,
+        "after": 1
+      },
+      {
+        "number": 40,
+        "uid": "legacy-40",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 42,
+        "uid": "legacy-42",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 46,
+        "uid": "legacy-46",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 48,
+        "uid": "legacy-48",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 54,
+        "uid": "legacy-54",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 56,
+        "uid": "legacy-56",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 59,
+        "uid": "legacy-59",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 65,
+        "uid": "legacy-65",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 69,
+        "uid": "legacy-69",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 72,
+        "uid": "legacy-72",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 74,
+        "uid": "legacy-74",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 75,
+        "uid": "legacy-75",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 78,
+        "uid": "legacy-78",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 79,
+        "uid": "legacy-79",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 81,
+        "uid": "legacy-81",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 92,
+        "uid": "legacy-92",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 98,
+        "uid": "legacy-98",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 119,
+        "uid": "legacy-119",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 120,
+        "uid": "legacy-120",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 134,
+        "uid": "legacy-134",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 135,
+        "uid": "legacy-135",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 159,
+        "uid": "legacy-159",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 161,
+        "uid": "legacy-161",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 4,
+        "after": 4
+      },
+      {
+        "number": 174,
+        "uid": "legacy-174",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 178,
+        "uid": "legacy-178",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 181,
+        "uid": "legacy-181",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 3,
+        "after": 3
+      },
+      {
+        "number": 188,
+        "uid": "legacy-188",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 193,
+        "uid": "legacy-193",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 196,
+        "uid": "legacy-196",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 198,
+        "uid": "legacy-198",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 199,
+        "uid": "legacy-199",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 201,
+        "uid": "legacy-201",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 202,
+        "uid": "legacy-202",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 208,
+        "uid": "r97-5",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 209,
+        "uid": "r97-6",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 210,
+        "uid": "r97-7",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 216,
+        "uid": "r97-13",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 217,
+        "uid": "r97-14",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 5,
+        "after": 5
+      },
+      {
+        "number": 220,
+        "uid": "r97-17",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 227,
+        "uid": "r97-24",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 2,
+        "after": 2
+      },
+      {
+        "number": 230,
+        "uid": "r97-27",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 232,
+        "uid": "r97-29",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 235,
+        "uid": "r97-32",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 236,
+        "uid": "r97-33",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 237,
+        "uid": "r97-34",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 240,
+        "uid": "r97-37",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 241,
+        "uid": "r97-38",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 243,
+        "uid": "r97-40",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 244,
+        "uid": "r97-41",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 245,
+        "uid": "r97-42",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 246,
+        "uid": "r97-43",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 249,
+        "uid": "r97-46",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 258,
+        "uid": "r97-55",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 261,
+        "uid": "r97-58",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 2,
+        "after": 1
+      },
+      {
+        "number": 263,
+        "uid": "r97-60",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 265,
+        "uid": "r97-62",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 266,
+        "uid": "r97-63",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 278,
+        "uid": "r97-75",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 279,
+        "uid": "r97-76",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 286,
+        "uid": "r97-83",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 306,
+        "uid": "koeln-a7",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 2,
+        "after": 1
+      },
+      {
+        "number": 307,
+        "uid": "koeln-a8",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 308,
+        "uid": "koeln-a9",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 309,
+        "uid": "koeln-a10",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 310,
+        "uid": "koeln-a12",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 321,
+        "uid": "koeln-a28",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 328,
+        "uid": "koeln-a36",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 329,
+        "uid": "koeln-a37",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 334,
+        "uid": "koeln-a45",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 335,
+        "uid": "koeln-a46",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 338,
+        "uid": "koeln-a49",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 339,
+        "uid": "koeln-a52",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 343,
+        "uid": "koeln-a56",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 347,
+        "uid": "koeln-b2",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 348,
+        "uid": "koeln-b3",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 353,
+        "uid": "koeln-b10",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 354,
+        "uid": "koeln-b11",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 356,
+        "uid": "koeln-b13",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 360,
+        "uid": "koeln-b17",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 374,
+        "uid": "koeln-b34",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 375,
+        "uid": "koeln-b35",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 3,
+        "after": 3
+      },
+      {
+        "number": 387,
+        "uid": "koeln-b47",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 388,
+        "uid": "koeln-b48",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 3,
+        "after": 1
+      },
+      {
+        "number": 389,
+        "uid": "koeln-c1",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 392,
+        "uid": "koeln-c4",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 394,
+        "uid": "koeln-c6",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 396,
+        "uid": "koeln-c8",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 397,
+        "uid": "koeln-c9",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 398,
+        "uid": "koeln-c10",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 300,
+        "uid": "r97-97",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 2,
+        "after": 2
+      },
+      {
+        "number": 301,
+        "uid": "koeln-a1",
+        "decision": "Deutschsprachigen Beleg gezielt beibehalten oder ersetzt",
+        "before": 1,
+        "after": 1
+      },
+      {
+        "number": 291,
+        "uid": "r97-88",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 295,
+        "uid": "r97-92",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 302,
+        "uid": "koeln-a2",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      },
+      {
+        "number": 303,
+        "uid": "koeln-a3",
+        "decision": "Link entfällt: Erklärung des Originalwortlauts oder eigene Bildbeobachtung; kein eigenständiges Zusatzthema",
+        "before": 1,
+        "after": 0
+      }
+    ]
+  }
 }

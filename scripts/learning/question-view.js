@@ -24,6 +24,7 @@ window.LHUNDG_TRAINER.QuestionView = class QuestionView {
     const feedback = this.dom.node('div', undefined, 'feedback');       // Zugänglicher Rückmeldebereich; Inhalte erscheinen erst nach ausdrücklicher Prüfung.
 
     card.id = `q-${question.id}`;
+    card.classList.toggle('question-card--mapping-visual', question.type === 'mapping' && question.requiresVisual);
     card.setAttribute('aria-labelledby', `prompt-${question.id}`);
     feedback.setAttribute('role', 'status');
 

@@ -77,11 +77,12 @@ test('Alle Erklärungen sind an vorhandene Original-UIDs gebunden und ändern ke
   const env = setup();
   const before = JSON.stringify(env.scope.LHUNDG_QUESTIONS);
   const entries = Object.entries(env.scope.LHUNDG_EXPLANATIONS);
-  assert.equal(entries.length, 215);
+  assert.equal(entries.length, 221);
   for (const [uid, entry] of entries) {
     const question = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === uid);
     assert.ok(['legacy203', 'rhein97', 'koeln', 'kammer197'].includes(question?.sourceKey));
     assert.ok(entry.text.length > 0);
+    if (entry.extra && !question.requiresVisual) assert.ok(entry.sourceUrl || entry.references?.length, `Zusatzwissen ohne Quelle: ${uid}`);
     if (entry.sourceUrl) assert.equal(new URL(entry.sourceUrl).protocol, 'https:');
     for (const reference of entry.references || []) {
       assert.equal(new URL(reference.url).protocol, 'https:');
@@ -107,7 +108,7 @@ test('Der Kölner Bildvergleich zeigt beide Originale mit sichtbarer Quellenbewe
     for (const figure of comparison.children) {
       assert.ok(figure.children[0].src.startsWith('assets/sources/koeln/'));
       assert.equal(figure.children[1].tag, 'figcaption');
-      assert.ok(figure.children[1].text.includes('Kölner Vorlage:'));
+      assert.ok(paragraphText(figure.children[1]).includes('Kölner Vorlage:'));
     }
   }
 });
@@ -116,7 +117,7 @@ test('Problematische Schlüssel werden als Katalogtreffer eingeordnet und verrat
   const env = setup('mode=exam34');
   const question = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === 'r97-58');
   const selected = new Set(question.correct);
-  assert.match(env.feedback.feedbackText(question, selected, true), /nach hinterlegtem Katalogschlüssel/);
+  assert.match(env.feedback.feedbackText(question, selected, true), /Richtig! Lies auch den Kataloghinweis/);
   env.current.state.answers.set(question.id, selected);
   env.current.state.checked.set(question.id, env.current.signature(question));
   env.feedback.update(question, env.card);
@@ -124,7 +125,7 @@ test('Problematische Schlüssel werden als Katalogtreffer eingeordnet und verrat
   assert.equal(env.fields['.question-explanation'].hidden, true);
   env.current.state.finished = true;
   env.feedback.update(question, env.card);
-  assert.match(env.fields['.feedback'].textContent, /Quelle beachten/);
+  assert.match(env.fields['.feedback'].textContent, /Kataloghinweis/);
   assert.equal(env.fields['.question-explanation'].hidden, false);
 });
 
@@ -136,11 +137,12 @@ test('Quellenhinweise bleiben getrennt von Originalantworten und verlinken benan
   const question = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === 'r97-58');
   const details = env.feedback.createExplanation(question);
   assert.equal(details.hidden, true);
-  assert.match(details.children[0].text, /Quelle beachten/);
+  assert.match(details.children[0].text, /Kataloghinweis/);
   const content = details.children[1];
-  assert.equal(content.children[1].text, env.scope.LHUNDG_EXPLANATIONS[question.uid].caution);
+  assert.equal(paragraphText(content.children[2]), env.scope.LHUNDG_EXPLANATIONS[question.uid].caution);
+  assert.equal(paragraphText(content.children[1]), env.scope.LHUNDG_EXPLANATIONS[question.uid].text);
   const links = content.children.flatMap(node => node.children).filter(node => node.tag === 'a');
-  assert.equal(links.length, 2);
+  assert.equal(links.length, 1);
   assert.ok(links.every(link => link.rel.includes('noopener') && link.target === '_blank'));
   assert.deepEqual(Array.from(question.correct), ['B', 'C', 'D']);
 });
@@ -316,4 +318,63 @@ test('Zuordnungen behalten kompakte Symbole mit vollständig zugänglicher Bewer
   }
   env.feedback.updateAnswers(question, env.card, false);
   assert(options.every(option => option.children.length === 0));
+});
+
+
+/** @param {object} paragraph Minimales Test-DOM. @returns {string} Sichtbarer Absatztext. */
+function paragraphText(paragraph) {
+  return paragraph.children.map(node => typeof node === 'string' ? node : node.text).join('');
+}
+
+test('Jede neu formulierte Auswahl stimmt vollständig mit dem eigenen Katalogschlüssel überein', () => {
+  const env = setup();
+  for (const [uid, entry] of Object.entries(env.scope.LHUNDG_EXPLANATIONS)) {
+    const question = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === uid);
+    if (question.type === 'mapping') {
+      for (const pair of question.correct) assert(entry.text.includes(pair.replace(':', ' → ')), uid);
+      continue;
+    }
+    const introduction = entry.text.match(/^Kreuze [^.]+\./u)?.[0];
+    assert(introduction, uid);
+    assert.deepEqual(introduction.match(/\b[A-F]\b/gu), Array.from(question.correct), uid);
+  }
+});
+
+test('Antwortbuchstaben werden fett; andere Inhalte bleiben wörtlicher Text ohne HTML-Auswertung', () => {
+  const env = setup();
+  env.feedback.dom = {
+    node: (tag, text, className) => ({ tag, text, className, children: [], append(...nodes) { this.children.push(...nodes); } })
+  };
+  const text = 'Kreuze A und C an. In B steht „nur“. <img src=x onerror=alert(1)> ABC';
+  const paragraph = env.feedback.explanationText('p', text);
+  assert.equal(paragraphText(paragraph), text);
+  const formatted = paragraph.children.filter(node => typeof node !== 'string');
+  assert.deepEqual(formatted.map(node => node.text), ['A', 'C', 'B']);
+  assert(formatted.every(node => node.tag === 'strong'));
+});
+
+
+test('Zusatzwissen ist getrennt beschriftet und bleibt bis zur ausdrücklichen Prüfung verborgen', () => {
+  const env = setup();
+  env.feedback.dom = {
+    node: (tag, text, className) => ({ tag, text, className, children: [], append(...nodes) { this.children.push(...nodes); } })
+  };
+  const question = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === 'legacy-181');
+  const details = env.feedback.createExplanation(question);
+  env.fields['.question-explanation'] = details;
+  const content = details.children[1];
+  const extra = content.children.find(node => node.className === 'explanation-extra');
+  assert.equal(extra.children[0].tag, 'h4');
+  assert.match(extra.children[0].text, /Zusatzwissen/);
+  assert.equal(extra.children[1].tag, 'ul');
+  assert.equal(extra.children[1].children.length, 6);
+  env.current.state.answers.set(question.id, new Set(question.correct));
+  env.feedback.update(question, env.card);
+  assert.equal(details.hidden, true);
+  env.current.state.checked.set(question.id, env.current.signature(question));
+  env.feedback.update(question, env.card);
+  assert.equal(details.hidden, false);
+  env.current.state.checked.delete(question.id);
+  env.feedback.update(question, env.card);
+  assert.equal(details.hidden, true);
 });

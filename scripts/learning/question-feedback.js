@@ -26,11 +26,12 @@ window.LHUNDG_TRAINER.QuestionFeedback = class QuestionFeedback {
     const details = this.dom.node('details', undefined, 'question-explanation');
     const content = this.dom.node('div', undefined, 'explanation-content');
     details.hidden = true;
-    details.append(this.dom.node('summary', entry.caution ? 'Antwort verstehen · Quelle beachten' : 'Antwort verstehen'));
-    content.append(this.dom.node('p', 'Ergänzende Erklärung des Trainers', 'microcopy'));
-    if (entry.caution) content.append(this.dom.node('p', entry.caution, 'source-note'));
-    content.append(this.dom.node('p', entry.text));
-    if (entry.note) content.append(this.dom.node('p', entry.note, 'source-note'));
+    details.append(this.dom.node('summary', entry.caution ? 'Antwort verstehen · Kataloghinweis' : 'Antwort verstehen'));
+    content.append(this.dom.node('p', 'Lernhilfe zur Antwort dieses Katalogs', 'microcopy'));
+    content.append(this.explanationText('p', entry.text));
+    if (entry.caution) content.append(this.explanationText('p', entry.caution, 'source-note'));
+    if (entry.note) content.append(this.explanationText('p', entry.note, 'source-note'));
+    if (entry.extra) content.append(this.createExtra(entry.extra));
     const references = entry.references || (entry.sourceUrl ? [{ url: entry.sourceUrl, label: 'Fachliche Quelle' }] : []);
     for (const reference of references) {
       const paragraph = this.dom.node('p');
@@ -44,6 +45,40 @@ window.LHUNDG_TRAINER.QuestionFeedback = class QuestionFeedback {
     if (entry.comparisons) content.append(this.createComparison(entry.comparisons));
     details.append(content);
     return details;
+  }
+
+  /**
+   * Trennt kurzes Zusatzwissen optisch von der vorausgehenden Testantwort.
+   * @param {{title: string, items: Array<{label: string, text: string}>, note?: string}} extra Belegte Zusatzinformationen.
+   * @returns {HTMLElement} Beschrifteter Wissensblock ohne eigene Auswahl- oder Bewertungslogik.
+   */
+  createExtra(extra) {
+    const section = this.dom.node('section', undefined, 'explanation-extra');
+    const list = this.dom.node('ul');
+    section.append(this.dom.node('h4', extra.title));
+    for (const { label, text } of extra.items) {
+      const item = this.dom.node('li');
+      item.append(this.dom.node('strong', `${label}: `), this.explanationText('span', text));
+      list.append(item);
+    }
+    section.append(list);
+    if (extra.note) section.append(this.explanationText('p', extra.note));
+    return section;
+  }
+
+  /**
+   * Hebt einzelne Antwortbuchstaben hervor und behandelt alle anderen Inhalte als reinen Text.
+   * @param {string} tag Absatz, Textabschnitt oder Bildunterschrift.
+   * @param {string} text Redaktioneller Text ohne HTML oder Markdown.
+   * @param {string} [className] Vorhandene Stilklasse für einen ergänzenden Hinweis.
+   * @returns {HTMLElement} Textelement mit sicheren Textknoten und starken Antwortbuchstaben.
+   */
+  explanationText(tag, text, className) {
+    const paragraph = this.dom.node(tag, undefined, className);
+    text.split(/\b([A-F])\b/u).forEach((part, index) => {
+      if (part) paragraph.append(index % 2 ? this.dom.node('strong', part) : part);
+    });
+    return paragraph;
   }
 
   /**
@@ -65,7 +100,7 @@ window.LHUNDG_TRAINER.QuestionFeedback = class QuestionFeedback {
       image.decoding = 'async';
       const size = window.LHUNDG_IMAGE_SIZES[source];
       if (size) [image.width, image.height] = size;
-      figure.append(image, this.dom.node('figcaption', item.caption));
+      figure.append(image, this.explanationText('figcaption', item.caption));
       group.append(figure);
     }
     return group;
@@ -173,7 +208,7 @@ window.LHUNDG_TRAINER.QuestionFeedback = class QuestionFeedback {
   /** Formuliert das aufgelöste Ergebnis mit klarer Trennung von Original- und Beispiellösung. */
   feedbackText(question, selected, right) {
     if (right) return window.LHUNDG_EXPLANATIONS[question.uid]?.caution
-      ? 'Richtig nach hinterlegtem Katalogschlüssel. Bitte den Hinweis „Quelle beachten“ lesen.'
+      ? 'Richtig! Lies auch den Kataloghinweis unter „Antwort verstehen“.'
       : 'Richtig!';
     /* Lesbare Auswahl mit Zuordnungspfeilen; ohne Tokens steht ausdrücklich keine. */
 

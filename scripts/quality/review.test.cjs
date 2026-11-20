@@ -33,8 +33,15 @@ class Node {
   }
   /** @returns {Node|undefined} Erstes Kindelement. */
   get firstElementChild() { return this.children[0]; }
-  /** @param {...Node} nodes Einzufügende Elemente. */
-  append(...nodes) { for (const node of nodes) { node.parent = this; this.children.push(node); } }
+  /** @param {...(Node|string)} nodes Elemente oder wie im Browser in Textknoten umzuwandelnde Zeichenfolgen. */
+  append(...nodes) {
+    for (const node of nodes) {
+      const child = typeof node === 'string' ? new Node('#text') : node;
+      if (typeof node === 'string') child.textContent = node;
+      child.parent = this;
+      this.children.push(child);
+    }
+  }
   /** @param {string} name Attribut. @param {string} value Wert. */
   setAttribute(name, value) { this.attributes[name] = value; }
   /** @param {string} name Attribut. */
@@ -300,4 +307,15 @@ test('Auswahl ändern verwirft Entwürfe; eine leere Sammlung bietet keine wirku
   env.review.update();
   assert.equal(env.get('startErrorReview').disabled, true);
   assert.equal(env.get('viewErrorAnswers').disabled, true);
+});
+
+
+test('Nur Zuordnungsfragen mit Bild erhalten die fixierbare Bildansicht', () => {
+  const env = setup();
+  for (const uid of ['r97-13', 'r97-88', 'r97-92', 'koeln-a2', 'koeln-a3', 'r97-8', 'legacy-6', 'legacy-2']) {
+    const question = env.scope.LHUNDG_QUESTIONS.find(item => item.uid === uid);
+    const card = env.view.cards.render(question);
+    assert.equal(card.classList.contains('question-card--mapping-visual'),
+      question.type === 'mapping' && question.requiresVisual, uid);
+  }
 });

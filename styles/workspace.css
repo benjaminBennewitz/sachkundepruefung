@@ -23,6 +23,7 @@
    04   Kleine Ansichten, Textvergrößerung und Druck
    05   Fehlersammlung und Modusauswahl
    06   Visuelle Rangordnung von Informationen und Aktionen
+   07   Zuordnungsbilder und ergänzendes Wissen
    ========================================================================== */
 
 /* ===========================================================================
@@ -817,5 +818,71 @@ screen and (max-height: 719px) {
     border-color: var(--control-line);
     background: var(--nav-panel);
     color: var(--text);
+  }
+}
+
+
+/* ===========================================================================
+   07   Zuordnungsbilder und ergänzendes Wissen
+   ========================================================================== */
+
+@media screen {
+  .question-card--mapping-visual {
+    --mapping-image-cap: min(28dvh, 160px);
+  }
+
+  #q-1013.question-card--mapping-visual,
+  #q-2002.question-card--mapping-visual {
+    --mapping-image-cap: min(28dvh, 208px);
+  }
+
+  .learning-page .question-card--mapping-visual .question-images img {
+    max-height: var(--mapping-image-cap);
+    max-width: 100%;
+  }
+
+  /* Rhein-Erft 13 wächst wie Köln A2 von 160 auf 208 px Höhe (30 Prozent).
+     Die Antwortfelder behalten ihre bisherigen Maße. */
+  #q-1013 .question-images img {
+    width: calc(208px * 480 / 330);
+  }
+
+  .explanation-extra {
+    display: grid;
+    gap: 10px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+
+  .explanation-extra h4 {
+    margin: 0;
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+
+  .explanation-extra ul {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding-inline-start: 20px;
+    font-size: .9rem;
+    line-height: 1.6;
+  }
+}
+
+/* Sehr flache Ansichten behalten den normalen Dokumentfluss, damit das Bild
+   nicht den gesamten verfügbaren Antwortbereich überdeckt. */
+@media screen and (min-height: 640px) {
+  .learning-page .question-card--mapping-visual .question-images {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding-block: 8px;
+    border-bottom: 1px solid var(--line);
+    background: var(--question-bg);
+  }
+
+  .learning-page .question-card--mapping-visual :is(.mapping-row, input) {
+    scroll-margin-block-start: calc(var(--mapping-image-cap) + 24px);
   }
 }
